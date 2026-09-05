@@ -162,6 +162,12 @@ def poll(state_path=None):
         for artifact in info['artifacts']:
             rel=artifact['relativePath']
             if not rel.startswith('suite-src/output/ci/') or '..' in pathlib.PurePosixPath(rel).parts or '\\' in rel or ':' in rel:continue
+            # Playwright's raw test-results tree can contain deeply nested trace
+            # resources.  Business ledgers, diagnostics and Allure results are
+            # the governed AI evidence; the raw duplicate tree is optional and
+            # can exceed Windows MAX_PATH during local collection.
+            if '/test-results/' in f'/{rel}':
+                continue
             dest=stage / rel.removeprefix('suite-src/output/ci/')
             dest.parent.mkdir(parents=True,exist_ok=True)
             content=get(state['buildUrl']+'artifact/'+quote(rel,safe='/')).content
