@@ -227,7 +227,7 @@ def discover_builds(first_build):
             builds.append({'buildNumber':item['number'],'building':item['building'],'result':item.get('result'),
                 'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
-                'runScope':scope if scope in ['pilot','contracts','reports'] else None})
+                'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None})
         if len(page)<100 or any(item['number']<first_build for item in page): return builds
     raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')
 

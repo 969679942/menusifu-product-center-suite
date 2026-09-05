@@ -61,7 +61,18 @@ function main(): void {
   const indexPath = path.join(root, 'projects/project-a/Merchant Center Info/00-待转换测试方案/已完成/index.json');
   const completedIndex = readJson<{ cases: Array<{ caseId: string }> }>(indexPath);
   const plannedCaseIds = [...new Set(completedIndex.cases.map((item) => item.caseId))].sort();
-  const commonEnv = { ...process.env, CI: 'true', BUILD_NUMBER: build, REQUEST_ID: requestId, PC_SOURCE_GOVERNED_RUN_ID: runId };
+  // Jenkins passes the runtime file as one masked parameter.  The source-governed
+  // Playwright setup reads the individual variables, so expand only the permitted
+  // MC_/PLAYWRIGHT_ keys in memory and never print or persist their values.
+  const runtimeEnv: NodeJS.ProcessEnv = { ...process.env };
+  for (const line of (process.env.MC_RUNTIME_ENV ?? '').split(/\r?\n/)) {
+    const separator = line.indexOf('=');
+    if (separator <= 0) continue;
+    const key = line.slice(0, separator).trim();
+    if (!/^(MC_|PLAYWRIGHT_)/.test(key)) continue;
+    runtimeEnv[key] = line.slice(separator + 1);
+  }
+  const commonEnv = { ...runtimeEnv, CI: 'true', BUILD_NUMBER: build, REQUEST_ID: requestId, PC_SOURCE_GOVERNED_RUN_ID: runId };
 
   const planExit = run(['scripts/build-product-center-source-governed-execution-plan.ts'], project, commonEnv);
   if (planExit !== 0) throw new Error(`source-governed-plan-failed:${planExit}`);
