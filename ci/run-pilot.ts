@@ -28,7 +28,7 @@ delete process.env.MC_RUNTIME_ENV;
 process.env.CI='true';
 process.env.MC_BRAND_ID='000407';
 process.env.SYSTEM_TEST_EXECUTION_CONTEXT_PROFILE=selection.contextProfile;
-// The system manifest declares the business-worker cap (currently 2). Do not
+// The system manifest declares the business-worker cap (currently 7). Do not
 // force CI back to one worker here; the public concurrency resolver clamps the
 // request by project policy, CPU, memory, and selected-case count. Jenkins
 // still owns one executor; these are Playwright workers inside that executor.
