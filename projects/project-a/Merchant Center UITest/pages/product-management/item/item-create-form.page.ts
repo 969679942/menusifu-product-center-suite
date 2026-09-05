@@ -6,7 +6,6 @@ import type { ItemCreateFormLocators } from './item-create-form-locators';
 import { selectUniqueAsyncTableTarget } from '../../../utils/async-table-unique-selection';
 import { selectFileThroughChooser } from '../../../utils/file-chooser-sequencing';
 import { waitUntil } from '../../../utils/wait';
-
 type ImageUploadResponseSummary = {
   businessCode?: string | number;
   message?: string;
