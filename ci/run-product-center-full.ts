@@ -56,6 +56,21 @@ function collectAllure(sourceRoots: string[], target: string): number {
   return count;
 }
 
+function findAllureResultDirs(rootPath: string): string[] {
+  const found: string[] = [];
+  if (!fs.existsSync(rootPath)) return found;
+  const visit = (current: string): void => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const full = path.join(current, entry.name);
+      if (!entry.isDirectory()) continue;
+      if (entry.name === 'allure-results') found.push(full);
+      else visit(full);
+    }
+  };
+  visit(rootPath);
+  return found;
+}
+
 function main(): void {
   fs.mkdirSync(out, { recursive: true });
   const indexPath = path.join(root, 'projects/project-a/Merchant Center Info/00-待转换测试方案/已完成/index.json');
@@ -114,8 +129,9 @@ function main(): void {
   copyTree(auditSource, auditTarget);
 
   const allureRoots = [
-    ...fs.globSync(path.join(project, 'output/allure/source-governed', runId, '**/allure-results')),
-    ...fs.globSync(path.join(out, 'business', `${runId}-*`, 'allure-results')),
+    ...findAllureResultDirs(path.join(project, 'output/allure/source-governed', runId)),
+    ...findAllureResultDirs(path.join(out, 'business'))
+      .filter((directory) => path.basename(path.dirname(directory)).startsWith(`${runId}-`)),
   ];
   const allureCount = collectAllure(allureRoots, path.join(out, 'allure-results'));
   const sourceSummary = sourceResult?.summary ?? {};
