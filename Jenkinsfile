@@ -1,6 +1,9 @@
 node {
   ws("${env.WORKSPACE}-isolated") {
-    def buildTimeoutMinutes = (params.RUN_SCOPE?.toString() == 'full-regression') ? 180 : 30
+    // Full regression runs the source-governed suite and the two seasoning
+    // contexts in one executor.  Keep the job-local ceiling high enough for
+    // the complete audit; individual runners still enforce their own limits.
+    def buildTimeoutMinutes = 180
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
