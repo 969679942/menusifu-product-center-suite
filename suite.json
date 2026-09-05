@@ -1,8 +1,7 @@
 {
   "suiteId": "product-center-suite",
-  "projects": [
-    {"id":"project-a","root":"projects/project-a","applicationId":"merchant-center-api-ui"},
-    {"id":"project-b","root":"projects/project-b","applicationId":"merchant-center-uitest"}
-  ],
-  "execution": {"defaultRoute":"serial","allowParallel":false}
+  "platform": {"id":"tap","root":"tap","sourceRoot":"D:/Menusifu/Test Automation Platform"},
+  "projects": [{"id":"merchant-center","root":"projects/project-a","testRoot":"projects/project-a/Merchant Center UITest","sourceRoot":"D:/Menusifu/Merchant Center","applicationId":"merchant-center"}],
+  "execution": {"route":"shared-agent-isolated-workspace","jobName":"menusifu-product-center-suite","allowConcurrentBuilds":false},
+  "legacy": {"projects/project-b":"Historical duplicate; not executed or maintained as a separate application"}
 }

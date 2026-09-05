@@ -4,6 +4,8 @@ import xml.etree.ElementTree as ET
 from urllib.parse import quote
 import requests
 import sys
+import importlib.util
+from email.utils import parsedate_to_datetime
 sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -35,11 +37,15 @@ def get(url, **kwargs):
             if response.status_code not in [429, 500, 502, 503, 504]:
                 response.raise_for_status()
                 return response
-            delay = min(60, int(response.headers.get('Retry-After', delay)))
+            retry_after=response.headers.get('Retry-After')
+            if retry_after:
+                try: delay=max(0,int(retry_after))
+                except ValueError: delay=max(0,int(parsedate_to_datetime(retry_after).timestamp()-time.time()))
         except (requests.ConnectionError, requests.Timeout):
             pass
         write(OUT / 'retry.json', {'operation':'GET','attempt':attempt+1,'retryDelay':delay,'time':time.time()})
-        if delay: time.sleep(delay)
+        while delay>0:
+            interval=min(delay,60);time.sleep(interval);delay-=interval
     raise RuntimeError('Read retries exhausted; checkpoint retained')
 
 def post(url, **kwargs):
@@ -73,6 +79,8 @@ def configure():
         ET.SubElement(item,'trim').text='true'
     ET.SubElement(props,'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty')
     desired=ET.tostring(root,encoding='utf-8',xml_declaration=True)
+    if ET.canonicalize(old.decode('utf-8'))==ET.canonicalize(desired.decode('utf-8')):
+        print(json.dumps({'configuredJob':JOB,'verified':True,'unchanged':True}));return
     post(JOB_URL+'config.xml',data=desired)
     actual=ET.fromstring(get(JOB_URL+'config.xml').content)
     assert actual.find('definition/script').text==definition.find('script').text
@@ -97,7 +105,8 @@ def reconcile(state):
 def git(*args):
     for attempt, delay in enumerate([5,15,30,60,0]):
         try:
-            return subprocess.check_output(['git',*args],cwd=ROOT,text=True,timeout=40).strip()
+            return subprocess.check_output(['git',*args],cwd=ROOT,text=True,timeout=40,
+                env={**os.environ,'GIT_TERMINAL_PROMPT':'0','GCM_INTERACTIVE':'Never'}).strip()
         except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
             write(OUT/'git-retry.json',{'operation':args[0],'attempt':attempt+1,'delay':delay})
             if args[0] not in ['ls-remote','push'] or not delay: raise
@@ -180,6 +189,9 @@ def poll():
       'actionRequired':'none' if not errors and info['result']=='SUCCESS' else 'ai-evidence-review'}
     write(folder/'artifact-hashes.json',downloaded)
     write(folder/'analysis.json',analysis)
+    spec=importlib.util.spec_from_file_location('ci_report',ROOT/'ci/render-report.py')
+    renderer=importlib.util.module_from_spec(spec);spec.loader.exec_module(renderer)
+    renderer.render(folder)
     state.update(status='analyzed',analysisPath=str(folder/'analysis.json'));write(STATE,state)
     print(json.dumps(analysis,ensure_ascii=False))
 
@@ -187,5 +199,15 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll'])
     parser.add_argument('--scope',choices=['contracts','pilot'],default='contracts')
     args=parser.parse_args()
-    if args.action=='submit': submit(args.scope)
-    else: globals()[args.action]()
+    # Serialize local callers before reading or changing the request checkpoint.
+    with open(OUT/'transport.lock','a+b') as lock:
+        if lock.tell()==0:lock.write(b'1');lock.flush()
+        lock.seek(0)
+        if os.name=='nt':
+            import msvcrt
+            msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
+        else:
+            import fcntl
+            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        if args.action=='submit': submit(args.scope)
+        else: globals()[args.action]()

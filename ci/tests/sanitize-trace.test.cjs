@@ -16,5 +16,8 @@ test('trace action values and embedded request bodies are redacted while screens
     assert.ok(!result.readAsText('0-trace.trace').includes('fixture-password-731'));
     assert.deepEqual(result.readFile('screen.png'),binary);
     assert.equal(sanitizeTraceSecrets(file,['fixture-password-731']),0);
-  } finally {fs.rmSync(dir,{recursive:true,force:true});}
+  } finally {
+    assert.ok(path.resolve(dir).startsWith(path.resolve(os.tmpdir())+path.sep));
+    fs.rmSync(dir,{recursive:true,force:true});
+  }
 });
