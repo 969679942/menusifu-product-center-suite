@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "上一次复核已进入套餐表单并选择商品，但清理阶段从中文切回英文时，openLanguageMenu 被新增的中文状态短路逻辑直接返回，导致未打开菜单便查找 English 选项；同时专项复核发现执行器仍使用旧的 2/1 输入，未严格落实 canonical 用例要求的 3/1。前者覆盖了原业务异常，当前收据不完整，不能用于产品结论。",
+  "correctiveAction": "语言菜单入口不再按当前语言短路，只在按钮唯一、可见、可用时点击；TC-GRP-PKG-030 的最少/最多输入及断言严格改为 3/1，并新增静态合同锁定两项边界。仅重跑本用例，必须取得中文提示、禁止提交、API 零落库和 UI/API 零残留的完整当前指纹收据。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-group-finding-source-governed-product-center-group-pkg030-blackbox-recheck-20260903-r3.json",
+    "Merchant Center UITest/pages/sidebar.page.ts",
+    "Merchant Center UITest/utils/product-center-group-runner.ts",
+    "Merchant Center UITest/tests/api/product-center-group-automation.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "681cc32e6c02c3fc"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "checkpointId": "five-test-process-optimizations-20260830",
+  "generatedAt": "2026-08-30T00:00:00.000Z",
+  "updatedAt": "2026-08-30T23:45:05.853+08:00",
+  "status": "completed-with-findings",
+  "review": {
+    "status": "checked-and-supplemented",
+    "findings": [
+      {"id":"F-01","issue":"规则闭环命令不等价于当前页面/API观测","resolution":"阶段2增加page-contract、API observation、control-drift和audit-report命令"},
+      {"id":"F-02","issue":"资产分母动态派生缺少阻止静态数量回流的合同","resolution":"阶段1增加适配器/生命周期合同和COUNT_SOURCE_STALE负向测试"},
+      {"id":"F-03","issue":"调度与能力注册缺少落地schema和合同测试","resolution":"阶段3、4先实现公共合同、项目适配和checkpoint，再接入运行"},
+      {"id":"F-04","issue":"维护性检查命令不能替代风险和Flaky指标","resolution":"阶段5保持可选，新增指标命令和样本量/隔离合同后再启用"},
+      {"id":"F-05","issue":"调度运维缺少owner、SLA、告警和保留策略","resolution":"阶段3事件和任务合同增加owner、SLA、升级和保留字段"}
+    ]
+  },
+  "scope": ["public-core", "project-adapter", "domain-asset", "generated-evidence"],
+  "executionBoundary": {
+    "businessWriteOperations": "not-started",
+    "merchantCenterBusinessRerun": "not-started",
+    "crossApplicationPilot": "deferred",
+    "auditReadOnlyProbe": "allowed-after-approval"
+  },
+  "baseline": {
+    "landed": 420,
+    "unlanded": 188,
+    "notApplicable": 16,
+    "total": 624,
+    "knownAdapterDrift": {
+      "expectedLanded": 421,
+      "expectedUnlanded": 194,
+      "expectedNotApplicable": 9
+    },
+    "externalDependencyStatus": "deferred"
+  },
+  "workUnits": [
+    {"id": "WU-00", "name": "baseline-freeze-and-input-snapshot", "priority": "必须", "status": "completed"},
+    {"id": "WU-01", "name": "unify-asset-denominator-and-derived-artifacts", "priority": "必须", "status": "completed"},
+    {"id": "WU-02", "name": "refresh-product-center-audit-freshness-context", "priority": "必须", "status": "completed-with-findings"},
+    {"id": "WU-03", "name": "add-audit-schedule-and-change-triggers", "priority": "必须", "status": "blocked-technical"},
+    {"id": "WU-04", "name": "register-environment-capabilities-and-preflight-match", "priority": "必须", "status": "blocked-technical"},
+    {"id": "WU-05", "name": "add-risk-tiering-and-flaky-metrics", "priority": "可选", "status": "not-started"}
+  ],
+  "requiredInvariants": [
+    "planned=executionEligible+classifiedExclusions",
+    "executionEligible=executed",
+    "executed=passed+failed",
+    "current-audit-must-have-observedAt-freshUntil-context-and-fingerprints",
+    "environment-capability-mismatch-blocks-before-browser",
+    "risk-and-flaky-metrics-cannot-authorize-passed"
+  ],
+  "resultImpact": "existing-business-results-unchanged-until-explicit-rerun",
+  "sensitiveDataPolicy": "redacted-metadata-only",
+  "verification": {
+    "status": "completed-with-findings",
+    "passed": [
+      "npm run typecheck",
+      "npm run capabilities:check",
+      "npm run ui-cases:check",
+      "npm run test:product-center:recipes:contracts",
+      "product-center-audit-report-contract:11/11",
+      "product-center-audit-report-build:idempotent-3028-inputs",
+      "npm run audit:test-plan:closure",
+      "npm run flow:test-plan:evidence-closure",
+      "npm run reconcile:test-plan:evidence",
+      "public-platform-contracts:260/260",
+      "merchant-center-platform-contracts:34/34",
+      "final-goal-gate:executed-with-expected-incomplete-verdict"
+    ],
+    "artifacts": {
+      "remediationScope": "Merchant Center UITest/deliverables/system-test-platform/product-center-remediation-scope.json",
+      "readiness": "Merchant Center UITest/deliverables/system-test-platform/readiness.json",
+      "finalGoalVerdict": "Merchant Center UITest/deliverables/system-test-platform/final-goal-verdict.json",
+      "auditReport": "Merchant Center UITest/deliverables/product-center-audit/product-center-audit-report.json"
+    },
+    "observedResults": {
+      "denominator": "420 landed + 204 classified exclusions = 624; remediation scope actual equals expected",
+      "auditReportFreshness": "invalid: observedAt/freshUntil and five fingerprints are present, but two source artifacts are stale and observed environmentId/roleId/tenantScope are missing; observed locale en-US mismatches expected zh-CN",
+      "auditReportSources": "7/7 source artifacts loaded; common freshUntil is 2026-07-30T11:38:13.698Z; event store integrity valid with 4638 events",
+      "evidenceClosure": "187 historical receipts backfilled; rerunCandidates=0; legacyFactsPreserved=0",
+      "lifecycleReadiness": "blocked-technical: PROJECT_MIGRATION_NOT_COMPLETE because five governed migration assets changed; no baseline acceptance was performed without approvedBy/reason",
+      "platformVerdict": "incomplete; moduleDeliveryBlocked=false",
+      "platformBlockers": ["CROSS_APPLICATION_PILOT_REQUIRED", "CROSS_DOMAIN_PILOT_REQUIRED", "REFERENCE_BASELINE_NOT_READY"]
+    }
+  },
+  "remainingGaps": [
+    {"id": "G-01", "workUnit": "WU-02", "gap": "报告已补齐 observedAt、freshUntil、上下文和完整指纹字段，但当前状态为 invalid：页面合同/API 提案来源过期，且运行环境、角色、租户未被真实观测；需重新采集后才能作为 current audit 消费"},
+    {"id": "G-02", "workUnit": "WU-03", "gap": "发布/配置变更触发器与定时兜底调度器尚无可执行命令、任务账本和恢复合同"},
+    {"id": "G-03", "workUnit": "WU-04", "gap": "尚无 environment-capability-registry.json 及能力快照到执行选择/收据的完整链路"},
+    {"id": "G-04", "workUnit": "WU-05", "gap": "risk-metrics 和 flaky-metrics 命令尚未实现并注册，阶段 5 保持可选未启用"}
+  ],
+  "newCommandsPendingImplementation": [
+    "audit:product-center:risk-metrics",
+    "audit:product-center:flaky-metrics",
+    "audit:product-center:scheduler",
+    "audit:product-center:capability-preflight"
+  ]
+}

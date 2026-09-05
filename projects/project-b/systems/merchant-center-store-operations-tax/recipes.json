@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "1.0.0",
+  "fingerprint": "f7d2915e50d1099149e8883e0180d0664b11820b136f454a11a411065f5d34ef",
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "merchant-center-store-operations-tax:CASE-TAX-EDIT-001",
+      "caseId": "CASE-TAX-EDIT-001",
+      "title": "税率类型应通过 API 造数完成 UI 编辑并验证双端零残留",
+      "tags": [
+        "@system-test",
+        "@edit"
+      ],
+      "route": "/poi/tax/tax-types",
+      "action": "edit",
+      "traceabilityId": "trace:sop:merchant-center-store-operations-tax:CASE-TAX-EDIT-001",
+      "sourceIds": [
+        "existing-contract:store-operations-tax-ui-api",
+        "observed-sop:low-dependency-tax-edit"
+      ],
+      "provenanceFingerprint": "75fc14b80edd9ba4a46ee7daa0d8b65a116de764c8f45a4a41b2b3264670fe47",
+      "provenanceScope": "case-scoped-v1",
+      "claimIds": [
+        "CASE-TAX-EDIT-001:precondition-1",
+        "CASE-TAX-EDIT-001:precondition-2",
+        "CASE-TAX-EDIT-001:action-1",
+        "CASE-TAX-EDIT-001:action-2",
+        "CASE-TAX-EDIT-001:expectation-1",
+        "CASE-TAX-EDIT-001:expectation-2"
+      ],
+      "coverageIds": [
+        "route:poi-tax-tax-types",
+        "operation:store-operations.tax-type.update",
+        "lifecycle:seed-edit-api-ui-cleanup-zero-residue"
+      ],
+      "generationAllowed": true,
+      "contextGuards": [
+        {
+          "adapterId": "store-operations.context.tax",
+          "input": {
+            "phase": "before-action",
+            "expectedRoute": "/poi/tax/tax-types",
+            "routeMatch": "exact-or-descendant",
+            "expectedLocale": "zh-CN",
+            "expectedRoleId": "merchant-operator",
+            "expectedTenantScope": "configured-merchant",
+            "businessIdentityStrategy": "server-id"
+          }
+        },
+        {
+          "adapterId": "store-operations.context.tax",
+          "input": {
+            "phase": "before-assertion",
+            "expectedRoute": "/poi/tax/tax-types",
+            "routeMatch": "exact-or-descendant",
+            "expectedLocale": "zh-CN",
+            "expectedRoleId": "merchant-operator",
+            "expectedTenantScope": "configured-merchant",
+            "businessIdentityStrategy": "server-id"
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "store-operations.tax.ui-edit"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "store-operations.tax.assert-api-edited",
+          "claimIds": [
+            "CASE-TAX-EDIT-001:expectation-1"
+          ]
+        },
+        {
+          "adapterId": "store-operations.tax.assert-ui-edited",
+          "claimIds": [
+            "CASE-TAX-EDIT-001:expectation-2"
+          ]
+        }
+      ],
+      "assertionContracts": [
+        {
+          "claimId": "CASE-TAX-EDIT-001:expectation-1",
+          "adapterId": "store-operations.tax.assert-api-edited",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "terminalCondition": "按服务端 ID 查询返回编辑后名称且原名称计数为零",
+          "fieldId": "tax-type.name",
+          "assertionSurfaceId": "api.tax-type-record",
+          "sourceIds": [
+            "existing-contract:store-operations-tax-ui-api"
+          ],
+          "contractIds": [
+            "api:tax-type-by-server-id"
+          ]
+        },
+        {
+          "claimId": "CASE-TAX-EDIT-001:expectation-2",
+          "adapterId": "store-operations.tax.assert-ui-edited",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "列表稳定后同一服务端记录显示编辑后名称且原名称不可见",
+          "fieldId": "tax-type.name",
+          "assertionSurfaceId": "ui.tax-type-list",
+          "sourceIds": [
+            "observed-sop:low-dependency-tax-edit"
+          ],
+          "contractIds": [
+            "ui:tax-type-row-by-server-id"
+          ]
+        }
+      ],
+      "seed": {
+        "adapterId": "store-operations.tax.seed"
+      },
+      "cleanup": {
+        "adapterId": "store-operations.tax.cleanup"
+      },
+      "mutation": {
+        "method": "PUT",
+        "operationKey": "store-operations.tax-type.update"
+      }
+    }
+  ]
+}

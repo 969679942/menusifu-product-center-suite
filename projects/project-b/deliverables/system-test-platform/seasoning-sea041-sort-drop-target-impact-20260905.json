@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "seasoning-sea041-sort-drop-target-repair-20260905",
+  "applicationId": "merchant-center",
+  "defaultImpactType": "adapter-only",
+  "impactedCaseIds": [
+    "TC-FLV-SEA-041"
+  ],
+  "caseImpactTypes": {
+    "TC-FLV-SEA-041": "adapter-only"
+  },
+  "recommendation": "必须",
+  "purpose": "修复调味组排序拖放落点未触发保存请求的问题。",
+  "expectedResult": "仅执行 SEA-041，并形成排序请求、UI 顺序、API 持久化顺序和零残留完整收据。",
+  "downstreamImpact": "第二波其他 6 条与既有通过用例不重跑、不失效；跨应用 pilot 继续 deferred。"
+}

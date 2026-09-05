@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "product-center-business-rule-delegated-approval",
+  "status": "active",
+  "scope": "project-adapter",
+  "delegatedBy": "金将军",
+  "effectiveFrom": "2026-09-05",
+  "delegatedDecision": "current-production-behavior",
+  "allowedRuleClasses": [
+    "字段展示与长度校验",
+    "必填与输入格式校验",
+    "列表筛选、分页与回显",
+    "可逆且可清理的单系统 CRUD 行为"
+  ],
+  "requiredGates": [
+    "权威文档存在独立规则正文和稳定 ruleId",
+    "规则义务已拆分且规范用例逐义务显式覆盖",
+    "来源指纹和规则指纹可追溯",
+    "规则适用上下文可由系统确定或明确登记",
+    "来源之间无显式冲突且语义比较无矛盾",
+    "不属于人工强制决策类别"
+  ],
+  "verificationGates": [
+    "当前用例指纹、实现指纹和执行上下文一致",
+    "完整 UI/API/清理证据可追溯",
+    "操作可逆并且零残留策略已验证"
+  ],
+  "humanDecisionStillRequired": [
+    "PRD 或产品意图与现网行为冲突",
+    "金额计算、权限、安全、不可逆删除或合规规则",
+    "跨系统、门店、菜单下发或终端同步副作用",
+    "没有完整证据且需要新增或修改业务数据才能判断",
+    "同一规则存在两个以上可成立但产品只能选择其一的口径"
+  ],
+  "executionPolicy": {
+    "readOnlyObservationMayRunAutomatically": true,
+    "mutatingBusinessProbeRequiresExplicitExecutionApproval": true,
+    "automaticUiOrApiRerun": false
+  },
+  "guardrails": {
+    "runtimeObservationDefinesCurrentFactOnly": true,
+    "runtimeObservationMayNotInventProductIntent": true,
+    "semanticApprovalDoesNotImplyExecutionVerified": true,
+    "missingEvidenceDoesNotBecomeHumanSemanticQuestion": true,
+    "screenshotOrAggregatePassCannotApprove": true
+  }
+}

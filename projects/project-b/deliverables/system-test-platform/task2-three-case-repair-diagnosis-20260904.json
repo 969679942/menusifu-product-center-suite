@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-004",
+    "TC-GRP-PKG-040",
+    "TC-GRP-TASTE-021"
+  ],
+  "rootCause": "TC-GRP-PKG-004 在商品创建接口返回后直接打开套餐选择弹层，未先确认品牌商品查询索引已经按服务端 ID 收敛；TC-GRP-PKG-040 与 TC-GRP-TASTE-021 先在 about:blank 空页面识别语言，且应用 html lang 与可见侧栏语言可能不一致。语言按钮候选还包含过宽的 class*=language，套餐创建页 Alt.Language 业务字段可能被误当作语言按钮；切换后的瞬态页面又可能被 html lang 提前判定完成。修复观测链路后，TC-GRP-PKG-040 连续复核仍稳定返回英文提示 At least one option is required，与已审核 zh-CN 精确提示至少有一个子项不一致，现已具备产品行为差异证据。",
+  "correctiveAction": "仅在项目适配层增加套餐商品服务端索引就绪门禁；语言状态识别以可见侧栏为最高优先级，再使用 html lang 和精确中文操作控件作为后备证据。移除 class*=language/locale 过宽定位，语言切换后必须以可见中文商品侧栏替换英文侧栏作为稳定完成证据；两个受影响 handler 先打开列表业务面并完成语言确认后再继续。TC-GRP-PKG-040 保持中文精确来源断言，不接受翻译文本降级通过；把当前英文提示、零创建响应和 API 零落库登记为 observed-product-drift。",
+  "evidenceRefs": [
+    "output/product-center-group-source-governed-20260904T084136Z.json",
+    "output/product-center-source-governed-20260904T084136Z-reports.json",
+    "pages/sidebar.page.ts",
+    "utils/product-center-group-runner.ts",
+    "tests/api/sidebar-locale-state.contract.spec.ts",
+    "tests/api/product-center-group-locale-precondition.contract.spec.ts",
+    "deliverables/system-test-platform/task2-targeted-revalidation-checkpoint.json"
+  ]
+}

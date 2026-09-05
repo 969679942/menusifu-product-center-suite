@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "v10 直接采用 API 首个调味名 111，但该名称在页面存在多个精确匹配，唯一身份门禁正确拒绝；事件与产品偏差路径尚未执行。",
+  "correctiveAction": "从 API 返回的全部调味项名称中按页面精确计数选择唯一可见身份，再执行已由只读探针证明有效的行 checkbox click 事件并裁决数量展示。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/seasoning-checkbox-structure.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787566973168/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["f7ccce1b96a2b187"]
+}

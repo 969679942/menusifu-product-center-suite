@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "matrixType": "product-center-audit-solution-coverage",
+  "scope": {
+    "commonInfrastructure": "D:/Menusifu/Test Automation Platform",
+    "domainAdapter": "D:/Menusifu/Merchant Center/Merchant Center UITest/adapters/product-center",
+    "businessExecution": "本次未重跑商品中心业务用例，历史结果保持不变"
+  },
+  "sourceEvidence": [
+    "deliverables/product-center-audit/product-center-audit-report.json",
+    "output/audit/product-center-events.jsonl",
+    "../../Test Automation Platform/src/audit/event-log.ts",
+    "../../Test Automation Platform/src/automation/system-test/system-test-correction-audit.ts",
+    "../../Test Automation Platform/src/automation/system-test/system-test-audit-contract.ts",
+    "../../Test Automation Platform/src/automation/system-test/system-test-evidence.ts",
+    "../../Test Automation Platform/src/reporters/system-test-evidence.reporter.ts",
+    "../../Test Automation Platform/scripts/run-system-test-flow.ts",
+    "../../Test Automation Platform/scripts/verify-system-test-audit-completeness.ts",
+    "adapters/product-center/product-center-audit-event-adapter.ts",
+    "adapters/product-center/product-center-audit-report.ts",
+    "docs/product-center-audit-jenkins.md",
+    "deliverables/system-test-platform/platform-external-dependency.json",
+    "adapters/test-automation-platform/reports/merchant-center-migration-closure.json"
+  ],
+  "statusDefinitions": {
+    "implemented": "公共能力和当前适配器均具备可验证实现；当前没有数据时按事实显示为零，不伪造事件",
+    "partial": "已有能力或字段，但当前采集链/报告聚合/运行入口仍有覆盖边界",
+    "not-implemented": "产品方案要求的能力尚无实现或无可接受证据",
+    "not-applicable": "经来源或运行时证据确认当前范围不适用",
+    "governance-blocked": "实现存在，但平台治理或外部依赖门禁尚未满足，不能宣称最终完成"
+  },
+  "summary": {
+    "totalItems": 20,
+    "implemented": 15,
+    "partial": 3,
+    "notImplemented": 0,
+    "notApplicable": 0,
+    "governanceBlocked": 2,
+    "currentEventCount": 1236,
+    "currentRunCount": 89,
+    "currentCaseCount": 360,
+    "currentCorrectionCandidateCount": 0,
+    "currentDataChangeEventCount": 0,
+    "currentAuditContractStatus": "provisional",
+    "formalOperationCoverageRate": null,
+    "formalStructuredDiffCoverageRate": null,
+    "formalCleanupCoverageRate": null,
+    "provisionalOperationCoverageRate": 0.0168,
+    "historicalCleanupBooleanReceiptCount": 287,
+    "currentObjectCleanupReceiptCount": 0
+  },
+  "items": [
+    {
+      "id": "audit-event-model",
+      "requirement": "追加式事件模型、事件 ID 幂等、冲突检测、哈希链和敏感信息脱敏",
+      "layer": "common-infrastructure",
+      "status": "implemented",
+      "evidence": "event-log.ts；事件链校验通过，当前 JSONL 1,236 条事件",
+      "gapOrAction": "无；持续接入新系统时复用同一公共模型"
+    },
+    {
+      "id": "stage-lifecycle-log",
+      "requirement": "记录流程开始/审计/编译/授权/运行/完成/失败等每个流程环节",
+      "layer": "common-infrastructure + domain-adapter",
+      "status": "implemented",
+      "evidence": "run-system-test-flow.ts 与统一 run-system-test.ts 已记录 flow/audit/plan/run.started/run.authorized/run.completed，批次边界由 flow 写入",
+      "gapOrAction": "历史日志不会倒推伪造缺失阶段；后续执行持续记录"
+    },
+    {
+      "id": "api-ui-operation-events",
+      "requirement": "独立审计每次 API 调用、页面点击/输入、请求结果和关联 operation key",
+      "layer": "common-infrastructure + domain-adapter",
+      "status": "partial",
+      "evidence": "适配器已从显式 evidencePath 的 operationReceipts 生成 17 条 operation.called；历史收据覆盖范围有限，不能证明所有真实 API/UI 操作均已采集",
+      "gapOrAction": "后续执行收据必须持续提供逐次 operation receipt/network observation；不得用用例事件数代替调用次数"
+    },
+    {
+      "id": "call-count-time-result",
+      "requirement": "统计调用次数、首次/最后时间、耗时、结果、重试和失败分类",
+      "layer": "common-infrastructure + report",
+      "status": "partial",
+      "evidence": "已按 operationKey 统计 17 条调用级事件；当前 retries=0，部分 duration 缺失；历史收据覆盖有限",
+      "gapOrAction": "持续补齐 route/method/response/duration，并保留 attempt/retryOfEventId"
+    },
+    {
+      "id": "content-diff",
+      "requirement": "记录更改前后指纹、结构化 changedFields、影响对象和变更内容",
+      "layer": "common-infrastructure + domain-adapter",
+      "status": "implemented",
+      "evidence": "公共 changeReceipts 支持 entityType/entityId/changeType/beforeFingerprint/afterFingerprint/changedFields；operation receipt 也可生产结构化 Diff；当前历史报告 dataChanges=0",
+      "gapOrAction": "生产能力已实现；历史缺失保持‘未提供结构化变更证据’，不得推断具体字段变化"
+    },
+    {
+      "id": "correction-trigger",
+      "requirement": "识别业务规则/合同/用例/实现/上下文变化并生成纠正候选",
+      "layer": "common-infrastructure + domain-adapter",
+      "status": "implemented",
+      "evidence": "system-test-correction-audit.ts 支持 candidate 状态；适配器从 runtime audit 输出 candidate/approved，当前结构化来源无候选故为 0",
+      "gapOrAction": "无当前数据缺口；后续变化必须经统一触发器，不得手工改报告数字"
+    },
+    {
+      "id": "correction-dedupe-and-count",
+      "requirement": "按 applicationId/planId/caseId/指纹/changeType 去重并统计触发次数",
+      "layer": "common-infrastructure",
+      "status": "implemented",
+      "evidence": "公共 correction dedupeKey、triggerCount、duplicateTriggerCount 和事件 ID 冲突检查均已实现",
+      "gapOrAction": "无；需将真实候选来源接入商品中心报告以产生非零实例"
+    },
+    {
+      "id": "correction-execution-funnel",
+      "requirement": "记录纠正是否启动、执行、完成、阻断、失败并形成漏斗",
+      "layer": "common-infrastructure + report",
+      "status": "partial",
+      "evidence": "公共状态机支持 running/handled/revalidated/accepted 等状态；商品中心适配器不伪造 remediation started/completed；当前漏斗各项均为 0",
+      "gapOrAction": "由受治理纠正 runner 在真实执行时写入 correction.started/completed/blocked，并把执行收据绑定 correctionId"
+    },
+    {
+      "id": "affected-case-tracking",
+      "requirement": "记录纠正影响哪些 caseId、每个 case 的历史和当前状态",
+      "layer": "common-infrastructure + report",
+      "status": "implemented",
+      "evidence": "CorrectionRecord 保存 caseId、history、changedFields、executionReceiptIds；报告 caseTracking 按 caseId 聚合",
+      "gapOrAction": "当前没有候选时 affectedCases=0 属于真实状态"
+    },
+    {
+      "id": "standard-execution-receipt",
+      "requirement": "执行收据绑定 caseFingerprint/implementationFingerprint/evidence fingerprint",
+      "layer": "common-infrastructure + domain-adapter",
+      "status": "implemented",
+      "evidence": "execution-index 510 条记录被转换为 evidence.recorded；报告有效成功 643、执行证据 510",
+      "gapOrAction": "无；旧格式收据仍按历史证据协调规则处理"
+    },
+    {
+      "id": "cleanup-evidence",
+      "requirement": "为每个创建对象记录服务端 ID、业务身份、清理尝试、API/UI 残留数和终态，并纳入完整性门禁",
+      "layer": "common-infrastructure + report",
+      "status": "implemented",
+      "evidence": "SystemTestRuntimeEvidence.cleanup.objects 定义 entityType/serverId/businessIdentity/cleanupAttempt/apiResidueCount/uiResidueCount/outcome/failureCategory/evidenceRefs；v1.1 仅接受对象级 verified-zero",
+      "gapOrAction": "现有 287 条历史收据主要为旧版 API/UI 布尔汇总，只保留历史统计，不能替代对象级当前门禁"
+    },
+    {
+      "id": "formal-audit-denominator",
+      "requirement": "正式覆盖率使用审计适用分母并满足 planned 与 auditEligible 两个守恒式",
+      "layer": "common-infrastructure + report",
+      "status": "implemented",
+      "evidence": "审计合同 v1.1 强制 planned=auditEligible+classifiedExclusions、auditEligible=auditComplete+auditIncomplete；operation/Diff/cleanup 各自按声明适用 case 计算",
+      "gapOrAction": "现有历史日志没有 v1.1 声明，正式覆盖率为 N/A；6/358=1.68% 仅是 provisional 观察值"
+    },
+    {
+      "id": "current-history-receipt-separation",
+      "requirement": "分离当前收据与历史收据，不让旧失败覆盖后续当前事实，也不让报告自行裁决通过",
+      "layer": "common-infrastructure + report",
+      "status": "implemented",
+      "evidence": "报告输出 latestReceipt、receiptHistory、historicalReceiptCount，并固定 arbitrationStatus=not-provided；公共 arbiter 按当前 case/implementation 指纹裁决",
+      "gapOrAction": "报告中的最新时间仅是事实排序，不能替代当前性裁决"
+    },
+    {
+      "id": "jenkins-audit-completeness-gate",
+      "requirement": "Jenkins 对 evidence ledger 执行审计完整性 v1.1 门禁，并区分审计不完整与产品失败",
+      "layer": "common-infrastructure + Jenkins integration",
+      "status": "implemented",
+      "evidence": "verify-system-test-audit-completeness.ts 校验 v1.1、分母守恒、invariantSatisfied 和 auditIncomplete；exit 0=audit-complete，exit 2=audit-incomplete",
+      "gapOrAction": "exit 2 仅表示审计证据不完整，不得自动分类为 product-failure；保留业务结果并补证据"
+    },
+    {
+      "id": "state-arbitration",
+      "requirement": "独立裁决 execution/evidence/applicability/change/reuse 及 handling/verification/actionRequired",
+      "layer": "common-infrastructure",
+      "status": "implemented",
+      "evidence": "公共 correction 投影与 FINAL-GOAL 状态规则；适配器声明 receipt 是事实而非状态决定",
+      "gapOrAction": "平台最终状态仍受迁移和跨应用试点门禁约束，见 governance-blocked 项"
+    },
+    {
+      "id": "report-html-json-jsonl",
+      "requirement": "生成可视报告、机器报告和可重放原始事件日志",
+      "layer": "domain-adapter + report",
+      "status": "implemented",
+      "evidence": "product-center-audit-report.html、.json、output/audit/product-center-events.jsonl；HTML 为离线静态报告",
+      "gapOrAction": "当前不是在线审计中心；权限、实时推送、服务端查询 API 属于后续产品化范围"
+    },
+    {
+      "id": "security-redaction",
+      "requirement": "密码/token/cookie/授权信息不落盘，仅保留安全元数据",
+      "layer": "common-infrastructure",
+      "status": "implemented",
+      "evidence": "event-log.ts redactAuditValue 递归脱敏并保留长度/指纹；事件 redacted=true",
+      "gapOrAction": "新增适配器字段必须继续通过公共 append/store，不得旁路写入密钥"
+    },
+    {
+      "id": "checkpoint-recovery",
+      "requirement": "阶段检查点、失败恢复、幂等重试和事件链完整性校验",
+      "layer": "common-infrastructure + flow",
+      "status": "implemented",
+      "evidence": "flow checkpoint.json、FileAuditEventStore 锁和幂等追加；重复生成报告新增 0、幂等命中 1,219",
+      "gapOrAction": "无；瞬态平台失败按 AGENTS.md 恢复策略处理"
+    },
+    {
+      "id": "cross-system-adapter",
+      "requirement": "更换系统时仅替换 adapter/contract，公共日志、裁决、报告流程不复制",
+      "layer": "common-infrastructure + adapter",
+      "status": "governance-blocked",
+      "evidence": "商品中心 package.json 复用公共 runner；platform-external-dependency.status=deferred，尚无不同 applicationId 真实试点",
+      "gapOrAction": "提供不同 applicationId 的目标系统 pilot，并通过平台最终门禁；同一应用跨域不能替代"
+    },
+    {
+      "id": "migration-governance",
+      "requirement": "迁移完整性、资产归属、断裂引用和平台生命周期门禁通过",
+      "layer": "platform-governance",
+      "status": "governance-blocked",
+      "evidence": "此项单独计入治理阻断：当前迁移闭环报告 PROJECT_MIGRATION_NOT_COMPLETE",
+      "gapOrAction": "按迁移报告逐项处理未归属文件、兼容桥、断裂引用和未接受漂移；不得因此重跑已通过业务用例"
+    }
+  ]
+}

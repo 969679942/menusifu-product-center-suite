@@ -1,0 +1,613 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "merchant-center-product-center-seasoning-bindings",
+  "selectionRule": "formal case intersect generationAllowed binding intersect registered implementation builder",
+  "bindings": [
+    {
+      "caseId": "TC-FLV-SEA-015",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.create-boundary" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-ui-created" },
+        { "adapterId": "merchant-center.seasoning.assert-api-created" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.price-correction" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-create-price-correction" },
+        { "adapterId": "merchant-center.seasoning.assert-edit-price-reversion" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-018",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.create-minimal" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-ui-created" },
+        { "adapterId": "merchant-center.seasoning.assert-api-identity" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-030",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.delete-empty-group" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-ui-deleted" },
+        { "adapterId": "merchant-center.seasoning.assert-api-deleted" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-032",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.edit-group" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-ui-edited" },
+        { "adapterId": "merchant-center.seasoning.assert-api-edited" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.rounding" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-round-half-up" },
+        { "adapterId": "merchant-center.seasoning.assert-round-down" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-REC-002",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.record-task-search" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-record-task-search" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-005",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.record-reset" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-record-reset" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-002",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.template-create-audit" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-template-create-fields" },
+        { "adapterId": "merchant-center.seasoning.assert-template-create-required" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-TPL-005",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.template-distribution-audit" }],
+      "assertions": [
+        { "adapterId": "merchant-center.seasoning.assert-template-distribution-menu" },
+        { "adapterId": "merchant-center.seasoning.assert-template-store-dialog" }
+      ]
+    },
+    {
+      "caseId": "TC-FLV-TPL-006",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.single-store-template-absence" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-single-store-template-absence" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-002",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-003",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-004",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-005",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-006",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-007",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-008",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-011",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-012",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-017",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.price-correction" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-create-price-correction" }, { "adapterId": "merchant-center.seasoning.assert-edit-price-reversion" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-043",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-001",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-003",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-004",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-007",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-008",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-009",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-010",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-003",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-004",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-006",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-REC-007",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-001",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-001",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-002",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-003",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "generationAllowed": true,
+      "executionAllowed": false,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-009",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.create-minimal" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-created" }, { "adapterId": "merchant-center.seasoning.assert-api-identity" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-010",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-013",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-014",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-page-contract", "runtime:seasoning-route-contract"],
+      "capabilities": [{ "id": "merchant-center.seasoning.static-contract" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-019",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-020",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.create-minimal" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-created" }, { "adapterId": "merchant-center.seasoning.assert-api-identity" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-021",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-023",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-024",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-025",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-026",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-027",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-028",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-029",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.delete-empty-group" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-deleted" }, { "adapterId": "merchant-center.seasoning.assert-api-deleted" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-031",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.delete-empty-group" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-deleted" }, { "adapterId": "merchant-center.seasoning.assert-api-deleted" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-033",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-034",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-035",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-036",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-037",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-040",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-041",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-044",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-045",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-011",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.template-name-normalization" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-static-contract" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-012",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-013",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-014",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-015",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-016",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-017",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-018",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-019",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-020",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-021",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-022",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-023",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-024",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-TPL-025",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-template-audit", "runtime:seasoning-template-create-audit"],
+      "capabilities": [{ "id": "merchant-center.seasoning.ui-mutation" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-ui-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-SEA-042",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-single-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.store-replace-distribution" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-store-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-004",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.store-delete-group" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-store-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-005",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.store-delete-option" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-store-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-006",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.store-batch-delete" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-store-mutation" }]
+    },
+    {
+      "caseId": "TC-FLV-XMOD-011",
+      "generationAllowed": true,
+      "sourceIds": ["formal:seasoning-test-plan", "runtime:seasoning-full-page-multi-store"],
+      "capabilities": [{ "id": "merchant-center.seasoning.store-redeliver-restore" }],
+      "assertions": [{ "adapterId": "merchant-center.seasoning.assert-store-mutation" }]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.965Z",
+  "id": "batch-978ee51a12-01",
+  "group": "brand-menu:品牌分类管理",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:66ace968d179",
+      "group": "brand-menu:品牌分类管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[5]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/search",
+          "operationId": "search_5"
+        },
+        "question": "请确认 brand-menu:GET /ops-brand/brand-categories/search 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:7673665ed898",
+      "group": "brand-menu:品牌分类管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[4]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-poi/brand-categories/search",
+          "operationId": "search_4"
+        },
+        "question": "请确认 brand-menu:GET /ops-poi/brand-categories/search 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:9afe840c6fd8",
+      "group": "brand-menu:品牌分类管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[2]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/test-stackoverflow",
+          "operationId": "test_1"
+        },
+        "question": "请确认 brand-menu:GET /ops-brand/brand-categories/test-stackoverflow 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:bc69f0994b54",
+      "group": "brand-menu:品牌分类管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[3]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-poi/brand-categories/test-stackoverflow",
+          "operationId": "test_2"
+        },
+        "question": "请确认 brand-menu:GET /ops-poi/brand-categories/test-stackoverflow 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

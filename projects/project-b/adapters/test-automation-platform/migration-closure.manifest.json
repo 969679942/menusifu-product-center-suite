@@ -1,0 +1,617 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditId": "merchant-center-platform-extraction-closure",
+  "applicationId": "merchant-center",
+  "roots": [
+    {
+      "id": "platform",
+      "path": "../../../../Test Automation Platform"
+    },
+    {
+      "id": "workspace",
+      "path": "../../.."
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "platform-third-party-dependencies",
+      "rootId": "platform",
+      "patterns": [
+        "node_modules",
+        "node_modules/**"
+      ],
+      "reason": "第三方依赖不属于平台自有测试资产"
+    },
+    {
+      "id": "workspace-source-control-metadata",
+      "rootId": "workspace",
+      "patterns": [
+        ".git",
+        ".git/**",
+        "**/.git",
+        "**/.git/**"
+      ],
+      "reason": "源代码管理内部元数据不属于测试资产"
+    },
+    {
+      "id": "workspace-third-party-dependencies",
+      "rootId": "workspace",
+      "patterns": [
+        "**/node_modules",
+        "**/node_modules/**"
+      ],
+      "reason": "第三方依赖不属于项目自有测试资产"
+    },
+    {
+      "id": "workspace-secret-and-session-material",
+      "rootId": "workspace",
+      "patterns": [
+        ".secrets",
+        ".secrets/**",
+        ".runtime",
+        ".runtime/**",
+        "**/.auth",
+        "**/.auth/**"
+      ],
+      "reason": "密钥、登录态和本机运行缓存只允许由安全机制管理，不进入迁移报告"
+    },
+    {
+      "id": "workspace-self-generated-closure-report",
+      "rootId": "workspace",
+      "patterns": [
+        "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-migration-closure.json",
+        "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-migration-closure.md"
+      ],
+      "reason": "排除审计器自身输出，避免报告内容反向改变输入指纹"
+    },
+    {
+      "id": "workspace-migration-inventory-baseline",
+      "rootId": "workspace",
+      "patterns": [
+        "Merchant Center UITest/adapters/test-automation-platform/reports/migration-inventory.baseline.json"
+      ],
+      "reason": "迁移前后完整性基线由迁移审计器独立读取，不能反向改变扫描输入"
+    },
+    {
+      "id": "workspace-audit-transients",
+      "rootId": "workspace",
+      "patterns": [
+        "Merchant Center UITest/tmp-audit/**"
+      ],
+      "reason": "浏览器审计 trace、资源和临时结果属于瞬态证据，不纳入迁移归属清单"
+    }
+  ],
+  "ownershipRules": [
+    {
+      "id": "platform-generated-evidence",
+      "rootId": "platform",
+      "category": "generated-evidence",
+      "patterns": [
+        "deliverables/**",
+        "output/**"
+      ],
+      "rationale": "平台治理与运行生成产物"
+    },
+    {
+      "id": "platform-transient",
+      "rootId": "platform",
+      "category": "transient",
+      "patterns": [
+        "test-results/**"
+      ],
+      "rationale": "Playwright 合同测试瞬态状态"
+    },
+    {
+      "id": "platform-public-core",
+      "rootId": "platform",
+      "category": "public-core",
+        "patterns": [
+          "src/**",
+          "scripts/**",
+          "tests/**",
+          "docs/**",
+          "config/**",
+          "FINAL-GOAL.md",
+          "AGENTS.md",
+          "README.md",
+          ".gitignore",
+          "ownership.json",
+          "package.json",
+          "package-lock.json",
+          "playwright.config.ts",
+          "tsconfig.json"
+        ],
+      "rationale": "跨方案、跨应用公共实现、合同与配置"
+    },
+    {
+      "id": "workspace-generated-evidence",
+      "rootId": "workspace",
+      "category": "generated-evidence",
+      "patterns": [
+        "deliverables/**",
+        "Merchant Center UITest/deliverables/**",
+        "contracts/**/*.log",
+        "Merchant Center UITest/output/**",
+        "Merchant Center UITest/allure-results/**",
+        "Merchant Center UITest/allure-report/**"
+      ],
+      "rationale": "商品中心执行证据、交付物和历史构建日志"
+    },
+    {
+      "id": "workspace-transient",
+      "rootId": "workspace",
+      "category": "transient",
+      "patterns": [
+        "Merchant Center UITest/test-results/**",
+        "Merchant Center UITest/**/test-results/**",
+        "Merchant Center UITest/_trace_*/**",
+        "_trace_*/**",
+        "_tmp_trace_*/**"
+      ],
+      "rationale": "Playwright 本地瞬态状态"
+    },
+    {
+      "id": "workspace-history",
+      "rootId": "workspace",
+      "category": "history",
+      "patterns": [
+        ".memory/**",
+        "MEMORY.md",
+        "CODEX_ACCOUNT_SWITCH_HANDOFF.md",
+        "商品中心自动化实施计划.md",
+        "contracts/versions/**",
+        "Merchant Center Info/99-待废弃/**",
+        "Merchant Center UITest/docs/history/**",
+        "Merchant Center UITest/docs/superpowers/**"
+      ],
+      "rationale": "历史决策、版本快照与暂不可删除来源"
+    },
+    {
+      "id": "workspace-root-adapter",
+      "rootId": "workspace",
+      "category": "project-adapter",
+      "patterns": [
+        ".github/**",
+        ".env.example",
+        ".gitignore",
+        "AGENTS.md"
+      ],
+      "rationale": "Merchant Center 工作区接入和治理配置"
+    },
+    {
+      "id": "merchant-project-configuration",
+      "rootId": "workspace",
+      "category": "project-adapter",
+      "patterns": [
+        "Merchant Center UITest/.claude/**",
+        "Merchant Center UITest/.codex/**",
+        "Merchant Center UITest/.gitignore",
+        "Merchant Center UITest/AGENTS.md",
+        "Merchant Center UITest/package.json",
+        "Merchant Center UITest/package-lock.json",
+        "Merchant Center UITest/playwright.config.ts",
+        "Merchant Center UITest/tsconfig.json"
+      ],
+      "rationale": "商品中心自动化项目和执行框架配置"
+    },
+    {
+      "id": "merchant-platform-adapters",
+      "rootId": "workspace",
+      "category": "project-adapter",
+      "patterns": [
+        "Merchant Center UITest/acceptance/**",
+        "Merchant Center UITest/adapters/**",
+        "Merchant Center UITest/systems/**",
+        "Merchant Center UITest/automation/system-test/**",
+        "Merchant Center UITest/automation/recipe/automation-recipe.ts",
+        "Merchant Center UITest/automation/recipe/capability-registry.ts",
+        "Merchant Center UITest/automation/recipe/recipe-collection-manifest.ts",
+        "Merchant Center UITest/automation/recipe/recipe-feedback.ts",
+        "Merchant Center UITest/automation/recipe/recipe-validator.ts",
+        "Merchant Center UITest/automation/recipe/sidebar-navigation-capability.ts",
+        "Merchant Center UITest/utils/acceptance/**",
+        "Merchant Center UITest/utils/allure-result-retention.ts",
+        "Merchant Center UITest/utils/contract-change-impact.ts",
+        "Merchant Center UITest/utils/idempotent-pipeline.ts",
+        "Merchant Center UITest/utils/incremental-test-plan.ts",
+        "Merchant Center UITest/utils/playwright-batch-policy.ts",
+        "Merchant Center UITest/utils/playwright-execution-receipt.ts",
+        "Merchant Center UITest/utils/review-batch.ts",
+        "Merchant Center UITest/utils/runtime-audit-correction-from-receipt.ts",
+        "Merchant Center UITest/utils/test-evidence-governance.ts",
+        "Merchant Center UITest/utils/test-execution-index.ts",
+        "Merchant Center UITest/utils/test-execution-state.ts",
+        "Merchant Center UITest/utils/test-plan-landing-gate.ts",
+        "Merchant Center UITest/utils/test-plan-runtime-audit-correction.ts",
+        "Merchant Center UITest/utils/wait.ts",
+        "Merchant Center UITest/utils/system-test-platform-paths.ts",
+        "Merchant Center UITest/tests/api/test-automation-platform-adapter.contract.spec.ts",
+        "Merchant Center UITest/tests/api/test-automation-platform-migration-closure.contract.spec.ts",
+        "Merchant Center UITest/tests/api/reusable-acceptance-orchestrator.contract.spec.ts"
+      ],
+      "rationale": "公共平台兼容桥、Merchant Center 适配器和适配合同"
+    },
+    {
+      "id": "merchant-domain-assets",
+      "rootId": "workspace",
+      "category": "domain-asset",
+      "patterns": [
+        "Merchant Center API/**",
+        "Merchant Center Info/00-待转换测试方案/**",
+        "Merchant Center Info/业务规则治理/**",
+        "Merchant Center Info/坎昆商品中心PRD测试方案/**",
+        "Merchant Center Info/PRD与对应测试用例/**",
+        "Merchant Center Info/商品中心业务规则.md",
+        "Merchant Center Info/B端产品设计规范.md",
+        "contracts/**",
+        "tools/**",
+        "Merchant Center UITest/api/**",
+        "Merchant Center UITest/automation/**",
+        "Merchant Center UITest/config/**",
+        "Merchant Center UITest/contracts/**",
+        "Merchant Center UITest/docs/**",
+        "Merchant Center UITest/fixtures/**",
+        "Merchant Center UITest/flows/**",
+        "Merchant Center UITest/pages/**",
+        "Merchant Center UITest/reporters/**",
+        "Merchant Center UITest/scripts/**",
+        "Merchant Center UITest/sop/**",
+        "Merchant Center UITest/test-data/**",
+        "Merchant Center UITest/tests/**",
+        "Merchant Center UITest/utils/**"
+      ],
+      "rationale": "商品中心来源、合同、页面、业务流程、数据与自动化实现"
+    }
+  ],
+  "bridgeGroups": [
+    {
+      "id": "system-test-core-bridges",
+      "projectRootId": "workspace",
+      "projectDirectory": "Merchant Center UITest/automation/system-test",
+      "platformRootId": "platform",
+      "platformDirectory": "src/automation/system-test",
+      "requireEveryPlatformFile": true
+    },
+    {
+      "id": "recipe-core-bridges",
+      "projectRootId": "workspace",
+      "projectDirectory": "Merchant Center UITest/automation/recipe",
+      "platformRootId": "platform",
+      "platformDirectory": "src/automation/recipe",
+      "requireEveryPlatformFile": true,
+      "adapterFiles": [
+        "recipe-collection-manifest.ts"
+      ]
+    },
+    {
+      "id": "acceptance-core-bridges",
+      "projectRootId": "workspace",
+      "projectDirectory": "Merchant Center UITest/utils/acceptance",
+      "platformRootId": "platform",
+      "platformDirectory": "src/acceptance",
+      "requireEveryPlatformFile": true,
+      "ignoredPlatformFiles": [
+        "acceptance-project.ts"
+      ]
+    },
+    {
+      "id": "acceptance-project-type-adapter",
+      "projectRootId": "workspace",
+      "projectDirectory": "Merchant Center UITest/acceptance/projects",
+      "platformRootId": "platform",
+      "platformDirectory": "src/acceptance",
+      "requireEveryPlatformFile": false,
+      "adapterFiles": [
+        "acceptance-project.ts"
+      ]
+    },
+    {
+      "id": "process-core-bridges",
+      "projectRootId": "workspace",
+      "projectDirectory": "Merchant Center UITest/utils",
+      "platformRootId": "platform",
+      "platformDirectory": "src/utils",
+      "requireEveryPlatformFile": true,
+      "adapterFiles": [
+        "playwright-execution-receipt.ts",
+        "wait.ts",
+        "reverse-scenario-catalog.ts"
+      ]
+    }
+  ],
+  "exactDuplicateScan": {
+    "platformRootId": "platform",
+    "platformPatterns": [
+      "src/**/*.ts",
+      "scripts/**/*.ts"
+    ],
+    "projectRootId": "workspace",
+    "projectPatterns": [
+      "Merchant Center UITest/acceptance/**/*.ts",
+      "Merchant Center UITest/automation/**/*.ts",
+      "Merchant Center UITest/reporters/**/*.ts",
+      "Merchant Center UITest/scripts/**/*.ts",
+      "Merchant Center UITest/utils/**/*.ts"
+    ]
+  },
+  "importScans": [
+    {
+      "rootId": "platform",
+      "patterns": [
+        "src/**/*.ts",
+        "scripts/**/*.ts",
+        "tests/**/*.ts",
+        "playwright.config.ts"
+      ]
+    },
+    {
+      "rootId": "workspace",
+      "patterns": [
+        "Merchant Center UITest/acceptance/**/*.ts",
+        "Merchant Center UITest/adapters/**/*.ts",
+        "Merchant Center UITest/api/**/*.ts",
+        "Merchant Center UITest/automation/**/*.ts",
+        "Merchant Center UITest/config/**/*.ts",
+        "Merchant Center UITest/fixtures/**/*.ts",
+        "Merchant Center UITest/flows/**/*.ts",
+        "Merchant Center UITest/pages/**/*.ts",
+        "Merchant Center UITest/reporters/**/*.ts",
+        "Merchant Center UITest/scripts/**/*.ts",
+        "Merchant Center UITest/sop/**/*.ts",
+        "Merchant Center UITest/systems/**/*.ts",
+        "Merchant Center UITest/tests/**/*.ts",
+        "Merchant Center UITest/utils/**/*.ts",
+        "Merchant Center UITest/playwright.config.ts",
+        "tools/**/*.mjs"
+      ]
+    }
+  ],
+  "packageScripts": [
+    {
+      "rootId": "platform",
+      "path": "package.json"
+    },
+    {
+      "rootId": "workspace",
+      "path": "Merchant Center UITest/package.json"
+    }
+  ],
+  "structuredReferences": [
+    {
+      "id": "merchant-center-source-reference",
+      "scanRootId": "workspace",
+      "scanPatterns": [
+        "Merchant Center UITest/contracts/product-center/product-center-test-contract.json",
+        "Merchant Center UITest/contracts/product-center/product-center-traceability.json",
+        "Merchant Center UITest/contracts/product-center/generated/**/*.json"
+      ],
+      "prefix": "merchant-center:/",
+      "targetRootId": "workspace",
+      "missingDisposition": "blocking"
+    },
+    {
+      "id": "merchant-center-frozen-baseline-reference",
+      "scanRootId": "workspace",
+      "scanPatterns": [
+        "Merchant Center UITest/contracts/product-center/snapshots/product-center-baseline.json"
+      ],
+      "prefix": "merchant-center:/",
+      "targetRootId": "workspace",
+      "missingDisposition": "historical-diagnostic",
+      "targetAliases": [
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-待补充用例标题.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md",
+          "reason": "候选标题已合并到正式用例"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-自动化测试用例.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md",
+          "reason": "自动化候选已由正式用例取代"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-待补充用例标题.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "reason": "候选标题已合并到正式用例"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-跨模块环境用例.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "reason": "跨模块候选已并入正式用例并由 disposition 管理"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-自动化测试用例.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "reason": "自动化候选已由正式用例取代"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+          "to": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+          "reason": "历史评审资产已归档且保留原文件"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+          "to": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+          "reason": "历史候选资产已归档且保留原文件"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+          "to": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+          "reason": "历史自动化资产已归档且保留原文件"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+          "to": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+          "reason": "历史追溯资产已归档且保留原文件"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-待补充用例标题.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "reason": "候选标题已合并到正式用例"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-用例标题.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "reason": "历史标题清单已合并到正式用例"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-自动化测试用例.md",
+          "to": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "reason": "自动化候选已由正式用例取代"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "reason": "来源证据迁入来源资料目录"
+        },
+        {
+          "from": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "to": "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "reason": "来源证据迁入来源资料目录"
+        }
+      ]
+    }
+  ],
+  "legacySources": [
+    {
+      "id": "merchant-center-item-legacy-source",
+      "rootId": "workspace",
+      "path": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品",
+      "documentationPath": "Merchant Center Info/99-待废弃/商品中心-商品管理-商品/README.md",
+      "requiredMarkerWhileReferenced": "# 历史产物（暂不可删除）"
+    }
+  ],
+  "transientPolicies": [
+    {
+      "id": "platform-playwright-state",
+      "rootId": "platform",
+      "patterns": [
+        "**/.last-run.json",
+        "**/*.tmp"
+      ],
+      "allowedPatterns": [
+        "test-results/**",
+        "output/**"
+      ]
+    },
+    {
+      "id": "merchant-playwright-state",
+      "rootId": "workspace",
+      "patterns": [
+        "**/.last-run.json",
+        "**/*.tmp",
+        "**/.skill-staging/**",
+        "product-center-group-human-rules*.json",
+        "Merchant Center UITest/product-center-group-human-rules*.json"
+      ],
+      "allowedPatterns": [
+        "Merchant Center UITest/test-results/**",
+        "Merchant Center UITest/**/test-results/**",
+        "Merchant Center UITest/output/**"
+      ]
+    }
+  ],
+  "publicBoundary": {
+    "rootId": "platform",
+    "forbiddenPatterns": [
+      "merchant-center",
+      "Merchant Center",
+      "product-center",
+      "商品中心"
+    ],
+    "forbiddenPathPatterns": [
+      "deliverables/merchant-center-*",
+      "deliverables/system-test-platform/**",
+      "docs/merchant-center-*"
+    ]
+  },
+  "contentPolicies": [
+    {
+      "id": "project-documentation-must-not-reference-public-artifact-state",
+      "rootId": "workspace",
+      "patterns": [
+        "Merchant Center Info/00-待转换测试方案/FINAL-GOAL.md",
+        "Merchant Center Info/00-待转换测试方案/README.md",
+        "Merchant Center UITest/docs/**/*.md",
+        "Merchant Center UITest/adapters/test-automation-platform/reports/**/*.md"
+      ],
+      "forbiddenPatterns": [
+        "Test Automation Platform/deliverables/system-test-platform",
+        "D:\\Menusifu\\Test Automation Platform\\deliverables\\system-test-platform"
+      ]
+    }
+  ],
+  "requiredAssets": [
+    {
+      "id": "merchant-center-platform-state-and-migration-reports",
+      "rootId": "workspace",
+      "paths": [
+        "Merchant Center UITest/deliverables/system-test-platform/artifact-manifest.json",
+        "Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.json",
+        "Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.md",
+        "Merchant Center UITest/deliverables/system-test-platform/execution-index.json",
+        "Merchant Center UITest/deliverables/system-test-platform/final-goal-verdict.json",
+        "Merchant Center UITest/deliverables/system-test-platform/platform-external-dependency.json",
+        "Merchant Center UITest/deliverables/system-test-platform/platform-release.json",
+        "Merchant Center UITest/deliverables/system-test-platform/platform-review-decision-20260815.json",
+        "Merchant Center UITest/deliverables/system-test-platform/platform-review-decision.template.json",
+        "Merchant Center UITest/deliverables/system-test-platform/platform-review-queue.json",
+        "Merchant Center UITest/deliverables/system-test-platform/readiness.json",
+        "Merchant Center UITest/adapters/test-automation-platform/project-adapter.json",
+        "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-extraction-audit.md",
+        "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-file-governance-result.md",
+        "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-integration.md"
+      ]
+    }
+  ],
+  "inventory": {
+    "rootId": "workspace",
+    "baselinePath": "Merchant Center UITest/adapters/test-automation-platform/reports/migration-inventory.baseline.json",
+    "acceptanceReceiptPath": "Merchant Center UITest/deliverables/system-test-platform/migration-baseline-acceptance.jsonl",
+    "categories": [
+      "public-core",
+      "project-adapter",
+      "history"
+    ]
+  },
+  "outputs": {
+    "rootId": "workspace",
+    "jsonPath": "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-migration-closure.json",
+    "markdownPath": "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-migration-closure.md"
+  }
+}

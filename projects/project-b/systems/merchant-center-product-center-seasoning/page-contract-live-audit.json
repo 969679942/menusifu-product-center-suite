@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditId": "merchant-center-seasoning-live-page-contract-20260824",
+  "collectedAt": "2026-08-24",
+  "environmentId": "balamxqa",
+  "roleId": "merchant-operator",
+  "locale": "zh-CN",
+  "authentication": {
+    "method": "existing-ui-automation-oauth-flow",
+    "storageStatePath": "output/auth-state.json",
+    "merchant": "Menusifu SCH Restaurant",
+    "brandId": "000407",
+    "businessWrites": "none"
+  },
+  "routes": [
+    {
+      "route": "/pp/brand/seasoning/list",
+      "visibleControls": [
+        "调味组排序",
+        "批量操作 (initially disabled)",
+        "下发",
+        "新增调味",
+        "调味名称 search field",
+        "group operation icon controls"
+      ],
+      "visibleTableColumns": ["调味名称", "第二名称", "价格($)", "应用门店", "操作"],
+      "requests": [
+        "GET /item/v1/ops-brand/global-modifier/list",
+        "GET /item/v1/ops-brand/merchants"
+      ],
+      "terminalState": "brand seasoning groups and option rows rendered"
+    },
+    {
+      "route": "/pp/brand/seasoning/create",
+      "entry": "新增调味 -> 新增调味",
+      "visibleControls": ["确定", "基础", "高级", "添加调味"],
+      "fields": [
+        { "label": "调味组名称", "type": "text", "maxLength": 100, "requiredEvidence": "aria-required=true" },
+        { "label": "第二名称", "type": "text", "maxLength": 100 },
+        { "label": "POS名称", "type": "text", "maxLength": 100 },
+        { "label": "调味名称", "type": "text", "placeholder": "如：Sweet", "maxLength": 100, "required": true },
+        { "label": "调味名称（第二语言）", "type": "text", "maxLength": 100 },
+        { "label": "默认价格", "role": "spinbutton", "min": 0, "max": 999999.99, "step": 1 }
+      ],
+      "statefulSections": [
+        { "name": "基础", "columns": ["排序", "调味名称", "调味名称（第二语言）", "默认价格", "POS颜色", "操作"] },
+        { "name": "高级", "columns": ["排序", "调味名称", "调味名称（第二语言）", "默认价格", "POS名称", "送厨名称", "POS颜色", "操作"] }
+      ],
+      "terminalState": "create form rendered; no submit performed"
+    },
+    {
+      "route": "/pp/brand/seasoning/create-select",
+      "entry": "新增调味 -> 使用行业调味",
+      "visibleControls": ["确定 (initially disabled)", "group selection checkboxes"],
+      "visibleSections": ["默认", "Request", "需求"],
+      "requests": ["GET /item/v1/ops-brand/global-modifier/platform-presets"],
+      "terminalState": "preset seasoning groups rendered; selected count is 0"
+    },
+    {
+      "route": "/pp/brand/seasoning/record",
+      "visibleControls": ["重置", "任务名称 filter", "门店 filter", "状态 filter", "下发时间 filter"],
+      "visibleTableColumns": ["任务名称", "门店", "状态", "下发时间"],
+      "requests": ["POST /item/v1/ops-brand/brand-modifier-sync/job/list"],
+      "terminalState": "distribution records rendered with success and pending states"
+    }
+  ],
+  "safety": {
+    "mutationRequestsObserved": [],
+    "cleanupRequired": false,
+    "evidenceAuthority": "UI for visible results; API/network for mapping and identity only"
+  },
+  "scopeNote": "This artifact records observed page contracts. It does not by itself bind or pass any formal case; each case still requires assertion-surface and semantic mapping review."
+}

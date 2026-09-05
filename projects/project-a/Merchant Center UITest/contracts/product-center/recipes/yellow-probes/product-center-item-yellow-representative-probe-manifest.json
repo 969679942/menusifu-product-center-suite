@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-shared-chain-probe-manifest",
+  "generatedAt": "2026-08-29T16:16:04.262Z",
+  "sourceFingerprint": "b034874d72f199eae1c6d177f4de3483cb03ec833fc77de82c432ad3e79773a0",
+  "executionPolicy": {
+    "mode": "wave-shared-chain",
+    "caseLevelExecutionAllowed": false,
+    "caseRecipes": 58,
+    "executorGroups": 34,
+    "caseEvidenceRequired": 58,
+    "evidenceInheritanceAllowed": false
+  },
+  "waves": [
+    {
+      "waveId": "Y1",
+      "name": "Merchant Center 只读共享链探测",
+      "riskLevel": "L0",
+      "status": "executor-required",
+      "templateCount": 8,
+      "caseCount": 14,
+      "caseIds": [
+        "TC-ITEM-STD-041",
+        "TC-ITEM-STD-079",
+        "TC-ITEM-STD-071",
+        "TC-ITEM-STD-074",
+        "TC-ITEM-STD-076",
+        "TC-ITEM-ADD-035",
+        "TC-ITEM-PKG-044",
+        "TC-ITEM-PKG-056",
+        "TC-ITEM-PKG-003",
+        "TC-ITEM-PKG-045",
+        "TC-ITEM-PKG-014",
+        "TC-ITEM-PKG-051",
+        "TC-ITEM-UI-001",
+        "TC-ITEM-UI-002"
+      ],
+      "sharedChainAnchorCaseIds": [
+        "TC-ITEM-STD-041",
+        "TC-ITEM-STD-079",
+        "TC-ITEM-STD-071",
+        "TC-ITEM-ADD-035",
+        "TC-ITEM-PKG-044",
+        "TC-ITEM-PKG-003",
+        "TC-ITEM-PKG-014",
+        "TC-ITEM-UI-001"
+      ],
+      "groupIds": [
+        "AT07",
+        "AT14",
+        "AT18",
+        "AT31",
+        "AT36",
+        "AT37",
+        "AT40",
+        "AT53"
+      ],
+      "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts"
+    },
+    {
+      "waveId": "Y2",
+      "name": "Merchant Center 受控负向共享链探测",
+      "riskLevel": "L1",
+      "status": "executor-required",
+      "templateCount": 1,
+      "caseCount": 1,
+      "caseIds": [
+        "TC-ITEM-STD-061"
+      ],
+      "sharedChainAnchorCaseIds": [
+        "TC-ITEM-STD-061"
+      ],
+      "groupIds": [
+        "AT02"
+      ],
+      "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y2.generated.spec.ts"
+    },
+    {
+      "waveId": "Y3",
+      "name": "Merchant Center mutation 共享链探测",
+      "riskLevel": "L2",
+      "status": "executor-required",
+      "templateCount": 19,
+      "caseCount": 37,
+      "caseIds": [
+        "TC-ITEM-STD-030",
+        "TC-ITEM-STD-019",
+        "TC-ITEM-STD-025",
+        "TC-ITEM-STD-026",
+        "TC-ITEM-STD-027",
+        "TC-ITEM-STD-084",
+        "TC-ITEM-STD-085",
+        "TC-ITEM-STD-086",
+        "TC-ITEM-ADD-025",
+        "TC-ITEM-ADD-033",
+        "TC-ITEM-ADD-041",
+        "TC-ITEM-ADD-007",
+        "TC-ITEM-ADD-009",
+        "TC-ITEM-ADD-022",
+        "TC-ITEM-ADD-039",
+        "TC-ITEM-ADD-012",
+        "TC-ITEM-ADD-013",
+        "TC-ITEM-ADD-018",
+        "TC-ITEM-ADD-019",
+        "TC-ITEM-ADD-020",
+        "TC-ITEM-ADD-021",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-049",
+        "TC-ITEM-ADD-045",
+        "TC-ITEM-ADD-038",
+        "TC-ITEM-ADD-002",
+        "TC-ITEM-PKG-036",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-020",
+        "TC-ITEM-PKG-042",
+        "TC-ITEM-PKG-043",
+        "TC-ITEM-UI-003",
+        "TC-ITEM-UI-007",
+        "TC-ITEM-UI-008",
+        "TC-ITEM-UI-004",
+        "TC-ITEM-UI-005",
+        "TC-ITEM-UI-006"
+      ],
+      "sharedChainAnchorCaseIds": [
+        "TC-ITEM-STD-030",
+        "TC-ITEM-STD-019",
+        "TC-ITEM-STD-086",
+        "TC-ITEM-ADD-025",
+        "TC-ITEM-ADD-033",
+        "TC-ITEM-ADD-041",
+        "TC-ITEM-ADD-007",
+        "TC-ITEM-ADD-012",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-045",
+        "TC-ITEM-ADD-038",
+        "TC-ITEM-ADD-002",
+        "TC-ITEM-PKG-036",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-020",
+        "TC-ITEM-PKG-042",
+        "TC-ITEM-UI-003",
+        "TC-ITEM-UI-007",
+        "TC-ITEM-UI-004"
+      ],
+      "groupIds": [
+        "AT04",
+        "AT13",
+        "AT16",
+        "AT22",
+        "AT23",
+        "AT24",
+        "AT25",
+        "AT26",
+        "AT27",
+        "AT29",
+        "AT30",
+        "AT32",
+        "AT35",
+        "AT38",
+        "AT41",
+        "AT44",
+        "AT51",
+        "AT52",
+        "AT54"
+      ],
+      "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts"
+    },
+    {
+      "waveId": "Y4",
+      "name": "跨渠道与终端共享链探测",
+      "riskLevel": "L3",
+      "status": "blocked-until-controlled-channel",
+      "templateCount": 6,
+      "caseCount": 6,
+      "caseIds": [
+        "TC-ITEM-STD-024",
+        "TC-ITEM-STD-083",
+        "TC-ITEM-STD-077",
+        "TC-ITEM-ADD-037",
+        "TC-ITEM-PKG-070",
+        "TC-ITEM-PKG-060"
+      ],
+      "sharedChainAnchorCaseIds": [
+        "TC-ITEM-STD-024",
+        "TC-ITEM-STD-083",
+        "TC-ITEM-STD-077",
+        "TC-ITEM-ADD-037",
+        "TC-ITEM-PKG-070",
+        "TC-ITEM-PKG-060"
+      ],
+      "groupIds": [
+        "AT11",
+        "AT12",
+        "AT20",
+        "AT33",
+        "AT48",
+        "AT49"
+      ],
+      "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts"
+    }
+  ]
+}

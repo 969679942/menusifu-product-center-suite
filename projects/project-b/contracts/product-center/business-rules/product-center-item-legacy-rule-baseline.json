@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-legacy-rule-baseline",
+  "sourceRole": "legacy-rule-baseline",
+  "authoritySource": "Merchant Center Info/商品中心业务规则.md",
+  "sourcePolicy": "旧 AIQA 汇总只作覆盖分析线索，不构成正式业务规则或 acceptance 断言",
+  "bindings": [
+    {
+      "bindingId": "legacy-binding:item-category-leaf",
+      "ruleId": "BR-ITEM-CATEGORY-LEAF",
+      "module": "item",
+      "statement": "商品分类填写时必须选择叶子分类",
+      "citationKind": "statement",
+      "citation": "商品分类叶子选择规则",
+      "sectionHeading": "1. 商品管理 / 商品",
+      "expectedText": "商品分类：非必填；创建或编辑时未修改则保留原分类，主动清空允许保存为空；若选择的一级分类存在二级分类，必须选择到叶子分类；保存后列表可按分类过滤、编辑详情回显最终结果。"
+    },
+    {
+      "bindingId": "legacy-binding:BR-ITEM-010",
+      "ruleId": "BR-ITEM-010",
+      "module": "item",
+      "statement": "同一商户内商品名称不可重复",
+      "citationKind": "rule",
+      "citation": "BR-ITEM-010",
+      "sectionHeading": "2.4.1 历史规则快照（只读）",
+      "expectedText": "[B端] 商品名称：必填，100 字符；**首尾禁止空格，含首尾空格保存失败**（见 `BR-FMT-001`）；**同一商户（一个商品中心账号）内不可重复**；标准/套餐/加料统一判重；与第二名称互斥。"
+    },
+    {
+      "bindingId": "legacy-binding:item-industry-inheritance",
+      "ruleId": "BR-ITEM-INDUSTRY-INHERITANCE",
+      "module": "item",
+      "statement": "从行业商品库新建商品时仅继承商品名称",
+      "citationKind": "statement",
+      "citation": "行业商品继承范围",
+      "sectionHeading": "1. 商品管理 / 商品",
+      "expectedText": "行业商品开启后，新建商品仅继承商品名称，其余参数不继承。"
+    }
+  ]
+}

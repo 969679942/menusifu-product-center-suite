@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-24T04:17:16.916Z",
+  "sourceCatalogs": [
+    "test-data/product-center/entity-matrix.ts",
+    "sop/product-center/product-center-create-sop.catalog.ts",
+    "sop/product-center/product-center-sop.catalog.ts",
+    "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+    "sop/product-center/product-center-high-dependency-sop.catalog.ts",
+    "sop/product-center/product-center-negative-sop.catalog.ts"
+  ],
+  "summary": {
+    "totalEntities": 18,
+    "uiAndApi": 17,
+    "apiOnly": 12,
+    "notApplicable": 5,
+    "reviewRequired": 1,
+    "uncovered": 1
+  },
+  "entities": [
+    {
+      "entity": "商品分类",
+      "route": "/pp/brand/category",
+      "uiActions": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [
+        "required",
+        "max-length",
+        "cancel-delete"
+      ],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": []
+    },
+    {
+      "entity": "打印档口（品牌）",
+      "route": "/pp/printer-stall/list",
+      "uiActions": [
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [
+        {
+          "action": "edit",
+          "reason": "当前 API 合同无安全更新接口"
+        }
+      ],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例",
+        "部分动作经运行时证据标记为不适用"
+      ]
+    },
+    {
+      "entity": "规格组",
+      "route": "/pp/brand/spec",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "税种",
+      "route": "/poi/tax/tax-types",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "口味组",
+      "route": "/pp/brand/option-group/taste",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "做法组",
+      "route": "/pp/brand/option-group/method",
+      "uiActions": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [
+        "required",
+        "max-length"
+      ],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": []
+    },
+    {
+      "entity": "加料组",
+      "route": "/pp/brand/option-group/additional",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [
+        "prerequisite-disabled"
+      ],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "套餐组",
+      "route": "/pp/brand/combo",
+      "uiActions": [
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [
+        {
+          "action": "edit",
+          "reason": "当前 UI 操作菜单仅显示 Delete，未暴露编辑入口"
+        }
+      ],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例",
+        "部分动作经运行时证据标记为不适用"
+      ]
+    },
+    {
+      "entity": "描述标签",
+      "route": "/pp/brand/tag/description",
+      "uiActions": [
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [
+        {
+          "action": "edit",
+          "reason": "当前 API 合同无安全更新接口"
+        }
+      ],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例",
+        "部分动作经运行时证据标记为不适用"
+      ]
+    },
+    {
+      "entity": "统计标签",
+      "route": "/pp/brand/tag/statistic",
+      "uiActions": [
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [
+        {
+          "action": "edit",
+          "reason": "当前 API 合同无安全更新接口"
+        }
+      ],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例",
+        "部分动作经运行时证据标记为不适用"
+      ]
+    },
+    {
+      "entity": "原料",
+      "route": "/pp/brandMaterial",
+      "uiActions": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": []
+    },
+    {
+      "entity": "原料分类",
+      "route": "/pp/brandMaterialCategory",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "配方原料",
+      "route": "/pp/bom/ingredient",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "配方单",
+      "route": "/pp/bom/list",
+      "uiActions": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": []
+    },
+    {
+      "entity": "菜单",
+      "route": "/bm/menu/list",
+      "uiActions": [
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例"
+      ]
+    },
+    {
+      "entity": "打印机",
+      "route": "/poi/printer-stall/list",
+      "uiActions": [
+        "edit"
+      ],
+      "apiOnlyActions": [
+        "create"
+      ],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [
+        "required"
+      ],
+      "notApplicable": [
+        {
+          "action": "delete",
+          "reason": "当前 UI 二级菜单仅提供 Unlink，不提供打印机实体删除"
+        }
+      ],
+      "coverage": "ui-and-api",
+      "gaps": [
+        "创建场景使用 API Seed，尚无 UI 创建用例",
+        "部分动作经运行时证据标记为不适用"
+      ]
+    },
+    {
+      "entity": "品牌调味",
+      "route": "/pp/brand/seasoning/list",
+      "uiActions": [
+        "create",
+        "edit",
+        "delete"
+      ],
+      "apiOnlyActions": [],
+      "apiLifecycle": [
+        "seed",
+        "verify",
+        "cleanup"
+      ],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "ui-and-api",
+      "gaps": []
+    },
+    {
+      "entity": "门店调味",
+      "route": "/poi/location/seasoning",
+      "uiActions": [],
+      "apiOnlyActions": [],
+      "apiLifecycle": [],
+      "negativeScenarios": [],
+      "notApplicable": [],
+      "coverage": "review-required",
+      "gaps": [
+        "当前 API/UI 证据不足，保留评审项"
+      ]
+    }
+  ]
+}

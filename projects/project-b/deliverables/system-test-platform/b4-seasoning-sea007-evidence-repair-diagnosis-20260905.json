@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-007"],
+  "rootCause": "调味名称查询错误复用了负向提交数据档案，导致收据要求未实际执行的POST /global-modifier操作；业务执行和清理均通过，但证据门禁正确拒绝通过。",
+  "correctiveAction": "新增仅要求真实批量造数操作的seasoning-search-reversible数据档案，将TC-FLV-SEA-007独立映射到该档案，并用适配器合同测试锁定。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788552765063-run-single-store-000407/evidence-ledger.json",
+    "Merchant Center UITest/systems/merchant-center-product-center-seasoning/build.ts",
+    "Merchant Center UITest/systems/merchant-center-product-center-seasoning/manifest.json",
+    "Merchant Center UITest/tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": []
+}

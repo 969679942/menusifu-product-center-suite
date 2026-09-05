@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-024",
+    "TC-FLV-SEA-025",
+    "TC-FLV-SEA-026",
+    "TC-FLV-SEA-027"
+  ],
+  "rootCause": "全量执行发现四条重复校验用例虽真实发送 UI 请求并通过业务断言，但请求结果只进入旧诊断集合，未进入公共可执行操作收据通道；SEA-027 同时错误绑定为新增接口族，导致标准 evidence ledger 将四条通过结果判定为证据不完整。",
+  "correctiveAction": "将 SEA-024、SEA-025、SEA-026 的重复新增请求绑定为 POST /ops-brand/global-modifier，将 SEA-027 的同组重复编辑请求绑定为 PUT /ops-brand/global-modifier/{id}，通过公共可执行操作收据包装器记录实际响应，再在 single-store-000407 上定向复验四条并核对断言、清理和零残留。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/build.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/allure-step-policy.contract.spec.ts",
+    "output/checkpoints/seasoning-full-report-v11-receipt-fix.json"
+  ],
+  "supersedesAttemptIds": []
+}

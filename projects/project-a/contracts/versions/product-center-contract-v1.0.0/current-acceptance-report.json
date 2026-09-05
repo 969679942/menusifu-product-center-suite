@@ -1,0 +1,152 @@
+{
+  "run": {
+    "generatedAt": "2026-07-22T02:06:32.724Z",
+    "brandId": "000407",
+    "environment": "balamxqa",
+    "contract": "D:\\Menusifu\\Merchant Center\\contracts\\product-center\\product-center-test-contract.json"
+  },
+  "acceptance": {
+    "routeCoverage": {
+      "numerator": 34,
+      "denominator": 34,
+      "pass": true,
+      "source": [
+        "D:\\Menusifu\\Merchant Center\\contracts\\product-center\\blocked-route-retry-checkpoint.json",
+        "D:\\Menusifu\\TestOps\\artifacts\\menusifu-p0-final-report.json"
+      ]
+    },
+    "controlIdentification": {
+      "numerator": 221,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\Merchant Center\\contracts\\product-center\\control-fingerprint-bindings.json"
+    },
+    "actionSuccess": {
+      "numerator": 221,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\menusifu-p0-final-report.json"
+    },
+    "clickErrors": {
+      "numerator": 0,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\menusifu-p0-final-report.json"
+    },
+    "popupFields": {
+      "numerator": 221,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\menusifu-p0-final-report.json"
+    },
+    "secondaryOverlays": {
+      "numerator": 221,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\menusifu-p0-final-report.json"
+    },
+    "requiredValidation": {
+      "numerator": 18,
+      "denominator": 18,
+      "pass": true,
+      "source": [
+        "D:\\Menusifu\\TestOps\\artifacts\\required-validation-final.json",
+        "D:\\Menusifu\\Merchant Center\\contracts\\product-center\\field-constraints.json"
+      ]
+    },
+    "crud": {
+      "numerator": 18,
+      "denominator": 18,
+      "pass": true,
+      "blocked": 1,
+      "source": [
+        "D:\\Menusifu\\TestOps\\artifacts\\p1-crud-applicability.json",
+        "D:\\Menusifu\\TestOps\\artifacts\\crud-category-AUTO_AUDIT_CATEGORY_1784684505504",
+        "D:\\Menusifu\\TestOps\\artifacts\\crud-method-robust-AUTO_AUDIT_METHOD_1784684547303",
+        "D:\\Menusifu\\TestOps\\artifacts\\crud-material-AUTO_AUDIT_MAT_1784684628916",
+        "D:\\Menusifu\\TestOps\\artifacts\\crud-bom-AUTO_AUDIT_BOM_1784684846372",
+        "D:\\Menusifu\\TestOps\\artifacts\\crud-seasoning-AUTO_AUDIT_SEASONING_1784684729518"
+      ]
+    },
+    "cleanup": {
+      "numerator": 34,
+      "denominator": 34,
+      "pass": true,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\residue-scan-v2-1784685396787\\residue-scan.json"
+    },
+    "authCleanup": {
+      "numerator": 1,
+      "denominator": 1,
+      "pass": true,
+      "source": "workspace auth/session file scan"
+    },
+    "evidence": {
+      "numerator": 221,
+      "denominator": 221,
+      "pass": true,
+      "source": "D:\\Menusifu\\Merchant Center\\contracts\\product-center\\locators.json"
+    },
+    "stateMatrix": {
+      "numerator": 850,
+      "denominator": 850,
+      "pass": true,
+      "blocked": 78,
+      "notApplicable": 471,
+      "source": "D:\\Menusifu\\TestOps\\artifacts\\p2-state-matrix-final.json"
+    }
+  },
+  "status": "complete",
+  "pilots": [
+    {
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\crud-category-AUTO_AUDIT_CATEGORY_1784684505504",
+      "error": null,
+      "residue": 0,
+      "steps": 3,
+      "pass": true
+    },
+    {
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\crud-method-robust-AUTO_AUDIT_METHOD_1784684547303",
+      "error": null,
+      "residue": 0,
+      "steps": 8,
+      "pass": true
+    },
+    {
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\crud-material-AUTO_AUDIT_MAT_1784684628916",
+      "error": null,
+      "residue": 0,
+      "steps": 11,
+      "pass": true
+    },
+    {
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\crud-bom-AUTO_AUDIT_BOM_1784684846372",
+      "error": null,
+      "residue": 0,
+      "steps": 17,
+      "pass": true
+    },
+    {
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\crud-seasoning-AUTO_AUDIT_SEASONING_1784684729518",
+      "error": null,
+      "residue": 0,
+      "steps": 11,
+      "pass": true
+    }
+  ],
+  "contractSummary": {
+    "routes": 34,
+    "controls": 221,
+    "fields": 222,
+    "locators": 221,
+    "fieldConstraints": 222,
+    "dialogs": 82,
+    "validations": 18,
+    "apiOperations": 656,
+    "uiApiMappings": 566,
+    "unresolved": 96
+  },
+  "unresolvedSummary": {
+    "apiDocumentation": 96,
+    "automationBlocking": 0
+  }
+}

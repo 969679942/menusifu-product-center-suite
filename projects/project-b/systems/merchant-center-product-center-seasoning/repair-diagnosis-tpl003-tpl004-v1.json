@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-003", "TC-FLV-TPL-004"],
+  "rootCause": "模板选择调味弹窗的列表数据异步渲染；适配器在点击 checkbox 前过早读取 text 并用于组/调味断言，而选择后的 selectedText 已完整包含组、items 数、调味名称、第二语言、已选数量和所选身份。",
+  "correctiveAction": "三个断言统一使用选择动作后的稳定 selectedText；保留真实 GET /ops-brand/global-modifier/list 操作收据和多门店 000420 上下文守卫。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787567317833_TC-FLV-TPL-003.error.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787567317833_TC-FLV-TPL-004.error.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": ["246f6c10603a1375", "d371d5089c4f0964"]
+}

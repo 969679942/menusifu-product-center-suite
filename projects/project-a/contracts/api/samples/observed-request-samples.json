@@ -1,0 +1,150 @@
+{
+  "source": "商品中心.postman_collection.json",
+  "requests": [
+    {
+      "group": [],
+      "name": "查询商品",
+      "method": "POST",
+      "url": "{baseUrl}/item/v1/ops-brand/brand-items/pageQuery",
+      "headers": {
+        "token": "{{MC_ACCESS_TOKEN}}",
+        "x-brand-id": "000407"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "pageNumber": 1,
+        "pageSize": 20
+      }
+    },
+    {
+      "group": [],
+      "name": "开通ad",
+      "method": "PUT",
+      "url": "{baseUrl}/api/iam/api/TEMPORARY_updateMerchantConfig",
+      "headers": {
+        "x-api-key": "{{MC_API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "merchantId": "M000024451",
+        "config": {
+          "timeZone": "Asia/Shanghai",
+          "language": "en-us",
+          "region": "US",
+          "crmIntegrationInfo": {
+            "outMerchantId": "dc120f07-7ffa-4ba4-9eac-c8536538e8ad",
+            "thirdPartyKey": "dc120f07-7ffa-4ba4-9eac-c8536538e8ad",
+            "thirdPartySecret": "15dcf79896d8e735130fc86cdedcc597",
+            "thirdPartyType": "advocado",
+            "type": "MenuSifuIntegration"
+          }
+        }
+      }
+    },
+    {
+      "group": [],
+      "name": "开通OMS",
+      "method": "POST",
+      "url": "{baseUrl}/dashboard/merchant/salesforce/addservice",
+      "headers": {
+        "x-api-key": "{{MC_API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "accountId": "0011N00001utP86QAEepffudjhjkjabady4",
+        "caseRecordTypeName": "Configuration",
+        "mid": "M000024451",
+        "website": "https://console.aws.amazon.com",
+        "edd": 1558324800000,
+        "type": "ONLINE_ORDER_V2",
+        "serviceSelections": "Pickup;Togo;Self-Dine In;Delivery",
+        "onlineOrderEmail": "{{MC_USERNAME}}",
+        "contactName": "M000024451",
+        "contactMobile": "9125255156",
+        "contactPhone": null,
+        "name": "M000024451",
+        "street": "16 Sims Crescent Unit6",
+        "city": "Richmond Hill",
+        "state": "ON",
+        "zipcode": "L4B2P1",
+        "country": "United States",
+        "menuCreator": "11111"
+      }
+    },
+    {
+      "group": [],
+      "name": "更改库存",
+      "method": "POST",
+      "url": "{baseUrl}/item/v1/ops-poi/poi-items/stock/edit",
+      "headers": {
+        "token": "{{MC_ACCESS_TOKEN}}",
+        "x-brand-id": "000005",
+        "x-poi-id": "M000003100"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "objectId": 251912,
+        "objectType": 1,
+        "stockStatus": 1,
+        "stockType": 2,
+        "autoRestoreType": 2,
+        "planQuantity": 0,
+        "channelStocks": [
+          {
+            "channelCode": "POS",
+            "stockStatus": 1,
+            "stockType": 1
+          },
+          {
+            "channelCode": "SELF_DINE_IN",
+            "stockStatus": 1,
+            "stockType": 1
+          },
+          {
+            "channelCode": "ONLINE_ORDER",
+            "stockStatus": 1,
+            "stockType": 1
+          },
+          {
+            "channelCode": "EMENU",
+            "stockStatus": 1,
+            "stockType": 1
+          },
+          {
+            "channelCode": "KIOSK",
+            "stockStatus": 1,
+            "stockType": 1
+          }
+        ],
+        "itemName": "Black Garlic Organic Chicken Paitan"
+      }
+    },
+    {
+      "group": [],
+      "name": "查询打印机",
+      "method": "POST",
+      "url": "{baseUrl}/item/v1/ops-poi/item-printers/printers/page",
+      "headers": {
+        "Token": "{{MC_ACCESS_TOKEN}}",
+        "X-Brand-Id": "000407",
+        "X-Poi-Id": "M000024451"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "pageNumber": 1,
+        "pageSize": 100
+      }
+    },
+    {
+      "group": [],
+      "name": "New Request",
+      "method": "GET",
+      "url": "",
+      "headers": {},
+      "bodyMode": null,
+      "body": null
+    }
+  ]
+}

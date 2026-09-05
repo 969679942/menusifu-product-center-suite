@@ -1,0 +1,3840 @@
+{
+  "metadata": {
+    "moduleId": "brand-seasoning",
+    "moduleName": "品牌调味管理",
+    "levelOne": "商品管理",
+    "routes": [
+      "/pp/brand/seasoning/list",
+      "/pp/brand/seasoning/record"
+    ],
+    "recordCount": 105
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:a8e0b800fdf2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "name": "调味",
+          "href": "/pp/brand/seasoning/list",
+          "status": "passed",
+          "expectedControls": 28,
+          "evidencedControls": 28,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:d5b0ffff3643",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "name": "下发记录",
+          "href": "/pp/brand/seasoning/record",
+          "status": "passed",
+          "expectedControls": 2,
+          "evidencedControls": 2,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/pp/brand/seasoning/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[0]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-1",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 0,
+          "name": "调味组排序",
+          "context": "调味组排序批量操作下发新增调味调味名称第二名称价格($)应用门店操作调味名称第二名称价格($)应用门店操作暂无数据Request需求31个调味调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001Reque",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "调味组排序",
+          "aria": "ordered-list",
+          "title": "",
+          "icon": "ordered-list",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|调味组排序|ordered-list||ordered-list|button||",
+          "fingerprint": "0a58f2a36516c4b4",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "调味组排序",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-10",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[9]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-10",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 9,
+          "name": "button:位置14",
+          "context": "调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置10",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 6,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "6aa2657cdb0a2955",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 6,
+            "fingerprint": "6aa2657cdb0a2955",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-11",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[10]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-11",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 10,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置11",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 2,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "19db1695ed193935",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 2,
+            "fingerprint": "19db1695ed193935",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-12",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[11]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-12",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 11,
+          "name": "button:位置21",
+          "context": "调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置12",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 12,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "ee98c7cba163ac44",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 12,
+            "fingerprint": "ee98c7cba163ac44",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-13",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[12]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-13",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 12,
+          "name": "展开",
+          "context": "Requests需求33个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置13",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 3,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "acaff51abfa56acc",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 3,
+            "fingerprint": "acaff51abfa56acc",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-14",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[13]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-14",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 13,
+          "name": "button:位置28",
+          "context": "Requests需求33个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置14",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 18,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "5ae64c762563704d",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 18,
+            "fingerprint": "5ae64c762563704d",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-15",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[14]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-15",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 14,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作111$0.001Spicy$0.001Mild Spicy$0.001Medium Spicy$0.001Extra Spicy$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置15",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 4,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "bee7773a38d83380",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 4,
+            "fingerprint": "bee7773a38d83380",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-16",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[15]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-16",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 15,
+          "name": "button:位置32",
+          "context": "调味名称第二名称价格($)应用门店操作111$0.001Spicy$0.001Mild Spicy$0.001Medium Spicy$0.001Extra Spicy$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置16",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 21,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "f10b754faa4e5cb5",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 21,
+            "fingerprint": "f10b754faa4e5cb5",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-17",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[16]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-17",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 16,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作111$0.001Spicy$0.001Mild Spicy$0.001Medium Spicy$0.001Extra Spicy$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置17",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 5,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "adeadcd24a1bf32c",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 5,
+            "fingerprint": "adeadcd24a1bf32c",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-18",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[17]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-18",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 17,
+          "name": "button:位置39",
+          "context": "调味名称第二名称价格($)应用门店操作111$0.001Spicy$0.001Mild Spicy$0.001Medium Spicy$0.001Extra Spicy$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置18",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 27,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "e40a68ac3861c699",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 27,
+            "fingerprint": "e40a68ac3861c699",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-19",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[18]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-19",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 18,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作111$0.001Spicy$0.001Mild Spicy$0.001Medium Spicy$0.001Extra Spicy$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置19",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 6,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "3d6d2f49435aaca0",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 6,
+            "fingerprint": "3d6d2f49435aaca0",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[1]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-2",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 1,
+          "name": "下发",
+          "context": "调味组排序批量操作下发新增调味调味名称第二名称价格($)应用门店操作调味名称第二名称价格($)应用门店操作暂无数据Request需求31个调味调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001Reque",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "调味组排序",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "下发",
+          "aria": "cloud-download",
+          "title": "",
+          "icon": "cloud-download",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|下发|cloud-download||cloud-download|button||",
+          "fingerprint": "1aed4478f7e40196",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "下发",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-20",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[19]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-20",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 19,
+          "name": "button:位置43",
+          "context": "Meat肉类16个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置20",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 30,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "2f02784cce2c9d0c",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 30,
+            "fingerprint": "2f02784cce2c9d0c",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-21",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[20]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-21",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 20,
+          "name": "展开",
+          "context": "Meat肉类16个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置21",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 7,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "e3ab91ec084ccd8f",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 7,
+            "fingerprint": "e3ab91ec084ccd8f",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-22",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[21]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-22",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 21,
+          "name": "button:位置50",
+          "context": "调味名称第二名称价格($)应用门店操作Pork$0.001Chicken$0.001Beef$0.001Seafood$0.001Shrimp$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置22",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 36,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "372c16c5d09a102d",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 36,
+            "fingerprint": "372c16c5d09a102d",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-23",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[22]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-23",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 22,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作Pork$0.001Chicken$0.001Beef$0.001Seafood$0.001Shrimp$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置23",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 8,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "3ff2da61f3b8a2be",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 8,
+            "fingerprint": "3ff2da61f3b8a2be",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-24",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[23]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-24",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 23,
+          "name": "button:位置57",
+          "context": "调味名称第二名称价格($)应用门店操作Pork$0.001Chicken$0.001Beef$0.001Seafood$0.001Shrimp$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置24",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 42,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "c62d7398dddd64b8",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 42,
+            "fingerprint": "c62d7398dddd64b8",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-25",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[24]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-25",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 24,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作Pork$0.001Chicken$0.001Beef$0.001Seafood$0.001Shrimp$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置25",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 9,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "1633c3e0ed89bac6",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 9,
+            "fingerprint": "1633c3e0ed89bac6",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-26",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[25]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-26",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 25,
+          "name": "button:位置64",
+          "context": "调味名称第二名称价格($)应用门店操作Pork$0.001Chicken$0.001Beef$0.001Seafood$0.001Shrimp$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置26",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 48,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "fab4fe632c7a12d1",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 48,
+            "fingerprint": "fab4fe632c7a12d1",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-27",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[26]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-27",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 26,
+          "name": "展开",
+          "context": "new tiaowei2个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置27",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 10,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "3c6f2ba61d6ac404",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 10,
+            "fingerprint": "3c6f2ba61d6ac404",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-28",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[27]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-28",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 27,
+          "name": "button:位置67",
+          "context": "new tiaowei2个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置28",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 50,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "d43ca6e70215f407",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 50,
+            "fingerprint": "d43ca6e70215f407",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[2]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-3",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 2,
+          "name": "新增调味",
+          "context": "调味组排序批量操作下发新增调味调味名称第二名称价格($)应用门店操作调味名称第二名称价格($)应用门店操作暂无数据Request需求31个调味调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001Reque",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "批量操作",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "新增调味",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|新增调味|plus||plus|button||",
+          "fingerprint": "9419ee361eb94728",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "新增调味",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[3]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-4",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 3,
+          "name": "展开",
+          "context": "调味组排序批量操作下发新增调味调味名称第二名称价格($)应用门店操作调味名称第二名称价格($)应用门店操作暂无数据Request需求31个调味调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001Reque",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "下发",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "63788007abf235b3",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 0,
+            "fingerprint": "63788007abf235b3",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[4]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-5",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 4,
+          "name": "button:位置7",
+          "context": "调味组排序批量操作下发新增调味调味名称第二名称价格($)应用门店操作调味名称第二名称价格($)应用门店操作暂无数据Request需求31个调味调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001Reque",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "新增调味",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[5]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-6",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 5,
+          "name": "button:Mild Spicy 微辣 $0.00 1",
+          "context": "Request需求31个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置6",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "Mild Spicy 微辣 $0.00 1",
+          "group": "",
+          "occurrence": 1,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "08f8d4c0120716e1",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 1,
+            "fingerprint": "08f8d4c0120716e1",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[6]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-7",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 6,
+          "name": "button:2 222 $0.00 1",
+          "context": "Request需求31个调味",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置7",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "2 222 $0.00 1",
+          "group": "",
+          "occurrence": 28,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "3fac87044d65f1e7",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 28,
+            "fingerprint": "3fac87044d65f1e7",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-8",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[7]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-8",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 7,
+          "name": "button:Pork Fried Rice 叉烧炒饭 $0.00 1",
+          "context": "调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置8",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "Pork Fried Rice 叉烧炒饭 $0.00 1",
+          "group": "",
+          "occurrence": 55,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "a5800abe1a1a2d1b",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 55,
+            "fingerprint": "a5800abe1a1a2d1b",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#control-9",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+            "locator": "/pp/brand/seasoning/list.controls[8]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#control-9",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "index": 8,
+          "name": "展开",
+          "context": "调味名称第二名称价格($)应用门店操作Mild Spicy微辣$0.001Medium Spicy中辣$0.001Extra Spicy重辣$0.001No Spicy不要辣$0.001Salt盐$0.001",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json",
+          "legacyName": "位置9",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 1,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "4aa54ae773325613",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||down||down|button||",
+            "occurrence": 1,
+            "fingerprint": "4aa54ae773325613",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720194321/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/record#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/brand/seasoning/record.controls[0]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "id": "/pp/brand/seasoning/record#control-1",
+          "route": "/pp/brand/seasoning/record",
+          "routeName": "下发记录",
+          "index": 0,
+          "name": "重置",
+          "context": "门店状态重置任务名称门店状态下发时间任务名称门店状态下发时间调味下发-17816745798831成功2026/06/17 13:36:19调味下发-17774258663701成功2026/04/29 09:24:26调味下发-17773712515451成功2026/04/28 18:14:11调味下发-17737269866991成功2026/03/1",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "reset",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|reset||",
+          "fingerprint": "a2fdd27dc8e9d4b2",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/record#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/brand/seasoning/record.controls[1]"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "id": "/pp/brand/seasoning/record#control-2",
+          "route": "/pp/brand/seasoning/record",
+          "routeName": "下发记录",
+          "index": 1,
+          "name": "right",
+          "context": "门店状态重置任务名称门店状态下发时间任务名称门店状态下发时间调味下发-17816745798831成功2026/06/17 13:36:19调味下发-17774258663701成功2026/04/29 09:24:26调味下发-17773712515451成功2026/04/28 18:14:11调味下发-17737269866991成功2026/03/1",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "重置",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "right",
+          "title": "",
+          "icon": "right",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||right||right|button||",
+          "fingerprint": "0fa359c603932bb6",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "right",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/pp/brand/seasoning/list#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-1",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "调味名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-10",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-10",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 9,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-11",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-11",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 10,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-12",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-12",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 11,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-13",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-13",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 12,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-14",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-14",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 13,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-15",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-15",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 14,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-16",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-16",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 15,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-17",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-17",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 16,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-18",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-18",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 17,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-19",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-19",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 18,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-2",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 1,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-20",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-20",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 19,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-21",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-21",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 20,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-22",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-22",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 21,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-23",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-23",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 22,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-24",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-24",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 23,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-25",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-25",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 24,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-26",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-26",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 25,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-27",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-27",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 26,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-28",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-28",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 27,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-29",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-29",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 28,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-3",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 2,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-30",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-30",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 29,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-31",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-31",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 30,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-32",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-32",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 31,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-33",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-33",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 32,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-34",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-34",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 33,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-35",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-35",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 34,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-36",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-36",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 35,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-37",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-37",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 36,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-38",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-38",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 37,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-39",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-39",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 38,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-4",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 3,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-40",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-40",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 39,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-41",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-41",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 40,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-42",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-42",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 41,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-43",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-43",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 42,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-44",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-44",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 43,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-45",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-45",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 44,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-46",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-46",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 45,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-47",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-47",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 46,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-48",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-48",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 47,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-49",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-49",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 48,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-5",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 4,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-50",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-50",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 49,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-51",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-51",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 50,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-52",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-52",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 51,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-53",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-53",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 52,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-54",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-54",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 53,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-55",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-55",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 54,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-56",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-56",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 55,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-57",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-57",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 56,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-6",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 5,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-7",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 6,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-8",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-8",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 7,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/list#field-9",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "id": "/pp/brand/seasoning/list#field-9",
+          "route": "/pp/brand/seasoning/list",
+          "routeName": "调味",
+          "disabled": false,
+          "index": 8,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/record#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "id": "/pp/brand/seasoning/record#field-1",
+          "route": "/pp/brand/seasoning/record",
+          "routeName": "下发记录",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "任务名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/seasoning/record#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "id": "/pp/brand/seasoning/record#field-2",
+          "route": "/pp/brand/seasoning/record",
+          "routeName": "下发记录",
+          "disabled": false,
+          "index": 1,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "search",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [],
+    "validations": [
+      {
+        "id": "validation:826a23b854ed",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/list",
+        "entity": "品牌调味",
+        "evidence": {
+          "entity": "品牌调味",
+          "route": "/pp/brand/seasoning/list",
+          "status": "passed",
+          "fields": [
+            "至少选择一个行业调味"
+          ],
+          "behavior": "未选择时确认禁用",
+          "source": "artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:POST /ops-brand/brand-modifier-sync/job/list",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/brand-modifier-sync/job/list"
+          }
+        ],
+        "route": "/ops-brand/brand-modifier-sync/job/list",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/job/list",
+          "operationId": "list_4",
+          "method": "POST",
+          "path": "/ops-brand/brand-modifier-sync/job/list",
+          "summary": "分页查询调味下发作业",
+          "description": null,
+          "tags": [
+            "调味下发"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/PageQueryBrandBomSyncJobRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandBomSyncJobResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:2379d720abdb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "route": "/pp/brand/seasoning/record",
+          "actionId": "/pp/brand/seasoning/record#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4705fb7ff873",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "route": "/pp/brand/seasoning/record",
+          "actionId": "/pp/brand/seasoning/record#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4c39437a8a3e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "route": "/pp/brand/seasoning/record",
+          "actionId": "/pp/brand/seasoning/record#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:343c69dd7497",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/seasoning/record",
+        "evidence": {
+          "route": "/pp/brand/seasoning/record",
+          "actionId": "/pp/brand/seasoning/record#action-1",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/job/list",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:10",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 10. 商品管理 / 调味管理 / 调味"
+          }
+        ],
+        "module": "商品管理 / 调味管理 / 调味",
+        "evidence": {
+          "heading": "## 10. 商品管理 / 调味管理 / 调味",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:11",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 11. 商品管理 / 调味管理 / 调味模板"
+          }
+        ],
+        "module": "商品管理 / 调味管理 / 调味模板",
+        "evidence": {
+          "heading": "## 11. 商品管理 / 调味管理 / 调味模板",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:12",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 12. 商品管理 / 调味管理 / 下发记录"
+          }
+        ],
+        "module": "商品管理 / 调味管理 / 下发记录",
+        "evidence": {
+          "heading": "## 12. 商品管理 / 调味管理 / 下发记录",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:ee782839140a",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[16]"
+          }
+        ],
+        "entity": "品牌调味",
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "品牌调味",
+            "route": "/pp/brand/seasoning/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:ee782839140a",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json"
+          }
+        ],
+        "entity": "品牌调味",
+        "route": "/pp/brand/seasoning/list",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "品牌调味",
+            "route": "/pp/brand/seasoning/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:create:seasoning",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://create:seasoning",
+            "locator": "品牌调味应通过 UI 创建并完成 API UI 双验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/seasoning/list",
+        "entity": "品牌调味",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+          ],
+          "routeIds": [
+            "route:a8e0b800fdf2",
+            "route:d5b0ffff3643"
+          ],
+          "functionIds": [
+            "/pp/brand/seasoning/list#control-1",
+            "/pp/brand/seasoning/list#control-10",
+            "/pp/brand/seasoning/list#control-11",
+            "/pp/brand/seasoning/list#control-12",
+            "/pp/brand/seasoning/list#control-13",
+            "/pp/brand/seasoning/list#control-14",
+            "/pp/brand/seasoning/list#control-15",
+            "/pp/brand/seasoning/list#control-16",
+            "/pp/brand/seasoning/list#control-17",
+            "/pp/brand/seasoning/list#control-18",
+            "/pp/brand/seasoning/list#control-19",
+            "/pp/brand/seasoning/list#control-2",
+            "/pp/brand/seasoning/list#control-20",
+            "/pp/brand/seasoning/list#control-21",
+            "/pp/brand/seasoning/list#control-22",
+            "/pp/brand/seasoning/list#control-23",
+            "/pp/brand/seasoning/list#control-24",
+            "/pp/brand/seasoning/list#control-25",
+            "/pp/brand/seasoning/list#control-26",
+            "/pp/brand/seasoning/list#control-27",
+            "/pp/brand/seasoning/list#control-28",
+            "/pp/brand/seasoning/list#control-3",
+            "/pp/brand/seasoning/list#control-4",
+            "/pp/brand/seasoning/list#control-5",
+            "/pp/brand/seasoning/list#control-6",
+            "/pp/brand/seasoning/list#control-7",
+            "/pp/brand/seasoning/list#control-8",
+            "/pp/brand/seasoning/list#control-9",
+            "/pp/brand/seasoning/record#control-1",
+            "/pp/brand/seasoning/record#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:2379d720abdb",
+            "mapping-na:4705fb7ff873",
+            "mapping-na:4c39437a8a3e",
+            "mapping:343c69dd7497"
+          ],
+          "stageGaps": [],
+          "caseId": "create:seasoning",
+          "sourceIds": [],
+          "sop": {
+            "action": "create",
+            "scenario": null,
+            "seedMode": "none",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+            "testTitle": "品牌调味应通过 UI 创建并完成 API UI 双验证",
+            "rerunGrep": "品牌调味应通过 UI 创建并完成 API UI 双验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:seasoning",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:seasoning",
+            "locator": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/seasoning/list",
+        "entity": "品牌调味",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+          ],
+          "routeIds": [
+            "route:a8e0b800fdf2",
+            "route:d5b0ffff3643"
+          ],
+          "functionIds": [
+            "/pp/brand/seasoning/list#control-1",
+            "/pp/brand/seasoning/list#control-10",
+            "/pp/brand/seasoning/list#control-11",
+            "/pp/brand/seasoning/list#control-12",
+            "/pp/brand/seasoning/list#control-13",
+            "/pp/brand/seasoning/list#control-14",
+            "/pp/brand/seasoning/list#control-15",
+            "/pp/brand/seasoning/list#control-16",
+            "/pp/brand/seasoning/list#control-17",
+            "/pp/brand/seasoning/list#control-18",
+            "/pp/brand/seasoning/list#control-19",
+            "/pp/brand/seasoning/list#control-2",
+            "/pp/brand/seasoning/list#control-20",
+            "/pp/brand/seasoning/list#control-21",
+            "/pp/brand/seasoning/list#control-22",
+            "/pp/brand/seasoning/list#control-23",
+            "/pp/brand/seasoning/list#control-24",
+            "/pp/brand/seasoning/list#control-25",
+            "/pp/brand/seasoning/list#control-26",
+            "/pp/brand/seasoning/list#control-27",
+            "/pp/brand/seasoning/list#control-28",
+            "/pp/brand/seasoning/list#control-3",
+            "/pp/brand/seasoning/list#control-4",
+            "/pp/brand/seasoning/list#control-5",
+            "/pp/brand/seasoning/list#control-6",
+            "/pp/brand/seasoning/list#control-7",
+            "/pp/brand/seasoning/list#control-8",
+            "/pp/brand/seasoning/list#control-9",
+            "/pp/brand/seasoning/record#control-1",
+            "/pp/brand/seasoning/record#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:2379d720abdb",
+            "mapping-na:4705fb7ff873",
+            "mapping-na:4c39437a8a3e",
+            "mapping:343c69dd7497"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:seasoning",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证",
+            "rerunGrep": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:seasoning",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:seasoning",
+            "locator": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/seasoning/list",
+        "entity": "品牌调味",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+          ],
+          "routeIds": [
+            "route:a8e0b800fdf2",
+            "route:d5b0ffff3643"
+          ],
+          "functionIds": [
+            "/pp/brand/seasoning/list#control-1",
+            "/pp/brand/seasoning/list#control-10",
+            "/pp/brand/seasoning/list#control-11",
+            "/pp/brand/seasoning/list#control-12",
+            "/pp/brand/seasoning/list#control-13",
+            "/pp/brand/seasoning/list#control-14",
+            "/pp/brand/seasoning/list#control-15",
+            "/pp/brand/seasoning/list#control-16",
+            "/pp/brand/seasoning/list#control-17",
+            "/pp/brand/seasoning/list#control-18",
+            "/pp/brand/seasoning/list#control-19",
+            "/pp/brand/seasoning/list#control-2",
+            "/pp/brand/seasoning/list#control-20",
+            "/pp/brand/seasoning/list#control-21",
+            "/pp/brand/seasoning/list#control-22",
+            "/pp/brand/seasoning/list#control-23",
+            "/pp/brand/seasoning/list#control-24",
+            "/pp/brand/seasoning/list#control-25",
+            "/pp/brand/seasoning/list#control-26",
+            "/pp/brand/seasoning/list#control-27",
+            "/pp/brand/seasoning/list#control-28",
+            "/pp/brand/seasoning/list#control-3",
+            "/pp/brand/seasoning/list#control-4",
+            "/pp/brand/seasoning/list#control-5",
+            "/pp/brand/seasoning/list#control-6",
+            "/pp/brand/seasoning/list#control-7",
+            "/pp/brand/seasoning/list#control-8",
+            "/pp/brand/seasoning/list#control-9",
+            "/pp/brand/seasoning/record#control-1",
+            "/pp/brand/seasoning/record#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:2379d720abdb",
+            "mapping-na:4705fb7ff873",
+            "mapping-na:4c39437a8a3e",
+            "mapping:343c69dd7497"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:seasoning",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证",
+            "rerunGrep": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

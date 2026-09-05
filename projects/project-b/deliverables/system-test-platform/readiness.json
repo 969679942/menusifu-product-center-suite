@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "candidate",
+  "commonImplementationReady": true,
+  "adapterImplementationReady": true,
+  "referenceBaselineReady": false,
+  "productBaselineReady": false,
+  "qualifiedCrossDomainPilotIds": [],
+  "qualifiedCrossApplicationPilotIds": [],
+  "blockers": [
+    "REFERENCE_BASELINE_NOT_READY",
+    "CROSS_DOMAIN_PILOT_REQUIRED",
+    "CROSS_APPLICATION_PILOT_REQUIRED"
+  ],
+  "automaticFormalPromotionAllowed": false,
+  "generatedAt": "2026-09-05T00:08:41.672Z",
+  "referenceBaseline": {
+    "applicationId": "merchant-center",
+    "businessDomainId": "product-center",
+    "planned": 144,
+    "executionEligible": 42,
+    "classifiedExclusions": 15,
+    "classifiedBlockers": 87,
+    "executed": 42,
+    "passed": 41,
+    "failed": 1,
+    "automationGap": 0,
+    "evidenceVerified": 41,
+    "evidenceMissing": 0,
+    "evidenceCoverageFingerprint": "b2e17b9795b38aa424ede3e223ba4a2d832d29bba8abadd6607e6a56a0ea36bb",
+    "responsibilityBreakdown": {
+      "passed": 41,
+      "deferred": 7,
+      "not-applicable": 8,
+      "product-defect": 1,
+      "source-blocked": 0,
+      "technical-blocked": 0,
+      "environment-blocked": 0,
+      "handled": 0,
+      "revalidation-required": 87,
+      "invalid": 0,
+      "unclassified": 0
+    },
+    "responsibilityClassified": true,
+    "apiUiZeroResidue": true
+  },
+  "pilots": [
+    {
+      "pilotId": "merchant-center-product-center-seasoning",
+      "applicationId": "merchant-center",
+      "businessDomainId": "product-center-seasoning",
+      "authenticationFamilyId": "merchant-center-oauth-merchant-context",
+      "validationAuthority": "target-system",
+      "authenticated": true,
+      "reversibleCrud": false,
+      "runtimePassed": true,
+      "evidenceComplete": true,
+      "apiUiZeroResidue": true,
+      "securityFindings": 0
+    }
+  ],
+  "source": {
+    "referenceClosureAudit": "deliverables/test-plan-governance/product-center-closure-audit.json#module=商品管理-组",
+    "executionIndex": "Merchant Center UITest/deliverables/system-test-platform/execution-index.json",
+    "referenceEvidenceFiles": [],
+    "pilotArtifacts": [
+      {
+        "pilotId": "merchant-center-product-center-seasoning",
+        "manifest": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/manifest.json",
+        "runReport": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788560029835-run-multi-store-000420/run-report.json",
+        "evidenceLedger": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788560029835-run-multi-store-000420/evidence-ledger.json"
+      }
+    ]
+  },
+  "referenceEvidenceCoverage": {
+    "verifiedCaseIds": [
+      "TC-GRP-ADD-009",
+      "TC-GRP-MTH-001",
+      "TC-GRP-MTH-002",
+      "TC-GRP-MTH-015",
+      "TC-GRP-MTH-017",
+      "TC-GRP-MTH-018",
+      "TC-GRP-PKG-002",
+      "TC-GRP-PKG-006",
+      "TC-GRP-PKG-008",
+      "TC-GRP-PKG-022",
+      "TC-GRP-PKG-036",
+      "TC-GRP-SPEC-001",
+      "TC-GRP-SPEC-002",
+      "TC-GRP-SPEC-005",
+      "TC-GRP-SPEC-008",
+      "TC-GRP-SPEC-010",
+      "TC-GRP-SPEC-013",
+      "TC-GRP-SPEC-015",
+      "TC-GRP-SPEC-018",
+      "TC-GRP-SPEC-019",
+      "TC-GRP-SPEC-021",
+      "TC-GRP-SPEC-022",
+      "TC-GRP-SPEC-028",
+      "TC-GRP-TASTE-001",
+      "TC-GRP-TASTE-002",
+      "TC-GRP-TASTE-003",
+      "TC-GRP-TASTE-004",
+      "TC-GRP-TASTE-005",
+      "TC-GRP-TASTE-006",
+      "TC-GRP-TASTE-007",
+      "TC-GRP-TASTE-008",
+      "TC-GRP-TASTE-009",
+      "TC-GRP-TASTE-010",
+      "TC-GRP-TASTE-012",
+      "TC-GRP-TASTE-013",
+      "TC-GRP-TASTE-015",
+      "TC-GRP-TASTE-016",
+      "TC-GRP-TASTE-018",
+      "TC-GRP-TASTE-019",
+      "TC-GRP-TASTE-020",
+      "TC-GRP-TASTE-021"
+    ],
+    "missingEvidenceCaseIds": [],
+    "diagnostics": [],
+    "supersededDiagnosticCount": 689
+  },
+  "commonImplementationFingerprint": "61f811cb6e754e3dd0849581dcc6e9e5aacd982bdea3064fbfec5f2c7b80d7e5",
+  "pilotDiagnostics": [
+    "PILOT_RUNTIME_MISSING:merchant-center-store-operations-tax:current-complete-run"
+  ]
+}

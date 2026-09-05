@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "产品偏差重放已证明当前 SaaS 行为符合正式规则，但原共享 combo-v2-create-contract handler 会把本用例的批次页面初始化修复计入同 handler 的其他套餐用例实现指纹。为保持单例影响范围，TC-GRP-PKG-030 已拆分为专用 handler，其他用例实现及历史结果保持不变。",
+  "correctiveAction": "通过标准 group 执行通道仅重跑 TC-GRP-PKG-030，生成专用 handler 下的当前绑定和实现指纹收据；继续验证 3/1、中文精确提示、拒绝提交、API 零落库和 UI/API 零残留，不执行其他用例。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-group-finding-source-governed-product-center-group-pkg030-blackbox-recheck-20260903-r4.json",
+    "Merchant Center UITest/contracts/product-center/group/product-center-group-bindings.json",
+    "Merchant Center UITest/contracts/product-center/group/product-center-group-case-fingerprints.json",
+    "Merchant Center UITest/tests/api/product-center-group-automation.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": []
+}

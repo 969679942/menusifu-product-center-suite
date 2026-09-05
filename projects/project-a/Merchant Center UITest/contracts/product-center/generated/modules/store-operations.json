@@ -1,0 +1,4629 @@
+{
+  "metadata": {
+    "moduleId": "store-operations",
+    "moduleName": "门店税务配方打印",
+    "levelOne": "门店商品管理",
+    "routes": [
+      "/poi/tax/tax-types",
+      "/poi/tax/product-tax",
+      "/poi/bom/list",
+      "/poi/printer-stall/list"
+    ],
+    "recordCount": 149
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:49589b77ae9d",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "name": "商品税管理",
+          "href": "/poi/tax/product-tax",
+          "status": "passed",
+          "expectedControls": 1,
+          "evidencedControls": 1,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:5b574e851f6f",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "name": "税种管理",
+          "href": "/poi/tax/tax-types",
+          "status": "passed",
+          "expectedControls": 2,
+          "evidencedControls": 2,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:cb0d4a3cf6cb",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "name": "打印档口",
+          "href": "/poi/printer-stall/list",
+          "status": "passed",
+          "expectedControls": 4,
+          "evidencedControls": 4,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:d68d5cf0b3c0",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "name": "配方列表",
+          "href": "/poi/bom/list",
+          "status": "passed",
+          "expectedControls": 1,
+          "evidencedControls": 1,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/poi/bom/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/poi/bom/list.controls[0]"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "id": "/poi/bom/list#control-1",
+          "route": "/poi/bom/list",
+          "routeName": "配方列表",
+          "index": 0,
+          "name": "重置",
+          "context": "关联商品状态配方分组重置商品视图配方视图配方单名称商品配方分组配方密码操作配方单名称商品配方分组配方密码操作暂无数据",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "关联商品状态 配方分组 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+            "locator": "/poi/printer-stall/list.controls[0]"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#control-1",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "index": 0,
+          "name": "更多操作",
+          "context": "更多操作同步到POS新增打印机",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "更多操作",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "更多操作 同步到POS 新增打印机",
+          "occurrence": 0,
+          "signature": "BUTTON|button|更多操作|down||down|button||",
+          "fingerprint": "2ae466001e67606a",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "更多操作",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+            "locator": "/poi/printer-stall/list.controls[1]"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#control-2",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "index": 1,
+          "name": "同步到POS",
+          "context": "更多操作同步到POS新增打印机",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+          "legacyName": "更多操作",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "同步到POS",
+          "aria": "cloud-sync",
+          "title": "",
+          "icon": "cloud-sync",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "更多操作 同步到POS 新增打印机",
+          "occurrence": 0,
+          "signature": "BUTTON|button|同步到POS|cloud-sync||cloud-sync|button||",
+          "fingerprint": "52fd671ff7c84788",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "同步到POS",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+            "locator": "/poi/printer-stall/list.controls[2]"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#control-3",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "index": 2,
+          "name": "新增打印机",
+          "context": "更多操作同步到POS新增打印机",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+          "legacyName": "同步到POS",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "新增打印机",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "更多操作 同步到POS 新增打印机",
+          "occurrence": 0,
+          "signature": "BUTTON|button|新增打印机|plus||plus|button||",
+          "fingerprint": "1bc510896ade744e",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "新增打印机",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+            "locator": "/poi/printer-stall/list.controls[3]"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#control-4",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "index": 3,
+          "name": "button:厨房 厨房打印机 0 已关联",
+          "context": "更多操作同步到POS新增打印机",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json",
+          "legacyName": "新增打印机",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "厨房 厨房打印机 0 已关联",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/poi/tax/product-tax.controls[0]"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#control-1",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "index": 0,
+          "name": "重置",
+          "context": "商品分类重置批量操作商品税费维护方式税种税率商品税费维护方式税种税率啤酒默认默认税10%辣椒默认默认税10%AUTO-side-1780289305584默认默认税10%AUTO-side-1780288927591默认默认税10%Pearl默认默认税10%Pudding默认默认税10%CoConut Jelly默认默认税10%Taro Ball默认默认税1",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "reset",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|reset||",
+          "fingerprint": "a2fdd27dc8e9d4b2",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/tax-types#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/poi/tax/tax-types.controls[0]"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "id": "/poi/tax/tax-types#control-1",
+          "route": "/poi/tax/tax-types",
+          "routeName": "税种管理",
+          "index": 0,
+          "name": "新增税种",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "新增税种",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|新增税种|plus||plus|button||",
+          "fingerprint": "3d3c589b16ac882e",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "新增税种",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/tax-types#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/poi/tax/tax-types.controls[1]"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "id": "/poi/tax/tax-types#control-2",
+          "route": "/poi/tax/tax-types",
+          "routeName": "税种管理",
+          "index": 1,
+          "name": "button:默认税 10% 四舍五入 57 是",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "默认税 10% 四舍五入 57 是",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/poi/bom/list#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "id": "/poi/bom/list#field-1",
+          "route": "/poi/bom/list",
+          "routeName": "配方列表",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "配方单名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/bom/list#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "id": "/poi/bom/list#field-2",
+          "route": "/poi/bom/list",
+          "routeName": "配方列表",
+          "disabled": false,
+          "index": 1,
+          "label": "商品视图",
+          "name": ":r13:",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "radio",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/bom/list#field-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "id": "/poi/bom/list#field-3",
+          "route": "/poi/bom/list",
+          "routeName": "配方列表",
+          "disabled": false,
+          "index": 2,
+          "label": "配方视图",
+          "name": ":r13:",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "radio",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-3#primary-1#field-44",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-3#primary-1#field-44",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "overlayId": "/poi/printer-stall/list#action-3#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "打印机名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-3#primary-1#field-45",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-3#primary-1#field-45",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "overlayId": "/poi/printer-stall/list#action-3#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "label": "打印档口",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#field-1",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "档口名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#field-2",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "disabled": false,
+          "index": 1,
+          "label": "",
+          "name": ":r14:",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "radio",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#field-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#field-3",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "disabled": false,
+          "index": 2,
+          "label": "",
+          "name": ":r14:",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "radio",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#field-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#field-4",
+          "route": "/poi/printer-stall/list",
+          "routeName": "打印档口",
+          "disabled": false,
+          "index": 3,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "search",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-1",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "商品名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-10",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-10",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 9,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-11",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-11",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 10,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-12",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-12",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 11,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-13",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-13",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 12,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-14",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-14",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 13,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-15",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-15",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 14,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-16",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-16",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 15,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-17",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-17",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 16,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-18",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-18",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 17,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-19",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-19",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 18,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-2",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 1,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-20",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-20",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 19,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-21",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-21",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 20,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-22",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-22",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 21,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-23",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-23",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 22,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-24",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-24",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 23,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-25",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-25",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 24,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-26",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-26",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 25,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-27",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-27",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 26,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-28",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-28",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 27,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-29",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-29",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 28,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-3",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 2,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-30",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-30",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 29,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-31",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-31",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 30,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-32",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-32",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 31,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-33",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-33",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 32,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-34",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-34",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 33,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-35",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-35",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 34,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-36",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-36",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 35,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-37",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-37",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 36,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-38",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-38",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 37,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-39",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-39",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 38,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-4",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 3,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-40",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-40",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 39,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-41",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-41",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 40,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-42",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-42",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 41,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-43",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-43",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 42,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-44",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-44",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 43,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-45",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-45",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 44,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-46",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-46",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 45,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-47",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-47",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 46,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-48",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-48",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 47,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-49",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-49",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 48,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-5",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 4,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-50",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-50",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 49,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-51",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-51",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 50,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-52",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-52",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 51,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-53",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-53",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 52,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-54",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-54",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 53,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "search",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-6",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 5,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-7",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 6,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-8",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-8",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 7,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/product-tax#field-9",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "id": "/poi/tax/product-tax#field-9",
+          "route": "/poi/tax/product-tax",
+          "routeName": "商品税管理",
+          "disabled": false,
+          "index": 8,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [
+      {
+        "id": "/poi/printer-stall/list#action-1#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-1#primary-1",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-1",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "未关联商品 (57) 未关联打印机 (6)",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-3#primary-1",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "新增打印机 确 定 打印机名称 打印档口 打印机是否打印",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "打印机名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "search",
+              "name": "",
+              "placeholder": "",
+              "label": "打印档口",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-3#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-3#secondary-1",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-3#secondary-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-3#secondary-2",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "kind": "secondary",
+          "depth": 3,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/printer-stall/list#action-4#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "id": "/poi/printer-stall/list#action-4#primary-1",
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-4",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联打印机",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/poi/tax/tax-types#action-2#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "id": "/poi/tax/tax-types#action-2#primary-1",
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-2",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联商品 高级设置 删除",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "validations": [
+      {
+        "id": "validation:79d56792750c",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "entity": "打印机",
+        "evidence": {
+          "entity": "打印机",
+          "route": "/poi/printer-stall/list",
+          "status": "passed",
+          "fields": [
+            "打印机名称",
+            "打印档口"
+          ],
+          "behavior": "空提交显示错误且未发送 mutation",
+          "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "validation:c829587b635c",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-targeted-1784612653206/required-validation-targeted.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "entity": "税种",
+        "evidence": {
+          "entity": "税种",
+          "route": "/poi/tax/tax-types",
+          "status": "passed",
+          "fields": [
+            "税种名称",
+            "税率"
+          ],
+          "behavior": "空提交显示请输入",
+          "source": "artifacts/required-validation-targeted-1784612653206/required-validation-targeted.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:GET /ops-poi/print-stalls",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-poi/print-stalls"
+          }
+        ],
+        "route": "/ops-poi/print-stalls",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-poi/print-stalls",
+          "operationId": "list_11",
+          "method": "GET",
+          "path": "/ops-poi/print-stalls",
+          "summary": "门店打印档口列表",
+          "description": "含关联打印机数量、关联打印机名称列表、关联商品数量（不分页）",
+          "tags": [
+            "门店打印档口"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "X-Poi-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultListPoiPrintStallListResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-poi/item-printers/printers/bind-item-sync",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-poi/item-printers/printers/bind-item-sync"
+          }
+        ],
+        "route": "/ops-poi/item-printers/printers/bind-item-sync",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/bind-item-sync",
+          "operationId": "bindItemSync",
+          "method": "POST",
+          "path": "/ops-poi/item-printers/printers/bind-item-sync",
+          "summary": "商品绑定打印机全量同步",
+          "description": "触发门店下商品与打印机绑定关系全量同步至POS",
+          "tags": [
+            "门店商品打印机管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": "品牌ID",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "X-Poi-Id",
+              "in": "header",
+              "required": true,
+              "description": "门店ID",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultBoolean"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-poi/print-stalls/page",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-poi/print-stalls/page"
+          }
+        ],
+        "route": "/ops-poi/print-stalls/page",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-poi/print-stalls/page",
+          "operationId": "page",
+          "method": "POST",
+          "path": "/ops-poi/print-stalls/page",
+          "summary": "门店打印档口分页列表",
+          "description": "含关联打印机数量、关联打印机名称列表、关联商品数量；可选 name 模糊筛选、status 状态筛选（0-待配置，1-已关联）",
+          "tags": [
+            "门店打印档口"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "X-Poi-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/PoiPrintStallPageRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultPoiPrintStallListResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-poi/tax-types/pageQuery",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-poi/tax-types/pageQuery"
+          }
+        ],
+        "route": "/ops-poi/tax-types/pageQuery",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-poi/tax-types/pageQuery",
+          "operationId": "pageQuery",
+          "method": "POST",
+          "path": "/ops-poi/tax-types/pageQuery",
+          "summary": "分页查询税种列表",
+          "description": "根据条件分页查询税种列表，支持多条件筛选",
+          "tags": [
+            "税种基本信息管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "X-Poi-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/TaxTypesPageRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "查询成功",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "ref": "#/components/schemas/Result"
+                  },
+                  "hasExample": false
+                }
+              }
+            },
+            "400": {
+              "description": "请求参数错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            },
+            "500": {
+              "description": "服务器内部错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:07b9bf122cb5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:07bd7fa66c2d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:118318f36e5b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:148c0a37581a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:14e0006f2b3a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:16307dc90a69",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1931b17cc09f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1b4151df0f97",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1cff0f4c00c8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:209f3353b365",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:235f0152a4c9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:2eaeb8aabf82",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:37f32cecc632",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:45b1e6b5b96d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4e38d41902fb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4ff388fbb215",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:540018a2043a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5a63fcc69b41",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:675343993316",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:67e8e247b759",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:694110337d71",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6eb1649dda02",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6fe85728ed73",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:746fcd297fbe",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7bac99040d7f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7dbab2584bbe",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:82375cd053ee",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:86982306b9b6",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8a0db27cbdbc",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8f4be0ef52d8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8fd14d062483",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8fef65408cee",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:903e8d1152b3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:958cd2a5ed10",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:95c430912e7c",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:991e262b2a65",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9a48c6109dad",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a158b853d896",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/product-tax",
+        "evidence": {
+          "route": "/poi/tax/product-tax",
+          "actionId": "/poi/tax/product-tax#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:acf5dca2e2b2",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:bdfb37877cd5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d1c5349a180f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d278e1c8daa6",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e46d0b7de201",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:eaf533a73996",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:f61fac53e733",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ff1ae8ca6dd6",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/poi/bom/list",
+        "evidence": {
+          "route": "/poi/bom/list",
+          "actionId": "/poi/bom/list#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:52c73c9adc58",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-poi/item-printers/printers/bind-item-sync",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/bind-item-sync",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:a83eb658d432",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-poi/print-stalls/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:POST /ops-poi/print-stalls/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:f53f65ee885e",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720211020/audit-report.json"
+          }
+        ],
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "route": "/poi/printer-stall/list",
+          "actionId": "/poi/printer-stall/list#action-3",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-poi/print-stalls",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-poi/print-stalls",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:f5882e6ace12",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "route": "/poi/tax/tax-types",
+          "actionId": "/poi/tax/tax-types#action-1",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-poi/tax-types/pageQuery",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:POST /ops-poi/tax-types/pageQuery",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:31",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 31. 门店商品管理 / 税种管理 / 税种管理"
+          }
+        ],
+        "module": "门店商品管理 / 税种管理 / 税种管理",
+        "evidence": {
+          "heading": "## 31. 门店商品管理 / 税种管理 / 税种管理",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:32",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 32. 门店商品管理 / 税种管理 / 商品税管理"
+          }
+        ],
+        "module": "门店商品管理 / 税种管理 / 商品税管理",
+        "evidence": {
+          "heading": "## 32. 门店商品管理 / 税种管理 / 商品税管理",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:33",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 33. 门店商品管理 / 配方列表"
+          }
+        ],
+        "module": "门店商品管理 / 配方列表",
+        "evidence": {
+          "heading": "## 33. 门店商品管理 / 配方列表",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:34",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 34. 门店商品管理 / 打印档口"
+          }
+        ],
+        "module": "门店商品管理 / 打印档口",
+        "evidence": {
+          "heading": "## 34. 门店商品管理 / 打印档口",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:491f7e6d04fe",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[15]"
+          }
+        ],
+        "entity": "打印机",
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "打印机",
+            "route": "/poi/printer-stall/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "factory:8782356a3e7e",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[3]"
+          }
+        ],
+        "entity": "税种",
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "税种",
+            "route": "/poi/tax/tax-types",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "P0 动作菜单仅暴露删除",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-tax-AUTO_AUDIT_TAX_1784587192492/result.json + 删除后 pageQuery 仅默认税"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:491f7e6d04fe",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+          }
+        ],
+        "entity": "打印机",
+        "route": "/poi/printer-stall/list",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "打印机",
+            "route": "/poi/printer-stall/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "cleanup:8782356a3e7e",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-tax-AUTO_AUDIT_TAX_1784587192492/result.json + 删除后 pageQuery 仅默认税"
+          }
+        ],
+        "entity": "税种",
+        "route": "/poi/tax/tax-types",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "税种",
+            "route": "/poi/tax/tax-types",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "P0 动作菜单仅暴露删除",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-tax-AUTO_AUDIT_TAX_1784587192492/result.json + 删除后 pageQuery 仅默认税"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:delete:tax",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:tax",
+            "locator": "税种应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/poi/tax/tax-types",
+        "entity": "税种",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:31",
+            "business-rule-section:32"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-税种管理.xmind"
+          ],
+          "routeIds": [
+            "route:5b574e851f6f"
+          ],
+          "functionIds": [
+            "/poi/tax/tax-types#control-1",
+            "/poi/tax/tax-types#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:540018a2043a",
+            "mapping-na:82375cd053ee",
+            "mapping-na:86982306b9b6",
+            "mapping-na:8f4be0ef52d8",
+            "mapping-na:95c430912e7c",
+            "mapping-na:d1c5349a180f",
+            "mapping:f5882e6ace12"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:tax",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "税种应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "税种应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:printer",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:printer",
+            "locator": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/poi/printer-stall/list",
+        "entity": "打印机",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:cb0d4a3cf6cb"
+          ],
+          "functionIds": [
+            "/poi/printer-stall/list#control-1",
+            "/poi/printer-stall/list#control-2",
+            "/poi/printer-stall/list#control-3",
+            "/poi/printer-stall/list#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:118318f36e5b",
+            "mapping-na:1b4151df0f97",
+            "mapping-na:235f0152a4c9",
+            "mapping-na:5a63fcc69b41",
+            "mapping-na:675343993316",
+            "mapping-na:694110337d71",
+            "mapping-na:6fe85728ed73",
+            "mapping-na:7dbab2584bbe",
+            "mapping-na:8a0db27cbdbc",
+            "mapping-na:903e8d1152b3",
+            "mapping-na:991e262b2a65",
+            "mapping-na:9a48c6109dad",
+            "mapping-na:e46d0b7de201",
+            "mapping-na:eaf533a73996",
+            "mapping:52c73c9adc58",
+            "mapping:a83eb658d432",
+            "mapping:f53f65ee885e"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:printer",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+            "testTitle": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态",
+            "rerunGrep": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:tax",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:tax",
+            "locator": "税种应使用 API 前置数据完成 UI 编辑并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/poi/tax/tax-types",
+        "entity": "税种",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:31",
+            "business-rule-section:32"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-税种管理.xmind"
+          ],
+          "routeIds": [
+            "route:5b574e851f6f"
+          ],
+          "functionIds": [
+            "/poi/tax/tax-types#control-1",
+            "/poi/tax/tax-types#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:540018a2043a",
+            "mapping-na:82375cd053ee",
+            "mapping-na:86982306b9b6",
+            "mapping-na:8f4be0ef52d8",
+            "mapping-na:95c430912e7c",
+            "mapping-na:d1c5349a180f",
+            "mapping:f5882e6ace12"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:tax",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "税种应使用 API 前置数据完成 UI 编辑并验证双终态",
+            "rerunGrep": "税种应使用 API 前置数据完成 UI 编辑并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:negative:printer-required",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://negative:printer-required",
+            "locator": "打印机空提交应显示校验且不发送创建请求"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/poi/printer-stall/list",
+        "entity": "打印机",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:cb0d4a3cf6cb"
+          ],
+          "functionIds": [
+            "/poi/printer-stall/list#control-1",
+            "/poi/printer-stall/list#control-2",
+            "/poi/printer-stall/list#control-3",
+            "/poi/printer-stall/list#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:118318f36e5b",
+            "mapping-na:1b4151df0f97",
+            "mapping-na:235f0152a4c9",
+            "mapping-na:5a63fcc69b41",
+            "mapping-na:675343993316",
+            "mapping-na:694110337d71",
+            "mapping-na:6fe85728ed73",
+            "mapping-na:7dbab2584bbe",
+            "mapping-na:8a0db27cbdbc",
+            "mapping-na:903e8d1152b3",
+            "mapping-na:991e262b2a65",
+            "mapping-na:9a48c6109dad",
+            "mapping-na:e46d0b7de201",
+            "mapping-na:eaf533a73996",
+            "mapping:52c73c9adc58",
+            "mapping:a83eb658d432",
+            "mapping:f53f65ee885e"
+          ],
+          "stageGaps": [],
+          "caseId": "negative:printer-required",
+          "sourceIds": [
+            "field-constraint:/poi/printer-stall/list#action-3#primary-1#field-44"
+          ],
+          "sop": {
+            "action": "negative",
+            "scenario": "required",
+            "seedMode": "none",
+            "verifyModes": [
+              "ui"
+            ],
+            "cleanupMode": "none"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+            "testTitle": "打印机空提交应显示校验且不发送创建请求",
+            "rerunGrep": "打印机空提交应显示校验且不发送创建请求"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

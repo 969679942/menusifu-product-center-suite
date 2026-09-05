@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-022"],
+  "rootCause": "上一轮真实执行已证明门店完整对象解析和接口操作收据修复有效，但 Allure 变更阶段标题仍使用“业务步骤：”，未满足变更类用例必须以“业务操作：”呈现的报告合同。",
+  "correctiveAction": "将调味系统业务变更阶段统一渲染为“业务操作：执行<正式用例标题>”，把报告适配器纳入系统适配器依赖指纹，并仅在当前指纹下重新取得 TC-FLV-TPL-022 的完整执行收据。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787810252834/allure-results/",
+    "adapters/product-center/seasoning-reporting.ts",
+    "scripts/audit-seasoning-allure-report.ts",
+    "systems/merchant-center-product-center-seasoning/build.ts"
+  ]
+}

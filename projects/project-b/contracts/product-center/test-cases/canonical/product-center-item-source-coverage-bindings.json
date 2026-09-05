@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-source-coverage-bindings",
+  "sourcePolicy": "PRD 仅定义功能范围；XMind 提供场景骨架；页面合同只提供技术事实",
+  "bindings": [
+    {
+      "sectionId": "S01",
+      "sectionHeading": "## S01 商品列表页",
+      "sourceRole": "prd-functional-scope",
+      "route": "/pp/brand/list",
+      "xmindPathPrefixes": [
+        ["商品中心-商品管理测试用例", "标准商品", "展示"],
+        ["商品中心-商品管理测试用例", "标准商品", "查询"]
+      ]
+    },
+    {
+      "sectionId": "S02",
+      "sectionHeading": "## S02 商品新增编辑页",
+      "sourceRole": "prd-functional-scope",
+      "route": "/pp/brand/list",
+      "xmindPathPrefixes": [
+        ["商品中心-商品管理测试用例", "标准商品", "新增"],
+        ["商品中心-商品管理测试用例", "标准商品", "编辑"],
+        ["商品中心-商品管理测试用例", "套餐商品"],
+        ["商品中心-商品管理测试用例", "加料商品"]
+      ]
+    },
+    {
+      "sectionId": "S03",
+      "sectionHeading": "## S03 规则互斥",
+      "sourceRole": "prd-functional-scope",
+      "route": "/pp/brand/list",
+      "xmindPathPrefixes": []
+    },
+    {
+      "sectionId": "S04",
+      "sectionHeading": "## S04 分类",
+      "sourceRole": "prd-functional-scope",
+      "route": "/pp/brand/category",
+      "xmindPathPrefixes": [[
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "分类相关校验（一级分类下有商品不可建二级分类/有二级分类不可建标准商品）",
+        "一级分类下有商品，不可创建二级分类"
+      ]]
+    }
+  ]
+}

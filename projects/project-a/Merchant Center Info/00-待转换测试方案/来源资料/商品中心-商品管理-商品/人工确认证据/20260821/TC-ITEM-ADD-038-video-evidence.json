@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "caseId": "TC-ITEM-ADD-038",
+  "evidenceKind": "human-confirmed-runtime-video",
+  "capturedAt": "2026-08-21T15:15:36+08:00/2026-08-21T15:18:54+08:00",
+  "environment": "cc-fe.balamxqa.com",
+  "route": "/pp/brand/edit/side?id=<redacted-server-id>",
+  "locale": "zh-CN",
+  "businessRuleConfirmed": "加料商品已有 1 张主图时继续上传或选择第 2 张主图，页面最终仅保留最新 1 张主图。",
+  "observations": [
+    {
+      "source": "C:/Users/Administrator/20260821_151535.mp4",
+      "sha256": "1669d30039e6f09ef0e751f758b345c417aa3be838308dfc5c2ada3459accf5d",
+      "byteLength": 1581226,
+      "durationSeconds": 21.9,
+      "claim": "图片库选择图片后可保存成功。"
+    },
+    {
+      "source": "C:/Users/Administrator/20260821_151744.mp4",
+      "sha256": "11f9f975aced585b0ac0f49c0f552c78d24aa3a5f5e925913de31bd2eea77e5b",
+      "byteLength": 1490861,
+      "durationSeconds": 22.9,
+      "claim": "本地上传图片后可保存成功。"
+    },
+    {
+      "source": "C:/Users/Administrator/20260821_151836.mp4",
+      "sha256": "365ab4e7d356c18019ffbc90f48fcf753a5baa3f45b9a831362281f2220875fa",
+      "byteLength": 1752977,
+      "durationSeconds": 18.25,
+      "claim": "先从图片库选择紫色主图，再选择蓝色主图覆盖，保存后列表回显最新蓝色主图，手工场景通过。"
+    }
+  ],
+  "automationRevalidation": {
+    "required": true,
+    "reason": "人工视频纠正业务规则和执行路径，但不能替代当前实现指纹下的 UI/API/清理执行收据。",
+    "requiredExecutionPath": "image-library-to-image-library",
+    "screenshotOrVideoAloneCannotPass": true
+  }
+}

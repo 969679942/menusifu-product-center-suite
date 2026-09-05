@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-023"
+  ],
+  "rootCause": "第一次执行中行业调味项名称 Sauce 与行业调味组名称相同，页面对象从整个组容器按文本定位，造成组标题和调味项两个匹配；第二次执行已完成两次真实导入、服务端并集回读和零残留清理，但单组断言递归扫描整个响应，把同名调味项 Sauce 的 id 误计为第二个调味组。两次均为自动化定位或解析缺口，不是产品失败。",
+  "correctiveAction": "行业调味项改为在虚拟表格的 div.ant-table-row 内按调味名称列定位并勾选；调味项清单只读取调味名称列；单组断言只统计 GET /ops-brand/global-modifier/list 响应 data 顶层调味组，并同时核对首次和二次回读的组 id 不变。静态合同和类型检查通过后，仅重验 TC-FLV-SEA-023。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/seasoning-rule-revalidation-20260901/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/seasoning-rule-revalidation-20260901-v2/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/seasoning-rule-revalidation-20260901-v2/allure-results/0d1b4300-e94e-4c3b-9a07-b6744e81c33b-attachment.json",
+    "output/system-test/merchant-center-product-center-seasoning/seasoning-rule-revalidation-20260901-v3/run-report.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ]
+}

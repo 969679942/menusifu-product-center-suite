@@ -1,0 +1,4560 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-generation-accuracy-benchmark",
+  "generatedAt": "2026-08-30T03:05:35.640Z",
+  "status": "accepted-with-limitations",
+  "sourceFingerprints": {
+    "plan": "1c3be424523e922eb39db7194ea0b94c5c3d4861bc499fdf7ee26eb4cd846233",
+    "review": "5cfaafd5341e9019427ec4854e241c6478815a82548f8201b6c0dc925cfdcd69"
+  },
+  "releaseConformance": {
+    "total": 225,
+    "conformant": 225,
+    "mismatched": 0,
+    "conformanceRate": 1,
+    "sourcePlanFingerprintMatched": true,
+    "allDimensionsPassed": true,
+    "byPriority": {
+      "P0": 86,
+      "P1": 132,
+      "P2": 7
+    },
+    "byOrigin": {
+      "formal-plan": 217,
+      "page-supplement": 8
+    },
+    "byProductType": {
+      "标准商品": 94,
+      "加料商品": 47,
+      "套餐商品": 76,
+      "页面补充": 8
+    }
+  },
+  "independentHoldout": {
+    "total": 36,
+    "correct": 36,
+    "mismatched": 0,
+    "decisionAccuracy": 1,
+    "falsePromotions": 0,
+    "falseRejections": 0,
+    "samples": [
+      {
+        "caseId": "read:holdout-standard-search",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "negative:holdout-standard-required-name",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-standard-valid",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-standard-price-boundary",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-standard-legacy",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "FORMAL_SOURCE_REQUIRED",
+          "LEGACY_SOURCE_NOT_GENERATABLE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-standard-no-sidebar",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "SIDEBAR_ENTRY_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "delete:holdout-standard-no-cleanup",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "CLEANUP_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-standard-format",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "format-drift",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "INVALID_TITLE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-combo-groups",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "negative:holdout-combo-required-group",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-combo-valid",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-combo-selection-boundary",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-combo-conflict",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "CONFLICTING_SOURCE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-combo-no-source",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "FORMAL_SOURCE_REQUIRED",
+          "SOURCE_TRACE_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "delete:holdout-combo-no-cleanup",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "CLEANUP_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-combo-format",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "format-drift",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "INVALID_TITLE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-addon-search",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "negative:holdout-addon-required-price",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-addon-valid",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "real-source",
+        "scenario": "positive",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-addon-price-boundary",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "real-source",
+        "scenario": "boundary",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-addon-invalid-inference",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "INVALID_INFERENCE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "publish:holdout-addon-unknown-action",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "UNKNOWN_ACTION_CODE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "delete:holdout-addon-no-cleanup",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "CLEANUP_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-addon-format",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "format-drift",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "INVALID_TITLE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-standard-format-normalizable",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "real-source",
+        "scenario": "format-drift",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-standard-partial-source-trace",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "SOURCE_TRACE_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-standard-unknown-module",
+        "module": "unknown-item-module",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "UNKNOWN_MODULE_CODE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "draft:holdout-standard-structural-gap",
+        "module": "brand-item",
+        "productArchetype": "standard",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "ACTION_REQUIRED",
+          "EXPECTATION_REQUIRED",
+          "PRECONDITION_REQUIRED",
+          "UNKNOWN_ACTION_CODE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-combo-format-normalizable",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "real-source",
+        "scenario": "format-drift",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-combo-invalid-inference",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "INVALID_INFERENCE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-combo-unparseable-br-ref",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "FORMAL_SOURCE_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-combo-no-sidebar",
+        "module": "brand-item",
+        "productArchetype": "combo",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "SIDEBAR_ENTRY_REQUIRED"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-addon-format-normalizable",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "real-source",
+        "scenario": "format-drift",
+        "expectedDecision": "generated",
+        "actualDecision": "generated",
+        "issueCodes": [],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "create:holdout-addon-legacy",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "FORMAL_SOURCE_REQUIRED",
+          "LEGACY_SOURCE_NOT_GENERATABLE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "edit:holdout-addon-conflict",
+        "module": "brand-item",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "review-required",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "CONFLICTING_SOURCE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      },
+      {
+        "caseId": "read:holdout-addon-structural-gap",
+        "module": "unknown-addon-module",
+        "productArchetype": "addon",
+        "cohort": "negative-fixture",
+        "scenario": "blocked",
+        "expectedDecision": "review-required",
+        "actualDecision": "review-required",
+        "issueCodes": [
+          "ACTION_REQUIRED",
+          "EXPECTATION_REQUIRED",
+          "PRECONDITION_REQUIRED",
+          "UNKNOWN_MODULE_CODE"
+        ],
+        "labelSource": "human-reviewed-holdout"
+      }
+    ]
+  },
+  "claimBoundary": {
+    "releaseCasesAreIndependentHoldout": false,
+    "generalizationAccuracyClaimed": false,
+    "independentHoldoutCases": 36
+  },
+  "guardrails": {
+    "denominatorLocked": true,
+    "samplingAllowed": false,
+    "staleReviewAllowed": false,
+    "unlabeledReleaseAllowed": false
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-037",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-036",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-009",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-010",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-093",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-047",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-044",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-024",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-025",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-076",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-016",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-017",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-018",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-022",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-080",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-029",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-030",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-015",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-031",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-026",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-046",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-074",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-075",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-039",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-037",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-023",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-040",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-032",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-087",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-088",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-024",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-032",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-067",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-042",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-043",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-070",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-026",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-028",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-036",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-081",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-090",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-091",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-046",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-043",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-089",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "priority": "P0",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-015",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-024",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-083",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-098",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-049",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-014",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-051",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-005",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-077",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-079",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-005",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-011",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-012",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-018",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-027",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-029",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-030",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-049",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-057",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-058",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-003",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-044",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-045",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-056",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-059",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-034",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-060",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-061",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-062",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-070",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-055",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-008",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-064",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-033",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-061",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-004",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-065",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-077",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-044",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-006",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-003",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-055",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-099",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-100",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-006",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-009",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-035",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-053",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-101",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-097",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-048",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-054",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-059",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-076",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-007",
+      "priority": "P1",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "priority": "P1",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-001",
+      "priority": "P2",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-UI-002",
+      "priority": "P2",
+      "origin": "page-supplement",
+      "productType": "页面补充",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-095",
+      "priority": "P2",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "priority": "P2",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "priority": "P2",
+      "origin": "formal-plan",
+      "productType": "标准商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "priority": "P2",
+      "origin": "formal-plan",
+      "productType": "加料商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "priority": "P2",
+      "origin": "formal-plan",
+      "productType": "套餐商品",
+      "labelDecision": "approved",
+      "labelSource": "evidence-bound-full-static-review",
+      "dimensions": {
+        "source": "pass",
+        "focus": "pass",
+        "steps": "pass",
+        "expectations": "pass",
+        "duplication": "pass",
+        "currentRule": "pass"
+      },
+      "conformant": true,
+      "mismatchReasons": []
+    }
+  ],
+  "mismatches": [],
+  "limitations": [
+    "225 条用于验证当前发布内容与冻结全审标签的一致性，不是独立盲测样本。",
+    "独立生成判定准确率当前由 36 条 human-reviewed holdout 样本证明。",
+    "不得用 225/225 一致性结果声明未见场景的泛化准确率。"
+  ],
+  "fingerprint": "c0b937e58121305fdabeb6c198a9b36925f33627dfee3873f10c6b74380abd49"
+}

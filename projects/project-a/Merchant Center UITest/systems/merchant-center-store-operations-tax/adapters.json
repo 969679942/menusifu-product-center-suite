@@ -1,0 +1,635 @@
+{
+  "schemaVersion": "1.0.0",
+  "systemId": "merchant-center-store-operations-tax",
+  "adapters": [
+    {
+      "id": "store-operations.auth.merchant-session",
+      "kind": "auth",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/setup.spec.ts",
+        "sha256": "8c2a9bac3df1bf34fc1fd9be580aacd2bcbcb4205d9d82aa892876d8634cee67",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "scripts/product-center-resume-cleanup.ts",
+            "sha256": "4fe1e1bca29759beb3039033b5e0e7a4abe57e67b79160036c63abe3ec0bec12"
+          },
+          {
+            "path": "test-data/auth.ts",
+            "sha256": "93e1a26618ae2d7cd1d981f18619831f05b6172555c9529591a67c7e78cb7d0b"
+          },
+          {
+            "path": "test-data/env.ts",
+            "sha256": "5d51bc5f10c25338afa3251bb5803e524512680ddde5378cb0f071028b99975d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.context.tax",
+      "kind": "context-guard",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.recovery.tax-checkpoints",
+      "kind": "recovery",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/recovery.spec.ts",
+        "sha256": "37940a72d389ad23deb6994c908aa21609129f4af839609fdcdf23071c6a0615",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "scripts/product-center-resume-cleanup.ts",
+            "sha256": "4fe1e1bca29759beb3039033b5e0e7a4abe57e67b79160036c63abe3ec0bec12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.preflight",
+      "kind": "probe",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/preflight.spec.ts",
+        "sha256": "90b467e0b69fc92f688bec63ec2d8684fba683fc8d1ea93e2a4875f0a1184028",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.seed",
+      "kind": "seed",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.ui-edit",
+      "kind": "capability",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.assert-api-edited",
+      "kind": "assertion",
+      "actions": [
+        "edit"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.assert-ui-edited",
+      "kind": "assertion",
+      "actions": [
+        "edit"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.cleanup",
+      "kind": "cleanup",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.api-zero-residue",
+      "kind": "api-residue",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    },
+    {
+      "id": "store-operations.tax.ui-zero-residue",
+      "kind": "ui-residue",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+        "sha256": "13d58a54bcf68bb3fa39b61c50b6a4b900f10bfaf01acbb237ce31125375ece3",
+        "dependencies": [
+          {
+            "path": "api/operation-client.ts",
+            "sha256": "5b5b81d7fdfebbf6ed1d3ae0c10ea3b70306efe1bc4d1861fd831ff708d548ae"
+          },
+          {
+            "path": "api/product-center/cleanup-registry.ts",
+            "sha256": "f3c9003ca3d11fea8fa1146a3542759601efe7b5c7a790c8df619e13cfce9b83"
+          },
+          {
+            "path": "api/product-center/execution-ledger.ts",
+            "sha256": "ace8d1e2530b08458f2a71e73031855ce236653eca528a4a0ac7d128ec972739"
+          },
+          {
+            "path": "api/product-center/product-center-api.ts",
+            "sha256": "e35a5991bb729fd72d1f2d9579a9e17a4d21d2ebf359c56e442d91d88b45ae95"
+          },
+          {
+            "path": "api/product-center/recovery-service.ts",
+            "sha256": "814ceebe83c54e979b2e7b51a3f74760e3bbfc18fcbbc941f7afdcdc402f51c1"
+          },
+          {
+            "path": "automation/system-test/system-test-recipe-executor.ts",
+            "sha256": "b5d1c8f4dc5319ec9a6f5ae7d164a70ecf57766aec5f6589a7f189d587bad8a9"
+          },
+          {
+            "path": "automation/system-test/system-test-semantic-governance.ts",
+            "sha256": "57d50af39540ec7908cd9ff9d1501b9f7f6170a63ebc07259e76d558308fc697"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "flows/product-center/product-center-low-dependency-sop.flow.ts",
+            "sha256": "eb3848bfaa1db340d6a1d0a8719bd3e75cdf262b48960f3cb492dbaf74f036ca"
+          },
+          {
+            "path": "pages/product-center/product-center-low-dependency-sop.page.ts",
+            "sha256": "ab4ff3693594ed4ead26cec3c946807580b1e34916b4f23a011e2a55330c2cfa"
+          },
+          {
+            "path": "sop/product-center/product-center-low-dependency-sop.catalog.ts",
+            "sha256": "814d9fa043b265c8cbe68c9bcbb8bfa9fbea6ee78cdfa923159afc3de1e07f37"
+          },
+          {
+            "path": "test-data/product-center/sop/product-center-low-dependency-data.factory.ts",
+            "sha256": "5005fd427cb64fcbc382d885514cc87a3efc3e7455e51009ad27a8badaca77e5"
+          },
+          {
+            "path": "utils/wait.ts",
+            "sha256": "3ee91f578a8080bf25fac994ec02e57ee5520f2fc7d60a2c36f0720fd8007670"
+          }
+        ]
+      }
+    }
+  ],
+  "operationKeys": [
+    "store-operations.tax-type.update"
+  ],
+  "externalCapabilities": []
+}

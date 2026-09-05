@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'">
+<title>系统测试审计报告 · system-test-audit-reference</title>
+<style>
+:root{color-scheme:light;--bg:#f5f7fb;--panel:#fff;--ink:#172033;--muted:#667085;--line:#d8dee9;--blue:#2563eb;--green:#08783e;--amber:#a15c00;--red:#b42318;--shadow:0 2px 10px #17203312}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}main{max-width:1500px;margin:0 auto;padding:28px 32px 56px}header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}h1{font-size:28px;line-height:1.2;margin:0 0 6px}h2{font-size:18px;margin:30px 0 12px}.subtitle,.muted{color:var(--muted)}.header-meta{text-align:right;color:var(--muted);font-size:12px}.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font-weight:650;font-size:12px}.badge.success{background:#dcfce7;color:var(--green)}.badge.info{background:#dbeafe;color:#1d4ed8}.badge.warning{background:#fef3c7;color:var(--amber)}.badge.danger{background:#fee4e2;color:var(--red)}.notice{border:1px solid var(--line);border-left:4px solid var(--blue);background:var(--panel);padding:12px 16px;border-radius:8px;margin:14px 0;box-shadow:var(--shadow)}.notice.ok{border-left-color:var(--green)}.notice.warn{border-left-color:var(--amber)}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.metric,.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}.metric{padding:14px 16px}.metric-title{color:var(--muted);font-size:12px}.metric-value{font-size:24px;font-weight:720;margin:3px 0}.metric-hint{color:var(--muted);font-size:12px}.panel{padding:16px;overflow:hidden}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}.toolbar input,.toolbar select{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:#fff;color:var(--ink);min-height:36px}.toolbar input{min-width:260px;flex:1}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--muted);background:#f8fafc;position:sticky;top:0;z-index:1}tr[data-hidden="true"]{display:none}.case-id{font-weight:650;white-space:nowrap}.pill{display:inline-block;padding:2px 7px;border-radius:999px;font-size:11px;background:#eef2f6;color:#475467;margin:1px 2px 1px 0}.pill.changed{background:#dbeafe;color:#1d4ed8}.pill.clean{background:#dcfce7;color:var(--green)}.pill.dirty{background:#fee4e2;color:var(--red)}.pill.excluded{background:#f2f4f7;color:#667085}.progress{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden}.progress>span{display:block;height:100%;background:var(--green)}details{border-top:1px solid var(--line);padding:10px 0}details:first-child{border-top:0}summary{cursor:pointer;font-weight:650}dl{display:grid;grid-template-columns:180px 1fr;gap:5px 16px;margin:10px 0}dt{color:var(--muted)}dd{margin:0;word-break:break-word}.timeline{display:grid;gap:8px}.event{display:grid;grid-template-columns:145px 160px 1fr auto;gap:12px;align-items:start;border-left:3px solid #cbd5e1;padding:8px 12px;background:#fafbfc}.event.success{border-left-color:var(--green)}.event.failed{border-left-color:var(--red)}.event-time,.event-type{font-size:12px;color:var(--muted)}pre{background:#0f172a;color:#dbeafe;border-radius:8px;padding:14px;overflow:auto;font-size:12px;line-height:1.45}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;word-break:break-all}.footer{margin-top:24px;color:var(--muted);font-size:12px}@media(max-width:760px){main{padding:18px 14px}header{display:block}.header-meta{text-align:left;margin-top:10px}.event{grid-template-columns:1fr}.event-time,.event-type{font-size:11px}dl{grid-template-columns:1fr}.toolbar input{min-width:0;width:100%}}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0b1220;--panel:#111827;--ink:#e5e7eb;--muted:#9ca3af;--line:#293548;--shadow:none}.toolbar input,.toolbar select{background:#0f172a;color:var(--ink)}th{background:#172033}.event{background:#0f172a}.progress{background:#293548}}
+@media print{body{background:#fff}main{max-width:none;padding:0}.toolbar,#report-actions{display:none}.panel,.metric{box-shadow:none;break-inside:avoid}h2{break-after:avoid}}
+.section-intro{color:var(--muted);margin:0 0 12px}.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.summary-group{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;box-shadow:var(--shadow)}.summary-group h3{margin:0 0 6px;font-size:15px}.summary-group p{margin:0}.current-run{border-left:4px solid var(--blue)}.purpose{background:#f8fafc;border:1px solid var(--line);padding:10px 12px;border-radius:8px;color:var(--muted);margin-bottom:12px}.event{grid-template-columns:110px 145px 140px 1fr auto}.trend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.trend-card{border:1px solid var(--line);border-radius:8px;padding:12px;background:#fafbfc}.trend-card h3{font-size:14px;margin:0 0 4px}.trend-card svg{display:block;width:100%;height:150px}.trend-card .axis{stroke:#cbd5e1;stroke-width:1}.history-current{background:#eff6ff}.run-summary{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.run-events{margin-top:10px}@media(max-width:900px){.summary-grid,.trend-grid{grid-template-columns:1fr}.event{grid-template-columns:1fr}}
+</style></head><body><main>
+<header><div><h1>系统测试审计报告</h1><div class="subtitle">system-test-audit-reference · 参考验证 · 生成于 2026-09-02T01:45:12.735Z</div></div><div class="header-meta">系统：system-test-audit-reference<br>运行编号：audit-reference-1788313512333</div></header>
+<div id="data-invariant" class="notice ok"><strong>数据守恒校验通过</strong>　计划总数 = 可审计数 + 已排除数；可审计数 = 审计完整数 + 审计不完整数</div>
+<h2>全部运行总览</h2><p class="section-intro">这里汇总从首次记录到本次运行的全部历史，并单独标出本次结论。历史事件来自追加日志，不会因下一次执行被覆盖。</p><section class="summary-grid" aria-label="全部运行总览"><article class="summary-group"><h3>总体结论</h3><p><strong>已累计记录 24 次运行，当前报告收录 138/138 条历史事件。</strong><br><span class="muted">历史中暂未记录失败事件。 本区只描述历史记录，不裁决具体业务用例是否通过。</span></p></article><article class="summary-group"><h3>累计运行规模</h3><p>累计 24 次运行、138 条事件；总耗时 730 ms，平均每次 30 ms。</p></article><article class="summary-group"><h3>累计变更与异常</h3><p>24 次运行发生过数据变更，共 24 次；0 次运行出现失败，共 0 个失败事件。</p></article><article class="summary-group"><h3>历史归档覆盖</h3><p>9 次运行具有完整独立报告；15 次早期运行仅保留事件日志。全部运行均列在下方记录表中。</p></article></section>
+<div id="report-actions" class="toolbar"><button type="button" id="download-csv">下载 CSV</button><button type="button" onclick="window.print()">打印 / 另存为 PDF</button><a href="audit-pipeline-report.csv" download>打开 CSV 文件</a></div>
+<h2>运行趋势图</h2><p class="section-intro">按时间从早到晚展示全部运行的事件数、数据变更、失败事件和耗时。图表用于观察趋势，精确数值以运行记录表为准。</p><section class="panel"><div class="trend-grid"><article class="trend-card"><h3>事件数量趋势</h3><div class="muted">共 24 次运行；最高 18 条</div><svg viewBox="0 0 900 150" role="img" aria-label="事件数量趋势"><line class="axis" x1="28" y1="120" x2="882" y2="120"/><line class="axis" x1="28" y1="14" x2="28" y2="120"/><polyline points="28.0,96.4 65.1,96.4 102.3,96.4 139.4,96.4 176.5,96.4 213.7,96.4 250.8,96.4 287.9,96.4 325.0,96.4 362.2,96.4 399.3,96.4 436.4,96.4 473.6,96.4 510.7,96.4 547.8,96.4 585.0,96.4 622.1,96.4 659.2,96.4 696.3,96.4 733.5,96.4 770.6,96.4 807.7,14.0 844.9,14.0 882.0,14.0" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="28.0" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1787899109108：4 条</title></circle><circle cx="65.1" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788239452610：4 条</title></circle><circle cx="102.3" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788253180259：4 条</title></circle><circle cx="139.4" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788254022718：4 条</title></circle><circle cx="176.5" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788254178637：4 条</title></circle><circle cx="213.7" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788256437534：4 条</title></circle><circle cx="250.8" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788256556361：4 条</title></circle><circle cx="287.9" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788256732212：4 条</title></circle><circle cx="325.0" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788256909617：4 条</title></circle><circle cx="362.2" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788262425493：4 条</title></circle><circle cx="399.3" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788262498674：4 条</title></circle><circle cx="436.4" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788262694668：4 条</title></circle><circle cx="473.6" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788274453001：4 条</title></circle><circle cx="510.7" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788274651787：4 条</title></circle><circle cx="547.8" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788274766305：4 条</title></circle><circle cx="585.0" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788276125525：4 条</title></circle><circle cx="622.1" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788276217320：4 条</title></circle><circle cx="659.2" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788278285656：4 条</title></circle><circle cx="696.3" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788278337671：4 条</title></circle><circle cx="733.5" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788279679820：4 条</title></circle><circle cx="770.6" cy="96.4" r="4" fill="#2563eb"><title>audit-reference-1788307686765：4 条</title></circle><circle cx="807.7" cy="14.0" r="4" fill="#2563eb"><title>audit-reference-1788307772059：18 条</title></circle><circle cx="844.9" cy="14.0" r="4" fill="#2563eb"><title>audit-reference-1788307907958：18 条</title></circle><circle cx="882.0" cy="14.0" r="4" fill="#2563eb"><title>audit-reference-1788313512333：18 条</title></circle><text x="28" y="143" font-size="11" fill="currentColor">…ence-1787899109108</text><text x="882" y="143" text-anchor="end" font-size="11" fill="currentColor">…ence-1788313512333</text></svg></article><article class="trend-card"><h3>数据变更趋势</h3><div class="muted">共 24 次运行；最高 1 次</div><svg viewBox="0 0 900 150" role="img" aria-label="数据变更趋势"><line class="axis" x1="28" y1="120" x2="882" y2="120"/><line class="axis" x1="28" y1="14" x2="28" y2="120"/><polyline points="28.0,14.0 65.1,14.0 102.3,14.0 139.4,14.0 176.5,14.0 213.7,14.0 250.8,14.0 287.9,14.0 325.0,14.0 362.2,14.0 399.3,14.0 436.4,14.0 473.6,14.0 510.7,14.0 547.8,14.0 585.0,14.0 622.1,14.0 659.2,14.0 696.3,14.0 733.5,14.0 770.6,14.0 807.7,14.0 844.9,14.0 882.0,14.0" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="28.0" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1787899109108：1 次</title></circle><circle cx="65.1" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788239452610：1 次</title></circle><circle cx="102.3" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788253180259：1 次</title></circle><circle cx="139.4" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788254022718：1 次</title></circle><circle cx="176.5" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788254178637：1 次</title></circle><circle cx="213.7" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788256437534：1 次</title></circle><circle cx="250.8" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788256556361：1 次</title></circle><circle cx="287.9" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788256732212：1 次</title></circle><circle cx="325.0" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788256909617：1 次</title></circle><circle cx="362.2" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788262425493：1 次</title></circle><circle cx="399.3" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788262498674：1 次</title></circle><circle cx="436.4" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788262694668：1 次</title></circle><circle cx="473.6" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788274453001：1 次</title></circle><circle cx="510.7" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788274651787：1 次</title></circle><circle cx="547.8" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788274766305：1 次</title></circle><circle cx="585.0" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788276125525：1 次</title></circle><circle cx="622.1" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788276217320：1 次</title></circle><circle cx="659.2" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788278285656：1 次</title></circle><circle cx="696.3" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788278337671：1 次</title></circle><circle cx="733.5" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788279679820：1 次</title></circle><circle cx="770.6" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788307686765：1 次</title></circle><circle cx="807.7" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788307772059：1 次</title></circle><circle cx="844.9" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788307907958：1 次</title></circle><circle cx="882.0" cy="14.0" r="4" fill="#7c3aed"><title>audit-reference-1788313512333：1 次</title></circle><text x="28" y="143" font-size="11" fill="currentColor">…ence-1787899109108</text><text x="882" y="143" text-anchor="end" font-size="11" fill="currentColor">…ence-1788313512333</text></svg></article><article class="trend-card"><h3>失败事件趋势</h3><div class="muted">共 24 次运行；最高 0 个</div><svg viewBox="0 0 900 150" role="img" aria-label="失败事件趋势"><line class="axis" x1="28" y1="120" x2="882" y2="120"/><line class="axis" x1="28" y1="14" x2="28" y2="120"/><polyline points="28.0,120.0 65.1,120.0 102.3,120.0 139.4,120.0 176.5,120.0 213.7,120.0 250.8,120.0 287.9,120.0 325.0,120.0 362.2,120.0 399.3,120.0 436.4,120.0 473.6,120.0 510.7,120.0 547.8,120.0 585.0,120.0 622.1,120.0 659.2,120.0 696.3,120.0 733.5,120.0 770.6,120.0 807.7,120.0 844.9,120.0 882.0,120.0" fill="none" stroke="#b42318" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="28.0" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1787899109108：0 个</title></circle><circle cx="65.1" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788239452610：0 个</title></circle><circle cx="102.3" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788253180259：0 个</title></circle><circle cx="139.4" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788254022718：0 个</title></circle><circle cx="176.5" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788254178637：0 个</title></circle><circle cx="213.7" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788256437534：0 个</title></circle><circle cx="250.8" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788256556361：0 个</title></circle><circle cx="287.9" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788256732212：0 个</title></circle><circle cx="325.0" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788256909617：0 个</title></circle><circle cx="362.2" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788262425493：0 个</title></circle><circle cx="399.3" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788262498674：0 个</title></circle><circle cx="436.4" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788262694668：0 个</title></circle><circle cx="473.6" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788274453001：0 个</title></circle><circle cx="510.7" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788274651787：0 个</title></circle><circle cx="547.8" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788274766305：0 个</title></circle><circle cx="585.0" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788276125525：0 个</title></circle><circle cx="622.1" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788276217320：0 个</title></circle><circle cx="659.2" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788278285656：0 个</title></circle><circle cx="696.3" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788278337671：0 个</title></circle><circle cx="733.5" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788279679820：0 个</title></circle><circle cx="770.6" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788307686765：0 个</title></circle><circle cx="807.7" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788307772059：0 个</title></circle><circle cx="844.9" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788307907958：0 个</title></circle><circle cx="882.0" cy="120.0" r="4" fill="#b42318"><title>audit-reference-1788313512333：0 个</title></circle><text x="28" y="143" font-size="11" fill="currentColor">…ence-1787899109108</text><text x="882" y="143" text-anchor="end" font-size="11" fill="currentColor">…ence-1788313512333</text></svg></article><article class="trend-card"><h3>运行耗时趋势</h3><div class="muted">共 24 次运行；最高 475 ms</div><svg viewBox="0 0 900 150" role="img" aria-label="运行耗时趋势"><line class="axis" x1="28" y1="120" x2="882" y2="120"/><line class="axis" x1="28" y1="14" x2="28" y2="120"/><polyline points="28.0,117.3 65.1,118.0 102.3,118.0 139.4,117.8 176.5,14.0 213.7,118.2 250.8,118.2 287.9,117.1 325.0,117.3 362.2,116.9 399.3,118.0 436.4,117.8 473.6,117.3 510.7,117.1 547.8,118.0 585.0,117.1 622.1,117.1 659.2,117.8 696.3,116.9 733.5,116.9 770.6,118.0 807.7,117.8 844.9,117.5 882.0,117.1" fill="none" stroke="#08783e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="28.0" cy="117.3" r="4" fill="#08783e"><title>audit-reference-1787899109108：12 ms</title></circle><circle cx="65.1" cy="118.0" r="4" fill="#08783e"><title>audit-reference-1788239452610：9 ms</title></circle><circle cx="102.3" cy="118.0" r="4" fill="#08783e"><title>audit-reference-1788253180259：9 ms</title></circle><circle cx="139.4" cy="117.8" r="4" fill="#08783e"><title>audit-reference-1788254022718：10 ms</title></circle><circle cx="176.5" cy="14.0" r="4" fill="#08783e"><title>audit-reference-1788254178637：475 ms</title></circle><circle cx="213.7" cy="118.2" r="4" fill="#08783e"><title>audit-reference-1788256437534：8 ms</title></circle><circle cx="250.8" cy="118.2" r="4" fill="#08783e"><title>audit-reference-1788256556361：8 ms</title></circle><circle cx="287.9" cy="117.1" r="4" fill="#08783e"><title>audit-reference-1788256732212：13 ms</title></circle><circle cx="325.0" cy="117.3" r="4" fill="#08783e"><title>audit-reference-1788256909617：12 ms</title></circle><circle cx="362.2" cy="116.9" r="4" fill="#08783e"><title>audit-reference-1788262425493：14 ms</title></circle><circle cx="399.3" cy="118.0" r="4" fill="#08783e"><title>audit-reference-1788262498674：9 ms</title></circle><circle cx="436.4" cy="117.8" r="4" fill="#08783e"><title>audit-reference-1788262694668：10 ms</title></circle><circle cx="473.6" cy="117.3" r="4" fill="#08783e"><title>audit-reference-1788274453001：12 ms</title></circle><circle cx="510.7" cy="117.1" r="4" fill="#08783e"><title>audit-reference-1788274651787：13 ms</title></circle><circle cx="547.8" cy="118.0" r="4" fill="#08783e"><title>audit-reference-1788274766305：9 ms</title></circle><circle cx="585.0" cy="117.1" r="4" fill="#08783e"><title>audit-reference-1788276125525：13 ms</title></circle><circle cx="622.1" cy="117.1" r="4" fill="#08783e"><title>audit-reference-1788276217320：13 ms</title></circle><circle cx="659.2" cy="117.8" r="4" fill="#08783e"><title>audit-reference-1788278285656：10 ms</title></circle><circle cx="696.3" cy="116.9" r="4" fill="#08783e"><title>audit-reference-1788278337671：14 ms</title></circle><circle cx="733.5" cy="116.9" r="4" fill="#08783e"><title>audit-reference-1788279679820：14 ms</title></circle><circle cx="770.6" cy="118.0" r="4" fill="#08783e"><title>audit-reference-1788307686765：9 ms</title></circle><circle cx="807.7" cy="117.8" r="4" fill="#08783e"><title>audit-reference-1788307772059：10 ms</title></circle><circle cx="844.9" cy="117.5" r="4" fill="#08783e"><title>audit-reference-1788307907958：11 ms</title></circle><circle cx="882.0" cy="117.1" r="4" fill="#08783e"><title>audit-reference-1788313512333：13 ms</title></circle><text x="28" y="143" font-size="11" fill="currentColor">…ence-1787899109108</text><text x="882" y="143" text-anchor="end" font-size="11" fill="currentColor">…ence-1788313512333</text></svg></article><article class="trend-card"><h3>步骤覆盖率趋势</h3><div class="muted">按运行观察步骤是否完整闭合；目标为 100%。 21 次运行未采集步骤数据。</div><svg viewBox="0 0 900 150" role="img" aria-label="步骤覆盖率趋势"><line class="axis" x1="28" y1="120" x2="882" y2="120"/><line class="axis" x1="28" y1="14" x2="28" y2="120"/><polyline points="807.7,14.0 844.9,14.0 882.0,14.0" fill="none" stroke="#0891b2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="807.7" cy="14.0" r="4" fill="#0891b2"><title>audit-reference-1788307772059：100%</title></circle><circle cx="844.9" cy="14.0" r="4" fill="#0891b2"><title>audit-reference-1788307907958：100%</title></circle><circle cx="882.0" cy="14.0" r="4" fill="#0891b2"><title>audit-reference-1788313512333：100%</title></circle><text x="28" y="143" font-size="11" fill="currentColor">…ence-1787899109108</text><text x="882" y="143" text-anchor="end" font-size="11" fill="currentColor">…ence-1788313512333</text></svg></article></div></section>
+<h2>全部运行记录</h2><p class="section-intro">每次运行都保留一行汇总；“本次”与“上次”明确标识。展开运行可查看该次全部事件，有完整快照的运行还能直接打开归档报告。</p><section class="panel"><div class="notice">与上一次运行对比：事件数 +0，数据变更 +0，失败事件 +0，耗时变化 +2 ms</div><div class="purpose">全部运行都保留事件记录；有独立快照的运行可直接打开归档。早期运行若没有当时的完整账本，只能如实标记为“仅保留事件日志”。步骤覆盖率用于判断过程记录是否完整，不等同于业务通过率；“未采集”不等于 0%。</div><div class="table-wrap"><table><thead><tr><th>运行归属</th><th>运行编号</th><th>时间</th><th>事件数</th><th>步骤覆盖</th><th>数据变更</th><th>失败事件</th><th>耗时</th><th>历史快照</th></tr></thead><tbody><tr class="history-current"><td><span class="badge info">本次</span></td><td><code>audit-reference-1788313512333</code></td><td>2026-09-02T01:45:12.499Z</td><td>18</td><td>7 步 / 100%</td><td>1</td><td>0</td><td>13 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788313512333/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td><span class="badge warning">上次</span></td><td><code>audit-reference-1788307907958</code></td><td>2026-09-02T00:11:47.963Z</td><td>18</td><td>7 步 / 100%</td><td>1</td><td>0</td><td>11 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788307907958/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 22 次</td><td><code>audit-reference-1788307772059</code></td><td>2026-09-02T00:09:32.063Z</td><td>18</td><td>7 步 / 100%</td><td>1</td><td>0</td><td>10 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788307772059/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 21 次</td><td><code>audit-reference-1788307686765</code></td><td>2026-09-02T00:08:06.768Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>9 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788307686765/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 20 次</td><td><code>audit-reference-1788279679820</code></td><td>2026-09-01T16:21:19.824Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>14 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788279679820/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 19 次</td><td><code>audit-reference-1788278337671</code></td><td>2026-09-01T15:58:57.674Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>14 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788278337671/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 18 次</td><td><code>audit-reference-1788278285656</code></td><td>2026-09-01T15:58:05.659Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>10 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788278285656/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 17 次</td><td><code>audit-reference-1788276217320</code></td><td>2026-09-01T15:23:37.325Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>13 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788276217320/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 16 次</td><td><code>audit-reference-1788276125525</code></td><td>2026-09-01T15:22:05.528Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>13 ms</td><td><a href="file:///D:/Menusifu/Merchant%20Center/Merchant%20Center%20UITest/deliverables/system-test-audit-reference/runs/audit-reference-1788276125525/audit-pipeline-report.html">打开归档报告</a></td></tr><tr class=""><td>历史第 15 次</td><td><code>audit-reference-1788274766305</code></td><td>2026-09-01T14:59:26.308Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>9 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 14 次</td><td><code>audit-reference-1788274651787</code></td><td>2026-09-01T14:57:31.789Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>13 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 13 次</td><td><code>audit-reference-1788274453001</code></td><td>2026-09-01T14:54:13.085Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>12 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 12 次</td><td><code>audit-reference-1788262694668</code></td><td>2026-09-01T11:38:14.671Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>10 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 11 次</td><td><code>audit-reference-1788262498674</code></td><td>2026-09-01T11:34:58.678Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>9 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 10 次</td><td><code>audit-reference-1788262425493</code></td><td>2026-09-01T11:33:45.552Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>14 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 9 次</td><td><code>audit-reference-1788256909617</code></td><td>2026-09-01T10:01:49.655Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>12 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 8 次</td><td><code>audit-reference-1788256732212</code></td><td>2026-09-01T09:58:52.215Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>13 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 7 次</td><td><code>audit-reference-1788256556361</code></td><td>2026-09-01T09:55:56.363Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>8 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 6 次</td><td><code>audit-reference-1788256437534</code></td><td>2026-09-01T09:53:57.536Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>8 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 5 次</td><td><code>audit-reference-1788254178637</code></td><td>2026-09-01T09:16:18.639Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>475 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 4 次</td><td><code>audit-reference-1788254022718</code></td><td>2026-09-01T09:13:42.721Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>10 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 3 次</td><td><code>audit-reference-1788253180259</code></td><td>2026-09-01T08:59:40.261Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>9 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 2 次</td><td><code>audit-reference-1788239452610</code></td><td>2026-09-01T05:10:52.635Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>9 ms</td><td><span class="muted">仅保留事件日志</span></td></tr><tr class=""><td>历史第 1 次</td><td><code>audit-reference-1787899109108</code></td><td>2026-08-28T06:38:29.110Z</td><td>4</td><td><span class="muted">未采集</span></td><td>1</td><td>0</td><td>12 ms</td><td><span class="muted">仅保留事件日志</span></td></tr></tbody></table></div><h3>逐次运行事件档案</h3><p class="muted">共 24 次运行、138 条事件。默认展开本次运行，其余运行可按需展开。</p><details open><summary><span class="run-summary"><span class="badge info">本次</span><code>audit-reference-1788313512333</code><span>18 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-02T01:45:12.499Z</td><td>运行开始</td><td>audit-reference-1788313512333</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788313512333:run.started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T01:45:12.500Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788313512333:step:initialize:started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T01:45:12.513Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788313512333:step:initialize:completed</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T01:45:12.526Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788313512333:step:seed:started</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T01:45:12.540Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788313512333:step:seed:completed</code></td></tr><tr><td>环境检查</td><td>2026-09-02T01:45:12.554Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788313512333:step:context-before-action:started</code></td></tr><tr><td>环境检查</td><td>2026-09-02T01:45:12.565Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788313512333:step:context-before-action:completed</code></td></tr><tr><td>业务操作</td><td>2026-09-02T01:45:12.576Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788313512333:step:capability:started</code></td></tr><tr><td>业务操作</td><td>2026-09-02T01:45:12.588Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788313512333:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T01:45:12.588Z</code></td></tr><tr><td>业务操作</td><td>2026-09-02T01:45:12.601Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788313512333:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T01:45:12.601Z</code></td></tr><tr><td>业务操作</td><td>2026-09-02T01:45:12.614Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788313512333:step:capability:completed</code></td></tr><tr><td>结果验证</td><td>2026-09-02T01:45:12.627Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788313512333:step:assertion:started</code></td></tr><tr><td>结果验证</td><td>2026-09-02T01:45:12.639Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788313512333:step:assertion:completed</code></td></tr><tr><td>数据清理</td><td>2026-09-02T01:45:12.651Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788313512333:step:cleanup:started</code></td></tr><tr><td>数据清理</td><td>2026-09-02T01:45:12.665Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788313512333:step:cleanup:completed</code></td></tr><tr><td>运行收口</td><td>2026-09-02T01:45:12.675Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788313512333:step:close:started</code></td></tr><tr><td>运行收口</td><td>2026-09-02T01:45:12.691Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788313512333:step:close:completed</code></td></tr><tr><td>运行收口</td><td>2026-09-02T01:45:12.718Z</td><td>运行完成</td><td>audit-reference-1788313512333</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788313512333:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge warning">上次</span><code>audit-reference-1788307907958</code><span>18 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-02T00:11:47.963Z</td><td>运行开始</td><td>audit-reference-1788307907958</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788307907958:run.started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T00:11:47.963Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788307907958:step:initialize:started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T00:11:47.973Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788307907958:step:initialize:completed</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T00:11:47.986Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788307907958:step:seed:started</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T00:11:47.996Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788307907958:step:seed:completed</code></td></tr><tr><td>环境检查</td><td>2026-09-02T00:11:48.019Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788307907958:step:context-before-action:started</code></td></tr><tr><td>环境检查</td><td>2026-09-02T00:11:48.029Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788307907958:step:context-before-action:completed</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:11:48.042Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788307907958:step:capability:started</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:11:48.052Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788307907958:step:capability:completed</code></td></tr><tr><td>结果验证</td><td>2026-09-02T00:11:48.066Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788307907958:step:assertion:started</code></td></tr><tr><td>结果验证</td><td>2026-09-02T00:11:48.075Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788307907958:step:assertion:completed</code></td></tr><tr><td>数据清理</td><td>2026-09-02T00:11:48.084Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788307907958:step:cleanup:started</code></td></tr><tr><td>数据清理</td><td>2026-09-02T00:11:48.097Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788307907958:step:cleanup:completed</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:11:48.107Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788307907958:step:close:started</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:11:48.117Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788307907958:step:close:completed</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:11:48.126Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788307907958:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:11:48.126Z</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:11:48.137Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788307907958:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:11:48.137Z</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:11:48.162Z</td><td>运行完成</td><td>audit-reference-1788307907958</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788307907958:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788307772059</code><span>18 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-02T00:09:32.063Z</td><td>运行开始</td><td>audit-reference-1788307772059</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788307772059:run.started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T00:09:32.064Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788307772059:step:initialize:started</code></td></tr><tr><td>准备阶段</td><td>2026-09-02T00:09:32.075Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>初始化运行环境</td><td>成功</td><td><code>audit-reference-1788307772059:step:initialize:completed</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T00:09:32.086Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788307772059:step:seed:started</code></td></tr><tr><td>准备测试数据</td><td>2026-09-02T00:09:32.097Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>准备参考对象数据</td><td>成功</td><td><code>audit-reference-1788307772059:step:seed:completed</code></td></tr><tr><td>环境检查</td><td>2026-09-02T00:09:32.106Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788307772059:step:context-before-action:started</code></td></tr><tr><td>环境检查</td><td>2026-09-02T00:09:32.115Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>操作前检查运行上下文</td><td>成功</td><td><code>audit-reference-1788307772059:step:context-before-action:completed</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:09:32.125Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788307772059:step:capability:started</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:09:32.135Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>成功</td><td><code>audit-reference-1788307772059:step:capability:completed</code></td></tr><tr><td>结果验证</td><td>2026-09-02T00:09:32.147Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788307772059:step:assertion:started</code></td></tr><tr><td>结果验证</td><td>2026-09-02T00:09:32.156Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>验证参考对象更新结果</td><td>成功</td><td><code>audit-reference-1788307772059:step:assertion:completed</code></td></tr><tr><td>数据清理</td><td>2026-09-02T00:09:32.165Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788307772059:step:cleanup:started</code></td></tr><tr><td>数据清理</td><td>2026-09-02T00:09:32.175Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>清理参考对象并确认零残留</td><td>成功</td><td><code>audit-reference-1788307772059:step:cleanup:completed</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:09:32.184Z</td><td>步骤开始</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788307772059:step:close:started</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:09:32.193Z</td><td>步骤完成</td><td>REF-AUDIT-MUTATION-001</td><td>收口并生成审计报告</td><td>成功</td><td><code>audit-reference-1788307772059:step:close:completed</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:09:32.202Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788307772059:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:09:32.202Z</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:09:32.212Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788307772059:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:09:32.212Z</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:09:32.235Z</td><td>运行完成</td><td>audit-reference-1788307772059</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788307772059:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788307686765</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-02T00:08:06.768Z</td><td>运行开始</td><td>audit-reference-1788307686765</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788307686765:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:08:06.769Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788307686765:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:08:06.769Z</code></td></tr><tr><td>业务操作</td><td>2026-09-02T00:08:06.778Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788307686765:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T00:08:06.778Z</code></td></tr><tr><td>运行收口</td><td>2026-09-02T00:08:06.803Z</td><td>运行完成</td><td>audit-reference-1788307686765</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788307686765:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788279679820</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T16:21:19.824Z</td><td>运行开始</td><td>audit-reference-1788279679820</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788279679820:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T16:21:19.826Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788279679820:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T16:21:19.826Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T16:21:19.840Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788279679820:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T16:21:19.840Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T16:21:19.859Z</td><td>运行完成</td><td>audit-reference-1788279679820</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788279679820:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788278337671</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T15:58:57.674Z</td><td>运行开始</td><td>audit-reference-1788278337671</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788278337671:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:58:57.675Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788278337671:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:58:57.675Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:58:57.689Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788278337671:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:58:57.689Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T15:58:57.710Z</td><td>运行完成</td><td>audit-reference-1788278337671</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788278337671:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788278285656</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T15:58:05.659Z</td><td>运行开始</td><td>audit-reference-1788278285656</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788278285656:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:58:05.660Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788278285656:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:58:05.660Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:58:05.670Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788278285656:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:58:05.670Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T15:58:05.687Z</td><td>运行完成</td><td>audit-reference-1788278285656</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788278285656:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788276217320</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T15:23:37.325Z</td><td>运行开始</td><td>audit-reference-1788276217320</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788276217320:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:23:37.325Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788276217320:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:23:37.325Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:23:37.338Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788276217320:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:23:37.338Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T15:23:37.362Z</td><td>运行完成</td><td>audit-reference-1788276217320</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788276217320:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788276125525</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T15:22:05.528Z</td><td>运行开始</td><td>audit-reference-1788276125525</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788276125525:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:22:05.528Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788276125525:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:22:05.528Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T15:22:05.541Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788276125525:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T15:22:05.541Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T15:22:05.562Z</td><td>运行完成</td><td>audit-reference-1788276125525</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788276125525:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788274766305</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T14:59:26.308Z</td><td>运行开始</td><td>audit-reference-1788274766305</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788274766305:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:59:26.308Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788274766305:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:59:26.308Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:59:26.317Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788274766305:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:59:26.317Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T14:59:26.337Z</td><td>运行完成</td><td>audit-reference-1788274766305</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788274766305:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788274651787</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T14:57:31.789Z</td><td>运行开始</td><td>audit-reference-1788274651787</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788274651787:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:57:31.790Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788274651787:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:57:31.790Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:57:31.803Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788274651787:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:57:31.803Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T14:57:31.823Z</td><td>运行完成</td><td>audit-reference-1788274651787</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788274651787:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788274453001</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T14:54:13.085Z</td><td>运行开始</td><td>audit-reference-1788274453001</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788274453001:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:54:13.086Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788274453001:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:54:13.086Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T14:54:13.098Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788274453001:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T14:54:13.098Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T14:54:13.121Z</td><td>运行完成</td><td>audit-reference-1788274453001</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788274453001:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788262694668</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T11:38:14.671Z</td><td>运行开始</td><td>audit-reference-1788262694668</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788262694668:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:38:14.672Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788262694668:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:38:14.672Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:38:14.682Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788262694668:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:38:14.682Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T11:38:14.708Z</td><td>运行完成</td><td>audit-reference-1788262694668</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788262694668:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788262498674</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T11:34:58.678Z</td><td>运行开始</td><td>audit-reference-1788262498674</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788262498674:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:34:58.679Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788262498674:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:34:58.679Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:34:58.688Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788262498674:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:34:58.688Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T11:34:58.707Z</td><td>运行完成</td><td>audit-reference-1788262498674</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788262498674:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788262425493</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T11:33:45.552Z</td><td>运行开始</td><td>audit-reference-1788262425493</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788262425493:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:33:45.552Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788262425493:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:33:45.552Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T11:33:45.566Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788262425493:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T11:33:45.566Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T11:33:45.587Z</td><td>运行完成</td><td>audit-reference-1788262425493</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788262425493:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788256909617</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T10:01:49.655Z</td><td>运行开始</td><td>audit-reference-1788256909617</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788256909617:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T10:01:49.656Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788256909617:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T10:01:49.656Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T10:01:49.668Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788256909617:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T10:01:49.668Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T10:01:49.686Z</td><td>运行完成</td><td>audit-reference-1788256909617</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788256909617:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788256732212</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T09:58:52.215Z</td><td>运行开始</td><td>audit-reference-1788256732212</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788256732212:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:58:52.215Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788256732212:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:58:52.215Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:58:52.228Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788256732212:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:58:52.228Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T09:58:52.247Z</td><td>运行完成</td><td>audit-reference-1788256732212</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788256732212:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788256556361</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T09:55:56.363Z</td><td>运行开始</td><td>audit-reference-1788256556361</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788256556361:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:55:56.364Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788256556361:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:55:56.364Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:55:56.372Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788256556361:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:55:56.372Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T09:55:56.392Z</td><td>运行完成</td><td>audit-reference-1788256556361</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788256556361:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788256437534</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T09:53:57.536Z</td><td>运行开始</td><td>audit-reference-1788256437534</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788256437534:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:53:57.537Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788256437534:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:53:57.537Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:53:57.545Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788256437534:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:53:57.545Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T09:53:57.561Z</td><td>运行完成</td><td>audit-reference-1788256437534</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788256437534:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788254178637</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T09:16:18.639Z</td><td>运行开始</td><td>audit-reference-1788254178637</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788254178637:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:16:18.640Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788254178637:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:16:18.640Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:16:19.115Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788254178637:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:16:19.115Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T09:16:19.384Z</td><td>运行完成</td><td>audit-reference-1788254178637</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788254178637:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788254022718</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T09:13:42.721Z</td><td>运行开始</td><td>audit-reference-1788254022718</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788254022718:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:13:42.721Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788254022718:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:13:42.721Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T09:13:42.731Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788254022718:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T09:13:42.731Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T09:13:42.755Z</td><td>运行完成</td><td>audit-reference-1788254022718</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788254022718:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788253180259</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T08:59:40.261Z</td><td>运行开始</td><td>audit-reference-1788253180259</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788253180259:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T08:59:40.261Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788253180259:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T08:59:40.261Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T08:59:40.270Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788253180259:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T08:59:40.270Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T08:59:40.287Z</td><td>运行完成</td><td>audit-reference-1788253180259</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788253180259:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1788239452610</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-09-01T05:10:52.635Z</td><td>运行开始</td><td>audit-reference-1788239452610</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1788239452610:run.started</code></td></tr><tr><td>业务操作</td><td>2026-09-01T05:10:52.647Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1788239452610:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T05:10:52.647Z</code></td></tr><tr><td>业务操作</td><td>2026-09-01T05:10:52.656Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1788239452610:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-01T05:10:52.656Z</code></td></tr><tr><td>运行收口</td><td>2026-09-01T05:10:52.671Z</td><td>运行完成</td><td>audit-reference-1788239452610</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1788239452610:run.completed</code></td></tr></tbody></table></div></details><details ><summary><span class="run-summary"><span class="badge">历史</span><code>audit-reference-1787899109108</code><span>4 条事件</span><span>1 次变更</span><span>0 个失败</span></span></summary><div class="table-wrap run-events"><table><thead><tr><th>流程阶段</th><th>发生时间</th><th>事件类型</th><th>用例/运行</th><th>事件内容</th><th>结果</th><th>事件编号</th></tr></thead><tbody><tr><td>准备阶段</td><td>2026-08-28T06:38:29.110Z</td><td>运行开始</td><td>audit-reference-1787899109108</td><td>system-neutral-audit-reference</td><td>成功</td><td><code>audit-reference-1787899109108:run.started</code></td></tr><tr><td>业务操作</td><td>2026-08-28T06:38:29.111Z</td><td>操作开始</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象</td><td>记录</td><td><code>realtime-operation-started:audit-reference-1787899109108:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-08-28T06:38:29.111Z</code></td></tr><tr><td>业务操作</td><td>2026-08-28T06:38:29.123Z</td><td>操作完成</td><td>REF-AUDIT-MUTATION-001</td><td>更新系统无关参考对象<br><span class="pill changed">发生数据变更</span></td><td>成功</td><td><code>realtime-operation:audit-reference-1787899109108:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-08-28T06:38:29.123Z</code></td></tr><tr><td>运行收口</td><td>2026-08-28T06:38:29.147Z</td><td>运行完成</td><td>audit-reference-1787899109108</td><td>流程事件</td><td>成功</td><td><code>audit-reference-1787899109108:run.completed</code></td></tr></tbody></table></div></details></section>
+<h2>本次运行身份</h2><p class="section-intro">这里明确当前运行。顶层综合报告会持续累积全部历史，并将最新执行标记为“本次”；每次运行同时另存独立归档。</p><section class="panel current-run"><dl><dt>当前运行编号</dt><dd><code>audit-reference-1788313512333</code></dd><dt>本次流程状态</dt><dd>审计完成</dd><dt>本次审计结论</dt><dd>本次运行已完成，1 条适用用例的审计证据完整，未发现清理残留。<br><span class="muted">具体业务通过资格仍由标准执行收据和公共状态裁决器决定。</span></dd><dt>生成时间</dt><dd>2026-09-02T01:45:12.735Z</dd><dt>更新与保留规则</dt><dd>下次执行会把本次转为历史、追加新记录并刷新综合报告；本次独立归档不会被覆盖。</dd><dt>本次归档位置</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333</code></dd><dt>运行环境</dt><dd><span class="pill">应用编号=system-test-audit-reference</span><span class="pill">系统编号=system-test-audit-reference</span><span class="pill">环境=isolated-reference</span><span class="pill">语言=zh-CN</span><span class="pill">角色=reference-runner</span><span class="pill">租户范围=self-controlled-reference</span><span class="pill">功能开关指纹=reference-baseline</span></dd></dl></section>
+<h2>逐条用例核对</h2><p class="section-intro">用途：逐条确认哪些用例进入了本次审计、是否执行、改了什么、证据与清理是否完整。出现“不完整”“失败”或“有残留”时才需要展开详情处理。</p><section class="panel"><div class="purpose"><strong>阅读方法：</strong>先看“审计状态”和“执行结果”，再看“变更字段”，最后确认“证据/清理”。</div><div class="toolbar"><label>搜索 <input id="case-search" type="search" placeholder="用例编号、操作或变更字段"></label><label>状态 <select id="case-status"><option value="">全部</option><option value="complete">完整</option><option value="incomplete">不完整</option><option value="excluded">已排除</option></select></label><label>变更 <select id="case-change"><option value="">全部</option><option value="changed">有变更</option><option value="unchanged">无变更</option></select></label></div><div class="table-wrap"><table id="case-table"><thead><tr><th>用例编号</th><th>证据是否完整</th><th>本次是否执行成功</th><th>业务操作次数</th><th>本次改了什么</th><th>证据与清理结论</th></tr></thead><tbody><tr data-case-id="REF-AUDIT-MUTATION-001" data-status="complete" data-change="changed" data-search="ref-audit-mutation-001 complete passed nested.enabled status reference-object:update"><td class="case-id">REF-AUDIT-MUTATION-001<details><summary>查看 REF-AUDIT-MUTATION-001 详情</summary><dl><dt>操作时间线</dt><dd>更新系统无关参考对象 · 2026-09-02T01:45:12.588Z · 13毫秒</dd><dt>阶段耗时（技术计时）</dt><dd><span class="muted">未提供阶段计时</span></dd><dt>断言记录</dt><dd>0 条；详情见标准证据账本</dd><dt>上下文检查</dt><dd>0 条</dd><dt>数据变更</dt><dd><span class="pill changed">nested.enabled</span><span class="pill changed">status</span><br><span class="muted">收据未提供原始快照，仅展示指纹和字段路径</span><br><span class="muted">变更前指纹=ad89230de0647298d9e7ffb68835c63f2fea6e3ed4cc66f6083abbe6cf74b760；变更后指纹=105b4cc7634086a6ac9b3a0450cf31999d410fc221f69679ab3c0bd295ac48d8</span></dd><dt>清理结果</dt><dd>reference-object / reference-1 · 接口残留 0 · 页面残留 0 · 已确认无残留</dd><dt>缺失项</dt><dd><span class="muted">无</span></dd></dl></details></td><td><span class="badge success">完整</span></td><td>通过</td><td>1</td><td><span class="pill changed">nested.enabled</span><span class="pill changed">status</span></td><td><span class="pill clean">证据完整</span> <span class="pill clean">零残留</span><br><span class="muted">13 ms</span></td></tr><tr data-case-id="REF-AUDIT-READ-001" data-status="excluded" data-change="unchanged" data-search="ref-audit-read-001 excluded not-executed"><td class="case-id">REF-AUDIT-READ-001<details><summary>查看 REF-AUDIT-READ-001 详情</summary><dl><dt>操作时间线</dt><dd><span class="muted">无操作收据</span></dd><dt>阶段耗时（技术计时）</dt><dd><span class="muted">未提供阶段计时</span></dd><dt>断言记录</dt><dd>0 条；详情见标准证据账本</dd><dt>上下文检查</dt><dd>0 条</dd><dt>数据变更</dt><dd><span class="muted">无结构化Diff</span></dd><dt>清理结果</dt><dd><span class="muted">未声明清理</span></dd><dt>缺失项</dt><dd><span class="muted">无</span></dd></dl></details></td><td><span class="badge excluded">已排除</span></td><td>未执行</td><td>0</td><td><span class="muted">—</span></td><td><span class="pill clean">证据完整</span> <span class="pill clean">零残留</span><br><span class="muted">—</span></td></tr></tbody></table></div></section>
+<h2>本次流程时间线</h2><p class="section-intro">用途：按流程阶段复盘“准备 → 业务操作 → 结果验证 → 数据清理 → 收口”。只展示当前运行，不混入历史事件。</p><section class="panel"><div class="notice">当前运行编号：<code>audit-reference-1788313512333</code>；共 18 条事件。每条事件同时标明流程阶段、发生时间、动作和结果。</div><div class="timeline"><div class="event success"><div><span class="badge info">准备阶段</span></div><div class="event-time">2026-09-02T01:45:12.499Z</div><div class="event-type">运行开始</div><div><strong>运行编号：audit-reference-1788313512333</strong><br><span class="muted">系统事件</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">准备阶段</span></div><div class="event-time">2026-09-02T01:45:12.500Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">初始化运行环境</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">准备阶段</span></div><div class="event-time">2026-09-02T01:45:12.513Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">初始化运行环境</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">准备测试数据</span></div><div class="event-time">2026-09-02T01:45:12.526Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">准备参考对象数据</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">准备测试数据</span></div><div class="event-time">2026-09-02T01:45:12.540Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">准备参考对象数据</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">环境检查</span></div><div class="event-time">2026-09-02T01:45:12.554Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">操作前检查运行上下文</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">环境检查</span></div><div class="event-time">2026-09-02T01:45:12.565Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">操作前检查运行上下文</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">业务操作</span></div><div class="event-time">2026-09-02T01:45:12.576Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">更新系统无关参考对象</span></div><div><span class="badge success">成功</span></div></div><div class="event "><div><span class="badge info">业务操作</span></div><div class="event-time">2026-09-02T01:45:12.588Z</div><div class="event-type">操作开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">更新系统无关参考对象</span></div><div><span class="badge info">记录</span></div></div><div class="event success"><div><span class="badge info">业务操作</span></div><div class="event-time">2026-09-02T01:45:12.601Z</div><div class="event-type">操作完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">更新系统无关参考对象</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">业务操作</span></div><div class="event-time">2026-09-02T01:45:12.614Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">更新系统无关参考对象</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">结果验证</span></div><div class="event-time">2026-09-02T01:45:12.627Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">验证参考对象更新结果</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">结果验证</span></div><div class="event-time">2026-09-02T01:45:12.639Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">验证参考对象更新结果</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">数据清理</span></div><div class="event-time">2026-09-02T01:45:12.651Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">清理参考对象并确认零残留</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">数据清理</span></div><div class="event-time">2026-09-02T01:45:12.665Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">清理参考对象并确认零残留</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">运行收口</span></div><div class="event-time">2026-09-02T01:45:12.675Z</div><div class="event-type">步骤开始</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">收口并生成审计报告</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">运行收口</span></div><div class="event-time">2026-09-02T01:45:12.691Z</div><div class="event-type">步骤完成</div><div><strong>REF-AUDIT-MUTATION-001</strong><br><span class="muted">收口并生成审计报告</span></div><div><span class="badge success">成功</span></div></div><div class="event success"><div><span class="badge info">运行收口</span></div><div class="event-time">2026-09-02T01:45:12.718Z</div><div class="event-type">运行完成</div><div><strong>运行编号：audit-reference-1788313512333</strong><br><span class="muted">系统事件</span></div><div><span class="badge success">成功</span></div></div></div></section>
+<h2>步骤记录健康</h2><p class="section-intro">这里核对每个可见流程步骤是否实时写入“开始”和“结束”事件。步骤记录用于过程复盘，不替代业务操作收据、断言收据或清理收据。</p><section class="panel"><div class="metrics"><div class="metric"><div class="metric-title">应记录步骤</div><div class="metric-value">7</div><div class="metric-hint">收到的步骤开始事件</div></div><div class="metric"><div class="metric-title">已闭合步骤</div><div class="metric-value">7</div><div class="metric-hint">有对应结束事件</div></div><div class="metric"><div class="metric-title">步骤覆盖率</div><div class="metric-value">100%</div><div class="metric-hint">闭合步骤 ÷ 开始步骤</div></div><div class="metric"><div class="metric-title">缺少开始</div><div class="metric-value">0</div><div class="metric-hint">只有结束、没有开始</div></div><div class="metric"><div class="metric-title">缺少结束</div><div class="metric-value">0</div><div class="metric-hint">开始后未收到结束</div></div><div class="metric"><div class="metric-title">重复记录</div><div class="metric-value">0</div><div class="metric-hint">同一步骤重复开始或结束</div></div></div><h3>按用例查看</h3><div class="table-wrap"><table><thead><tr><th>用例</th><th>应记录步骤</th><th>已闭合</th><th>覆盖率</th><th>缺少开始</th><th>缺少结束</th><th>状态</th></tr></thead><tbody><tr><td>REF-AUDIT-MUTATION-001</td><td>7</td><td>7</td><td>100%</td><td>0</td><td>0</td><td><span class="badge success">完整</span></td></tr></tbody></table></div></section>
+<h2>本次验证与清理结论</h2><p class="section-intro">用途：回答“验证了多少项、数据是否清理干净、是否触发用例纠正”。以下数字只属于当前运行 <code>audit-reference-1788313512333</code>。</p><section class="panel"><div class="purpose"><strong>本次结论：</strong>未提供断言明细；接口和页面均未发现测试数据残留。</div><dl><dt>断言记录</dt><dd>0 条；每条应包含期望、实际、观察渠道和判断结果</dd><dt>上下文检查</dt><dd>0 条；确认路由、语言、角色和租户正确</dd><dt>清理对象</dt><dd>1 个；当前没有检测到残留</dd><dt>用例纠正</dt><dd>触发 0 次，启动 0 次，完成 0 次，阻断 0 次</dd></dl><div class="notice">当前账本未提供断言明细；这不代表业务已通过，需结合标准执行收据判断。</div></section>
+<h2>纠正事件</h2><section class="panel"><div class="muted">本次运行没有纠正事件。</div></section>
+<h2>清理对象明细</h2><section class="panel"><div class="table-wrap"><table><thead><tr><th>用例</th><th>对象</th><th>业务身份</th><th>服务端编号</th><th>接口/页面残留</th><th>清理操作</th><th>尝试次数/结果</th></tr></thead><tbody><tr><td>REF-AUDIT-MUTATION-001</td><td>reference-object</td><td>REF-AUDIT-OBJECT-001</td><td>reference-1</td><td>接口 0 / 页面 0</td><td>reference-object:delete</td><td>1 / 已确认无残留</td></tr></tbody></table></div></section>
+<h2>日志健康</h2><section class="panel"><dl><dt>全量历史哈希链</dt><dd><span class="badge success">通过（当前事件集）</span>；校验范围 138 条追加事件</dd><dt>当前运行事件序号</dt><dd>连续/递增</dd><dt>当前运行事件唯一性</dt><dd>无重复事件编号</dd><dt>当前运行操作生命周期</dt><dd>开始/完成已配对</dd><dt>当前运行数量对账</dt><dd>18 条当前事件 / 摘要 18 条</dd></dl></section>
+<h2>字段说明</h2><section class="panel"><dl><dt>用例编号</dt><dd>用于唯一定位一条测试用例，编号保留原样以便与自动化和证据账本对应。</dd><dt>运行编号</dt><dd>用于区分每次执行，便于从报告追溯到对应日志。</dd><dt>变更指纹</dt><dd>数据内容的不可逆校验值，用于确认前后内容是否变化；不能还原原始数据。</dd><dt>事件日志</dt><dd>机器日志用于程序校验；中文可读日志用于人工查看，两者一一对应。</dd><dt>接口残留 / 页面残留</dt><dd>分别表示通过接口查询和页面观察到的测试数据残留数量。</dd><dt>文件格式</dt><dd>CSV 适合表格分析，PDF 适合归档，网页报告适合浏览，JSON/JSONL 适合程序核对。</dd></dl></section>
+<h2>证据产物</h2><section class="panel"><dl><dt>机器日志（JSONL）</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\audit-events.jsonl</code></dd><dt>中文可读日志</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\audit-events-readable.jsonl</code></dd><dt>证据账本（JSON）</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\evidence-ledger.json</code></dd><dt>中文表格（CSV）</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\audit-pipeline-report.csv</code></dd><dt>打印版网页（另存为 PDF）</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\audit-pipeline-report-print.html</code></dd><dt>PDF 归档</dt><dd><code>D:\Menusifu\Merchant Center\Merchant Center UITest\deliverables\system-test-audit-reference\runs\audit-reference-1788313512333\audit-pipeline-report.pdf</code></dd></dl></section>
+<details class="panel"><summary>查看脱敏报告数据</summary><pre id="report-data">{
+  &quot;result&quot;: {
+    &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+    &quot;mode&quot;: &quot;reference&quot;,
+    &quot;status&quot;: &quot;audit-complete&quot;,
+    &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+    &quot;systemId&quot;: &quot;system-test-audit-reference&quot;,
+    &quot;runIds&quot;: [
+      &quot;audit-reference-1788313512333&quot;
+    ],
+    &quot;eventLogPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-events.jsonl&quot;,
+    &quot;evidenceLedgers&quot;: [
+      &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\evidence-ledger.json&quot;
+    ],
+    &quot;gates&quot;: [
+      {
+        &quot;ledgerPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\evidence-ledger.json&quot;,
+        &quot;ok&quot;: true,
+        &quot;exitCode&quot;: 0,
+        &quot;status&quot;: &quot;audit-complete&quot;,
+        &quot;diagnostics&quot;: []
+      }
+    ],
+    &quot;summary&quot;: {
+      &quot;planned&quot;: 2,
+      &quot;auditEligible&quot;: 1,
+      &quot;classifiedExclusions&quot;: 1,
+      &quot;auditComplete&quot;: 1,
+      &quot;auditIncomplete&quot;: 0,
+      &quot;byMissingCode&quot;: {},
+      &quot;invariantSatisfied&quot;: true,
+      &quot;auditEvents&quot;: 18
+    },
+    &quot;executionContext&quot;: {
+      &quot;environmentId&quot;: &quot;isolated-reference&quot;,
+      &quot;locale&quot;: &quot;zh-CN&quot;,
+      &quot;roleId&quot;: &quot;reference-runner&quot;,
+      &quot;tenantScope&quot;: &quot;self-controlled-reference&quot;,
+      &quot;featureFlagFingerprint&quot;: &quot;reference-baseline&quot;
+    },
+    &quot;integrity&quot;: {
+      &quot;valid&quot;: true,
+      &quot;count&quot;: 138,
+      &quot;diagnostics&quot;: []
+    },
+    &quot;exitCode&quot;: 0,
+    &quot;generatedAt&quot;: &quot;2026-09-02T01:45:12.735Z&quot;,
+    &quot;artifacts&quot;: {
+      &quot;json&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-result.json&quot;,
+      &quot;html&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-report.html&quot;,
+      &quot;csv&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-report.csv&quot;,
+      &quot;printHtml&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-report-print.html&quot;,
+      &quot;readableLog&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-events-readable.jsonl&quot;,
+      &quot;pdf&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-report.pdf&quot;
+    },
+    &quot;archiveDirectory&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333&quot;,
+    &quot;history&quot;: [
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.499Z&quot;,
+        &quot;eventCount&quot;: 18,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 13,
+        &quot;stepCount&quot;: 7,
+        &quot;stepCoveragePercent&quot;: 100,
+        &quot;unclosedSteps&quot;: 0,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788313512333\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788307907958&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-02T00:11:47.963Z&quot;,
+        &quot;eventCount&quot;: 18,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 11,
+        &quot;stepCount&quot;: 7,
+        &quot;stepCoveragePercent&quot;: 100,
+        &quot;unclosedSteps&quot;: 0,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788307907958\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788307772059&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-02T00:09:32.063Z&quot;,
+        &quot;eventCount&quot;: 18,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 10,
+        &quot;stepCount&quot;: 7,
+        &quot;stepCoveragePercent&quot;: 100,
+        &quot;unclosedSteps&quot;: 0,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788307772059\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788307686765&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-02T00:08:06.768Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 9,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788307686765\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788279679820&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T16:21:19.824Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 14,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788279679820\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788278337671&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T15:58:57.674Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 14,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788278337671\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788278285656&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T15:58:05.659Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 10,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788278285656\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788276217320&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T15:23:37.325Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 13,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788276217320\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788276125525&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T15:22:05.528Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 13,
+        &quot;reportPath&quot;: &quot;D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\runs\\audit-reference-1788276125525\\audit-pipeline-report.html&quot;
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788274766305&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T14:59:26.308Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 9
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788274651787&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T14:57:31.789Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 13
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788274453001&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T14:54:13.085Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 12
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788262694668&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T11:38:14.671Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 10
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788262498674&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T11:34:58.678Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 9
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788262425493&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T11:33:45.552Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 14
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788256909617&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T10:01:49.655Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 12
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788256732212&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T09:58:52.215Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 13
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788256556361&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T09:55:56.363Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 8
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788256437534&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T09:53:57.536Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 8
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788254178637&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T09:16:18.639Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 475
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788254022718&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T09:13:42.721Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 10
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788253180259&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T08:59:40.261Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 9
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1788239452610&quot;,
+        &quot;occurredAt&quot;: &quot;2026-09-01T05:10:52.635Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 9
+      },
+      {
+        &quot;runId&quot;: &quot;audit-reference-1787899109108&quot;,
+        &quot;occurredAt&quot;: &quot;2026-08-28T06:38:29.110Z&quot;,
+        &quot;eventCount&quot;: 4,
+        &quot;dataChanges&quot;: 1,
+        &quot;failures&quot;: 0,
+        &quot;durationMs&quot;: 12
+      }
+    ]
+  },
+  &quot;cases&quot;: [
+    {
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;status&quot;: &quot;complete&quot;,
+      &quot;requirements&quot;: {
+        &quot;schemaVersion&quot;: &quot;1.1.0&quot;,
+        &quot;operationExpected&quot;: true,
+        &quot;mutationExpected&quot;: true,
+        &quot;structuredDiffExpected&quot;: true,
+        &quot;cleanupExpected&quot;: true,
+        &quot;requiredOperationKeys&quot;: [
+          &quot;reference-object:update&quot;
+        ],
+        &quot;requiredEvidenceChannels&quot;: [
+          &quot;api&quot;,
+          &quot;cleanup&quot;
+        ]
+      },
+      &quot;missing&quot;: [],
+      &quot;runtimeEvidence&quot;: {
+        &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+        &quot;assertionReceipts&quot;: [],
+        &quot;operationReceipts&quot;: [
+          {
+            &quot;operationKey&quot;: &quot;reference-object:update&quot;,
+            &quot;title&quot;: &quot;更新系统无关参考对象&quot;,
+            &quot;sequence&quot;: 1,
+            &quot;method&quot;: &quot;PATCH&quot;,
+            &quot;observed&quot;: true,
+            &quot;status&quot;: &quot;passed&quot;,
+            &quot;durationMs&quot;: 13,
+            &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.588Z&quot;,
+            &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.601Z&quot;,
+            &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.601Z&quot;,
+            &quot;responseStatus&quot;: 200,
+            &quot;attempt&quot;: 1,
+            &quot;beforeFingerprint&quot;: &quot;ad89230de0647298d9e7ffb68835c63f2fea6e3ed4cc66f6083abbe6cf74b760&quot;,
+            &quot;afterFingerprint&quot;: &quot;105b4cc7634086a6ac9b3a0450cf31999d410fc221f69679ab3c0bd295ac48d8&quot;,
+            &quot;changedFields&quot;: [
+              &quot;nested.enabled&quot;,
+              &quot;status&quot;
+            ],
+            &quot;dataChanged&quot;: true,
+            &quot;details&quot;: {
+              &quot;fixture&quot;: true,
+              &quot;externalSystemAccessed&quot;: false
+            }
+          }
+        ],
+        &quot;mutationObserved&quot;: true,
+        &quot;cleanup&quot;: {
+          &quot;apiIdentityCounts&quot;: {
+            &quot;reference-object:reference-1&quot;: 0
+          },
+          &quot;uiIdentityCounts&quot;: {
+            &quot;reference-object:reference-1&quot;: 0
+          },
+          &quot;objects&quot;: [
+            {
+              &quot;entityType&quot;: &quot;reference-object&quot;,
+              &quot;serverId&quot;: &quot;reference-1&quot;,
+              &quot;businessIdentity&quot;: &quot;REF-AUDIT-OBJECT-001&quot;,
+              &quot;cleanupOperationKey&quot;: &quot;reference-object:delete&quot;,
+              &quot;cleanupAttempt&quot;: 1,
+              &quot;apiResidueCount&quot;: 0,
+              &quot;uiResidueCount&quot;: 0,
+              &quot;outcome&quot;: &quot;verified-zero&quot;,
+              &quot;evidenceRefs&quot;: [
+                &quot;self-controlled-reference-memory-store&quot;
+              ]
+            }
+          ]
+        }
+      },
+      &quot;auditCompleteness&quot;: {
+        &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;requirements&quot;: {
+          &quot;schemaVersion&quot;: &quot;1.1.0&quot;,
+          &quot;operationExpected&quot;: true,
+          &quot;mutationExpected&quot;: true,
+          &quot;structuredDiffExpected&quot;: true,
+          &quot;cleanupExpected&quot;: true,
+          &quot;requiredOperationKeys&quot;: [
+            &quot;reference-object:update&quot;
+          ],
+          &quot;requiredEvidenceChannels&quot;: [
+            &quot;api&quot;,
+            &quot;cleanup&quot;
+          ]
+        },
+        &quot;missing&quot;: []
+      },
+      &quot;auditStatus&quot;: &quot;complete&quot;,
+      &quot;executionStatus&quot;: &quot;passed&quot;,
+      &quot;changed&quot;: true,
+      &quot;residue&quot;: false,
+      &quot;operationCount&quot;: 1,
+      &quot;assertionCount&quot;: 0,
+      &quot;contextGuardCount&quot;: 0,
+      &quot;cleanupObjectCount&quot;: 1,
+      &quot;durationMs&quot;: 13
+    },
+    {
+      &quot;caseId&quot;: &quot;REF-AUDIT-READ-001&quot;,
+      &quot;status&quot;: &quot;excluded&quot;,
+      &quot;requirements&quot;: {
+        &quot;schemaVersion&quot;: &quot;1.1.0&quot;,
+        &quot;operationExpected&quot;: false,
+        &quot;mutationExpected&quot;: false,
+        &quot;structuredDiffExpected&quot;: false,
+        &quot;cleanupExpected&quot;: false,
+        &quot;requiredOperationKeys&quot;: [],
+        &quot;requiredEvidenceChannels&quot;: []
+      },
+      &quot;missing&quot;: [],
+      &quot;auditStatus&quot;: &quot;excluded&quot;,
+      &quot;executionStatus&quot;: &quot;not-executed&quot;,
+      &quot;changed&quot;: false,
+      &quot;residue&quot;: false,
+      &quot;operationCount&quot;: 0,
+      &quot;assertionCount&quot;: 0,
+      &quot;contextGuardCount&quot;: 0,
+      &quot;cleanupObjectCount&quot;: 0,
+      &quot;durationMs&quot;: 0
+    }
+  ],
+  &quot;events&quot;: [
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:run.started&quot;,
+      &quot;eventType&quot;: &quot;run.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;businessDomainId&quot;: &quot;reference-domain&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.499Z&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 121,
+      &quot;previousEventHash&quot;: &quot;bc7171f506045ecafdee44cb272312ad4d8eff1ebcafb82f55ab13791ba8de14&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;d34e0b6b379c19a7ad5373ae714b48ae8e119ab43ad040294b1d43446b8313f2&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:initialize:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.500Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.500Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;initialize&quot;,
+        &quot;phase&quot;: &quot;initialize&quot;,
+        &quot;stepKind&quot;: &quot;environment&quot;,
+        &quot;title&quot;: &quot;初始化运行环境&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 122,
+      &quot;previousEventHash&quot;: &quot;d34e0b6b379c19a7ad5373ae714b48ae8e119ab43ad040294b1d43446b8313f2&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;cacbd691d6326214e93fc35a4413419f87e0dd2b7c819f4226fa8c30f1970986&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:initialize:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:initialize:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.513Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.500Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.513Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;initialize&quot;,
+        &quot;phase&quot;: &quot;initialize&quot;,
+        &quot;stepKind&quot;: &quot;environment&quot;,
+        &quot;title&quot;: &quot;初始化运行环境&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 123,
+      &quot;previousEventHash&quot;: &quot;cacbd691d6326214e93fc35a4413419f87e0dd2b7c819f4226fa8c30f1970986&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;edecb8ee855098e713e84bb9f577efb1bd3dcbaed788044cdf47aa7676bd5e3b&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:seed:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.526Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.526Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;seed&quot;,
+        &quot;phase&quot;: &quot;seed&quot;,
+        &quot;stepKind&quot;: &quot;data-preparation&quot;,
+        &quot;title&quot;: &quot;准备参考对象数据&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 124,
+      &quot;previousEventHash&quot;: &quot;edecb8ee855098e713e84bb9f577efb1bd3dcbaed788044cdf47aa7676bd5e3b&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;c7668fe2d6e024ada81e53aa26671d89a0a69ba2a7e56faaae2cd4fb0e4c0e1a&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:seed:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:seed:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.540Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.526Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.540Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;seed&quot;,
+        &quot;phase&quot;: &quot;seed&quot;,
+        &quot;stepKind&quot;: &quot;data-preparation&quot;,
+        &quot;title&quot;: &quot;准备参考对象数据&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 125,
+      &quot;previousEventHash&quot;: &quot;c7668fe2d6e024ada81e53aa26671d89a0a69ba2a7e56faaae2cd4fb0e4c0e1a&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;2b695583ab33ea8f663921f00e0816788fd80c818f7481ac64938fd5bd036e40&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:context-before-action:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.554Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.554Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;context-before-action&quot;,
+        &quot;phase&quot;: &quot;context-guard&quot;,
+        &quot;stepKind&quot;: &quot;context-guard&quot;,
+        &quot;title&quot;: &quot;操作前检查运行上下文&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 126,
+      &quot;previousEventHash&quot;: &quot;2b695583ab33ea8f663921f00e0816788fd80c818f7481ac64938fd5bd036e40&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;ffaa4d67d08f41b8ed81eff164ce0e88898a6cadd3f92f67bb07a27ac55decbb&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:context-before-action:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:context-before-action:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.565Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.554Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.565Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;context-before-action&quot;,
+        &quot;phase&quot;: &quot;context-guard&quot;,
+        &quot;stepKind&quot;: &quot;context-guard&quot;,
+        &quot;title&quot;: &quot;操作前检查运行上下文&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 127,
+      &quot;previousEventHash&quot;: &quot;ffaa4d67d08f41b8ed81eff164ce0e88898a6cadd3f92f67bb07a27ac55decbb&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;64fe2bf645784594109a6fcc62de440535cafe5df2f34ca14539d3a2a68dea1a&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:capability:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.576Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.576Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;capability&quot;,
+        &quot;phase&quot;: &quot;capability&quot;,
+        &quot;stepKind&quot;: &quot;business-operation&quot;,
+        &quot;title&quot;: &quot;更新系统无关参考对象&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 128,
+      &quot;previousEventHash&quot;: &quot;64fe2bf645784594109a6fcc62de440535cafe5df2f34ca14539d3a2a68dea1a&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;db2cf7211a8b0315d800704b3409b4f46a1013e51b1819c77bd4323318677fd1&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;realtime-operation-started:audit-reference-1788313512333:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T01:45:12.588Z&quot;,
+      &quot;eventType&quot;: &quot;operation.started&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.588Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.588Z&quot;,
+      &quot;actorType&quot;: &quot;system&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;businessDomainId&quot;: &quot;reference-domain&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;realtime-executable-operation&quot;,
+        &quot;operationKey&quot;: &quot;reference-object:update&quot;,
+        &quot;title&quot;: &quot;更新系统无关参考对象&quot;,
+        &quot;sequence&quot;: 1,
+        &quot;method&quot;: &quot;PATCH&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 129,
+      &quot;previousEventHash&quot;: &quot;db2cf7211a8b0315d800704b3409b4f46a1013e51b1819c77bd4323318677fd1&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;269fc775622576a165190e5087c40a7d9b9262a104355c9556829277c7bd1dde&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;realtime-operation:audit-reference-1788313512333:REF-AUDIT-MUTATION-001:reference-object:update:1:2026-09-02T01:45:12.601Z&quot;,
+      &quot;eventType&quot;: &quot;operation.called&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.601Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.588Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.601Z&quot;,
+      &quot;durationMs&quot;: 13,
+      &quot;actorType&quot;: &quot;system&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;businessDomainId&quot;: &quot;reference-domain&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;beforeFingerprint&quot;: &quot;ad89230de0647298d9e7ffb68835c63f2fea6e3ed4cc66f6083abbe6cf74b760&quot;,
+      &quot;afterFingerprint&quot;: &quot;105b4cc7634086a6ac9b3a0450cf31999d410fc221f69679ab3c0bd295ac48d8&quot;,
+      &quot;dataChanged&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;realtime-executable-operation&quot;,
+        &quot;operationKey&quot;: &quot;reference-object:update&quot;,
+        &quot;title&quot;: &quot;更新系统无关参考对象&quot;,
+        &quot;sequence&quot;: 1,
+        &quot;method&quot;: &quot;PATCH&quot;,
+        &quot;observed&quot;: true,
+        &quot;status&quot;: &quot;passed&quot;,
+        &quot;responseStatus&quot;: 200,
+        &quot;beforeFingerprint&quot;: &quot;ad89230de0647298d9e7ffb68835c63f2fea6e3ed4cc66f6083abbe6cf74b760&quot;,
+        &quot;afterFingerprint&quot;: &quot;105b4cc7634086a6ac9b3a0450cf31999d410fc221f69679ab3c0bd295ac48d8&quot;,
+        &quot;changedFields&quot;: [
+          &quot;nested.enabled&quot;,
+          &quot;status&quot;
+        ],
+        &quot;structuredDiffProvided&quot;: true,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 130,
+      &quot;previousEventHash&quot;: &quot;269fc775622576a165190e5087c40a7d9b9262a104355c9556829277c7bd1dde&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;67e0e97bc1c95871795bdb3c0cdfb9f38c86e57dffc78daef839581abf2d0b7a&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:capability:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:capability:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.614Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.576Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.614Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;capability&quot;,
+        &quot;phase&quot;: &quot;capability&quot;,
+        &quot;stepKind&quot;: &quot;business-operation&quot;,
+        &quot;title&quot;: &quot;更新系统无关参考对象&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 131,
+      &quot;previousEventHash&quot;: &quot;67e0e97bc1c95871795bdb3c0cdfb9f38c86e57dffc78daef839581abf2d0b7a&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;babe4f5b18b92c5a7454bee2fe929f9e9e7d8b9c10d49ae5b33ac458fd89b252&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:assertion:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.627Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.627Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;assertion&quot;,
+        &quot;phase&quot;: &quot;assertion&quot;,
+        &quot;stepKind&quot;: &quot;assertion&quot;,
+        &quot;title&quot;: &quot;验证参考对象更新结果&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 132,
+      &quot;previousEventHash&quot;: &quot;babe4f5b18b92c5a7454bee2fe929f9e9e7d8b9c10d49ae5b33ac458fd89b252&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;0117fe5520d9f6fe1d84d9e0a6a8008ffb88aa60fd432828ce04a4fa59f947d7&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:assertion:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:assertion:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.639Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.627Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.639Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;assertion&quot;,
+        &quot;phase&quot;: &quot;assertion&quot;,
+        &quot;stepKind&quot;: &quot;assertion&quot;,
+        &quot;title&quot;: &quot;验证参考对象更新结果&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 133,
+      &quot;previousEventHash&quot;: &quot;0117fe5520d9f6fe1d84d9e0a6a8008ffb88aa60fd432828ce04a4fa59f947d7&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;205f390fb713aac0b151d410c94bcd1ef3e878c5fcfd2d9b8be3587adb481191&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:cleanup:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.651Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.651Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;cleanup&quot;,
+        &quot;phase&quot;: &quot;cleanup&quot;,
+        &quot;stepKind&quot;: &quot;cleanup&quot;,
+        &quot;title&quot;: &quot;清理参考对象并确认零残留&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 134,
+      &quot;previousEventHash&quot;: &quot;205f390fb713aac0b151d410c94bcd1ef3e878c5fcfd2d9b8be3587adb481191&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;9bdf6008b8fc69ee24305fbf6f2098ef4e7e5ea527d83664b852c41f9ce5b2e4&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:cleanup:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:cleanup:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.665Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.651Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.665Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;cleanup&quot;,
+        &quot;phase&quot;: &quot;cleanup&quot;,
+        &quot;stepKind&quot;: &quot;cleanup&quot;,
+        &quot;title&quot;: &quot;清理参考对象并确认零残留&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 135,
+      &quot;previousEventHash&quot;: &quot;9bdf6008b8fc69ee24305fbf6f2098ef4e7e5ea527d83664b852c41f9ce5b2e4&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;52352026e0224558c1f1f373f59cc45b5aecb1b6cd680f2e4f97c1922ef9f7bb&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:close:started&quot;,
+      &quot;eventType&quot;: &quot;step.started&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.675Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.675Z&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;close&quot;,
+        &quot;phase&quot;: &quot;close&quot;,
+        &quot;stepKind&quot;: &quot;technical&quot;,
+        &quot;title&quot;: &quot;收口并生成审计报告&quot;,
+        &quot;realtime&quot;: true
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 136,
+      &quot;previousEventHash&quot;: &quot;52352026e0224558c1f1f373f59cc45b5aecb1b6cd680f2e4f97c1922ef9f7bb&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;f63df464b2de6b3811163b1bbf91e5e6bc53bafa9b98b373999f1ec04234a8a5&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:step:close:completed&quot;,
+      &quot;parentEventId&quot;: &quot;audit-reference-1788313512333:step:close:started&quot;,
+      &quot;eventType&quot;: &quot;step.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;caseId&quot;: &quot;REF-AUDIT-MUTATION-001&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.691Z&quot;,
+      &quot;startedAt&quot;: &quot;2026-09-02T01:45:12.675Z&quot;,
+      &quot;finishedAt&quot;: &quot;2026-09-02T01:45:12.691Z&quot;,
+      &quot;durationMs&quot;: 0,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;sourceKind&quot;: &quot;system-neutral-audit-reference-step&quot;,
+        &quot;stepId&quot;: &quot;close&quot;,
+        &quot;phase&quot;: &quot;close&quot;,
+        &quot;stepKind&quot;: &quot;technical&quot;,
+        &quot;title&quot;: &quot;收口并生成审计报告&quot;,
+        &quot;realtime&quot;: true,
+        &quot;terminalStatus&quot;: &quot;passed&quot;
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 137,
+      &quot;previousEventHash&quot;: &quot;f63df464b2de6b3811163b1bbf91e5e6bc53bafa9b98b373999f1ec04234a8a5&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;1074ba2341ce1c0d32cb95736cb835383c2a02b2678f12aa147dd050e5f2cf15&quot;
+    },
+    {
+      &quot;eventId&quot;: &quot;audit-reference-1788313512333:run.completed&quot;,
+      &quot;eventType&quot;: &quot;run.completed&quot;,
+      &quot;actorType&quot;: &quot;runner&quot;,
+      &quot;applicationId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;businessDomainId&quot;: &quot;reference-domain&quot;,
+      &quot;planId&quot;: &quot;system-test-audit-reference&quot;,
+      &quot;runId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;traceId&quot;: &quot;audit-reference-1788313512333&quot;,
+      &quot;outcome&quot;: &quot;success&quot;,
+      &quot;effectiveSuccess&quot;: true,
+      &quot;details&quot;: {
+        &quot;auditGate&quot;: &quot;audit-complete&quot;,
+        &quot;auditSummary&quot;: {
+          &quot;planned&quot;: 2,
+          &quot;auditEligible&quot;: 1,
+          &quot;classifiedExclusions&quot;: 1,
+          &quot;auditComplete&quot;: 1,
+          &quot;auditIncomplete&quot;: 0,
+          &quot;byMissingCode&quot;: {},
+          &quot;invariantSatisfied&quot;: true
+        }
+      },
+      &quot;schemaVersion&quot;: &quot;1.0.0&quot;,
+      &quot;occurredAt&quot;: &quot;2026-09-02T01:45:12.718Z&quot;,
+      &quot;attempt&quot;: 1,
+      &quot;retryOfEventId&quot;: null,
+      &quot;eventSequence&quot;: 138,
+      &quot;previousEventHash&quot;: &quot;1074ba2341ce1c0d32cb95736cb835383c2a02b2678f12aa147dd050e5f2cf15&quot;,
+      &quot;redacted&quot;: true,
+      &quot;eventHash&quot;: &quot;aa30956945e2982c7a20e964c614e4ca94b199deb6105bee39307a475fe5675d&quot;
+    }
+  ]
+}</pre></details>
+<div class="footer">本报告仅负责可视化展示；用例状态和通过资格仍由公共状态裁决器及标准执行收据决定。打印按钮可将当前报告另存为 PDF。</div>
+</main><script>
+(function(){const q=(s)=>document.querySelector(s);const rows=[...document.querySelectorAll('#case-table tbody tr[data-case-id]')];function apply(){const text=(q('#case-search').value||'').toLowerCase();const status=q('#case-status').value;const change=q('#case-change').value;rows.forEach(r=>{const okText=!text||r.dataset.search.includes(text);const okStatus=!status||r.dataset.status===status;const okChange=!change||r.dataset.change===change;r.dataset.hidden=String(!(okText&&okStatus&&okChange));});}['#case-search','#case-status','#case-change'].forEach((s)=>q(s).addEventListener('input',apply));const csv=q('#download-csv');if(csv)csv.addEventListener('click',()=>{const lines=[['用例编号','审计状态','执行结果','操作次数','变更字段','是否有清理残留'].join(',')];rows.filter(r=>r.dataset.hidden!=='true').forEach(r=>{const cells=[...r.querySelectorAll(':scope>td')].slice(0,6).map(c=>'"'+(c.innerText||'').replace(/"/g,'""').replaceAll(String.fromCharCode(10),' ')+'"');lines.push(cells.join(','));});const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='audit-report.csv';a.click();URL.revokeObjectURL(a.href);});})();
+</script></body></html>

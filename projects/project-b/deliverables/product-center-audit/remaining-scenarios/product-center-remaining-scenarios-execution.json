@@ -1,0 +1,370 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-remaining-scenarios-execution",
+  "generatedAt": "2026-09-04T03:00:32.382Z",
+  "status": "completed-with-findings",
+  "scope": "project-adapter + generated-evidence",
+  "executionAllowed": false,
+  "businessMutationAllowed": false,
+  "sourceFingerprint": "file:689a727771099be8:sha256:3fff88731a62d9e9b699e8106c646c395cb4becaa20799a63c3a862b30c84d82|file:25c960d90b49756d:sha256:cf192e1165607acc95f42a1b19dcbed13f9193d1d79139bc63ae2d6d8991a00c",
+  "summary": {
+    "total": 10,
+    "resolved": 4,
+    "partial": 6,
+    "blocked": 0,
+    "readyForBusinessExecution": false
+  },
+  "scenarios": [
+    {
+      "id": "S03",
+      "name": "重定向、登录页与最终路由识别",
+      "status": "resolved",
+      "reason": "已采集最终路径，但必须有重定向链和路由守卫证据才能关闭",
+      "evidenceRefs": [
+        "Merchant Center UITest/tests/generated/product-center-remaining-readonly-observation.generated.spec.ts",
+        "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+      ],
+      "nextActions": [
+        "补充重定向链、登录页识别和最终路由守卫收据"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S06",
+      "name": "登录态、权限缓存、角色与租户切换识别",
+      "status": "partial",
+      "reason": "认证/权限/角色/租户字段尚未全部满足关闭条件",
+      "evidenceRefs": [
+        "Merchant Center UITest/tests/generated/product-center-remaining-readonly-observation.generated.spec.ts",
+        "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+      ],
+      "nextActions": [
+        "在真实上下文中记录角色、租户、权限和登录态变化"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S08",
+      "name": "SPA 异步页面稳定态观测",
+      "status": "partial",
+      "reason": "稳定采样 3/3，loading 计数已记录",
+      "evidenceRefs": [
+        "Merchant Center UITest/tests/generated/product-center-remaining-readonly-observation.generated.spec.ts",
+        "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+      ],
+      "nextActions": [
+        "至少取得 3 次相同 DOM 指纹且 loading 归零后再进入断言"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S09",
+      "name": "隐藏控件、顺序弹窗与二级操作探索",
+      "status": "partial",
+      "reason": "已观测可见控件和弹窗，但仍需关闭未知覆盖区域",
+      "evidenceRefs": [
+        "Merchant Center UITest/tests/generated/product-center-remaining-readonly-observation.generated.spec.ts",
+        "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+      ],
+      "nextActions": [
+        "补齐隐藏/二级操作覆盖清单；未知区域不得生成正式断言"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S10",
+      "name": "虚拟列表、分页与懒加载覆盖",
+      "status": "resolved",
+      "reason": "已记录行窗口、分页和懒加载信号，但未覆盖的页码仍需明确",
+      "evidenceRefs": [
+        "Merchant Center UITest/tests/generated/product-center-remaining-readonly-observation.generated.spec.ts",
+        "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+      ],
+      "nextActions": [
+        "按页码/游标登记选择集，并对虚拟窗口前后状态分别留证"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S15",
+      "name": "步骤、预期、观察通道逐项绑定",
+      "status": "partial",
+      "reason": "已生成 2963 条逐步骤追踪；仍有 2963 条未完成",
+      "evidenceRefs": [
+        "file:25c960d90b49756d",
+        "xmind:224fa8aba9fd7923f600b2cfe8",
+        "xmind:c2b72a73536f4e497ddbcb4fc3",
+        "xmind:41614349930be9e993629c1a31",
+        "xmind:78ee52d54716715ae40f649b73",
+        "xmind:ff85a57fe5e2f4ba6b37d02fb8",
+        "xmind:dbf00b8ad2eab224234b902d06",
+        "xmind:376e394588550555d8db740781",
+        "xmind:d93f9f51702d98f58300056250",
+        "xmind:d5f28265c36645024a3c201021",
+        "xmind:ed833553d193ed446cd6b8b7b6"
+      ],
+      "nextActions": [
+        "为每个 action/expectation 绑定观察通道和收据引用"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S16",
+      "name": "有来源约束的负向场景发现",
+      "status": "partial",
+      "reason": "从来源识别 364 条负向候选；不凭经验扩展业务规则",
+      "evidenceRefs": [
+        "file:25c960d90b49756d",
+        "xmind:e54d285fc7689a832e2f198a0a",
+        "xmind:fe3864ac990e46b1638d4436dc",
+        "xmind:25db9281582d6570488b562175",
+        "xmind:c1c6102ffa2131bbd071e6bed8",
+        "xmind:d90e49baa1d355b4727c00ac2f",
+        "xmind:c927389f6ca7b259258af203ed",
+        "xmind:cd116d298bd120c45db53907d4",
+        "xmind:c78dca594635c3f9663c7e4938",
+        "xmind:ed9bde330fa4e3d4c67e925460",
+        "xmind:f6c9cd19b96d6103696981911c",
+        "xmind:2a9c4cfc0086780d9a2bf458a9",
+        "xmind:d7a32817bc8586fe1dd153c05f",
+        "xmind:0533834575bf7ad1ead5ed9d54",
+        "xmind:fb6ab2763db879dafa7329a15b",
+        "xmind:52beaa59413b07ca175bde7eba",
+        "xmind:1d1d7f7d3f2fd54dc393542d4e",
+        "xmind:d29ba8cb3c5713c2410dd55abf",
+        "xmind:45a15a2eab5dd081bfd6642d08",
+        "xmind:36b28aff918672a34ed6d991a7"
+      ],
+      "nextActions": [
+        "补充负向覆盖决策；没有来源的负向场景保持阻断"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S17",
+      "name": "数据工厂、清理适配器与零残留验证",
+      "status": "partial",
+      "reason": "已识别候选的数据/清理要求，但零残留必须逐用例有 API/UI 收据",
+      "evidenceRefs": [],
+      "nextActions": [
+        "为每个写数据用例绑定 dataProfile、cleanup adapter、API 零残留和 UI 零残留收据"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S21",
+      "name": "大型 XMind 分模块、分页与摘要产物",
+      "status": "resolved",
+      "reason": "XMind 已分为 34 段，最大段大小 250",
+      "evidenceRefs": [
+        "file:25c960d90b49756d",
+        "xmind:0041d6b2f5945135c2efdd7ced",
+        "xmind:02a90a061e68a922d5fa702d13",
+        "xmind:0827158360ebdfcce20ca30aa7",
+        "xmind:0e08e6d8732d5991567f87da01",
+        "xmind:1053e00d1e1b7ee41ffd6dfac5",
+        "xmind:10f660d9d78e81ffa09d7b8158",
+        "xmind:1d1d7f7d3f2fd54dc393542d4e",
+        "xmind:1e674e64be331c04b9abac22b9",
+        "xmind:1ee09df7cdd7582b10983724af",
+        "xmind:22c94d1fc3ab744fcc7dcaed25",
+        "xmind:2869b1e435faa4edd93bcd9b45",
+        "xmind:2a547524e9623dca9a53ddbf96",
+        "xmind:2d151351a7d7263f4e8357719a",
+        "xmind:2fd4885c1eb6ee1167c38bc5e7",
+        "xmind:3442dea3cc819b8f80d4352006",
+        "xmind:347dc861166cccd397db5bc62e",
+        "xmind:396786108f8e8b161e02d2845d",
+        "xmind:3effbe2fd34bc31e0f7cdc0c93",
+        "xmind:4542310a0fe7ffe7aff6991525"
+      ],
+      "nextActions": [
+        "分段只输出候选索引，正式用例仍需逐条来源和语义审核"
+      ],
+      "affectsExistingResults": "unchanged"
+    },
+    {
+      "id": "S30",
+      "name": "完整失败分类与责任路由",
+      "status": "resolved",
+      "reason": "已建立分类优先级：外部/认证/权限/环境/平台瞬态先于产品归因，产品失败必须有完整闭环",
+      "evidenceRefs": [],
+      "nextActions": [
+        "所有失败收据写入分类、重试性、证据引用和责任路由"
+      ],
+      "affectsExistingResults": "unchanged"
+    }
+  ],
+  "traceSummary": {
+    "candidateCount": 2963,
+    "caseCount": 2963,
+    "stepCount": 2111,
+    "completeCaseCount": 0,
+    "unboundStepCount": 2111,
+    "mismatchCaseCount": 168,
+    "negativeCandidateCount": 364
+  },
+  "xmindSummary": {
+    "candidateCount": 2745,
+    "segmentCount": 34,
+    "maxSegmentSize": 250,
+    "modules": [
+      {
+        "module": "标准商品 / 必填校验",
+        "candidateCount": 55,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 编辑",
+        "candidateCount": 125,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 查询筛选",
+        "candidateCount": 30,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 创建",
+        "candidateCount": 326,
+        "segmentCount": 2
+      },
+      {
+        "module": "标准商品 / 价格规格",
+        "candidateCount": 317,
+        "segmentCount": 2
+      },
+      {
+        "module": "标准商品 / 扩展配置",
+        "candidateCount": 22,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 删除",
+        "candidateCount": 42,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 套餐规则",
+        "candidateCount": 8,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 展示与其他",
+        "candidateCount": 203,
+        "segmentCount": 1
+      },
+      {
+        "module": "标准商品 / 状态生命周期",
+        "candidateCount": 75,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 必填校验",
+        "candidateCount": 42,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 编辑",
+        "candidateCount": 39,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 查询筛选",
+        "candidateCount": 19,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 创建",
+        "candidateCount": 166,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 价格规格",
+        "candidateCount": 75,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 扩展配置",
+        "candidateCount": 31,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 删除",
+        "candidateCount": 52,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 套餐规则",
+        "candidateCount": 7,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 展示与其他",
+        "candidateCount": 39,
+        "segmentCount": 1
+      },
+      {
+        "module": "加料商品 / 状态生命周期",
+        "candidateCount": 69,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 必填校验",
+        "candidateCount": 59,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 编辑",
+        "candidateCount": 37,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 查询筛选",
+        "candidateCount": 46,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 价格规格",
+        "candidateCount": 94,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 删除",
+        "candidateCount": 42,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 套餐规则",
+        "candidateCount": 522,
+        "segmentCount": 3
+      },
+      {
+        "module": "套餐商品 / 展示与其他",
+        "candidateCount": 55,
+        "segmentCount": 1
+      },
+      {
+        "module": "套餐商品 / 状态生命周期",
+        "candidateCount": 82,
+        "segmentCount": 1
+      },
+      {
+        "module": "页面补充 / 批量与导入",
+        "candidateCount": 12,
+        "segmentCount": 1
+      },
+      {
+        "module": "页面补充 / 展示与其他",
+        "candidateCount": 54,
+        "segmentCount": 1
+      }
+    ]
+  },
+  "guardrails": {
+    "canonicalCaseMutationAllowed": false,
+    "existingResultsRerun": false,
+    "existingResultsInvalidated": false,
+    "formalExecutionGrantRequired": true
+  }
+}

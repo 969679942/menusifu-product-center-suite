@@ -1,0 +1,1305 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-failure-manual-decisions",
+  "generatedAt": "2026-08-20T12:57:27.125Z",
+  "source": "output\\product-center-item-213-failures\\failure-pack.md",
+  "summary": {
+    "automation-remediation": 38,
+    "accepted-observed": 18,
+    "skip-deferred": 11
+  },
+  "decisions": [
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "title": "加料商品价格输入负数或非数字时创建失败",
+      "directive": "更新业务规则：加料商品价格输入负数或非数字，点击保存后价格归一化为 0.00，可以保存成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "加料商品非法价格保存时归一化为 0.00",
+      "canonicalActions": [
+        "进入加料商品创建页并填写唯一名称。",
+        "输入负数或非数字标准价并点击保存。",
+        "在商品列表搜索该商品并读取价格。"
+      ],
+      "canonicalExpectedResults": [
+        "点击保存后价格归一化为 0.00，加料商品保存成功且列表显示 0.00。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "directive": "更新业务规则，名称超过长度限制，无法继续输入但可以保存成功，保存的名称长度为最大长度",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "商品名称达到页面最大长度后不可继续输入；按最大长度值保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "title": "加料商品与其他商品类型同商户同名创建失败",
+      "directive": "更新业务规则：加料商品可以与其他商品类型使用相同商品名称，保存成功后两种商品均保留。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "加料商品允许与其他商品类型同名",
+      "canonicalActions": [
+        "创建一个唯一名称的标准商品。",
+        "进入加料商品创建页并填写相同商品名称。",
+        "点击保存。",
+        "核对同名标准商品和加料商品均存在。"
+      ],
+      "canonicalExpectedResults": [
+        "加料商品允许与其他商品类型使用相同商品名称；保存成功后同名标准商品和加料商品均保留。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "title": "加料商品商品第二名称与商品名称互相不可重复",
+      "directive": "",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "runtime-analysis"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "title": "加料商品添加详情图片不超过 10 张",
+      "directive": "这条按照你给的意见处理，非业务问题",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "title": "加料商品配置材料信息中原料、过敏原和营养成分后保存成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "title": "加料商品被加料组引用且组被商品引用时不可删除",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-028",
+      "title": "加料商品被菜单引用时不可删除",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "title": "标准商品引用含该加料的加料组后加料商品不可删除",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "title": "加料商品列表主图不支持点击查看大图",
+      "directive": "更新业务规则，列表无法点击主图查看大图，这条用例列为P2",
+      "disposition": "accepted-observed",
+      "priority": "P2",
+      "updatedTitle": "加料商品列表主图不支持点击查看大图",
+      "acceptedDiagnosticPatterns": [
+        "MAIN_IMAGE_CLICK_TARGET_NOT_OBSERVED",
+        "没有观察到可点击主图"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-add-035:click-main-image",
+        "canonicalId": "TC-ITEM-ADD-035",
+        "ruleId": "BR-TC-ITEM-ADD-035",
+        "irId": "TC-ITEM-ADD-035",
+        "recipeId": "generated:TC-ITEM-ADD-035",
+        "route": "/pp/brand/list",
+        "state": "addon-list-filtered-with-controlled-image-item",
+        "action": "click-main-image",
+        "overlay": [
+          "N/A:no-preview-overlay"
+        ],
+        "uiAssertion": "列表行不存在可点击主图目标",
+        "apiAssertion": "受控主图商品创建成功；观察后按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/addon-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "列表行不存在可点击主图目标"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "title": "加料商品状态变更后需下发到门店终端才生效",
+      "directive": "更新业务规则，门店商品的商品状态需要重新下发到门店才生效，非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "加料商品状态变更后，需重新下发到门店终端才生效。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "title": "加料商品从图片库选择主图后创建成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "title": "切换页面返回加料商品列表时不保留查询条件",
+      "directive": "更新业务规则，切换页面不保留查询条件",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "切换页面返回加料商品列表时不保留查询条件",
+      "acceptedDiagnosticPatterns": [
+        "查询条件未保留"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-add-041:navigate-away-and-return",
+        "canonicalId": "TC-ITEM-ADD-041",
+        "ruleId": "BR-TC-ITEM-ADD-041",
+        "irId": "TC-ITEM-ADD-041",
+        "recipeId": "generated:TC-ITEM-ADD-041",
+        "route": "/pp/brand/list",
+        "state": "addon-list-returned-after-route-switch",
+        "action": "navigate-away-and-return",
+        "overlay": [
+          "N/A:no-overlay"
+        ],
+        "uiAssertion": "返回列表后查询条件为空",
+        "apiAssertion": "受控加料商品创建成功；观察后按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/addon-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "返回列表后查询条件为空"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-044",
+      "title": "加料商品被菜单引用时仍可停用并在下发后渠道不展示",
+      "directive": "更新业务规则：加入菜单后的加料商品可以停用；停用时出现二次确认弹窗，点击确认后停用成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "菜单已引用的加料商品二次确认后停用成功",
+      "canonicalActions": [
+        "创建加料商品并加入受控菜单。",
+        "在商品列表点击停用。",
+        "在二次确认弹窗点击 Disable/停用。",
+        "核对品牌商品状态为 Disabled。"
+      ],
+      "canonicalExpectedResults": [
+        "出现停用二次确认弹窗；点击确认后菜单已引用的加料商品停用成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "title": "存在二级分类时未选二级分类不影响套餐商品提交",
+      "directive": "分类属于优先级很低的业务，更新业务规则：一级分类下存在二级分类时未选到二级分类则商品选择分类不成功，不影响提交",
+      "disposition": "accepted-observed",
+      "priority": "P2",
+      "updatedTitle": "存在二级分类时未选二级分类不影响套餐商品提交",
+      "acceptedDiagnosticPatterns": [
+        "负向条件未阻止服务器创建"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-013:save-combo-item",
+        "canonicalId": "TC-ITEM-PKG-013",
+        "ruleId": "BR-TC-ITEM-PKG-013",
+        "irId": "TC-ITEM-PKG-013",
+        "recipeId": "generated:TC-ITEM-PKG-013",
+        "route": "/pp/brand/create/combo",
+        "state": "parent-category-selected-without-child",
+        "action": "save-combo-item",
+        "overlay": [
+          "category-selector-closed"
+        ],
+        "uiAssertion": "页面允许提交并返回列表终态",
+        "apiAssertion": "POST 创建成功；按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "页面允许提交并返回列表终态"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "title": "套餐商品价格输入负数或非数字时创建失败",
+      "directive": "更新业务规则：套餐商品价格输入负数或非数字，点击保存后价格归一化为 0.00，可以保存成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐商品非法价格保存时归一化为 0.00",
+      "canonicalActions": [
+        "进入套餐创建页并填写必填信息及套餐分组。",
+        "输入负数或非数字标准价并点击保存。",
+        "在商品列表搜索该套餐并读取价格。"
+      ],
+      "canonicalExpectedResults": [
+        "点击保存后价格归一化为 0.00，套餐商品保存成功且列表显示 0.00。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "title": "套餐商品名称超长及特殊字符保存后自动格式化",
+      "directive": "更新业务规则：商品名称首尾存在空格时显示红色提示且无法保存；非首尾空格场景超过 100 字符后无法继续输入，按 100 字符保存成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐商品名称首尾空格校验及 100 字符上限",
+      "canonicalActions": [
+        "输入首尾空格名称并确认红色提示阻止保存。",
+        "输入超过 100 字符且首尾无空格的名称。",
+        "确认只能保留前 100 字符并保存。"
+      ],
+      "canonicalExpectedResults": [
+        "商品名称首尾有空格时显示红色提示且无法保存；非首尾空格场景达到 100 字符后不可继续输入，按 100 字符保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "title": "套餐商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "directive": "POS 名称和送厨名称超过字符限制无法继续输入，保存可以成功，保存的数据为最大长度",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "套餐商品 POS 名称和送厨名称达到页面最大长度后不可继续输入；按最大长度值保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "title": "套餐商品助记码超过 20 字符时保存失败",
+      "directive": "更新业务规则，超过20字符无法继续输入，可以保存成功",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "助记码达到 20 字符后不可继续输入；按 20 字符值保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "title": "套餐商品添加详情图片不超过 10 张",
+      "directive": "检查并修复图片夹具，必须使用可预览的真实 PNG；前 10 张均形成页面预览，第 11 张不可新增。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐商品最多保存 10 张有效详情图片",
+      "canonicalActions": [
+        "准备 11 张可预览且校验通过的 PNG。",
+        "依次上传前 10 张并逐张确认新增预览。",
+        "上传第 11 张并确认预览数量不再增加。",
+        "保存套餐。"
+      ],
+      "canonicalExpectedResults": [
+        "使用可预览的有效 PNG，前 10 张详情图片均形成页面预览，第 11 张不可新增。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "title": "套餐商品统计标签多选保存成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "title": "套餐商品配置材料信息后保存成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "title": "套餐商品从图片库选择主图后创建成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "title": "套餐商品编辑基础信息后保存成功",
+      "directive": "编辑套餐主图时必须先点击原图右上角删除图标，再从图片库或本地上传新图；删除后不新增图片也允许保存，商品可以无图。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐编辑基础信息并删除主图后允许无图",
+      "canonicalActions": [
+        "创建带主图的套餐并进入编辑页。",
+        "更新套餐基础信息并点击原图右上角删除图标。",
+        "不新增图片，点击右上角保存。",
+        "重新进入编辑页确认名称回显且商品无图。"
+      ],
+      "canonicalExpectedResults": [
+        "编辑页更新基础信息并删除原主图、不新增图片，可以保存；重新进入编辑页名称回显且商品无图。更换主图由 TC-ITEM-PKG-068 覆盖。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "title": "套餐商品编辑其他信息后保存成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "title": "套餐商品被菜单引用时不可删除",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-039",
+      "title": "套餐商品被菜单引用时仍可停用并在下发后渠道不展示",
+      "directive": "此条用例等到处理下发功能时再做处理，skip此条用例",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "title": "切换页面返回套餐商品列表时不保留查询条件",
+      "directive": "更新业务规则，切换页面不保留查询条件",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "切换页面返回套餐商品列表时不保留查询条件",
+      "acceptedDiagnosticPatterns": [
+        "查询条件未保留"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-048:navigate-away-and-return",
+        "canonicalId": "TC-ITEM-PKG-048",
+        "ruleId": "BR-TC-ITEM-PKG-048",
+        "irId": "TC-ITEM-PKG-048",
+        "recipeId": "generated:TC-ITEM-PKG-048",
+        "route": "/pp/brand/list",
+        "state": "combo-list-returned-after-route-switch",
+        "action": "navigate-away-and-return",
+        "overlay": [
+          "N/A:no-overlay"
+        ],
+        "uiAssertion": "返回列表后查询条件为空",
+        "apiAssertion": "N/A:只读状态观察",
+        "safetyLevel": "L1",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "返回列表后查询条件为空"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "title": "套餐组下商品全部删除后该套餐项在商品中不展示",
+      "directive": "所有子项指套餐分组；套餐分组必填，删除全部套餐分组后点击保存提示 BITEM-6003，无法保存。",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "删除全部套餐分组后因分组必填无法保存",
+      "acceptedDiagnosticPatterns": [
+        "BITEM-6003"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-050:save-combo-item",
+        "canonicalId": "TC-ITEM-PKG-050",
+        "ruleId": "BR-TC-ITEM-PKG-050",
+        "irId": "TC-ITEM-PKG-050",
+        "recipeId": "generated:TC-ITEM-PKG-050",
+        "route": "/pp/brand/edit/combo",
+        "state": "all-combo-groups-removed",
+        "action": "save-combo-item",
+        "overlay": [
+          "error-toast:BITEM-6003"
+        ],
+        "uiAssertion": "删除全部套餐分组后保存提示 BITEM-6003",
+        "apiAssertion": "原套餐 API 记录保持 1；清理后 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalActions": [
+        "创建含一个套餐分组的套餐并进入编辑页。",
+        "点击套餐分组级删除按钮删除全部分组。",
+        "点击保存并读取错误提示。",
+        "核对原套餐记录未变化。"
+      ],
+      "canonicalExpectedResults": [
+        "删除全部套餐分组后保存提示 BITEM-6003"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "title": "套餐商品引用口味组整组后保存成功",
+      "directive": "更新业务规则：套餐商品不支持引用口味组、做法组和加料组。",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品不支持引用口味做法加料组",
+      "acceptedDiagnosticPatterns": [
+        "未展示 flavor 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-052:probe-attribute-group-entry",
+        "canonicalId": "TC-ITEM-PKG-052",
+        "ruleId": "BR-TC-ITEM-PKG-052",
+        "irId": "TC-ITEM-PKG-052",
+        "recipeId": "generated:TC-ITEM-PKG-052",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-attribute-group-entry",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有口味、做法和加料组引用入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalActions": [
+        "进入套餐商品创建页并展开商品属性。",
+        "打开添加菜单并检查口味、做法、加料组入口。"
+      ],
+      "canonicalExpectedResults": [
+        "没有口味、做法和加料组引用入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "title": "套餐商品配置互斥规则后冲突项置灰",
+      "directive": "更新业务规则：套餐和加料商品没有互斥规则，只有标准商品支持互斥规则。",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐和加料商品不支持互斥规则",
+      "acceptedDiagnosticPatterns": [
+        "未展示 Flavor 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-053:probe-mutually-exclusive-rule-entry",
+        "canonicalId": "TC-ITEM-PKG-053",
+        "ruleId": "BR-TC-ITEM-PKG-053",
+        "irId": "TC-ITEM-PKG-053",
+        "recipeId": "generated:TC-ITEM-PKG-053",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-mutually-exclusive-rule-entry",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "套餐商品没有互斥规则入口",
+        "apiAssertion": "N/A:未触发互斥规则或套餐保存请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalActions": [
+        "进入套餐商品创建页并展开商品属性。",
+        "检查互斥规则入口及可配置对象。"
+      ],
+      "canonicalExpectedResults": [
+        "套餐商品没有互斥规则入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "title": "套餐商品列表主图不支持点击查看大图",
+      "directive": "更新业务规则：所有商品类型在商品列表中的主图均不支持点击查看大图。",
+      "disposition": "accepted-observed",
+      "priority": "P2",
+      "updatedTitle": "商品列表主图不支持点击查看大图",
+      "acceptedDiagnosticPatterns": [
+        "套餐商品列表主图已回显但不可点击"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-054:click-main-image",
+        "canonicalId": "TC-ITEM-PKG-054",
+        "ruleId": "BR-TC-ITEM-PKG-054",
+        "irId": "TC-ITEM-PKG-054",
+        "recipeId": "generated:TC-ITEM-PKG-054",
+        "route": "/pp/brand/list",
+        "state": "combo-list-filtered-with-controlled-image-item",
+        "action": "click-main-image",
+        "overlay": [
+          "N/A:no-preview-overlay"
+        ],
+        "uiAssertion": "列表主图已回显但不存在可点击目标",
+        "apiAssertion": "受控主图套餐商品创建成功；观察后按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalActions": [
+        "创建带主图套餐并返回商品列表。",
+        "搜索套餐并尝试点击列表主图。",
+        "检查没有形成图片预览弹层。"
+      ],
+      "canonicalExpectedResults": [
+        "列表主图已回显但不存在可点击目标"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-060",
+      "title": "套餐商品状态变更后需下发到门店终端才生效",
+      "directive": "门店用例先skipp",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "title": "套餐商品创建页不提供做法组引用入口",
+      "directive": "更新业务规则，所有套餐商品无法引用口味做法加料",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品创建页不提供做法组引用入口",
+      "acceptedDiagnosticPatterns": [
+        "未展示 recipe 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-063:probe-recipe-group-entry",
+        "canonicalId": "TC-ITEM-PKG-063",
+        "ruleId": "BR-TC-ITEM-PKG-063",
+        "irId": "TC-ITEM-PKG-063",
+        "recipeId": "generated:TC-ITEM-PKG-063",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-recipe-group-entry",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "Attribute 区域没有做法组引用入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "Attribute 区域没有做法组引用入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "title": "套餐商品创建页不提供加料组引用入口",
+      "directive": "更新业务规则，所有套餐商品无法引用口味做法加料",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品创建页不提供加料组引用入口",
+      "acceptedDiagnosticPatterns": [
+        "未展示 additives 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-064:probe-additives-group-entry",
+        "canonicalId": "TC-ITEM-PKG-064",
+        "ruleId": "BR-TC-ITEM-PKG-064",
+        "irId": "TC-ITEM-PKG-064",
+        "recipeId": "generated:TC-ITEM-PKG-064",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-additives-group-entry",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "Attribute 区域没有加料组引用入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "Attribute 区域没有加料组引用入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "title": "套餐商品创建页没有加料组子项编辑能力",
+      "directive": "从审计的数据中进行判断，以实际为准，判断后更新业务规则",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品创建页没有加料组子项编辑能力",
+      "acceptedDiagnosticPatterns": [
+        "未展示 additives 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-065:probe-additives-child-edit-entry",
+        "canonicalId": "TC-ITEM-PKG-065",
+        "ruleId": "BR-TC-ITEM-PKG-065",
+        "irId": "TC-ITEM-PKG-065",
+        "recipeId": "generated:TC-ITEM-PKG-065",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-additives-child-edit-entry",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有加料组入口，因此不存在组内子项编辑能力",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "没有加料组入口，因此不存在组内子项编辑能力"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "title": "套餐商品本地上传主图后创建成功",
+      "directive": "新建套餐从本地上传主图后，页面图片位置必须回显可预览图片；点击右上角保存后创建成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐商品本地上传主图回显后保存成功",
+      "canonicalActions": [
+        "进入套餐创建页并从本地选择有效图片。",
+        "确认主图区域回显可预览图片。",
+        "点击右上角保存并在列表核对套餐。"
+      ],
+      "canonicalExpectedResults": [
+        "本地上传主图后页面图片位置回显可预览图片；点击右上角保存后套餐创建成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "title": "套餐商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "directive": "编辑套餐更换第二张主图时，先删除原图，再从图片库或本地上传第二张，点击保存后第二张替换第一张。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "套餐商品先删原图再上传第二张主图替换成功",
+      "canonicalActions": [
+        "创建带第一张主图的套餐并进入编辑页。",
+        "删除第一张主图。",
+        "上传第二张主图并点击保存。",
+        "重新进入编辑页确认仅回显第二张主图。"
+      ],
+      "canonicalExpectedResults": [
+        "编辑页先删除第一张主图，再从图片库或本地上传第二张并保存；第二张替换第一张。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "title": "套餐商品内不提供口味组加价和默认选中编辑",
+      "directive": "以审计数据进行判断，判断后更新商品规则",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品内不提供口味组加价和默认选中编辑",
+      "acceptedDiagnosticPatterns": [
+        "未展示 flavor 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-069:probe-flavor-option-override",
+        "canonicalId": "TC-ITEM-PKG-069",
+        "ruleId": "BR-TC-ITEM-PKG-069",
+        "irId": "TC-ITEM-PKG-069",
+        "recipeId": "generated:TC-ITEM-PKG-069",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-flavor-option-override",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有口味组引用和选项覆盖入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "没有口味组引用和选项覆盖入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-070",
+      "title": "套餐必选子项停用后终端不可正常点单",
+      "directive": "这条用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "title": "套餐商品内不提供做法组加价和默认选中编辑",
+      "directive": "更新商品规则，套餐商品无法对口味做法加料进行编辑，以审计数据为准",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品内不提供做法组加价和默认选中编辑",
+      "acceptedDiagnosticPatterns": [
+        "未展示 recipe 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-071:probe-recipe-option-override",
+        "canonicalId": "TC-ITEM-PKG-071",
+        "ruleId": "BR-TC-ITEM-PKG-071",
+        "irId": "TC-ITEM-PKG-071",
+        "recipeId": "generated:TC-ITEM-PKG-071",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-recipe-option-override",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有做法组引用和选项覆盖入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "没有做法组引用和选项覆盖入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "title": "套餐商品内不提供加料组加价和默认选中编辑",
+      "directive": "更新商品规则，套餐商品无法对口味做法加料进行编辑，以审计数据为准",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品内不提供加料组加价和默认选中编辑",
+      "acceptedDiagnosticPatterns": [
+        "未展示 additives 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-072:probe-additives-option-override",
+        "canonicalId": "TC-ITEM-PKG-072",
+        "ruleId": "BR-TC-ITEM-PKG-072",
+        "irId": "TC-ITEM-PKG-072",
+        "recipeId": "generated:TC-ITEM-PKG-072",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-additives-option-override",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有加料组引用和选项覆盖入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "没有加料组引用和选项覆盖入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "title": "套餐商品内没有选项组默认选中子项配置入口",
+      "directive": "以审计数据为准，判断后更新业务规则",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "套餐商品内没有选项组默认选中子项配置入口",
+      "acceptedDiagnosticPatterns": [
+        "未展示 flavor 组引用入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-pkg-073:probe-single-default-option",
+        "canonicalId": "TC-ITEM-PKG-073",
+        "ruleId": "BR-TC-ITEM-PKG-073",
+        "irId": "TC-ITEM-PKG-073",
+        "recipeId": "generated:TC-ITEM-PKG-073",
+        "route": "/pp/brand/create/combo",
+        "state": "combo-attribute-section-open",
+        "action": "probe-single-default-option",
+        "overlay": [
+          "attribute-reference-menu"
+        ],
+        "uiAssertion": "没有选项组默认选中配置入口",
+        "apiAssertion": "N/A:未触发属性组引用请求",
+        "safetyLevel": "L0",
+        "evidenceRefs": [
+          "flows/product-center/item-216/package-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "没有选项组默认选中配置入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "title": "标准商品必填项缺失时创建失败",
+      "directive": "",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "runtime-analysis"
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "title": "商品名称超长及特殊字符保存后自动格式化",
+      "directive": "商品名称超长后继续输入无法输出，可以保存成功",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "商品名称达到页面最大长度后不可继续输入；按最大长度值保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一一级分类下不同二级分类的标准商品同名创建失败",
+      "directive": "同一一级分类下，不同二级分类的标准商品使用相同名称时提示 BITEM-7010，无法创建。自动化需按业务码识别失败，禁止仅按 HTTP 200 判成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "同一一级分类不同二级分类的标准商品同名提示 BITEM-7010",
+      "canonicalActions": [
+        "在一级分类 A 的二级分类 A/a 创建唯一名称的标准商品。",
+        "在同一一级分类 A 的二级分类 A/b 创建相同名称的标准商品。",
+        "点击保存，读取 BITEM-7010 并核对重复记录数未增加。"
+      ],
+      "canonicalExpectedResults": [
+        "同一一级分类下，不同二级分类的标准商品同名保存返回 BITEM-7010，UI/API 均不新增重复记录。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "title": "价格输入为负数或非数字时创建失败",
+      "directive": "更新业务规则：标准商品价格输入负数或非数字，点击保存后价格归一化为 0.00，可以保存成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "标准商品非法价格保存时归一化为 0.00",
+      "canonicalActions": [
+        "进入标准商品创建页并填写必填信息。",
+        "输入负数或非数字标准价并点击保存。",
+        "在商品列表读取保存后的价格。"
+      ],
+      "canonicalExpectedResults": [
+        "点击保存后价格归一化为 0.00，标准商品保存成功且列表显示 0.00。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "title": "起售数量输入非数字时保存失败",
+      "directive": "更新业务规则：起售数量输入负数或非数字，点击保存后起售数量归一化为 1，可以保存成功。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "标准商品非法起售数量保存时归一化为 1",
+      "canonicalActions": [
+        "进入标准商品创建页并填写必填信息。",
+        "输入负数或非数字起售数量并点击保存。",
+        "重新进入编辑页读取起售数量。"
+      ],
+      "canonicalExpectedResults": [
+        "点击保存后起售数量归一化为 1，保存成功且编辑页回显 1。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-025",
+      "title": "从行业商品库选择单规格商品时可继承行业商品信息",
+    "directive": "行业商品规则已废弃，本用例同步废弃并保留历史证据",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-026",
+      "title": "从行业商品库选择多规格商品时可继承多规格及图库信息",
+    "directive": "行业商品规则已废弃，本用例同步废弃并保留历史证据",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-027",
+      "title": "从行业商品库选择多规格商品时仅勾选部分规格可成功继承所选规格",
+    "directive": "行业商品规则已废弃，本用例同步废弃并保留历史证据",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "title": "切换页面后返回商品列表保留最近一次查询条件",
+      "directive": "切换页面商品列表不保留查询条件，另外检查是否有场景重复，我处理了好几个相同的这个问题",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "切换页面返回标准商品列表时不保留查询条件",
+      "acceptedDiagnosticPatterns": [
+        "筛选条件未保留"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-std-030:navigate-away-and-return",
+        "canonicalId": "TC-ITEM-STD-030",
+        "ruleId": "BR-TC-ITEM-STD-030",
+        "irId": "TC-ITEM-STD-030",
+        "recipeId": "generated:TC-ITEM-STD-030",
+        "route": "/pp/brand/list",
+        "state": "standard-list-returned-after-route-switch",
+        "action": "navigate-away-and-return",
+        "overlay": [
+          "N/A:no-overlay"
+        ],
+        "uiAssertion": "返回列表后类型筛选条件为空",
+        "apiAssertion": "N/A:只读状态观察",
+        "safetyLevel": "L1",
+        "evidenceRefs": [
+          "flows/product-center/item-216/standard-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "返回列表后类型筛选条件为空"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "title": "起售数量为空时保存失败",
+      "directive": "若是接口则不做处理，页面未拦截检查是否有默认值1，若清空了值则是bug",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "起售数量默认值为 1；清空后页面不得保留空值并提交。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "title": "商品描述达到500字符后输入框不可继续录入",
+      "directive": "更新业务规则：商品描述正确上限为 250 字符，达到 250 字符后无法继续输入。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "商品描述达到 250 字符后不可继续输入",
+      "canonicalActions": [
+        "在商品描述输入 250 字符。",
+        "继续输入第 251 个字符。",
+        "读取输入框 maxlength、计数器和实际长度。"
+      ],
+      "canonicalExpectedResults": [
+        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "title": "助记码或设备编码超过 20 字符时保存失败",
+      "directive": "超过最大字符无法继续输入成功，点击保存，保存为最大长度的数据",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "助记码或设备编码达到页面最大长度后不可继续输入；按最大长度值保存成功。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "directive": "点击添加组，弹出规则组页面，点击去创建，可以跳转到规则组新增页面，我已检查",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "canonicalExpectedResults": [
+        "点击添加规格组后弹出规格组选择页；点击去创建可跳转规格组新增页。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "title": "价格超过 999999.99 时按上限保存成功",
+      "directive": "输入 1000000.00 点击保存可以保存成功；商品列表中的价格应为 999999.99。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "超限价格保存成功并按 999999.99 展示",
+      "canonicalActions": [
+        "输入标准价 1000000.00。",
+        "点击保存并捕获成功创建 operation。",
+        "在商品列表搜索并读取价格。"
+      ],
+      "canonicalExpectedResults": [
+        "输入 1000000.00 后点击保存成功；商品列表价格显示 999999.99。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "title": "从图片库选择主图后创建成功",
+      "directive": "非业务问题，按照你的意见处理",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "title": "配置材料信息中原料、过敏原和营养成分后保存成功",
+      "directive": "提前准备原材料，并选择现有可用过敏原和营养成分；保存后重新进入编辑页，原料、过敏原和营养成分均应回显。",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "updatedTitle": "原料过敏原营养成分保存后编辑回显",
+      "canonicalActions": [
+        "准备受控原料并读取可用过敏原和营养成分。",
+        "在材料信息中分别选择原料、过敏原和营养成分。",
+        "点击保存并重新进入编辑页。",
+        "核对三类材料信息均回显。"
+      ],
+      "canonicalExpectedResults": [
+        "选择原料、过敏原和营养成分并保存成功；重新进入编辑页三类材料信息均回显。"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-067",
+      "title": "标准商品被套餐或菜单引用时仍可停用并在下发后渠道不展示",
+      "directive": "下发用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-070",
+      "title": "被菜单引用的标准商品不可删除",
+      "directive": "下发用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "title": "商品列表点击主图可查看大图",
+      "directive": "检查是否有重复场景，我已处理此场景好几个了",
+      "disposition": "accepted-observed",
+      "priority": "P2",
+      "updatedTitle": "标准商品列表主图不支持点击查看大图",
+      "acceptedDiagnosticPatterns": [
+        "没有形成可点击的业务主图目标",
+        "未形成预览 overlay"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-std-071:click-main-image",
+        "canonicalId": "TC-ITEM-STD-071",
+        "ruleId": "BR-TC-ITEM-STD-071",
+        "irId": "TC-ITEM-STD-071",
+        "recipeId": "generated:TC-ITEM-STD-071",
+        "route": "/pp/brand/list",
+        "state": "standard-list-filtered-with-controlled-image-item",
+        "action": "click-main-image",
+        "overlay": [
+          "N/A:no-preview-overlay"
+        ],
+        "uiAssertion": "列表主图已回显且存在可点击目标，但点击后不形成预览 overlay",
+        "apiAssertion": "受控主图商品创建成功；观察后按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/standard-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "列表主图已回显且存在可点击目标，但点击后不形成预览 overlay"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-077",
+      "title": "商品状态变更后需下发到门店终端才生效",
+      "directive": "下发用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "title": "标准商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "directive": "接口不考虑在内，以页面实际业务为准",
+      "disposition": "accepted-observed",
+      "priority": "P1",
+      "updatedTitle": "标准商品主图上传后不提供第二次本地上传入口",
+      "acceptedDiagnosticPatterns": [
+        "仅展示预览和删除入口",
+        "没有第二次本地上传入口"
+      ],
+      "auditContract": {
+        "evidenceId": "audit:item-213:tc-item-std-078:probe-second-main-image-upload",
+        "canonicalId": "TC-ITEM-STD-078",
+        "ruleId": "BR-TC-ITEM-STD-078",
+        "irId": "TC-ITEM-STD-078",
+        "recipeId": "generated:TC-ITEM-STD-078",
+        "route": "/pp/brand/create/standard",
+        "state": "standard-main-image-populated",
+        "action": "probe-second-main-image-upload",
+        "overlay": [
+          "N/A:no-secondary-upload-overlay"
+        ],
+        "uiAssertion": "首张主图上传后仅展示预览和删除，不提供第二次本地上传入口",
+        "apiAssertion": "受控品牌图片按服务器 ID 清理且 UI/API count=0",
+        "safetyLevel": "L3",
+        "evidenceRefs": [
+          "flows/product-center/item-216/standard-item-216.flow.ts",
+          "output/product-center-item-213-failures/failure-pack.md"
+        ],
+        "freshObservationRequired": true
+      },
+      "canonicalExpectedResults": [
+        "首张主图上传后仅展示预览和删除，不提供第二次本地上传入口"
+      ],
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-080",
+      "title": "称重商品购买重量小于皮重时终端价格为 0",
+      "directive": "下发用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-083",
+      "title": "多规格商品默认规格下发后终端点餐默认选中该规格",
+      "directive": "下发用例先skip",
+      "disposition": "skip-deferred",
+      "priority": "P2",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "title": "POS名称首尾含空格时保存失败",
+      "directive": "若是接口则不关注，如果是页面则更新业务规则",
+      "disposition": "automation-remediation",
+      "priority": "P1",
+      "sourceType": "direct-user-confirmation",
+      "confirmedBy": "金将军"
+    }
+  ]
+}

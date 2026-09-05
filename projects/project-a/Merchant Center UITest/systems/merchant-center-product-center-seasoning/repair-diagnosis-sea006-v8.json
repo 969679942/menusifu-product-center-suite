@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "虚拟列表业务行和行内唯一 checkbox 已准确定位，但产品拖拽外层 groupItemContainer/header 仍拦截普通 check 的指针事件。",
+  "correctiveAction": "对三重唯一约束后的行 checkbox 执行 check({force:true})，并保留批量按钮 disabled 到 enabled 及数量文案的强后置验证；force 只绕开已证明的拖拽遮罩，不放宽目标身份。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/seasoning-checkbox-structure.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787566293740/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["523fe2f7e4c7d7e3"]
+}

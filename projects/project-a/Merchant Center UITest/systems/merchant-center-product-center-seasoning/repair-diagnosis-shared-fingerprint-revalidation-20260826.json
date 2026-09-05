@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-013",
+    "TC-FLV-SEA-014",
+    "TC-FLV-SEA-042",
+    "TC-FLV-TPL-011",
+    "TC-FLV-TPL-012",
+    "TC-FLV-TPL-014",
+    "TC-FLV-TPL-015",
+    "TC-FLV-TPL-016",
+    "TC-FLV-TPL-025",
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "TPL-014 的局部页面合同修复改变了共享 system.spec.ts 与 seasoning-boundary.page.ts 的整文件实现哈希，使 12 条此前有效 passed 收据按当前强制实现指纹规则变为 stale；业务规则、用例合同和这些用例的处理分支均未改变。",
+  "correctiveAction": "仅对受共享整文件指纹漂移影响且此前已有完整 passed 收据的 12 条用例执行定向标准复验；保留原断言面、商户上下文和零残留清理，不扩展到其他 ready 或 deferred 用例。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787714557522/evidence-ledger.json"
+  ]
+}

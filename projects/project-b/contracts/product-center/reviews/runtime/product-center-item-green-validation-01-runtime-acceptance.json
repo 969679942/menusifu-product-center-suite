@@ -1,0 +1,506 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-validation-01-runtime-acceptance",
+  "generatedAt": "2026-08-05T02:00:00.000Z",
+  "status": "accepted-with-canonical-conflicts",
+  "runId": "AUTO_AUDIT_GREEN_VALIDATION_01_20260805_01",
+  "batchId": "GREEN-VALIDATION-01",
+  "source": {
+    "reportPath": "output/audit/product-center-item-green-validation-01-runtime-AUTO_AUDIT_GREEN_VALIDATION_01_20260805_01.json",
+    "reportSha256": "9b0e3d4b65d780850b74609a6391135165f143393a92928073330213d5fab84e"
+  },
+  "summary": {
+    "total": 11,
+    "runtimeEvidenceAccepted": 11,
+    "generationPromotable": 4,
+    "canonicalRepairRequired": 7,
+    "humanReviewRequired": 0,
+    "executorErrors": 0,
+    "mutationIntents": 10,
+    "ledgerResidueVerified": 17
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-STD-035",
+    "TC-ITEM-STD-049",
+    "TC-ITEM-STD-059",
+    "TC-ITEM-STD-095"
+  ],
+  "canonicalConflictCaseIds": [
+    "TC-ITEM-ADD-017",
+    "TC-ITEM-STD-045",
+    "TC-ITEM-STD-046",
+    "TC-ITEM-STD-051",
+    "TC-ITEM-STD-054",
+    "TC-ITEM-STD-094",
+    "TC-ITEM-STD-101"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-035": {
+      "verdict": "accepted",
+      "evidence": {
+        "parentCategoryId": 1255,
+        "parentCategoryName": "AUTO_AUDIT_CATEGORY_PARENT_1785891037806101",
+        "productId": 31010,
+        "productName": "AUTO_AUDIT_CATEGORY_PRODUCT_1785891037806101",
+        "childCategoryName": "AUTO_AUDIT_CATEGORY_CHILD_1785891037806101",
+        "apiChildPresent": false,
+        "childVisible": false,
+        "expectedSatisfied": true
+      }
+    },
+    "TC-ITEM-STD-049": {
+      "verdict": "accepted",
+      "evidence": {
+        "route": "/pp/brand/create/standard",
+        "weight": {
+          "disabled": true,
+          "ariaDisabled": null,
+          "checked": false
+        },
+        "expectedSatisfied": true
+      }
+    },
+    "TC-ITEM-STD-059": {
+      "verdict": "accepted",
+      "evidence": {
+        "itemIdentity": "AUTO_AUDIT_GV01_GROUP_ITEM_31D5E9D590",
+        "groupId": 661,
+        "groupName": "AUTO_AUDIT_TASTE_1785891921939101",
+        "optionNames": [
+          "AUTO_AUDIT_TASTE_OPTION_1785891921939101_A",
+          "AUTO_AUDIT_TASTE_OPTION_1785891921939101_B"
+        ],
+        "controls": {
+          "selectedBefore": [
+            "AUTO_AUDIT_TASTE_OPTION_1785891921939101_A"
+          ],
+          "selectedAfter": [],
+          "addChildControlCount": 0,
+          "removedOptionName": "AUTO_AUDIT_TASTE_OPTION_1785891921939101_A"
+        },
+        "expectedSatisfied": true
+      }
+    },
+    "TC-ITEM-STD-095": {
+      "verdict": "accepted",
+      "evidence": {
+        "values": [
+          {
+            "identity": "AUTO_AUDIT_GV01_ROUND_UP_31D5E9D590",
+            "requestedPrice": "10.235",
+            "priceBeforeSave": "10.235",
+            "responseStatus": 200,
+            "listPriceText": "$10.24",
+            "listPrice": 10.24
+          },
+          {
+            "identity": "AUTO_AUDIT_GV01_ROUND_DOWN_31D5E9D590",
+            "requestedPrice": "10.234",
+            "priceBeforeSave": "10.234",
+            "responseStatus": 200,
+            "listPriceText": "$10.23",
+            "listPrice": 10.23
+          }
+        ],
+        "expectedSatisfied": true
+      }
+    },
+    "TC-ITEM-ADD-017": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_SIDE_31D5E9D590",
+        "countBeforeSave": 0,
+        "capacityBeforeSave": {
+          "cardCount": 0,
+          "listChildCount": 1,
+          "uploadControlCount": 1,
+          "uploadControlVisible": false,
+          "childClassNames": [
+            "uploadButton___E3bNX"
+          ]
+        },
+        "uploadStatuses": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "uploadResponseSummaries": [
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_01\",\"imagePath\":\"img/item/brand-000407/2026/8/5/ee04281a-7d6b-448a-8d51-4d462a7ebd75\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/ee04281a-7d6b-448a-8d51-4d462a7ebd75\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_02\",\"imagePath\":\"img/item/brand-000407/2026/8/5/d1018087-751b-4f5f-b7cc-54773274399c\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/d1018087-751b-4f5f-b7cc-54773274399c\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_03\",\"imagePath\":\"img/item/brand-000407/2026/8/5/87b672c5-049b-45d8-ab89-e955d6ca1f8d\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/87b672c5-049b-45d8-ab89-e955d6ca1f8d\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_04\",\"imagePath\":\"img/item/brand-000407/2026/8/5/01a98c71-ed06-48be-89b7-8fb2a5602709\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/01a98c71-ed06-48be-89b7-8fb2a5602709\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_05\",\"imagePath\":\"img/item/brand-000407/2026/8/5/8f101c77-48c2-43a7-b9af-f54dd6066639\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/8f101c77-48c2-43a7-b9af-f54dd6066639\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_06\",\"imagePath\":\"img/item/brand-000407/2026/8/5/0bd31f13-af63-4c8f-af26-e12c03170066\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/0bd31f13-af63-4c8f-af26-e12c03170066\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_07\",\"imagePath\":\"img/item/brand-000407/2026/8/5/0279af5d-aeff-4b2b-bcf6-2fc5487bd33d\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/0279af5d-aeff-4b2b-bcf6-2fc5487bd33d\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_08\",\"imagePath\":\"img/item/brand-000407/2026/8/5/c8cbc605-4b39-4827-a7cc-899cb948bd73\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/c8cbc605-4b39-4827-a7cc-899cb948bd73\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_09\",\"imagePath\":\"img/item/brand-000407/2026/8/5/8e4998e2-f324-450d-9dc4-6b5c7191d811\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/8e4998e2-f324-450d-9dc4-6b5c7191d811\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_10\",\"imagePath\":\"img/item/brand-000407/2026/8/5/064a28d9-4a99-42f4-94ba-51d57a502ff9\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/064a28d9-4a99-42f4-94ba-51d57a502ff9\"}",
+            "visibleDialogTexts": []
+          }
+        ],
+        "responseStatus": 200,
+        "itemId": 261412,
+        "reopenedCount": 0,
+        "reopenedCapacity": {
+          "cardCount": 0,
+          "listChildCount": 1,
+          "uploadControlCount": 1,
+          "uploadControlVisible": false,
+          "childClassNames": [
+            "uploadButton___E3bNX"
+          ]
+        },
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-045": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_DESCRIPTION_31D5E9D590",
+        "boundary": {
+          "acceptedLength": 500,
+          "rejectedLength": 501,
+          "valueLengthAfterAccepted": 100,
+          "valueLengthAfterRejected": 100,
+          "maxLengthAttribute": 100,
+          "counterText": ""
+        },
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "validationErrors": [],
+        "successMessageCount": 1,
+        "route": "/pp/brand/list",
+        "apiRecordCount": 1,
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-046": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_MNEMONIC_31D5E9D590",
+        "field": "mnemonicCode",
+        "requestedValue": "MMMMMMMMMMMMMMMMMMMMM",
+        "fieldBeforeSave": {
+          "value": "MMMMMMMMMMMMMMMMMMMM",
+          "maxLengthAttribute": 20,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "fieldAfterSave": {
+          "value": "MMMMMMMMMMMMMMMMMMMM",
+          "maxLengthAttribute": 20,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "validationErrors": [],
+        "successMessageCount": 1,
+        "route": "/pp/brand/list",
+        "apiRecordCount": 1,
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-051": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_PRICE_MAX_31D5E9D590",
+        "field": "standardPrice",
+        "requestedValue": "1000000.00",
+        "fieldBeforeSave": {
+          "value": "1000000.00",
+          "maxLengthAttribute": null,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "fieldAfterSave": {
+          "value": "1000000.00",
+          "maxLengthAttribute": null,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "validationErrors": [],
+        "successMessageCount": 1,
+        "route": "/pp/brand/list",
+        "apiRecordCount": 1,
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-054": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "successfulUploadStatuses": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ],
+        "uploadResponseSummaries": [
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_01\",\"imagePath\":\"img/item/brand-000407/2026/8/5/fd200dbf-13ef-4026-b82b-24ba6740b462\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/fd200dbf-13ef-4026-b82b-24ba6740b462\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_02\",\"imagePath\":\"img/item/brand-000407/2026/8/5/80254572-66a1-44be-b1d3-70267feeca38\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/80254572-66a1-44be-b1d3-70267feeca38\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_03\",\"imagePath\":\"img/item/brand-000407/2026/8/5/b72469d9-8340-4c8d-b2aa-91aac0907fc4\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/b72469d9-8340-4c8d-b2aa-91aac0907fc4\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_04\",\"imagePath\":\"img/item/brand-000407/2026/8/5/d4adf4f5-c2e3-4c51-8355-a2b4ebd5585f\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/d4adf4f5-c2e3-4c51-8355-a2b4ebd5585f\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_05\",\"imagePath\":\"img/item/brand-000407/2026/8/5/8aaf42d6-dcf9-4113-b774-b14c6604f3e1\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/8aaf42d6-dcf9-4113-b774-b14c6604f3e1\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_06\",\"imagePath\":\"img/item/brand-000407/2026/8/5/5ebd3946-9ce4-4184-8851-495b3c630489\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/5ebd3946-9ce4-4184-8851-495b3c630489\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_07\",\"imagePath\":\"img/item/brand-000407/2026/8/5/7268ebf2-4f2f-43be-bbb4-bef113882360\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/7268ebf2-4f2f-43be-bbb4-bef113882360\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_08\",\"imagePath\":\"img/item/brand-000407/2026/8/5/d5e01ad1-99d5-4b52-909f-72391bd98013\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/d5e01ad1-99d5-4b52-909f-72391bd98013\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_09\",\"imagePath\":\"img/item/brand-000407/2026/8/5/2720b9bf-ef04-4098-aa5f-61cb0aa5f322\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/2720b9bf-ef04-4098-aa5f-61cb0aa5f322\"}",
+            "visibleDialogTexts": []
+          },
+          {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GV01_DETAIL_31D5E9D590_10\",\"imagePath\":\"img/item/brand-000407/2026/8/5/8efbc7d2-35e9-4693-a0ac-2233a7e9cee3\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/8efbc7d2-35e9-4693-a0ac-2233a7e9cee3\"}",
+            "visibleDialogTexts": []
+          }
+        ],
+        "countAtMaximum": 0,
+        "capacityAtMaximum": {
+          "cardCount": 0,
+          "listChildCount": 1,
+          "uploadControlCount": 1,
+          "uploadControlVisible": false,
+          "childClassNames": [
+            "uploadButton___E3bNX"
+          ]
+        },
+        "eleventh": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "requestObserved": true,
+          "responseStatus": 200,
+          "uploadControlVisible": true,
+          "messages": []
+        },
+        "finalCount": 0,
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-094": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_POS_31D5E9D590",
+        "field": "posName",
+        "requestedValue": "  POS名称-autocreate-094  ",
+        "fieldBeforeSave": {
+          "value": "  POS名称-autocreate-094  ",
+          "maxLengthAttribute": 100,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "fieldAfterSave": {
+          "value": "  POS名称-autocreate-094  ",
+          "maxLengthAttribute": 100,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "validationErrors": [],
+        "successMessageCount": 1,
+        "route": "/pp/brand/list",
+        "apiRecordCount": 1,
+        "expectedSatisfied": false
+      }
+    },
+    "TC-ITEM-STD-101": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GV01_DEVICE_31D5E9D590",
+        "field": "deviceCode",
+        "requestedValue": "DDDDDDDDDDDDDDDDDDDDD",
+        "fieldBeforeSave": {
+          "value": "DDDDDDDDDDDDDDDDDDDD",
+          "maxLengthAttribute": 20,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "fieldAfterSave": {
+          "value": "DDDDDDDDDDDDDDDDDDDD",
+          "maxLengthAttribute": 20,
+          "ariaInvalid": null,
+          "errors": []
+        },
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "validationErrors": [],
+        "successMessageCount": 1,
+        "route": "/pp/brand/list",
+        "apiRecordCount": 1,
+        "expectedSatisfied": false
+      }
+    }
+  },
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiAndApiResidueVerificationRequired": true,
+    "canonicalRepairBeforeGenerationRequired": true,
+    "humanCaseReviewRequired": false
+  },
+  "fingerprint": "8e8563bc338eda4cd3ff54786587df259388d4696f4c565a3a60e186d8ea0e67"
+}

@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-practice-batch-v1",
+  "generatedAt": "2026-08-14T12:30:00.000Z",
+  "sourceRelease": {
+    "path": "contracts/product-center/test-cases/canonical/product-center-item-authoritative-release.json",
+    "fingerprint": "25022d81af92596ba0b2b10de2692b6ec298d56a79dcc040bc62b99df3c0749d",
+    "executableFingerprint": "372d8dc86bb909879207c85a0b77e42a2332fe0cd732b2e5e946a1d15bf261e0"
+  },
+  "selectionPolicy": {
+    "targetSize": 24,
+    "familyQuota": {
+      "standard": 8,
+      "package": 8,
+      "addon": 8
+    },
+    "requiredRuntimeStatus": "runtime-passed",
+    "requiredRuntimeReadiness": "ready",
+    "excludedManualDisposition": "accepted-observed",
+    "excludedRuntimeStatus": "deferred",
+    "workers": 1,
+    "retries": 0,
+    "cleanup": "API and UI zero-residue evidence is mandatory for every mutation case"
+  },
+  "coverage": [
+    "page-contract",
+    "required-validation",
+    "category-validation",
+    "price-boundary",
+    "create",
+    "edit",
+    "status-lifecycle",
+    "delete-and-zero-residue",
+    "existing-group-selection",
+    "new-group-creation",
+    "cross-entity-reference"
+  ],
+  "dataProfiles": {
+    "item-standard-read": {
+      "family": "standard",
+      "mutationMode": "none",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/standard"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": [],
+      "cleanupAdapterPaths": [],
+      "externalCapabilities": []
+    },
+    "item-standard-validation": {
+      "family": "standard",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/standard"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": ["test-data/product-center/item-216/standard-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    },
+    "item-standard-write": {
+      "family": "standard",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/standard"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": ["test-data/product-center/item-216/standard-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    },
+    "item-package-write": {
+      "family": "package",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/combo"],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "brand-menu:GET /ops-brand/brand-sections/list"
+      ],
+      "liveProbeIds": ["product-page", "combo-group-list"],
+      "factoryPaths": ["test-data/product-center/item-216/package-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    },
+    "item-addon-read": {
+      "family": "addon",
+      "mutationMode": "none",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/side"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": [],
+      "cleanupAdapterPaths": [],
+      "externalCapabilities": []
+    },
+    "item-addon-validation": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/side"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": ["test-data/product-center/item-216/addon-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    },
+    "item-addon-write": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/side"],
+      "requiredOperationKeys": ["brand-menu:POST /ops-brand/brand-items/pageQuery"],
+      "liveProbeIds": ["product-page"],
+      "factoryPaths": ["test-data/product-center/item-216/addon-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    },
+    "item-addon-cross-entity": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": ["/pp/brand/list", "/pp/brand/create/side", "/pp/brand/option-group/additional"],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "brand-menu:GET /ops-brand/brand-addon-group/list"
+      ],
+      "liveProbeIds": ["product-page", "addon-group-list"],
+      "factoryPaths": ["test-data/product-center/item-216/addon-item-216.factory.ts"],
+      "cleanupAdapterPaths": ["api/product-center/cleanup-registry.ts"],
+      "externalCapabilities": []
+    }
+  },
+  "caseBindings": [
+    { "caseId": "TC-ITEM-STD-001", "ruleId": "CBR-ITEM-STD-001", "dataProfile": "item-standard-read" },
+    { "caseId": "TC-ITEM-STD-005", "ruleId": "CBR-ITEM-STD-005", "dataProfile": "item-standard-validation" },
+    { "caseId": "TC-ITEM-STD-007", "ruleId": "CBR-ITEM-STD-007", "dataProfile": "item-standard-validation" },
+    { "caseId": "TC-ITEM-STD-020", "ruleId": "CBR-ITEM-STD-020", "dataProfile": "item-standard-write" },
+    { "caseId": "TC-ITEM-STD-021", "ruleId": "CBR-ITEM-STD-021", "dataProfile": "item-standard-validation" },
+    { "caseId": "TC-ITEM-STD-031", "ruleId": "CBR-ITEM-STD-031", "dataProfile": "item-standard-write" },
+    { "caseId": "TC-ITEM-STD-065", "ruleId": "CBR-ITEM-STD-065", "dataProfile": "item-standard-write" },
+    { "caseId": "TC-ITEM-STD-068", "ruleId": "CBR-ITEM-STD-068", "dataProfile": "item-standard-write" },
+    { "caseId": "TC-ITEM-PKG-002", "ruleId": "CBR-ITEM-PKG-002", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-006", "ruleId": "CBR-ITEM-PKG-006", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-009", "ruleId": "CBR-ITEM-PKG-009", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-010", "ruleId": "CBR-ITEM-PKG-010", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-017", "ruleId": "CBR-ITEM-PKG-017", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-037", "ruleId": "CBR-ITEM-PKG-037", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-040", "ruleId": "CBR-ITEM-PKG-040", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-PKG-049", "ruleId": "CBR-ITEM-PKG-049", "dataProfile": "item-package-write" },
+    { "caseId": "TC-ITEM-ADD-001", "ruleId": "CBR-ITEM-ADD-001", "dataProfile": "item-addon-read" },
+    { "caseId": "TC-ITEM-ADD-005", "ruleId": "CBR-ITEM-ADD-005", "dataProfile": "item-addon-write" },
+    { "caseId": "TC-ITEM-ADD-006", "ruleId": "CBR-ITEM-ADD-006", "dataProfile": "item-addon-validation" },
+    { "caseId": "TC-ITEM-ADD-009", "ruleId": "CBR-ITEM-ADD-009", "dataProfile": "item-addon-write" },
+    { "caseId": "TC-ITEM-ADD-024", "ruleId": "CBR-ITEM-ADD-024", "dataProfile": "item-addon-write" },
+    { "caseId": "TC-ITEM-ADD-026", "ruleId": "CBR-ITEM-ADD-026", "dataProfile": "item-addon-write" },
+    { "caseId": "TC-ITEM-ADD-033", "ruleId": "CBR-ITEM-ADD-033", "dataProfile": "item-addon-cross-entity" },
+    { "caseId": "TC-ITEM-ADD-043", "ruleId": "CBR-ITEM-ADD-043", "dataProfile": "item-addon-write" }
+  ],
+  "circuitBreaker": {
+    "stallMs": 180000,
+    "pollMs": 2000,
+    "maxRunMs": 1800000,
+    "maxConsecutiveFailures": 3,
+    "maxDuplicateFailureFingerprint": 2,
+    "minimumCompletedForFailureRate": 4,
+    "maximumEnvironmentFailureRate": 0.5
+  },
+  "evidencePolicy": {
+    "requireRuntimeEvidence": true,
+    "requireIndependentExpectationReceipts": true,
+    "requireApiZeroResidue": true,
+    "requireUiZeroResidue": true
+  },
+  "families": {
+    "standard": [
+      "TC-ITEM-STD-001",
+      "TC-ITEM-STD-005",
+      "TC-ITEM-STD-007",
+      "TC-ITEM-STD-020",
+      "TC-ITEM-STD-021",
+      "TC-ITEM-STD-031",
+      "TC-ITEM-STD-065",
+      "TC-ITEM-STD-068"
+    ],
+    "package": [
+      "TC-ITEM-PKG-002",
+      "TC-ITEM-PKG-006",
+      "TC-ITEM-PKG-009",
+      "TC-ITEM-PKG-010",
+      "TC-ITEM-PKG-017",
+      "TC-ITEM-PKG-037",
+      "TC-ITEM-PKG-040",
+      "TC-ITEM-PKG-049"
+    ],
+    "addon": [
+      "TC-ITEM-ADD-001",
+      "TC-ITEM-ADD-005",
+      "TC-ITEM-ADD-006",
+      "TC-ITEM-ADD-009",
+      "TC-ITEM-ADD-024",
+      "TC-ITEM-ADD-026",
+      "TC-ITEM-ADD-033",
+      "TC-ITEM-ADD-043"
+    ]
+  },
+  "gates": {
+    "rejectUnknownCaseId": true,
+    "rejectReleaseFingerprintMismatch": true,
+    "rejectDeferredCase": true,
+    "rejectAcceptedObservedCase": true,
+    "requireFreshRuntimeEvidence": true,
+    "requireZeroResidue": true
+  }
+}

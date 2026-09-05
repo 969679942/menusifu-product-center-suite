@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-005"],
+  "rootCause": "REC-005 适配器遗漏正式用例要求的查询动作，直接填值后点击 reset；这与人工流程‘输入查询条件并执行查询后再重置’不等价，之前因此产生了错误失败结论。",
+  "correctiveAction": "在可见且唯一的任务名称输入框中模拟真实键盘输入，先按 Enter 并等待真实 job/list 查询响应，再点击可见 reset 控件并断言可见输入框最终为空。",
+  "evidenceRefs": [
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/route-contract-discovery.json"
+  ],
+  "supersedesAttemptIds": [
+    "81af4e2f2c846881",
+    "0ca6cc147c62e6c9"
+  ]
+}

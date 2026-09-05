@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "acceptanceId": "product-center-historical-business-rule-migration-acceptance-20260831",
+  "applicationId": "merchant-center",
+  "businessDomainId": "product-center",
+  "approvedBy": "金将军",
+  "acceptedAt": "2026-08-31T00:00:00+08:00",
+  "entries": [
+    {
+      "bindingId": "legacy-binding:item-category-leaf",
+      "ruleId": "BR-ITEM-CATEGORY-LEAF",
+      "historicalStatement": "商品分类填写时必须选择叶子分类",
+      "historicalSourcePath": "D:\\Menusifu\\Merchant Center\\Merchant Center Info\\商品中心业务规则.md",
+      "historicalSourceFingerprint": "5ae7e808c7ac87463ccb76070b100fcebf39af6d5714b88e444dc42680f22489",
+      "disposition": "resolved-by-formal-rule",
+      "replacementRules": [
+        {
+          "ruleId": "BR-ITEM-CATEGORY-LEAF-SELECTION",
+          "ruleFingerprint": "92008c58be97fc3331e29e60ee1680207369eb2de8ce0ad6e6c704712b03e930"
+        },
+        {
+          "ruleId": "BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE",
+          "ruleFingerprint": "151579aab0bae44486d48faff7f9f7c6003adf60fedced8bb04d5320ea7469c9"
+        }
+      ],
+      "linkedCaseIds": [
+        "TC-ITEM-STD-006",
+        "TC-ITEM-STD-007"
+      ],
+      "approvedBy": "金将军",
+      "acceptedAt": "2026-08-31T00:00:00+08:00",
+      "rationale": "历史叶子分类要求已拆分为有二级分类必须选叶子、无二级分类可直接选一级分类两条正式规则；保留历史来源，不升格。"
+    },
+    {
+      "bindingId": "legacy-binding:BR-ITEM-010",
+      "ruleId": "BR-ITEM-010",
+      "historicalStatement": "同一商户内商品名称不可重复",
+      "historicalSourcePath": "D:\\Menusifu\\Merchant Center\\Merchant Center Info\\商品中心业务规则.md",
+      "historicalSourceFingerprint": "5ae7e808c7ac87463ccb76070b100fcebf39af6d5714b88e444dc42680f22489",
+      "disposition": "resolved-by-formal-rule",
+      "replacementRules": [
+        {
+          "ruleId": "BR-ITEM-010",
+          "ruleFingerprint": "94944103bf62f88406dc403ffce71dc0add3f4b7d10ee6e4af975c937b38cf9c"
+        }
+      ],
+      "linkedCaseIds": [
+        "TC-ITEM-ADD-014",
+        "TC-ITEM-ADD-015",
+        "TC-ITEM-PKG-024",
+        "TC-ITEM-PKG-025",
+        "TC-ITEM-STD-011",
+        "TC-ITEM-STD-012",
+        "TC-ITEM-STD-013",
+        "TC-ITEM-STD-014",
+        "TC-ITEM-STD-044"
+      ],
+      "approvedBy": "金将军",
+      "acceptedAt": "2026-08-31T00:00:00+08:00",
+      "rationale": "历史统一判重语义已由当前正式规则替代，当前按同一商户内商品类型判重且分类不参与判重。"
+    },
+    {
+      "bindingId": "legacy-binding:item-industry-inheritance",
+      "ruleId": "BR-ITEM-INDUSTRY-INHERITANCE",
+      "historicalStatement": "从行业商品库新建商品时仅继承商品名称",
+      "historicalSourcePath": "D:\\Menusifu\\Merchant Center\\Merchant Center Info\\商品中心业务规则.md",
+      "historicalSourceFingerprint": "5ae7e808c7ac87463ccb76070b100fcebf39af6d5714b88e444dc42680f22489",
+      "disposition": "deprecated-by-product-confirmation",
+      "replacementRules": [],
+      "linkedCaseIds": [],
+      "approvedBy": "金将军",
+      "acceptedAt": "2026-08-31T00:00:00+08:00",
+      "rationale": "行业商品库继承规则及关联规范用例已按产品确认废弃；历史来源保留，不重新注册为可执行规则。"
+    }
+  ],
+  "receiptFingerprint": "4d40da57fca0913565cc1de033c12faefe3a02c591c800c09b9f9258787e9300"
+}

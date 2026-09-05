@@ -1,0 +1,3134 @@
+{
+  "schemaVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "TC-ITEM-STD-002",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "商品列表页面展示正确",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-002",
+        "route:cc612d39a954",
+        "mapping:139c6a17872d"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前商户下已存在至少 1 条商品数据（类型可为：标准商品、套餐商品、加料/配菜）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+        "查看页面左侧分类区域与右侧商品列表区域布局",
+        "查看商品列表默认展示列：商品主图、商品名称、商品类型、规格、价格、商品状态、操作等",
+        "查看列表底部分页组件及左下角总条数展示",
+        "查看右上角【新增商品】按钮及查询区（商品名称、商品类型、商品状态等）"
+      ],
+      "expectedResults": [
+        "布局校验：左侧展示后台分类树，右侧展示商品列表，页面无错位、无模块缺失",
+        "默认列校验：列表默认展示商品主图、商品名称、商品类型、规格、价格、商品状态等核心字段；操作列通过【...】收纳启用/停用/删除等操作",
+        "分页校验：分页组件可见，默认每页 50 条，支持切换 10、20、50、100；左下角展示查询总条数",
+        "排序校验：列表默认按创建时间倒序，后创建商品排在较前位置",
+        "入口校验：右上角【新增商品】按钮可见可点击；查询区各筛选项可见"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-002:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:precondition:2",
+          "kind": "precondition",
+          "text": "当前商户下已存在至少 1 条商品数据（类型可为：标准商品、套餐商品、加料/配菜）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:action:2",
+          "kind": "action",
+          "text": "查看页面左侧分类区域与右侧商品列表区域布局",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:action:3",
+          "kind": "action",
+          "text": "查看商品列表默认展示列：商品主图、商品名称、商品类型、规格、价格、商品状态、操作等",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:action:4",
+          "kind": "action",
+          "text": "查看列表底部分页组件及左下角总条数展示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:action:5",
+          "kind": "action",
+          "text": "查看右上角【新增商品】按钮及查询区（商品名称、商品类型、商品状态等）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:expectation:1",
+          "kind": "expectation",
+          "text": "布局校验：左侧展示后台分类树，右侧展示商品列表，页面无错位、无模块缺失",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:expectation:2",
+          "kind": "expectation",
+          "text": "默认列校验：列表默认展示商品主图、商品名称、商品类型、规格、价格、商品状态等核心字段；操作列通过【...】收纳启用/停用/删除等操作",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:expectation:3",
+          "kind": "expectation",
+          "text": "分页校验：分页组件可见，默认每页 50 条，支持切换 10、20、50、100；左下角展示查询总条数",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:expectation:4",
+          "kind": "expectation",
+          "text": "排序校验：列表默认按创建时间倒序，后创建商品排在较前位置",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-002:expectation:5",
+          "kind": "expectation",
+          "text": "入口校验：右上角【新增商品】按钮可见可点击；查询区各筛选项可见",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-002",
+            "route:cc612d39a954",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-005",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "标准商品必填项缺失时创建失败",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-005",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3",
+        "ui-runtime:item-standard-name-required:2026-07-25",
+        "network-runtime:item-standard-create-request-absent:2026-07-25",
+        "api-runtime:item-total-count-unchanged:2026-07-25"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "保持「商品名称」为空，不输入任何内容",
+        "「商品规格」选择【单规格】；「标准价」输入 10.00",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "保存失败校验：页面仍停留在创建页，未出现「提交成功」提示",
+        "必填提示校验：「商品名称」字段出现必填校验提示（飘红/文案提示）",
+        "列表无新增：返回商品列表，不存在因本次操作产生的新商品记录"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-005:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:4",
+          "kind": "action",
+          "text": "保持「商品名称」为空，不输入任何内容",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:5",
+          "kind": "action",
+          "text": "「商品规格」选择【单规格】；「标准价」输入 10.00",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:action:6",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:expectation:1",
+          "kind": "expectation",
+          "text": "保存失败校验：页面仍停留在创建页，未出现「提交成功」提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:expectation:2",
+          "kind": "expectation",
+          "text": "必填提示校验：「商品名称」字段出现必填校验提示（飘红/文案提示）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-005:expectation:3",
+          "kind": "expectation",
+          "text": "列表无新增：返回商品列表，不存在因本次操作产生的新商品记录",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-005",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3",
+            "ui-runtime:item-standard-name-required:2026-07-25",
+            "network-runtime:item-standard-create-request-absent:2026-07-25",
+            "api-runtime:item-total-count-unchanged:2026-07-25"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "navigation.sidebar.open",
+          "item.validateRequiredName"
+        ],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "api",
+          "ui",
+          "network"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-010",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "商品编码重复时创建失败并提示 BITEM-7003",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-010",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「标准商品-编码重复-{当前时间戳毫秒}」）",
+        "当前商户下已存在商品编码为 `A001` 的商品"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：标准商品-编码重复-{当前时间戳毫秒}；展开「高级设置」，「商品编码」填写 `A001`；「起售数量」填写 `1`；「标准价」填写 `10.00`",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "保存失败，页面拦截保存",
+        "页面提示 `BITEM-7003:编码已存在于数据库中`"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-010:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:precondition:2",
+          "kind": "precondition",
+          "text": "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「标准商品-编码重复-{当前时间戳毫秒}」）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:precondition:3",
+          "kind": "precondition",
+          "text": "当前商户下已存在商品编码为 `A001` 的商品",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：标准商品-编码重复-{当前时间戳毫秒}；展开「高级设置」，「商品编码」填写 `A001`；「起售数量」填写 `1`；「标准价」填写 `10.00`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:expectation:1",
+          "kind": "expectation",
+          "text": "保存失败，页面拦截保存",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-010:expectation:2",
+          "kind": "expectation",
+          "text": "页面提示 `BITEM-7003:编码已存在于数据库中`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-010",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-016",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "多规格商品选择默认规格后创建成功且列表展示所有规格价格",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-016",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "系统中已存在可用规格组：Regular Size（含至少 2 个规格明细「大」「小」）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：标准商品-多规格-{当前时间戳毫秒}；商品规格：勾选【多规格】；多规格组：点击添加组按钮，弹出选择规格组页面，规格组名称输入：Regular Size，等待页面刷新，勾选列表第一条数据，点击确定按钮返回创建标准商品页；规格列中：「大」商品价格输入 12.00；「小」商品价格输入 9.99；规格「大」：勾选默认选中",
+        "点击右上角【保存】按钮",
+        "页面自动返回到商品中心页面，等待列表数据刷新"
+      ],
+      "expectedResults": [
+        "创建成功提示：页面展示「提交成功」的 Toast 提示",
+        "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；规格展示为「大」「小」（与所选规格组 Regular Size 一致）；列表价格展示默认规格「大」的价格 12.00；商品状态为「启用」",
+        "排序校验：该商品排在列表第一位（按创建时间倒序）"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "人工执行后通过 API 按服务端 ID 清理本用例数据并验证零残留"
+      ],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-016:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:precondition:2",
+          "kind": "precondition",
+          "text": "系统中已存在可用规格组：Regular Size（含至少 2 个规格明细「大」「小」）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：标准商品-多规格-{当前时间戳毫秒}；商品规格：勾选【多规格】；多规格组：点击添加组按钮，弹出选择规格组页面，规格组名称输入：Regular Size，等待页面刷新，勾选列表第一条数据，点击确定按钮返回创建标准商品页；规格列中：「大」商品价格输入 12.00；「小」商品价格输入 9.99；规格「大」：勾选默认选中",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:action:6",
+          "kind": "action",
+          "text": "页面自动返回到商品中心页面，等待列表数据刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:expectation:1",
+          "kind": "expectation",
+          "text": "创建成功提示：页面展示「提交成功」的 Toast 提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:expectation:2",
+          "kind": "expectation",
+          "text": "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；规格展示为「大」「小」（与所选规格组 Regular Size 一致）；列表价格展示默认规格「大」的价格 12.00；商品状态为「启用」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-016:expectation:3",
+          "kind": "expectation",
+          "text": "排序校验：该商品排在列表第一位（按创建时间倒序）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-016",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "manual.prepareItemData"
+        ],
+        "cleanupAdapterIds": [
+          "manual.cleanupItemData"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-018",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "称重商品创建成功",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-018",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：标准商品-称重-{当前时间戳毫秒}；是否称重商品：选择【是】；标准价：输入 10.00；销售单位：选择 `g`（系统可选：`g`、`kg`、`ml`；本用例取 `g`）",
+        "点击右上角【保存】按钮",
+        "页面自动返回到商品中心页面，等待列表数据刷新",
+        "点击列表第一行商品名称进入编辑页，查看称重相关字段"
+      ],
+      "expectedResults": [
+        "详情校验：进入该商品编辑页，「是否称重商品」为「是」，销售单位与步骤 4 选择一致",
+        "创建成功提示：页面展示「提交成功」的 Toast 提示",
+        "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；标准价为 10.00；商品状态为「启用」",
+        "排序校验：该商品排在列表第一位（按创建时间倒序）"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "人工执行后通过 API 按服务端 ID 清理本用例数据并验证零残留"
+      ],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-018:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：标准商品-称重-{当前时间戳毫秒}；是否称重商品：选择【是】；标准价：输入 10.00；销售单位：选择 `g`（系统可选：`g`、`kg`、`ml`；本用例取 `g`）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:6",
+          "kind": "action",
+          "text": "页面自动返回到商品中心页面，等待列表数据刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:action:7",
+          "kind": "action",
+          "text": "点击列表第一行商品名称进入编辑页，查看称重相关字段",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:expectation:1",
+          "kind": "expectation",
+          "text": "详情校验：进入该商品编辑页，「是否称重商品」为「是」，销售单位与步骤 4 选择一致",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:expectation:2",
+          "kind": "expectation",
+          "text": "创建成功提示：页面展示「提交成功」的 Toast 提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:expectation:3",
+          "kind": "expectation",
+          "text": "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；标准价为 10.00；商品状态为「启用」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-018:expectation:4",
+          "kind": "expectation",
+          "text": "排序校验：该商品排在列表第一位（按创建时间倒序）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-018",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "manual.prepareItemData"
+        ],
+        "cleanupAdapterIds": [
+          "manual.cleanupItemData"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-021",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "价格输入为负数或非数字时创建失败",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-021",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-价格输入为负数或非数字创建-{当前时间戳毫秒}」）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：商品-价格输入为负数或非数字创建-{当前时间戳毫秒}；商品规格：选择【单规格】；展开「高级设置」，「起售数量」填写 `1`；「标准价」填写 `-1`",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "保存失败，页面提示价格输入格式不正确"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-021:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:precondition:2",
+          "kind": "precondition",
+          "text": "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-价格输入为负数或非数字创建-{当前时间戳毫秒}」）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：商品-价格输入为负数或非数字创建-{当前时间戳毫秒}；商品规格：选择【单规格】；展开「高级设置」，「起售数量」填写 `1`；「标准价」填写 `-1`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-021:expectation:1",
+          "kind": "expectation",
+          "text": "保存失败，页面提示价格输入格式不正确",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-021",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-028",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "商品列表支持按名称、类型、分类、状态组合查询",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-028",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-4",
+        "mapping:139c6a17872d"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "商品列表存在标准商品：标准商品-查询测试，状态为【启用】（若不存在，先创建该标准商品）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+        "在左上角商品名称输入框填写：标准商品-查询测试",
+        "点击商品类型，弹出下拉框选择：标准商品",
+        "点击商品状态，弹出下拉框选择：启用，等待列表数据自动刷新",
+        "查看列表数据及左下角总条数"
+      ],
+      "expectedResults": [
+        "列表正确展示数据，且所有商品必须同时满足：名称包含「标准商品-查询测试」、类型为「标准商品」、状态为「启用」",
+        "列表中不应出现以下干扰数据：类型为「套餐商品」；类型为「加料/配菜」且名称不匹配；状态为「停用」",
+        "左下角展示的查询总条数与列表实际过滤出的数据量一致",
+        "分页组件当前页列表行数不超过所选每页条数上限"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-028:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:precondition:2",
+          "kind": "precondition",
+          "text": "商品列表存在标准商品：标准商品-查询测试，状态为【启用】（若不存在，先创建该标准商品）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:action:2",
+          "kind": "action",
+          "text": "在左上角商品名称输入框填写：标准商品-查询测试",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:action:3",
+          "kind": "action",
+          "text": "点击商品类型，弹出下拉框选择：标准商品",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:action:4",
+          "kind": "action",
+          "text": "点击商品状态，弹出下拉框选择：启用，等待列表数据自动刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:action:5",
+          "kind": "action",
+          "text": "查看列表数据及左下角总条数",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:expectation:1",
+          "kind": "expectation",
+          "text": "列表正确展示数据，且所有商品必须同时满足：名称包含「标准商品-查询测试」、类型为「标准商品」、状态为「启用」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:expectation:2",
+          "kind": "expectation",
+          "text": "列表中不应出现以下干扰数据：类型为「套餐商品」；类型为「加料/配菜」且名称不匹配；状态为「停用」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:expectation:3",
+          "kind": "expectation",
+          "text": "左下角展示的查询总条数与列表实际过滤出的数据量一致",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-028:expectation:4",
+          "kind": "expectation",
+          "text": "分页组件当前页列表行数不超过所选每页条数上限",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-028",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-4",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-4"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-031",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "标准商品编辑基础信息后保存成功",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-031",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-5",
+        "mapping:139c6a17872d"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "商品列表存在目标商品：标准商品-编辑基础信息后保存-编辑测试（若不存在，先创建 1 条单规格标准商品用于本用例）",
+        "叶子分类 A 下存在标准商品 「标准商品-编辑基础信息后保存-{当前时间戳毫秒}」",
+        "系统中存在可选叶子分类 B 和可用商品主图"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+        "在商品名称输入框填写「标准商品-编辑基础-测试」，等待列表数据自动刷新",
+        "点击商品名称进入编辑页（若不存在，先创建名称为「标准商品-编辑基础-测试」的单规格商品）",
+        "将商品名称修改为「标准商品-编辑基础-测试-V2」",
+        "替换主图为另一张合规图片",
+        "点击右上角【保存】按钮",
+        "返回列表按新名称查询"
+      ],
+      "expectedResults": [
+        "页面展示「提交成功」的 Toast 提示",
+        "列表可搜索到 「标准商品-编辑基础信息后保存-{当前时间戳毫秒}」，商品分类为叶子分类 B",
+        "商品主图更新为本次保存的图片"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "人工执行后通过 API 按服务端 ID 清理本用例数据并验证零残留"
+      ],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-031:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:precondition:2",
+          "kind": "precondition",
+          "text": "商品列表存在目标商品：标准商品-编辑基础信息后保存-编辑测试（若不存在，先创建 1 条单规格标准商品用于本用例）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:precondition:3",
+          "kind": "precondition",
+          "text": "叶子分类 A 下存在标准商品 「标准商品-编辑基础信息后保存-{当前时间戳毫秒}」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:precondition:4",
+          "kind": "precondition",
+          "text": "系统中存在可选叶子分类 B 和可用商品主图",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:2",
+          "kind": "action",
+          "text": "在商品名称输入框填写「标准商品-编辑基础-测试」，等待列表数据自动刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:3",
+          "kind": "action",
+          "text": "点击商品名称进入编辑页（若不存在，先创建名称为「标准商品-编辑基础-测试」的单规格商品）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:4",
+          "kind": "action",
+          "text": "将商品名称修改为「标准商品-编辑基础-测试-V2」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:5",
+          "kind": "action",
+          "text": "替换主图为另一张合规图片",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:6",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:action:7",
+          "kind": "action",
+          "text": "返回列表按新名称查询",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:expectation:1",
+          "kind": "expectation",
+          "text": "页面展示「提交成功」的 Toast 提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:expectation:2",
+          "kind": "expectation",
+          "text": "列表可搜索到 「标准商品-编辑基础信息后保存-{当前时间戳毫秒}」，商品分类为叶子分类 B",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-031:expectation:3",
+          "kind": "expectation",
+          "text": "商品主图更新为本次保存的图片",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-031",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-5",
+            "mapping:139c6a17872d"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-5"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "manual.prepareItemData"
+        ],
+        "cleanupAdapterIds": [
+          "manual.cleanupItemData"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-036",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "标准商品仅填写必填项时创建成功",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-036",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：标准商品-单规格-{当前时间戳毫秒}；商品规格：选择【单规格】；标准价：输入 9.99",
+        "点击右上角【保存】按钮",
+        "页面自动返回到商品中心页面，等待列表数据刷新"
+      ],
+      "expectedResults": [
+        "创建成功提示：页面展示「提交成功」的 Toast 提示",
+        "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；标准价为 9.99；商品状态为「启用」",
+        "排序校验：该商品排在列表第一位（按创建时间倒序）"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "人工执行后通过 API 按服务端 ID 清理本用例数据并验证零残留"
+      ],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-036:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：标准商品-单规格-{当前时间戳毫秒}；商品规格：选择【单规格】；标准价：输入 9.99",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:action:6",
+          "kind": "action",
+          "text": "页面自动返回到商品中心页面，等待列表数据刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:expectation:1",
+          "kind": "expectation",
+          "text": "创建成功提示：页面展示「提交成功」的 Toast 提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:expectation:2",
+          "kind": "expectation",
+          "text": "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：；名称完全等于步骤 4 填写的商品名称；商品类型为「标准商品」；标准价为 9.99；商品状态为「启用」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-036:expectation:3",
+          "kind": "expectation",
+          "text": "排序校验：该商品排在列表第一位（按创建时间倒序）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-036",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "manual.prepareItemData"
+        ],
+        "cleanupAdapterIds": [
+          "manual.cleanupItemData"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-038",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "标准价缺失时创建失败",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-038",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-标准价缺失创建-{当前时间戳毫秒}」）",
+        "已进入 商品管理 → 商品 列表页",
+        "已打开标准商品创建页",
+        "当前品牌下不存在同名测试商品（本用例使用名称「商品-标准价缺失创建-{当前时间戳毫秒}」）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写商品信息：；商品名称：商品-标准价缺失创建-{当前时间戳毫秒}；商品规格：选择【单规格】；展开「高级设置」，「起售数量」填写 `1`；「标准价」保持为空",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "页面仍停留在创建页，未出现保存成功提示",
+        "「标准价」字段出现必填校验提示",
+        "商品列表按 「商品-标准价缺失创建-{当前时间戳毫秒}」 查询，无本次新建记录"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-038:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:precondition:2",
+          "kind": "precondition",
+          "text": "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-标准价缺失创建-{当前时间戳毫秒}」）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:precondition:3",
+          "kind": "precondition",
+          "text": "已进入 商品管理 → 商品 列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:precondition:4",
+          "kind": "precondition",
+          "text": "已打开标准商品创建页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:precondition:5",
+          "kind": "precondition",
+          "text": "当前品牌下不存在同名测试商品（本用例使用名称「商品-标准价缺失创建-{当前时间戳毫秒}」）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:action:2",
+          "kind": "action",
+          "text": "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:action:3",
+          "kind": "action",
+          "text": "点击【标准商品】-【去创建】，进入创建标准商品页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:action:4",
+          "kind": "action",
+          "text": "填写商品信息：；商品名称：商品-标准价缺失创建-{当前时间戳毫秒}；商品规格：选择【单规格】；展开「高级设置」，「起售数量」填写 `1`；「标准价」保持为空",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:action:5",
+          "kind": "action",
+          "text": "点击右上角【保存】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:expectation:1",
+          "kind": "expectation",
+          "text": "页面仍停留在创建页，未出现保存成功提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:expectation:2",
+          "kind": "expectation",
+          "text": "「标准价」字段出现必填校验提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-038:expectation:3",
+          "kind": "expectation",
+          "text": "商品列表按 「商品-标准价缺失创建-{当前时间戳毫秒}」 查询，无本次新建记录",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-038",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-068",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "无引用关系的标准商品删除成功",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-068",
+        "route:cc612d39a954",
+        "/pp/brand/list#action-6#primary-1"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "商品列表存在标准商品：标准商品-可删除测试（若不存在，先创建；须确保未被套餐组、菜单等业务引用）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+        "在左上角商品名称输入框填写：标准商品-可删除测试，点击商品类型选择「标准商品」，等待列表数据自动刷新",
+        "确认列表正确查询出「标准商品-可删除测试」商品",
+        "点击列表第一行操作列【...】按钮，在下拉菜单中点击【删除】",
+        "在弹出的确认删除弹窗中核对提示文案：确认删除商品「标准商品-可删除测试」吗？，点击【删除】按钮",
+        "等待页面提示消失及列表数据自动刷新"
+      ],
+      "expectedResults": [
+        "删除成功提示：页面展示「删除成功」的 Toast 提示",
+        "列表刷新校验：列表自动刷新后，「标准商品-可删除测试」已不存在",
+        "总条数校验：左下角查询总条数较删除前减少 1（若当前查询条件下仅 1 条）"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "人工执行后通过 API 按服务端 ID 清理本用例数据并验证零残留"
+      ],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-068:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:precondition:2",
+          "kind": "precondition",
+          "text": "商品列表存在标准商品：标准商品-可删除测试（若不存在，先创建；须确保未被套餐组、菜单等业务引用）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:2",
+          "kind": "action",
+          "text": "在左上角商品名称输入框填写：标准商品-可删除测试，点击商品类型选择「标准商品」，等待列表数据自动刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:3",
+          "kind": "action",
+          "text": "确认列表正确查询出「标准商品-可删除测试」商品",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:4",
+          "kind": "action",
+          "text": "点击列表第一行操作列【...】按钮，在下拉菜单中点击【删除】",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:5",
+          "kind": "action",
+          "text": "在弹出的确认删除弹窗中核对提示文案：确认删除商品「标准商品-可删除测试」吗？，点击【删除】按钮",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:action:6",
+          "kind": "action",
+          "text": "等待页面提示消失及列表数据自动刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:expectation:1",
+          "kind": "expectation",
+          "text": "删除成功提示：页面展示「删除成功」的 Toast 提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:expectation:2",
+          "kind": "expectation",
+          "text": "列表刷新校验：列表自动刷新后，「标准商品-可删除测试」已不存在",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-068:expectation:3",
+          "kind": "expectation",
+          "text": "总条数校验：左下角查询总条数较删除前减少 1（若当前查询条件下仅 1 条）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-068",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:dialog:/pp/brand/list#action-6#primary-1"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "manual.prepareItemData"
+        ],
+        "cleanupAdapterIds": [
+          "manual.cleanupItemData"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-069",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "被套餐组引用的标准商品不可删除",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-069",
+        "route:cc612d39a954",
+        "/pp/brand/list#action-6#primary-1"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "列表中存在 1 条已被套餐组引用的标准商品",
+        "已进入商品列表页"
+      ],
+      "actions": [
+        "点击该商品删除",
+        "查看页面提示"
+      ],
+      "expectedResults": [
+        "删除失败",
+        "页面提示商品被套餐组引用，不可删除"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-069:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:precondition:2",
+          "kind": "precondition",
+          "text": "列表中存在 1 条已被套餐组引用的标准商品",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:precondition:3",
+          "kind": "precondition",
+          "text": "已进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:action:1",
+          "kind": "action",
+          "text": "点击该商品删除",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:action:2",
+          "kind": "action",
+          "text": "查看页面提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:expectation:1",
+          "kind": "expectation",
+          "text": "删除失败",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-069:expectation:2",
+          "kind": "expectation",
+          "text": "页面提示商品被套餐组引用，不可删除",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-069",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:dialog:/pp/brand/list#action-6#primary-1"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-070",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "被菜单引用的标准商品不可删除",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-070",
+        "route:cc612d39a954",
+        "/pp/brand/list#action-6#primary-1"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "列表中存在 1 条已被菜单引用的商品",
+        "已进入商品列表页"
+      ],
+      "actions": [
+        "点击该商品删除",
+        "查看页面提示"
+      ],
+      "expectedResults": [
+        "删除失败",
+        "页面提示商品被菜单引用，不可删除"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-070:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:precondition:2",
+          "kind": "precondition",
+          "text": "列表中存在 1 条已被菜单引用的商品",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:precondition:3",
+          "kind": "precondition",
+          "text": "已进入商品列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:action:1",
+          "kind": "action",
+          "text": "点击该商品删除",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:action:2",
+          "kind": "action",
+          "text": "查看页面提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:expectation:1",
+          "kind": "expectation",
+          "text": "删除失败",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-070:expectation:2",
+          "kind": "expectation",
+          "text": "页面提示商品被菜单引用，不可删除",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-070",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-070"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:dialog:/pp/brand/list#action-6#primary-1"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-075",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "商品列表删除操作展示确认文案",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-075",
+        "route:cc612d39a954",
+        "/pp/brand/list#action-6#primary-1"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "商品列表存在标准商品：标准商品-删除文案测试（若不存在，先创建 1 个单规格标准商品）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+        "在左上角商品名称输入框填写：标准商品-删除文案测试，点击商品类型选择「标准商品」，等待列表数据自动刷新",
+        "点击列表第一行操作列【...】按钮，在下拉菜单中点击【删除】",
+        "观察弹出的确认删除弹窗，核对提示文案，然后点击【取消】"
+      ],
+      "expectedResults": [
+        "页面弹出二次确认框",
+        "确认文案为：确认删除商品「标准商品-删除文案测试」吗？",
+        "点击【取消】后，弹窗正常关闭，列表中该商品依然存在"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-075:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:precondition:2",
+          "kind": "precondition",
+          "text": "商品列表存在标准商品：标准商品-删除文案测试（若不存在，先创建 1 个单规格标准商品）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:action:1",
+          "kind": "action",
+          "text": "点击侧边栏【商品管理】-【商品】，进入商品列表页面",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:action:2",
+          "kind": "action",
+          "text": "在左上角商品名称输入框填写：标准商品-删除文案测试，点击商品类型选择「标准商品」，等待列表数据自动刷新",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:action:3",
+          "kind": "action",
+          "text": "点击列表第一行操作列【...】按钮，在下拉菜单中点击【删除】",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:action:4",
+          "kind": "action",
+          "text": "观察弹出的确认删除弹窗，核对提示文案，然后点击【取消】",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:expectation:1",
+          "kind": "expectation",
+          "text": "页面弹出二次确认框",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:expectation:2",
+          "kind": "expectation",
+          "text": "确认文案为：确认删除商品「标准商品-删除文案测试」吗？",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-075:expectation:3",
+          "kind": "expectation",
+          "text": "点击【取消】后，弹窗正常关闭，列表中该商品依然存在",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-075",
+            "route:cc612d39a954",
+            "/pp/brand/list#action-6#primary-1"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:dialog:/pp/brand/list#action-6#primary-1"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-093",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "商品名称首尾含空格时保存失败",
+      "priority": "P0",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-093",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3"
+      ],
+      "sourceRefs": [
+        "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+      ],
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页",
+        "已打开标准商品创建页",
+        "当前品牌下不存在商品 `商品名称-autocreate-093`"
+      ],
+      "actions": [
+        "「商品名称」输入 `  商品名称-autocreate-093  `（首尾各含空格，中间内容合法）",
+        "「起售数量」输入 `1`",
+        "「标准价」输入 `10.00`",
+        "点击「保存」"
+      ],
+      "expectedResults": [
+        "页面仍停留在商品创建页，未出现保存成功提示",
+        "「商品名称」字段出现格式校验提示（首尾不可为空格，以现网文案为准）",
+        "列表按 `商品名称-autocreate-093` 查询，无本次新建记录"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "manual",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-093:precondition:1",
+          "kind": "precondition",
+          "text": "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:precondition:2",
+          "kind": "precondition",
+          "text": "已进入 商品管理 → 商品 列表页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:precondition:3",
+          "kind": "precondition",
+          "text": "已打开标准商品创建页",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:precondition:4",
+          "kind": "precondition",
+          "text": "当前品牌下不存在商品 `商品名称-autocreate-093`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:action:1",
+          "kind": "action",
+          "text": "「商品名称」输入 `  商品名称-autocreate-093  `（首尾各含空格，中间内容合法）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:action:2",
+          "kind": "action",
+          "text": "「起售数量」输入 `1`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:action:3",
+          "kind": "action",
+          "text": "「标准价」输入 `10.00`",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:action:4",
+          "kind": "action",
+          "text": "点击「保存」",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:expectation:1",
+          "kind": "expectation",
+          "text": "页面仍停留在商品创建页，未出现保存成功提示",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:expectation:2",
+          "kind": "expectation",
+          "text": "「商品名称」字段出现格式校验提示（首尾不可为空格，以现网文案为准）",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-093:expectation:3",
+          "kind": "expectation",
+          "text": "列表按 `商品名称-autocreate-093` 查询，无本次新建记录",
+          "sourceIds": [
+            "test-scheme:item:TC-ITEM-STD-093",
+            "route:cc612d39a954",
+            "/pp/brand/list#control-3"
+          ],
+          "sourceRefs": [
+            "TEST-SCHEME:1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093"
+          ],
+          "evidenceLevel": "confirmed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    }
+  ]
+}

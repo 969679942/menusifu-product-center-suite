@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042"
+  ],
+  "rootCause": "SEA-042 的正式来源要求单门店品牌调味页单击“下发”，但旧实现把 POST /ops-brand/brand-modifier-sync/all 放在 seed 阶段直接调用 API，并在 capability 阶段错误要求一个不存在的 UI 删除结果。SCH 只读审计证明页面存在唯一可见启用的 cloud-download 下发按钮，单击后不出现弹窗而直接发送 POST /item/v1/ops-brand/brand-modifier-sync/all。",
+  "correctiveAction": "seed 只创建带唯一身份的品牌调味数据；正式 capability 回到品牌调味页点击真实“下发”按钮并等待精确 POST 响应，再等待门店服务端身份、进入门店商品管理-门店调味核对可见终态，并按当前服务端 ID 清理。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/audit-sea042/control-inventory.json",
+    "systems/merchant-center-product-center-seasoning/audit-sea042/brand-seasoning-list.png",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787653801764/evidence-ledger.json"
+  ]
+}

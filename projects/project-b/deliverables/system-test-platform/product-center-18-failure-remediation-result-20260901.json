@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "scope": "generated-evidence",
+  "summary": {
+    "total": 18,
+    "automationFixedAndPassed": 10,
+    "manualProductRuleConfirmation": 7,
+    "environmentPreconditionRequired": 1,
+    "forcedPassCount": 0
+  },
+  "automationFixedAndPassed": [
+    "TC-IMG-ITEM-030",
+    "TC-ITEM-STD-001",
+    "TC-TAG-BDG-024",
+    "TC-TAG-DESC-013",
+    "TC-TAG-DESC-027",
+    "TC-TAG-STAT-012",
+    "TC-TAG-STAT-029",
+    "TC-FLV-SEA-007",
+    "TC-FLV-SEA-010",
+    "TC-FLV-TPL-018"
+  ],
+  "manualProductRuleConfirmation": [
+    {
+      "caseId": "TC-GRP-PKG-033",
+      "reason": "当前实现行为与正式业务规则的有效基线仍需产品确认；不得仅凭历史重基线或单次通过收据修改正式预期。"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "reason": "引用关系已通过真实回读固定为结构化差异，最终期望属于产品删除保护规则，需产品确认。"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "reason": "引用关系已通过真实回读固定为结构化差异，最终期望属于产品删除保护规则，需产品确认。"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "reason": "已有独立完整产品差异证据，本轮禁止重复执行或修改断言强行改绿。"
+    },
+    {
+      "caseId": "TC-TAG-BDG-019",
+      "reason": "已补齐真实标签页观察，最终残留行为与正式清理规则的差异需产品确认。"
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "reason": "正式来源要求 50 个调味项达到上限；实测点击前 50 行、点击后 51 行、按钮可用且无上限反馈，属于稳定产品差异。"
+    },
+    {
+      "caseId": "TC-FLV-SEA-023",
+      "reason": "第二次真实 UI 提交返回 HTTP 200 且提示“添加成功”，正式来源要求提示已存在，需确认产品规则。"
+    }
+  ],
+  "environmentPreconditionRequired": [
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "reason": "需要品牌零调味的隔离商户；禁止删除当前商户既有调味数据模拟空环境。"
+    }
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "targetedContractTests": "passed",
+    "seasoningTargetedRun": "SEA-007 passed; SEA-010 passed; SEA-023 product-rule finding",
+    "templateTargetedRun": "TPL-018 passed",
+    "unrelatedPassedCasesRerun": false,
+    "crossApplicationPilotStarted": false
+  },
+  "evidenceRefs": [
+    "deliverables/system-test-platform/product-center-current-failure-repair-diagnosis-20260901.json",
+    "deliverables/system-test-platform/product-center-current-five-repair-diagnosis-20260901.json",
+    "deliverables/system-test-platform/product-center-item-three-fingerprint-repair-diagnosis-20260901.json",
+    "systems/merchant-center-product-center-seasoning/repair-diagnosis-current-failures-20260901.json",
+    "output/product-center-remaining-source-governed-20260901T020437Z.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788124954744-run-single-store-000407/diagnostics.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1788231467336/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1788231681968/run-report.json"
+  ]
+}

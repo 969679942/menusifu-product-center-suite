@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "seasoning-sea042-cleanup-stall-repair-20260905",
+  "generatedAt": "2026-09-04T21:31:13.752Z",
+  "recommendation": "必须",
+  "purpose": "修复 SEA-042 业务已成功后因冗余模板 UI 清理在单门店权限终态卡死的问题。",
+  "expectedResult": "只执行 SEA-042；形成完整标准收据，确认品牌下发、门店 UI/API 终态及品牌/门店零残留。",
+  "downstreamImpact": "既有通过用例不重跑、不失效；仅 SEA-042 因实现语义变化需要重验。跨应用 pilot 继续 deferred。",
+  "selectedCaseIds": [
+    "TC-FLV-SEA-042"
+  ],
+  "excludedCaseCount": 81,
+  "fullRegression": false
+}

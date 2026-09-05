@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-TAG-BDG-019"
+  ],
+  "rootCause": "历史正式规则要求角标过期后不展示，且旧自动化把服务端 ID 非空错误推导成 UI 清理完成。金将军于 2026-09-01 明确确认当前正式规则为角标过期不影响商品中心关联和回显；脚本已改为真实创建角标与商品关联、将角标改为过期、分别回读角标列表、商品详情 API 和商品编辑页，并执行真实标签页零残留校验。旧失败结论及旧清理推导均不再适用于当前规则和实现指纹。",
+  "correctiveAction": "仅重验 TC-TAG-BDG-019：验证过期角标记录仍存在、商品详情 API 仍返回关联、商品编辑页仍回显；finally 清理角标和商品，并通过 API 与标签页面确认零残留。TC-TAG-DESC-013 和 TC-TAG-STAT-012 已有当前业务指纹通过收据且本轮未改其实现，不重复执行。",
+  "evidenceRefs": [
+    "contracts/product-center/reviews/product-center-rule-confirmations-20260901.json",
+    "D:/Menusifu/Merchant Center/Merchant Center Info/商品中心业务规则.md",
+    "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+    "pages/product-center/tag-management.page.ts",
+    "deliverables/system-test-platform/product-center-current-five-repair-diagnosis-20260901.json",
+    "deliverables/system-test-platform/product-center-current-five-optimization-plan-20260901.json"
+  ]
+}

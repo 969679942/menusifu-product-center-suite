@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-005"],
+  "rootCause": "自动化页面对象读取了未限定可见性的任务名称 input，页面重渲染时可能命中隐藏或旧副本；人工可见页面行为正常，现有 product-failure 结论因此不能作为产品事实。",
+  "correctiveAction": "任务名称查询框和 reset 控件均限定为 visible locator，并继续要求唯一可见控件；只以该可见输入框的最终值作为断言，重新执行 REC-005。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/page-contract-live-audit.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787545983267/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "4aaaeda25ac84b53",
+    "29e0b6b61f58fdcd"
+  ]
+}

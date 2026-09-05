@@ -1,0 +1,1143 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-test-plan-intake-v1",
+  "fingerprint": "d0f80ea2ebbcf3c4bc1defb82dc54d77e8d552f8a22d563e050eb231de254d2d",
+  "status": "passed-with-blocked",
+  "summary": {
+    "inputCases": 11,
+    "generated": 11,
+    "reviewRequired": 0,
+    "blockedSources": 116,
+    "falsePromotions": 0
+  },
+  "cases": [
+    {
+      "canonicalId": "TC-PC-GROUP-BOUNDARY-001",
+      "internalCaseId": "review:method-detail-max-length",
+      "module": "brand-group",
+      "route": "/pp/brand/option-group/method",
+      "title": "做法明细名称超长保存后截断为100字符",
+      "priority": "P1",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:2.商品中心-商品管理-组.xmind#做法组 / 新增 / 字符格式化",
+          "sourceRefs": [
+            "XMIND:2.商品中心-商品管理-组.xmind#做法组 / 新增 / 字符格式化"
+          ],
+          "sourceIds": [
+            "operation:brand-menu:GET /ops-brand/brand-modifiers/{id}",
+            "operation:brand-menu:POST /ops-brand/brand-modifiers",
+            "route:b0c3b84b758f"
+          ]
+        }
+      ],
+      "preconditions": [
+        "已进入新增或编辑做法明细页。"
+      ],
+      "actions": [
+        "做法明细名称输入超过 100 字符，保存。",
+        "查看已保存名称。"
+      ],
+      "expectedResults": [
+        "保存成功，无报错拦截。",
+        "名称为前 100 个有效字符。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "methodDetail.enforceNameMaxLength"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyCreatedApi",
+        "productCenter.verifyMethodDetailBoundary"
+      ],
+      "claimIds": [
+        "claim:review:method-detail-max-length:precondition:1",
+        "claim:review:method-detail-max-length:action:1",
+        "claim:review:method-detail-max-length:action:2",
+        "claim:review:method-detail-max-length:expectation:1",
+        "claim:review:method-detail-max-length:expectation:2"
+      ],
+      "claims": [
+        {
+          "id": "claim:review:method-detail-max-length:precondition:1",
+          "kind": "precondition",
+          "text": "已进入新增或编辑做法明细页。"
+        },
+        {
+          "id": "claim:review:method-detail-max-length:action:1",
+          "kind": "action",
+          "text": "做法明细名称输入超过 100 字符，保存。"
+        },
+        {
+          "id": "claim:review:method-detail-max-length:action:2",
+          "kind": "action",
+          "text": "查看已保存名称。"
+        },
+        {
+          "id": "claim:review:method-detail-max-length:expectation:1",
+          "kind": "expectation",
+          "text": "保存成功，无报错拦截。"
+        },
+        {
+          "id": "claim:review:method-detail-max-length:expectation:2",
+          "kind": "expectation",
+          "text": "名称为前 100 个有效字符。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过 API 删除本用例创建的做法组和明细并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "已进入新增或编辑做法明细页。"
+        ],
+        "seedAdapterIds": [],
+        "provisioning": "external-precondition"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-ITEM-CREATE-001",
+      "internalCaseId": "create:item-standard-single-zero-price",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "单规格商品标准价为0时创建成功",
+      "priority": "P1",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 不同规格商品新建 / 新建价格为0的单规格商品，新建成功",
+          "sourceRefs": [
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 不同规格商品新建 / 新建价格为0的单规格商品，新建成功"
+          ],
+          "sourceIds": [
+            "/pp/brand/list#control-3",
+            "operation:brand-menu:DELETE /ops-brand/brand-items/delete",
+            "operation:brand-menu:GET /ops-brand/brand-items/{id}",
+            "operation:brand-menu:POST /ops-brand/brand-items/pageQuery",
+            "operation:brand-menu:POST /ops-brand/brand-items/standard",
+            "route:cc612d39a954"
+          ]
+        }
+      ],
+      "preconditions": [
+        "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名审计商品"
+      ],
+      "actions": [
+        "通过侧边栏商品管理进入商品列表页",
+        "从新增商品入口进入标准商品创建页",
+        "填写唯一审计商品名称，选择单规格，起售数量填写 1，标准价填写 0",
+        "保存商品并等待列表刷新后按唯一商品名称查询"
+      ],
+      "expectedResults": [
+        "页面展示可见的提交成功提示",
+        "商品列表中唯一展示本次创建的商品记录",
+        "商品 API 详情与列表中的标准价均为 0"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.createStandard"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyItemStandardSingleZeroPriceApi",
+        "productCenter.verifyItemStandardSingleZeroPriceUi"
+      ],
+      "claimIds": [
+        "claim:create:item-standard-single-zero-price:precondition:1",
+        "claim:create:item-standard-single-zero-price:precondition:2",
+        "claim:create:item-standard-single-zero-price:action:1",
+        "claim:create:item-standard-single-zero-price:action:2",
+        "claim:create:item-standard-single-zero-price:action:3",
+        "claim:create:item-standard-single-zero-price:action:4",
+        "claim:create:item-standard-single-zero-price:expectation:1",
+        "claim:create:item-standard-single-zero-price:expectation:2",
+        "claim:create:item-standard-single-zero-price:expectation:3"
+      ],
+      "claims": [
+        {
+          "id": "claim:create:item-standard-single-zero-price:precondition:1",
+          "kind": "precondition",
+          "text": "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:precondition:2",
+          "kind": "precondition",
+          "text": "当前品牌下不存在与本次冲突的同名审计商品"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:action:1",
+          "kind": "action",
+          "text": "通过侧边栏商品管理进入商品列表页"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:action:2",
+          "kind": "action",
+          "text": "从新增商品入口进入标准商品创建页"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:action:3",
+          "kind": "action",
+          "text": "填写唯一审计商品名称，选择单规格，起售数量填写 1，标准价填写 0"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:action:4",
+          "kind": "action",
+          "text": "保存商品并等待列表刷新后按唯一商品名称查询"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:expectation:1",
+          "kind": "expectation",
+          "text": "页面展示可见的提交成功提示"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:expectation:2",
+          "kind": "expectation",
+          "text": "商品列表中唯一展示本次创建的商品记录"
+        },
+        {
+          "id": "claim:create:item-standard-single-zero-price:expectation:3",
+          "kind": "expectation",
+          "text": "商品 API 详情与列表中的标准价均为 0"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui",
+        "network"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 删除本用例创建的商品并验证 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页",
+          "当前品牌下不存在与本次冲突的同名审计商品"
+        ],
+        "seedAdapterIds": [
+          "productCenter.prepareItemStandardSingleZeroPrice"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-ITEM-CREATE-002",
+      "internalCaseId": "create:item-combo-required-only",
+      "module": "brand-item",
+      "route": "/pp/brand/list",
+      "title": "套餐商品仅填写必填项时创建成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:1.商品中心-商品管理-商品.xmind#套餐商品 / 套餐商品特有：添加套餐分组 / 选择已有套餐组 / 选择固定搭配",
+          "sourceRefs": [
+            "XMIND:1.商品中心-商品管理-商品.xmind#套餐商品 / 套餐商品特有：添加套餐分组 / 选择已有套餐组 / 选择固定搭配"
+          ],
+          "sourceIds": [
+            "/pp/brand/list#control-3",
+            "operation:brand-menu:DELETE /ops-brand/brand-items/delete",
+            "operation:brand-menu:DELETE /ops-brand/brand-sections/{id}",
+            "operation:brand-menu:GET /ops-brand/brand-items/{id}",
+            "operation:brand-menu:GET /ops-brand/brand-sections/list",
+            "operation:brand-menu:POST /ops-brand/brand-items/combo",
+            "operation:brand-menu:POST /ops-brand/brand-items/pageQuery",
+            "operation:brand-menu:POST /ops-brand/brand-items/standard",
+            "operation:brand-menu:POST /ops-brand/brand-sections",
+            "route:cc612d39a954"
+          ]
+        }
+      ],
+      "preconditions": [
+        "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名审计套餐商品",
+        "已通过 API 创建一个有效固定搭配套餐组及其审计依赖商品"
+      ],
+      "actions": [
+        "通过侧边栏商品管理进入商品列表页",
+        "从新增商品入口进入套餐商品创建页",
+        "填写唯一审计商品名称、起售数量 1、选择已准备的固定搭配套餐组并填写标准价 10.00",
+        "保存商品并等待列表刷新后按唯一商品名称查询"
+      ],
+      "expectedResults": [
+        "页面展示可见的提交成功提示",
+        "商品列表中唯一展示本次创建的套餐商品记录",
+        "商品 API 详情与列表中的标准价均为 10.00"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.createComboRequiredOnly"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyItemComboRequiredOnlyApi",
+        "productCenter.verifyItemComboRequiredOnlyUi"
+      ],
+      "claimIds": [
+        "claim:create:item-combo-required-only:precondition:1",
+        "claim:create:item-combo-required-only:precondition:2",
+        "claim:create:item-combo-required-only:precondition:3",
+        "claim:create:item-combo-required-only:action:1",
+        "claim:create:item-combo-required-only:action:2",
+        "claim:create:item-combo-required-only:action:3",
+        "claim:create:item-combo-required-only:action:4",
+        "claim:create:item-combo-required-only:expectation:1",
+        "claim:create:item-combo-required-only:expectation:2",
+        "claim:create:item-combo-required-only:expectation:3"
+      ],
+      "claims": [
+        {
+          "id": "claim:create:item-combo-required-only:precondition:1",
+          "kind": "precondition",
+          "text": "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:precondition:2",
+          "kind": "precondition",
+          "text": "当前品牌下不存在与本次冲突的同名审计套餐商品"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:precondition:3",
+          "kind": "precondition",
+          "text": "已通过 API 创建一个有效固定搭配套餐组及其审计依赖商品"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:action:1",
+          "kind": "action",
+          "text": "通过侧边栏商品管理进入商品列表页"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:action:2",
+          "kind": "action",
+          "text": "从新增商品入口进入套餐商品创建页"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:action:3",
+          "kind": "action",
+          "text": "填写唯一审计商品名称、起售数量 1、选择已准备的固定搭配套餐组并填写标准价 10.00"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:action:4",
+          "kind": "action",
+          "text": "保存商品并等待列表刷新后按唯一商品名称查询"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:expectation:1",
+          "kind": "expectation",
+          "text": "页面展示可见的提交成功提示"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:expectation:2",
+          "kind": "expectation",
+          "text": "商品列表中唯一展示本次创建的套餐商品记录"
+        },
+        {
+          "id": "claim:create:item-combo-required-only:expectation:3",
+          "kind": "expectation",
+          "text": "商品 API 详情与列表中的标准价均为 10.00"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui",
+        "network"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 删除本用例创建的套餐商品、固定搭配套餐组及依赖商品，并验证 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "已通过安全配置登录商品中心并选择目标商户，进入商品中心首页",
+          "当前品牌下不存在与本次冲突的同名审计套餐商品",
+          "已通过 API 创建一个有效固定搭配套餐组及其审计依赖商品"
+        ],
+        "seedAdapterIds": [
+          "productCenter.prepareItemComboRequiredOnly"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-ITEM-NEG-001",
+      "internalCaseId": "negative:category-child-blocked-by-product",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "priority": "P1",
+      "sourceTrace": [
+        {
+          "kind": "prd-explicit",
+          "citation": "PRD:1.需求品牌商品与分类.md#5.1.1 品牌商品 / 商品分类 3",
+          "sourceRefs": [
+            "PRD:1.需求品牌商品与分类.md#5.1.1 品牌商品 / 商品分类 3"
+          ],
+          "sourceIds": [
+            "rule:category-child-blocked-by-product"
+          ]
+        },
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类",
+          "sourceRefs": [
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "sourceIds": [
+            "rule:category-child-blocked-by-product"
+          ]
+        }
+      ],
+      "preconditions": [
+        "一级分类 A 下已存在商品。"
+      ],
+      "actions": [
+        "进入 品牌商品 → 分类 页面。",
+        "在一级分类 A 下点击新增子分类。",
+        "输入二级分类名称并尝试保存。"
+      ],
+      "expectedResults": [
+        "不可成功新增二级分类。",
+        "一级分类 A 下不新增子分类数据。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "category.attemptAddChildBlockedByProduct"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyCategoryChildBlockedApi",
+        "productCenter.verifyCategoryChildBlockedUi"
+      ],
+      "claimIds": [
+        "claim:negative:category-child-blocked-by-product:precondition:1",
+        "claim:negative:category-child-blocked-by-product:action:1",
+        "claim:negative:category-child-blocked-by-product:action:2",
+        "claim:negative:category-child-blocked-by-product:action:3",
+        "claim:negative:category-child-blocked-by-product:expectation:1",
+        "claim:negative:category-child-blocked-by-product:expectation:2"
+      ],
+      "claims": [
+        {
+          "id": "claim:negative:category-child-blocked-by-product:precondition:1",
+          "kind": "precondition",
+          "text": "一级分类 A 下已存在商品。"
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:1",
+          "kind": "action",
+          "text": "进入 品牌商品 → 分类 页面。"
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:2",
+          "kind": "action",
+          "text": "在一级分类 A 下点击新增子分类。"
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:3",
+          "kind": "action",
+          "text": "输入二级分类名称并尝试保存。"
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:expectation:1",
+          "kind": "expectation",
+          "text": "不可成功新增二级分类。"
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:expectation:2",
+          "kind": "expectation",
+          "text": "一级分类 A 下不新增子分类数据。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": false,
+      "cleanup": [
+        "通过 API 清理商品与分类测试数据并验证零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "一级分类 A 下已存在商品。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCategoryWithProduct"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-MENU-DELETE-001",
+      "internalCaseId": "delete:menu",
+      "module": "menu",
+      "route": "/bm/menu/list",
+      "title": "删除未被门店使用的菜单成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:商品中心-菜单管理-菜单.xmind#商品中心-菜单 / 菜单 / 菜单管理 / 删除 / 删除不在使用的菜单，删除成功 / 菜单1没有门店使用",
+          "sourceRefs": [
+            "XMIND:商品中心-菜单管理-菜单.xmind#商品中心-菜单 / 菜单 / 菜单管理 / 删除 / 删除不在使用的菜单，删除成功 / 菜单1没有门店使用"
+          ],
+          "sourceIds": [
+            "/bm/menu/list#control-1",
+            "mapping:367f32739210",
+            "route:3cc726e3e217"
+          ]
+        }
+      ],
+      "preconditions": [
+        "目标菜单没有门店使用。"
+      ],
+      "actions": [
+        "从侧边栏进入菜单管理，在目标菜单的操作菜单中执行删除。"
+      ],
+      "expectedResults": [
+        "目标菜单删除成功，列表与查询接口均不再返回该菜单。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "highDependency.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyAbsentApi",
+        "productCenter.verifyDeletedUi"
+      ],
+      "claimIds": [
+        "claim:delete:menu:precondition:1",
+        "claim:delete:menu:action:1",
+        "claim:delete:menu:expectation:1"
+      ],
+      "claims": [
+        {
+          "id": "claim:delete:menu:precondition:1",
+          "kind": "precondition",
+          "text": "目标菜单没有门店使用。"
+        },
+        {
+          "id": "claim:delete:menu:action:1",
+          "kind": "action",
+          "text": "从侧边栏进入菜单管理，在目标菜单的操作菜单中执行删除。"
+        },
+        {
+          "id": "claim:delete:menu:expectation:1",
+          "kind": "expectation",
+          "text": "目标菜单删除成功，列表与查询接口均不再返回该菜单。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 清理本用例创建的数据并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "目标菜单没有门店使用。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedHighDependency"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-PRINT-DELETE-001",
+      "internalCaseId": "delete:print-stall",
+      "module": "brand-print",
+      "route": "/pp/printer-stall/list",
+      "title": "删除未关联商品的打印档口成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:打印档口.xmind#打印档口 / 打印档口管理 / 操作 / 删除 / 档口未关联商品",
+          "sourceRefs": [
+            "XMIND:打印档口.xmind#打印档口 / 打印档口管理 / 操作 / 删除 / 档口未关联商品"
+          ],
+          "sourceIds": [
+            "/pp/printer-stall/list#control-1",
+            "mapping:313a81df5aea",
+            "route:973f08f8ed79"
+          ]
+        }
+      ],
+      "preconditions": [
+        "目标打印档口未关联商品。"
+      ],
+      "actions": [
+        "从侧边栏进入打印档口管理，删除目标档口并确认。"
+      ],
+      "expectedResults": [
+        "目标档口删除成功，列表与查询接口均不再返回该档口。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "lowDependency.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyAbsentApi",
+        "productCenter.verifyDeletedUi"
+      ],
+      "claimIds": [
+        "claim:delete:print-stall:precondition:1",
+        "claim:delete:print-stall:action:1",
+        "claim:delete:print-stall:expectation:1"
+      ],
+      "claims": [
+        {
+          "id": "claim:delete:print-stall:precondition:1",
+          "kind": "precondition",
+          "text": "目标打印档口未关联商品。"
+        },
+        {
+          "id": "claim:delete:print-stall:action:1",
+          "kind": "action",
+          "text": "从侧边栏进入打印档口管理，删除目标档口并确认。"
+        },
+        {
+          "id": "claim:delete:print-stall:expectation:1",
+          "kind": "expectation",
+          "text": "目标档口删除成功，列表与查询接口均不再返回该档口。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 清理本用例创建的数据并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "目标打印档口未关联商品。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedLowDependency"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-RECIPE-CREATE-001",
+      "internalCaseId": "create:bom",
+      "module": "brand-material-recipe",
+      "route": "/pp/bom/list",
+      "title": "新增配方单在非失败场景下保存成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:BOM管理.xmind#BOM管理 / 功能 / 创建BOM / 新增BOM / 保存 / 除去失败的场景，都能成功",
+          "sourceRefs": [
+            "XMIND:BOM管理.xmind#BOM管理 / 功能 / 创建BOM / 新增BOM / 保存 / 除去失败的场景，都能成功"
+          ],
+          "sourceIds": [
+            "/pp/bom/list#control-1",
+            "mapping:0311d6a76a32",
+            "route:235400d77dbb"
+          ]
+        }
+      ],
+      "preconditions": [
+        "新增配方单已填写保存所需内容，且不属于该节点列出的失败场景。"
+      ],
+      "actions": [
+        "从侧边栏进入配方列表，新增配方单并点击保存。"
+      ],
+      "expectedResults": [
+        "配方单保存成功，列表与查询接口均可取得本次记录。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "coreCreate.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyCreatedApi",
+        "productCenter.verifyCreatedUi"
+      ],
+      "claimIds": [
+        "claim:create:bom:precondition:1",
+        "claim:create:bom:action:1",
+        "claim:create:bom:expectation:1"
+      ],
+      "claims": [
+        {
+          "id": "claim:create:bom:precondition:1",
+          "kind": "precondition",
+          "text": "新增配方单已填写保存所需内容，且不属于该节点列出的失败场景。"
+        },
+        {
+          "id": "claim:create:bom:action:1",
+          "kind": "action",
+          "text": "从侧边栏进入配方列表，新增配方单并点击保存。"
+        },
+        {
+          "id": "claim:create:bom:expectation:1",
+          "kind": "expectation",
+          "text": "配方单保存成功，列表与查询接口均可取得本次记录。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 清理本用例创建的数据并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "新增配方单已填写保存所需内容，且不属于该节点列出的失败场景。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.prepareCreate"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-SEASON-CREATE-001",
+      "internalCaseId": "create:seasoning",
+      "module": "brand-seasoning",
+      "route": "/pp/brand/seasoning/list",
+      "title": "新增调味组仅填必填项保存成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:3.商品中心-商品管理-调味管理.xmind#新增 / 新增 / 新增调味组，只填必填参数，能新增成功 / 新增调味组，只填必填参数，能新增成功",
+          "sourceRefs": [
+            "XMIND:3.商品中心-商品管理-调味管理.xmind#新增 / 新增 / 新增调味组，只填必填参数，能新增成功 / 新增调味组，只填必填参数，能新增成功"
+          ],
+          "sourceIds": [
+            "/pp/brand/seasoning/list#control-3",
+            "operation:brand-menu:GET /ops-brand/brand-modifiers/page",
+            "operation:brand-menu:POST /ops-brand/brand-modifiers",
+            "route:a8e0b800fdf2"
+          ]
+        }
+      ],
+      "preconditions": [
+        "已登录商品中心（门店/POS 用例需对应门店与终端环境）。",
+        "测试数据满足本场景（调味组/调味项/模板/下发记录等）。"
+      ],
+      "actions": [
+        "打开商品中心，进入 商品管理 → 调味管理 → 调味。",
+        "点击“新增调味”，在创建菜单中选择“新增调味”进入创建页面。",
+        "仅填写必填的调味组名称和调味项名称，点击“Confirm”保存。",
+        "返回调味列表，按本次填写的调味组名称核对新增记录。"
+      ],
+      "expectedResults": [
+        "保存请求成功，调味查询接口可取得本次新增记录。",
+        "调味列表显示本次新增的调味组名称和调味项名称。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "coreCreate.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyCreatedApi",
+        "productCenter.verifyCreatedUi"
+      ],
+      "claimIds": [
+        "claim:create:seasoning:precondition:1",
+        "claim:create:seasoning:precondition:2",
+        "claim:create:seasoning:action:1",
+        "claim:create:seasoning:action:2",
+        "claim:create:seasoning:action:3",
+        "claim:create:seasoning:action:4",
+        "claim:create:seasoning:expectation:1",
+        "claim:create:seasoning:expectation:2"
+      ],
+      "claims": [
+        {
+          "id": "claim:create:seasoning:precondition:1",
+          "kind": "precondition",
+          "text": "已登录商品中心（门店/POS 用例需对应门店与终端环境）。"
+        },
+        {
+          "id": "claim:create:seasoning:precondition:2",
+          "kind": "precondition",
+          "text": "测试数据满足本场景（调味组/调味项/模板/下发记录等）。"
+        },
+        {
+          "id": "claim:create:seasoning:action:1",
+          "kind": "action",
+          "text": "打开商品中心，进入 商品管理 → 调味管理 → 调味。"
+        },
+        {
+          "id": "claim:create:seasoning:action:2",
+          "kind": "action",
+          "text": "点击“新增调味”，在创建菜单中选择“新增调味”进入创建页面。"
+        },
+        {
+          "id": "claim:create:seasoning:action:3",
+          "kind": "action",
+          "text": "仅填写必填的调味组名称和调味项名称，点击“Confirm”保存。"
+        },
+        {
+          "id": "claim:create:seasoning:action:4",
+          "kind": "action",
+          "text": "返回调味列表，按本次填写的调味组名称核对新增记录。"
+        },
+        {
+          "id": "claim:create:seasoning:expectation:1",
+          "kind": "expectation",
+          "text": "保存请求成功，调味查询接口可取得本次新增记录。"
+        },
+        {
+          "id": "claim:create:seasoning:expectation:2",
+          "kind": "expectation",
+          "text": "调味列表显示本次新增的调味组名称和调味项名称。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui",
+        "network"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过 API 删除本用例创建的调味组并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "已登录商品中心（门店/POS 用例需对应门店与终端环境）。",
+          "测试数据满足本场景（调味组/调味项/模板/下发记录等）。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.prepareCreate"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-STOREOPS-DELETE-001",
+      "internalCaseId": "delete:tax",
+      "module": "store-operations",
+      "route": "/poi/tax/tax-types",
+      "title": "删除未关联商品的自定义税种成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "business-rule-explicit",
+          "citation": "BR-TAX-007",
+          "sourceRefs": [
+            "BUSINESS-RULE:商品中心业务规则.md#BR-TAX-007"
+          ],
+          "sourceIds": [
+            "/poi/tax/tax-types#control-1",
+            "mapping:f5882e6ace12",
+            "route:5b574e851f6f"
+          ]
+        },
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:商品中心-门店商品管理-税种管理.xmind#税种测试方案 / 功能 / 税种相关验证 / 未关联商品税种 / 税种删除 / 自定义税种删除",
+          "sourceRefs": [
+            "XMIND:商品中心-门店商品管理-税种管理.xmind#税种测试方案 / 功能 / 税种相关验证 / 未关联商品税种 / 税种删除 / 自定义税种删除"
+          ],
+          "sourceIds": [
+            "/poi/tax/tax-types#control-1",
+            "mapping:f5882e6ace12",
+            "route:5b574e851f6f"
+          ]
+        }
+      ],
+      "preconditions": [
+        "目标自定义税种未关联商品。"
+      ],
+      "actions": [
+        "从侧边栏进入税种管理，删除目标自定义税种。"
+      ],
+      "expectedResults": [
+        "目标自定义税种删除成功，列表与查询接口均不再返回该税种。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "lowDependency.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyAbsentApi",
+        "productCenter.verifyDeletedUi"
+      ],
+      "claimIds": [
+        "claim:delete:tax:precondition:1",
+        "claim:delete:tax:action:1",
+        "claim:delete:tax:expectation:1"
+      ],
+      "claims": [
+        {
+          "id": "claim:delete:tax:precondition:1",
+          "kind": "precondition",
+          "text": "目标自定义税种未关联商品。"
+        },
+        {
+          "id": "claim:delete:tax:action:1",
+          "kind": "action",
+          "text": "从侧边栏进入税种管理，删除目标自定义税种。"
+        },
+        {
+          "id": "claim:delete:tax:expectation:1",
+          "kind": "expectation",
+          "text": "目标自定义税种删除成功，列表与查询接口均不再返回该税种。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 清理本用例创建的数据并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "目标自定义税种未关联商品。"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedLowDependency"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-STOREPROD-READ-001",
+      "internalCaseId": "read:store-product-search",
+      "module": "store-product",
+      "route": "/poi/location/prod-list",
+      "title": "通过商品名称片段查询符合条件的门店商品",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:商品中心-门店商品管理-门店菜单.xmind#门店商品管理 / 门店商品 / 查询 / 单条件查询 / 通过商品名称，可按照输入的内容模糊查找到符合条件的商品",
+          "sourceRefs": [
+            "XMIND:商品中心-门店商品管理-门店菜单.xmind#门店商品管理 / 门店商品 / 查询 / 单条件查询 / 通过商品名称，可按照输入的内容模糊查找到符合条件的商品"
+          ],
+          "sourceIds": [
+            "operation:brand-menu:POST /ops-poi/poi-items/pageQuery",
+            "route:2a967315eebe"
+          ]
+        }
+      ],
+      "preconditions": [
+        "门店商品列表中存在可通过名称片段查询的商品。"
+      ],
+      "actions": [
+        "从侧边栏进入门店商品，在名称查询框输入商品名称片段。"
+      ],
+      "expectedResults": [
+        "列表唯一展示符合输入内容的门店商品。"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "storeProduct.searchByName"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyStoreProductSearch"
+      ],
+      "claimIds": [
+        "claim:read:store-product-search:precondition:1",
+        "claim:read:store-product-search:action:1",
+        "claim:read:store-product-search:expectation:1"
+      ],
+      "claims": [
+        {
+          "id": "claim:read:store-product-search:precondition:1",
+          "kind": "precondition",
+          "text": "门店商品列表中存在可通过名称片段查询的商品。"
+        },
+        {
+          "id": "claim:read:store-product-search:action:1",
+          "kind": "action",
+          "text": "从侧边栏进入门店商品，在名称查询框输入商品名称片段。"
+        },
+        {
+          "id": "claim:read:store-product-search:expectation:1",
+          "kind": "expectation",
+          "text": "列表唯一展示符合输入内容的门店商品。"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui",
+        "network"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "cleanupAdapterIds": [],
+      "dataPrerequisites": {
+        "descriptions": [
+          "门店商品列表中存在可通过名称片段查询的商品。"
+        ],
+        "seedAdapterIds": [],
+        "provisioning": "external-precondition"
+      },
+      "automationDecision": "eligible"
+    },
+    {
+      "canonicalId": "TC-PC-TAG-DELETE-001",
+      "internalCaseId": "delete:description-tag",
+      "module": "brand-tag",
+      "route": "/pp/brand/tag/description",
+      "title": "标签未被引用，未被引用的标签可删除成功",
+      "priority": "P0",
+      "sourceTrace": [
+        {
+          "kind": "xmind-existing",
+          "citation": "XMIND:4.商品中心-商品管理-标签管理.xmind#描述标签 / 删除 / 标签删除 / 标签未被引用，未被引用的标签可删除成功",
+          "sourceRefs": [
+            "XMIND:4.商品中心-商品管理-标签管理.xmind#描述标签 / 删除 / 标签删除 / 标签未被引用，未被引用的标签可删除成功"
+          ],
+          "sourceIds": [
+            "/pp/brand/tag/description#control-1",
+            "route:e2cf16e67e4c"
+          ]
+        }
+      ],
+      "preconditions": [
+        "商品A，引用了标签组A下的标签1，标签组1下有标签1和标签2"
+      ],
+      "actions": [
+        "进入 商品管理 → 标签管理 → 描述标签 页面。",
+        "查询条件输入A，点击「查询」",
+        "点击「查询」到的描述标签组A，点击展开按钮",
+        "点击标签2的删除按钮",
+        "数据库校验"
+      ],
+      "expectedResults": [
+        "有弹框提示删除之后不可恢复，删除成功",
+        "标签2数据库中为逻辑删除"
+      ],
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "lowDependency.execute"
+      ],
+      "assertionAdapterIds": [
+        "productCenter.verifyAbsentApi",
+        "productCenter.verifyDeletedUi"
+      ],
+      "claimIds": [
+        "claim:delete:description-tag:precondition:1",
+        "claim:delete:description-tag:action:1",
+        "claim:delete:description-tag:action:2",
+        "claim:delete:description-tag:action:3",
+        "claim:delete:description-tag:action:4",
+        "claim:delete:description-tag:action:5",
+        "claim:delete:description-tag:expectation:1",
+        "claim:delete:description-tag:expectation:2"
+      ],
+      "claims": [
+        {
+          "id": "claim:delete:description-tag:precondition:1",
+          "kind": "precondition",
+          "text": "商品A，引用了标签组A下的标签1，标签组1下有标签1和标签2"
+        },
+        {
+          "id": "claim:delete:description-tag:action:1",
+          "kind": "action",
+          "text": "进入 商品管理 → 标签管理 → 描述标签 页面。"
+        },
+        {
+          "id": "claim:delete:description-tag:action:2",
+          "kind": "action",
+          "text": "查询条件输入A，点击「查询」"
+        },
+        {
+          "id": "claim:delete:description-tag:action:3",
+          "kind": "action",
+          "text": "点击「查询」到的描述标签组A，点击展开按钮"
+        },
+        {
+          "id": "claim:delete:description-tag:action:4",
+          "kind": "action",
+          "text": "点击标签2的删除按钮"
+        },
+        {
+          "id": "claim:delete:description-tag:action:5",
+          "kind": "action",
+          "text": "数据库校验"
+        },
+        {
+          "id": "claim:delete:description-tag:expectation:1",
+          "kind": "expectation",
+          "text": "有弹框提示删除之后不可恢复，删除成功"
+        },
+        {
+          "id": "claim:delete:description-tag:expectation:2",
+          "kind": "expectation",
+          "text": "标签2数据库中为逻辑删除"
+        }
+      ],
+      "verificationSignals": [
+        "api",
+        "ui",
+        "network"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过服务端 ID 清理描述标签测试数据并验证 UI 与 API 零残留"
+      ],
+      "cleanupAdapterIds": [
+        "productCenter.cleanupSeed"
+      ],
+      "dataPrerequisites": {
+        "descriptions": [
+          "商品A，引用了标签组A下的标签1，标签组1下有标签1和标签2"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedDescriptionTagDeletionScenario"
+        ],
+        "provisioning": "automated"
+      },
+      "automationDecision": "eligible"
+    }
+  ],
+  "reviewRequired": []
+}

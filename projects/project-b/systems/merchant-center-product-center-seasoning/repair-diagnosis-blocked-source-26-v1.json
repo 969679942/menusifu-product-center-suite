@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-028",
+    "TC-FLV-SEA-033",
+    "TC-FLV-SEA-035",
+    "TC-FLV-SEA-036"
+  ],
+  "rootCause": "四条来源阻断用例已进入统一执行，但旧运行器在动作分支缺失时直接抛出未实现错误，未生成页面断言和上下文终态收据。",
+  "correctiveAction": "增加只读真实列表/行操作控件审计分支，明确记录动作级适配器缺口，不再把未实现错误当作登录或来源阻断。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787582666856/evidence-ledger.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": []
+}

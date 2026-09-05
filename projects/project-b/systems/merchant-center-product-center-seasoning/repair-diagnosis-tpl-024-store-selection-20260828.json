@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-024"
+  ],
+  "rootCause": "TPL-024 的下发弹窗和门店接口均真实返回 Ces test（M000023918），但 Page 使用 row.filter({ has: dialog.getByText(...) }) 时把弹窗根节点错误组合为表格行的后代条件，导致目标行始终为 0 条，脚本停在勾选前。修复后首次下发已执行成功，后续门店身份检查又把左下角按钮的完整无障碍名称 shop Ces test right 错当成精确名称 Ces test，造成第二个自动化定位失败；两处均是定位作用域或语义错误，不是门店缺失或产品缺陷。",
+  "correctiveAction": "Page 改为按目标门店编号筛选表格行，并在行内精确核对门店编号、门店名称和复选框；勾选后等待 checked 终态，提交后核对下发请求 targetPois 同时包含 Ces test 与 M000023918。进入门店调味后先等待精确路由，再按按钮可见文本定位左下角门店入口并精确读取 Ces test 文本。TPL-024 的首次下发、模板编辑、未再次下发核对、再次下发和门店终态核对由专用 Flow 编排。",
+  "evidenceRefs": [
+    "output/trace-audit/tpl-024-1787900759043/test.trace",
+    "output/trace-audit/tpl-024-1787900759043/1-trace.network",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "flows/product-center/seasoning-template-redelivery.flow.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "system-test-1787900759043",
+    "system-test-1787902471959"
+  ]
+}

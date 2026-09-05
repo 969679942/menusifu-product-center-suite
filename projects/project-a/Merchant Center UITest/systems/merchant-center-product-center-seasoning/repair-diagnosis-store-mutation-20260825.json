@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042",
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "门店调味 mutation recipe 首次接入使用了平台不支持的 mutation action，且 reversible profile 未登记全部下发、单项删除和批量删除 operation key，导致执行前门禁阻断；修复后页面 reload 在 OAuth 权限壳尚未稳定时读取可见终态，收到 Requesting permissions... 而非业务列表。",
+  "correctiveAction": "将 recipe action 映射为平台合法的 create/delete；按门店调味 profile 登记实际 operation keys；上下文守卫改为稳定业务内容判定；门店 mutation 统一等待权限加载消失，正向分发/恢复用例等待目标身份可见后再读取 UI 终态，删除用例读取稳定列表并以 API 做持久化核验。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/build.ts",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/execution-selection.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787634761371/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "666f90fa7fc157ff",
+    "d76a8373211fa59d"
+  ]
+}

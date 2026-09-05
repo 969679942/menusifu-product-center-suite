@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-033",
+    "TC-GRP-TASTE-013",
+    "TC-ITEM-ADD-021",
+    "TC-ITEM-ADD-035",
+    "TC-ITEM-PKG-013",
+    "TC-TAG-BDG-019",
+    "TC-TAG-DESC-014",
+    "TC-TAG-STAT-013"
+  ],
+  "rootCause": "本轮商品中心批次中上述 8 条 source-governed 用例在历史修复周期内存在确定性失败或周期预算耗尽；本轮已取得组用例结果，其余 6 条仍需新的诊断周期。门禁阻断是执行治理结果，不是产品缺陷结论；历史结果不能替代当前标准收据。",
+  "correctiveAction": "仅为上述 8 条当前指纹匹配用例开启新的独立修复周期，优先续跑尚无当前收据的 6 条用例；按现有 source-governed 路由真实执行认证、页面操作、业务断言、请求收据、失败截图或 trace、耗时、失败分类和 finally 清理，仅以当前完整标准收据更新执行索引，未完成项保持阻断。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/product-center-batch-checkpoint.json",
+    "deliverables/product-center-source-governance/execution-plan.json",
+    "output/system-test-repair/product-center/repair-attempt-ledger.json",
+    "output/product-center-group-source-governed-product-center-all-landed-batch-20260830T221257Z-source-governed.json",
+    "systems/merchant-center-product-center-seasoning/classification-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "0eb4283dde3b4d91",
+    "9f5c5dc0da0cbe5a",
+    "8e59766ea572d1ac",
+    "55a063a9cef01f22",
+    "ad22bd307e67b1f5",
+    "940d238d8aad3d8b"
+  ]
+}

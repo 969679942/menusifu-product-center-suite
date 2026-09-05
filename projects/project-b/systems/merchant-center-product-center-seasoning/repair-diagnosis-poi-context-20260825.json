@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042",
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "多门店会话只验证 Brand 000420，未验证或建立 POI。持久化会话仍为默认 M000016482，而造数与 API 回读使用 M000023918，导致门店调味 UI 与 API 读取不同门店。",
+  "correctiveAction": "公共认证流增加可选 POI 初始化与 x-poi-id 请求守卫，调味上下文明确 M000023918/Ces test，在语言与品牌切换完成后建立目标门店并持久化；首次标准运行在只读预检导航发生瞬时超时且没有业务写入，保留会话检查点并按只读重试规则继续定向运行。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json",
+    "systems/merchant-center-product-center-seasoning/template-distribution-live-audit-000420.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787637010309_TC-FLV-XMOD-004.error.json",
+    "flows/auth.flow.ts",
+    "test-data/seasoning-context.ts"
+  ],
+  "supersedesAttemptIds": []
+}

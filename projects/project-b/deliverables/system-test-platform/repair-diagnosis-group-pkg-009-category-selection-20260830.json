@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-009"
+  ],
+  "rootCause": "套餐商品选择弹层中的分类标题负责加载分类商品，分类复选框负责批量选择整类商品。原页面方法错误勾选分类复选框后又取消全选，编辑已有套餐组时同时清除了原商品的已选状态；随后只重新勾选新增商品，确认后原商品被覆盖丢失。最新运行已证明新增商品回显为 1、原商品回显为 0。",
+  "correctiveAction": "套餐选择改为点击真实分类标题加载商品，不再操作分类复选框和全选框；搜索后只勾选目标商品，并保留确认前后的原商品与新增商品回显断言、保存请求、API 明细、引用套餐同步和零残留清理。仅定向重跑 TC-GRP-PKG-009。",
+  "evidenceRefs": [
+    "output/product-center-group-source-governed-project-canary-product-center-group-targeted-canary-20260830-r4.json",
+    "output/allure-archive/pre-full-regression-20260826-1215/allure-results/3a545ffb-3b41-4d6f-ab77-485050afde91-attachment.json",
+    "pages/product-management/group-list.page.ts",
+    "utils/product-center-group-runner.ts"
+  ],
+  "supersedesAttemptIds": [
+    "dbb6eb0edf61c453"
+  ]
+}

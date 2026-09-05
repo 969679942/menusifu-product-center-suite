@@ -1,0 +1,4086 @@
+{
+  "contractVersion": "1.0.0",
+  "generatedAt": "2026-07-22T10:07:53.676Z",
+  "executableDescriptorCount": 46,
+  "complete": true,
+  "stageGaps": {
+    "requirement": 0,
+    "apiMapping": 0
+  },
+  "records": [
+    {
+      "id": "trace:sop:create:bom",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://create:bom",
+          "locator": "配方单应通过 UI 创建并完成 API UI 双验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/bom/list",
+      "entity": "配方单",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:235400d77dbb"
+        ],
+        "functionIds": [
+          "/pp/bom/list#control-1",
+          "/pp/bom/list#control-2",
+          "/pp/bom/list#control-3",
+          "/pp/bom/list#control-4",
+          "/pp/bom/list#control-5"
+        ],
+        "apiMappingIds": [
+          "mapping-na:15e4cf027bc6",
+          "mapping-na:33528f5b19b3",
+          "mapping-na:3a5a343b08f2",
+          "mapping-na:3b404d5e3063",
+          "mapping-na:40ef446b84cf",
+          "mapping-na:847b332a9620",
+          "mapping-na:a54866256730",
+          "mapping-na:aa34d6fabbce",
+          "mapping-na:ae21578e297e",
+          "mapping-na:b8c09d03272b",
+          "mapping-na:cb42db781fc9",
+          "mapping:0311d6a76a32",
+          "mapping:0eb61ba9e5a7",
+          "mapping:0f362f3df316",
+          "mapping:17e74dabf962",
+          "mapping:1e87126870fd",
+          "mapping:797bb365bb6f",
+          "mapping:d1fdf15fb644",
+          "mapping:d576f32bd6bc",
+          "mapping:e55570f48a93"
+        ],
+        "stageGaps": [],
+        "caseId": "create:bom",
+        "sourceIds": [],
+        "sop": {
+          "action": "create",
+          "scenario": null,
+          "seedMode": "api-dependencies",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+          "testTitle": "配方单应通过 UI 创建并完成 API UI 双验证",
+          "rerunGrep": "配方单应通过 UI 创建并完成 API UI 双验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:create:category",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://create:category",
+          "locator": "商品分类应通过 UI 创建并完成 API UI 双验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "create:category",
+        "sourceIds": [],
+        "sop": {
+          "action": "create",
+          "scenario": null,
+          "seedMode": "none",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+          "testTitle": "商品分类应通过 UI 创建并完成 API UI 双验证",
+          "rerunGrep": "商品分类应通过 UI 创建并完成 API UI 双验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:create:material",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://create:material",
+          "locator": "原料应通过 UI 创建并完成 API UI 双验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brandMaterial",
+      "entity": "原料",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:16",
+          "business-rule-section:17",
+          "business-rule-section:20"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:7cbe5e6e2734"
+        ],
+        "functionIds": [
+          "/pp/brandMaterial#control-1",
+          "/pp/brandMaterial#control-2",
+          "/pp/brandMaterial#control-3"
+        ],
+        "apiMappingIds": [
+          "mapping-na:348114dc475a",
+          "mapping-na:46c36b72aa01",
+          "mapping-na:75c8258ccb0e",
+          "mapping-na:7983eb850525",
+          "mapping-na:eac056e6cfe7",
+          "mapping:02a906cc61f7",
+          "mapping:7b5dc70a9d90"
+        ],
+        "stageGaps": [],
+        "caseId": "create:material",
+        "sourceIds": [],
+        "sop": {
+          "action": "create",
+          "scenario": null,
+          "seedMode": "none",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+          "testTitle": "原料应通过 UI 创建并完成 API UI 双验证",
+          "rerunGrep": "原料应通过 UI 创建并完成 API UI 双验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:create:method",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://create:method",
+          "locator": "做法组应通过 UI 创建并完成 API UI 双验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/method",
+      "entity": "做法组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:07"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md"
+        ],
+        "routeIds": [
+          "route:b0c3b84b758f"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/method#control-1",
+          "/pp/brand/option-group/method#control-2",
+          "/pp/brand/option-group/method#control-3",
+          "/pp/brand/option-group/method#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0923c44a763a",
+          "mapping-na:12cb5dc477e8",
+          "mapping-na:1f45aa17a6f1",
+          "mapping-na:3b8af8b2b0b4",
+          "mapping-na:40e257e8dce8",
+          "mapping-na:5c462c6dfe9b",
+          "mapping-na:6bda3a013540",
+          "mapping-na:70caf1c92304",
+          "mapping-na:d319c1498748",
+          "mapping-na:e1a3ac0777b3",
+          "mapping:3581ecef04c4"
+        ],
+        "stageGaps": [],
+        "caseId": "create:method",
+        "sourceIds": [],
+        "sop": {
+          "action": "create",
+          "scenario": null,
+          "seedMode": "none",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+          "testTitle": "做法组应通过 UI 创建并完成 API UI 双验证",
+          "rerunGrep": "做法组应通过 UI 创建并完成 API UI 双验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:create:seasoning",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://create:seasoning",
+          "locator": "品牌调味应通过 UI 创建并完成 API UI 双验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/seasoning/list",
+      "entity": "品牌调味",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+        ],
+        "routeIds": [
+          "route:a8e0b800fdf2",
+          "route:d5b0ffff3643"
+        ],
+        "functionIds": [
+          "/pp/brand/seasoning/list#control-1",
+          "/pp/brand/seasoning/list#control-10",
+          "/pp/brand/seasoning/list#control-11",
+          "/pp/brand/seasoning/list#control-12",
+          "/pp/brand/seasoning/list#control-13",
+          "/pp/brand/seasoning/list#control-14",
+          "/pp/brand/seasoning/list#control-15",
+          "/pp/brand/seasoning/list#control-16",
+          "/pp/brand/seasoning/list#control-17",
+          "/pp/brand/seasoning/list#control-18",
+          "/pp/brand/seasoning/list#control-19",
+          "/pp/brand/seasoning/list#control-2",
+          "/pp/brand/seasoning/list#control-20",
+          "/pp/brand/seasoning/list#control-21",
+          "/pp/brand/seasoning/list#control-22",
+          "/pp/brand/seasoning/list#control-23",
+          "/pp/brand/seasoning/list#control-24",
+          "/pp/brand/seasoning/list#control-25",
+          "/pp/brand/seasoning/list#control-26",
+          "/pp/brand/seasoning/list#control-27",
+          "/pp/brand/seasoning/list#control-28",
+          "/pp/brand/seasoning/list#control-3",
+          "/pp/brand/seasoning/list#control-4",
+          "/pp/brand/seasoning/list#control-5",
+          "/pp/brand/seasoning/list#control-6",
+          "/pp/brand/seasoning/list#control-7",
+          "/pp/brand/seasoning/list#control-8",
+          "/pp/brand/seasoning/list#control-9",
+          "/pp/brand/seasoning/record#control-1",
+          "/pp/brand/seasoning/record#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:2379d720abdb",
+          "mapping-na:4705fb7ff873",
+          "mapping-na:4c39437a8a3e",
+          "mapping:343c69dd7497"
+        ],
+        "stageGaps": [],
+        "caseId": "create:seasoning",
+        "sourceIds": [],
+        "sop": {
+          "action": "create",
+          "scenario": null,
+          "seedMode": "none",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+          "testTitle": "品牌调味应通过 UI 创建并完成 API UI 双验证",
+          "rerunGrep": "品牌调味应通过 UI 创建并完成 API UI 双验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:addon",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:addon",
+          "locator": "加料组应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/additional",
+      "entity": "加料组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:08"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:2d11b64ec5fe"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/additional#control-1",
+          "/pp/brand/option-group/additional#control-2",
+          "/pp/brand/option-group/additional#control-3",
+          "/pp/brand/option-group/additional#control-4",
+          "/pp/brand/option-group/additional#control-5",
+          "/pp/brand/option-group/additional#control-6",
+          "/pp/brand/option-group/additional#control-7",
+          "/pp/brand/option-group/additional#control-8"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0ddba8bd37ee",
+          "mapping-na:17888a92129c",
+          "mapping-na:1b8e2e47c6bb",
+          "mapping-na:1c0f66290d7a",
+          "mapping-na:25eb948911d6",
+          "mapping-na:3e6ce8cdbb8b",
+          "mapping-na:4772512a5c60",
+          "mapping-na:5afd070b8b5c",
+          "mapping-na:5c4324473c61",
+          "mapping-na:602bf0e95bfd",
+          "mapping-na:6a4ae266f4d7",
+          "mapping-na:6dad220fc5a4",
+          "mapping-na:83079ede29df",
+          "mapping-na:9daf26df769a",
+          "mapping-na:9fdeac6fff0c",
+          "mapping-na:a52edcdafbe1",
+          "mapping-na:b17891e341d3",
+          "mapping-na:b69aeceea508",
+          "mapping-na:c2388c8b13d3",
+          "mapping-na:e373eaa52128",
+          "mapping-na:f2592045436c",
+          "mapping:6d29de6fa5fc",
+          "mapping:961998afcac6",
+          "mapping:a434e312b41b",
+          "mapping:cc55817255de"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:addon",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "加料组应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "加料组应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:bom",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:bom",
+          "locator": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/bom/list",
+      "entity": "配方单",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:235400d77dbb"
+        ],
+        "functionIds": [
+          "/pp/bom/list#control-1",
+          "/pp/bom/list#control-2",
+          "/pp/bom/list#control-3",
+          "/pp/bom/list#control-4",
+          "/pp/bom/list#control-5"
+        ],
+        "apiMappingIds": [
+          "mapping-na:15e4cf027bc6",
+          "mapping-na:33528f5b19b3",
+          "mapping-na:3a5a343b08f2",
+          "mapping-na:3b404d5e3063",
+          "mapping-na:40ef446b84cf",
+          "mapping-na:847b332a9620",
+          "mapping-na:a54866256730",
+          "mapping-na:aa34d6fabbce",
+          "mapping-na:ae21578e297e",
+          "mapping-na:b8c09d03272b",
+          "mapping-na:cb42db781fc9",
+          "mapping:0311d6a76a32",
+          "mapping:0eb61ba9e5a7",
+          "mapping:0f362f3df316",
+          "mapping:17e74dabf962",
+          "mapping:1e87126870fd",
+          "mapping:797bb365bb6f",
+          "mapping:d1fdf15fb644",
+          "mapping:d576f32bd6bc",
+          "mapping:e55570f48a93"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:bom",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证",
+          "rerunGrep": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:category",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:category",
+          "locator": "商品分类应使用 API 前置数据完成 UI 删除并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:category",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "商品分类应使用 API 前置数据完成 UI 删除并由 API 验证",
+          "rerunGrep": "商品分类应使用 API 前置数据完成 UI 删除并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:combo",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:combo",
+          "locator": "套餐组应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/combo",
+      "entity": "套餐组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:09"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md"
+        ],
+        "routeIds": [
+          "route:e8d5e17dae17"
+        ],
+        "functionIds": [
+          "/pp/brand/combo#control-1",
+          "/pp/brand/combo#control-10",
+          "/pp/brand/combo#control-11",
+          "/pp/brand/combo#control-12",
+          "/pp/brand/combo#control-2",
+          "/pp/brand/combo#control-3",
+          "/pp/brand/combo#control-4",
+          "/pp/brand/combo#control-5",
+          "/pp/brand/combo#control-6",
+          "/pp/brand/combo#control-7",
+          "/pp/brand/combo#control-8",
+          "/pp/brand/combo#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0e37d7ae853b",
+          "mapping-na:1915b4d1b0c9",
+          "mapping-na:26129602e68e",
+          "mapping-na:2b3beedfeba2",
+          "mapping-na:2f4bf8bc7f75",
+          "mapping-na:4803759d9872",
+          "mapping-na:48477228dffb",
+          "mapping-na:593246815e52",
+          "mapping-na:616508c3f681",
+          "mapping-na:76e8a625b00d",
+          "mapping-na:7a33a85b6d9f",
+          "mapping-na:81f9ec71d8c7",
+          "mapping-na:8358ae17f395",
+          "mapping-na:861827698db4",
+          "mapping-na:866c929be389",
+          "mapping-na:8aa716e7ac35",
+          "mapping-na:8bf716e31f1a",
+          "mapping-na:94cd21e5feed",
+          "mapping-na:a50284921aa2",
+          "mapping-na:b3db0502b429",
+          "mapping-na:b52f47ed0d31",
+          "mapping-na:bb419d6d4609",
+          "mapping-na:bd767fdc74a9",
+          "mapping-na:c413998e6a8b",
+          "mapping-na:d449c35d761d",
+          "mapping-na:e12066d2c45f",
+          "mapping-na:e4b378b99847",
+          "mapping-na:e6db93d7fcaa",
+          "mapping-na:f41c792bb1d9",
+          "mapping-na:f84df259d527",
+          "mapping:0961ad049cfd",
+          "mapping:1210262bae22",
+          "mapping:59278e1b1bf2",
+          "mapping:6694e42622df",
+          "mapping:6c82e170b361",
+          "mapping:7e6e9571442a",
+          "mapping:8972e7326264",
+          "mapping:8e86a86ced62",
+          "mapping:929cd8fc4b0d",
+          "mapping:97e0bfdea08f",
+          "mapping:9e8e1c9361e1",
+          "mapping:a7b047d704ef",
+          "mapping:c9f246197ab6",
+          "mapping:ce793f921a73",
+          "mapping:d028d9db9444"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:combo",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "套餐组应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "套餐组应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:description-tag",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:description-tag",
+          "locator": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/description",
+      "entity": "描述标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:13"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:e2cf16e67e4c"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/description#control-1",
+          "/pp/brand/tag/description#control-2",
+          "/pp/brand/tag/description#control-3",
+          "/pp/brand/tag/description#control-4",
+          "/pp/brand/tag/description#control-5",
+          "/pp/brand/tag/description#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0245de9c5d83",
+          "mapping-na:08f0d5e2a511",
+          "mapping-na:0a8eccf83b7a",
+          "mapping-na:367d84d327c6",
+          "mapping-na:6419d4d08a96",
+          "mapping-na:792f4d49037b",
+          "mapping-na:7dcc42e47101",
+          "mapping-na:7e99ea44876b",
+          "mapping-na:8410c3f00247",
+          "mapping-na:9b08504f29b0",
+          "mapping-na:a4abd2ac4b2e",
+          "mapping-na:ecb08f8c9b63",
+          "mapping-na:f672cdf9ccee",
+          "mapping:139c860aedd1",
+          "mapping:3bc7ab1659b6",
+          "mapping:55c723ada991",
+          "mapping:63a3f72241a6",
+          "mapping:837e17cf3464",
+          "mapping:837e17cf3464~2",
+          "mapping:c279d3ddd6e0"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:description-tag",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:material",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:material",
+          "locator": "原料应使用 API 前置数据完成 UI 删除并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brandMaterial",
+      "entity": "原料",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:16",
+          "business-rule-section:17",
+          "business-rule-section:20"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:7cbe5e6e2734"
+        ],
+        "functionIds": [
+          "/pp/brandMaterial#control-1",
+          "/pp/brandMaterial#control-2",
+          "/pp/brandMaterial#control-3"
+        ],
+        "apiMappingIds": [
+          "mapping-na:348114dc475a",
+          "mapping-na:46c36b72aa01",
+          "mapping-na:75c8258ccb0e",
+          "mapping-na:7983eb850525",
+          "mapping-na:eac056e6cfe7",
+          "mapping:02a906cc61f7",
+          "mapping:7b5dc70a9d90"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:material",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "原料应使用 API 前置数据完成 UI 删除并由 API 验证",
+          "rerunGrep": "原料应使用 API 前置数据完成 UI 删除并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:material-category",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:material-category",
+          "locator": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brandMaterialCategory",
+      "entity": "原料分类",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:17"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:6faf50a788e3"
+        ],
+        "functionIds": [
+          "/pp/brandMaterialCategory#control-1",
+          "/pp/brandMaterialCategory#control-10",
+          "/pp/brandMaterialCategory#control-2",
+          "/pp/brandMaterialCategory#control-3",
+          "/pp/brandMaterialCategory#control-4",
+          "/pp/brandMaterialCategory#control-5",
+          "/pp/brandMaterialCategory#control-6",
+          "/pp/brandMaterialCategory#control-7",
+          "/pp/brandMaterialCategory#control-8",
+          "/pp/brandMaterialCategory#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:195bfcbd9a8f",
+          "mapping-na:279ebe3c752f",
+          "mapping-na:27a8bd0a3578",
+          "mapping-na:33f2f81a0bf4",
+          "mapping-na:3a2dee45cf07",
+          "mapping-na:537933b3b817",
+          "mapping-na:550afb0544d5",
+          "mapping-na:590d6436db48",
+          "mapping-na:5dc156e1ab3b",
+          "mapping-na:6262a343edaf",
+          "mapping-na:6af7e0603be1",
+          "mapping-na:6ba3ba36dbed",
+          "mapping-na:74ca47f5fe11",
+          "mapping-na:96920dfbdc19",
+          "mapping-na:976cad254c99",
+          "mapping-na:9ef5422a1797",
+          "mapping-na:ae47eb41d7a0",
+          "mapping-na:aef92aec77eb",
+          "mapping-na:e4f4421b5dba"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:material-category",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:menu",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:menu",
+          "locator": "菜单应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/bm/menu/list",
+      "entity": "菜单",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:25",
+          "business-rule-section:26",
+          "business-rule-section:27",
+          "rule:catalog-price-sync-respects-menu-price-override",
+          "rule:channel-and-scenario-price-fallback",
+          "rule:client-hidden-applies-after-publish",
+          "rule:deleted-special-price-falls-back-after-publish",
+          "rule:display-time-applies-after-republish",
+          "rule:menu-price-syncs-on-publish",
+          "rule:menu-publish-generates-store-menu-and-products",
+          "rule:pos-price-change-applies-after-publish",
+          "rule:pos-price-change-disabled-after-publish"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单.xmind",
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单下发.xmind",
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-门店菜单.xmind"
+        ],
+        "routeIds": [
+          "route:3cc726e3e217",
+          "route:a6e69e8f67a0"
+        ],
+        "functionIds": [
+          "/bm/menu/list#control-1",
+          "/bm/menu/list#control-10",
+          "/bm/menu/list#control-11",
+          "/bm/menu/list#control-12",
+          "/bm/menu/list#control-13",
+          "/bm/menu/list#control-2",
+          "/bm/menu/list#control-3",
+          "/bm/menu/list#control-4",
+          "/bm/menu/list#control-5",
+          "/bm/menu/list#control-6",
+          "/bm/menu/list#control-7",
+          "/bm/menu/list#control-8",
+          "/bm/menu/list#control-9",
+          "/bm/menu/record/list#control-1",
+          "/bm/menu/record/list#control-2",
+          "/bm/menu/record/list#control-3",
+          "/bm/menu/record/list#control-4",
+          "/bm/menu/record/list#control-5",
+          "/bm/menu/record/list#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:1f95f53dfcd4",
+          "mapping-na:5a9116391e23",
+          "mapping-na:6f358850c5c9",
+          "mapping-na:75fc65ecfb45",
+          "mapping-na:ad8b92efa165",
+          "mapping-na:b6f101a5beba",
+          "mapping-na:c07c024148c3",
+          "mapping-na:ca7688af2b0d",
+          "mapping:367f32739210",
+          "mapping:d872a214cc34"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:menu",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "菜单应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "菜单应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:method",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:method",
+          "locator": "做法组应使用 API 前置数据完成 UI 删除并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/method",
+      "entity": "做法组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:07"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md"
+        ],
+        "routeIds": [
+          "route:b0c3b84b758f"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/method#control-1",
+          "/pp/brand/option-group/method#control-2",
+          "/pp/brand/option-group/method#control-3",
+          "/pp/brand/option-group/method#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0923c44a763a",
+          "mapping-na:12cb5dc477e8",
+          "mapping-na:1f45aa17a6f1",
+          "mapping-na:3b8af8b2b0b4",
+          "mapping-na:40e257e8dce8",
+          "mapping-na:5c462c6dfe9b",
+          "mapping-na:6bda3a013540",
+          "mapping-na:70caf1c92304",
+          "mapping-na:d319c1498748",
+          "mapping-na:e1a3ac0777b3",
+          "mapping:3581ecef04c4"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:method",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "做法组应使用 API 前置数据完成 UI 删除并由 API 验证",
+          "rerunGrep": "做法组应使用 API 前置数据完成 UI 删除并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:print-stall",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:print-stall",
+          "locator": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/printer-stall/list",
+      "entity": "品牌打印档口",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:973f08f8ed79"
+        ],
+        "functionIds": [
+          "/pp/printer-stall/list#control-1",
+          "/pp/printer-stall/list#control-2",
+          "/pp/printer-stall/list#control-3",
+          "/pp/printer-stall/list#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:32d64a6029a8",
+          "mapping-na:49e3a06906aa",
+          "mapping-na:4e1b37eddbe9",
+          "mapping-na:50b583e94544",
+          "mapping-na:589f17535864",
+          "mapping-na:859f1b3e97bb",
+          "mapping-na:9d7470518c6a",
+          "mapping-na:abcee38b3cf5",
+          "mapping-na:b6de2779b33a",
+          "mapping-na:d41337a61130",
+          "mapping:313a81df5aea",
+          "mapping:5f6d04a795e7",
+          "mapping:803fc7b79c7c",
+          "mapping:b4ddd84ea0ab"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:print-stall",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:recipe-ingredient",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:recipe-ingredient",
+          "locator": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/bom/ingredient",
+      "entity": "配方原料",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:e2b9620ba5ee"
+        ],
+        "functionIds": [
+          "/pp/bom/ingredient#control-1",
+          "/pp/bom/ingredient#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:16ff9ced564a",
+          "mapping-na:2be7239fb789",
+          "mapping-na:2e0dd3253f24",
+          "mapping-na:34e79c76cdb5",
+          "mapping-na:54387e399384",
+          "mapping-na:5b24abb301c3",
+          "mapping-na:60ec24142321",
+          "mapping-na:6f39520af461",
+          "mapping-na:73d7e7fe2c3e",
+          "mapping-na:81692694199d",
+          "mapping-na:8b6c2f779c2d",
+          "mapping-na:8e1327ca247d",
+          "mapping-na:8edea3c1589a",
+          "mapping-na:9849bb88a504",
+          "mapping-na:9a060373186e",
+          "mapping-na:9d9301d59512",
+          "mapping-na:a4b4a9d4ccc9",
+          "mapping-na:a5c26f82382c",
+          "mapping-na:b9ffbe791ad1",
+          "mapping-na:c0d04de9c133",
+          "mapping-na:c4930e37aa5e",
+          "mapping-na:ce173bab4cb7",
+          "mapping-na:d59c862494e1",
+          "mapping-na:d749219029c4",
+          "mapping-na:e02a39f6db22",
+          "mapping-na:ee45d0e98b16",
+          "mapping-na:f579cc82de05"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:recipe-ingredient",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:seasoning",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:seasoning",
+          "locator": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/seasoning/list",
+      "entity": "品牌调味",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+        ],
+        "routeIds": [
+          "route:a8e0b800fdf2",
+          "route:d5b0ffff3643"
+        ],
+        "functionIds": [
+          "/pp/brand/seasoning/list#control-1",
+          "/pp/brand/seasoning/list#control-10",
+          "/pp/brand/seasoning/list#control-11",
+          "/pp/brand/seasoning/list#control-12",
+          "/pp/brand/seasoning/list#control-13",
+          "/pp/brand/seasoning/list#control-14",
+          "/pp/brand/seasoning/list#control-15",
+          "/pp/brand/seasoning/list#control-16",
+          "/pp/brand/seasoning/list#control-17",
+          "/pp/brand/seasoning/list#control-18",
+          "/pp/brand/seasoning/list#control-19",
+          "/pp/brand/seasoning/list#control-2",
+          "/pp/brand/seasoning/list#control-20",
+          "/pp/brand/seasoning/list#control-21",
+          "/pp/brand/seasoning/list#control-22",
+          "/pp/brand/seasoning/list#control-23",
+          "/pp/brand/seasoning/list#control-24",
+          "/pp/brand/seasoning/list#control-25",
+          "/pp/brand/seasoning/list#control-26",
+          "/pp/brand/seasoning/list#control-27",
+          "/pp/brand/seasoning/list#control-28",
+          "/pp/brand/seasoning/list#control-3",
+          "/pp/brand/seasoning/list#control-4",
+          "/pp/brand/seasoning/list#control-5",
+          "/pp/brand/seasoning/list#control-6",
+          "/pp/brand/seasoning/list#control-7",
+          "/pp/brand/seasoning/list#control-8",
+          "/pp/brand/seasoning/list#control-9",
+          "/pp/brand/seasoning/record#control-1",
+          "/pp/brand/seasoning/record#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:2379d720abdb",
+          "mapping-na:4705fb7ff873",
+          "mapping-na:4c39437a8a3e",
+          "mapping:343c69dd7497"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:seasoning",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证",
+          "rerunGrep": "品牌调味应使用 API 前置数据完成 UI 删除并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:spec",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:spec",
+          "locator": "规格组应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/spec",
+      "entity": "规格组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:04"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md"
+        ],
+        "routeIds": [
+          "route:400fe9629dc9"
+        ],
+        "functionIds": [
+          "/pp/brand/spec#control-1",
+          "/pp/brand/spec#control-2",
+          "/pp/brand/spec#control-3",
+          "/pp/brand/spec#control-4",
+          "/pp/brand/spec#control-5",
+          "/pp/brand/spec#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0064f36e982d",
+          "mapping-na:0560906fa352",
+          "mapping-na:0fe357f00a5b",
+          "mapping-na:16b02961001b",
+          "mapping-na:1b1f8bf0954e",
+          "mapping-na:2169b13067d9",
+          "mapping-na:35523aeb97cf",
+          "mapping-na:4e04441f65bf",
+          "mapping-na:69def0f0a633",
+          "mapping-na:76868de251ea",
+          "mapping-na:c1963aee6345",
+          "mapping-na:d5ea02e8f4de",
+          "mapping-na:d8286d4ccedb",
+          "mapping-na:d95136a4a8a5",
+          "mapping-na:f8685fc742a2",
+          "mapping:551c3362c7a3",
+          "mapping:bee83d968cd8"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:spec",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "规格组应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "规格组应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:statistic-tag",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:statistic-tag",
+          "locator": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/statistic",
+      "entity": "统计标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:15"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:a37130eff6c2"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/statistic#control-1",
+          "/pp/brand/tag/statistic#control-2",
+          "/pp/brand/tag/statistic#control-3",
+          "/pp/brand/tag/statistic#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:046d03bd36b2",
+          "mapping-na:2cbd2d7491b8",
+          "mapping-na:40d0d6a6d640",
+          "mapping-na:9e1741ef5bcc",
+          "mapping-na:b21cfb57c7e1",
+          "mapping-na:d5321b8505e0",
+          "mapping-na:d5896f918cfb",
+          "mapping-na:e959f94fbc9b",
+          "mapping-na:ed4e4f735e46",
+          "mapping-na:fc3331566975",
+          "mapping:4de3c285d35d",
+          "mapping:8beab0f9c0dd"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:statistic-tag",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:taste",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:taste",
+          "locator": "口味组应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/taste",
+      "entity": "口味组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:06"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md"
+        ],
+        "routeIds": [
+          "route:b1c7e8bfecec"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/taste#control-1",
+          "/pp/brand/option-group/taste#control-2",
+          "/pp/brand/option-group/taste#control-3",
+          "/pp/brand/option-group/taste#control-4",
+          "/pp/brand/option-group/taste#control-5",
+          "/pp/brand/option-group/taste#control-6",
+          "/pp/brand/option-group/taste#control-7",
+          "/pp/brand/option-group/taste#control-8"
+        ],
+        "apiMappingIds": [
+          "mapping-na:220de44e8c76",
+          "mapping-na:2d62e78d57d4",
+          "mapping-na:347f3c7d6834",
+          "mapping-na:42413c2ead5f",
+          "mapping-na:4a0558f98bce",
+          "mapping-na:4fe07f9fea4a",
+          "mapping-na:678eb4e9382d",
+          "mapping-na:734deec8f9f2",
+          "mapping-na:7864b6d76b03",
+          "mapping-na:8b8d4ff8d080",
+          "mapping-na:9d7077e8d089",
+          "mapping-na:9f47a2f8cead",
+          "mapping-na:a20824ee2a4e",
+          "mapping-na:a9d3b4bfaec4",
+          "mapping-na:b42e1b1b766f",
+          "mapping-na:cd24e96fcc0c",
+          "mapping-na:d089fe27f4f0",
+          "mapping-na:f5488d9ef8b6",
+          "mapping-na:fc0632d24ea5",
+          "mapping:744a2dc1f432",
+          "mapping:a386f1e43769",
+          "mapping:c614b478e587",
+          "mapping:fa62dbb060aa"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:taste",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "口味组应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "口味组应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:delete:tax",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://delete:tax",
+          "locator": "税种应使用 API 前置数据完成 UI 删除并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/poi/tax/tax-types",
+      "entity": "税种",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:31",
+          "business-rule-section:32"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-税种管理.xmind"
+        ],
+        "routeIds": [
+          "route:5b574e851f6f"
+        ],
+        "functionIds": [
+          "/poi/tax/tax-types#control-1",
+          "/poi/tax/tax-types#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:540018a2043a",
+          "mapping-na:82375cd053ee",
+          "mapping-na:86982306b9b6",
+          "mapping-na:8f4be0ef52d8",
+          "mapping-na:95c430912e7c",
+          "mapping-na:d1c5349a180f",
+          "mapping:f5882e6ace12"
+        ],
+        "stageGaps": [],
+        "caseId": "delete:tax",
+        "sourceIds": [],
+        "sop": {
+          "action": "delete",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "税种应使用 API 前置数据完成 UI 删除并验证双终态",
+          "rerunGrep": "税种应使用 API 前置数据完成 UI 删除并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:addon",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:addon",
+          "locator": "加料组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/additional",
+      "entity": "加料组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:08"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:2d11b64ec5fe"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/additional#control-1",
+          "/pp/brand/option-group/additional#control-2",
+          "/pp/brand/option-group/additional#control-3",
+          "/pp/brand/option-group/additional#control-4",
+          "/pp/brand/option-group/additional#control-5",
+          "/pp/brand/option-group/additional#control-6",
+          "/pp/brand/option-group/additional#control-7",
+          "/pp/brand/option-group/additional#control-8"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0ddba8bd37ee",
+          "mapping-na:17888a92129c",
+          "mapping-na:1b8e2e47c6bb",
+          "mapping-na:1c0f66290d7a",
+          "mapping-na:25eb948911d6",
+          "mapping-na:3e6ce8cdbb8b",
+          "mapping-na:4772512a5c60",
+          "mapping-na:5afd070b8b5c",
+          "mapping-na:5c4324473c61",
+          "mapping-na:602bf0e95bfd",
+          "mapping-na:6a4ae266f4d7",
+          "mapping-na:6dad220fc5a4",
+          "mapping-na:83079ede29df",
+          "mapping-na:9daf26df769a",
+          "mapping-na:9fdeac6fff0c",
+          "mapping-na:a52edcdafbe1",
+          "mapping-na:b17891e341d3",
+          "mapping-na:b69aeceea508",
+          "mapping-na:c2388c8b13d3",
+          "mapping-na:e373eaa52128",
+          "mapping-na:f2592045436c",
+          "mapping:6d29de6fa5fc",
+          "mapping:961998afcac6",
+          "mapping:a434e312b41b",
+          "mapping:cc55817255de"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:addon",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "加料组应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "加料组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:bom",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:bom",
+          "locator": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/bom/list",
+      "entity": "配方单",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:235400d77dbb"
+        ],
+        "functionIds": [
+          "/pp/bom/list#control-1",
+          "/pp/bom/list#control-2",
+          "/pp/bom/list#control-3",
+          "/pp/bom/list#control-4",
+          "/pp/bom/list#control-5"
+        ],
+        "apiMappingIds": [
+          "mapping-na:15e4cf027bc6",
+          "mapping-na:33528f5b19b3",
+          "mapping-na:3a5a343b08f2",
+          "mapping-na:3b404d5e3063",
+          "mapping-na:40ef446b84cf",
+          "mapping-na:847b332a9620",
+          "mapping-na:a54866256730",
+          "mapping-na:aa34d6fabbce",
+          "mapping-na:ae21578e297e",
+          "mapping-na:b8c09d03272b",
+          "mapping-na:cb42db781fc9",
+          "mapping:0311d6a76a32",
+          "mapping:0eb61ba9e5a7",
+          "mapping:0f362f3df316",
+          "mapping:17e74dabf962",
+          "mapping:1e87126870fd",
+          "mapping:797bb365bb6f",
+          "mapping:d1fdf15fb644",
+          "mapping:d576f32bd6bc",
+          "mapping:e55570f48a93"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:bom",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证",
+          "rerunGrep": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:category",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:category",
+          "locator": "商品分类应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:category",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "商品分类应使用 API 前置数据完成 UI 编辑并由 API 验证",
+          "rerunGrep": "商品分类应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:material",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:material",
+          "locator": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brandMaterial",
+      "entity": "原料",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:16",
+          "business-rule-section:17",
+          "business-rule-section:20"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:7cbe5e6e2734"
+        ],
+        "functionIds": [
+          "/pp/brandMaterial#control-1",
+          "/pp/brandMaterial#control-2",
+          "/pp/brandMaterial#control-3"
+        ],
+        "apiMappingIds": [
+          "mapping-na:348114dc475a",
+          "mapping-na:46c36b72aa01",
+          "mapping-na:75c8258ccb0e",
+          "mapping-na:7983eb850525",
+          "mapping-na:eac056e6cfe7",
+          "mapping:02a906cc61f7",
+          "mapping:7b5dc70a9d90"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:material",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证",
+          "rerunGrep": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:material-category",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:material-category",
+          "locator": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brandMaterialCategory",
+      "entity": "原料分类",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:17"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:6faf50a788e3"
+        ],
+        "functionIds": [
+          "/pp/brandMaterialCategory#control-1",
+          "/pp/brandMaterialCategory#control-10",
+          "/pp/brandMaterialCategory#control-2",
+          "/pp/brandMaterialCategory#control-3",
+          "/pp/brandMaterialCategory#control-4",
+          "/pp/brandMaterialCategory#control-5",
+          "/pp/brandMaterialCategory#control-6",
+          "/pp/brandMaterialCategory#control-7",
+          "/pp/brandMaterialCategory#control-8",
+          "/pp/brandMaterialCategory#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:195bfcbd9a8f",
+          "mapping-na:279ebe3c752f",
+          "mapping-na:27a8bd0a3578",
+          "mapping-na:33f2f81a0bf4",
+          "mapping-na:3a2dee45cf07",
+          "mapping-na:537933b3b817",
+          "mapping-na:550afb0544d5",
+          "mapping-na:590d6436db48",
+          "mapping-na:5dc156e1ab3b",
+          "mapping-na:6262a343edaf",
+          "mapping-na:6af7e0603be1",
+          "mapping-na:6ba3ba36dbed",
+          "mapping-na:74ca47f5fe11",
+          "mapping-na:96920dfbdc19",
+          "mapping-na:976cad254c99",
+          "mapping-na:9ef5422a1797",
+          "mapping-na:ae47eb41d7a0",
+          "mapping-na:aef92aec77eb",
+          "mapping-na:e4f4421b5dba"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:material-category",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:menu",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:menu",
+          "locator": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/bm/menu/list",
+      "entity": "菜单",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:25",
+          "business-rule-section:26",
+          "business-rule-section:27",
+          "rule:catalog-price-sync-respects-menu-price-override",
+          "rule:channel-and-scenario-price-fallback",
+          "rule:client-hidden-applies-after-publish",
+          "rule:deleted-special-price-falls-back-after-publish",
+          "rule:display-time-applies-after-republish",
+          "rule:menu-price-syncs-on-publish",
+          "rule:menu-publish-generates-store-menu-and-products",
+          "rule:pos-price-change-applies-after-publish",
+          "rule:pos-price-change-disabled-after-publish"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单.xmind",
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单下发.xmind",
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-门店菜单.xmind"
+        ],
+        "routeIds": [
+          "route:3cc726e3e217",
+          "route:a6e69e8f67a0"
+        ],
+        "functionIds": [
+          "/bm/menu/list#control-1",
+          "/bm/menu/list#control-10",
+          "/bm/menu/list#control-11",
+          "/bm/menu/list#control-12",
+          "/bm/menu/list#control-13",
+          "/bm/menu/list#control-2",
+          "/bm/menu/list#control-3",
+          "/bm/menu/list#control-4",
+          "/bm/menu/list#control-5",
+          "/bm/menu/list#control-6",
+          "/bm/menu/list#control-7",
+          "/bm/menu/list#control-8",
+          "/bm/menu/list#control-9",
+          "/bm/menu/record/list#control-1",
+          "/bm/menu/record/list#control-2",
+          "/bm/menu/record/list#control-3",
+          "/bm/menu/record/list#control-4",
+          "/bm/menu/record/list#control-5",
+          "/bm/menu/record/list#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:1f95f53dfcd4",
+          "mapping-na:5a9116391e23",
+          "mapping-na:6f358850c5c9",
+          "mapping-na:75fc65ecfb45",
+          "mapping-na:ad8b92efa165",
+          "mapping-na:b6f101a5beba",
+          "mapping-na:c07c024148c3",
+          "mapping-na:ca7688af2b0d",
+          "mapping:367f32739210",
+          "mapping:d872a214cc34"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:menu",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:method",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:method",
+          "locator": "做法组应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/method",
+      "entity": "做法组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:07"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md"
+        ],
+        "routeIds": [
+          "route:b0c3b84b758f"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/method#control-1",
+          "/pp/brand/option-group/method#control-2",
+          "/pp/brand/option-group/method#control-3",
+          "/pp/brand/option-group/method#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0923c44a763a",
+          "mapping-na:12cb5dc477e8",
+          "mapping-na:1f45aa17a6f1",
+          "mapping-na:3b8af8b2b0b4",
+          "mapping-na:40e257e8dce8",
+          "mapping-na:5c462c6dfe9b",
+          "mapping-na:6bda3a013540",
+          "mapping-na:70caf1c92304",
+          "mapping-na:d319c1498748",
+          "mapping-na:e1a3ac0777b3",
+          "mapping:3581ecef04c4"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:method",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "做法组应使用 API 前置数据完成 UI 编辑并由 API 验证",
+          "rerunGrep": "做法组应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:printer",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:printer",
+          "locator": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/poi/printer-stall/list",
+      "entity": "打印机",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:cb0d4a3cf6cb"
+        ],
+        "functionIds": [
+          "/poi/printer-stall/list#control-1",
+          "/poi/printer-stall/list#control-2",
+          "/poi/printer-stall/list#control-3",
+          "/poi/printer-stall/list#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:118318f36e5b",
+          "mapping-na:1b4151df0f97",
+          "mapping-na:235f0152a4c9",
+          "mapping-na:5a63fcc69b41",
+          "mapping-na:675343993316",
+          "mapping-na:694110337d71",
+          "mapping-na:6fe85728ed73",
+          "mapping-na:7dbab2584bbe",
+          "mapping-na:8a0db27cbdbc",
+          "mapping-na:903e8d1152b3",
+          "mapping-na:991e262b2a65",
+          "mapping-na:9a48c6109dad",
+          "mapping-na:e46d0b7de201",
+          "mapping-na:eaf533a73996",
+          "mapping:52c73c9adc58",
+          "mapping:a83eb658d432",
+          "mapping:f53f65ee885e"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:printer",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "打印机应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:recipe-ingredient",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:recipe-ingredient",
+          "locator": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/bom/ingredient",
+      "entity": "配方原料",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:e2b9620ba5ee"
+        ],
+        "functionIds": [
+          "/pp/bom/ingredient#control-1",
+          "/pp/bom/ingredient#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:16ff9ced564a",
+          "mapping-na:2be7239fb789",
+          "mapping-na:2e0dd3253f24",
+          "mapping-na:34e79c76cdb5",
+          "mapping-na:54387e399384",
+          "mapping-na:5b24abb301c3",
+          "mapping-na:60ec24142321",
+          "mapping-na:6f39520af461",
+          "mapping-na:73d7e7fe2c3e",
+          "mapping-na:81692694199d",
+          "mapping-na:8b6c2f779c2d",
+          "mapping-na:8e1327ca247d",
+          "mapping-na:8edea3c1589a",
+          "mapping-na:9849bb88a504",
+          "mapping-na:9a060373186e",
+          "mapping-na:9d9301d59512",
+          "mapping-na:a4b4a9d4ccc9",
+          "mapping-na:a5c26f82382c",
+          "mapping-na:b9ffbe791ad1",
+          "mapping-na:c0d04de9c133",
+          "mapping-na:c4930e37aa5e",
+          "mapping-na:ce173bab4cb7",
+          "mapping-na:d59c862494e1",
+          "mapping-na:d749219029c4",
+          "mapping-na:e02a39f6db22",
+          "mapping-na:ee45d0e98b16",
+          "mapping-na:f579cc82de05"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:recipe-ingredient",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+          "testTitle": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:seasoning",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:seasoning",
+          "locator": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/seasoning/list",
+      "entity": "品牌调味",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/7.需求品牌调味.md"
+        ],
+        "routeIds": [
+          "route:a8e0b800fdf2",
+          "route:d5b0ffff3643"
+        ],
+        "functionIds": [
+          "/pp/brand/seasoning/list#control-1",
+          "/pp/brand/seasoning/list#control-10",
+          "/pp/brand/seasoning/list#control-11",
+          "/pp/brand/seasoning/list#control-12",
+          "/pp/brand/seasoning/list#control-13",
+          "/pp/brand/seasoning/list#control-14",
+          "/pp/brand/seasoning/list#control-15",
+          "/pp/brand/seasoning/list#control-16",
+          "/pp/brand/seasoning/list#control-17",
+          "/pp/brand/seasoning/list#control-18",
+          "/pp/brand/seasoning/list#control-19",
+          "/pp/brand/seasoning/list#control-2",
+          "/pp/brand/seasoning/list#control-20",
+          "/pp/brand/seasoning/list#control-21",
+          "/pp/brand/seasoning/list#control-22",
+          "/pp/brand/seasoning/list#control-23",
+          "/pp/brand/seasoning/list#control-24",
+          "/pp/brand/seasoning/list#control-25",
+          "/pp/brand/seasoning/list#control-26",
+          "/pp/brand/seasoning/list#control-27",
+          "/pp/brand/seasoning/list#control-28",
+          "/pp/brand/seasoning/list#control-3",
+          "/pp/brand/seasoning/list#control-4",
+          "/pp/brand/seasoning/list#control-5",
+          "/pp/brand/seasoning/list#control-6",
+          "/pp/brand/seasoning/list#control-7",
+          "/pp/brand/seasoning/list#control-8",
+          "/pp/brand/seasoning/list#control-9",
+          "/pp/brand/seasoning/record#control-1",
+          "/pp/brand/seasoning/record#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:2379d720abdb",
+          "mapping-na:4705fb7ff873",
+          "mapping-na:4c39437a8a3e",
+          "mapping:343c69dd7497"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:seasoning",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+          "testTitle": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证",
+          "rerunGrep": "品牌调味应使用 API 前置数据完成 UI 编辑并由 API 验证"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:spec",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:spec",
+          "locator": "规格组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/spec",
+      "entity": "规格组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:04"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md"
+        ],
+        "routeIds": [
+          "route:400fe9629dc9"
+        ],
+        "functionIds": [
+          "/pp/brand/spec#control-1",
+          "/pp/brand/spec#control-2",
+          "/pp/brand/spec#control-3",
+          "/pp/brand/spec#control-4",
+          "/pp/brand/spec#control-5",
+          "/pp/brand/spec#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0064f36e982d",
+          "mapping-na:0560906fa352",
+          "mapping-na:0fe357f00a5b",
+          "mapping-na:16b02961001b",
+          "mapping-na:1b1f8bf0954e",
+          "mapping-na:2169b13067d9",
+          "mapping-na:35523aeb97cf",
+          "mapping-na:4e04441f65bf",
+          "mapping-na:69def0f0a633",
+          "mapping-na:76868de251ea",
+          "mapping-na:c1963aee6345",
+          "mapping-na:d5ea02e8f4de",
+          "mapping-na:d8286d4ccedb",
+          "mapping-na:d95136a4a8a5",
+          "mapping-na:f8685fc742a2",
+          "mapping:551c3362c7a3",
+          "mapping:bee83d968cd8"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:spec",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "规格组应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "规格组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:taste",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:taste",
+          "locator": "口味组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/taste",
+      "entity": "口味组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:06"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md"
+        ],
+        "routeIds": [
+          "route:b1c7e8bfecec"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/taste#control-1",
+          "/pp/brand/option-group/taste#control-2",
+          "/pp/brand/option-group/taste#control-3",
+          "/pp/brand/option-group/taste#control-4",
+          "/pp/brand/option-group/taste#control-5",
+          "/pp/brand/option-group/taste#control-6",
+          "/pp/brand/option-group/taste#control-7",
+          "/pp/brand/option-group/taste#control-8"
+        ],
+        "apiMappingIds": [
+          "mapping-na:220de44e8c76",
+          "mapping-na:2d62e78d57d4",
+          "mapping-na:347f3c7d6834",
+          "mapping-na:42413c2ead5f",
+          "mapping-na:4a0558f98bce",
+          "mapping-na:4fe07f9fea4a",
+          "mapping-na:678eb4e9382d",
+          "mapping-na:734deec8f9f2",
+          "mapping-na:7864b6d76b03",
+          "mapping-na:8b8d4ff8d080",
+          "mapping-na:9d7077e8d089",
+          "mapping-na:9f47a2f8cead",
+          "mapping-na:a20824ee2a4e",
+          "mapping-na:a9d3b4bfaec4",
+          "mapping-na:b42e1b1b766f",
+          "mapping-na:cd24e96fcc0c",
+          "mapping-na:d089fe27f4f0",
+          "mapping-na:f5488d9ef8b6",
+          "mapping-na:fc0632d24ea5",
+          "mapping:744a2dc1f432",
+          "mapping:a386f1e43769",
+          "mapping:c614b478e587",
+          "mapping:fa62dbb060aa"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:taste",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "口味组应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "口味组应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:edit:tax",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://edit:tax",
+          "locator": "税种应使用 API 前置数据完成 UI 编辑并验证双终态"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/poi/tax/tax-types",
+      "entity": "税种",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:31",
+          "business-rule-section:32"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-税种管理.xmind"
+        ],
+        "routeIds": [
+          "route:5b574e851f6f"
+        ],
+        "functionIds": [
+          "/poi/tax/tax-types#control-1",
+          "/poi/tax/tax-types#control-2"
+        ],
+        "apiMappingIds": [
+          "mapping-na:540018a2043a",
+          "mapping-na:82375cd053ee",
+          "mapping-na:86982306b9b6",
+          "mapping-na:8f4be0ef52d8",
+          "mapping-na:95c430912e7c",
+          "mapping-na:d1c5349a180f",
+          "mapping:f5882e6ace12"
+        ],
+        "stageGaps": [],
+        "caseId": "edit:tax",
+        "sourceIds": [],
+        "sop": {
+          "action": "edit",
+          "scenario": null,
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+          "testTitle": "税种应使用 API 前置数据完成 UI 编辑并验证双终态",
+          "rerunGrep": "税种应使用 API 前置数据完成 UI 编辑并验证双终态"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:addon-prerequisite",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:addon-prerequisite",
+          "locator": "加料组未配置加料项时提交应保持禁用"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/additional",
+      "entity": "加料组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:08"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+        ],
+        "routeIds": [
+          "route:2d11b64ec5fe"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/additional#control-1",
+          "/pp/brand/option-group/additional#control-2",
+          "/pp/brand/option-group/additional#control-3",
+          "/pp/brand/option-group/additional#control-4",
+          "/pp/brand/option-group/additional#control-5",
+          "/pp/brand/option-group/additional#control-6",
+          "/pp/brand/option-group/additional#control-7",
+          "/pp/brand/option-group/additional#control-8"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0ddba8bd37ee",
+          "mapping-na:17888a92129c",
+          "mapping-na:1b8e2e47c6bb",
+          "mapping-na:1c0f66290d7a",
+          "mapping-na:25eb948911d6",
+          "mapping-na:3e6ce8cdbb8b",
+          "mapping-na:4772512a5c60",
+          "mapping-na:5afd070b8b5c",
+          "mapping-na:5c4324473c61",
+          "mapping-na:602bf0e95bfd",
+          "mapping-na:6a4ae266f4d7",
+          "mapping-na:6dad220fc5a4",
+          "mapping-na:83079ede29df",
+          "mapping-na:9daf26df769a",
+          "mapping-na:9fdeac6fff0c",
+          "mapping-na:a52edcdafbe1",
+          "mapping-na:b17891e341d3",
+          "mapping-na:b69aeceea508",
+          "mapping-na:c2388c8b13d3",
+          "mapping-na:e373eaa52128",
+          "mapping-na:f2592045436c",
+          "mapping:6d29de6fa5fc",
+          "mapping:961998afcac6",
+          "mapping:a434e312b41b",
+          "mapping:cc55817255de"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:addon-prerequisite",
+        "sourceIds": [
+          "field-constraint:/pp/brand/option-group/additional#field-1"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "prerequisite-disabled",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "加料组未配置加料项时提交应保持禁用",
+          "rerunGrep": "加料组未配置加料项时提交应保持禁用"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:category-cancel-delete",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:category-cancel-delete",
+          "locator": "取消商品分类删除应保留原记录且不发送删除请求"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:category-cancel-delete",
+        "sourceIds": [
+          "runtime-negative-contract:category-delete-cancel"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "cancel-delete",
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "取消商品分类删除应保留原记录且不发送删除请求",
+          "rerunGrep": "取消商品分类删除应保留原记录且不发送删除请求"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:category-child-blocked-by-product",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:category-child-blocked-by-product",
+          "locator": "分类下已有商品时不可继续新增子分类"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:category-child-blocked-by-product",
+        "sourceIds": [
+          "rule:category-child-blocked-by-product"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "relation-blocked",
+          "seedMode": "api",
+          "verifyModes": [
+            "api",
+            "ui"
+          ],
+          "cleanupMode": "api-finally"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "分类下已有商品时不可继续新增子分类",
+          "rerunGrep": "分类下已有商品时不可继续新增子分类"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:category-max-length",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:category-max-length",
+          "locator": "商品分类名称应精确限制为一百字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:category-max-length",
+        "sourceIds": [
+          "field-constraint:/pp/brand/category#field-1"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "商品分类名称应精确限制为一百字符",
+          "rerunGrep": "商品分类名称应精确限制为一百字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:category-required",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:category-required",
+          "locator": "商品分类空提交应保持保存禁用且不发送创建请求"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/category",
+      "entity": "商品分类",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:b0de43a7ecd9"
+        ],
+        "functionIds": [
+          "/pp/brand/category#control-1",
+          "/pp/brand/category#control-10",
+          "/pp/brand/category#control-11",
+          "/pp/brand/category#control-12",
+          "/pp/brand/category#control-13",
+          "/pp/brand/category#control-14",
+          "/pp/brand/category#control-15",
+          "/pp/brand/category#control-16",
+          "/pp/brand/category#control-17",
+          "/pp/brand/category#control-18",
+          "/pp/brand/category#control-19",
+          "/pp/brand/category#control-2",
+          "/pp/brand/category#control-20",
+          "/pp/brand/category#control-21",
+          "/pp/brand/category#control-22",
+          "/pp/brand/category#control-23",
+          "/pp/brand/category#control-24",
+          "/pp/brand/category#control-25",
+          "/pp/brand/category#control-26",
+          "/pp/brand/category#control-27",
+          "/pp/brand/category#control-28",
+          "/pp/brand/category#control-29",
+          "/pp/brand/category#control-3",
+          "/pp/brand/category#control-4",
+          "/pp/brand/category#control-5",
+          "/pp/brand/category#control-6",
+          "/pp/brand/category#control-7",
+          "/pp/brand/category#control-8",
+          "/pp/brand/category#control-9"
+        ],
+        "apiMappingIds": [
+          "mapping-na:00ebf75265ea",
+          "mapping-na:0b8b5fecb3b9",
+          "mapping-na:15ea9db0348a",
+          "mapping-na:1c39489c499d",
+          "mapping-na:1e68370b8c01",
+          "mapping-na:2352f3836c67",
+          "mapping-na:2355440a110e",
+          "mapping-na:262ce9ecd5a2",
+          "mapping-na:264e001d8369",
+          "mapping-na:2a3991aad73d",
+          "mapping-na:442b7b2703e3",
+          "mapping-na:450a7d983c93",
+          "mapping-na:4b2869e02aad",
+          "mapping-na:4c7ad7ffcc68",
+          "mapping-na:4f3d0e2cfe5b",
+          "mapping-na:506bf40244e2",
+          "mapping-na:5e03bddd97cd",
+          "mapping-na:5e226a1790f1",
+          "mapping-na:5e8acc80075e",
+          "mapping-na:6bfc8c0e8988",
+          "mapping-na:6c23d31f089c",
+          "mapping-na:6e3afd7a589c",
+          "mapping-na:7c4b68e5ead4",
+          "mapping-na:8383b7e02b22",
+          "mapping-na:8903401d16e8",
+          "mapping-na:8bf324f4f27c",
+          "mapping-na:8cd4c7a5dd5c",
+          "mapping-na:91a35a22f2af",
+          "mapping-na:936cbeb0b931",
+          "mapping-na:9670e7a20026",
+          "mapping-na:9de157cd5a8b",
+          "mapping-na:a0d5b84b28d8",
+          "mapping-na:a70344317ff3",
+          "mapping-na:afcbd8b84cce",
+          "mapping-na:b1ba4f7dc487",
+          "mapping-na:b76186600d89",
+          "mapping-na:bcd05980c6fe",
+          "mapping-na:c2d9f8733015",
+          "mapping-na:c67ced7d87d8",
+          "mapping-na:c724e7bc42e1",
+          "mapping-na:c8657e07fee2",
+          "mapping-na:d70f91d1c5b0",
+          "mapping-na:e13f937e02a5",
+          "mapping-na:f2968690e12a",
+          "mapping-na:f378a8c86fa5",
+          "mapping-na:f69c83e1b756",
+          "mapping-na:f7006532862e",
+          "mapping-na:f795a0e70bba",
+          "mapping-na:fb2f6b688b3f",
+          "mapping:1e3f83ff2788",
+          "mapping:35c5a613a7e3"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:category-required",
+        "sourceIds": [
+          "field-constraint:/pp/brand/category#field-1"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "required",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "商品分类空提交应保持保存禁用且不发送创建请求",
+          "rerunGrep": "商品分类空提交应保持保存禁用且不发送创建请求"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:description-tag-group-second-language-max",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:description-tag-group-second-language-max",
+          "locator": "描述标签组名称第二语言应允许十字符并截断第十一字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/description",
+      "entity": "描述标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:13"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:e2cf16e67e4c"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/description#control-1",
+          "/pp/brand/tag/description#control-2",
+          "/pp/brand/tag/description#control-3",
+          "/pp/brand/tag/description#control-4",
+          "/pp/brand/tag/description#control-5",
+          "/pp/brand/tag/description#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0245de9c5d83",
+          "mapping-na:08f0d5e2a511",
+          "mapping-na:0a8eccf83b7a",
+          "mapping-na:367d84d327c6",
+          "mapping-na:6419d4d08a96",
+          "mapping-na:792f4d49037b",
+          "mapping-na:7dcc42e47101",
+          "mapping-na:7e99ea44876b",
+          "mapping-na:8410c3f00247",
+          "mapping-na:9b08504f29b0",
+          "mapping-na:a4abd2ac4b2e",
+          "mapping-na:ecb08f8c9b63",
+          "mapping-na:f672cdf9ccee",
+          "mapping:139c860aedd1",
+          "mapping:3bc7ab1659b6",
+          "mapping:55c723ada991",
+          "mapping:63a3f72241a6",
+          "mapping:837e17cf3464",
+          "mapping:837e17cf3464~2",
+          "mapping:c279d3ddd6e0"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:description-tag-group-second-language-max",
+        "sourceIds": [
+          "/pp/brand/tag/description#action-1#primary-1#field-58"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "描述标签组名称第二语言应允许十字符并截断第十一字符",
+          "rerunGrep": "描述标签组名称第二语言应允许十字符并截断第十一字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:description-tag-second-language-max",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:description-tag-second-language-max",
+          "locator": "描述标签名称第二语言应允许五十字符并截断第五十一字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/description",
+      "entity": "描述标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:13"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:e2cf16e67e4c"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/description#control-1",
+          "/pp/brand/tag/description#control-2",
+          "/pp/brand/tag/description#control-3",
+          "/pp/brand/tag/description#control-4",
+          "/pp/brand/tag/description#control-5",
+          "/pp/brand/tag/description#control-6"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0245de9c5d83",
+          "mapping-na:08f0d5e2a511",
+          "mapping-na:0a8eccf83b7a",
+          "mapping-na:367d84d327c6",
+          "mapping-na:6419d4d08a96",
+          "mapping-na:792f4d49037b",
+          "mapping-na:7dcc42e47101",
+          "mapping-na:7e99ea44876b",
+          "mapping-na:8410c3f00247",
+          "mapping-na:9b08504f29b0",
+          "mapping-na:a4abd2ac4b2e",
+          "mapping-na:ecb08f8c9b63",
+          "mapping-na:f672cdf9ccee",
+          "mapping:139c860aedd1",
+          "mapping:3bc7ab1659b6",
+          "mapping:55c723ada991",
+          "mapping:63a3f72241a6",
+          "mapping:837e17cf3464",
+          "mapping:837e17cf3464~2",
+          "mapping:c279d3ddd6e0"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:description-tag-second-language-max",
+        "sourceIds": [
+          "/pp/brand/tag/description#action-1#primary-1#field-56"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "描述标签名称第二语言应允许五十字符并截断第五十一字符",
+          "rerunGrep": "描述标签名称第二语言应允许五十字符并截断第五十一字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:method-max-length",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:method-max-length",
+          "locator": "做法组名称应精确限制为一百字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/method",
+      "entity": "做法组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:07"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md"
+        ],
+        "routeIds": [
+          "route:b0c3b84b758f"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/method#control-1",
+          "/pp/brand/option-group/method#control-2",
+          "/pp/brand/option-group/method#control-3",
+          "/pp/brand/option-group/method#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0923c44a763a",
+          "mapping-na:12cb5dc477e8",
+          "mapping-na:1f45aa17a6f1",
+          "mapping-na:3b8af8b2b0b4",
+          "mapping-na:40e257e8dce8",
+          "mapping-na:5c462c6dfe9b",
+          "mapping-na:6bda3a013540",
+          "mapping-na:70caf1c92304",
+          "mapping-na:d319c1498748",
+          "mapping-na:e1a3ac0777b3",
+          "mapping:3581ecef04c4"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:method-max-length",
+        "sourceIds": [
+          "field-constraint:/pp/brand/option-group/method#field-1"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "做法组名称应精确限制为一百字符",
+          "rerunGrep": "做法组名称应精确限制为一百字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:method-required",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:method-required",
+          "locator": "做法组空提交应显示校验且不发送创建请求"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/option-group/method",
+      "entity": "做法组",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:07"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md"
+        ],
+        "routeIds": [
+          "route:b0c3b84b758f"
+        ],
+        "functionIds": [
+          "/pp/brand/option-group/method#control-1",
+          "/pp/brand/option-group/method#control-2",
+          "/pp/brand/option-group/method#control-3",
+          "/pp/brand/option-group/method#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:0923c44a763a",
+          "mapping-na:12cb5dc477e8",
+          "mapping-na:1f45aa17a6f1",
+          "mapping-na:3b8af8b2b0b4",
+          "mapping-na:40e257e8dce8",
+          "mapping-na:5c462c6dfe9b",
+          "mapping-na:6bda3a013540",
+          "mapping-na:70caf1c92304",
+          "mapping-na:d319c1498748",
+          "mapping-na:e1a3ac0777b3",
+          "mapping:3581ecef04c4"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:method-required",
+        "sourceIds": [
+          "field-constraint:/pp/brand/option-group/method#field-1"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "required",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "做法组空提交应显示校验且不发送创建请求",
+          "rerunGrep": "做法组空提交应显示校验且不发送创建请求"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:printer-required",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:printer-required",
+          "locator": "打印机空提交应显示校验且不发送创建请求"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/poi/printer-stall/list",
+      "entity": "打印机",
+      "evidence": {
+        "requirementIds": [],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+          "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+        ],
+        "routeIds": [
+          "route:cb0d4a3cf6cb"
+        ],
+        "functionIds": [
+          "/poi/printer-stall/list#control-1",
+          "/poi/printer-stall/list#control-2",
+          "/poi/printer-stall/list#control-3",
+          "/poi/printer-stall/list#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:118318f36e5b",
+          "mapping-na:1b4151df0f97",
+          "mapping-na:235f0152a4c9",
+          "mapping-na:5a63fcc69b41",
+          "mapping-na:675343993316",
+          "mapping-na:694110337d71",
+          "mapping-na:6fe85728ed73",
+          "mapping-na:7dbab2584bbe",
+          "mapping-na:8a0db27cbdbc",
+          "mapping-na:903e8d1152b3",
+          "mapping-na:991e262b2a65",
+          "mapping-na:9a48c6109dad",
+          "mapping-na:e46d0b7de201",
+          "mapping-na:eaf533a73996",
+          "mapping:52c73c9adc58",
+          "mapping:a83eb658d432",
+          "mapping:f53f65ee885e"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:printer-required",
+        "sourceIds": [
+          "field-constraint:/poi/printer-stall/list#action-3#primary-1#field-44"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "required",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "打印机空提交应显示校验且不发送创建请求",
+          "rerunGrep": "打印机空提交应显示校验且不发送创建请求"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:statistic-tag-group-second-language-max",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:statistic-tag-group-second-language-max",
+          "locator": "统计标签组名称第二语言应允许十字符并截断第十一字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/statistic",
+      "entity": "统计标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:15"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:a37130eff6c2"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/statistic#control-1",
+          "/pp/brand/tag/statistic#control-2",
+          "/pp/brand/tag/statistic#control-3",
+          "/pp/brand/tag/statistic#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:046d03bd36b2",
+          "mapping-na:2cbd2d7491b8",
+          "mapping-na:40d0d6a6d640",
+          "mapping-na:9e1741ef5bcc",
+          "mapping-na:b21cfb57c7e1",
+          "mapping-na:d5321b8505e0",
+          "mapping-na:d5896f918cfb",
+          "mapping-na:e959f94fbc9b",
+          "mapping-na:ed4e4f735e46",
+          "mapping-na:fc3331566975",
+          "mapping:4de3c285d35d",
+          "mapping:8beab0f9c0dd"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:statistic-tag-group-second-language-max",
+        "sourceIds": [
+          "/pp/brand/tag/statistic#action-1#primary-1#field-37"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "统计标签组名称第二语言应允许十字符并截断第十一字符",
+          "rerunGrep": "统计标签组名称第二语言应允许十字符并截断第十一字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    },
+    {
+      "id": "trace:sop:negative:statistic-tag-second-language-max",
+      "status": "generated",
+      "sourceType": "generated",
+      "confidence": 1,
+      "generationAllowed": false,
+      "source": [
+        {
+          "path": "sop://negative:statistic-tag-second-language-max",
+          "locator": "统计标签名称第二语言应允许五十字符并截断第五十一字符"
+        }
+      ],
+      "verifiedAt": "2026-07-22T10:07:53.676Z",
+      "version": "1.0.0",
+      "route": "/pp/brand/tag/statistic",
+      "entity": "统计标签",
+      "evidence": {
+        "requirementIds": [
+          "business-rule-section:15"
+        ],
+        "requirementRefs": [
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+          "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+        ],
+        "routeIds": [
+          "route:a37130eff6c2"
+        ],
+        "functionIds": [
+          "/pp/brand/tag/statistic#control-1",
+          "/pp/brand/tag/statistic#control-2",
+          "/pp/brand/tag/statistic#control-3",
+          "/pp/brand/tag/statistic#control-4"
+        ],
+        "apiMappingIds": [
+          "mapping-na:046d03bd36b2",
+          "mapping-na:2cbd2d7491b8",
+          "mapping-na:40d0d6a6d640",
+          "mapping-na:9e1741ef5bcc",
+          "mapping-na:b21cfb57c7e1",
+          "mapping-na:d5321b8505e0",
+          "mapping-na:d5896f918cfb",
+          "mapping-na:e959f94fbc9b",
+          "mapping-na:ed4e4f735e46",
+          "mapping-na:fc3331566975",
+          "mapping:4de3c285d35d",
+          "mapping:8beab0f9c0dd"
+        ],
+        "stageGaps": [],
+        "caseId": "negative:statistic-tag-second-language-max",
+        "sourceIds": [
+          "/pp/brand/tag/statistic#action-1#primary-1#field-35"
+        ],
+        "sop": {
+          "action": "negative",
+          "scenario": "max-length",
+          "seedMode": "none",
+          "verifyModes": [
+            "ui"
+          ],
+          "cleanupMode": "none"
+        },
+        "automation": {
+          "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+          "testTitle": "统计标签名称第二语言应允许五十字符并截断第五十一字符",
+          "rerunGrep": "统计标签名称第二语言应允许五十字符并截断第五十一字符"
+        },
+        "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+      }
+    }
+  ]
+}

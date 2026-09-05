@@ -1,0 +1,6504 @@
+{
+  "generatedAt": "2026-08-23T10:35:03.311Z",
+  "scope": "brand-menu",
+  "industryExcluded": true,
+  "total": 581,
+  "shardCount": 17,
+  "shards": [
+    {
+      "shardId": "group-01",
+      "file": "group-01.spec.ts",
+      "name": "税务",
+      "total": 14
+    },
+    {
+      "shardId": "group-02",
+      "file": "group-02.spec.ts",
+      "name": "门店与 POI",
+      "total": 18
+    },
+    {
+      "shardId": "group-03",
+      "file": "group-03.spec.ts",
+      "name": "多语言",
+      "total": 35
+    },
+    {
+      "shardId": "group-04",
+      "file": "group-04.spec.ts",
+      "name": "打印与档口",
+      "total": 66
+    },
+    {
+      "shardId": "group-05",
+      "file": "group-05.spec.ts",
+      "name": "调味、加料与做法",
+      "total": 69
+    },
+    {
+      "shardId": "group-06",
+      "file": "group-06.spec.ts",
+      "name": "配方与 BOM",
+      "total": 22
+    },
+    {
+      "shardId": "group-07",
+      "file": "group-07.spec.ts",
+      "name": "商品与 SKU",
+      "total": 84
+    },
+    {
+      "shardId": "group-08",
+      "file": "group-08.spec.ts",
+      "name": "菜单与菜单页",
+      "total": 132
+    },
+    {
+      "shardId": "group-09",
+      "file": "group-09.spec.ts",
+      "name": "标签与角标",
+      "total": 41
+    },
+    {
+      "shardId": "group-10",
+      "file": "group-10.spec.ts",
+      "name": "规格",
+      "total": 19
+    },
+    {
+      "shardId": "group-11",
+      "file": "group-11.spec.ts",
+      "name": "套餐组",
+      "total": 6
+    },
+    {
+      "shardId": "group-12",
+      "file": "group-12.spec.ts",
+      "name": "营养与过敏原",
+      "total": 16
+    },
+    {
+      "shardId": "group-13",
+      "file": "group-13.spec.ts",
+      "name": "原料",
+      "total": 5
+    },
+    {
+      "shardId": "group-14",
+      "file": "group-14.spec.ts",
+      "name": "图片与文件",
+      "total": 20
+    },
+    {
+      "shardId": "group-15",
+      "file": "group-15.spec.ts",
+      "name": "分类",
+      "total": 14
+    },
+    {
+      "shardId": "group-16",
+      "file": "group-16.spec.ts",
+      "name": "同步与分发",
+      "total": 16
+    },
+    {
+      "shardId": "group-17",
+      "file": "group-17.spec.ts",
+      "name": "系统与内部接口",
+      "total": 4
+    }
+  ],
+  "operations": [
+    {
+      "executionOrder": 1,
+      "operationKey": "brand-menu:GET /ops-poi/tax-types/{id}",
+      "method": "GET",
+      "path": "/ops-poi/tax-types/{id}",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 2,
+      "operationKey": "brand-menu:PUT /ops-poi/tax-types/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/tax-types/{id}",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 3,
+      "operationKey": "brand-menu:DELETE /ops-poi/tax-types/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/tax-types/{id}",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 4,
+      "operationKey": "brand-menu:PUT /ops-poi/tax-advanced-config/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/tax-advanced-config/{id}",
+      "tags": [
+        "税的高级设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 5,
+      "operationKey": "brand-menu:GET /ops-poi/poi-items/{poiItemId}",
+      "method": "GET",
+      "path": "/ops-poi/poi-items/{poiItemId}",
+      "tags": [
+        "门店商品管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 6,
+      "operationKey": "brand-menu:PUT /ops-poi/poi-items/{poiItemId}",
+      "method": "PUT",
+      "path": "/ops-poi/poi-items/{poiItemId}",
+      "tags": [
+        "门店商品管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 7,
+      "operationKey": "brand-menu:PUT /ops-poi/poi-items/update-option-status",
+      "method": "PUT",
+      "path": "/ops-poi/poi-items/update-option-status",
+      "tags": [
+        "门店商品管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 8,
+      "operationKey": "brand-menu:GET /ops-poi/poi-i18n-config",
+      "method": "GET",
+      "path": "/ops-poi/poi-i18n-config",
+      "tags": [
+        "门店多语言配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 9,
+      "operationKey": "brand-menu:PUT /ops-poi/poi-i18n-config",
+      "method": "PUT",
+      "path": "/ops-poi/poi-i18n-config",
+      "tags": [
+        "门店多语言配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 10,
+      "operationKey": "brand-menu:GET /ops-poi/item-printers/printers/{printerId}",
+      "method": "GET",
+      "path": "/ops-poi/item-printers/printers/{printerId}",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 11,
+      "operationKey": "brand-menu:PUT /ops-poi/item-printers/printers/{printerId}",
+      "method": "PUT",
+      "path": "/ops-poi/item-printers/printers/{printerId}",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 12,
+      "operationKey": "brand-menu:PUT /ops-poi/item-printers/items/printers/binds",
+      "method": "PUT",
+      "path": "/ops-poi/item-printers/items/printers/binds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 13,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/items/printers/binds",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/items/printers/binds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 14,
+      "operationKey": "brand-menu:GET /ops-poi/global-modifier/{id}",
+      "method": "GET",
+      "path": "/ops-poi/global-modifier/{id}",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 15,
+      "operationKey": "brand-menu:PUT /ops-poi/global-modifier/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/global-modifier/{id}",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 16,
+      "operationKey": "brand-menu:DELETE /ops-poi/global-modifier/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/global-modifier/{id}",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 17,
+      "operationKey": "brand-menu:GET /ops-brand/recipe-ingredients/{id}",
+      "method": "GET",
+      "path": "/ops-brand/recipe-ingredients/{id}",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 18,
+      "operationKey": "brand-menu:PUT /ops-brand/recipe-ingredients/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/recipe-ingredients/{id}",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 19,
+      "operationKey": "brand-menu:DELETE /ops-brand/recipe-ingredients/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/recipe-ingredients/{id}",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 20,
+      "operationKey": "brand-menu:PUT /ops-brand/recipe-ingredients/sort",
+      "method": "PUT",
+      "path": "/ops-brand/recipe-ingredients/sort",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 21,
+      "operationKey": "brand-menu:PUT /ops-brand/recipe-ingredients/recipe-ingredient-categories/sort",
+      "method": "PUT",
+      "path": "/ops-brand/recipe-ingredients/recipe-ingredient-categories/sort",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 22,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 23,
+      "operationKey": "brand-menu:PUT /ops-brand/print-stalls/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/print-stalls/{id}",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 24,
+      "operationKey": "brand-menu:DELETE /ops-brand/print-stalls/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/print-stalls/{id}",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 25,
+      "operationKey": "brand-menu:GET /ops-brand/print-stall-templates/{id}",
+      "method": "GET",
+      "path": "/ops-brand/print-stall-templates/{id}",
+      "tags": [
+        "品牌打印档口模版"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 26,
+      "operationKey": "brand-menu:PUT /ops-brand/print-stall-templates/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/print-stall-templates/{id}",
+      "tags": [
+        "品牌打印档口模版"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 27,
+      "operationKey": "brand-menu:DELETE /ops-brand/print-stall-templates/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/print-stall-templates/{id}",
+      "tags": [
+        "品牌打印档口模版"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 28,
+      "operationKey": "brand-menu:PUT /ops-brand/print-stall-sync/task/resume/{taskId}",
+      "method": "PUT",
+      "path": "/ops-brand/print-stall-sync/task/resume/{taskId}",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 29,
+      "operationKey": "brand-menu:PUT /ops-brand/print-stall-sync/job/resume/{jobId}",
+      "method": "PUT",
+      "path": "/ops-brand/print-stall-sync/job/resume/{jobId}",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 30,
+      "operationKey": "brand-menu:PUT /ops-poi/poi-item-channel-status",
+      "method": "PUT",
+      "path": "/ops-poi/poi-item-channel-status",
+      "tags": [
+        "商品渠道状态管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 31,
+      "operationKey": "brand-menu:PUT /ops-brand/poi-item-channel-status",
+      "method": "PUT",
+      "path": "/ops-brand/poi-item-channel-status",
+      "tags": [
+        "商品渠道状态管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 32,
+      "operationKey": "brand-menu:GET /ops-brand/modifier-template/{id}",
+      "method": "GET",
+      "path": "/ops-brand/modifier-template/{id}",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 33,
+      "operationKey": "brand-menu:PUT /ops-brand/modifier-template/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/modifier-template/{id}",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 34,
+      "operationKey": "brand-menu:DELETE /ops-brand/modifier-template/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/modifier-template/{id}",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 35,
+      "operationKey": "brand-menu:GET /ops-brand/menu-import-tasks/{id}",
+      "method": "GET",
+      "path": "/ops-brand/menu-import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 36,
+      "operationKey": "brand-menu:PUT /ops-brand/menu-import-tasks/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/menu-import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 37,
+      "operationKey": "brand-menu:DELETE /ops-brand/menu-import-tasks/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/menu-import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 38,
+      "operationKey": "brand-menu:GET /ops-brand/import-tasks/{id}",
+      "method": "GET",
+      "path": "/ops-brand/import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 39,
+      "operationKey": "brand-menu:PUT /ops-brand/import-tasks/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 40,
+      "operationKey": "brand-menu:DELETE /ops-brand/import-tasks/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/import-tasks/{id}",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 41,
+      "operationKey": "brand-menu:PUT /ops-brand/item-i18n/batch-save",
+      "method": "PUT",
+      "path": "/ops-brand/item-i18n/batch-save",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 42,
+      "operationKey": "brand-menu:GET /ops-brand/import-task-details/task/{taskId}/details",
+      "method": "GET",
+      "path": "/ops-brand/import-task-details/task/{taskId}/details",
+      "tags": [
+        "导入任务明细"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 43,
+      "operationKey": "brand-menu:PUT /ops-brand/import-task-details/task/{taskId}/details",
+      "method": "PUT",
+      "path": "/ops-brand/import-task-details/task/{taskId}/details",
+      "tags": [
+        "导入任务明细"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 44,
+      "operationKey": "brand-menu:GET /ops-brand/i18n/brand-i18n",
+      "method": "GET",
+      "path": "/ops-brand/i18n/brand-i18n",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 45,
+      "operationKey": "brand-menu:PUT /ops-brand/i18n/brand-i18n",
+      "method": "PUT",
+      "path": "/ops-brand/i18n/brand-i18n",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 46,
+      "operationKey": "brand-menu:GET /pub/i18n/brand-i18n",
+      "method": "GET",
+      "path": "/pub/i18n/brand-i18n",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 47,
+      "operationKey": "brand-menu:PUT /pub/i18n/brand-i18n",
+      "method": "PUT",
+      "path": "/pub/i18n/brand-i18n",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 48,
+      "operationKey": "brand-menu:GET /ops-brand/i18n-field-config/{id}",
+      "method": "GET",
+      "path": "/ops-brand/i18n-field-config/{id}",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 49,
+      "operationKey": "brand-menu:PUT /ops-brand/i18n-field-config/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/i18n-field-config/{id}",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 50,
+      "operationKey": "brand-menu:DELETE /ops-brand/i18n-field-config/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/i18n-field-config/{id}",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 51,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/{id}",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/{id}",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 52,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/{id}",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 53,
+      "operationKey": "brand-menu:DELETE /ops-brand/global-modifier/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/global-modifier/{id}",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 54,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/sort",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/sort",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 55,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/platform-types/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/platform-types/{id}",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 56,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/platform-presets/{id}",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/platform-presets/{id}",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 57,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/platform-presets/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/platform-presets/{id}",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 58,
+      "operationKey": "brand-menu:DELETE /ops-brand/global-modifier/platform-presets/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/global-modifier/platform-presets/{id}",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 59,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/options/{optionId}",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/options/{optionId}",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 60,
+      "operationKey": "brand-menu:DELETE /ops-brand/global-modifier/options/{optionId}",
+      "method": "DELETE",
+      "path": "/ops-brand/global-modifier/options/{optionId}",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 61,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/options/batch-status",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/options/batch-status",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 62,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/batch-status",
+      "method": "PUT",
+      "path": "/ops-brand/global-modifier/batch-status",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 63,
+      "operationKey": "brand-menu:PUT /ops-brand/entity-i18n/batch-save",
+      "method": "PUT",
+      "path": "/ops-brand/entity-i18n/batch-save",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 64,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tags/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 65,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-tags/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 66,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-tags/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 67,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tags/{id}",
+      "method": "GET",
+      "path": "/ops-poi/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 68,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-tags/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 69,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-tags/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-tags/{id}",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 70,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tags/corner/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 71,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-tags/corner/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 72,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-tags/corner/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 73,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tags/corner/{id}",
+      "method": "GET",
+      "path": "/ops-poi/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 74,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-tags/corner/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 75,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-tags/corner/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-tags/corner/{id}",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 76,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 77,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-tag-groups/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 78,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-tag-groups/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 79,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tag-groups/{id}",
+      "method": "GET",
+      "path": "/ops-poi/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 80,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-tag-groups/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 81,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-tag-groups/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-tag-groups/{id}",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 82,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sub-menus/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-sub-menus/{id}",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 83,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-sub-menus/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-sub-menus/{id}",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 84,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-sub-menus/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-sub-menus/{id}",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 85,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sub-menu-designs/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-sub-menu-designs/{id}",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 86,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-sub-menu-designs/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-sub-menu-designs/{id}",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 87,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-sub-menu-designs/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-sub-menu-designs/{id}",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 88,
+      "operationKey": "brand-menu:GET /ops-brand/brand-specs/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-specs/{id}",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 89,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-specs/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-specs/{id}",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 90,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-specs/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-specs/{id}",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 91,
+      "operationKey": "brand-menu:GET /ops-brand/brand-spec-options/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-spec-options/{id}",
+      "tags": [
+        "品牌规格选项"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 92,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-spec-options/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-spec-options/{id}",
+      "tags": [
+        "品牌规格选项"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 93,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-spec-options/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-spec-options/{id}",
+      "tags": [
+        "品牌规格选项"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 94,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sections/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-sections/{id}",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 95,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-sections/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-sections/{id}",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 96,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-sections/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-sections/{id}",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 97,
+      "operationKey": "brand-menu:GET /ops-brand/brand-obj-sorts/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-obj-sorts/{id}",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 98,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-obj-sorts/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-obj-sorts/{id}",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 99,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-obj-sorts/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-obj-sorts/{id}",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 100,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-obj-sorts/reorder",
+      "method": "PUT",
+      "path": "/ops-brand/brand-obj-sorts/reorder",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 101,
+      "operationKey": "brand-menu:GET /ops-brand/brand-nutritions/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-nutritions/{id}",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 102,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-nutritions/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-nutritions/{id}",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 103,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-nutritions/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-nutritions/{id}",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 104,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/{id}",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 105,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifiers/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifiers/{id}",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 106,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-modifiers/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-modifiers/{id}",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 107,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/{id}/setting",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/{id}/setting",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 108,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifiers/{id}/setting",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifiers/{id}/setting",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 109,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifiers/check/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifiers/check/{id}",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 110,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/task/resume/{taskId}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifier-sync/task/resume/{taskId}",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 111,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/job/resume/{jobId}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifier-sync/job/resume/{jobId}",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 112,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifier-options/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifier-options/{id}",
+      "tags": [
+        "品牌定制项选项"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 113,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-options/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-modifier-options/{id}",
+      "tags": [
+        "品牌定制项选项"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 114,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-modifier-options/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-modifier-options/{id}",
+      "tags": [
+        "品牌定制项选项"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 115,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menus/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menus/{id}",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 116,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menus/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menus/{id}",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 117,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-menus/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-menus/{id}",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 118,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-task/resume/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-sync-task/resume/{id}",
+      "tags": [
+        "菜单下发任务"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 119,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sync-job/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sync-job/{id}",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 120,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-job/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-sync-job/{id}",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 121,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-job/resume/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-sync-job/resume/{id}",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 122,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-job/execute/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-sync-job/execute/{id}",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 123,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-job/cancel/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-sync-job/cancel/{id}",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 124,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block/{id}",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 125,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-block/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-block/{id}",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 126,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-menu-block/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-menu-block/{id}",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 127,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block-design/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block-design/{id}",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 128,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-block-design/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-menu-block-design/{id}",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 129,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-menu-block-design/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-menu-block-design/{id}",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 130,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-items/updateStatus",
+      "method": "PUT",
+      "path": "/ops-brand/brand-items/updateStatus",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 131,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-items/updateStatus",
+      "method": "PUT",
+      "path": "/ops-poi/brand-items/updateStatus",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 132,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-items/standard/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-items/standard/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 133,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-items/standard/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-items/standard/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 134,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-items/copy/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-items/copy/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 135,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-items/copy/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-items/copy/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 136,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-items/combo/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-items/combo/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 137,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-items/combo/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-items/combo/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 138,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-item-tag-groups",
+      "method": "PUT",
+      "path": "/ops-brand/brand-item-tag-groups",
+      "tags": [
+        "品牌商品标签组关联"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 139,
+      "operationKey": "brand-menu:POST /ops-brand/brand-item-tag-groups",
+      "method": "POST",
+      "path": "/ops-brand/brand-item-tag-groups",
+      "tags": [
+        "品牌商品标签组关联"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 140,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-item-specs",
+      "method": "PUT",
+      "path": "/ops-brand/brand-item-specs",
+      "tags": [
+        "品牌商品规格关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 141,
+      "operationKey": "brand-menu:POST /ops-brand/brand-item-specs",
+      "method": "POST",
+      "path": "/ops-brand/brand-item-specs",
+      "tags": [
+        "品牌商品规格关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 142,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-item-spec-options/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-item-spec-options/{id}",
+      "tags": [
+        "品牌商品规格选项关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 143,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-item-modifiers",
+      "method": "PUT",
+      "path": "/ops-brand/brand-item-modifiers",
+      "tags": [
+        "品牌商品定制项关联管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 144,
+      "operationKey": "brand-menu:POST /ops-brand/brand-item-modifiers",
+      "method": "POST",
+      "path": "/ops-brand/brand-item-modifiers",
+      "tags": [
+        "品牌商品定制项关联管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 145,
+      "operationKey": "brand-menu:GET /ops-brand/brand-ingredients/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-ingredients/{id}",
+      "tags": [
+        "品牌原材料"
+      ],
+      "shardId": "group-13",
+      "file": "group-13.spec.ts"
+    },
+    {
+      "executionOrder": 146,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-ingredients/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-ingredients/{id}",
+      "tags": [
+        "品牌原材料"
+      ],
+      "shardId": "group-13",
+      "file": "group-13.spec.ts"
+    },
+    {
+      "executionOrder": 147,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-ingredients/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-ingredients/{id}",
+      "tags": [
+        "品牌原材料"
+      ],
+      "shardId": "group-13",
+      "file": "group-13.spec.ts"
+    },
+    {
+      "executionOrder": 148,
+      "operationKey": "brand-menu:GET /ops-brand/brand-images/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-images/{id}",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 149,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-images/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-images/{id}",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 150,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-images/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-images/{id}",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 151,
+      "operationKey": "brand-menu:GET /ops-brand/brand-image-display-channels/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-image-display-channels/{id}",
+      "tags": [
+        "品牌图片展示渠道"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 152,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-image-display-channels/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-image-display-channels/{id}",
+      "tags": [
+        "品牌图片展示渠道"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 153,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-image-display-channels/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-image-display-channels/{id}",
+      "tags": [
+        "品牌图片展示渠道"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 154,
+      "operationKey": "brand-menu:GET /ops-poi/brand-categories/{id}",
+      "method": "GET",
+      "path": "/ops-poi/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 155,
+      "operationKey": "brand-menu:PUT /ops-poi/brand-categories/{id}",
+      "method": "PUT",
+      "path": "/ops-poi/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 156,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-categories/{id}",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 157,
+      "operationKey": "brand-menu:GET /ops-brand/brand-categories/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 158,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-categories/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 159,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-categories/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-categories/{id}",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 160,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-bom-sync/task/resume/{taskId}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-bom-sync/task/resume/{taskId}",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 161,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-bom-sync/job/resume/{jobId}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-bom-sync/job/resume/{jobId}",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 162,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-block-item/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-block-item/{id}",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 163,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-block-item/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-block-item/{id}",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 164,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-block-item/batchUpdate",
+      "method": "PUT",
+      "path": "/ops-brand/brand-block-item/batchUpdate",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 165,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item-rule/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item-rule/{id}",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 166,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-block-item-rule/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-block-item-rule/{id}",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 167,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-block-item-rule/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-block-item-rule/{id}",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 168,
+      "operationKey": "brand-menu:GET /ops-brand/brand-attr-group/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-attr-group/{id}",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 169,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-attr-group/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-attr-group/{id}",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 170,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-attr-group/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-attr-group/{id}",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 171,
+      "operationKey": "brand-menu:GET /ops-brand/brand-allergens/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-allergens/{id}",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 172,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-allergens/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-allergens/{id}",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 173,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-allergens/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-allergens/{id}",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 174,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 175,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-addon-group/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-addon-group/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 176,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-addon-group/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-addon-group/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 177,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-addon-group/check/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-addon-group/check/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 178,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group-item/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group-item/{id}",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 179,
+      "operationKey": "brand-menu:PUT /ops-brand/brand-addon-group-item/{id}",
+      "method": "PUT",
+      "path": "/ops-brand/brand-addon-group-item/{id}",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 180,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-addon-group-item/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-addon-group-item/{id}",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 181,
+      "operationKey": "brand-menu:PUT /ops-brand/bom/item/batch",
+      "method": "PUT",
+      "path": "/ops-brand/bom/item/batch",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 182,
+      "operationKey": "brand-menu:POST /ops-brand/bom/item/batch",
+      "method": "POST",
+      "path": "/ops-brand/bom/item/batch",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 183,
+      "operationKey": "brand-menu:PUT /internal/pos/feedback/update-option-status",
+      "method": "PUT",
+      "path": "/internal/pos/feedback/update-option-status",
+      "tags": [
+        "POS数据反向同步至商品中心"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 184,
+      "operationKey": "brand-menu:POST /pub/brand-image-display-channel-batch",
+      "method": "POST",
+      "path": "/pub/brand-image-display-channel-batch",
+      "tags": [
+        "ops-image-display-channel-controller"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 185,
+      "operationKey": "brand-menu:POST /ops-poi/tax-types",
+      "method": "POST",
+      "path": "/ops-poi/tax-types",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 186,
+      "operationKey": "brand-menu:POST /ops-poi/tax-types/pageQuery",
+      "method": "POST",
+      "path": "/ops-poi/tax-types/pageQuery",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 187,
+      "operationKey": "brand-menu:GET /ops-poi/tax-advanced-config",
+      "method": "GET",
+      "path": "/ops-poi/tax-advanced-config",
+      "tags": [
+        "税的高级设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 188,
+      "operationKey": "brand-menu:POST /ops-poi/tax-advanced-config",
+      "method": "POST",
+      "path": "/ops-poi/tax-advanced-config",
+      "tags": [
+        "税的高级设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 189,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/{poiPrintStallId}/printers/unbind",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/printers/unbind",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 190,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/{poiPrintStallId}/printers/page",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/printers/page",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 191,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/{poiPrintStallId}/printers/bind",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/printers/bind",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 192,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/{poiPrintStallId}/items/page",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/items/page",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 193,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/printers/without-stall/page",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/printers/without-stall/page",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 194,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/printers/without-stall/bind",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/printers/without-stall/bind",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 195,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/page",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/page",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 196,
+      "operationKey": "brand-menu:POST /ops-poi/print-stalls/items/without-stall/page",
+      "method": "POST",
+      "path": "/ops-poi/print-stalls/items/without-stall/page",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 197,
+      "operationKey": "brand-menu:POST /ops-poi/poi-modifiers/page",
+      "method": "POST",
+      "path": "/ops-poi/poi-modifiers/page",
+      "tags": [
+        "门店商品定制项"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 198,
+      "operationKey": "brand-menu:POST /ops-poi/poi-items/pageQuery",
+      "method": "POST",
+      "path": "/ops-poi/poi-items/pageQuery",
+      "tags": [
+        "门店商品管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 199,
+      "operationKey": "brand-menu:POST /ops-poi/poi-i18n/push",
+      "method": "POST",
+      "path": "/ops-poi/poi-i18n/push",
+      "tags": [
+        "门店多语言推送到POS"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 200,
+      "operationKey": "brand-menu:POST /ops-poi/poi-boms/push",
+      "method": "POST",
+      "path": "/ops-poi/poi-boms/push",
+      "tags": [
+        "门店bom数据推送到POS"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 201,
+      "operationKey": "brand-menu:POST /ops-poi/poi-addon-group/list",
+      "method": "POST",
+      "path": "/ops-poi/poi-addon-group/list",
+      "tags": [
+        "门店加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 202,
+      "operationKey": "brand-menu:POST /ops-poi/merchants/page",
+      "method": "POST",
+      "path": "/ops-poi/merchants/page",
+      "tags": [
+        "门店列表"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 203,
+      "operationKey": "brand-menu:POST /ops-poi/menu/price/item/batchSaveItemPrice",
+      "method": "POST",
+      "path": "/ops-poi/menu/price/item/batchSaveItemPrice",
+      "tags": [
+        "POI菜单价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 204,
+      "operationKey": "brand-menu:POST /ops-poi/item-tax-config/batch/tax",
+      "method": "POST",
+      "path": "/ops-poi/item-tax-config/batch/tax",
+      "tags": [
+        "商品税种设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 205,
+      "operationKey": "brand-menu:DELETE /ops-poi/item-tax-config/batch/tax",
+      "method": "DELETE",
+      "path": "/ops-poi/item-tax-config/batch/tax",
+      "tags": [
+        "商品税种设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 206,
+      "operationKey": "brand-menu:POST /ops-poi/item-tax-config/batch/item",
+      "method": "POST",
+      "path": "/ops-poi/item-tax-config/batch/item",
+      "tags": [
+        "商品税种设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 207,
+      "operationKey": "brand-menu:GET /ops-poi/item-tags/item/{itemId}",
+      "method": "GET",
+      "path": "/ops-poi/item-tags/item/{itemId}",
+      "tags": [
+        "门店商品标签关联管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 208,
+      "operationKey": "brand-menu:POST /ops-poi/item-tags/item/{itemId}",
+      "method": "POST",
+      "path": "/ops-poi/item-tags/item/{itemId}",
+      "tags": [
+        "门店商品标签关联管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 209,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 210,
+      "operationKey": "brand-menu:DELETE /ops-poi/item-printers/printers",
+      "method": "DELETE",
+      "path": "/ops-poi/item-printers/printers",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 211,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/{printerId}/print-stalls/unbind",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/{printerId}/print-stalls/unbind",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 212,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/{printerId}/print-stalls/page",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/{printerId}/print-stalls/page",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 213,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/{printerId}/print-stalls/bind",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/{printerId}/print-stalls/bind",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 214,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/unbinds",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/unbinds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 215,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/page",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/page",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 216,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/items/unbinds",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/items/unbinds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 217,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/binds",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/binds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 218,
+      "operationKey": "brand-menu:POST /ops-poi/item-printers/printers/bind-item-sync",
+      "method": "POST",
+      "path": "/ops-poi/item-printers/printers/bind-item-sync",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 219,
+      "operationKey": "brand-menu:POST /ops-poi/global-modifier",
+      "method": "POST",
+      "path": "/ops-poi/global-modifier",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 220,
+      "operationKey": "brand-menu:POST /ops-poi/global-modifier/batch-delete",
+      "method": "POST",
+      "path": "/ops-poi/global-modifier/batch-delete",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 221,
+      "operationKey": "brand-menu:POST /ops-poi/bom/page",
+      "method": "POST",
+      "path": "/ops-poi/bom/page",
+      "tags": [
+        "门店BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 222,
+      "operationKey": "brand-menu:POST /ops-poi/bom/item/page",
+      "method": "POST",
+      "path": "/ops-poi/bom/item/page",
+      "tags": [
+        "门店BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 223,
+      "operationKey": "brand-menu:POST /ops-brand/relation/spec-option/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/spec-option/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 224,
+      "operationKey": "brand-menu:POST /ops-brand/relation/section/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/section/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 225,
+      "operationKey": "brand-menu:POST /ops-brand/relation/modifier/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/modifier/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 226,
+      "operationKey": "brand-menu:POST /ops-brand/relation/modifier-option/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/modifier-option/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 227,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 228,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/items/remove",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/items/remove",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 229,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/items/bind",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/items/bind",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 230,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/create-and-bind",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/create-and-bind",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 231,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/check",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/check",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 232,
+      "operationKey": "brand-menu:POST /ops-brand/relation/combination/bindable-items",
+      "method": "POST",
+      "path": "/ops-brand/relation/combination/bindable-items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 233,
+      "operationKey": "brand-menu:POST /ops-brand/relation/attr-group/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/attr-group/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 234,
+      "operationKey": "brand-menu:POST /ops-brand/relation/addon-item/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/addon-item/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 235,
+      "operationKey": "brand-menu:POST /ops-brand/relation/addon-group/items",
+      "method": "POST",
+      "path": "/ops-brand/relation/addon-group/items",
+      "tags": [
+        "属性关联商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 236,
+      "operationKey": "brand-menu:POST /ops-brand/recipe-ingredients",
+      "method": "POST",
+      "path": "/ops-brand/recipe-ingredients",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 237,
+      "operationKey": "brand-menu:POST /ops-brand/recipe-ingredients/list",
+      "method": "POST",
+      "path": "/ops-brand/recipe-ingredients/list",
+      "tags": [
+        "配方原材料管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 238,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 239,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 240,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/{id}/pois/unbind",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/{id}/pois/unbind",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 241,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/{id}/items/unbind",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/{id}/items/unbind",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 242,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/{id}/items/page",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/{id}/items/page",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 243,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/{id}/items/bind",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/{id}/items/bind",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 244,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/items/without-stall/page",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/items/without-stall/page",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 245,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/items/batch-replace",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/items/batch-replace",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 246,
+      "operationKey": "brand-menu:POST /ops-brand/print-stalls/items/batch-bind",
+      "method": "POST",
+      "path": "/ops-brand/print-stalls/items/batch-bind",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 247,
+      "operationKey": "brand-menu:GET /ops-brand/print-stall-templates",
+      "method": "GET",
+      "path": "/ops-brand/print-stall-templates",
+      "tags": [
+        "品牌打印档口模版"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 248,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-templates",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-templates",
+      "tags": [
+        "品牌打印档口模版"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 249,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/to-poi",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-sync/to-poi",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 250,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/task/list",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-sync/task/list",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 251,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/job/list",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-sync/job/list",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 252,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/by-template",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-sync/by-template",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 253,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/by-stalls",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-sync/by-stalls",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 254,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-migration/rollback",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-migration/rollback",
+      "tags": [
+        "打印机线上改造"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 255,
+      "operationKey": "brand-menu:POST /ops-brand/print-stall-migration/execute",
+      "method": "POST",
+      "path": "/ops-brand/print-stall-migration/execute",
+      "tags": [
+        "打印机线上改造"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 256,
+      "operationKey": "brand-menu:POST /ops-brand/poi-menus/push/list",
+      "method": "POST",
+      "path": "/ops-brand/poi-menus/push/list",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 257,
+      "operationKey": "brand-menu:POST /ops-poi/poi-menus/push/list",
+      "method": "POST",
+      "path": "/ops-poi/poi-menus/push/list",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 258,
+      "operationKey": "brand-menu:POST /ops-brand/poi-menus/page",
+      "method": "POST",
+      "path": "/ops-brand/poi-menus/page",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 259,
+      "operationKey": "brand-menu:POST /ops-poi/poi-menus/page",
+      "method": "POST",
+      "path": "/ops-poi/poi-menus/page",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 260,
+      "operationKey": "brand-menu:POST /ops-brand/poi-menus/items/struct/list",
+      "method": "POST",
+      "path": "/ops-brand/poi-menus/items/struct/list",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 261,
+      "operationKey": "brand-menu:POST /ops-poi/poi-menus/items/struct/list",
+      "method": "POST",
+      "path": "/ops-poi/poi-menus/items/struct/list",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 262,
+      "operationKey": "brand-menu:POST /ops-brand/platform-item/page",
+      "method": "POST",
+      "path": "/ops-brand/platform-item/page",
+      "tags": [
+        "行业商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 263,
+      "operationKey": "brand-menu:POST /ops-brand/multipart-upload/parts",
+      "method": "POST",
+      "path": "/ops-brand/multipart-upload/parts",
+      "tags": [
+        "品牌分片上传"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 264,
+      "operationKey": "brand-menu:POST /ops-brand/multipart-upload/part-urls/refresh",
+      "method": "POST",
+      "path": "/ops-brand/multipart-upload/part-urls/refresh",
+      "tags": [
+        "品牌分片上传"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 265,
+      "operationKey": "brand-menu:POST /ops-brand/multipart-upload/init",
+      "method": "POST",
+      "path": "/ops-brand/multipart-upload/init",
+      "tags": [
+        "品牌分片上传"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 266,
+      "operationKey": "brand-menu:POST /ops-brand/multipart-upload/complete",
+      "method": "POST",
+      "path": "/ops-brand/multipart-upload/complete",
+      "tags": [
+        "品牌分片上传"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 267,
+      "operationKey": "brand-menu:POST /ops-brand/multipart-upload/abort",
+      "method": "POST",
+      "path": "/ops-brand/multipart-upload/abort",
+      "tags": [
+        "品牌分片上传"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 268,
+      "operationKey": "brand-menu:POST /ops-brand/modifier-template",
+      "method": "POST",
+      "path": "/ops-brand/modifier-template",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 269,
+      "operationKey": "brand-menu:POST /ops-brand/merchants/page",
+      "method": "POST",
+      "path": "/ops-brand/merchants/page",
+      "tags": [
+        "品牌门店"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 270,
+      "operationKey": "brand-menu:POST /ops-brand/import-tasks/{id}/async-processing",
+      "method": "POST",
+      "path": "/ops-brand/import-tasks/{id}/async-processing",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 271,
+      "operationKey": "brand-menu:POST /ops-brand/menu-import-tasks/{id}/async-processing",
+      "method": "POST",
+      "path": "/ops-brand/menu-import-tasks/{id}/async-processing",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 272,
+      "operationKey": "brand-menu:POST /ops-brand/menu-import-tasks/page",
+      "method": "POST",
+      "path": "/ops-brand/menu-import-tasks/page",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 273,
+      "operationKey": "brand-menu:POST /ops-brand/import-tasks/page",
+      "method": "POST",
+      "path": "/ops-brand/import-tasks/page",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 274,
+      "operationKey": "brand-menu:POST /ops-brand/import-tasks-files",
+      "method": "POST",
+      "path": "/ops-brand/import-tasks-files",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 275,
+      "operationKey": "brand-menu:POST /ops-brand/menu-import-tasks-files",
+      "method": "POST",
+      "path": "/ops-brand/menu-import-tasks-files",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 276,
+      "operationKey": "brand-menu:POST /ops-brand/import-tasks",
+      "method": "POST",
+      "path": "/ops-brand/import-tasks",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 277,
+      "operationKey": "brand-menu:POST /ops-brand/menu-import-tasks",
+      "method": "POST",
+      "path": "/ops-brand/menu-import-tasks",
+      "tags": [
+        "菜单导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 278,
+      "operationKey": "brand-menu:POST /ops-brand/menu-health-check/execute",
+      "method": "POST",
+      "path": "/ops-brand/menu-health-check/execute",
+      "tags": [
+        "菜单体检中心"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 279,
+      "operationKey": "brand-menu:POST /ops-brand/item-i18n/translate-sync",
+      "method": "POST",
+      "path": "/ops-brand/item-i18n/translate-sync",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 280,
+      "operationKey": "brand-menu:POST /ops-brand/item-i18n/translate-batch",
+      "method": "POST",
+      "path": "/ops-brand/item-i18n/translate-batch",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 281,
+      "operationKey": "brand-menu:POST /ops-brand/item-i18n/batch-query",
+      "method": "POST",
+      "path": "/ops-brand/item-i18n/batch-query",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 282,
+      "operationKey": "brand-menu:POST /ops-brand/import-task-details/task/{taskId}/details/submit",
+      "method": "POST",
+      "path": "/ops-brand/import-task-details/task/{taskId}/details/submit",
+      "tags": [
+        "导入任务明细"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 283,
+      "operationKey": "brand-menu:POST /ops-brand/i18n/trigger",
+      "method": "POST",
+      "path": "/ops-brand/i18n/trigger",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 284,
+      "operationKey": "brand-menu:POST /pub/i18n/trigger",
+      "method": "POST",
+      "path": "/pub/i18n/trigger",
+      "tags": [
+        "内部-商品多语言回填"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 285,
+      "operationKey": "brand-menu:POST /ops-brand/i18n/tasks/cleanup-soft-deleted",
+      "method": "POST",
+      "path": "/ops-brand/i18n/tasks/cleanup-soft-deleted",
+      "tags": [
+        "内部-品牌多语言任务"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 286,
+      "operationKey": "brand-menu:POST /pub/i18n/tasks/cleanup-soft-deleted",
+      "method": "POST",
+      "path": "/pub/i18n/tasks/cleanup-soft-deleted",
+      "tags": [
+        "内部-品牌多语言任务"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 287,
+      "operationKey": "brand-menu:POST /ops-brand/i18n-field-config",
+      "method": "POST",
+      "path": "/ops-brand/i18n-field-config",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 288,
+      "operationKey": "brand-menu:POST /ops-brand/i18n-field-config/{id}/trigger-backfill",
+      "method": "POST",
+      "path": "/ops-brand/i18n-field-config/{id}/trigger-backfill",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 289,
+      "operationKey": "brand-menu:POST /ops-brand/i18n-field-config/trigger-backfill",
+      "method": "POST",
+      "path": "/ops-brand/i18n-field-config/trigger-backfill",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 290,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 291,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/platform-types",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/platform-types",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 292,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/platform-types",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier/platform-types",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 293,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/platform-presets/save",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier/platform-presets/save",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 294,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/options/batch-move",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier/options/batch-move",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 295,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/batch",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier/batch",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 296,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/batch-delete",
+      "method": "POST",
+      "path": "/ops-brand/global-modifier/batch-delete",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 297,
+      "operationKey": "brand-menu:POST /ops-brand/entity-i18n/translate-sync",
+      "method": "POST",
+      "path": "/ops-brand/entity-i18n/translate-sync",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 298,
+      "operationKey": "brand-menu:POST /ops-brand/entity-i18n/translate-batch",
+      "method": "POST",
+      "path": "/ops-brand/entity-i18n/translate-batch",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 299,
+      "operationKey": "brand-menu:POST /ops-brand/entity-i18n/batch-query",
+      "method": "POST",
+      "path": "/ops-brand/entity-i18n/batch-query",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 300,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/{menuId}/{channel}",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/{menuId}/{channel}",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 301,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/{itemId}/{brandId}/{poiId}",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/{itemId}/{brandId}/{poiId}",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 302,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/skuPrice/{itemId}",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/skuPrice/{itemId}",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 303,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/consumer",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/consumer",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 304,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/brand/skuPrice/{itemId}/{brandId}",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/brand/skuPrice/{itemId}/{brandId}",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 305,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/brand/sku/{itemId}/{brandId}",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/brand/sku/{itemId}/{brandId}",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 306,
+      "operationKey": "brand-menu:POST /ops-brand/dispatch/test/brand/sku/page",
+      "method": "POST",
+      "path": "/ops-brand/dispatch/test/brand/sku/page",
+      "tags": [
+        "商品复制分发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 307,
+      "operationKey": "brand-menu:POST /ops-brand/brand-tags/corner",
+      "method": "POST",
+      "path": "/ops-brand/brand-tags/corner",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 308,
+      "operationKey": "brand-menu:POST /ops-poi/brand-tags/corner",
+      "method": "POST",
+      "path": "/ops-poi/brand-tags/corner",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 309,
+      "operationKey": "brand-menu:POST /ops-poi/brand-tags",
+      "method": "POST",
+      "path": "/ops-poi/brand-tags",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 310,
+      "operationKey": "brand-menu:POST /ops-brand/brand-tags",
+      "method": "POST",
+      "path": "/ops-brand/brand-tags",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 311,
+      "operationKey": "brand-menu:POST /ops-brand/brand-tag-groups",
+      "method": "POST",
+      "path": "/ops-brand/brand-tag-groups",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 312,
+      "operationKey": "brand-menu:POST /ops-poi/brand-tag-groups",
+      "method": "POST",
+      "path": "/ops-poi/brand-tag-groups",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 313,
+      "operationKey": "brand-menu:POST /ops-brand/brand-sub-menus",
+      "method": "POST",
+      "path": "/ops-brand/brand-sub-menus",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 314,
+      "operationKey": "brand-menu:POST /ops-brand/brand-sub-menus/with-menu/{menuId}",
+      "method": "POST",
+      "path": "/ops-brand/brand-sub-menus/with-menu/{menuId}",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 315,
+      "operationKey": "brand-menu:POST /ops-brand/brand-sub-menus/page",
+      "method": "POST",
+      "path": "/ops-brand/brand-sub-menus/page",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 316,
+      "operationKey": "brand-menu:POST /ops-brand/brand-sub-menu-designs",
+      "method": "POST",
+      "path": "/ops-brand/brand-sub-menu-designs",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 317,
+      "operationKey": "brand-menu:POST /ops-brand/brand-specs",
+      "method": "POST",
+      "path": "/ops-brand/brand-specs",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 318,
+      "operationKey": "brand-menu:POST /ops-brand/brand-spec-options",
+      "method": "POST",
+      "path": "/ops-brand/brand-spec-options",
+      "tags": [
+        "品牌规格选项"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 319,
+      "operationKey": "brand-menu:POST /ops-brand/brand-skus/update/price",
+      "method": "POST",
+      "path": "/ops-brand/brand-skus/update/price",
+      "tags": [
+        "品牌sku"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 320,
+      "operationKey": "brand-menu:POST /ops-brand/brand-sections",
+      "method": "POST",
+      "path": "/ops-brand/brand-sections",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 321,
+      "operationKey": "brand-menu:GET /ops-brand/brand-obj-sorts",
+      "method": "GET",
+      "path": "/ops-brand/brand-obj-sorts",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 322,
+      "operationKey": "brand-menu:POST /ops-brand/brand-obj-sorts",
+      "method": "POST",
+      "path": "/ops-brand/brand-obj-sorts",
+      "tags": [
+        "品牌菜序"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 323,
+      "operationKey": "brand-menu:POST /ops-brand/brand-nutritions",
+      "method": "POST",
+      "path": "/ops-brand/brand-nutritions",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 324,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifiers",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifiers",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 325,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifiers/summary",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifiers/summary",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 326,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/task/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifier-sync/task/list",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 327,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/job/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifier-sync/job/list",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 328,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifier-sync/by-template",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 329,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifier-sync/all",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifier-sync/all",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 330,
+      "operationKey": "brand-menu:POST /ops-brand/brand-modifier-options",
+      "method": "POST",
+      "path": "/ops-brand/brand-modifier-options",
+      "tags": [
+        "品牌定制项选项"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 331,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menus",
+      "method": "POST",
+      "path": "/ops-brand/brand-menus",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 332,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menus/{id}/copy",
+      "method": "POST",
+      "path": "/ops-brand/brand-menus/{id}/copy",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 333,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menus/page",
+      "method": "POST",
+      "path": "/ops-brand/brand-menus/page",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 334,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-time-periods/page",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-time-periods/page",
+      "tags": [
+        "品牌菜单时间配置管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 335,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-task/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sync-task/list",
+      "tags": [
+        "菜单下发任务"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 336,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-job",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sync-job",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 337,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-job/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sync-job/list",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 338,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-diff/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sync-diff/list",
+      "tags": [
+        "菜单下发差异明细"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 339,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sub-menus/menu/{menuId}/batch",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sub-menus/menu/{menuId}/batch",
+      "tags": [
+        "菜单菜单页关联管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 340,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sku-prices/menus/{menuId}/items/{itemId}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sku-prices/menus/{menuId}/items/{itemId}",
+      "tags": [
+        "菜单SKU价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 341,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-sku-prices/menus/{menuId}/items/{itemId}",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-sku-prices/menus/{menuId}/items/{itemId}",
+      "tags": [
+        "菜单SKU价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 342,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-block",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-block",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 343,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-block/sort",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-block/sort",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 344,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-block/batchCreate",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-block/batchCreate",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 345,
+      "operationKey": "brand-menu:POST /ops-brand/brand-menu-block-design",
+      "method": "POST",
+      "path": "/ops-brand/brand-menu-block-design",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 346,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/update/sales-info",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/update/sales-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 347,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/update/sales-info",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/update/sales-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 348,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/update/basic-info",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/update/basic-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 349,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/update/basic-info",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/update/basic-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 350,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/update/attr-info",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/update/attr-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 351,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/update/attr-info",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/update/attr-info",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 352,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/standard",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/standard",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 353,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/standard",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/standard",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 354,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/properties",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/properties",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 355,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/properties",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/properties",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 356,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/pageQuery",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/pageQuery",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 357,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/pageQuery",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/pageQuery",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 358,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/display-names/refresh",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/display-names/refresh",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 359,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/combo",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/combo",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 360,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/combo",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/combo",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 361,
+      "operationKey": "brand-menu:POST /ops-poi/brand-items/batchDelete/check",
+      "method": "POST",
+      "path": "/ops-poi/brand-items/batchDelete/check",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 362,
+      "operationKey": "brand-menu:POST /ops-brand/brand-items/batchDelete/check",
+      "method": "POST",
+      "path": "/ops-brand/brand-items/batchDelete/check",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 363,
+      "operationKey": "brand-menu:POST /ops-brand/brand-item-tags/batch",
+      "method": "POST",
+      "path": "/ops-brand/brand-item-tags/batch",
+      "tags": [
+        "品牌商品标签关联"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 364,
+      "operationKey": "brand-menu:POST /ops-brand/brand-item-spec-options",
+      "method": "POST",
+      "path": "/ops-brand/brand-item-spec-options",
+      "tags": [
+        "品牌商品规格选项关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 365,
+      "operationKey": "brand-menu:GET /ops-brand/brand-ingredients",
+      "method": "GET",
+      "path": "/ops-brand/brand-ingredients",
+      "tags": [
+        "品牌原材料"
+      ],
+      "shardId": "group-13",
+      "file": "group-13.spec.ts"
+    },
+    {
+      "executionOrder": 366,
+      "operationKey": "brand-menu:POST /ops-brand/brand-ingredients",
+      "method": "POST",
+      "path": "/ops-brand/brand-ingredients",
+      "tags": [
+        "品牌原材料"
+      ],
+      "shardId": "group-13",
+      "file": "group-13.spec.ts"
+    },
+    {
+      "executionOrder": 367,
+      "operationKey": "brand-menu:POST /ops-brand/brand-images",
+      "method": "POST",
+      "path": "/ops-brand/brand-images",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 368,
+      "operationKey": "brand-menu:POST /ops-brand/brand-images/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-images/list",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 369,
+      "operationKey": "brand-menu:POST /ops-brand/brand-images/image-path-copying",
+      "method": "POST",
+      "path": "/ops-brand/brand-images/image-path-copying",
+      "tags": [
+        "品牌图片"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 370,
+      "operationKey": "brand-menu:POST /ops-brand/brand-image-files",
+      "method": "POST",
+      "path": "/ops-brand/brand-image-files",
+      "tags": [
+        "品牌图片文件"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 371,
+      "operationKey": "brand-menu:GET /ops-brand/brand-image-display-channels",
+      "method": "GET",
+      "path": "/ops-brand/brand-image-display-channels",
+      "tags": [
+        "品牌图片展示渠道"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 372,
+      "operationKey": "brand-menu:POST /ops-brand/brand-image-display-channels",
+      "method": "POST",
+      "path": "/ops-brand/brand-image-display-channels",
+      "tags": [
+        "品牌图片展示渠道"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 373,
+      "operationKey": "brand-menu:POST /ops-poi/brand-categories",
+      "method": "POST",
+      "path": "/ops-poi/brand-categories",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 374,
+      "operationKey": "brand-menu:POST /ops-brand/brand-categories",
+      "method": "POST",
+      "path": "/ops-brand/brand-categories",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 375,
+      "operationKey": "brand-menu:POST /ops-brand/brand-bom-sync",
+      "method": "POST",
+      "path": "/ops-brand/brand-bom-sync",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 376,
+      "operationKey": "brand-menu:POST /ops-brand/brand-bom-sync/task/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-bom-sync/task/list",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 377,
+      "operationKey": "brand-menu:POST /ops-brand/brand-bom-sync/job/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-bom-sync/job/list",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 378,
+      "operationKey": "brand-menu:POST /ops-brand/brand-block-item/struct/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-block-item/struct/list",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 379,
+      "operationKey": "brand-menu:POST /ops-brand/brand-block-item/sort",
+      "method": "POST",
+      "path": "/ops-brand/brand-block-item/sort",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 380,
+      "operationKey": "brand-menu:POST /ops-brand/brand-block-item/batchCreate",
+      "method": "POST",
+      "path": "/ops-brand/brand-block-item/batchCreate",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 381,
+      "operationKey": "brand-menu:POST /ops-brand/brand-block-item-rule",
+      "method": "POST",
+      "path": "/ops-brand/brand-block-item-rule",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 382,
+      "operationKey": "brand-menu:POST /ops-brand/brand-attr-group",
+      "method": "POST",
+      "path": "/ops-brand/brand-attr-group",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 383,
+      "operationKey": "brand-menu:POST /ops-brand/brand-attr-group/use/attr-group/items",
+      "method": "POST",
+      "path": "/ops-brand/brand-attr-group/use/attr-group/items",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 384,
+      "operationKey": "brand-menu:POST /ops-brand/brand-attr-group/list",
+      "method": "POST",
+      "path": "/ops-brand/brand-attr-group/list",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 385,
+      "operationKey": "brand-menu:POST /ops-brand/brand-attr-group/check",
+      "method": "POST",
+      "path": "/ops-brand/brand-attr-group/check",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 386,
+      "operationKey": "brand-menu:POST /ops-brand/brand-allergens",
+      "method": "POST",
+      "path": "/ops-brand/brand-allergens",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 387,
+      "operationKey": "brand-menu:POST /ops-brand/brand-addon-group",
+      "method": "POST",
+      "path": "/ops-brand/brand-addon-group",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 388,
+      "operationKey": "brand-menu:POST /ops-brand/brand-addon-group-item",
+      "method": "POST",
+      "path": "/ops-brand/brand-addon-group-item",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 389,
+      "operationKey": "brand-menu:POST /ops-brand/brand-addon-group-item/batchCreate",
+      "method": "POST",
+      "path": "/ops-brand/brand-addon-group-item/batchCreate",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 390,
+      "operationKey": "brand-menu:POST /ops-brand/bom/task/page",
+      "method": "POST",
+      "path": "/ops-brand/bom/task/page",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 391,
+      "operationKey": "brand-menu:POST /ops-brand/bom/refresh-ingredient-category-order",
+      "method": "POST",
+      "path": "/ops-brand/bom/refresh-ingredient-category-order",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 392,
+      "operationKey": "brand-menu:POST /ops-brand/bom/page",
+      "method": "POST",
+      "path": "/ops-brand/bom/page",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 393,
+      "operationKey": "brand-menu:POST /ops-brand/bom/item/page",
+      "method": "POST",
+      "path": "/ops-brand/bom/item/page",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 394,
+      "operationKey": "brand-menu:POST /ops-brand/bom/import/upload-file",
+      "method": "POST",
+      "path": "/ops-brand/bom/import/upload-file",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 395,
+      "operationKey": "brand-menu:POST /ops-brand/bom/import/task",
+      "method": "POST",
+      "path": "/ops-brand/bom/import/task",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 396,
+      "operationKey": "brand-menu:POST /ops-brand/bom/import/task/{id}/execute",
+      "method": "POST",
+      "path": "/ops-brand/bom/import/task/{id}/execute",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 397,
+      "operationKey": "brand-menu:POST /ops-brand/bom/export/task",
+      "method": "POST",
+      "path": "/ops-brand/bom/export/task",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 398,
+      "operationKey": "brand-menu:POST /internal/pos/pull/item",
+      "method": "POST",
+      "path": "/internal/pos/pull/item",
+      "tags": [
+        "POI菜单数据同步"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 399,
+      "operationKey": "brand-menu:POST /internal/pos/pull/boms",
+      "method": "POST",
+      "path": "/internal/pos/pull/boms",
+      "tags": [
+        "POI-bom数据同步"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 400,
+      "operationKey": "brand-menu:POST /ops-poi/poi-items/stock/syncFromPos",
+      "method": "POST",
+      "path": "/ops-poi/poi-items/stock/syncFromPos",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 401,
+      "operationKey": "brand-menu:POST /internal/poi-items/stock/syncFromPos",
+      "method": "POST",
+      "path": "/internal/poi-items/stock/syncFromPos",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 402,
+      "operationKey": "brand-menu:POST /ops-poi/poi-items/stock/log",
+      "method": "POST",
+      "path": "/ops-poi/poi-items/stock/log",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 403,
+      "operationKey": "brand-menu:POST /internal/poi-items/stock/log",
+      "method": "POST",
+      "path": "/internal/poi-items/stock/log",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 404,
+      "operationKey": "brand-menu:POST /ops-poi/poi-items/stock/edit",
+      "method": "POST",
+      "path": "/ops-poi/poi-items/stock/edit",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 405,
+      "operationKey": "brand-menu:POST /internal/poi-items/stock/edit",
+      "method": "POST",
+      "path": "/internal/poi-items/stock/edit",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 406,
+      "operationKey": "brand-menu:POST /internal/poi-items/stock/detail",
+      "method": "POST",
+      "path": "/internal/poi-items/stock/detail",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 407,
+      "operationKey": "brand-menu:POST /ops-poi/poi-items/stock/detail",
+      "method": "POST",
+      "path": "/ops-poi/poi-items/stock/detail",
+      "tags": [
+        "门店商品库存管理"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 408,
+      "operationKey": "brand-menu:POST /internal/ai/query-by-ingredient",
+      "method": "POST",
+      "path": "/internal/ai/query-by-ingredient",
+      "tags": [
+        "AI商品查询"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 409,
+      "operationKey": "brand-menu:POST /internal/ai/batch-update-item-channel-status",
+      "method": "POST",
+      "path": "/internal/ai/batch-update-item-channel-status",
+      "tags": [
+        "AI商品查询"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 410,
+      "operationKey": "brand-menu:GET /ops-poi/tax-types/list",
+      "method": "GET",
+      "path": "/ops-poi/tax-types/list",
+      "tags": [
+        "税种基本信息管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 411,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 412,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/{poiPrintStallId}/printers/unlinked/count",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/printers/unlinked/count",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 413,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/{poiPrintStallId}/printers/linked/list",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/printers/linked/list",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 414,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/{poiPrintStallId}/linked-items/list",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/{poiPrintStallId}/linked-items/list",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 415,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/printers/without-stall/list",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/printers/without-stall/list",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 416,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/printers/without-stall/count",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/printers/without-stall/count",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 417,
+      "operationKey": "brand-menu:GET /ops-poi/print-stalls/items/without-stall/count",
+      "method": "GET",
+      "path": "/ops-poi/print-stalls/items/without-stall/count",
+      "tags": [
+        "门店打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 418,
+      "operationKey": "brand-menu:GET /ops-poi/poi-modifiers/push",
+      "method": "GET",
+      "path": "/ops-poi/poi-modifiers/push",
+      "tags": [
+        "门店调味数据推送到POS"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 419,
+      "operationKey": "brand-menu:GET /ops-poi/merchants",
+      "method": "GET",
+      "path": "/ops-poi/merchants",
+      "tags": [
+        "门店列表"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 420,
+      "operationKey": "brand-menu:GET /ops-poi/menu/price/item/origin",
+      "method": "GET",
+      "path": "/ops-poi/menu/price/item/origin",
+      "tags": [
+        "POI菜单价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 421,
+      "operationKey": "brand-menu:GET /ops-poi/menu/price/item/ListItemPrice",
+      "method": "GET",
+      "path": "/ops-poi/menu/price/item/ListItemPrice",
+      "tags": [
+        "POI菜单价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 422,
+      "operationKey": "brand-menu:GET /ops-poi/item-tax-config/item/{objectId}",
+      "method": "GET",
+      "path": "/ops-poi/item-tax-config/item/{objectId}",
+      "tags": [
+        "商品税种设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 423,
+      "operationKey": "brand-menu:GET /ops-poi/item-tax-config/by-tax-type/item",
+      "method": "GET",
+      "path": "/ops-poi/item-tax-config/by-tax-type/item",
+      "tags": [
+        "商品税种设置管理"
+      ],
+      "shardId": "group-01",
+      "file": "group-01.spec.ts"
+    },
+    {
+      "executionOrder": 424,
+      "operationKey": "brand-menu:GET /ops-poi/item-printers/printers/{printerId}/items/binds",
+      "method": "GET",
+      "path": "/ops-poi/item-printers/printers/{printerId}/items/binds",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 425,
+      "operationKey": "brand-menu:GET /ops-poi/item-printers/printers/unbound/count",
+      "method": "GET",
+      "path": "/ops-poi/item-printers/printers/unbound/count",
+      "tags": [
+        "门店商品打印机管理"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 426,
+      "operationKey": "brand-menu:GET /ops-poi/global-modifier/page",
+      "method": "GET",
+      "path": "/ops-poi/global-modifier/page",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 427,
+      "operationKey": "brand-menu:GET /ops-poi/global-modifier/list",
+      "method": "GET",
+      "path": "/ops-poi/global-modifier/list",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 428,
+      "operationKey": "brand-menu:GET /ops-poi/bom/{id}",
+      "method": "GET",
+      "path": "/ops-poi/bom/{id}",
+      "tags": [
+        "门店BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 429,
+      "operationKey": "brand-menu:GET /ops-poi/bom/item/{itemId}/grouped",
+      "method": "GET",
+      "path": "/ops-poi/bom/item/{itemId}/grouped",
+      "tags": [
+        "门店BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 430,
+      "operationKey": "brand-menu:GET /ops-poi/bom/groups",
+      "method": "GET",
+      "path": "/ops-poi/bom/groups",
+      "tags": [
+        "门店BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 431,
+      "operationKey": "brand-menu:GET /ops-poi/templates",
+      "method": "GET",
+      "path": "/ops-poi/templates",
+      "tags": [
+        "文件模版管理"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 432,
+      "operationKey": "brand-menu:GET /ops-brand/templates",
+      "method": "GET",
+      "path": "/ops-brand/templates",
+      "tags": [
+        "文件模版管理"
+      ],
+      "shardId": "group-14",
+      "file": "group-14.spec.ts"
+    },
+    {
+      "executionOrder": 433,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}/linked-items",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}/linked-items",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 434,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}/linked-items/list",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}/linked-items/list",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 435,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}/dispatched-pois",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}/dispatched-pois",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 436,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}/dispatched-pois/stats",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}/dispatched-pois/stats",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 437,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/{id}/dispatched-pois/list",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/{id}/dispatched-pois/list",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 438,
+      "operationKey": "brand-menu:GET /ops-brand/print-stalls/items/without-stall/count",
+      "method": "GET",
+      "path": "/ops-brand/print-stalls/items/without-stall/count",
+      "tags": [
+        "品牌打印档口"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 439,
+      "operationKey": "brand-menu:GET /ops-brand/print-stall-sync/execute/{jobId}",
+      "method": "GET",
+      "path": "/ops-brand/print-stall-sync/execute/{jobId}",
+      "tags": [
+        "打印档口下发"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 440,
+      "operationKey": "brand-menu:GET /ops-brand/print-stall-migration/rollback/jobs/{jobId}",
+      "method": "GET",
+      "path": "/ops-brand/print-stall-migration/rollback/jobs/{jobId}",
+      "tags": [
+        "打印机线上改造"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 441,
+      "operationKey": "brand-menu:GET /ops-brand/print-stall-migration/jobs/{jobId}",
+      "method": "GET",
+      "path": "/ops-brand/print-stall-migration/jobs/{jobId}",
+      "tags": [
+        "打印机线上改造"
+      ],
+      "shardId": "group-04",
+      "file": "group-04.spec.ts"
+    },
+    {
+      "executionOrder": 442,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/{id}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 443,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/{id}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 444,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/trace/list/{traceId}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/trace/list/{traceId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 445,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/trace/list/{traceId}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/trace/list/{traceId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 446,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/push/{menuId}/{itemId}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/push/{menuId}/{itemId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 447,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/push/{menuId}/{itemId}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/push/{menuId}/{itemId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 448,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/push/{menuId}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/push/{menuId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 449,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/push/{menuId}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/push/{menuId}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 450,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/push/all-menu",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/push/all-menu",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 451,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/push/all-menu",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/push/all-menu",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 452,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/poi-sub-menus/{id}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/poi-sub-menus/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 453,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/poi-sub-menus/{id}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/poi-sub-menus/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 454,
+      "operationKey": "brand-menu:GET /ops-poi/poi-menus/poi-menu-block/{id}",
+      "method": "GET",
+      "path": "/ops-poi/poi-menus/poi-menu-block/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 455,
+      "operationKey": "brand-menu:GET /ops-brand/poi-menus/poi-menu-block/{id}",
+      "method": "GET",
+      "path": "/ops-brand/poi-menus/poi-menu-block/{id}",
+      "tags": [
+        "门店菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 456,
+      "operationKey": "brand-menu:GET /ops-poi/poi-item-channel-status/item/{itemId}",
+      "method": "GET",
+      "path": "/ops-poi/poi-item-channel-status/item/{itemId}",
+      "tags": [
+        "商品渠道状态管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 457,
+      "operationKey": "brand-menu:GET /ops-brand/poi-item-channel-status/item/{itemId}",
+      "method": "GET",
+      "path": "/ops-brand/poi-item-channel-status/item/{itemId}",
+      "tags": [
+        "商品渠道状态管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 458,
+      "operationKey": "brand-menu:GET /ops-brand/platform-nutrition/page",
+      "method": "GET",
+      "path": "/ops-brand/platform-nutrition/page",
+      "tags": [
+        "行业营养成分"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 459,
+      "operationKey": "brand-menu:GET /ops-brand/platform-item/{id}",
+      "method": "GET",
+      "path": "/ops-brand/platform-item/{id}",
+      "tags": [
+        "行业商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 460,
+      "operationKey": "brand-menu:GET /ops-brand/platform-allergen/page",
+      "method": "GET",
+      "path": "/ops-brand/platform-allergen/page",
+      "tags": [
+        "行业过敏源"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 461,
+      "operationKey": "brand-menu:GET /ops-brand/modifier-template/page",
+      "method": "GET",
+      "path": "/ops-brand/modifier-template/page",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 462,
+      "operationKey": "brand-menu:GET /ops-brand/modifier-template/list",
+      "method": "GET",
+      "path": "/ops-brand/modifier-template/list",
+      "tags": [
+        "品牌调味模板"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 463,
+      "operationKey": "brand-menu:GET /ops-brand/merchants",
+      "method": "GET",
+      "path": "/ops-brand/merchants",
+      "tags": [
+        "品牌门店"
+      ],
+      "shardId": "group-02",
+      "file": "group-02.spec.ts"
+    },
+    {
+      "executionOrder": 464,
+      "operationKey": "brand-menu:GET /ops-brand/item-i18n/{itemId}",
+      "method": "GET",
+      "path": "/ops-brand/item-i18n/{itemId}",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 465,
+      "operationKey": "brand-menu:GET /ops-brand/item-i18n/supported-locales",
+      "method": "GET",
+      "path": "/ops-brand/item-i18n/supported-locales",
+      "tags": [
+        "品牌商品多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 466,
+      "operationKey": "brand-menu:GET /pub/i18n/tasks",
+      "method": "GET",
+      "path": "/pub/i18n/tasks",
+      "tags": [
+        "内部-品牌多语言任务"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 467,
+      "operationKey": "brand-menu:GET /ops-brand/i18n/tasks",
+      "method": "GET",
+      "path": "/ops-brand/i18n/tasks",
+      "tags": [
+        "内部-品牌多语言任务"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 468,
+      "operationKey": "brand-menu:GET /ops-brand/i18n-field-config/page",
+      "method": "GET",
+      "path": "/ops-brand/i18n-field-config/page",
+      "tags": [
+        "可翻译字段配置"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 469,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/platform-presets",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/platform-presets",
+      "tags": [
+        "品牌-系统调味与行业"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 470,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/page",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/page",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 471,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/list",
+      "method": "GET",
+      "path": "/ops-brand/global-modifier/list",
+      "tags": [
+        "品牌全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 472,
+      "operationKey": "brand-menu:GET /ops-brand/feign-demo/{id}",
+      "method": "GET",
+      "path": "/ops-brand/feign-demo/{id}",
+      "tags": [
+        "Feign客户端演示"
+      ],
+      "shardId": "group-17",
+      "file": "group-17.spec.ts"
+    },
+    {
+      "executionOrder": 473,
+      "operationKey": "brand-menu:GET /ops-brand/feign-demo/search",
+      "method": "GET",
+      "path": "/ops-brand/feign-demo/search",
+      "tags": [
+        "Feign客户端演示"
+      ],
+      "shardId": "group-17",
+      "file": "group-17.spec.ts"
+    },
+    {
+      "executionOrder": 474,
+      "operationKey": "brand-menu:GET /ops-brand/entity-i18n/{entityType}/{entityId}",
+      "method": "GET",
+      "path": "/ops-brand/entity-i18n/{entityType}/{entityId}",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 475,
+      "operationKey": "brand-menu:GET /ops-brand/entity-i18n/supported-locales",
+      "method": "GET",
+      "path": "/ops-brand/entity-i18n/supported-locales",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 476,
+      "operationKey": "brand-menu:GET /ops-brand/entity-i18n/list",
+      "method": "GET",
+      "path": "/ops-brand/entity-i18n/list",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 477,
+      "operationKey": "brand-menu:GET /ops-brand/entity-i18n/field-metas/{entityType}",
+      "method": "GET",
+      "path": "/ops-brand/entity-i18n/field-metas/{entityType}",
+      "tags": [
+        "品牌实体多语言"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 478,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-tags/page",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 479,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tags/page",
+      "method": "GET",
+      "path": "/ops-poi/brand-tags/page",
+      "tags": [
+        "品牌标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 480,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tags/corner/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-tags/corner/page",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 481,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tags/corner/page",
+      "method": "GET",
+      "path": "/ops-poi/brand-tags/corner/page",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 482,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tags/corner/list",
+      "method": "GET",
+      "path": "/ops-poi/brand-tags/corner/list",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 483,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tags/corner/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-tags/corner/list",
+      "tags": [
+        "品牌角标标签管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 484,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tag-groups/page",
+      "method": "GET",
+      "path": "/ops-poi/brand-tag-groups/page",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 485,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-tag-groups/page",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 486,
+      "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-tag-groups/list",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 487,
+      "operationKey": "brand-menu:GET /ops-poi/brand-tag-groups/list",
+      "method": "GET",
+      "path": "/ops-poi/brand-tag-groups/list",
+      "tags": [
+        "品牌标签组管理"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 488,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sub-menus/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-sub-menus/list",
+      "tags": [
+        "品牌菜单页管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 489,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sub-menu-designs/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-sub-menu-designs/page",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 490,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sub-menu-designs/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-sub-menu-designs/list",
+      "tags": [
+        "品牌菜单页设计管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 491,
+      "operationKey": "brand-menu:GET /ops-brand/brand-specs/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-specs/page",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 492,
+      "operationKey": "brand-menu:GET /ops-brand/brand-specs/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-specs/list",
+      "tags": [
+        "品牌规格管理"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 493,
+      "operationKey": "brand-menu:GET /ops-brand/brand-spec-options/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-spec-options/list",
+      "tags": [
+        "品牌规格选项"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 494,
+      "operationKey": "brand-menu:GET /ops-brand/brand-skus/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-skus/page",
+      "tags": [
+        "品牌sku"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 495,
+      "operationKey": "brand-menu:GET /ops-brand/brand-skus/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-skus/list",
+      "tags": [
+        "品牌sku"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 496,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sections/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-sections/list",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 497,
+      "operationKey": "brand-menu:GET /ops-brand/brand-sections/fresh/{brandId}",
+      "method": "GET",
+      "path": "/ops-brand/brand-sections/fresh/{brandId}",
+      "tags": [
+        "品牌套餐组管理"
+      ],
+      "shardId": "group-11",
+      "file": "group-11.spec.ts"
+    },
+    {
+      "executionOrder": 498,
+      "operationKey": "brand-menu:GET /ops-brand/brand-nutritions/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-nutritions/search",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 499,
+      "operationKey": "brand-menu:GET /ops-brand/brand-nutritions/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-nutritions/list",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 500,
+      "operationKey": "brand-menu:GET /ops-brand/brand-nutritions/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-nutritions/all",
+      "tags": [
+        "营养成分管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 501,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/with-exclusive-settings",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/with-exclusive-settings",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 502,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/page",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/page",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 503,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/list",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 504,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/copy/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifiers/copy/{id}",
+      "tags": [
+        "品牌商品定制项"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 505,
+      "operationKey": "brand-menu:GET /ops-brand/brand-modifier-sync/execute/{jobId}",
+      "method": "GET",
+      "path": "/ops-brand/brand-modifier-sync/execute/{jobId}",
+      "tags": [
+        "调味下发"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 506,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menus/{id}/subMenu/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-menus/{id}/subMenu/list",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 507,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menus/hasItems/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menus/hasItems/{id}",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 508,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menus/exists",
+      "method": "GET",
+      "path": "/ops-brand/brand-menus/exists",
+      "tags": [
+        "品牌菜单管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 509,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-time-periods/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-time-periods/{id}",
+      "tags": [
+        "品牌菜单时间配置管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 510,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-time-periods/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-time-periods/list",
+      "tags": [
+        "品牌菜单时间配置管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 511,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sync-task/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sync-task/{id}",
+      "tags": [
+        "菜单下发任务"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 512,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sync-job/{id}/status",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sync-job/{id}/status",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 513,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sync-job/{id}/diff",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sync-job/{id}/diff",
+      "tags": [
+        "菜单下发作业"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 514,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sync-diff/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sync-diff/{id}",
+      "tags": [
+        "菜单下发差异明细"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 515,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sub-menus/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sub-menus/list",
+      "tags": [
+        "菜单菜单页关联管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 516,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-sku-prices/menus/{menuId}/items/batch",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-sku-prices/menus/{menuId}/items/batch",
+      "tags": [
+        "菜单SKU价格管理"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 517,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block/tree",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block/tree",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 518,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block/search",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 519,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block/hasItems/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block/hasItems/{id}",
+      "tags": [
+        "品牌菜单区块"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 520,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block-design/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block-design/search",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 521,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block-design/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block-design/list",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 522,
+      "operationKey": "brand-menu:GET /ops-brand/brand-menu-block-design/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-menu-block-design/all",
+      "tags": [
+        "品牌菜单区块装修"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 523,
+      "operationKey": "brand-menu:GET /ops-poi/brand-items/{id}",
+      "method": "GET",
+      "path": "/ops-poi/brand-items/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 524,
+      "operationKey": "brand-menu:GET /ops-brand/brand-items/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-items/{id}",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 525,
+      "operationKey": "brand-menu:GET /ops-brand/brand-items/list/no-category",
+      "method": "GET",
+      "path": "/ops-brand/brand-items/list/no-category",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 526,
+      "operationKey": "brand-menu:GET /ops-poi/brand-items/list/no-category",
+      "method": "GET",
+      "path": "/ops-poi/brand-items/list/no-category",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 527,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-tags/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-tags/list",
+      "tags": [
+        "品牌商品标签关联"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 528,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-tag-groups/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-tag-groups/list",
+      "tags": [
+        "品牌商品标签组关联"
+      ],
+      "shardId": "group-09",
+      "file": "group-09.spec.ts"
+    },
+    {
+      "executionOrder": 529,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-specs/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-specs/list",
+      "tags": [
+        "品牌商品规格关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 530,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-spec-options/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-spec-options/list",
+      "tags": [
+        "品牌商品规格选项关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 531,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-modifiers/query",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-modifiers/query",
+      "tags": [
+        "品牌商品定制项关联管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 532,
+      "operationKey": "brand-menu:GET /ops-brand/brand-item-modifier-options/query",
+      "method": "GET",
+      "path": "/ops-brand/brand-item-modifier-options/query",
+      "tags": [
+        "品牌商品定制项选项关联"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 533,
+      "operationKey": "brand-menu:GET /ops-poi/brand-categories/treeList",
+      "method": "GET",
+      "path": "/ops-poi/brand-categories/treeList",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 534,
+      "operationKey": "brand-menu:GET /ops-brand/brand-categories/treeList",
+      "method": "GET",
+      "path": "/ops-brand/brand-categories/treeList",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 535,
+      "operationKey": "brand-menu:GET /ops-brand/brand-categories/test-stackoverflow",
+      "method": "GET",
+      "path": "/ops-brand/brand-categories/test-stackoverflow",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 536,
+      "operationKey": "brand-menu:GET /ops-poi/brand-categories/test-stackoverflow",
+      "method": "GET",
+      "path": "/ops-poi/brand-categories/test-stackoverflow",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 537,
+      "operationKey": "brand-menu:GET /ops-poi/brand-categories/search",
+      "method": "GET",
+      "path": "/ops-poi/brand-categories/search",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 538,
+      "operationKey": "brand-menu:GET /ops-brand/brand-categories/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-categories/search",
+      "tags": [
+        "品牌分类管理"
+      ],
+      "shardId": "group-15",
+      "file": "group-15.spec.ts"
+    },
+    {
+      "executionOrder": 539,
+      "operationKey": "brand-menu:GET /ops-brand/brand-bom-sync/execute/{jobId}",
+      "method": "GET",
+      "path": "/ops-brand/brand-bom-sync/execute/{jobId}",
+      "tags": [
+        "bom下发"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 540,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item/search",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 541,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item/list",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 542,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item-rule/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item-rule/search",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 543,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item-rule/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item-rule/list",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 544,
+      "operationKey": "brand-menu:GET /ops-brand/brand-block-item-rule/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-block-item-rule/all",
+      "tags": [
+        "区块商品规则"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 545,
+      "operationKey": "brand-menu:GET /ops-brand/brand-attr-group/init/{brandId}",
+      "method": "GET",
+      "path": "/ops-brand/brand-attr-group/init/{brandId}",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 546,
+      "operationKey": "brand-menu:GET /ops-brand/brand-attr-group/all-attr/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-attr-group/all-attr/list",
+      "tags": [
+        "品牌属性集"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 547,
+      "operationKey": "brand-menu:GET /ops-brand/brand-allergens/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-allergens/search",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 548,
+      "operationKey": "brand-menu:GET /ops-brand/brand-allergens/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-allergens/list",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 549,
+      "operationKey": "brand-menu:GET /ops-brand/brand-allergens/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-allergens/all",
+      "tags": [
+        "品牌过敏原管理"
+      ],
+      "shardId": "group-12",
+      "file": "group-12.spec.ts"
+    },
+    {
+      "executionOrder": 550,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/search",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 551,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/list",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 552,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/hasItems/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/hasItems/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 553,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/copy/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/copy/{id}",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 554,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group/all",
+      "tags": [
+        "品牌加料分组"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 555,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group-item/search",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group-item/search",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 556,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group-item/list",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group-item/list",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 557,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group-item/hasItems/{id}",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group-item/hasItems/{id}",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 558,
+      "operationKey": "brand-menu:GET /ops-brand/brand-addon-group-item/all",
+      "method": "GET",
+      "path": "/ops-brand/brand-addon-group-item/all",
+      "tags": [
+        "品牌加料组明细"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 559,
+      "operationKey": "brand-menu:GET /ops-brand/bom/{id}",
+      "method": "GET",
+      "path": "/ops-brand/bom/{id}",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 560,
+      "operationKey": "brand-menu:DELETE /ops-brand/bom/{id}",
+      "method": "DELETE",
+      "path": "/ops-brand/bom/{id}",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 561,
+      "operationKey": "brand-menu:GET /ops-brand/bom/task/{id}",
+      "method": "GET",
+      "path": "/ops-brand/bom/task/{id}",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 562,
+      "operationKey": "brand-menu:GET /ops-brand/bom/item/{itemId}/grouped",
+      "method": "GET",
+      "path": "/ops-brand/bom/item/{itemId}/grouped",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 563,
+      "operationKey": "brand-menu:GET /ops-brand/bom/groups",
+      "method": "GET",
+      "path": "/ops-brand/bom/groups",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 564,
+      "operationKey": "brand-menu:GET /ops-brand/bom/fixed-ingredient-ids",
+      "method": "GET",
+      "path": "/ops-brand/bom/fixed-ingredient-ids",
+      "tags": [
+        "品牌BOM管理"
+      ],
+      "shardId": "group-06",
+      "file": "group-06.spec.ts"
+    },
+    {
+      "executionOrder": 565,
+      "operationKey": "brand-menu:GET /ops-brand/bom/download/export/task/{id}",
+      "method": "GET",
+      "path": "/ops-brand/bom/download/export/task/{id}",
+      "tags": [
+        "bom导入"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 566,
+      "operationKey": "brand-menu:GET /internal/pos/pull/menu/{menuId}",
+      "method": "GET",
+      "path": "/internal/pos/pull/menu/{menuId}",
+      "tags": [
+        "POI菜单数据同步"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    },
+    {
+      "executionOrder": 567,
+      "operationKey": "brand-menu:GET /internal/pos/pull/i18n",
+      "method": "GET",
+      "path": "/internal/pos/pull/i18n",
+      "tags": [
+        "POI多语言数据同步"
+      ],
+      "shardId": "group-03",
+      "file": "group-03.spec.ts"
+    },
+    {
+      "executionOrder": 568,
+      "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+      "method": "GET",
+      "path": "/internal/pos/pull/global-modifier",
+      "tags": [
+        "POI-调味数据同步"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 569,
+      "operationKey": "brand-menu:GET /internal/pos/pull/bom/{itemId}",
+      "method": "GET",
+      "path": "/internal/pos/pull/bom/{itemId}",
+      "tags": [
+        "POI-bom数据同步"
+      ],
+      "shardId": "group-16",
+      "file": "group-16.spec.ts"
+    },
+    {
+      "executionOrder": 570,
+      "operationKey": "brand-menu:GET /health",
+      "method": "GET",
+      "path": "/health",
+      "tags": [
+        "健康检查"
+      ],
+      "shardId": "group-17",
+      "file": "group-17.spec.ts"
+    },
+    {
+      "executionOrder": 571,
+      "operationKey": "brand-menu:GET /error-codes",
+      "method": "GET",
+      "path": "/error-codes",
+      "tags": [
+        "输出错误码，调试使用"
+      ],
+      "shardId": "group-17",
+      "file": "group-17.spec.ts"
+    },
+    {
+      "executionOrder": 572,
+      "operationKey": "brand-menu:DELETE /ops-poi/global-modifier/option/{optionId}",
+      "method": "DELETE",
+      "path": "/ops-poi/global-modifier/option/{optionId}",
+      "tags": [
+        "门店全局调味"
+      ],
+      "shardId": "group-05",
+      "file": "group-05.spec.ts"
+    },
+    {
+      "executionOrder": 573,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-items/delete",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-items/delete",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 574,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-items/delete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-items/delete",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 575,
+      "operationKey": "brand-menu:DELETE /ops-poi/brand-items/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-poi/brand-items/batchDelete",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 576,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-items/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-items/batchDelete",
+      "tags": [
+        "品牌商品"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 577,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-item-specs/spec/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-item-specs/spec/batchDelete",
+      "tags": [
+        "品牌商品规格关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 578,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-item-spec-options/spec-option/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-item-spec-options/spec-option/batchDelete",
+      "tags": [
+        "品牌商品规格选项关联"
+      ],
+      "shardId": "group-10",
+      "file": "group-10.spec.ts"
+    },
+    {
+      "executionOrder": 579,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-item-modifiers/modifier/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-item-modifiers/modifier/batchDelete",
+      "tags": [
+        "品牌商品定制项关联管理"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 580,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-item-modifier-options/modifier-option/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-item-modifier-options/modifier-option/batchDelete",
+      "tags": [
+        "品牌商品定制项选项关联"
+      ],
+      "shardId": "group-07",
+      "file": "group-07.spec.ts"
+    },
+    {
+      "executionOrder": 581,
+      "operationKey": "brand-menu:DELETE /ops-brand/brand-block-item/batchDelete",
+      "method": "DELETE",
+      "path": "/ops-brand/brand-block-item/batchDelete",
+      "tags": [
+        "品牌区块商品"
+      ],
+      "shardId": "group-08",
+      "file": "group-08.spec.ts"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-002",
+    "TC-FLV-REC-005"
+  ],
+  "rootCause": "下发记录页的重置按钮真实 DOM 合同为 button[type=reset]，旧运行使用精确可访问名称定位，在当前 Ant Design 渲染中名称为 redo 重置，导致定位器超时；随后 OAuth 已成功且目标 SPA shell 与当前商户均可见，但该次导航未捕获品牌请求头，认证流程误判为必须重新打开商户选择弹窗。",
+  "correctiveAction": "页面对象统一使用已审计的 button[type=reset]；认证流程以已登录 shell 与精确当前商户可见作为无请求样本时的受控上下文信号，并继续在目标路由等待品牌请求完成最终身份校验；将 seasoning-boundary.page.ts、auth.flow.ts、auth-login.page.ts 纳入适配器依赖指纹后重新执行两条只读正式用例。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/page-contract-live-audit.json",
+    "systems/merchant-center-product-center-seasoning/route-contract-discovery.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "flows/auth.flow.ts",
+    "pages/auth-login.page.ts"
+  ],
+  "supersedesAttemptIds": [
+    "9ea7d0171bbeb7b7",
+    "d3b02bdc7d6d7be3",
+    "49a8a49c8461db8b",
+    "3f52be5100cad330",
+    "2811e0d961c48931",
+    "70a997118e1e1a94",
+    "19fbb64c97683b2a",
+    "4fe23ab335ba0cd3",
+    "c72ca87cefb4732f",
+    "9858582f82092ac5"
+  ]
+}

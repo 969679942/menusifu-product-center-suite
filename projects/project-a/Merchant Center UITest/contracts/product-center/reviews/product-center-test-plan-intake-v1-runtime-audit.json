@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "2.0.0",
+  "collectionId": "product-center-test-plan-intake-v1-runtime-audit",
+  "planId": "product-center-test-plan-intake-v1",
+  "generatedAt": "2026-08-16T14:00:00.000Z",
+  "planFingerprint": "30042d9399f62f494cb085ca09b1aec6c2f27b8f3c19b0ab7f2caca4d5ab7bca",
+  "context": {
+    "applicationVersionFingerprint": "317dc130230691cdd037309c63bada884a02341e723bbfc596de1cd841e465ef",
+    "environmentId": "balamxqa",
+    "roleId": "product-admin",
+    "locale": "zh-CN",
+    "maxEvidenceAgeDays": 30
+  },
+  "evidenceDiscovery": {
+    "rootPaths": ["contracts/product-center/reviews/runtime-audit-evidence/test-plan-intake-v1"],
+    "extensions": [".json", ".md", ".png", ".jpg", ".mp4"],
+    "strict": true
+  },
+  "autoApprovalPolicy": {
+    "policyId": "runtime-evidence-safe-v1",
+    "enabled": true,
+    "minimumConsumedEvidence": 1,
+    "allowedActions": ["no-change", "correct-case", "add-case", "delete-case", "split-case", "merge-cases"],
+    "allowBusinessRuleChanges": true,
+    "allowTechnicalBindingChanges": true,
+    "allowCoverageChanges": true,
+    "requireMutationSafety": true
+  },
+  "evidenceInventory": [],
+  "coverageInventory": [],
+  "corrections": []
+}

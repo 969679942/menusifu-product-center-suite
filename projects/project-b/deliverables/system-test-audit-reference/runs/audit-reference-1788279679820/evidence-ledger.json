@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "system-test-evidence-ledger",
+  "systemId": "system-test-audit-reference",
+  "runId": "audit-reference-1788279679820",
+  "generatedAt": "2026-09-01T16:21:19.848Z",
+  "auditCompleteness": {
+    "schemaVersion": "1.1.0",
+    "summary": {
+      "planned": 2,
+      "auditEligible": 1,
+      "classifiedExclusions": 1,
+      "auditComplete": 1,
+      "auditIncomplete": 0,
+      "byMissingCode": {},
+      "invariantSatisfied": true
+    },
+    "cases": [
+      {
+        "caseId": "REF-AUDIT-MUTATION-001",
+        "status": "complete",
+        "requirements": {
+          "schemaVersion": "1.1.0",
+          "operationExpected": true,
+          "mutationExpected": true,
+          "structuredDiffExpected": true,
+          "cleanupExpected": true,
+          "requiredOperationKeys": [
+            "reference-object:update"
+          ],
+          "requiredEvidenceChannels": [
+            "api",
+            "cleanup"
+          ]
+        },
+        "missing": []
+      },
+      {
+        "caseId": "REF-AUDIT-READ-001",
+        "status": "excluded",
+        "requirements": {
+          "schemaVersion": "1.1.0",
+          "operationExpected": false,
+          "mutationExpected": false,
+          "structuredDiffExpected": false,
+          "cleanupExpected": false,
+          "requiredOperationKeys": [],
+          "requiredEvidenceChannels": []
+        },
+        "missing": []
+      }
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "REF-AUDIT-MUTATION-001",
+      "runtimeEvidence": {
+        "caseId": "REF-AUDIT-MUTATION-001",
+        "assertionReceipts": [],
+        "operationReceipts": [
+          {
+            "operationKey": "reference-object:update",
+            "title": "更新系统无关参考对象",
+            "sequence": 1,
+            "method": "PATCH",
+            "observed": true,
+            "status": "passed",
+            "durationMs": 14,
+            "startedAt": "2026-09-01T16:21:19.826Z",
+            "finishedAt": "2026-09-01T16:21:19.840Z",
+            "occurredAt": "2026-09-01T16:21:19.840Z",
+            "responseStatus": 200,
+            "attempt": 1,
+            "beforeFingerprint": "ad89230de0647298d9e7ffb68835c63f2fea6e3ed4cc66f6083abbe6cf74b760",
+            "afterFingerprint": "105b4cc7634086a6ac9b3a0450cf31999d410fc221f69679ab3c0bd295ac48d8",
+            "changedFields": [
+              "nested.enabled",
+              "status"
+            ],
+            "dataChanged": true,
+            "details": {
+              "fixture": true,
+              "externalSystemAccessed": false
+            }
+          }
+        ],
+        "mutationObserved": true,
+        "cleanup": {
+          "apiIdentityCounts": {
+            "reference-object:reference-1": 0
+          },
+          "uiIdentityCounts": {
+            "reference-object:reference-1": 0
+          },
+          "objects": [
+            {
+              "entityType": "reference-object",
+              "serverId": "reference-1",
+              "businessIdentity": "REF-AUDIT-OBJECT-001",
+              "cleanupOperationKey": "reference-object:delete",
+              "cleanupAttempt": 1,
+              "apiResidueCount": 0,
+              "uiResidueCount": 0,
+              "outcome": "verified-zero",
+              "evidenceRefs": [
+                "self-controlled-reference-memory-store"
+              ]
+            }
+          ]
+        }
+      },
+      "auditCompleteness": {
+        "caseId": "REF-AUDIT-MUTATION-001",
+        "status": "complete",
+        "requirements": {
+          "schemaVersion": "1.1.0",
+          "operationExpected": true,
+          "mutationExpected": true,
+          "structuredDiffExpected": true,
+          "cleanupExpected": true,
+          "requiredOperationKeys": [
+            "reference-object:update"
+          ],
+          "requiredEvidenceChannels": [
+            "api",
+            "cleanup"
+          ]
+        },
+        "missing": []
+      }
+    }
+  ]
+}

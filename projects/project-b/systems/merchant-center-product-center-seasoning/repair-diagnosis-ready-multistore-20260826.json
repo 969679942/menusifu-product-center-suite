@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-043",
+    "TC-FLV-TPL-006",
+    "TC-FLV-TPL-011",
+    "TC-FLV-TPL-012",
+    "TC-FLV-TPL-014",
+    "TC-FLV-TPL-015",
+    "TC-FLV-TPL-016",
+    "TC-FLV-TPL-018",
+    "TC-FLV-TPL-020",
+    "TC-FLV-TPL-021",
+    "TC-FLV-TPL-025"
+  ],
+  "rootCause": "单门店 ready 批次已完成当前合同收据，多门店用例必须在已核验的 23918 / Brand 000420 / POI M000023918 上下文中独立执行，避免跨门店身份和修复周期混用。",
+  "correctiveAction": "按多门店上下文分批执行 11 条 ready 用例，保留门店调味 UI 断言、品牌 API 持久化证据和最终零残留；POS/终端明确延期用例不进入本批次。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/execution-selection.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "types": [
+      "node",
+      "@playwright/test"
+    ],
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "playwright.config.ts",
+    "tests/**/*.ts",
+    "pages/**/*.ts",
+    "flows/**/*.ts",
+    "fixtures/**/*.ts",
+    "test-data/**/*.ts",
+    "utils/**/*.ts",
+    "api/**/*.ts",
+    "sop/**/*.ts",
+    "systems/**/*.ts"
+    ,"adapters/test-automation-platform/product-center-current-status.ts"
+    ,"scripts/resolve-product-center-current-status.ts"
+    ,"scripts/audit-product-center-landed-script-compliance.ts"
+  ]
+}

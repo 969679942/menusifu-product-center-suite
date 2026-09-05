@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078",
+    "TC-ITEM-PKG-079"
+  ],
+  "rootCause": "上一轮 078/079 的失败收据未区分自动化表单传值与产品行为：编辑页名称控件可能命中隐藏副本，且保存证据未核对输入值与 PUT 请求体名称，导致旧值被提交并形成错误的产品偏差结论。",
+  "correctiveAction": "名称字段改为可见控件，输入后执行 blur、稳定等待和回读校验；078/079 保存时记录并核对输入框名称、PUT itemBasic.name、响应错误码、服务端名称及列表结果。仅当请求体确认携带目标名称后，才允许将不符合规则的服务端结果分类为产品行为。",
+  "evidenceRefs": [
+    "Merchant Center UITest/pages/product-management/item/item-create-form-locators.ts",
+    "Merchant Center UITest/pages/product-management/item/item-create-form.page.ts",
+    "Merchant Center UITest/flows/product-center/item-216/package-item-216.flow.ts",
+    "Merchant Center UITest/tests/api/product-center-current-failure-remediation.contract.spec.ts",
+    "Merchant Center UITest/output/product-center-item-source-governed-20260903T025025Z.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "91f82bcdb0dfe4f5",
+    "30111f115ed698e3",
+    "5230943a03a402b6",
+    "ca1585aa03df0fc6",
+    "40fec75581ca5f33"
+  ]
+}

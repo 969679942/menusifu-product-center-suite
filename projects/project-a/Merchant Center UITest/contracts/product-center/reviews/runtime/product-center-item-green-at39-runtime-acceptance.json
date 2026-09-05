@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-at39-runtime-acceptance",
+  "generatedAt": "2026-08-03T14:50:00.000Z",
+  "status": "accepted",
+  "runId": "AUTO_AUDIT_GREEN_AT39_20260803_01",
+  "batchId": "GREEN-AT39",
+  "source": {
+    "reportPath": "output/audit/product-center-item-green-at39-runtime-AUTO_AUDIT_GREEN_AT39_20260803_01.json",
+    "reportSha256": "70ebe9c379394bc14547a0a8135d1e90109a9d6bad17088baa75e30b5126112c"
+  },
+  "summary": {
+    "total": 1,
+    "accepted": 1,
+    "canonicalConflicts": 0,
+    "executorErrors": 0,
+    "generationPromotable": 1,
+    "canonicalRepairRequired": 0,
+    "humanReviewRequired": 0,
+    "mutationIntents": 1,
+    "ledgerResidueVerified": 5
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-PKG-016"
+  ],
+  "acceptedEvidence": [
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "evidence": {
+        "identity": "AUTO_AUDIT_ITEM_1785768266469101",
+        "comboGroupName": "AUTO_AUDIT_COMBO_1785768266469101",
+        "valueBeforeSave": "2",
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 200
+        },
+        "successMessageCount": 1,
+        "locatorCount": 1,
+        "listPrice": 10,
+        "reopenedMinimumOrderQuantity": "2",
+        "expectedSatisfied": true
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiAndApiResidueVerificationRequired": true,
+    "humanCaseReviewRequired": false
+  },
+  "fingerprint": "1162c45b4f963a35c90434f6ba6605f12de1e1979ecd2104a1cfba14fd76ce2a"
+}

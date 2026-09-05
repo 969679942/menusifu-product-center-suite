@@ -1,0 +1,40 @@
+[
+  {
+    "id": "field-boundary-drift:3346748f34ca",
+    "status": "unresolved",
+    "sourceType": "ui-runtime",
+    "confidence": 0.9,
+    "generationAllowed": false,
+    "route": "/pp/brand/tag/statistic",
+    "fieldId": "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-37",
+    "issue": "实时 UI 中无法通过历史 placeholder/表单文本唯一定位标签组第二语言字段；保留 OpenAPI maxLength=128，但禁止生成 UI 边界断言。",
+    "source": [
+      {
+        "path": "D:/Menusifu/TestOps/artifacts/field-boundary-probe-1784713516510/field-boundary-probe.json"
+      },
+      {
+        "path": "D:/Menusifu/Merchant Center/contracts/api/openapi/brand-menu.openapi.json",
+        "locator": "CreateBrandTagGroupRequest.secondName"
+      }
+    ]
+  },
+  {
+    "id": "field-boundary-drift:a0757da39219",
+    "status": "unresolved",
+    "sourceType": "ui-runtime",
+    "confidence": 0.9,
+    "generationAllowed": false,
+    "route": "/pp/brand/tag/description",
+    "fieldId": "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-58",
+    "issue": "实时 UI 中无法通过历史 placeholder/表单文本唯一定位标签组第二语言字段；保留 OpenAPI maxLength=128，但禁止生成 UI 边界断言。",
+    "source": [
+      {
+        "path": "D:/Menusifu/TestOps/artifacts/field-boundary-probe-1784713516510/field-boundary-probe.json"
+      },
+      {
+        "path": "D:/Menusifu/Merchant Center/contracts/api/openapi/brand-menu.openapi.json",
+        "locator": "CreateBrandTagGroupRequest.secondName"
+      }
+    ]
+  }
+]

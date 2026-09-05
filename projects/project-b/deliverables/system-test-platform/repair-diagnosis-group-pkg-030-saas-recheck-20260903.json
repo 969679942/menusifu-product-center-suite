@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "TC-GRP-PKG-030 的历史确定性失败发生在旧的 SaaS 运行状态，当前用户已明确要求按现网重新复核。商品中心为无法取得源码版本标识的 SaaS 服务，因此不以代码版本作为重验条件；旧失败只能作为历史诊断输入，不能替代当前黑盒执行证据。",
+  "correctiveAction": "仅执行 TC-GRP-PKG-030，保持最少选择数量 3、最多选择数量 1、中文精确提示、禁止提交、API 零落库和 UI/API 零残留断言不变；使用当前用例指纹、自动化实现指纹及执行上下文生成完整标准收据，并按真实结果重新分类，不运行其他用例。",
+  "evidenceRefs": [
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md#TC-GRP-PKG-030",
+    "Merchant Center UITest/contracts/product-center/group/product-center-group-automation-contract.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json",
+    "Merchant Center UITest/deliverables/system-test-platform/product-center-group-pkg-030-blackbox-recheck-impact-20260903.json"
+  ],
+  "supersedesAttemptIds": [
+    "dc745ce35ac750ea",
+    "715cd584773aacfd",
+    "c308700d91fddfb8",
+    "0c1a8469e50a1ef9",
+    "9cfff5052b1d83db",
+    "6dbbfae0b81a39d0"
+  ]
+}

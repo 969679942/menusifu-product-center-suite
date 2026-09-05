@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-015",
+    "TC-FLV-SEA-016",
+    "TC-FLV-SEA-046"
+  ],
+  "rootCause": "修复账本在认证、预检和测试收集失败时提前登记整批用例，导致未进入业务断言的尝试消耗有效修复轮次；同时失败后续用例被批次熔断，造成未执行用例被误记为失败。",
+  "correctiveAction": "公共运行器将平台中断标记为 interrupted，诊断可显式作废误计费尝试；公共熔断只拦截执行健康故障，业务失败继续执行剩余用例；新增可逆负向探针和异常写入清理证据门禁。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1787418382616-run/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/repair-attempt-ledger.json",
+    "D:/Menusifu/Test Automation Platform/tests/api/system-test-platform.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "aba26fd3b296f927",
+    "b2700e58dae7ca26",
+    "36c0052ccf251206",
+    "41f1ad60b908081d",
+    "c7d174056a428374",
+    "f8041a2dd41c6b31",
+    "6223534772a20d37",
+    "b6acbe2f2fd6394e",
+    "fdb11ab7e4d817ad"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "inventoryId": "product-center-group-current-field-inventory",
+  "verifiedAt": "2026-08-19T00:00:00.000+08:00",
+  "absentFields": [
+    {
+      "fieldId": "addon.default-additional-purchase-quantity",
+      "module": "商品管理 → 加料组",
+      "labels": ["默认可加购数量", "可加购数量"],
+      "reason": "当前加料商品行仅有最小数量和最大数量，不存在历史字段。",
+      "evidencePaths": [
+        "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/人工确认证据/20260819/13-ADD-008-零数量有商品可保存.png"
+      ]
+    },
+    {
+      "fieldId": "combo.optional.aggregate-default-selected-count",
+      "module": "商品管理 → 套餐组",
+      "labels": ["默认选中数", "默认选中数量"],
+      "reason": "可选搭配仅提供逐商品默认选中开关，不存在独立默认选中数量字段。",
+      "evidencePaths": [
+        "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/人工确认证据/20260819/21-PKG-009-新增套餐商品.png"
+      ]
+    },
+    {
+      "fieldId": "combo.pick-mix.default-quantity",
+      "module": "商品管理 → 套餐组",
+      "labels": ["子项默认数量", "商品默认数量", "默认数量", "默认数量合计", "默认数量字段", "Default Qty"],
+      "reason": "随心配商品行仅有原价、价格来源、自定义价格和默认选中，不存在默认数量字段。",
+      "evidencePaths": [
+        "Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/人工确认证据/20260819/24-PKG-044-随心配价格来源.png"
+      ]
+    }
+  ]
+}

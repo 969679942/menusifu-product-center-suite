@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "merchant-center-seasoning-repair-queue",
+  "generatedAt": "2026-08-24T08:54:27.435Z",
+  "systemId": "merchant-center-product-center-seasoning",
+  "currentRunId": "system-test-1787545983267",
+  "summary": {
+    "productDefect": 0,
+    "automationGap": 0,
+    "blockedSource": 42,
+    "blockedTechnical": 34,
+    "deferred": 15
+  },
+  "items": [
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "classification": "handled",
+      "handlingStatus": "handled",
+      "verificationStatus": "current-standard-receipt-complete",
+      "actionRequired": false,
+      "expected": "新增非法/负数/留空价格纠正为0；编辑非法/负数恢复原价，确定按钮置灰且无PUT。",
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "evidence": "output/system-test/merchant-center-product-center-seasoning/system-test-1787561427151/evidence-ledger.json",
+      "recoveryCondition": "无需恢复条件；当前规则和实现已通过。"
+    },
+    {
+      "caseId": "TC-FLV-REC-005",
+      "classification": "handled",
+      "handlingStatus": "handled",
+      "verificationStatus": "current-standard-receipt-complete",
+      "actionRequired": false,
+      "observed": {
+        "before": "AUTO_AUDIT_NON_EXISTING_TASK",
+        "after": "",
+        "requestObserved": "POST /item/v1/ops-brand/brand-modifier-sync/job/list"
+      },
+      "expected": "点击重置后任务名称输入值清空，并恢复初始下发记录列表。",
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "mutationObserved": false
+      },
+      "evidence": "output/system-test/merchant-center-product-center-seasoning/system-test-1787549006592/evidence-ledger.json",
+      "recoveryCondition": "无需恢复条件；当前实现已通过。"
+    }
+  ],
+  "classifiedExclusions": {
+    "source": "systems/merchant-center-product-center-seasoning/classification-ledger.json",
+    "count": 91,
+    "actionRequired": true,
+    "note": "分类排除项不生成空绑定、不判 passed；逐 case 缺失能力和恢复条件以分类账本为准。"
+  }
+}

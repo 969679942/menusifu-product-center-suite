@@ -1,0 +1,1278 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-p0-technical-binding-batch",
+  "generatedAt": "2026-07-30T00:00:00.000Z",
+  "sourceFingerprints": {
+    "canonical": "0db29db2eecebb6c7e5b38b1c2f1ed44b23acead6b517de6953942cc8c69a0b4",
+    "fullReview": "5cfaafd5341e9019427ec4854e241c6478815a82548f8201b6c0dc925cfdcd69",
+    "technicalGap": "cc3ff33a4c59f03b5c3a90aa46b47666fbd97e4aa1ed9e447059a7b4e31afd36",
+    "runtimeAcceptances": {
+      "wave-a-combo": "3c99a16cb211cc84261bc195d0c35e9e5ac60a36f82d991bef74b4dfe3c4df7f",
+      "wave-b-list": "1b659ba46aed37914eb1a506945e23b4ecde0e160e414c099e870b70881b7e96",
+      "wave-c-standard-create": "1eb24f1ab0c3c25bb270067d0dc1a0222078aa07d0171c0e8cd440f614e0425a",
+      "wave-d-edit-and-rules": "5825f69bb1cc95d7233f22bd145fdd40ac38095da7f307ad4be7b98d356feb45"
+    },
+    "waveRecipeCollections": {
+      "wave-a-combo": "38366db66673264cdfbbda37c82d1ac8ce76372d05e26d59ff4be0e7b74c67d7",
+      "wave-b-list": "4b4560df383732e680ccf01fa16f92d3c2714cca5c84188f47f7f32d71e52338",
+      "wave-c-standard-create": "f83f0c9a5300688ac9d3d0211552dd1ea1ce092948ab875af025f20b37fd03bb",
+      "wave-d-edit-and-rules": "fbc856f3ae704145379842037880660651b6df7256c0229366ca1694c1619abe"
+    }
+  },
+  "status": "runtime-accepted",
+  "summary": {
+    "total": 36,
+    "uniqueCases": 36,
+    "contentApproved": 36,
+    "technicalEvidenceRequired": 0,
+    "recipeRepairRequired": 0,
+    "workPackages": 17,
+    "readyForRecipeGeneration": 36,
+    "generatedRecipes": 36,
+    "runtimeSelected": 36,
+    "evidenceIntakeReceived": 5,
+    "implementationCovered": 1,
+    "evidencePartial": 3,
+    "evidenceNotCovered": 1,
+    "authenticatedAccepted": 36
+  },
+  "batchGate": {
+    "totalDenominatorLocked": true,
+    "caseLevelReleaseAllowed": false,
+    "waveLevelReleaseAllowed": true,
+    "generationAllowed": true,
+    "executionAllowed": true,
+    "releasedWaveIds": [
+      "wave-a-combo",
+      "wave-b-list",
+      "wave-c-standard-create",
+      "wave-d-edit-and-rules"
+    ],
+    "reasonCode": "ALL_WAVES_RUNTIME_ACCEPTED"
+  },
+  "recipeCollection": {
+    "collectionId": "product-center-item-p0-technical-binding-batch-recipes",
+    "generatedRecipeCount": 36,
+    "executionMode": "wave-shared-chain",
+    "caseLevelExecutionAllowed": false,
+    "orchestratorSpecPaths": [
+      "tests/generated/product-center-item-p0-wave-a.generated.spec.ts",
+      "tests/generated/product-center-item-p0-wave-b.generated.spec.ts",
+      "tests/generated/product-center-item-p0-wave-c.generated.spec.ts",
+      "tests/generated/product-center-item-p0-wave-d.generated.spec.ts"
+    ],
+    "executionAllowed": true
+  },
+  "entries": [
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "title": "加料商品仅填写必填项时创建成功",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "必填校验",
+      "workPackageId": "p0-item-binding:item-create-type-selection",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.create.type-selection"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "title": "标准价缺失时创建失败",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "必填校验",
+      "workPackageId": "p0-item-binding:item-standard-required-fields",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 13,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.standard.required-fields"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "title": "套餐商品必填项缺失时创建失败",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "必填校验",
+      "workPackageId": "p0-item-binding:item-combo-required-fields",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.required-fields"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "title": "套餐商品标准价缺失时创建失败",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "必填校验",
+      "workPackageId": "p0-item-binding:item-combo-required-fields",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 13,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.required-fields"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "title": "同一一级分类下新建同名商品创建失败",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:legacy-sidebar-only",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "legacy-binding",
+        "recipeIds": [],
+        "bindingIds": [
+          "TC-ITEM-STD-011"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "title": "同一二级分类下新建同名商品创建失败",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:legacy-sidebar-only",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 10,
+      "existingEvidence": {
+        "kind": "legacy-binding",
+        "recipeIds": [],
+        "bindingIds": [
+          "TC-ITEM-STD-013"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "title": "同一商户下不同一级分类仍不可创建同名商品",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:legacy-sidebar-only",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "legacy-binding",
+        "recipeIds": [],
+        "bindingIds": [
+          "TC-ITEM-STD-014"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "title": "多规格商品选择已有规格组后创建成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "workPackageId": "p0-item-binding:item-standard-spec-modes",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 13,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.standard.spec-modes"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "title": "套餐商品可选择已有固定搭配套餐组",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-fixed-group",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.fixed-group"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "title": "套餐商品可选择已有组合搭配套餐组",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-optional-select",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.optional-select"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "title": "套餐商品可新增可选搭配套餐组",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-optional-add",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 13,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.optional-add"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "title": "未选择套餐组时确认按钮不可点击",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 5,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.fixed-group",
+          "item.combo.optional-select"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "title": "选择套餐组后确认按钮可点击并返回创建页",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 7,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.fixed-group",
+          "item.combo.optional-select"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "title": "套餐商品重置查询后页面恢复初始状态",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-reset",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.reset"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "title": "被套餐组引用的标准商品不可删除",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "删除",
+      "workPackageId": "p0-item-binding:item-list-delete",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 7,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.delete"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "title": "套餐商品创建页展示基础信息与套餐组配置入口",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "展示与其他",
+      "workPackageId": "p0-item-binding:item-create-type-selection",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 7,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.create.type-selection"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "title": "商品列表支持按名称、类型、分类、状态组合查询",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-search-filter",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.search-filter"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "title": "重置查询后页面恢复初始状态",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-reset",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 12,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.reset"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-023",
+      "title": "加料商品列表按名称类型分类状态组合查询成功",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-search-filter",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 11,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.search-filter"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-040",
+      "title": "加料商品重置查询后页面恢复初始状态",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-reset",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.reset"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "title": "标准商品编辑基础信息后保存成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "编辑",
+      "workPackageId": "p0-item-binding:item-edit-standard",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 14,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.edit.standard"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "title": "点击商品名称进入编辑标准商品页加载成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "编辑",
+      "workPackageId": "p0-item-binding:item-edit-standard",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.edit.standard"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "title": "编辑标准商品本地上传主图成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "编辑",
+      "workPackageId": "p0-item-binding:item-edit-standard",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 15,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.edit.standard"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "title": "列表停用未被菜单引用的商品操作成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-lifecycle",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.lifecycle"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-042",
+      "title": "加料商品列表启用商品操作成功",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-lifecycle",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.lifecycle"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-043",
+      "title": "加料商品列表停用商品操作成功",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "状态生命周期",
+      "workPackageId": "p0-item-binding:item-list-lifecycle",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 8,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.lifecycle"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "title": "无引用关系的标准商品删除成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "删除",
+      "workPackageId": "p0-item-binding:item-list-delete",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 10,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.delete"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-070",
+      "title": "被菜单引用的标准商品不可删除",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "删除",
+      "workPackageId": "p0-item-binding:item-list-delete",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 7,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.delete"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "title": "商品列表删除操作展示确认文案",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "删除",
+      "workPackageId": "p0-item-binding:item-list-delete",
+      "waveId": "wave-b-list",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.list.delete"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "title": "标准商品绑定多个打印档口保存成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:item-standard-print-stall",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.standard.print-stall"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "title": "标准商品引用口味组整组后保存成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:item-standard-attributes",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 8,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.standard.attributes"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "title": "标准商品引用做法组与加料组整组后保存成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "workPackageId": "p0-item-binding:item-standard-attributes",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 8,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.standard.attributes"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "title": "标准商品创建页展示商品类型入口与核心配置模块",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "workPackageId": "p0-item-binding:item-create-type-selection",
+      "waveId": "wave-c-standard-create",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 13,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.create.type-selection"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "workPackageId": "p0-item-binding:recipe-drift-repair",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 9,
+      "existingEvidence": {
+        "kind": "direct-recipe",
+        "recipeIds": [
+          "product-center:item-category-leaf:TC-ITEM-STD-007"
+        ],
+        "bindingIds": [
+          "TC-ITEM-STD-007"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一一级分类不同二级分类的标准商品同名提示 BITEM-7010",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "workPackageId": "p0-item-binding:legacy-sidebar-only",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 7,
+      "existingEvidence": {
+        "kind": "legacy-binding",
+        "recipeIds": [],
+        "bindingIds": [
+          "TC-ITEM-STD-012"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "title": "套餐商品选择并引用已有固定搭配组",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "workPackageId": "p0-item-binding:item-combo-fixed-group",
+      "waveId": "wave-a-combo",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 8,
+      "existingEvidence": {
+        "kind": "page-observation",
+        "recipeIds": [],
+        "bindingIds": [],
+        "pageCapabilityIds": [
+          "item.combo.fixed-group"
+        ]
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    }
+  ],
+  "workPackages": [
+    {
+      "id": "p0-item-binding:item-combo-fixed-group",
+      "waveId": "wave-a-combo",
+      "evidenceAnchor": "item.combo.fixed-group",
+      "caseIds": [
+        "TC-ITEM-PKG-002",
+        "TC-ITEM-PKG-006"
+      ],
+      "caseCount": 2,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true,
+      "evidenceIntake": {
+        "packageId": "p0-item-binding:item-combo-fixed-group",
+        "caseIds": [
+          "TC-ITEM-PKG-002",
+          "TC-ITEM-PKG-006"
+        ],
+        "coverageStatus": "partial",
+        "liveEvidenceStatus": "pending-authenticated-run",
+        "unresolved": [
+          "Add Fixed Combo 字段、提交 operation 与终态仍需认证环境实测"
+        ]
+      }
+    },
+    {
+      "id": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+      "waveId": "wave-a-combo",
+      "evidenceAnchor": "item.combo.fixed-group+item.combo.optional-select",
+      "caseIds": [
+        "TC-ITEM-PKG-040",
+        "TC-ITEM-PKG-041"
+      ],
+      "caseCount": 2,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true,
+      "evidenceIntake": {
+        "packageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+        "caseIds": [
+          "TC-ITEM-PKG-040",
+          "TC-ITEM-PKG-041"
+        ],
+        "coverageStatus": "partial",
+        "liveEvidenceStatus": "pending-authenticated-run",
+        "unresolved": [
+          "TC-ITEM-PKG-040/041 的组合终态未取得实测证据"
+        ]
+      }
+    },
+    {
+      "id": "p0-item-binding:item-combo-optional-add",
+      "waveId": "wave-a-combo",
+      "evidenceAnchor": "item.combo.optional-add",
+      "caseIds": [
+        "TC-ITEM-PKG-007"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true,
+      "evidenceIntake": {
+        "packageId": "p0-item-binding:item-combo-optional-add",
+        "caseIds": [
+          "TC-ITEM-PKG-007"
+        ],
+        "coverageStatus": "covered",
+        "liveEvidenceStatus": "pending-authenticated-run",
+        "unresolved": []
+      }
+    },
+    {
+      "id": "p0-item-binding:item-combo-optional-select",
+      "waveId": "wave-a-combo",
+      "evidenceAnchor": "item.combo.optional-select",
+      "caseIds": [
+        "TC-ITEM-PKG-004"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true,
+      "evidenceIntake": {
+        "packageId": "p0-item-binding:item-combo-optional-select",
+        "caseIds": [
+          "TC-ITEM-PKG-004"
+        ],
+        "coverageStatus": "partial",
+        "liveEvidenceStatus": "pending-authenticated-run",
+        "unresolved": [
+          "选择后的保存请求及编辑页回显未实测"
+        ]
+      }
+    },
+    {
+      "id": "p0-item-binding:item-combo-required-fields",
+      "waveId": "wave-a-combo",
+      "evidenceAnchor": "item.combo.required-fields",
+      "caseIds": [
+        "TC-ITEM-PKG-010",
+        "TC-ITEM-PKG-017"
+      ],
+      "caseCount": 2,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true,
+      "evidenceIntake": {
+        "packageId": "p0-item-binding:item-combo-required-fields",
+        "caseIds": [
+          "TC-ITEM-PKG-010",
+          "TC-ITEM-PKG-017"
+        ],
+        "coverageStatus": "not-covered",
+        "liveEvidenceStatus": "not-observed",
+        "unresolved": [
+          "需在认证环境逐字段观察空提交、前端校验与后端响应"
+        ]
+      }
+    },
+    {
+      "id": "p0-item-binding:item-create-type-selection",
+      "waveId": "wave-c-standard-create",
+      "evidenceAnchor": "item.create.type-selection",
+      "caseIds": [
+        "TC-ITEM-ADD-005",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-STD-001"
+      ],
+      "caseCount": 3,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-edit-standard",
+      "waveId": "wave-d-edit-and-rules",
+      "evidenceAnchor": "item.edit.standard",
+      "caseIds": [
+        "TC-ITEM-STD-031",
+        "TC-ITEM-STD-092",
+        "TC-ITEM-STD-096"
+      ],
+      "caseCount": 3,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-list-delete",
+      "waveId": "wave-b-list",
+      "evidenceAnchor": "item.list.delete",
+      "caseIds": [
+        "TC-ITEM-STD-069",
+        "TC-ITEM-STD-068",
+        "TC-ITEM-STD-070",
+        "TC-ITEM-STD-075"
+      ],
+      "caseCount": 4,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-list-lifecycle",
+      "waveId": "wave-b-list",
+      "evidenceAnchor": "item.list.lifecycle",
+      "caseIds": [
+        "TC-ITEM-STD-066",
+        "TC-ITEM-ADD-042",
+        "TC-ITEM-ADD-043"
+      ],
+      "caseCount": 3,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-list-reset",
+      "waveId": "wave-b-list",
+      "evidenceAnchor": "item.list.reset",
+      "caseIds": [
+        "TC-ITEM-PKG-047",
+        "TC-ITEM-STD-029",
+        "TC-ITEM-ADD-040"
+      ],
+      "caseCount": 3,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-list-search-filter",
+      "waveId": "wave-b-list",
+      "evidenceAnchor": "item.list.search-filter",
+      "caseIds": [
+        "TC-ITEM-STD-028",
+        "TC-ITEM-ADD-023"
+      ],
+      "caseCount": 2,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-standard-attributes",
+      "waveId": "wave-c-standard-create",
+      "evidenceAnchor": "item.standard.attributes",
+      "caseIds": [
+        "TC-ITEM-STD-057",
+        "TC-ITEM-STD-058"
+      ],
+      "caseCount": 2,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-standard-print-stall",
+      "waveId": "wave-c-standard-create",
+      "evidenceAnchor": "item.standard.print-stall",
+      "caseIds": [
+        "TC-ITEM-STD-082"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-standard-required-fields",
+      "waveId": "wave-c-standard-create",
+      "evidenceAnchor": "item.standard.required-fields",
+      "caseIds": [
+        "TC-ITEM-STD-038"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:item-standard-spec-modes",
+      "waveId": "wave-c-standard-create",
+      "evidenceAnchor": "item.standard.spec-modes",
+      "caseIds": [
+        "TC-ITEM-STD-047"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:legacy-sidebar-only",
+      "waveId": "wave-d-edit-and-rules",
+      "evidenceAnchor": "legacy-sidebar-only",
+      "caseIds": [
+        "TC-ITEM-STD-011",
+        "TC-ITEM-STD-013",
+        "TC-ITEM-STD-014",
+        "TC-ITEM-STD-012"
+      ],
+      "caseCount": 4,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    },
+    {
+      "id": "p0-item-binding:recipe-drift-repair",
+      "waveId": "wave-d-edit-and-rules",
+      "evidenceAnchor": "legacy-sidebar-only",
+      "caseIds": [
+        "TC-ITEM-STD-007"
+      ],
+      "caseCount": 1,
+      "status": "runtime-accepted",
+      "safetyClassification": "L3-accepted-with-zero-residue",
+      "requiredEvidence": [],
+      "generationAllowed": true
+    }
+  ],
+  "waves": [
+    {
+      "id": "wave-a-combo",
+      "name": "套餐创建与套餐规则",
+      "caseIds": [
+        "TC-ITEM-PKG-002",
+        "TC-ITEM-PKG-006",
+        "TC-ITEM-PKG-040",
+        "TC-ITEM-PKG-041",
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-004",
+        "TC-ITEM-PKG-010",
+        "TC-ITEM-PKG-017"
+      ],
+      "caseCount": 8,
+      "workPackageIds": [
+        "p0-item-binding:item-combo-fixed-group",
+        "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+        "p0-item-binding:item-combo-optional-add",
+        "p0-item-binding:item-combo-optional-select",
+        "p0-item-binding:item-combo-required-fields"
+      ],
+      "workPackageCount": 5,
+      "status": "runtime-accepted",
+      "caseLevelReleaseAllowed": false,
+      "waveLevelReleaseAllowed": true,
+      "generatedRecipeCount": 8,
+      "executionAllowed": true
+    },
+    {
+      "id": "wave-b-list",
+      "name": "商品列表查询与生命周期",
+      "caseIds": [
+        "TC-ITEM-STD-069",
+        "TC-ITEM-STD-068",
+        "TC-ITEM-STD-070",
+        "TC-ITEM-STD-075",
+        "TC-ITEM-STD-066",
+        "TC-ITEM-ADD-042",
+        "TC-ITEM-ADD-043",
+        "TC-ITEM-PKG-047",
+        "TC-ITEM-STD-029",
+        "TC-ITEM-ADD-040",
+        "TC-ITEM-STD-028",
+        "TC-ITEM-ADD-023"
+      ],
+      "caseCount": 12,
+      "workPackageIds": [
+        "p0-item-binding:item-list-delete",
+        "p0-item-binding:item-list-lifecycle",
+        "p0-item-binding:item-list-reset",
+        "p0-item-binding:item-list-search-filter"
+      ],
+      "workPackageCount": 4,
+      "status": "runtime-accepted",
+      "caseLevelReleaseAllowed": false,
+      "waveLevelReleaseAllowed": true,
+      "generatedRecipeCount": 12,
+      "executionAllowed": true
+    },
+    {
+      "id": "wave-c-standard-create",
+      "name": "标准商品创建配置",
+      "caseIds": [
+        "TC-ITEM-ADD-005",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-STD-001",
+        "TC-ITEM-STD-057",
+        "TC-ITEM-STD-058",
+        "TC-ITEM-STD-082",
+        "TC-ITEM-STD-038",
+        "TC-ITEM-STD-047"
+      ],
+      "caseCount": 8,
+      "workPackageIds": [
+        "p0-item-binding:item-create-type-selection",
+        "p0-item-binding:item-standard-attributes",
+        "p0-item-binding:item-standard-print-stall",
+        "p0-item-binding:item-standard-required-fields",
+        "p0-item-binding:item-standard-spec-modes"
+      ],
+      "workPackageCount": 5,
+      "status": "runtime-accepted",
+      "caseLevelReleaseAllowed": false,
+      "waveLevelReleaseAllowed": true,
+      "generatedRecipeCount": 8,
+      "executionAllowed": true
+    },
+    {
+      "id": "wave-d-edit-and-rules",
+      "name": "编辑、唯一性与分类规则",
+      "caseIds": [
+        "TC-ITEM-STD-031",
+        "TC-ITEM-STD-092",
+        "TC-ITEM-STD-096",
+        "TC-ITEM-STD-011",
+        "TC-ITEM-STD-013",
+        "TC-ITEM-STD-014",
+        "TC-ITEM-STD-012",
+        "TC-ITEM-STD-007"
+      ],
+      "caseCount": 8,
+      "workPackageIds": [
+        "p0-item-binding:item-edit-standard",
+        "p0-item-binding:legacy-sidebar-only",
+        "p0-item-binding:recipe-drift-repair"
+      ],
+      "workPackageCount": 3,
+      "status": "runtime-accepted",
+      "caseLevelReleaseAllowed": false,
+      "waveLevelReleaseAllowed": true,
+      "generatedRecipeCount": 8,
+      "executionAllowed": true
+    }
+  ],
+  "fingerprint": "ef9464c6a727a1745a53cbe48cef505e54d654a0ed5be2b3eb6c853faf6659d8"
+}

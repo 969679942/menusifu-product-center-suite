@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-018",
+    "TC-FLV-TPL-019",
+    "TC-FLV-TPL-020",
+    "TC-FLV-TPL-021",
+    "TC-FLV-TPL-022",
+    "TC-FLV-TPL-023",
+    "TC-FLV-TPL-024",
+    "TC-FLV-TPL-025",
+    "TC-FLV-XMOD-001",
+    "TC-FLV-XMOD-002",
+    "TC-FLV-XMOD-003",
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "当前生命周期账本显示本波 15 条执行候选缺少与当前用例、实现和上下文指纹一致的完整标准收据；历史运行和静态绑定不能替代当前执行事实。",
+  "correctiveAction": "按执行上下文分批运行本波精确选择集，逐条记录真实 UI 操作、业务请求、UI/API/下游断言、失败诊断和 finally 清理；仅导入实际完成且证据完整的当前收据。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+    "deliverables/system-test-platform/b4-seasoning-wave-04-impact-20260905.json",
+    "deliverables/system-test-platform/execution-index.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json"
+  ]
+}

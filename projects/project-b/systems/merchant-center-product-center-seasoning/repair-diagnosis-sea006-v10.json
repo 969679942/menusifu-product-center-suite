@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "页面所有虚拟调味行 checkbox 均被拖拽容器覆盖，真实指针动作不可达；只读事件探针证明向唯一行 checkbox 分发原生 click 会触发 React 受控状态，使 checkbox 选中、批量按钮启用，且打开菜单后仅展示变更调味组，没有正式规则要求的选择数量。",
+  "correctiveAction": "正式适配器对三重唯一约束的 checkbox 分发 click，验证 checkbox 业务后置状态、批量按钮启用并打开菜单读取终态；缺少选择数量以 observed-mismatch 和 product-failure 落账，不再误记自动化失败。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/seasoning-checkbox-structure.json",
+    "systems/merchant-center-product-center-seasoning/tests/seasoning-checkbox-structure.probe.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787566576562/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["7eedc24df8aba9b8"]
+}

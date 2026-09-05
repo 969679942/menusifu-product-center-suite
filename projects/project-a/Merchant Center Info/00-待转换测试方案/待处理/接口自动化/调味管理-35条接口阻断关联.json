@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-24T00:07:46.0138912+08:00",
+  "source": "Merchant Center UITest/output/brand-menu-api-blocker-plan.json",
+  "targetPlan": "merchant-center-product-center-seasoning",
+  "canonicalCaseSource": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+  "summary": {
+    "total": 35,
+    "direct": 3,
+    "conditional": 5,
+    "deferredUnrelated": 27
+  },
+  "direct": [
+    {
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/task/resume/{taskId}",
+      "reason": "调味同步任务恢复能力，直接覆盖同步失败后的恢复路径。",
+      "linkedCaseIds": ["TC-FLV-XMOD-009"]
+    },
+    {
+      "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/job/resume/{jobId}",
+      "reason": "调味同步作业恢复能力，直接覆盖同步失败后的恢复路径。",
+      "linkedCaseIds": ["TC-FLV-XMOD-009"]
+    },
+    {
+      "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+      "reason": "POS 拉取全局调味的直接观测接口。",
+      "linkedCaseIds": [
+        "TC-FLV-SEA-038",
+        "TC-FLV-SEA-039",
+        "TC-FLV-XMOD-007",
+        "TC-FLV-XMOD-008",
+        "TC-FLV-XMOD-010",
+        "TC-FLV-POS-001",
+        "TC-FLV-POS-002",
+        "TC-FLV-POS-003",
+        "TC-FLV-POS-004",
+        "TC-FLV-POS-005"
+      ]
+    }
+  ],
+  "conditional": [
+    {
+      "operationKey": "brand-menu:PUT /internal/pos/feedback/update-option-status",
+      "reason": "仅当正式用例需要验证 POS 反向更新调味选项状态时使用；当前需先通过审计确认请求语义。"
+    },
+    {
+      "operationKey": "brand-menu:POST /internal/pos/pull/item",
+      "reason": "仅当调味用例要求验证商品携带调味数据的 POS 下游合同或点单结果时使用。"
+    },
+    {
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-task/resume/{id}",
+      "reason": "仅用于菜单下发失败恢复，属于调味同步前置能力，不是调味业务本身。",
+      "linkedCaseIds": ["TC-FLV-XMOD-010"]
+    },
+    {
+      "operationKey": "brand-menu:PUT /ops-brand/brand-menu-sync-job/resume/{id}",
+      "reason": "仅用于菜单下发作业失败恢复，属于调味同步前置能力，不是调味业务本身。",
+      "linkedCaseIds": ["TC-FLV-XMOD-010"]
+    },
+    {
+      "operationKey": "brand-menu:GET /internal/pos/pull/menu/{menuId}",
+      "reason": "仅用于确认 POS 菜单前置已就绪。",
+      "linkedCaseIds": ["TC-FLV-XMOD-010"]
+    }
+  ],
+  "deferredUnrelated": [
+    "brand-menu:PUT /ops-brand/print-stall-sync/task/resume/{taskId}",
+    "brand-menu:PUT /ops-brand/print-stall-sync/job/resume/{jobId}",
+    "brand-menu:GET /ops-brand/menu-import-tasks/{id}",
+    "brand-menu:DELETE /ops-brand/menu-import-tasks/{id}",
+    "brand-menu:GET /ops-brand/import-tasks/{id}",
+    "brand-menu:DELETE /ops-brand/import-tasks/{id}",
+    "brand-menu:PUT /ops-brand/brand-bom-sync/task/resume/{taskId}",
+    "brand-menu:PUT /ops-brand/brand-bom-sync/job/resume/{jobId}",
+    "brand-menu:POST /ops-brand/import-tasks-files",
+    "brand-menu:POST /ops-brand/menu-import-tasks-files",
+    "brand-menu:POST /ops-brand/dispatch/test/skuPrice/{itemId}",
+    "brand-menu:POST /ops-brand/brand-image-files",
+    "brand-menu:POST /ops-brand/bom/import/upload-file",
+    "brand-menu:POST /internal/pos/pull/boms",
+    "brand-menu:POST /internal/poi-items/stock/syncFromPos",
+    "brand-menu:POST /internal/poi-items/stock/log",
+    "brand-menu:POST /internal/poi-items/stock/edit",
+    "brand-menu:POST /internal/poi-items/stock/detail",
+    "brand-menu:POST /internal/ai/query-by-ingredient",
+    "brand-menu:POST /internal/ai/batch-update-item-channel-status",
+    "brand-menu:GET /ops-brand/brand-menu-sync-job/{id}/diff",
+    "brand-menu:GET /ops-brand/bom/task/{id}",
+    "brand-menu:GET /ops-brand/bom/download/export/task/{id}",
+    "brand-menu:GET /internal/pos/pull/i18n",
+    "brand-menu:GET /internal/pos/pull/bom/{itemId}",
+    "brand-menu:GET /health",
+    "brand-menu:GET /error-codes"
+  ],
+  "handlingRule": {
+    "direct": "纳入调味管理落地任务；能通过现有自动化身份和实体工厂解决的直接处理，无法解决的输出人工处理项。",
+    "conditional": "先审计正式用例断言面和页面网络合同；只有确认属于用例必要路径时才执行。",
+    "deferredUnrelated": "本轮不执行、不改变原阻断分类；调味管理闭环后再按原 35 条治理计划处理。"
+  }
+}

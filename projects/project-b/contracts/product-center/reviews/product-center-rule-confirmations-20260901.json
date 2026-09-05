@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-rule-confirmations-20260901",
+  "confirmedBy": "金将军",
+  "confirmedAt": "2026-09-01",
+  "sourceType": "direct-user-confirmation",
+  "decisions": [
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "decision": "confirmed-unchanged",
+      "statement": "BITEM-2014：加料已被加料组使用，仍是当前产品正式删除保护规则，中文提示不调整。",
+      "scope": "domain-asset",
+      "existingResultImpact": "unchanged",
+      "rerunRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "decision": "confirmed-unchanged",
+      "statement": "标准商品引用含该加料的加料组后，加料商品不可删除，规则无变化。",
+      "scope": "domain-asset",
+      "existingResultImpact": "unchanged",
+      "rerunRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "decision": "confirmed-unchanged",
+      "statement": "商品列表中的加料商品、标准商品和套餐主图均不可点击，且不提供大图预览。",
+      "scope": "domain-asset",
+      "existingResultImpact": "unchanged",
+      "rerunRequired": false
+    },
+    {
+      "caseId": "TC-TAG-BDG-019",
+      "ruleId": "BR-TAG-004",
+      "decision": "rule-changed",
+      "statement": "当前角标过期无任何影响；商品详情 API 和商品编辑页继续保留角标关联与回显。",
+      "scope": "domain-asset+project-adapter",
+      "existingResultImpact": "invalidated-by-rule-change",
+      "rerunRequired": true,
+      "historicalEvidence": "Merchant Center UITest/output/product-center-tag-bdg-019-defect-evidence.json"
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "ruleId": "BR-FLV-003",
+      "decision": "expected-feedback-confirmed",
+      "statement": "调味组已有 50 个已保存调味项时仍可添加并填写第 51 项；点击确定提交后提示错误码 BITEM-11072 和中文消息 一个调味组最大仅能添加50个调味，当前中文 UI 完整展示为 BITEM-11072 : 一个调味组最大仅能添加50个调味。自动化须记录实际拦截通道和请求结果，并以服务端 ID 回读证明第 51 项未持久化、总数仍为 50。",
+      "scope": "domain-asset+project-adapter",
+      "existingResultImpact": "revalidation-required",
+      "rerunRequired": true,
+      "evidence": "C:/Users/ADMINI~1/AppData/Local/Temp/codex-clipboard-3f0dc86a-15c5-49ac-a92b-f20ba2434af4.png"
+    },
+    {
+      "caseId": "TC-FLV-SEA-023",
+      "ruleId": "BR-FLV-004",
+      "decision": "rule-changed",
+      "statement": "行业调味二次导入允许保存；相同调味项覆盖去重，不同调味项累加，最终集合为两次选择的并集且无重复项。",
+      "scope": "domain-asset+project-adapter",
+      "existingResultImpact": "invalidated-by-rule-change",
+      "rerunRequired": true
+    },
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "decision": "deferred-by-user",
+      "statement": "当前无法安全清空调味数据时，本用例保持明确延期；保留正式用例和已落地脚本，但不得自动执行或要求继续处理。",
+      "scope": "domain-asset+project-adapter",
+      "existingResultImpact": "historical-result-retained-not-current",
+      "rerunRequired": false,
+      "resumeCondition": "金将军明确恢复，且已提供专用空数据商户或经验证可恢复快照。"
+    }
+  ]
+}

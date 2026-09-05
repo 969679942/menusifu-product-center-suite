@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042",
+    "TC-FLV-SEA-044",
+    "TC-FLV-SEA-045",
+    "TC-FLV-SEA-046"
+  ],
+  "rootCause": "上一批 61 条重排队诊断已完成前序单门店批次，尾批用例需要独立当前执行周期，避免修复保护器将已不同阶段的重排队误判为相同重复尝试。",
+  "correctiveAction": "仅执行当前四条单门店尾批，使用已核验 SCH/Brand 000407 上下文，分别记录 UI、API 和清理证据；不复用中断批次的非标准结果。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/execution-selection.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787703134919/run-report.json"
+  ]
+}

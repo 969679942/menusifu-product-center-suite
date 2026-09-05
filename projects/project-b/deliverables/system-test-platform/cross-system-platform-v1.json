@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-15",
+  "goal": "portable-system-test-platform-with-product-center-runtime-preserved",
+  "status": "superseded",
+  "snapshotStatus": "formal",
+  "currentAuthority": "deliverables/system-test-platform/final-goal-verdict.json",
+  "supersededReason": "该文件是 2026-08-15 历史定版快照；当前严格门禁要求合格跨业务域和跨应用真实试点，以 final-goal-verdict.json 为准。",
+  "validation": {
+    "typescript": "passed",
+    "contractTests": {
+      "passed": 107,
+      "failed": 0
+    },
+    "nonProductPilot": {
+      "runId": "system-test-1786739764414",
+      "status": "passed",
+      "exitCode": 0,
+      "selected": 1,
+      "executed": 1,
+      "evidenceComplete": 1,
+      "evidenceIncomplete": 0,
+      "securityFindings": 0,
+      "contractFingerprint": "current-tax-pilot-contract"
+    },
+    "productCenterRegression": {
+      "runId": "current-20260815",
+      "status": "passed",
+      "exitCode": 0,
+      "planned": 139,
+      "executed": 81,
+      "passed": 81,
+      "failed": 0,
+      "automationGap": 0,
+      "externalDependencyBlocked": 10,
+      "observedProductDriftBlocked": 48,
+      "apiUiZeroResidue": true
+    }
+  },
+  "productCenterCompatibility": {
+    "integrationMode": "legacy-runtime-preserved",
+    "cases": 24,
+    "sourceContractFingerprint": "34cca208a44590e38e29b0f4f524dcf8c6c333ae300a4270ec926081198f0772",
+    "projectionFingerprint": "decc213d80baa9f6cb8d90b004b10fec8f6069a4a072f29867c5aa433fd3dcef"
+  },
+  "platformRelease": {
+      "status": "historical-formal",
+    "decisionId": "platform-review-20260815-approve",
+    "confirmedBy": "金将军",
+    "decidedAt": "2026-08-15T10:47:20.5177723+08:00",
+    "candidateFingerprint": "38679b367a95011638eca2297ee49433c4eee61d3f90ebc11caf6d0fcc2aa306",
+    "authoritySourceRole": "human-platform-review"
+  },
+  "readiness": {
+    "publicReadOnly": "immediate",
+    "authenticatedReadOnly": "requires-auth-adapter",
+    "mutation": "requires-domain-data-and-lifecycle-adapters",
+    "formalPlatformRelease": "superseded",
+    "crossApplicationPilot": "required-for-current-platform-completion"
+  }
+}

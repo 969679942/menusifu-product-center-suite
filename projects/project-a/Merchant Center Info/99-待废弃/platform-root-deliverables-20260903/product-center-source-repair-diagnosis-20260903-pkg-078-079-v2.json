@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078",
+    "TC-ITEM-PKG-079"
+  ],
+  "rootCause": "上一轮 079 的失败不是业务规则不成立：标准编辑页已显示完整数据，但加载探针使用页面级可访问名称 Required 查询价格控件，因控件水合/重渲染导致探针持续等待并触发 180 秒超时；同时 package 用例的实现指纹未包含其实际使用的标准编辑基类，修复门禁无法识别该变更。078 的业务步骤已通过，失败仅发生在同批次清理上下文关闭后的诊断阶段。",
+  "correctiveAction": "将价格回读限定为价格区内可见 role=spinbutton 控件，避免页面级名称匹配；将标准编辑页及标准定位器加入 package 族实现检查点，使实现指纹覆盖真实依赖；在完整类型/合同校验和残留归零后，按当前批准集合重新执行 078/079，并以逐案 UI/API/清理收据裁决。",
+  "evidenceRefs": [
+    "Merchant Center UITest/pages/product-management/item/item-create-standard.page.ts",
+    "Merchant Center UITest/pages/product-management/item/item-edit.page.ts",
+    "Merchant Center UITest/adapters/product-center/product-center-item-implementation.ts",
+    "Merchant Center UITest/output/product-center-item-source-governed-20260903T052607Z.json",
+    "Merchant Center UITest/output/checkpoints/AUTO_AUDIT_RUN_5998c08bbc2e2318.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "1f5e62e137c71f75"
+  ]
+}

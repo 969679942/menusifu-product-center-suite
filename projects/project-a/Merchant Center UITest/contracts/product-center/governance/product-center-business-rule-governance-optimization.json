@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "product-center-business-rule-governance-optimization-2026-08-23",
+  "applicationId": "merchant-center",
+  "businessDomainId": "product-center",
+  "lifecycle": {
+    "status": "frozen",
+    "frozenAt": "2026-08-23T23:42:30+08:00",
+    "frozenBy": "shichangheng",
+    "reason": "商品中心模块闭环已完成；按用户要求冻结全量治理优化，等待外部接入和治理确认条件满足。",
+    "frozenTaskIds": [
+      "BRG-OPT-004",
+      "BRG-OPT-005",
+      "BRG-OPT-006",
+      "BRG-OPT-008",
+      "BRG-OPT-011",
+      "BRG-OPT-016"
+    ],
+    "resumePolicy": "all-required-conditions",
+    "resumeConditions": [
+      { "conditionId": "GIT_CONNECTED", "description": "Git 公共平台仓库已接入并固定到已审核的 40 位提交 SHA。", "source": "integration.git.status=connected", "required": true },
+      { "conditionId": "JENKINS_CONNECTED", "description": "Jenkins 已配置地址、Job 和 Webhook/Token，并完成静态治理审计。", "source": "integration.jenkins.status=connected", "required": true },
+      { "conditionId": "PRD_SYSTEM_CONNECTED", "description": "权威 PRD 系统连接器和稳定来源格式已配置。", "source": "integration.prd.sourceMode=system-event", "required": true },
+      { "conditionId": "MIGRATION_ACCEPTED", "description": "迁移报告中的受管资产差异和历史引用均已逐项接受或处置，迁移审计重新通过。", "source": "migration.status=complete", "required": true },
+      { "conditionId": "LEGACY_RULES_CONFIRMED", "description": "BR-ITEM-010 和 BR-ITEM-INDUSTRY-INHERITANCE 已完成产品确认并进入正式生命周期。", "source": "historicalMigration.summary.legacyAwaitingConfirmation=0", "required": true },
+      { "conditionId": "CROSS_SYSTEM_PILOT_COMPLETE", "description": "不同 applicationId 的真实目标系统已完成至少一个可逆试点并取得完整标准收据。", "source": "platformExternalDependency.status=complete", "required": true },
+      { "conditionId": "RULE_TIME_CONTEXT_CONFIRMED", "description": "当前全部正式规则均已由系统补齐权威时间证据与生效上下文，且严格校验通过。", "source": "timeContextReview.summary.evidenceCollectionRequired=0", "required": true },
+      { "conditionId": "PRODUCT_BEHAVIOR_CONFIRMED", "description": "当前未定义商品行为均已取得来源或人工确认并完成影响评估。", "source": "confirmationQueue.summary.total=0", "required": true },
+      { "conditionId": "BUSINESS_RULE_EVIDENCE_RECOVERED", "description": "规则关联用例的原始收据已恢复，或经明确批准重跑后取得当前完整收据。", "source": "observationLedger.summary.diagnostics=0", "required": true }
+    ],
+    "onResume": "prompt-and-reassess-only"
+  },
+  "tasks": [
+    {
+      "taskId": "BRG-OPT-001",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "completed",
+      "purpose": "防止页面对象、Flow、定位器或数据工厂变化后错误复用旧审计检查点。",
+      "expectedResults": ["每条商品用例形成分类完整的实现检查点。", "任一登记实现输入变化都会重建落地审计。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "无新增人工操作。",
+        "runtimeCost": "仅在实现输入变化时增加静态指纹计算。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "公共实现检查点合同可供其他方案声明自己的必要类别。"
+      },
+      "evidenceRefs": ["adapters/product-center/product-center-item-implementation.ts", "scripts/run-product-center-business-rule-audit.ts", "../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint.ts"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-002",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "避免只有代码提交或人工命令时才执行规则治理审计。",
+      "expectedResults": ["工作日定时启动静态治理门禁。", "定时触发不自动运行UI/API业务用例。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "无需值守触发。",
+        "runtimeCost": "工作日增加一次静态审计流水线。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "同一触发模式可复用于其他方案。"
+      },
+      "evidenceRefs": ["../.github/workflows/product-center-quality.yml"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-003",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "completed",
+      "purpose": "让PRD发布事件经过应用、业务域、来源路径和文件指纹校验后才能进入编译阶段。",
+      "expectedResults": ["提供prd.published和prd.updated标准事件合同。", "来源未同步或指纹不匹配时在编译前阻断。", "事件本身不授权业务用例执行。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "外部PRD系统接入前可用合同样例联调。",
+        "runtimeCost": "每个PRD事件增加一次文件哈希和静态校验。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "事件合同位于公共平台，商品中心只保留身份和路径适配。"
+      },
+      "evidenceRefs": ["scripts/validate-product-center-prd-change-event.ts", "../../Test Automation Platform/src/automation/system-test/requirements-change-event.ts"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-004",
+      "priority": "must",
+      "scope": "external-integration",
+      "status": "blocked",
+      "purpose": "让GitHub云端运行器获得可复现、不可漂移的公共测试平台版本。",
+      "expectedResults": ["CI从独立仓库检出公共平台。", "公共平台引用固定到40位提交SHA。", "缺少仓库或固定版本时在安装和审计前失败。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "仓库管理员配置TEST_AUTOMATION_PLATFORM_REPOSITORY、TEST_AUTOMATION_PLATFORM_REF及必要的只读Token。",
+        "runtimeCost": "每次CI增加一次公共平台检出和依赖安装。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "解决所有消费项目的公共平台供应链可复现问题。"
+      },
+      "evidenceRefs": ["../.github/workflows/product-center-quality.yml"],
+      "blockers": ["CI_PLATFORM_REPOSITORY_CONFIGURATION_REQUIRED"],
+      "recoveryConditions": ["提供公共平台Git仓库。", "将TEST_AUTOMATION_PLATFORM_REF配置为已审核的40位提交SHA。", "验证云端治理作业可读取公共平台并通过合同。"]
+    },
+    {
+      "taskId": "BRG-OPT-005",
+      "priority": "must",
+      "scope": "external-integration",
+      "status": "blocked",
+      "purpose": "把原始PRD自动转换为来源登记、规则候选、测试方案和脚本候选，而不是要求人工先整理成正式规则。",
+      "expectedResults": ["PRD来源注册和段落级指纹可追溯。", "歧义进入人工确认队列。", "确认后通过system-test编译器生成方案、用例和脚本候选。"],
+      "downstreamImpact": {
+        "passedCases": "selective-revalidation",
+        "rerunCaseIds": [],
+        "humanWork": "人工只处理歧义和审批，不再手工搬运全部规则。",
+        "runtimeCost": "每次PRD发布增加编译和静态合同校验，不自动启动浏览器。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "必须作为公共PRD接入编译能力，领域差异由适配器处理。"
+      },
+      "evidenceRefs": ["deliverables/system-test-platform/platform-external-dependency.json"],
+      "blockers": ["PRD_SOURCE_CONNECTOR_AND_FORMAT_NOT_CONFIGURED"],
+      "recoveryConditions": ["确认权威PRD系统及读取接口。", "提供不含凭据的来源格式样本和稳定文档身份。", "完成公共编译器、商品适配合同和非商品负向门禁。"]
+    },
+    {
+      "taskId": "BRG-OPT-006",
+      "priority": "optional",
+      "scope": "external-integration",
+      "status": "blocked",
+      "purpose": "将规则变化、阻断和待审批候选通知到明确负责人。",
+      "expectedResults": ["通知包含规则ID、受影响用例、阻断原因和审批入口。", "通知不包含凭据和浏览器状态。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "减少人工轮询报告。",
+        "runtimeCost": "每次状态变化增加一次去重通知。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "通知通道作为公共端口，各项目只配置负责人路由。"
+      },
+      "evidenceRefs": ["output/governance/product-center-business-rule-governance-optimization.md"],
+      "blockers": ["OWNER_NOTIFICATION_CHANNEL_NOT_CONFIGURED"],
+      "recoveryConditions": ["选择通知系统并配置负责人映射。", "实现按事件指纹去重和脱敏合同。"]
+    },
+    {
+      "taskId": "BRG-OPT-007",
+      "priority": "must",
+      "scope": "migration",
+      "status": "completed",
+      "purpose": "完成公共平台与商品项目的物理边界和受管资产迁移闭环。",
+      "expectedResults": ["inventoryChanged、bridgeViolations和historicalReferenceGaps全部归零或逐项批准。", "不接受其他并行任务的整批未知变化。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "逐项复核迁移差异和历史引用。",
+        "runtimeCost": "只运行文件治理审计，不运行业务用例。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "完成后公共能力与项目资产边界可稳定复制。"
+      },
+      "evidenceRefs": ["adapters/test-automation-platform/reports/merchant-center-migration-closure.json", "deliverables/system-test-platform/migration-baseline-acceptance.jsonl"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-008",
+      "priority": "must",
+      "scope": "cross-system-pilot",
+      "status": "blocked",
+      "purpose": "证明公共规则治理和测试闭环能够在不同applicationId的真实系统复用。",
+      "expectedResults": ["不同applicationId试点取得完整执行、断言和清理收据。", "平台最终状态才允许从incomplete晋级。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "目标系统负责人提供认证和可逆测试数据条件。",
+        "runtimeCost": "仅运行新的跨系统试点，不重跑商品中心。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "提供跨系统通用性的正式证据。"
+      },
+      "evidenceRefs": ["deliverables/system-test-platform/platform-external-dependency.json", "deliverables/system-test-platform/final-goal-verdict.json"],
+      "blockers": ["CROSS_APPLICATION_PILOT_REQUIRED", "CROSS_DOMAIN_PILOT_REQUIRED"],
+      "recoveryConditions": ["提供不同applicationId的真实目标系统。", "完成认证、上下文、操作、断言和清理适配。", "执行至少一个可逆试点并取得标准收据。"]
+    },
+    {
+      "taskId": "BRG-OPT-009",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "将商品中心历史业务规则逐步迁入当前正式生命周期，而不是只治理已确认的规则。",
+      "expectedResults": ["每条历史规则具有可验证来源、审批和关联用例。", "无来源或冲突规则进入待确认队列，不自动写入正式规则。"],
+      "downstreamImpact": {
+        "passedCases": "selective-revalidation",
+        "rerunCaseIds": [],
+        "humanWork": "产品负责人分批确认来源冲突和生效范围。",
+        "runtimeCost": "每批先静态审计，只有语义变化影响当前通过用例时才生成增量候选。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "复用公共生命周期，不复制商品专用状态机。"
+      },
+      "evidenceRefs": ["contracts/product-center/business-rules/generated/product-center-business-rule-lifecycle-snapshot.json", "contracts/product-center/reviews/product-center-historical-business-rule-migration-acceptance.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-010",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "为已确认的直接一级分类创建规则取得当前版本执行收据并晋级验证基线。",
+      "expectedResults": ["只执行TC-ITEM-STD-006。", "成功后自动清除重验并晋级对应规则基线。", "另外4条历史通过用例保持不变。"],
+      "downstreamImpact": {
+        "passedCases": "selective-revalidation",
+        "rerunCaseIds": ["TC-ITEM-STD-006"],
+        "humanWork": "已完成明确批准、执行、证据核对和规则基线晋级。",
+        "runtimeCost": "一次定向UI/API闭环及清理，不运行其余用例。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "验证规则变化到增量执行再到基线晋级的完整闭环。"
+      },
+      "evidenceRefs": ["contracts/product-center/business-rules/generated/product-center-business-rule-change-trigger.json", "../deliverables/test-plan-governance/product-center-incremental-selection.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-011",
+      "priority": "must",
+      "scope": "external-integration",
+      "status": "blocked",
+      "purpose": "让Jenkins接入后能够触发当前治理优化任务提示和静态审计。",
+      "expectedResults": ["Jenkins接入状态可被机器识别。", "接入完成时提示复核BRG-OPT-011并执行治理审计。", "提示不自动执行业务用例。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "Jenkins管理员配置地址、Job和Webhook。",
+        "runtimeCost": "接入后每次Job增加静态治理审计。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "Jenkins作为可选触发器复用于其他测试方案。"
+      },
+      "evidenceRefs": ["utils/integration-status.ts", "../../Test Automation Platform/src/governance/integration-status.ts"],
+      "blockers": ["JENKINS_NOT_CONNECTED"],
+      "recoveryConditions": ["配置JENKINS_BASE_URL、JENKINS_JOB_NAME和Webhook URL或Token。", "完成一次无业务执行的治理审计并核对提示。"]
+    },
+    {
+      "taskId": "BRG-OPT-012",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "completed",
+      "purpose": "补齐候选驳回/挂起、规则废弃/恢复/回滚及批准撤回/过期的可审计公共治理合同。",
+      "expectedResults": ["治理事件追加持久化并带哈希完整性校验。", "可按规则、生命周期和批准终态查询。", "废弃和回滚保留历史版本，不物理删除或原地覆盖。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "实际治理操作发生时需提供操作者、原因和时间证据。",
+        "runtimeCost": "仅增加轻量事件落盘、哈希和投影查询。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "公共合同可被其他 applicationId 复用，商品中心只消费投影。"
+      },
+      "evidenceRefs": ["../../Test Automation Platform/src/automation/system-test/business-rule-governance.ts", "../deliverables/test-plan-governance/product-center-business-rule-governance-operations.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-013",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "completed",
+      "purpose": "防止无效时间顺序、空的显式生效上下文或不完整证据被误判为成熟规则。",
+      "expectedResults": ["校验时间格式、先后顺序和有效期。", "显式上下文不能为空。", "缺少权威证据时保持待确认。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "仅需对真实缺口补充权威来源。",
+        "runtimeCost": "每次静态审计按当前正式规则集合执行字段校验。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "时间与上下文验证为系统无关公共能力。"
+      },
+      "evidenceRefs": ["../../Test Automation Platform/src/automation/system-test/business-rule-governance.ts", "../deliverables/test-plan-governance/product-center-business-rule-time-context-review.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-014",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "将未定义商品行为转成有来源约束的人工确认清单，避免自动补写业务语义。",
+      "expectedResults": ["每个缺口包含规则、操作、来源、问题和影响用例。", "未确认项不生成正式规则、用例或执行授权。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "仅处理当前确认队列中仍无来源或结构化契约的真实语义缺口；当前队列为 0，不需要人工操作。",
+        "runtimeCost": "只生成静态清单。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "公共无来源不生成原则保持不变，问题内容属于商品中心资产。"
+      },
+      "evidenceRefs": ["../deliverables/test-plan-governance/product-center-business-rule-confirmation-queue.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-015",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "对被覆盖的证据文件给出不可恢复判定和安全恢复路径，禁止覆盖文件冒充原始收据。",
+      "expectedResults": ["逐用例记录期望/实际证据指纹。", "找不到不可变原始证据时必须明确批准后定向重跑。", "证据缺口不产生规则候选或产品失败。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "仅在无法恢复原始收据并需要当前证据时批准定向重跑。",
+        "runtimeCost": "静态核对文件哈希，不启动浏览器。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "证据不可重建原则适用于所有方案。"
+      },
+      "evidenceRefs": ["output/governance/product-center-business-rule-observation-ledger.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-016",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "blocked",
+      "purpose": "补齐当前全部正式规则的权威时间证据和生效上下文。",
+      "expectedResults": ["全部正式规则 timeEvidenceStatus=complete。", "生效上下文非空且有来源指纹。", "时间先后顺序和有效期校验通过。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "无人工重复确认；系统优先从规则、标准收据和发布记录采集，只有来源真实冲突时才升级给负责人。",
+        "runtimeCost": "只补充来源并重跑静态审计；若语义不变不重跑业务用例。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "完成后规则适用范围可被上下游可靠消费。"
+      },
+      "evidenceRefs": ["../deliverables/test-plan-governance/product-center-business-rule-time-context-review.json"],
+      "blockers": ["RULE_TIME_CONTEXT_EVIDENCE_REQUIRED"],
+      "recoveryConditions": ["系统取得当前全部正式规则的权威时间和上下文来源。", "静态严格校验 evidenceCollectionRequired=0。"]
+    },
+    {
+      "taskId": "BRG-OPT-017",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "将商品行为确认队列改为来源/结构化契约驱动，避免已处理规则重复进入人工审核。",
+      "expectedResults": ["确认队列只包含当前仍无来源或结构化契约的商品行为缺口。", "结构化下游契约通过校验后自动关闭对应场景，不生成重复人工问题。", "只对真实语义变化规则生成新指纹和增量候选。"],
+      "downstreamImpact": {
+        "passedCases": "selective-revalidation",
+        "rerunCaseIds": [],
+        "humanWork": "当前无需人工处理；未来仅对确认队列中新增且无法自动解释的语义缺口处理。",
+        "runtimeCost": "每次审计读取确认队列和结构化契约；确认前无业务执行，确认后仅评估受影响用例。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "补齐商品中心领域资产，不改变公共状态机。"
+      },
+      "evidenceRefs": ["../deliverables/test-plan-governance/product-center-business-rule-confirmation-queue.json", "../deliverables/test-plan-governance/product-center-business-rule-language-audit.json", "../../Test Automation Platform/src/automation/system-test/business-rule-downstream-contract.ts"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-018",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "completed",
+      "purpose": "核对规则观察证据的不可变原始收据，并在证据覆盖时阻止生成候选。",
+      "expectedResults": ["仅对当前验证所需最小用例集核对执行索引和证据文件指纹，不把所有历史关联关系扩成重跑缺口。", "用例、实现和执行上下文指纹全部匹配。", "观察账本将验证阻断与非必需历史诊断分离，且不会自动启动业务执行。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "优先查找原始证据；仅无法恢复且确需当前证明时批准精确 caseId。",
+        "runtimeCost": "恢复不执行页面；重跑需要另行明确批准且仅限受影响用例。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "确保规则反向观察只消费不可变、可追溯证据。"
+      },
+      "evidenceRefs": ["output/governance/product-center-business-rule-observation-ledger.json"],
+      "blockers": [],
+      "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-020",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "not-started",
+      "purpose": "自动补齐候选规则来源、结构、义务、作用域和指纹。",
+      "expectedResults": ["126条文档待生命周期规则完成自动标准化。", "缺口进入技术队列而非人工业务队列。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "无新增人工技术核对。", "runtimeCost": "仅增加静态解析和指纹计算。", "moduleDeliveryBlocked": false, "reuseImpact": "来源标准化能力可复用于其他方案。"},
+      "evidenceRefs": ["deliverables/test-plan-governance/product-center-document-rule-promotion-plan.json"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-021",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "not-started",
+      "purpose": "按规则族和风险等级自动分流候选。",
+      "expectedResults": ["低、中、高风险规则获得稳定分类。", "跨系统和冲突规则被隔离。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "仅处理真实业务冲突。", "runtimeCost": "增加规则族聚类计算。", "moduleDeliveryBlocked": false, "reuseImpact": "风险分流策略可跨项目复用。"},
+      "evidenceRefs": ["deliverables/test-plan-governance/product-center-business-rule-promotion-batch-plan.json"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-022",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "not-started",
+      "purpose": "依据低风险代理策略批量晋级语义明确的候选为formal。",
+      "expectedResults": ["符合门禁的低风险候选进入正式规则生命周期。", "未执行规则保留revalidation-required。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "不要求逐条人工确认。", "runtimeCost": "只执行静态审批和事件落盘。", "moduleDeliveryBlocked": false, "reuseImpact": "正式化与验证解耦能力可复用。"},
+      "evidenceRefs": ["contracts/product-center/governance/product-center-business-rule-delegated-approval-policy.json"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-023",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "not-started",
+      "purpose": "按规则义务自动生成测试方案和最小验证集。",
+      "expectedResults": ["每个必选义务都有可追溯用例或明确缺口。", "避免按规则绑定数量误判覆盖。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "仅处理来源或业务歧义。", "runtimeCost": "增加静态方案编译。", "moduleDeliveryBlocked": false, "reuseImpact": "义务级生成器为公共能力。"},
+      "evidenceRefs": ["../../Test Automation Platform/src/automation/system-test/business-rule-coverage.ts"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-024",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "not-started",
+      "purpose": "对中风险规则执行最小必要验证并自动回填verified状态。",
+      "expectedResults": ["优先复用完整收据。", "仅对缺失义务生成增量执行候选。"],
+      "downstreamImpact": {"passedCases": "selective-revalidation", "rerunCaseIds": [], "humanWork": "无需人工确认技术证据。", "runtimeCost": "仅运行受影响用例。", "moduleDeliveryBlocked": false, "reuseImpact": "最小验证集能力可复用。"},
+      "evidenceRefs": ["deliverables/test-plan-governance/product-center-incremental-selection.json"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-025",
+      "priority": "must",
+      "scope": "module-adapter",
+      "status": "not-started",
+      "purpose": "将高风险、冲突和跨系统规则整理为明确的业务裁决队列。",
+      "expectedResults": ["人工队列只包含业务意图选择。", "每项包含互斥选项、影响用例和裁决后动作。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "只处理金额、权限、删除、同步和语义冲突。", "runtimeCost": "仅生成静态队列。", "moduleDeliveryBlocked": false, "reuseImpact": "人工边界合同可跨系统复用。"},
+      "evidenceRefs": ["deliverables/test-plan-governance/product-center-business-rule-confirmation-queue.json"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-026",
+      "priority": "must",
+      "scope": "common-infrastructure",
+      "status": "not-started",
+      "purpose": "将规则优化完成门禁接入公共平台和商品中心结束流程。",
+      "expectedResults": ["自动检查影响清单、旧断言、产物守恒、索引同步和幂等性。", "门禁未通过时自动继续处理并保持未完成。"],
+      "downstreamImpact": {"passedCases": "preserved", "rerunCaseIds": [], "humanWork": "不再需要用户输入double check。", "runtimeCost": "每次优化增加静态合同检查。", "moduleDeliveryBlocked": false, "reuseImpact": "所有接入方案统一继承。"},
+      "evidenceRefs": ["../../Test Automation Platform/src/governance/optimization-task-registry.ts", "../../Test Automation Platform/src/governance/system-test-optimization-gate.ts"],
+      "blockers": [], "recoveryConditions": []
+    },
+    {
+      "taskId": "BRG-OPT-019",
+      "priority": "must",
+      "scope": "module-adapter",
+      "changeScopes": ["public-core", "project-adapter", "domain-asset", "generated-evidence"],
+      "status": "completed",
+      "purpose": "将业务规则覆盖从“至少绑定一条用例”升级为来源明确的必选规则义务覆盖，把唯一业务规则文档纳入静态审计输入，并生成不形成第二事实源的人工可读多文档目录。",
+      "expectedResults": ["一条或多条用例只有覆盖全部必选义务时才算结构覆盖。", "重复覆盖同一义务不能填补其他缺口。", "结构覆盖、自动化结构覆盖和当前执行验证分别统计。", "旧规则按正式、待生命周期核验、冲突、历史和废弃分类。", "正式、待核验、冲突、历史/废弃和覆盖证据按人工阅读场景分文件展示，分类数量守恒且派生文件不可手工维护。"],
+      "downstreamImpact": {
+        "passedCases": "preserved",
+        "rerunCaseIds": [],
+        "humanWork": "只需评审静态报告识别的真实缺失义务；不因治理报告自动创建正式用例或启动执行。",
+        "runtimeCost": "每次规则审计增加文档解析、义务映射和指纹计算，不启动浏览器或业务 API。",
+        "moduleDeliveryBlocked": false,
+        "reuseImpact": "覆盖判定合同位于公共平台，商品中心只维护领域义务和用例映射，其他系统可复用同一成熟度模型。"
+      },
+      "evidenceRefs": [
+        "../../Test Automation Platform/src/automation/system-test/business-rule-coverage.ts",
+        "adapters/product-center/product-center-business-rule-document-coverage-adapter.ts",
+        "scripts/build-product-center-business-rule-governance-catalog.ts",
+        "../Merchant Center Info/商品中心业务规则.md",
+        "output/governance/product-center-business-rule-document-coverage.json",
+        "../Merchant Center Info/业务规则治理/README.md",
+        "output/governance/product-center-business-rule-governance-catalog.json"
+      ],
+      "blockers": [],
+      "recoveryConditions": []
+    }
+  ]
+}

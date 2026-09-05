@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "key": "pages",
+      "title": "Page 能力",
+      "description": "页面结构、稳定定位、页面级操作与读取能力。",
+      "roots": ["pages"]
+    },
+    {
+      "key": "flows",
+      "title": "Flow 能力",
+      "description": "业务意图、多步骤编排、选择策略与业务终态验证。",
+      "roots": ["flows"]
+    },
+    {
+      "key": "fixtures",
+      "title": "Fixture 与组合根",
+      "description": "Playwright 注入、认证、API、执行账本、清理和正式 Flow 组合。",
+      "roots": ["fixtures"]
+    },
+    {
+      "key": "api",
+      "title": "API 与清理能力",
+      "description": "API 客户端、资源登记、恢复、清理和服务端验证能力。",
+      "roots": ["api"]
+    },
+    {
+      "key": "data",
+      "title": "数据与领域样本",
+      "description": "测试输入、稳定样本、数据构造器和待迁移的数据准备能力。",
+      "roots": ["domain", "test-data"]
+    },
+    {
+      "key": "support",
+      "title": "通用辅助能力",
+      "description": "等待、证据、审计、执行决策、注册表和平台适配能力。",
+      "roots": ["utils", "adapters"]
+    }
+  ],
+  "exclude": ["adapters/test-automation-platform/reports"]
+}

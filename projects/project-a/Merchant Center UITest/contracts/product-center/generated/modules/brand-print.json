@@ -1,0 +1,1655 @@
+{
+  "metadata": {
+    "moduleId": "brand-print",
+    "moduleName": "品牌打印档口",
+    "levelOne": "商品管理",
+    "routes": [
+      "/pp/printer-stall/list",
+      "/pp/printer-stall/record"
+    ],
+    "recordCount": 49
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:424c0bcc9e35",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "name": "下发记录",
+          "href": "/pp/printer-stall/record",
+          "status": "passed",
+          "expectedControls": 1,
+          "evidencedControls": 1,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:973f08f8ed79",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "name": "档口列表",
+          "href": "/pp/printer-stall/list",
+          "status": "passed",
+          "expectedControls": 4,
+          "evidencedControls": 4,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/pp/printer-stall/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/printer-stall/list.controls[0]"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#control-1",
+          "route": "/pp/printer-stall/list",
+          "routeName": "档口列表",
+          "index": 0,
+          "name": "查看未关联商品 (123)",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "查看未关联商品 (123)",
+          "aria": "shopping",
+          "title": "",
+          "icon": "shopping",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|查看未关联商品 (123)|shopping||shopping|button||",
+          "fingerprint": "8a7bb5bdf5a4629e",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "查看未关联商品 (123)",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/printer-stall/list.controls[1]"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#control-2",
+          "route": "/pp/printer-stall/list",
+          "routeName": "档口列表",
+          "index": 1,
+          "name": "下发",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "下发",
+          "aria": "cloud-download",
+          "title": "",
+          "icon": "cloud-download",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|下发|cloud-download||cloud-download|button||",
+          "fingerprint": "1aed4478f7e40196",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "下发",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/printer-stall/list.controls[2]"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#control-3",
+          "route": "/pp/printer-stall/list",
+          "routeName": "档口列表",
+          "index": 2,
+          "name": "新增打印档口",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "新增打印档口",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|新增打印档口|plus||plus|button||",
+          "fingerprint": "19adf12819ee1e94",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "新增打印档口",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/printer-stall/list.controls[3]"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#control-4",
+          "route": "/pp/printer-stall/list",
+          "routeName": "档口列表",
+          "index": 3,
+          "name": "button:厨房 1 0 2026-06-17 14:05:06",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "厨房 1 0 2026-06-17 14:05:06",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/record#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/printer-stall/record.controls[0]"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "id": "/pp/printer-stall/record#control-1",
+          "route": "/pp/printer-stall/record",
+          "routeName": "下发记录",
+          "index": 0,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "reset",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|reset||",
+          "fingerprint": "a2fdd27dc8e9d4b2",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/pp/printer-stall/list#action-3#primary-1#field-42",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#action-3#primary-1#field-42",
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-3",
+          "overlayId": "/pp/printer-stall/list#action-3#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "档口名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/list#action-3#primary-1#field-43",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#action-3#primary-1#field-43",
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-3",
+          "overlayId": "/pp/printer-stall/list#action-3#primary-1",
+          "index": 1,
+          "tag": "TEXTAREA",
+          "type": "",
+          "name": "",
+          "placeholder": "",
+          "label": "备注",
+          "required": false,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [
+      {
+        "id": "/pp/printer-stall/list#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#action-3#primary-1",
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "新增打印档口 确 定 档口名称 0 / 250 备注",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "档口名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 1,
+              "tag": "TEXTAREA",
+              "type": "",
+              "name": "",
+              "placeholder": "",
+              "label": "备注",
+              "required": false,
+              "disabled": false,
+              "value": ""
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/printer-stall/list#action-4#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "id": "/pp/printer-stall/list#action-4#primary-1",
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-4",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "编辑 关联商品 删除",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "validations": [
+      {
+        "id": "validation:d4591a3f644e",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-1784567388786/validation-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "entity": "打印档口（品牌）",
+        "evidence": {
+          "entity": "打印档口（品牌）",
+          "route": "/pp/printer-stall/list",
+          "status": "passed",
+          "fields": [
+            "档口名称"
+          ],
+          "behavior": "空提交显示请输入档口名称且未发送 mutation",
+          "source": "artifacts/required-validation-1784567388786/validation-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-categories/treeList",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-categories/treeList"
+          }
+        ],
+        "route": "/ops-brand/brand-categories/treeList",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/treeList",
+          "operationId": "treeList_1",
+          "method": "GET",
+          "path": "/ops-brand/brand-categories/treeList",
+          "summary": "获取品牌分类树形列表",
+          "description": "获取指定分类类型下的完整分类树形结构，支持多级分类展示，用于前端树形选择器等场景",
+          "tags": [
+            "品牌分类管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "categoryType",
+              "in": "query",
+              "required": true,
+              "description": "分类类型，1-商品分类，2-其他分类",
+              "schema": {
+                "type": "integer",
+                "enum": [
+                  "1",
+                  "2"
+                ]
+              }
+            },
+            {
+              "name": "keyWord",
+              "in": "query",
+              "required": false,
+              "description": null,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "itemType",
+              "in": "query",
+              "required": false,
+              "description": null,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "获取成功",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "ref": "#/components/schemas/Result"
+                  },
+                  "hasExample": false
+                }
+              }
+            },
+            "400": {
+              "description": "分类类型参数错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            },
+            "500": {
+              "description": "服务器内部错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/print-stalls",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/print-stalls"
+          }
+        ],
+        "route": "/ops-brand/print-stalls",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/print-stalls",
+          "operationId": "page_3",
+          "method": "GET",
+          "path": "/ops-brand/print-stalls",
+          "summary": "分页查询品牌打印档口",
+          "description": null,
+          "tags": [
+            "品牌打印档口"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "request",
+              "in": "query",
+              "required": true,
+              "description": null,
+              "schema": {
+                "ref": "#/components/schemas/BrandPrintStallPageRequest"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandPrintStallListResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/print-stall-sync/to-poi",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/print-stall-sync/to-poi"
+          }
+        ],
+        "route": "/ops-brand/print-stall-sync/to-poi",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/to-poi",
+          "operationId": "syncAllStallsToPoi",
+          "method": "POST",
+          "path": "/ops-brand/print-stall-sync/to-poi",
+          "summary": "将品牌全部有效打印档口下发到指定门店",
+          "description": "与按档口下发相同：创建 Job/Task 后经调度异步执行；返回 jobId，可通过 /job/list、/task/list 查进度",
+          "tags": [
+            "打印档口下发"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/BrandPrintStallSyncToPoiRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultBrandBomSyncJobResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/print-stalls/items/without-stall/page",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/print-stalls/items/without-stall/page"
+          }
+        ],
+        "route": "/ops-brand/print-stalls/items/without-stall/page",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/print-stalls/items/without-stall/page",
+          "operationId": "pageItemsWithoutPrintStall",
+          "method": "POST",
+          "path": "/ops-brand/print-stalls/items/without-stall/page",
+          "summary": "未关联任何打印档口的品牌商品分页列表",
+          "description": "全品牌维度：有效 brand_item 中在 brand_item_print_stall 无记录的商品，含商品基本信息与分类",
+          "tags": [
+            "品牌打印档口"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/BrandPrintStallItemWithoutStallPageRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandPrintStallLinkedItemResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:100a0ba9fe55",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1663ac8617df",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:172149f0cfff",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1910b35fa446",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:1dd2fdc77894",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:32d64a6029a8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:49e3a06906aa",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4e1b37eddbe9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:50b583e94544",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:589f17535864",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5ea63820a492",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:63ecfc30f1e8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6f168891a6b4",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:859f1b3e97bb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:96f752a12d45",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9d7470518c6a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:abcee38b3cf5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b6de2779b33a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:bc0eb56e6ed3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:becfa71b8e68",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d41337a61130",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e84a0ca61a65",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:f08b306ec05a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/record",
+        "evidence": {
+          "route": "/pp/printer-stall/record",
+          "actionId": "/pp/printer-stall/record#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:313a81df5aea",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/print-stalls/items/without-stall/page",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/print-stalls/items/without-stall/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:5f6d04a795e7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-categories/treeList",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/treeList",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:803fc7b79c7c",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-2",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/print-stall-sync/to-poi",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/print-stall-sync/to-poi",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:b4ddd84ea0ab",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "route": "/pp/printer-stall/list",
+          "actionId": "/pp/printer-stall/list#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/print-stalls",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/print-stalls",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:22",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 22. 商品管理 / 打印档口 / 档口列表"
+          }
+        ],
+        "module": "商品管理 / 打印档口 / 档口列表",
+        "evidence": {
+          "heading": "## 22. 商品管理 / 打印档口 / 档口列表",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:23",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 23. 商品管理 / 打印档口 / 档口模板"
+          }
+        ],
+        "module": "商品管理 / 打印档口 / 档口模板",
+        "evidence": {
+          "heading": "## 23. 商品管理 / 打印档口 / 档口模板",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:24",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 24. 商品管理 / 打印档口 / 下发记录"
+          }
+        ],
+        "module": "商品管理 / 打印档口 / 下发记录",
+        "evidence": {
+          "heading": "## 24. 商品管理 / 打印档口 / 下发记录",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:ac448c1a1c62",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[1]"
+          }
+        ],
+        "entity": "打印档口（品牌）",
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "打印档口（品牌）",
+            "route": "/pp/printer-stall/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "页面未暴露编辑控件",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-printer-stall-AUTO_AUDIT_STALL_1784562651808/result.json"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:ac448c1a1c62",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-printer-stall-AUTO_AUDIT_STALL_1784562651808/result.json"
+          }
+        ],
+        "entity": "打印档口（品牌）",
+        "route": "/pp/printer-stall/list",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "打印档口（品牌）",
+            "route": "/pp/printer-stall/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "页面未暴露编辑控件",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-printer-stall-AUTO_AUDIT_STALL_1784562651808/result.json"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:delete:print-stall",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:print-stall",
+            "locator": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/printer-stall/list",
+        "entity": "品牌打印档口",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:973f08f8ed79"
+          ],
+          "functionIds": [
+            "/pp/printer-stall/list#control-1",
+            "/pp/printer-stall/list#control-2",
+            "/pp/printer-stall/list#control-3",
+            "/pp/printer-stall/list#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:32d64a6029a8",
+            "mapping-na:49e3a06906aa",
+            "mapping-na:4e1b37eddbe9",
+            "mapping-na:50b583e94544",
+            "mapping-na:589f17535864",
+            "mapping-na:859f1b3e97bb",
+            "mapping-na:9d7470518c6a",
+            "mapping-na:abcee38b3cf5",
+            "mapping-na:b6de2779b33a",
+            "mapping-na:d41337a61130",
+            "mapping:313a81df5aea",
+            "mapping:5f6d04a795e7",
+            "mapping:803fc7b79c7c",
+            "mapping:b4ddd84ea0ab"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:print-stall",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "品牌打印档口应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

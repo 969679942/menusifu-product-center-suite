@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "TPL-006 已完成单门店路由访问并观察到 403/无权限可见终态，但执行收据缺少 before-assertion 上下文守卫，说明页面终态读取与标准断言阶段之间未形成完整证据链。该问题属于执行编排/证据收集缺口，不是登录失败或业务写入失败。",
+  "correctiveAction": "继续复用公共混合认证态和单门店 000407 profile；在单门店模板缺失适配器完成可见终态采集后，确保标准执行器执行 before-assertion 守卫并登记 assertion receipt，再执行正式断言。若页面发生重定向或导航异常，立即输出阶段化诊断并结束本用例，不进入无边界等待。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787557434044/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["89ead7d50f33ebf1"]
+}

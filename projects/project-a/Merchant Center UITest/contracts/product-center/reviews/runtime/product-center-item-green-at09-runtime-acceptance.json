@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-at09-runtime-acceptance",
+  "generatedAt": "2026-08-03T17:30:00.000Z",
+  "status": "accepted",
+  "runId": "AUTO_AUDIT_GREEN_AT09_20260803_05",
+  "batchId": "GREEN-AT09",
+  "source": {
+    "reportPath": "output/audit/product-center-item-green-at09-runtime-AUTO_AUDIT_GREEN_AT09_20260803_05.json",
+    "reportSha256": "3b9742b54631a3a1de90f87467a31eeac7bd8bbab39c25f61aba343b82418ab9"
+  },
+  "summary": {
+    "total": 4,
+    "accepted": 4,
+    "canonicalConflicts": 0,
+    "executorErrors": 0,
+    "generationPromotable": 4,
+    "canonicalRepairRequired": 0,
+    "humanReviewRequired": 0,
+    "mutationIntents": 3,
+    "ledgerResidueVerified": 3
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-STD-020",
+    "TC-ITEM-STD-048",
+    "TC-ITEM-STD-050",
+    "TC-ITEM-STD-098"
+  ],
+  "acceptedEvidence": [
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "evidence": {
+        "identity": "AUTO_AUDIT_ITEM_1785770371324101",
+        "price": "1.99",
+        "minimumOrderQuantity": "1",
+        "priceBeforeSave": "1.99",
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "successMessageCount": 1,
+        "locatorCount": 1,
+        "listPrice": 1.99,
+        "expectedSatisfied": true
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "evidence": {
+        "addGroupButtonCount": 1,
+        "dialogCount": 1,
+        "createEntryCount": 1,
+        "buttonTexts": [
+          "Confirm"
+        ],
+        "linkTexts": [],
+        "linkHrefs": [],
+        "tabStatesBefore": [],
+        "tabStatesAfter": [],
+        "inputContractsBefore": [
+          {
+            "type": "text",
+            "name": "",
+            "placeholder": "Specification Group Name",
+            "value": ""
+          },
+          {
+            "type": "radio",
+            "name": "",
+            "placeholder": "",
+            "value": "on"
+          },
+          {
+            "type": "radio",
+            "name": "",
+            "placeholder": "",
+            "value": "on"
+          }
+        ],
+        "inputContractsAfter": [
+          {
+            "type": "text",
+            "name": "",
+            "placeholder": "Specification Group Name",
+            "value": ""
+          },
+          {
+            "type": "radio",
+            "name": "",
+            "placeholder": "",
+            "value": "on"
+          },
+          {
+            "type": "radio",
+            "name": "",
+            "placeholder": "",
+            "value": "on"
+          }
+        ],
+        "createEntryContractBefore": {
+          "tagName": "span",
+          "role": "",
+          "className": "gotocreate___GKhlr",
+          "parentTagName": "span",
+          "parentRole": "",
+          "parentClassName": "buttonContainer___cMDWN"
+        },
+        "createEntryContractAfter": {
+          "tagName": "span",
+          "role": "",
+          "className": "gotocreate___GKhlr",
+          "parentTagName": "span",
+          "parentRole": "",
+          "parentClassName": "buttonContainer___cMDWN"
+        },
+        "listRequestObserved": false,
+        "beforePath": "/pp/brand/create/standard",
+        "afterPath": "/pp/brand/create/standard",
+        "beforeDialogText": "Select Specification Group\nConfirm\nSelect\nGo Create\nRefresh\n\t\nRegular Size(M)\n标准杯\n\n\n\t\n规格\nGroup Details\nPlease select a rule group first",
+        "afterDialogText": "Select Specification Group\nConfirm\nSelect\nGo Create\nRefresh\n\t\nRegular Size(M)\n标准杯\n\n\n\t\n规格\nGroup Details\nPlease select a rule group first",
+        "beforePageCount": 1,
+        "afterPageCount": 2,
+        "newPagePath": "/pp/brand/spec/create",
+        "newPageTitle": "",
+        "newPageClosed": true,
+        "navigationObserved": true,
+        "inlineCreateTabObserved": false,
+        "expectedSatisfied": true,
+        "classificationReconciled": true
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "evidence": {
+        "identity": "AUTO_AUDIT_ITEM_1785770411553102",
+        "price": "10.00",
+        "minimumOrderQuantity": "1",
+        "priceBeforeSave": "10.00",
+        "packagingFee": "1.00",
+        "packagingFeeBeforeSave": "1.00",
+        "reopenedPackagingFee": "1.00",
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "successMessageCount": 1,
+        "locatorCount": 1,
+        "listPrice": 10,
+        "expectedSatisfied": true
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-098",
+      "evidence": {
+        "identity": "AUTO_AUDIT_ITEM_1785770433070103",
+        "price": "10.00",
+        "minimumOrderQuantity": "1",
+        "priceBeforeSave": "10.00",
+        "cost": "5.00",
+        "costBeforeSave": "5.00",
+        "reopenedCost": "5.00",
+        "response": {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        },
+        "successMessageCount": 1,
+        "locatorCount": 1,
+        "listPrice": 10,
+        "expectedSatisfied": true
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiAndApiResidueVerificationRequired": true,
+    "humanCaseReviewRequired": false
+  },
+  "fingerprint": "7592388a3e9df407b49c9af032ee87e69840ddb38642756063eba582ac816aa5"
+}

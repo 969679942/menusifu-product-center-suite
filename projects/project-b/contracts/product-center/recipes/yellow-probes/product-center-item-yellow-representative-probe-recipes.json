@@ -1,0 +1,2945 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-shared-chain-probe-recipes",
+  "generatedAt": "2026-08-29T16:16:04.262Z",
+  "status": "compiled-awaiting-wave-executors",
+  "source": {
+    "fastLanePath": "contracts/product-center/reviews/automation-fast-lane/product-center-item-automation-fast-lane.json",
+    "fastLaneFingerprint": "6e785dc9c2b702d096f15426659d90c716eeb32b7e659c08a9b1078b3b686565",
+    "fastLaneSha256": "72793ae9862be699776936cb788ed9b9e58a55ee15abf88c00e5a413496d4af4"
+  },
+  "summary": {
+    "yellowCases": 58,
+    "yellowTemplates": 34,
+    "caseRecipes": 58,
+    "executorGroups": 34,
+    "structurallyCompiled": 58,
+    "compileBlocked": 0,
+    "humanReviewRequired": 0,
+    "waves": {
+      "Y1": {
+        "templates": 8,
+        "cases": 14,
+        "riskLevel": "L0"
+      },
+      "Y2": {
+        "templates": 1,
+        "cases": 1,
+        "riskLevel": "L1"
+      },
+      "Y3": {
+        "templates": 19,
+        "cases": 37,
+        "riskLevel": "L2"
+      },
+      "Y4": {
+        "templates": 6,
+        "cases": 6,
+        "riskLevel": "L3"
+      }
+    }
+  },
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at02:tc-item-std-061",
+      "caseId": "TC-ITEM-STD-061",
+      "title": "黄色模板 AT02 用例 TC-ITEM-STD-061 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y2"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-061",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-061",
+        "fast-lane:AT02"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-061"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y2",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y2.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y2-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT02",
+            "caseId": "TC-ITEM-STD-061",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-061",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at04:tc-item-std-030",
+      "caseId": "TC-ITEM-STD-030",
+      "title": "黄色模板 AT04 用例 TC-ITEM-STD-030 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-030",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-030",
+        "fast-lane:AT04"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-030"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT04",
+            "caseId": "TC-ITEM-STD-030",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-030",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at07:tc-item-std-041",
+      "caseId": "TC-ITEM-STD-041",
+      "title": "黄色模板 AT07 用例 TC-ITEM-STD-041 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-041",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-041",
+        "fast-lane:AT07"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-041"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT07",
+            "caseId": "TC-ITEM-STD-041",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-041",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at11:tc-item-std-024",
+      "caseId": "TC-ITEM-STD-024",
+      "title": "黄色模板 AT11 用例 TC-ITEM-STD-024 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-024",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-024",
+        "fast-lane:AT11"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-024"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT11",
+            "caseId": "TC-ITEM-STD-024",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-024",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at12:tc-item-std-083",
+      "caseId": "TC-ITEM-STD-083",
+      "title": "黄色模板 AT12 用例 TC-ITEM-STD-083 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-083",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-083",
+        "fast-lane:AT12"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-083"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT12",
+            "caseId": "TC-ITEM-STD-083",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-083",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-019",
+      "caseId": "TC-ITEM-STD-019",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-019 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-019",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-019",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-019"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-019",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-025",
+      "caseId": "TC-ITEM-STD-025",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-025 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-025",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-025",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-025"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-025",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-026",
+      "caseId": "TC-ITEM-STD-026",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-026 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-026",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-026",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-026"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-026",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-027",
+      "caseId": "TC-ITEM-STD-027",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-027 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-027",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-027",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-027"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-027",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-084",
+      "caseId": "TC-ITEM-STD-084",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-084 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-084",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-084",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-084"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-084",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at13:tc-item-std-085",
+      "caseId": "TC-ITEM-STD-085",
+      "title": "黄色模板 AT13 用例 TC-ITEM-STD-085 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-085",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-085",
+        "fast-lane:AT13"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-085"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT13",
+            "caseId": "TC-ITEM-STD-085",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-019",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at14:tc-item-std-079",
+      "caseId": "TC-ITEM-STD-079",
+      "title": "黄色模板 AT14 用例 TC-ITEM-STD-079 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-079",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-079",
+        "fast-lane:AT14"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-079"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT14",
+            "caseId": "TC-ITEM-STD-079",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-079",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at16:tc-item-std-086",
+      "caseId": "TC-ITEM-STD-086",
+      "title": "黄色模板 AT16 用例 TC-ITEM-STD-086 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-086",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-086",
+        "fast-lane:AT16"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-086"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT16",
+            "caseId": "TC-ITEM-STD-086",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-086",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at18:tc-item-std-071",
+      "caseId": "TC-ITEM-STD-071",
+      "title": "黄色模板 AT18 用例 TC-ITEM-STD-071 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-071",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-071",
+        "fast-lane:AT18"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-071"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT18",
+            "caseId": "TC-ITEM-STD-071",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-071",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at18:tc-item-std-074",
+      "caseId": "TC-ITEM-STD-074",
+      "title": "黄色模板 AT18 用例 TC-ITEM-STD-074 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-074",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-074",
+        "fast-lane:AT18"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-074"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT18",
+            "caseId": "TC-ITEM-STD-074",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-071",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at18:tc-item-std-076",
+      "caseId": "TC-ITEM-STD-076",
+      "title": "黄色模板 AT18 用例 TC-ITEM-STD-076 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-076",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-076",
+        "fast-lane:AT18"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-076"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT18",
+            "caseId": "TC-ITEM-STD-076",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-071",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at20:tc-item-std-077",
+      "caseId": "TC-ITEM-STD-077",
+      "title": "黄色模板 AT20 用例 TC-ITEM-STD-077 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-STD-077",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-077",
+        "fast-lane:AT20"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-077"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT20",
+            "caseId": "TC-ITEM-STD-077",
+            "sharedChainAnchorCaseId": "TC-ITEM-STD-077",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at22:tc-item-add-025",
+      "caseId": "TC-ITEM-ADD-025",
+      "title": "黄色模板 AT22 用例 TC-ITEM-ADD-025 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-025",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-025",
+        "fast-lane:AT22"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-025"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT22",
+            "caseId": "TC-ITEM-ADD-025",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-025",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at23:tc-item-add-033",
+      "caseId": "TC-ITEM-ADD-033",
+      "title": "黄色模板 AT23 用例 TC-ITEM-ADD-033 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-033",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-033",
+        "fast-lane:AT23"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-033"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT23",
+            "caseId": "TC-ITEM-ADD-033",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-033",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at24:tc-item-add-041",
+      "caseId": "TC-ITEM-ADD-041",
+      "title": "黄色模板 AT24 用例 TC-ITEM-ADD-041 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-041",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-041",
+        "fast-lane:AT24"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-041"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT24",
+            "caseId": "TC-ITEM-ADD-041",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-041",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at25:tc-item-add-007",
+      "caseId": "TC-ITEM-ADD-007",
+      "title": "黄色模板 AT25 用例 TC-ITEM-ADD-007 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-007",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-007",
+        "fast-lane:AT25"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-007"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT25",
+            "caseId": "TC-ITEM-ADD-007",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at25:tc-item-add-009",
+      "caseId": "TC-ITEM-ADD-009",
+      "title": "黄色模板 AT25 用例 TC-ITEM-ADD-009 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-009",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-009",
+        "fast-lane:AT25"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-009"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT25",
+            "caseId": "TC-ITEM-ADD-009",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at25:tc-item-add-022",
+      "caseId": "TC-ITEM-ADD-022",
+      "title": "黄色模板 AT25 用例 TC-ITEM-ADD-022 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-022",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-022",
+        "fast-lane:AT25"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-022"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT25",
+            "caseId": "TC-ITEM-ADD-022",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at25:tc-item-add-039",
+      "caseId": "TC-ITEM-ADD-039",
+      "title": "黄色模板 AT25 用例 TC-ITEM-ADD-039 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-039",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-039",
+        "fast-lane:AT25"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-039"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT25",
+            "caseId": "TC-ITEM-ADD-039",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-012",
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-012 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-012",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-012",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-012"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-012",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-013",
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-013 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-013",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-013",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-013"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-013",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-018",
+      "caseId": "TC-ITEM-ADD-018",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-018 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-018",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-018",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-018"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-018",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-019",
+      "caseId": "TC-ITEM-ADD-019",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-019 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-019",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-019",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-019"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-019",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-020",
+      "caseId": "TC-ITEM-ADD-020",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-020 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-020",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-020",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-020"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-020",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at26:tc-item-add-021",
+      "caseId": "TC-ITEM-ADD-021",
+      "title": "黄色模板 AT26 用例 TC-ITEM-ADD-021 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-021",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-021",
+        "fast-lane:AT26"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-021"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT26",
+            "caseId": "TC-ITEM-ADD-021",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-012",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at27:tc-item-add-011",
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "黄色模板 AT27 用例 TC-ITEM-ADD-011 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-011",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-011",
+        "fast-lane:AT27"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-011"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT27",
+            "caseId": "TC-ITEM-ADD-011",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-011",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at27:tc-item-add-049",
+      "caseId": "TC-ITEM-ADD-049",
+      "title": "黄色模板 AT27 用例 TC-ITEM-ADD-049 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-049",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-049",
+        "fast-lane:AT27"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-049"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT27",
+            "caseId": "TC-ITEM-ADD-049",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-011",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at29:tc-item-add-045",
+      "caseId": "TC-ITEM-ADD-045",
+      "title": "黄色模板 AT29 用例 TC-ITEM-ADD-045 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-045",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-045",
+        "fast-lane:AT29"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-045"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT29",
+            "caseId": "TC-ITEM-ADD-045",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-045",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at30:tc-item-add-038",
+      "caseId": "TC-ITEM-ADD-038",
+      "title": "黄色模板 AT30 用例 TC-ITEM-ADD-038 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-038",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-038",
+        "fast-lane:AT30"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-038"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT30",
+            "caseId": "TC-ITEM-ADD-038",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-038",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at31:tc-item-add-035",
+      "caseId": "TC-ITEM-ADD-035",
+      "title": "黄色模板 AT31 用例 TC-ITEM-ADD-035 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-035",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-035",
+        "fast-lane:AT31"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-035"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT31",
+            "caseId": "TC-ITEM-ADD-035",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-035",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at32:tc-item-add-002",
+      "caseId": "TC-ITEM-ADD-002",
+      "title": "黄色模板 AT32 用例 TC-ITEM-ADD-002 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-002",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-002",
+        "fast-lane:AT32"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-002"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT32",
+            "caseId": "TC-ITEM-ADD-002",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-002",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at33:tc-item-add-037",
+      "caseId": "TC-ITEM-ADD-037",
+      "title": "黄色模板 AT33 用例 TC-ITEM-ADD-037 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-ADD-037",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-037",
+        "fast-lane:AT33"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-037"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT33",
+            "caseId": "TC-ITEM-ADD-037",
+            "sharedChainAnchorCaseId": "TC-ITEM-ADD-037",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at35:tc-item-pkg-036",
+      "caseId": "TC-ITEM-PKG-036",
+      "title": "黄色模板 AT35 用例 TC-ITEM-PKG-036 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-036",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-036",
+        "fast-lane:AT35"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-036"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT35",
+            "caseId": "TC-ITEM-PKG-036",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-036",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at36:tc-item-pkg-044",
+      "caseId": "TC-ITEM-PKG-044",
+      "title": "黄色模板 AT36 用例 TC-ITEM-PKG-044 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-044",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-044",
+        "fast-lane:AT36"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-044"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT36",
+            "caseId": "TC-ITEM-PKG-044",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-044",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at36:tc-item-pkg-056",
+      "caseId": "TC-ITEM-PKG-056",
+      "title": "黄色模板 AT36 用例 TC-ITEM-PKG-056 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-056",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-056",
+        "fast-lane:AT36"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-056"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT36",
+            "caseId": "TC-ITEM-PKG-056",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-044",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at37:tc-item-pkg-003",
+      "caseId": "TC-ITEM-PKG-003",
+      "title": "黄色模板 AT37 用例 TC-ITEM-PKG-003 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-003",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-003",
+        "fast-lane:AT37"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-003"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT37",
+            "caseId": "TC-ITEM-PKG-003",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-003",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at37:tc-item-pkg-045",
+      "caseId": "TC-ITEM-PKG-045",
+      "title": "黄色模板 AT37 用例 TC-ITEM-PKG-045 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-045",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-045",
+        "fast-lane:AT37"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-045"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT37",
+            "caseId": "TC-ITEM-PKG-045",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-003",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at38:tc-item-pkg-048",
+      "caseId": "TC-ITEM-PKG-048",
+      "title": "黄色模板 AT38 用例 TC-ITEM-PKG-048 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-048",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-048",
+        "fast-lane:AT38"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-048"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT38",
+            "caseId": "TC-ITEM-PKG-048",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-048",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at40:tc-item-pkg-014",
+      "caseId": "TC-ITEM-PKG-014",
+      "title": "黄色模板 AT40 用例 TC-ITEM-PKG-014 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-014",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-014",
+        "fast-lane:AT40"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-014"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT40",
+            "caseId": "TC-ITEM-PKG-014",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-014",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at40:tc-item-pkg-051",
+      "caseId": "TC-ITEM-PKG-051",
+      "title": "黄色模板 AT40 用例 TC-ITEM-PKG-051 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-051",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-051",
+        "fast-lane:AT40"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-051"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT40",
+            "caseId": "TC-ITEM-PKG-051",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-014",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at41:tc-item-pkg-020",
+      "caseId": "TC-ITEM-PKG-020",
+      "title": "黄色模板 AT41 用例 TC-ITEM-PKG-020 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-020",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-020",
+        "fast-lane:AT41"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-020"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT41",
+            "caseId": "TC-ITEM-PKG-020",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-020",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at44:tc-item-pkg-042",
+      "caseId": "TC-ITEM-PKG-042",
+      "title": "黄色模板 AT44 用例 TC-ITEM-PKG-042 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-042",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-042",
+        "fast-lane:AT44"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-042"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT44",
+            "caseId": "TC-ITEM-PKG-042",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-042",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at44:tc-item-pkg-043",
+      "caseId": "TC-ITEM-PKG-043",
+      "title": "黄色模板 AT44 用例 TC-ITEM-PKG-043 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-043",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-043",
+        "fast-lane:AT44"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-043"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT44",
+            "caseId": "TC-ITEM-PKG-043",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-042",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at48:tc-item-pkg-070",
+      "caseId": "TC-ITEM-PKG-070",
+      "title": "黄色模板 AT48 用例 TC-ITEM-PKG-070 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-070",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-070",
+        "fast-lane:AT48"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-070"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT48",
+            "caseId": "TC-ITEM-PKG-070",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-070",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at49:tc-item-pkg-060",
+      "caseId": "TC-ITEM-PKG-060",
+      "title": "黄色模板 AT49 用例 TC-ITEM-PKG-060 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y4"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-PKG-060",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-060",
+        "fast-lane:AT49"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-060"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y4",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y4.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y4-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT49",
+            "caseId": "TC-ITEM-PKG-060",
+            "sharedChainAnchorCaseId": "TC-ITEM-PKG-060",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at51:tc-item-ui-003",
+      "caseId": "TC-ITEM-UI-003",
+      "title": "黄色模板 AT51 用例 TC-ITEM-UI-003 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-003",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-003",
+        "fast-lane:AT51"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-003"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT51",
+            "caseId": "TC-ITEM-UI-003",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-003",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at52:tc-item-ui-007",
+      "caseId": "TC-ITEM-UI-007",
+      "title": "黄色模板 AT52 用例 TC-ITEM-UI-007 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-007",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-007",
+        "fast-lane:AT52"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-007"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT52",
+            "caseId": "TC-ITEM-UI-007",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at52:tc-item-ui-008",
+      "caseId": "TC-ITEM-UI-008",
+      "title": "黄色模板 AT52 用例 TC-ITEM-UI-008 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-008",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-008",
+        "fast-lane:AT52"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-008"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT52",
+            "caseId": "TC-ITEM-UI-008",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-007",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at53:tc-item-ui-001",
+      "caseId": "TC-ITEM-UI-001",
+      "title": "黄色模板 AT53 用例 TC-ITEM-UI-001 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-001",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-001",
+        "fast-lane:AT53"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-001"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT53",
+            "caseId": "TC-ITEM-UI-001",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-001",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at53:tc-item-ui-002",
+      "caseId": "TC-ITEM-UI-002",
+      "title": "黄色模板 AT53 用例 TC-ITEM-UI-002 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-002",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-002",
+        "fast-lane:AT53"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-002"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y1",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y1.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y1-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT53",
+            "caseId": "TC-ITEM-UI-002",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-001",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at54:tc-item-ui-004",
+      "caseId": "TC-ITEM-UI-004",
+      "title": "黄色模板 AT54 用例 TC-ITEM-UI-004 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-004",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-004",
+        "fast-lane:AT54"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-004"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT54",
+            "caseId": "TC-ITEM-UI-004",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-004",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at54:tc-item-ui-005",
+      "caseId": "TC-ITEM-UI-005",
+      "title": "黄色模板 AT54 用例 TC-ITEM-UI-005 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-005",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-005",
+        "fast-lane:AT54"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-005"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT54",
+            "caseId": "TC-ITEM-UI-005",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-004",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:yellow-probe:at54:tc-item-ui-006",
+      "caseId": "TC-ITEM-UI-006",
+      "title": "黄色模板 AT54 用例 TC-ITEM-UI-006 共享链受控探测",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@yellow-probe",
+        "@y3"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:yellow:TC-ITEM-UI-006",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-UI-006",
+        "fast-lane:AT54"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-UI-006"
+      ],
+      "generationAllowed": false,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "Y3",
+        "orchestratorSpecPath": "tests/generated/product-center-item-yellow-y3.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-yellow-y3-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "yellowProbe.captureCaseEvidence",
+          "input": {
+            "groupId": "AT54",
+            "caseId": "TC-ITEM-UI-006",
+            "sharedChainAnchorCaseId": "TC-ITEM-UI-004",
+            "evidenceInheritanceAllowed": false
+          }
+        }
+      ]
+    }
+  ],
+  "fingerprint": "b034874d72f199eae1c6d177f4de3483cb03ec833fc77de82c432ad3e79773a0"
+}

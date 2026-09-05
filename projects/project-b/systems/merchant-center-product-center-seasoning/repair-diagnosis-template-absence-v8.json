@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "模块运行收据在标准测试失败时没有持久化原始异常，导致 capability、context guard 和 cleanup 阶段无法区分；该可观测性缺口使认证/页面问题被误判并造成重复等待。",
+  "correctiveAction": "在每个调味用例失败时把 caseId、URL、阶段输入、原始错误和上下文收据写入 checkpoint 诊断文件；继续执行 TPL-006 以获得精确异常并形成完整收据。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787558164685/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["775e2811e53ec332"]
+}

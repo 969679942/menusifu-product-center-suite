@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-001", "TC-FLV-REC-003", "TC-FLV-REC-004", "TC-FLV-REC-005", "TC-FLV-REC-006", "TC-FLV-REC-007",
+    "TC-FLV-SEA-002", "TC-FLV-SEA-003", "TC-FLV-SEA-004", "TC-FLV-SEA-005", "TC-FLV-SEA-006", "TC-FLV-SEA-007", "TC-FLV-SEA-008",
+    "TC-FLV-SEA-011", "TC-FLV-SEA-012", "TC-FLV-SEA-015", "TC-FLV-SEA-016", "TC-FLV-SEA-017", "TC-FLV-SEA-018", "TC-FLV-SEA-030", "TC-FLV-SEA-032", "TC-FLV-SEA-043", "TC-FLV-SEA-046", "TC-FLV-TPL-006"
+  ],
+  "rootCause": "页面对象的 REC-002 查询结果同步修复改变了调味页面适配器依赖指纹，当前实现的单门店收据必须整体重验证；历史收据继续保留为历史证据。",
+  "correctiveAction": "在 SCH/Brand 000407 上下文中重跑单门店绑定，REC-002 等待读取当前查询身份的稳定可见行；所有 case 记录当前实现指纹、UI/API/清理证据。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts"
+  ]
+}

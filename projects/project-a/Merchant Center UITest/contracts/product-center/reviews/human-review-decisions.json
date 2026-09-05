@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "product-center",
+  "contractVersion": "1.0.0",
+  "decisions": [
+    {
+      "id": "review-2026-07-24-statistic-tag-language-limits",
+      "reviewedBy": "金将军",
+      "reviewedAt": "2026-07-24",
+      "source": {
+        "path": "review://product-center/p0/2026-07-24",
+        "locator": "统计标签第二语言边界人工确认"
+      },
+      "fieldLimits": [
+        {
+          "recordId": "/pp/brand/tag/statistic#action-1#primary-1#field-35",
+          "label": "标签名称（第二语言）",
+          "maxLength": 50
+        },
+        {
+          "recordId": "/pp/brand/tag/statistic#action-1#primary-1#field-37",
+          "label": "标签组名称（第二语言）",
+          "maxLength": 10
+        }
+      ],
+      "resolves": [
+        {
+          "collection": "unresolved",
+          "recordId": "field-boundary-drift:3346748f34ca",
+          "reason": "人工确认统计标签第二语言字段存在并提供 50/10 长度边界"
+        }
+      ]
+    },
+    {
+      "id": "review-2026-07-24-description-tag-language-limits",
+      "reviewedBy": "金将军",
+      "reviewedAt": "2026-07-24",
+      "source": {
+        "path": "review://product-center/p0/2026-07-24",
+        "locator": "描述标签第二语言边界人工确认"
+      },
+      "fieldLimits": [
+        {
+          "recordId": "/pp/brand/tag/description#action-1#primary-1#field-56",
+          "label": "标签名称（第二语言）",
+          "maxLength": 50
+        },
+        {
+          "recordId": "/pp/brand/tag/description#action-1#primary-1#field-58",
+          "label": "标签组名称（第二语言）",
+          "maxLength": 10
+        }
+      ],
+      "resolves": [
+        {
+          "collection": "unresolved",
+          "recordId": "field-boundary-drift:a0757da39219",
+          "reason": "人工确认描述标签第二语言字段存在并提供 50/10 长度边界"
+        }
+      ]
+    },
+    {
+      "id": "review-2026-07-24-open-ad-unsupported",
+      "reviewedBy": "金将军",
+      "reviewedAt": "2026-07-24",
+      "source": {
+        "path": "review://product-center/p0/2026-07-24",
+        "locator": "开通 AD 自动化支持结论"
+      },
+      "automationExclusions": [
+        {
+          "ruleId": "rule:automation-exclusion:open-ad",
+          "request": "开通ad",
+          "method": "PUT"
+        }
+      ],
+      "resolves": [
+        {
+          "collection": "unresolved",
+          "recordId": "api-unresolved:840e59962052",
+          "reason": "人工确认开通 AD 不支持自动化调用，改由已确认排除规则承载"
+        }
+      ]
+    },
+    {
+      "id": "review-2026-07-24-open-oms-unsupported",
+      "reviewedBy": "金将军",
+      "reviewedAt": "2026-07-24",
+      "source": {
+        "path": "review://product-center/p0/2026-07-24",
+        "locator": "开通 OMS 自动化支持结论"
+      },
+      "automationExclusions": [
+        {
+          "ruleId": "rule:automation-exclusion:open-oms",
+          "request": "开通OMS",
+          "method": "POST"
+        }
+      ],
+      "resolves": [
+        {
+          "collection": "unresolved",
+          "recordId": "api-unresolved:7155f5639efe",
+          "reason": "人工确认开通 OMS 不支持自动化调用，改由已确认排除规则承载"
+        }
+      ]
+    }
+  ]
+}

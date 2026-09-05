@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatedAt": "2026-09-04T00:10:44.387Z",
+  "freshUntil": null,
+  "freshnessBasis": "page-observation-pending",
+  "status": "provisional",
+  "executionAllowed": false,
+  "mode": "read-only-observation",
+  "sources": [
+    {
+      "sourceId": "url:76ac74e3ff16eaaa",
+      "kind": "url",
+      "sourceType": "page",
+      "format": "web-page",
+      "locator": "https://example.test/pp/brand/list",
+      "fingerprint": "sha256:76ac74e3ff16eaaae44f0dae5e4c319250eba3528fe5aff0179d33a19712e598",
+      "observedAt": "2026-09-04T00:10:44.387Z",
+      "modifiedAt": null,
+      "available": true,
+      "changedDuringAudit": false
+    }
+  ],
+  "executionContext": {
+    "environmentId": null,
+    "roleId": null,
+    "tenantScope": null,
+    "locale": null
+  },
+  "contextStatus": "missing",
+  "candidates": [],
+  "unresolved": [
+    {
+      "code": "PAGE_OBSERVATION_PENDING",
+      "sourceId": "url:76ac74e3ff16eaaa",
+      "message": "已登记业务地址；需要在认证上下文中执行只读页面/API观测。"
+    },
+    {
+      "code": "CASE_SOURCE_MISSING",
+      "sourceId": "url:76ac74e3ff16eaaa",
+      "message": "地址本身不是正式测试方案，不能单独生成带稳定 caseId 的正式用例。"
+    },
+    {
+      "code": "EXECUTION_CONTEXT_REQUIRED",
+      "sourceId": "audit-context",
+      "message": "正式执行需要真实 environmentId、roleId、tenantScope 和 locale。"
+    }
+  ],
+  "guardrails": {
+    "canonicalCaseMutationAllowed": false,
+    "businessMutationAllowed": false,
+    "formalExecutionAllowed": false
+  }
+}

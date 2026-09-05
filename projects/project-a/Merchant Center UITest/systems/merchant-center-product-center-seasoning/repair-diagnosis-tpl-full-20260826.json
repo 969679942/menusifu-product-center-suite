@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-001", "TC-FLV-TPL-002", "TC-FLV-TPL-003", "TC-FLV-TPL-004", "TC-FLV-TPL-005",
+    "TC-FLV-TPL-007", "TC-FLV-TPL-008", "TC-FLV-TPL-009", "TC-FLV-TPL-010", "TC-FLV-TPL-011",
+    "TC-FLV-TPL-012", "TC-FLV-TPL-013", "TC-FLV-TPL-014", "TC-FLV-TPL-015", "TC-FLV-TPL-016",
+    "TC-FLV-TPL-017", "TC-FLV-TPL-018", "TC-FLV-TPL-019", "TC-FLV-TPL-020", "TC-FLV-TPL-021",
+    "TC-FLV-TPL-022", "TC-FLV-TPL-023", "TC-FLV-TPL-024", "TC-FLV-TPL-025"
+  ],
+  "rootCause": "模板非 Bug 批次需要在当前多门店 000420/23918 上重建标准收据；历史尝试包含上下文和模板页面合同修复前的实现，不能授权当前实现直接复用。",
+  "correctiveAction": "按当前模板页面合同、真实模板与调味服务端身份、统一上下文守卫、请求关联、UI/API 断言和 finally 清理执行全部选择的模板用例；POS 下游能力不改变本批结果。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/template-create-live-audit.json",
+    "systems/merchant-center-product-center-seasoning/template-distribution-live-audit-000420.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "12e7c8a21fdb53e9", "eb173f55355fd9b2", "dc69c72e154be3c0", "66e1e891edc3ca0d", "7c735d91d19fdbde",
+    "ab298f90faea2aeb", "69cc1f2ff10d6890", "47e6700af73cb0c4", "93f92f64053a6d16", "fe236490f645828c",
+    "94862836a8f8826b", "5c308fb2932a647f", "005ca33992a0d5e5", "1eea49514bd35c7c", "01790f228e7cf418"
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-26T15:08:21.351Z",
+  "status": "passed",
+  "durationMs": 39059,
+  "planFingerprint": "45021186a61a8c79839a20583813892db525eb016acc6fcf01fef769df14882a",
+  "selectedCaseCount": 4,
+  "caseResults": [
+    {
+      "caseId": "negative:description-tag-second-language-max",
+      "title": "描述标签名称第二语言应允许五十字符并截断第五十一字符",
+      "specFile": "tests/generated/product-center-recipe-pilot.generated.spec.ts",
+      "project": "chrome",
+      "status": "passed",
+      "durationMs": 15617,
+      "retry": 0,
+      "runtimeEvidence": {
+        "schemaVersion": "1.0.0",
+        "recipeId": "product-center:description-tag-second-language-max:boundary",
+        "caseId": "negative:description-tag-second-language-max",
+        "navigation": {
+          "mode": "sidebar",
+          "targetPath": "/pp/brand/tag/description",
+          "arrivedPath": "/pp/brand/tag/description",
+          "verifiedPaths": [
+            "/pp/brand/tag/description"
+          ]
+        },
+        "visibleUi": {
+          "route": "",
+          "requiredErrorCount": null,
+          "successMessageCount": null
+        },
+        "locatorUniqueness": {
+          "nameInputCount": null,
+          "requiredErrorCount": null
+        },
+        "network": {
+          "method": "POST",
+          "operation": "standard-item-create",
+          "requestCount": null
+        },
+        "api": {
+          "responseShape": [
+            "data.totalCount"
+          ],
+          "beforeEqualsAfter": false
+        },
+        "screenshot": {
+          "attachmentName": "product-center:description-tag-second-language-max:boundary-runtime-evidence"
+        },
+        "context": {
+          "environmentId": "balamxqa",
+          "brandFingerprint": "c26e0ffa82e9"
+        },
+        "execution": {
+          "action": "boundary",
+          "resultKeys": [
+            "navigation",
+            "negative"
+          ],
+          "capabilityIds": [
+            "navigation.sidebar.open",
+            "negative.execute"
+          ],
+          "assertionAdapterIds": [
+            "productCenter.verifyBoundary"
+          ],
+          "boundaryEvidence": {
+            "maxLengthAttribute": "50",
+            "acceptedLength": 50,
+            "rejectedLength": 50,
+            "locatorCount": 1,
+            "visible": true,
+            "enabled": true
+          }
+        },
+        "expectedClaimIds": [
+          "claim:negative:description-tag-second-language-max:action:1",
+          "claim:negative:description-tag-second-language-max:expectation:1"
+        ],
+        "verifiedClaimIds": [
+          "claim:negative:description-tag-second-language-max:action:1",
+          "claim:negative:description-tag-second-language-max:expectation:1"
+        ],
+        "missingClaimIds": [],
+        "unexpectedClaimIds": [],
+        "duplicateVerifiedClaimIds": [],
+        "claimVerification": {
+          "precondition": [],
+          "action": [
+            "claim:negative:description-tag-second-language-max:action:1"
+          ],
+          "expectation": [
+            "claim:negative:description-tag-second-language-max:expectation:1"
+          ]
+        },
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true
+      }
+    },
+    {
+      "caseId": "negative:description-tag-group-second-language-max",
+      "title": "描述标签组名称第二语言应允许十字符并截断第十一字符",
+      "specFile": "tests/generated/product-center-recipe-pilot.generated.spec.ts",
+      "project": "chrome",
+      "status": "passed",
+      "durationMs": 13814,
+      "retry": 0,
+      "runtimeEvidence": {
+        "schemaVersion": "1.0.0",
+        "recipeId": "product-center:description-tag-group-second-language-max:boundary",
+        "caseId": "negative:description-tag-group-second-language-max",
+        "navigation": {
+          "mode": "sidebar",
+          "targetPath": "/pp/brand/tag/description",
+          "arrivedPath": "/pp/brand/tag/description",
+          "verifiedPaths": [
+            "/pp/brand/tag/description"
+          ]
+        },
+        "visibleUi": {
+          "route": "",
+          "requiredErrorCount": null,
+          "successMessageCount": null
+        },
+        "locatorUniqueness": {
+          "nameInputCount": null,
+          "requiredErrorCount": null
+        },
+        "network": {
+          "method": "POST",
+          "operation": "standard-item-create",
+          "requestCount": null
+        },
+        "api": {
+          "responseShape": [
+            "data.totalCount"
+          ],
+          "beforeEqualsAfter": false
+        },
+        "screenshot": {
+          "attachmentName": "product-center:description-tag-group-second-language-max:boundary-runtime-evidence"
+        },
+        "context": {
+          "environmentId": "balamxqa",
+          "brandFingerprint": "c26e0ffa82e9"
+        },
+        "execution": {
+          "action": "boundary",
+          "resultKeys": [
+            "navigation",
+            "negative"
+          ],
+          "capabilityIds": [
+            "navigation.sidebar.open",
+            "negative.execute"
+          ],
+          "assertionAdapterIds": [
+            "productCenter.verifyBoundary"
+          ],
+          "boundaryEvidence": {
+            "maxLengthAttribute": "10",
+            "acceptedLength": 10,
+            "rejectedLength": 10,
+            "locatorCount": 1,
+            "visible": true,
+            "enabled": true
+          }
+        },
+        "expectedClaimIds": [
+          "claim:negative:description-tag-group-second-language-max:action:1",
+          "claim:negative:description-tag-group-second-language-max:expectation:1"
+        ],
+        "verifiedClaimIds": [
+          "claim:negative:description-tag-group-second-language-max:action:1",
+          "claim:negative:description-tag-group-second-language-max:expectation:1"
+        ],
+        "missingClaimIds": [],
+        "unexpectedClaimIds": [],
+        "duplicateVerifiedClaimIds": [],
+        "claimVerification": {
+          "precondition": [],
+          "action": [
+            "claim:negative:description-tag-group-second-language-max:action:1"
+          ],
+          "expectation": [
+            "claim:negative:description-tag-group-second-language-max:expectation:1"
+          ]
+        },
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true
+      }
+    },
+    {
+      "caseId": "negative:statistic-tag-second-language-max",
+      "title": "统计标签名称第二语言应允许五十字符并截断第五十一字符",
+      "specFile": "tests/generated/product-center-recipe-pilot.generated.spec.ts",
+      "project": "chrome",
+      "status": "passed",
+      "durationMs": 13596,
+      "retry": 0,
+      "runtimeEvidence": {
+        "schemaVersion": "1.0.0",
+        "recipeId": "product-center:statistic-tag-second-language-max:boundary",
+        "caseId": "negative:statistic-tag-second-language-max",
+        "navigation": {
+          "mode": "sidebar",
+          "targetPath": "/pp/brand/tag/statistic",
+          "arrivedPath": "/pp/brand/tag/statistic",
+          "verifiedPaths": [
+            "/pp/brand/tag/statistic"
+          ]
+        },
+        "visibleUi": {
+          "route": "",
+          "requiredErrorCount": null,
+          "successMessageCount": null
+        },
+        "locatorUniqueness": {
+          "nameInputCount": null,
+          "requiredErrorCount": null
+        },
+        "network": {
+          "method": "POST",
+          "operation": "standard-item-create",
+          "requestCount": null
+        },
+        "api": {
+          "responseShape": [
+            "data.totalCount"
+          ],
+          "beforeEqualsAfter": false
+        },
+        "screenshot": {
+          "attachmentName": "product-center:statistic-tag-second-language-max:boundary-runtime-evidence"
+        },
+        "context": {
+          "environmentId": "balamxqa",
+          "brandFingerprint": "c26e0ffa82e9"
+        },
+        "execution": {
+          "action": "boundary",
+          "resultKeys": [
+            "navigation",
+            "negative"
+          ],
+          "capabilityIds": [
+            "navigation.sidebar.open",
+            "negative.execute"
+          ],
+          "assertionAdapterIds": [
+            "productCenter.verifyBoundary"
+          ],
+          "boundaryEvidence": {
+            "maxLengthAttribute": "50",
+            "acceptedLength": 50,
+            "rejectedLength": 50,
+            "locatorCount": 1,
+            "visible": true,
+            "enabled": true
+          }
+        },
+        "expectedClaimIds": [
+          "claim:negative:statistic-tag-second-language-max:action:1",
+          "claim:negative:statistic-tag-second-language-max:expectation:1"
+        ],
+        "verifiedClaimIds": [
+          "claim:negative:statistic-tag-second-language-max:action:1",
+          "claim:negative:statistic-tag-second-language-max:expectation:1"
+        ],
+        "missingClaimIds": [],
+        "unexpectedClaimIds": [],
+        "duplicateVerifiedClaimIds": [],
+        "claimVerification": {
+          "precondition": [],
+          "action": [
+            "claim:negative:statistic-tag-second-language-max:action:1"
+          ],
+          "expectation": [
+            "claim:negative:statistic-tag-second-language-max:expectation:1"
+          ]
+        },
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true
+      }
+    },
+    {
+      "caseId": "negative:statistic-tag-group-second-language-max",
+      "title": "统计标签组名称第二语言应允许十字符并截断第十一字符",
+      "specFile": "tests/generated/product-center-recipe-pilot.generated.spec.ts",
+      "project": "chrome",
+      "status": "passed",
+      "durationMs": 13483,
+      "retry": 0,
+      "runtimeEvidence": {
+        "schemaVersion": "1.0.0",
+        "recipeId": "product-center:statistic-tag-group-second-language-max:boundary",
+        "caseId": "negative:statistic-tag-group-second-language-max",
+        "navigation": {
+          "mode": "sidebar",
+          "targetPath": "/pp/brand/tag/statistic",
+          "arrivedPath": "/pp/brand/tag/statistic",
+          "verifiedPaths": [
+            "/pp/brand/tag/statistic"
+          ]
+        },
+        "visibleUi": {
+          "route": "",
+          "requiredErrorCount": null,
+          "successMessageCount": null
+        },
+        "locatorUniqueness": {
+          "nameInputCount": null,
+          "requiredErrorCount": null
+        },
+        "network": {
+          "method": "POST",
+          "operation": "standard-item-create",
+          "requestCount": null
+        },
+        "api": {
+          "responseShape": [
+            "data.totalCount"
+          ],
+          "beforeEqualsAfter": false
+        },
+        "screenshot": {
+          "attachmentName": "product-center:statistic-tag-group-second-language-max:boundary-runtime-evidence"
+        },
+        "context": {
+          "environmentId": "balamxqa",
+          "brandFingerprint": "c26e0ffa82e9"
+        },
+        "execution": {
+          "action": "boundary",
+          "resultKeys": [
+            "navigation",
+            "negative"
+          ],
+          "capabilityIds": [
+            "navigation.sidebar.open",
+            "negative.execute"
+          ],
+          "assertionAdapterIds": [
+            "productCenter.verifyBoundary"
+          ],
+          "boundaryEvidence": {
+            "maxLengthAttribute": "10",
+            "acceptedLength": 10,
+            "rejectedLength": 10,
+            "locatorCount": 1,
+            "visible": true,
+            "enabled": true
+          }
+        },
+        "expectedClaimIds": [
+          "claim:negative:statistic-tag-group-second-language-max:action:1",
+          "claim:negative:statistic-tag-group-second-language-max:expectation:1"
+        ],
+        "verifiedClaimIds": [
+          "claim:negative:statistic-tag-group-second-language-max:action:1",
+          "claim:negative:statistic-tag-group-second-language-max:expectation:1"
+        ],
+        "missingClaimIds": [],
+        "unexpectedClaimIds": [],
+        "duplicateVerifiedClaimIds": [],
+        "claimVerification": {
+          "precondition": [],
+          "action": [
+            "claim:negative:statistic-tag-group-second-language-max:action:1"
+          ],
+          "expectation": [
+            "claim:negative:statistic-tag-group-second-language-max:expectation:1"
+          ]
+        },
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true
+      }
+    }
+  ],
+  "executionError": null,
+  "evidence": {
+    "plan": "contracts/product-center/reviews/current-incremental-test-plan.json",
+    "diff": "contracts/product-center/product-center-contract-diff.json",
+    "timing": "output/performance/product-center-timing-1785078501308.json"
+  }
+}

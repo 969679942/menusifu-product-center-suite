@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": ["TC-ITEM-STD-047"],
+  "rootCause": "TC-ITEM-STD-047 在商品列表路由已正确打开且页面最终显示表格、搜索框和新增按钮时，ItemListPage.expectLoaded 仍观测到 list-surface-unavailable，导致 ItemListPage.expectLoaded 的执行收据未完成。该失败发生在业务断言前，现有截图与页面快照证明不是稳定的业务结果差异。",
+  "correctiveAction": "将本次未完成的 UI 服务面观测作为环境/自动化诊断历史无效化，在同一当前实现和当前用例指纹下重新执行 TC-ITEM-STD-047；只有重新执行产生完整业务操作、断言、清理和当前指纹收据后，才允许进入金样本合并。",
+  "evidenceRefs": [
+    "output/product-center-item-source-governed-project-canary-product-center-item-canary-r16.json",
+    "test-results/source-governed/project-canary-product-center-item-canary-r16/item/generated-product-center-i-393fe-理-商品自动化入口-多规格商品选择已有规格组后创建成功-chrome/error-context.md",
+    "pages/product-management/item/item-list.page.ts",
+    "Test Automation Platform/src/utils/executable-operation-receipt.ts"
+  ],
+  "supersedesAttemptIds": ["a49e5bed1617fd84"]
+}

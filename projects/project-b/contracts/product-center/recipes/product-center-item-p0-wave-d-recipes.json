@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-p0-wave-d-recipes",
+  "waveId": "wave-d-edit-and-rules",
+  "executionMode": "wave-shared-chain",
+  "caseLevelExecutionAllowed": false,
+  "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance",
+  "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-031",
+      "caseId": "TC-ITEM-STD-031",
+      "title": "标准商品编辑基础信息后保存成功",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-031",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-031",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-031"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-092",
+      "caseId": "TC-ITEM-STD-092",
+      "title": "点击商品名称进入编辑标准商品页加载成功",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-092",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-092",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-092"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-096",
+      "caseId": "TC-ITEM-STD-096",
+      "title": "编辑标准商品本地上传主图成功",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-096",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-096",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-096"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-011",
+      "caseId": "TC-ITEM-STD-011",
+      "title": "同一个一级分类下，新建相同商品名称的商品，创建失败",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-011",
+      "sourceIds": [
+        "canonical:product-center-item-canonical-release.json#TC-ITEM-STD-011",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-011"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-012",
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-012",
+      "sourceIds": [
+        "canonical:product-center-item-canonical-release.json#TC-ITEM-STD-012",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-012"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-013",
+      "caseId": "TC-ITEM-STD-013",
+      "title": "同一个二级分类下，新建相同商品名称的商品，创建失败",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-013",
+      "sourceIds": [
+        "canonical:product-center-item-canonical-release.json#TC-ITEM-STD-013",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-013"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-014",
+      "caseId": "TC-ITEM-STD-014",
+      "title": "不同的一级分类下，可以新增相同商品名称的商品",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p0",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-014",
+      "sourceIds": [
+        "canonical:product-center-item-canonical-release.json#TC-ITEM-STD-014",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-014"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-p0-wave-d:TC-ITEM-STD-007",
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@standard",
+        "@p1",
+        "@wave-d"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-007",
+      "sourceIds": [
+        "canonical:product-center-item-canonical-release.json#TC-ITEM-STD-007",
+        "runtime-acceptance:product-center-item-p0-wave-d-runtime-acceptance#TC-ITEM-STD-007"
+      ],
+      "coverageIds": [
+        "wave:wave-d-edit-and-rules"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "wave-d-edit-and-rules",
+        "orchestratorSpecPath": "tests/generated/product-center-item-p0-wave-d.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-p0-wave-d-runtime-acceptance"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        }
+      ],
+      "assertions": []
+    }
+  ]
+}

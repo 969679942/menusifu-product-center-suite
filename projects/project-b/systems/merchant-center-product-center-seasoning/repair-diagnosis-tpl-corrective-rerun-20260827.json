@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-010",
+    "TC-FLV-TPL-014",
+    "TC-FLV-TPL-016",
+    "TC-FLV-TPL-022"
+  ],
+  "rootCause": "上一轮模板边界用例已形成真实运行证据：TPL-010/TPL-014 的负向校验终态与页面路由处理不一致，TPL-016 的真实保存点击未产生模板保存请求或可见反馈，TPL-022 的门店回读身份使用 brandModifierOptionId 而旧解析器未覆盖。当前页面适配器、请求关联和门店身份解析已按证据修正，必须在当前实现指纹下重建标准收据。",
+  "correctiveAction": "在多门店 000420 上逐条执行 TPL-010、TPL-014、TPL-016、TPL-022；保留真实 UI 操作和 UI/API 断言，记录当前 case/implementation 指纹、请求关联、截图/trace、失败分类，并在 finally 中完成模板及调味种子清理和 API/UI 零残留核验。TPL-016 若仍无保存请求或页面反馈，保留为真实 UI 缺口，不改判为通过。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787805165537/run-report.json",
+    "_tmp_trace_tpl016_20260827/",
+    "_tmp_trace_tpl022_20260827/",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "tests/api/product-center-seasoning-template-distribution-readback.contract.spec.ts"
+  ]
+}

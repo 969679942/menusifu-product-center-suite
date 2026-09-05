@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-IMG-ITEM-030",
+    "TC-ITEM-STD-001",
+    "TC-TAG-BDG-024",
+    "TC-TAG-DESC-013",
+    "TC-TAG-DESC-027",
+    "TC-TAG-STAT-012",
+    "TC-TAG-STAT-029"
+  ],
+  "rootCause": "七条历史失败中，图片与标签用例已完成真实 UI 观察但缺少逐 claim 的富结构断言收据；标准商品入口用例只验证了页面可达，未逐项核对商品类型、创建区域和规格入口。失败属于报告证据与自动化断言缺口，不是已确认产品缺陷。",
+  "correctiveAction": "为六条图片与标签用例补齐与正式预期一一对应的 expectedValue、actualValue、观察通道、权威面和比较结果；为 TC-ITEM-STD-001 进入真实商品类型选择及标准商品创建页，逐项读取商品类型、创建区域和单/多规格入口并生成三条断言收据。仅定向执行这七条当前指纹用例，不重跑其他已通过用例。",
+  "evidenceRefs": [
+    "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+    "flows/product-center/item-216/standard-item-216.flow.ts",
+    "flows/product-center/item-216/standard-item-216.runner.ts",
+    "tests/generated/product-center-item-216.generated.spec.ts",
+    "tests/api/product-center-current-failure-remediation.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": []
+}

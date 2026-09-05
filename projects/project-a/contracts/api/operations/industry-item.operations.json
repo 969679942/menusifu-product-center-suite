@@ -1,0 +1,4244 @@
+[
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/tags/{id}",
+    "operationId": "getById",
+    "method": "GET",
+    "path": "/ops/tags/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-tag-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformTagResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/tags/{id}",
+    "operationId": "update",
+    "method": "PUT",
+    "path": "/ops/tags/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-tag-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformTagRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformTagResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/tags/{id}",
+    "operationId": "delete",
+    "method": "DELETE",
+    "path": "/ops/tags/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-tag-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-unit/{id}",
+    "operationId": "getById_1",
+    "method": "GET",
+    "path": "/ops/platform-unit/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformUnitResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-unit/{id}",
+    "operationId": "update_1",
+    "method": "PUT",
+    "path": "/ops/platform-unit/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformUnitRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-unit/{id}",
+    "operationId": "delete_1",
+    "method": "DELETE",
+    "path": "/ops/platform-unit/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-specifications/{id}",
+    "operationId": "getById_2",
+    "method": "GET",
+    "path": "/ops/platform-specifications/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "平台规格管理"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "平台规格ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformSpecificationResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-specifications/{id}",
+    "operationId": "update_2",
+    "method": "PUT",
+    "path": "/ops/platform-specifications/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "平台规格管理"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "平台规格ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformSpecificationRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-specifications/{id}",
+    "operationId": "delete_2",
+    "method": "DELETE",
+    "path": "/ops/platform-specifications/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "平台规格管理"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "平台规格ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-modifiers/{id}",
+    "operationId": "getById_3",
+    "method": "GET",
+    "path": "/ops/platform-modifiers/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-modifier-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformModifierResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-modifiers/{id}",
+    "operationId": "update_3",
+    "method": "PUT",
+    "path": "/ops/platform-modifiers/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-modifier-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformModifierRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-modifiers/{id}",
+    "operationId": "delete_3",
+    "method": "DELETE",
+    "path": "/ops/platform-modifiers/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-modifier-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-item/{id}",
+    "operationId": "getById_4",
+    "method": "GET",
+    "path": "/ops/platform-item/{id}",
+    "summary": "获取指定id商品详情",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformItemDetailResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-item/{id}",
+    "operationId": "update_4",
+    "method": "PUT",
+    "path": "/ops/platform-item/{id}",
+    "summary": "更新平台商品",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformItemRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-item/{id}",
+    "operationId": "delete_4",
+    "method": "DELETE",
+    "path": "/ops/platform-item/{id}",
+    "summary": "删除平台商品",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient/{id}",
+    "operationId": "getById_5",
+    "method": "GET",
+    "path": "/ops/platform-ingredient/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-ingredient/{id}",
+    "operationId": "update_5",
+    "method": "PUT",
+    "path": "/ops/platform-ingredient/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformIngredientRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-ingredient/{id}",
+    "operationId": "delete_5",
+    "method": "DELETE",
+    "path": "/ops/platform-ingredient/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-nutrition/{id}",
+    "operationId": "getById_6",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-ingredient-nutrition/{id}",
+    "operationId": "update_6",
+    "method": "PUT",
+    "path": "/ops/platform-ingredient-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformIngredientNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-ingredient-nutrition/{id}",
+    "operationId": "delete_6",
+    "method": "DELETE",
+    "path": "/ops/platform-ingredient-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-allergen/{id}",
+    "operationId": "getById_7",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-ingredient-allergen/{id}",
+    "operationId": "update_7",
+    "method": "PUT",
+    "path": "/ops/platform-ingredient-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformIngredientAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-ingredient-allergen/{id}",
+    "operationId": "delete_7",
+    "method": "DELETE",
+    "path": "/ops/platform-ingredient-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-images/{id}",
+    "operationId": "getPlatformImage",
+    "method": "GET",
+    "path": "/ops/platform-images/{id}",
+    "summary": "获取图片信息",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "图片id",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformImageResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-images/{id}",
+    "operationId": "updateImageMetadata",
+    "method": "PUT",
+    "path": "/ops/platform-images/{id}",
+    "summary": "修改图片元信息",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "图片id",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/SavePlatformImageMetadataRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformImageResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-images/{id}",
+    "operationId": "deletePlatformImage",
+    "method": "DELETE",
+    "path": "/ops/platform-images/{id}",
+    "summary": "删除图片",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "图片id",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-images/{id}/status",
+    "operationId": "updatePlatformImageStatus",
+    "method": "PUT",
+    "path": "/ops/platform-images/{id}/status",
+    "summary": "更新图片状态",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "图片id",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        }
+      },
+      {
+        "name": "status",
+        "in": "query",
+        "required": true,
+        "description": "图片状态。0：禁用；1：启用",
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-category/{id}",
+    "operationId": "getById_8",
+    "method": "GET",
+    "path": "/ops/platform-category/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-category-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      {
+        "name": "upwards",
+        "in": "query",
+        "required": false,
+        "description": null,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "downwards",
+        "in": "query",
+        "required": false,
+        "description": null,
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformCategoryResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-category/{id}",
+    "operationId": "update_8",
+    "method": "PUT",
+    "path": "/ops/platform-category/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-category-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformCategoryRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-category/{id}",
+    "operationId": "delete_8",
+    "method": "DELETE",
+    "path": "/ops/platform-category/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-category-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-nutrition/{id}",
+    "operationId": "getById_9",
+    "method": "GET",
+    "path": "/internal/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /internal/platform-nutrition/{id}",
+    "operationId": "update_9",
+    "method": "PUT",
+    "path": "/internal/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /internal/platform-nutrition/{id}",
+    "operationId": "delete_9",
+    "method": "DELETE",
+    "path": "/internal/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-nutrition/{id}",
+    "operationId": "getById_10",
+    "method": "GET",
+    "path": "/ops/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-nutrition/{id}",
+    "operationId": "update_10",
+    "method": "PUT",
+    "path": "/ops/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-nutrition/{id}",
+    "operationId": "delete_10",
+    "method": "DELETE",
+    "path": "/ops/platform-nutrition/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-allergen/{id}",
+    "operationId": "getById_11",
+    "method": "GET",
+    "path": "/internal/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /internal/platform-allergen/{id}",
+    "operationId": "update_11",
+    "method": "PUT",
+    "path": "/internal/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /internal/platform-allergen/{id}",
+    "operationId": "delete_11",
+    "method": "DELETE",
+    "path": "/internal/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-allergen/{id}",
+    "operationId": "getById_12",
+    "method": "GET",
+    "path": "/ops/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:PUT /ops/platform-allergen/{id}",
+    "operationId": "update_12",
+    "method": "PUT",
+    "path": "/ops/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/UpdatePlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-allergen/{id}",
+    "operationId": "delete_12",
+    "method": "DELETE",
+    "path": "/ops/platform-allergen/{id}",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/tags",
+    "operationId": "create",
+    "method": "POST",
+    "path": "/ops/tags",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-tag-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformTagRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformTagResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-unit",
+    "operationId": "create_1",
+    "method": "POST",
+    "path": "/ops/platform-unit",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformUnitRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformUnitResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-specifications",
+    "operationId": "create_2",
+    "method": "POST",
+    "path": "/ops/platform-specifications",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "平台规格管理"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformSpecificationRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformSpecificationResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-modifiers",
+    "operationId": "create_3",
+    "method": "POST",
+    "path": "/ops/platform-modifiers",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-modifier-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformModifierRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformModifierResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-item",
+    "operationId": "create_4",
+    "method": "POST",
+    "path": "/ops/platform-item",
+    "summary": "创建平台商品",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformItemRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-item/pageQuery",
+    "operationId": "queryByPage",
+    "method": "POST",
+    "path": "/ops/platform-item/pageQuery",
+    "summary": "分页查询平台商品列表",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/PageQueryPlatformItemRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformItemDetailResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-ingredient",
+    "operationId": "create_5",
+    "method": "POST",
+    "path": "/ops/platform-ingredient",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformIngredientRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-ingredient-nutrition",
+    "operationId": "create_6",
+    "method": "POST",
+    "path": "/ops/platform-ingredient-nutrition",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformIngredientNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-ingredient-allergen",
+    "operationId": "create_7",
+    "method": "POST",
+    "path": "/ops/platform-ingredient-allergen",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformIngredientAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformIngredientAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-images",
+    "operationId": "uploadImage",
+    "method": "POST",
+    "path": "/ops/platform-images",
+    "summary": "上传图片",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "ratio",
+        "in": "query",
+        "required": true,
+        "description": "图片缩放比例。1= 1:1；2=16:9",
+        "schema": {
+          "type": "integer",
+          "format": "int32",
+          "minimum": 1
+        }
+      },
+      {
+        "name": "categoryId",
+        "in": "query",
+        "required": false,
+        "description": "分类id",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "default": 0,
+          "minimum": 0
+        }
+      }
+    ],
+    "requestBody": {
+      "required": false,
+      "description": null,
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "file"
+            ]
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformImageResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-images/list",
+    "operationId": "getImages",
+    "method": "POST",
+    "path": "/ops/platform-images/list",
+    "summary": "获取图片列表",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": false,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/QueryPlatformImageRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformImageResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-category",
+    "operationId": "create_8",
+    "method": "POST",
+    "path": "/ops/platform-category",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-category-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformCategoryRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformCategoryResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /internal/platform-nutrition/suggest",
+    "operationId": "suggest",
+    "method": "POST",
+    "path": "/internal/platform-nutrition/suggest",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/QuerySuggestPlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-nutrition/suggest",
+    "operationId": "suggest_1",
+    "method": "POST",
+    "path": "/ops/platform-nutrition/suggest",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/QuerySuggestPlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-nutrition",
+    "operationId": "create_9",
+    "method": "POST",
+    "path": "/ops/platform-nutrition",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /internal/platform-nutrition",
+    "operationId": "create_10",
+    "method": "POST",
+    "path": "/internal/platform-nutrition",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformNutritionRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /internal/platform-item/page",
+    "operationId": "pageQuery",
+    "method": "POST",
+    "path": "/internal/platform-item/page",
+    "summary": "分页搜索行业商品",
+    "description": null,
+    "tags": [
+      "微服务调用--行业商品"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/PlatformItemPageRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformItemSimpleInfoResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-allergen/suggest",
+    "operationId": "suggest_2",
+    "method": "POST",
+    "path": "/ops/platform-allergen/suggest",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/QuerySuggestPlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /internal/platform-allergen/suggest",
+    "operationId": "suggest_3",
+    "method": "POST",
+    "path": "/internal/platform-allergen/suggest",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/QuerySuggestPlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /internal/platform-allergen",
+    "operationId": "create_11",
+    "method": "POST",
+    "path": "/internal/platform-allergen",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:POST /ops/platform-allergen",
+    "operationId": "create_12",
+    "method": "POST",
+    "path": "/ops/platform-allergen",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/CreatePlatformAllergenRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/tags/list",
+    "operationId": "page",
+    "method": "GET",
+    "path": "/ops/tags/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-tag-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageTagRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformTagResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-unit/search",
+    "operationId": "search",
+    "method": "GET",
+    "path": "/ops/platform-unit/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformUnitRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformUnitResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-unit/list",
+    "operationId": "list",
+    "method": "GET",
+    "path": "/ops/platform-unit/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformUnitRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformUnitResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-unit/all",
+    "operationId": "getAll",
+    "method": "GET",
+    "path": "/ops/platform-unit/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-unit-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformUnitResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-specifications/list",
+    "operationId": "page_1",
+    "method": "GET",
+    "path": "/ops/platform-specifications/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "平台规格管理"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": "分页查询条件",
+        "schema": {
+          "ref": "#/components/schemas/PageSpecificationRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformSpecificationResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-regulation/all",
+    "operationId": "getAll_1",
+    "method": "GET",
+    "path": "/ops/platform-regulation/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-regulation-type-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformRegulationTypeResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-modifiers/list",
+    "operationId": "page_2",
+    "method": "GET",
+    "path": "/ops/platform-modifiers/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-modifier-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PagePlatformModifierRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformModifierResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-item/search",
+    "operationId": "search_1",
+    "method": "GET",
+    "path": "/ops/platform-item/search",
+    "summary": "根据名称模糊搜索商品",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "name",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformItemSummaryInfoResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient/search",
+    "operationId": "search_2",
+    "method": "GET",
+    "path": "/ops/platform-ingredient/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformIngredientRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient/list",
+    "operationId": "list_1",
+    "method": "GET",
+    "path": "/ops/platform-ingredient/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformIngredientRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformIngredientResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient/all",
+    "operationId": "getAll_2",
+    "method": "GET",
+    "path": "/ops/platform-ingredient/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-nutrition/search",
+    "operationId": "search_3",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-nutrition/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformIngredientNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-nutrition/list",
+    "operationId": "list_2",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-nutrition/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformIngredientNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformIngredientNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-nutrition/all",
+    "operationId": "getAll_3",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-nutrition/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-allergen/search",
+    "operationId": "search_4",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-allergen/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformIngredientAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-allergen/list",
+    "operationId": "list_3",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-allergen/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformIngredientAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformIngredientAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-ingredient-allergen/all",
+    "operationId": "getAll_4",
+    "method": "GET",
+    "path": "/ops/platform-ingredient-allergen/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-ingredient-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformIngredientAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-category/treeList",
+    "operationId": "treeList",
+    "method": "GET",
+    "path": "/ops/platform-category/treeList",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-category-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "categoryType",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformCategoriesResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/mock-data-list/{id}",
+    "operationId": "getMockData",
+    "method": "GET",
+    "path": "/ops/mock-data-list/{id}",
+    "summary": "获取测试信息",
+    "description": null,
+    "tags": [
+      "行业图片"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "dataId",
+        "schema": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultVoid"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-nutrition/search",
+    "operationId": "search_5",
+    "method": "GET",
+    "path": "/ops/platform-nutrition/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-nutrition/search",
+    "operationId": "search_6",
+    "method": "GET",
+    "path": "/internal/platform-nutrition/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-nutrition/list",
+    "operationId": "list_4",
+    "method": "GET",
+    "path": "/internal/platform-nutrition/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-nutrition/list",
+    "operationId": "list_5",
+    "method": "GET",
+    "path": "/ops/platform-nutrition/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformNutritionRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-nutrition/all",
+    "operationId": "getAll_5",
+    "method": "GET",
+    "path": "/ops/platform-nutrition/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-nutrition/all",
+    "operationId": "getAll_6",
+    "method": "GET",
+    "path": "/internal/platform-nutrition/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-nutrition-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformNutritionResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-item/{id}",
+    "operationId": "getById_13",
+    "method": "GET",
+    "path": "/internal/platform-item/{id}",
+    "summary": "获取指定id商品详情",
+    "description": null,
+    "tags": [
+      "微服务调用--行业商品"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformItemDetailResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-item/{id}/basic",
+    "operationId": "getBasicById",
+    "method": "GET",
+    "path": "/internal/platform-item/{id}/basic",
+    "summary": "获取指定id商品基础信息",
+    "description": null,
+    "tags": [
+      "微服务调用--行业商品"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": null,
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPlatformItemResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-allergen/search",
+    "operationId": "search_7",
+    "method": "GET",
+    "path": "/internal/platform-allergen/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-allergen/search",
+    "operationId": "search_8",
+    "method": "GET",
+    "path": "/ops/platform-allergen/search",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/QueryPlatformAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-allergen/list",
+    "operationId": "list_6",
+    "method": "GET",
+    "path": "/internal/platform-allergen/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-allergen/list",
+    "operationId": "list_7",
+    "method": "GET",
+    "path": "/ops/platform-allergen/list",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [
+      {
+        "name": "request",
+        "in": "query",
+        "required": true,
+        "description": null,
+        "schema": {
+          "ref": "#/components/schemas/PageQueryPlatformAllergenRequest"
+        }
+      }
+    ],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultPageResultPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /internal/platform-allergen/all",
+    "operationId": "getAll_7",
+    "method": "GET",
+    "path": "/internal/platform-allergen/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /ops/platform-allergen/all",
+    "operationId": "getAll_8",
+    "method": "GET",
+    "path": "/ops/platform-allergen/all",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "platform-allergen-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultListPlatformAllergenResponse"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:GET /health",
+    "operationId": "health",
+    "method": "GET",
+    "path": "/health",
+    "summary": null,
+    "description": null,
+    "tags": [
+      "health-controller"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": null,
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "type": "string"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "service": "industry-item",
+    "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+    "operationKey": "industry-item:DELETE /ops/platform-item/batchDelete",
+    "operationId": "batchDelete",
+    "method": "DELETE",
+    "path": "/ops/platform-item/batchDelete",
+    "summary": "批量删除平台商品",
+    "description": null,
+    "tags": [
+      "行业商品接口层"
+    ],
+    "deprecated": false,
+    "security": [],
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "description": null,
+      "content": {
+        "application/json": {
+          "schema": {
+            "ref": "#/components/schemas/DeletePlatformItemRequest"
+          },
+          "hasExample": false
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+        "headers": [],
+        "content": {
+          "*/*": {
+            "schema": {
+              "ref": "#/components/schemas/ResultBoolean"
+            },
+            "hasExample": false
+          }
+        }
+      }
+    }
+  }
+]

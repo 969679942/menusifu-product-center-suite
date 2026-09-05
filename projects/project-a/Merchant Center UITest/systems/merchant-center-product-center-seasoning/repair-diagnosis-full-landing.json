@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-015",
+    "TC-FLV-SEA-016",
+    "TC-FLV-SEA-018",
+    "TC-FLV-SEA-030",
+    "TC-FLV-SEA-032",
+    "TC-FLV-SEA-046"
+  ],
+  "rootCause": "调味功能与定位器修复已完成，但公共 system-test reporter 只输出合同指纹，没有逐用例 caseFingerprint 和 implementationFingerprint；因此已有业务收据不能满足 FINAL-GOAL 的当前实现仲裁要求，只能作为历史证据。",
+  "correctiveAction": "公共运行器统一计算包含适配器、证据运行时、执行配置和运行器源码的实现指纹，并传给 reporter；reporter 为每条标准收据写入 caseFingerprint 和 implementationFingerprint。随后按最终实现定向重验 6 条并重新构建执行索引。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/classification-ledger.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787504803228/run-report.json",
+    "output/checkpoints/api-endpoint/AUTO_AUDIT_API_3563b689f91607a0.json"
+  ],
+  "supersedesAttemptIds": [
+    "4fe62c75512784ad",
+    "ee16bb0f68ed9926",
+    "ba4450a37442f5ed",
+    "674509f1946cbe60",
+    "b67060231fbbfbbc",
+    "329480bb1cb5ab48",
+    "8e332dcc53bba988",
+    "f330aaf1cb250279",
+    "baf256ed87674391",
+    "b5a83941747b8cc1",
+    "0e80925fad2095fe",
+    "5eb4afe3bec56e0a",
+    "0dd2f15aef62727b",
+    "22e09c606a88759b",
+    "5031817487143812",
+    "e48d8acf81e7750b"
+  ]
+}

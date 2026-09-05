@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "适配器选择了组表头 Select all，而正式用例步骤要求勾选具体调味项；表头在拖拽容器下被遮挡且强制点击未改变行选择状态，批量按钮正确保持禁用。",
+  "correctiveAction": "在 API 业务身份锁定的唯一 ant-table-wrapper 中继续锁定包含该身份的唯一 tr.ant-table-row，并操作该行唯一 checkbox；以批量按钮启用和数量文案作为动作后置条件。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787565922792/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["2f23dfde4d174e8b"]
+}

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-combo-audit-probe",
+  "fingerprint": "ff74356ff7aa273777746e07aca16ad73af13c0f46d778a81d61c8fbf64147b6",
+  "sourceCanonicalPath": "contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json",
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-audit:TC-ITEM-PKG-046",
+      "caseId": "TC-ITEM-PKG-046",
+      "title": "套餐商品未添加套餐分组时保存与保存并新建均失败",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@negative",
+        "@p0"
+      ],
+      "route": "/pp/brand/list",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-046",
+      "sourceIds": [
+        "product-confirmation:BR-ITEM-COMBO-GROUP-REQUIRED",
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-046"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-046:precondition-1",
+        "TC-ITEM-PKG-046:precondition-2",
+        "TC-ITEM-PKG-046:precondition-3",
+        "TC-ITEM-PKG-046:precondition-4",
+        "TC-ITEM-PKG-046:action-1",
+        "TC-ITEM-PKG-046:action-2",
+        "TC-ITEM-PKG-046:action-3",
+        "TC-ITEM-PKG-046:action-4",
+        "TC-ITEM-PKG-046:expectation-1",
+        "TC-ITEM-PKG-046:expectation-2",
+        "TC-ITEM-PKG-046:expectation-3"
+      ],
+      "coverageIds": [
+        "business-rule:BR-ITEM-COMBO-GROUP-REQUIRED"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboGroupRequiredProbe"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.probeGroupRequired",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          },
+          "saveAs": "itemComboGroupValidation"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboGroupRequiredUi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemComboGroupValidation"
+            }
+          }
+        },
+        {
+          "adapterId": "productCenter.verifyItemComboGroupRequiredApi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemComboGroupValidation"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-audit:TC-ITEM-PKG-059",
+      "caseId": "TC-ITEM-PKG-059",
+      "title": "套餐商品编辑页可选搭配组仅支持组级操作",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@create",
+        "@p1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-059",
+      "sourceIds": [
+        "product-confirmation:BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY",
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-059"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-059:precondition-1",
+        "TC-ITEM-PKG-059:precondition-2",
+        "TC-ITEM-PKG-059:precondition-3",
+        "TC-ITEM-PKG-059:action-1",
+        "TC-ITEM-PKG-059:action-2",
+        "TC-ITEM-PKG-059:action-3",
+        "TC-ITEM-PKG-059:expectation-1",
+        "TC-ITEM-PKG-059:expectation-2",
+        "TC-ITEM-PKG-059:expectation-3",
+        "TC-ITEM-PKG-059:expectation-4"
+      ],
+      "coverageIds": [
+        "business-rule:BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboOptionalBoundaryProbe"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.probeOptionalEditBoundary",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          },
+          "saveAs": "itemComboOptionalBoundary"
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "brand-menu:POST /ops-brand/brand-sections"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboOptionalBoundaryUi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemComboOptionalBoundary"
+            }
+          }
+        },
+        {
+          "adapterId": "productCenter.verifyItemComboOptionalBoundaryApi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemComboOptionalBoundary"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      }
+    }
+  ]
+}

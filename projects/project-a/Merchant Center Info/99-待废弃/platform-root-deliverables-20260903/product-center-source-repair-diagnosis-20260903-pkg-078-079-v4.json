@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078",
+    "TC-ITEM-PKG-079"
+  ],
+  "rootCause": "最新运行已证明 078/079 业务行为均通过，但 078 的标准执行收据只把四条正式预期合并映射为两条 claim，导致闭环审计不能接受该通过结果。修复 078 收据映射会更新 package 族实现指纹，因此 079 的旧通过收据也只能保留为历史结果。",
+  "correctiveAction": "将 078 收据逐条映射套餐创建成功、加料创建成功、同名列表双类型可查询、套餐改名持久化四条正式预期；重新生成执行 spec 后，按当前批准集合执行 078/079，要求每条当前实现指纹收据完整且清理归零。",
+  "evidenceRefs": [
+    "Merchant Center UITest/flows/product-center/item-216/package-item-216.flow.ts",
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+    "Merchant Center UITest/output/product-center-item-source-governed-20260903T055056Z.json",
+    "Merchant Center UITest/output/governance/product-center-business-rule-observation-ledger.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "b871b92310624f7a",
+    "67920896dde18796"
+  ]
+}

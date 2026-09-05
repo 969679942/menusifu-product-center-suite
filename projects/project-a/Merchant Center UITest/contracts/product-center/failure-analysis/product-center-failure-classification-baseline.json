@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "description": "商品中心失败分类诊断基线；不表达或推导业务规则。",
+  "samples": [
+    {
+      "id": "platform-rate-limit",
+      "input": {
+        "status": "failed",
+        "diagnostic": "exceeded retry limit: 429 Too Many Requests"
+      },
+      "expectedCategory": "execution-platform-transient",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "platform-connection-reset",
+      "input": {
+        "status": "interrupted",
+        "diagnostic": "connection reset while reconnecting to runner"
+      },
+      "expectedCategory": "execution-platform-transient",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "environment-auth",
+      "input": {
+        "status": "failed",
+        "statusCode": 403,
+        "diagnostic": "Forbidden while establishing authenticated merchant context"
+      },
+      "expectedCategory": "environment",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "test-data-prerequisite",
+      "input": {
+        "status": "failed",
+        "diagnostic": "test data prerequisite was not found"
+      },
+      "expectedCategory": "test-data",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "locator-ambiguity",
+      "input": {
+        "status": "failed",
+        "diagnostic": "strict mode violation: locator resolved to 2 elements"
+      },
+      "expectedCategory": "locator-drift",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "sidebar-route-not-reached",
+      "input": {
+        "status": "failed",
+        "diagnostic": "侧边栏未进入目标路径：/poi/tax/tax-types Last value: /pp/brandpictrue"
+      },
+      "expectedCategory": "locator-drift",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "cleanup-residue",
+      "input": {
+        "status": "failed",
+        "diagnostic": "cleanup residue remains after API and UI verification",
+        "cleanupStatus": "residue-detected"
+      },
+      "expectedCategory": "cleanup-residue",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "automation-type-error",
+      "input": {
+        "status": "failed",
+        "diagnostic": "TypeError: cannot read properties of undefined"
+      },
+      "expectedCategory": "automation-defect",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "confirmed-observable-mismatch",
+      "input": {
+        "status": "failed",
+        "diagnostic": "expected enabled but received disabled",
+        "assertion": true,
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true,
+        "environmentVerified": true,
+        "testDataVerified": true,
+        "cleanupStatus": "verified-clean",
+        "pageContractStatus": "clean"
+      },
+      "expectedCategory": "product-behavior",
+      "expectedProductFailure": true
+    },
+    {
+      "id": "unconfirmed-assertion",
+      "input": {
+        "status": "failed",
+        "diagnostic": "expected enabled but received disabled",
+        "assertion": true,
+        "claimCoverageComplete": false,
+        "sidebarEntryVerified": true,
+        "environmentVerified": true,
+        "testDataVerified": true,
+        "cleanupStatus": "verified-clean",
+        "pageContractStatus": "clean"
+      },
+      "expectedCategory": "unknown",
+      "expectedProductFailure": false
+    }
+  ]
+}

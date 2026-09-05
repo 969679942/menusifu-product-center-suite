@@ -1,0 +1,31 @@
+# Dependencies and reports
+**/node_modules/
+**/allure-results/
+**/allure-report/
+**/test-results/
+**/playwright-report/
+**/output/
+**/output/auth-state.json
+
+# Local Codex state
+.memory/
+MEMORY.md
+
+# Runtime secrets
+.env
+.env.*
+!.env.example
+.secrets/
+**/登录信息.txt
+**/*storage-state*.json
+**/*auth-state*.json
+
+# Raw authenticated API captures
+Merchant Center API/商品中心.postman_collection.raw.json
+
+# Generated transient evidence
+artifacts/raw-network/
+artifacts/raw-dom/
+artifacts/tmp/
+*.log
+.DS_Store

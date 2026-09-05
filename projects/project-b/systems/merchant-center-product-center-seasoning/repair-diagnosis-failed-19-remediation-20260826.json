@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-001",
+    "TC-FLV-SEA-013", "TC-FLV-SEA-014",
+    "TC-FLV-SEA-022", "TC-FLV-SEA-023", "TC-FLV-SEA-024", "TC-FLV-SEA-025", "TC-FLV-SEA-026", "TC-FLV-SEA-027", "TC-FLV-SEA-028",
+    "TC-FLV-SEA-033", "TC-FLV-SEA-035", "TC-FLV-SEA-036",
+    "TC-FLV-TPL-011", "TC-FLV-TPL-012", "TC-FLV-TPL-014", "TC-FLV-TPL-015", "TC-FLV-TPL-016", "TC-FLV-TPL-025"
+  ],
+  "rootCause": "上一轮失败收据中包含两类已定位的自动化合同缺陷：SEA-013/014 的真实创建接口为 batch 但方案操作画像只允许旧路径；模板创建类用例未选择调味项，页面因此不提交保存请求。其余失败保留原证据，需在当前实现指纹下重新核验，不能预先改判。",
+  "correctiveAction": "修正操作画像并为模板保存/重复模板提交补齐真实调味项选择；按单门店和多门店上下文分批重跑，使用当前标准 UI/API/清理收据仲裁。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/pages/product-center/seasoning-boundary.page.ts",
+    "deliverables/system-test-platform/seasoning-execution-result.json"
+  ]
+}

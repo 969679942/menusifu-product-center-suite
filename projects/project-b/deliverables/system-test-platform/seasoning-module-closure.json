@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "2.0.0",
+  "collectionId": "merchant-center-seasoning-module-closure",
+  "generatedAt": "2026-08-26T09:38:00.719Z",
+  "systemId": "merchant-center-product-center-seasoning",
+  "moduleDeliveryStatus": "incomplete",
+  "denominator": {
+    "total": 102,
+    "SEA": 46,
+    "TPL": 25,
+    "REC": 7,
+    "XMOD": 11,
+    "POS": 13
+  },
+  "conservation": {
+    "planned": 102,
+    "classified": 102,
+    "conserved": true
+  },
+  "landing": {
+    "bound": 82,
+    "classified": 20,
+    "landed": 102,
+    "unlanded": 80,
+    "classifiedExclusions": 20,
+    "note": "落地表示已进入绑定或结构化处置链；分类守恒只证明 102 条未丢失；classifiedExclusions 永不计入模块完成量。"
+  },
+  "runtime": {
+    "total": 102,
+    "bound": 82,
+    "executed": 2,
+    "passed": 2,
+    "failed": 0,
+    "ready": 80,
+    "productDefect": 0,
+    "deferred": 19,
+    "blockedSource": 0,
+    "blockedTechnical": 0,
+    "notApplicable": 1
+  },
+  "completionGate": {
+    "acceptedStatuses": [
+      "passed"
+    ],
+    "blockingStatuses": [
+      "ready",
+      "deferred",
+      "not-applicable",
+      "failed",
+      "product-defect",
+      "blocked-source",
+      "blocked-technical"
+    ],
+    "deliveryComplete": false,
+    "acceptedComplete": 2,
+    "unresolved": 100,
+    "classifiedExclusions": 20
+  },
+  "cleanup": {
+    "currentExecutedCases": 2,
+    "apiAndUiZeroResidue": true
+  },
+  "platformUniversalCompletion": {
+    "status": "incomplete",
+    "moduleDeliveryBlocked": false,
+    "reason": "平台跨 applicationId 正式验证与调味模块交付门禁独立。"
+  },
+  "sources": {
+    "formalCases": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "plan": "systems/merchant-center-product-center-seasoning/test-plan.json",
+    "classificationLedger": "systems/merchant-center-product-center-seasoning/classification-ledger.json",
+    "currentContract": "output/system-test/merchant-center-product-center-seasoning/reconcile-current/contract.json",
+    "executionResult": "deliverables/system-test-platform/seasoning-execution-result.json"
+  }
+}

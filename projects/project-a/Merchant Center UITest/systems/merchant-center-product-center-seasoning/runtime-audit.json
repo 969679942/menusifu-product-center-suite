@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "2.0.0",
+  "collectionId": "merchant-center-seasoning-runtime-audit",
+  "planId": "merchant-center-product-center-seasoning",
+  "generatedAt": "2026-09-04T21:39:35.320Z",
+  "planFingerprint": "bd0a838b5c937fd92b33225ddd730b49326acf4c25aaedb4e61cd9f14573691f",
+  "context": {
+    "applicationVersionFingerprint": "unavailable",
+    "environmentId": "balamxqa",
+    "roleId": "merchant-operator",
+    "locale": "zh-CN",
+    "maxEvidenceAgeDays": 7
+  },
+  "evidenceDiscovery": {
+    "rootPaths": [
+      "systems/merchant-center-product-center-seasoning/runtime-audit-observation.json"
+    ],
+    "extensions": [
+      ".json"
+    ],
+    "strict": true
+  },
+  "evidenceInventory": [
+    {
+      "evidenceId": "evidence:seasoning-runtime-audit-observation",
+      "path": "systems/merchant-center-product-center-seasoning/runtime-audit-observation.json",
+      "sha256": "c822845c3f5d5ff05403dec60a9fbfc2d63d1103a1dcd9fc8959553c31107f2c",
+      "observedAt": "2026-09-04T21:39:35.311Z",
+      "disposition": "not-applicable",
+      "reason": "本次审计仅采集页面与接口合同，未对正式用例语义作自动确认；语义由正式执行收据验证。",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "locale": "zh-CN"
+    }
+  ],
+  "coverageInventory": [
+    {
+      "coverageId": "route:brand-seasoning-list",
+      "kind": "route",
+      "route": "/pp/brand/seasoning/list",
+      "sourceIds": [
+        "runtime:seasoning-audit"
+      ],
+      "disposition": "covered",
+      "reason": "审计已实际进入调味列表及新增路由。",
+      "linkedCaseIds": [
+        "TC-FLV-SEA-015",
+        "TC-FLV-SEA-016",
+        "TC-FLV-SEA-018",
+        "TC-FLV-SEA-030",
+        "TC-FLV-SEA-032",
+        "TC-FLV-SEA-046"
+      ]
+    },
+    {
+      "coverageId": "ui:seasoning-create",
+      "kind": "control",
+      "route": "/pp/brand/seasoning/list",
+      "sourceIds": [
+        "runtime:seasoning-audit"
+      ],
+      "disposition": "covered",
+      "reason": "审计已识别新增入口、名称字段、价格字段及确定按钮。",
+      "linkedCaseIds": [
+        "TC-FLV-SEA-015",
+        "TC-FLV-SEA-016",
+        "TC-FLV-SEA-046"
+      ]
+    },
+    {
+      "coverageId": "api:seasoning-create",
+      "kind": "api-operation",
+      "route": "/pp/brand/seasoning/list",
+      "sourceIds": [
+        "runtime:seasoning-audit"
+      ],
+      "disposition": "covered",
+      "reason": "审计已捕获并在客户端拦截调味创建 POST 合同。",
+      "linkedCaseIds": [
+        "TC-FLV-SEA-015",
+        "TC-FLV-SEA-016",
+        "TC-FLV-SEA-046"
+      ]
+    },
+    {
+      "coverageId": "api:seasoning-record",
+      "kind": "api-operation",
+      "route": "/pp/brand/seasoning/list",
+      "sourceIds": [
+        "runtime:seasoning-audit"
+      ],
+      "disposition": "covered",
+      "reason": "正式执行合同已绑定调味列表与详情回读操作，审计阶段仅验证路由可达性。",
+      "linkedCaseIds": [
+        "TC-FLV-SEA-015",
+        "TC-FLV-SEA-018",
+        "TC-FLV-SEA-030",
+        "TC-FLV-SEA-032",
+        "TC-FLV-SEA-046"
+      ]
+    }
+  ],
+  "autoApprovalPolicy": {
+    "policyId": "runtime-audit-no-semantic-change",
+    "enabled": true,
+    "minimumConsumedEvidence": 1,
+    "allowedActions": [
+      "no-change"
+    ],
+    "allowBusinessRuleChanges": false,
+    "allowTechnicalBindingChanges": false,
+    "allowCoverageChanges": false,
+    "requireMutationSafety": false
+  },
+  "corrections": []
+}

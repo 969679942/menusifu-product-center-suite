@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-015", "TC-FLV-SEA-016", "TC-FLV-SEA-018", "TC-FLV-SEA-030", "TC-FLV-SEA-032", "TC-FLV-SEA-046"],
+  "rootCause": "公共 system-test evidence 运行时新增了声明式 mutation 判定，导致当前 implementation fingerprint 合法变化；六条既有调味绑定的旧收据因此只能保留为历史，不能继续授权当前状态。",
+  "correctiveAction": "保持正式用例、页面动作、断言和清理策略不变，按新 evidence 运行时指纹定向重跑六条绑定，生成覆盖全部断言面和零残留的当前标准收据。",
+  "evidenceRefs": [
+    "D:/Menusifu/Test Automation Platform/src/automation/system-test/system-test-evidence.ts",
+    "D:/Menusifu/Test Automation Platform/tests/api/system-test-platform.contract.spec.ts",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/adapters.json"
+  ],
+  "supersedesAttemptIds": [
+    "8f6054695a43d20d",
+    "4483650802f0a789",
+    "acde51002d10e370",
+    "d5141f6401c4d50f",
+    "31ce6695b33b0ab8",
+    "599469859d69ae5d",
+    "9441f797c39294a2",
+    "dcbbb4171a27d095",
+    "ba61d14e43c3f815",
+    "b97df1a85924e909",
+    "b184cc9206975080",
+    "468758d85710328d",
+    "c2dc7261efe69a57"
+  ]
+}

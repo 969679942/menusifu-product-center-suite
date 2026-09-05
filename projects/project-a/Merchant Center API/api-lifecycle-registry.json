@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "merchant-center-api-lifecycle",
+  "sourcePolicy": "raw-api-documents-are-immutable; lifecycle-registry-controls-active-test-catalog",
+  "entries": [
+    {
+      "operationKey": "brand-menu:POST /ops-brand/menu-import/upload",
+      "status": "deprecated",
+      "decidedAt": "2026-08-23",
+      "decision": "废弃",
+      "reason": "商品中心商品导入页实际文件上传调用 /item/v1/ops-brand/menu-import-tasks-files；未发现页面调用本接口。原文档将二进制 file 错误声明在 application/json 下。",
+      "replacementOperationKey": "brand-menu:POST /ops-brand/menu-import-tasks-files",
+      "evidence": [
+        "Merchant Center UITest/output/brand-menu-product-import-request-contract-audit.json"
+      ],
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "发现受支持页面或客户端仍调用该接口，并取得实际请求媒体类型、字段结构和业务负责人确认"
+    },
+    {
+      "operationKey": "brand-menu:GET /ops-brand/sched/jobs",
+      "status": "not-applicable",
+      "decidedAt": "2026-08-23",
+      "decision": "跳过",
+      "reason": "品牌调度内部运维接口，不属于当前商品中心业务接口测试范围；保留原始文档和历史探测结果，不进入活动接口测试目录。",
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "商品中心业务范围纳入品牌调度作业管理，并提供受支持页面或业务流程证据"
+    },
+    {
+      "operationKey": "brand-menu:POST /ops-brand/sched/jobs",
+      "status": "not-applicable",
+      "decidedAt": "2026-08-23",
+      "decision": "跳过",
+      "reason": "品牌调度内部运维接口，不属于当前商品中心业务接口测试范围；保留原始文档和历史探测结果，不进入活动接口测试目录。",
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "商品中心业务范围纳入品牌调度作业管理，并提供受支持页面或业务流程证据"
+    },
+    {
+      "operationKey": "brand-menu:GET /ops-brand/sched/jobs/{jobId}",
+      "status": "not-applicable",
+      "decidedAt": "2026-08-23",
+      "decision": "跳过",
+      "reason": "品牌调度内部运维接口，不属于当前商品中心业务接口测试范围；保留原始文档和历史探测结果，不进入活动接口测试目录。",
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "商品中心业务范围纳入品牌调度作业管理，并提供受支持页面或业务流程证据"
+    },
+    {
+      "operationKey": "brand-menu:GET /ops-brand/sched/jobs/{jobId}/tasks",
+      "status": "not-applicable",
+      "decidedAt": "2026-08-23",
+      "decision": "跳过",
+      "reason": "品牌调度内部运维接口，不属于当前商品中心业务接口测试范围；保留原始文档和历史探测结果，不进入活动接口测试目录。",
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "商品中心业务范围纳入品牌调度作业管理，并提供受支持页面或业务流程证据"
+    },
+    {
+      "operationKey": "brand-menu:POST /ops-brand/sched/jobs/{jobId}/tasks",
+      "status": "not-applicable",
+      "decidedAt": "2026-08-23",
+      "decision": "跳过",
+      "reason": "品牌调度内部运维接口，不属于当前商品中心业务接口测试范围；保留原始文档和历史探测结果，不进入活动接口测试目录。",
+      "sourceDocument": "Merchant Center API/品牌商品和菜单API.json",
+      "automationPolicy": "exclude-from-active-catalog",
+      "reopenCondition": "商品中心业务范围纳入品牌调度作业管理，并提供受支持页面或业务流程证据"
+    }
+  ]
+}

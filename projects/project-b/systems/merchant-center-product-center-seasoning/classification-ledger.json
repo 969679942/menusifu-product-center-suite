@@ -1,0 +1,1226 @@
+{
+  "schemaVersion": "1.0.0",
+  "systemId": "merchant-center-product-center-seasoning",
+  "fingerprint": "f7ee2d634f1c5fe4d2b0558d9eb84b81f62aa0efb01f41f8eee594359614e9e5",
+  "summary": {
+    "planned": 102,
+    "executable": 82,
+    "classifiedExclusions": 20,
+    "dispositions": {
+      "deferred": 20,
+      "blocked-source": 0,
+      "blocked-technical": 0,
+      "not-applicable": 0
+    }
+  },
+  "cases": [
+    {
+      "caseId": "TC-FLV-POS-001",
+      "title": "门店调味同步后POS全局调味列表展示与门店一致",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-001",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-001 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-002",
+      "title": "品牌调味变更并同步后POS展示最新全局调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-002",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-002 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-003",
+      "title": "门店删除调味并同步后POS不再展示该调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-003",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-003 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-004",
+      "title": "调味状态启用时POS正常展示该调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-004",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-004 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-005",
+      "title": "调味状态停用时POS不展示该调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-005",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-005 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-006",
+      "title": "POS点单可选择全局调味并完成支付（多订单类型）",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "order",
+        "stateTransitionId": "draft-to-paid",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-006",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-006 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-007",
+      "title": "POS点单选择全局调味后改价计算正确",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "edit",
+        "stateTransitionId": "existing-to-edited",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-007",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-007 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-008",
+      "title": "Online Order订单在POS编辑时可使用全局调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "edit",
+        "stateTransitionId": "existing-to-edited",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-008",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-008 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-009",
+      "title": "Kiosk订单在POS编辑时可使用全局调味",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "edit",
+        "stateTransitionId": "existing-to-edited",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-009",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-009 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-010",
+      "title": "全局调味云打印与本地打印输出调味信息正确",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "print",
+        "stateTransitionId": "order-to-printed",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-010",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-010 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-011",
+      "title": "CDS、RDS、KDS屏展示全局调味信息正确",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-011",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-011 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-012",
+      "title": "全局调味打印单据第二语言展示正确",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-012",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-012 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-POS-013",
+      "title": "全局调味Kitchen单送厨名称打印正确",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": null,
+      "semantics": {
+        "businessObjectId": "menusifu.pos-global-seasoning",
+        "scenarioFamilyId": "print",
+        "stateTransitionId": "order-to-printed",
+        "scopeId": "configured-pos-terminal",
+        "variantId": "tc-flv-pos-013",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "downstream"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-POS-013 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前浏览器与 Playwright 配置没有可复用的 POS 终端身份和设备上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "订单与支付测试数据",
+        "打印或客显/KDS 设备能力"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、订单与支付测试数据、打印或客显/KDS 设备能力，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "title": "无调味时缺省页展示行业调味库入口说明",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/pp/brand/seasoning/list",
+      "semantics": {
+        "businessObjectId": "merchant-center.seasoning-group",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-merchant-brand-seasoning",
+        "variantId": "tc-flv-sea-001",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui"
+        ],
+        "availableChannels": [],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-SEA-001 当前精确控件、字段、弹窗顺序与可见终态证据"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "用户已明确延期；当前缺少可安全制造并恢复品牌调味空态的数据环境。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": null,
+          "status": "not-required",
+          "reason": "当前正式预期以 UI 展示为权威，未找到必要 API 断言面。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "专用空数据商户或经验证可恢复快照"
+      ],
+      "reason": "正式用例保留，但当前缺少 专用空数据商户或经验证可恢复快照，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 专用空数据商户或经验证可恢复快照，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-SEA-038",
+      "title": "批量启用调味成功且下发后POS展示",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/pp/brand/seasoning/list",
+      "semantics": {
+        "businessObjectId": "merchant-center.seasoning-group",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-merchant-brand-seasoning",
+        "variantId": "tc-flv-sea-038",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-SEA-038 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-SEA-038 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "目标品牌路由已知，但该 caseId 的精确页面状态和业务数据前置尚未审计。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:PUT /ops-brand/global-modifier/options/batch-status",
+          "status": "mapped",
+          "reason": "批量更新调味项状态。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "品牌调味下发上下文"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、品牌调味下发上下文，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、品牌调味下发上下文，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-SEA-039",
+      "title": "批量停用调味成功且下发后POS不展示",
+      "disposition": "deferred",
+      "executionContextProfile": "single-store-000407",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/pp/brand/seasoning/list",
+      "semantics": {
+        "businessObjectId": "merchant-center.seasoning-group",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-merchant-brand-seasoning",
+        "variantId": "tc-flv-sea-039",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-SEA-039 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-SEA-039 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "目标品牌路由已知，但该 caseId 的精确页面状态和业务数据前置尚未审计。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:PUT /ops-brand/global-modifier/options/batch-status",
+          "status": "mapped",
+          "reason": "批量更新调味项状态。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "已认证 POS 终端",
+        "品牌调味下发上下文"
+      ],
+      "reason": "正式用例保留，但当前缺少 已认证 POS 终端、品牌调味下发上下文，本轮不得执行或判通过。",
+      "recoveryCondition": "提供并验证 已认证 POS 终端、品牌调味下发上下文，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-007",
+      "title": "门店调味数据变更后自动同步至POS",
+      "disposition": "deferred",
+      "executionContextProfile": "multi-store-000420",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "runtime:seasoning-full-page-multi-store",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/poi/location/seasoning",
+      "semantics": {
+        "businessObjectId": "merchant-center.store-global-seasoning",
+        "scenarioFamilyId": "sync",
+        "stateTransitionId": "store-to-pos-synchronized",
+        "scopeId": "configured-store-global-seasoning",
+        "variantId": "tc-flv-xmod-007",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-XMOD-007 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-XMOD-007 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前执行上下文仅证明品牌商户身份，未证明目标门店上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /ops-poi/global-modifier/list",
+          "status": "mapped",
+          "reason": "门店全局调味列表。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取门店全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "门店全局调味页面适配器",
+        "可核验 POS 同步终态"
+      ],
+      "reason": "按用户确认的本轮范围跳过 POS 验证；正式用例保留，未执行且不得判通过。",
+      "recoveryCondition": "提供并验证 门店全局调味页面适配器、可核验 POS 同步终态，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-008",
+      "title": "门店调味支持手动点击同步至POS",
+      "disposition": "deferred",
+      "executionContextProfile": "multi-store-000420",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "runtime:seasoning-full-page-multi-store",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/poi/location/seasoning",
+      "semantics": {
+        "businessObjectId": "merchant-center.store-global-seasoning",
+        "scenarioFamilyId": "sync",
+        "stateTransitionId": "store-to-pos-synchronized",
+        "scopeId": "configured-store-global-seasoning",
+        "variantId": "tc-flv-xmod-008",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-XMOD-008 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-XMOD-008 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前执行上下文仅证明品牌商户身份，未证明目标门店上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /ops-poi/global-modifier/list",
+          "status": "mapped",
+          "reason": "门店全局调味列表。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取门店全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /ops-poi/poi-modifiers/push",
+          "status": "mapped",
+          "reason": "门店手动同步至 POS。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "门店全局调味页面适配器",
+        "可核验 POS 同步终态"
+      ],
+      "reason": "按用户确认的本轮范围跳过 POS 验证；正式用例保留，未执行且不得判通过。",
+      "recoveryCondition": "提供并验证 门店全局调味页面适配器、可核验 POS 同步终态，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-009",
+      "title": "门店调味同步POS失败时展示失败警示与重试提示",
+      "disposition": "deferred",
+      "executionContextProfile": "multi-store-000420",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "runtime:seasoning-full-page-multi-store",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/poi/location/seasoning",
+      "semantics": {
+        "businessObjectId": "merchant-center.store-global-seasoning",
+        "scenarioFamilyId": "display",
+        "stateTransitionId": "state-to-visible",
+        "scopeId": "configured-store-global-seasoning",
+        "variantId": "tc-flv-xmod-009",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "none"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-XMOD-009 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-XMOD-009 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前执行上下文仅证明品牌商户身份，未证明目标门店上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /ops-poi/global-modifier/list",
+          "status": "mapped",
+          "reason": "门店全局调味列表。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/task/resume/{taskId}",
+          "status": "mapped",
+          "reason": "恢复调味同步任务。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:PUT /ops-brand/brand-modifier-sync/job/resume/{jobId}",
+          "status": "mapped",
+          "reason": "恢复调味同步作业。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "门店全局调味页面适配器",
+        "可核验 POS 同步终态"
+      ],
+      "reason": "按用户确认的本轮范围跳过 POS 验证；正式用例保留，未执行且不得判通过。",
+      "recoveryCondition": "提供并验证 门店全局调味页面适配器、可核验 POS 同步终态，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-010",
+      "title": "门店已下发菜单前提下调味方可正常同步至POS",
+      "disposition": "deferred",
+      "executionContextProfile": "multi-store-000420",
+      "sourceIds": [
+        "formal:seasoning-test-plan",
+        "runtime:seasoning-full-page-multi-store",
+        "api:brand-menu-catalog"
+      ],
+      "route": "/poi/location/seasoning",
+      "semantics": {
+        "businessObjectId": "merchant-center.store-global-seasoning",
+        "scenarioFamilyId": "distribution",
+        "stateTransitionId": "source-to-store-synchronized",
+        "scopeId": "configured-store-global-seasoning",
+        "variantId": "tc-flv-xmod-010",
+        "variantSourceIds": [
+          "formal:seasoning-test-plan"
+        ],
+        "businessIdentityStrategy": "unique-marker"
+      },
+      "assertionSurfaceAssessment": {
+        "requiredChannels": [
+          "ui",
+          "api",
+          "downstream"
+        ],
+        "availableChannels": [
+          "api"
+        ],
+        "missingEvidence": [
+          {
+            "channel": "ui",
+            "reason": "缺少 TC-FLV-XMOD-010 当前精确控件、字段、弹窗顺序与可见终态证据"
+          },
+          {
+            "channel": "downstream",
+            "reason": "缺少 TC-FLV-XMOD-010 POS、门店或终端当前可观察终态"
+          }
+        ]
+      },
+      "contextAssessment": {
+        "status": "blocked-technical",
+        "reason": "当前执行上下文仅证明品牌商户身份，未证明目标门店上下文。"
+      },
+      "apiMappings": [
+        {
+          "operationKey": "brand-menu:GET /ops-poi/global-modifier/list",
+          "status": "mapped",
+          "reason": "门店全局调味列表。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        },
+        {
+          "operationKey": "brand-menu:GET /internal/pos/pull/global-modifier",
+          "status": "mapped",
+          "reason": "POS 拉取门店全局调味的直接观测接口。",
+          "sourceIds": [
+            "api:brand-menu-catalog"
+          ]
+        }
+      ],
+      "missingCapabilities": [
+        "门店全局调味页面适配器",
+        "可核验 POS 同步终态"
+      ],
+      "reason": "按用户确认的本轮范围跳过 POS 验证；正式用例保留，未执行且不得判通过。",
+      "recoveryCondition": "提供并验证 门店全局调味页面适配器、可核验 POS 同步终态，取得当前上下文的 UI/API/下游证据后重新编译并定向执行。"
+    }
+  ]
+}

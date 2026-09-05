@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-001", "TC-FLV-REC-002", "TC-FLV-REC-003", "TC-FLV-REC-004", "TC-FLV-REC-005",
+    "TC-FLV-REC-006", "TC-FLV-REC-007", "TC-FLV-SEA-002", "TC-FLV-SEA-003", "TC-FLV-SEA-004",
+    "TC-FLV-SEA-005", "TC-FLV-SEA-006", "TC-FLV-SEA-007", "TC-FLV-SEA-008", "TC-FLV-SEA-009",
+    "TC-FLV-SEA-010", "TC-FLV-SEA-011", "TC-FLV-SEA-012", "TC-FLV-SEA-013", "TC-FLV-SEA-014"
+  ],
+  "rootCause": "前一轮调味整改选择集超过公共 canary 预算，且通用诊断文件未声明本波完整 caseId 集合，导致流程在正式业务动作前被安全阻断。",
+  "correctiveAction": "将调味整改拆分为不超过20条的公共波次；本波使用当前 caseFingerprint、implementationFingerprint、业务操作、断言、清理和标准收据执行，并在收据完整后再进入 batch。",
+  "evidenceRefs": [
+    "Merchant Center UITest/deliverables/system-test-platform/b4-seasoning-wave-01-impact-20260905.json",
+    "Merchant Center UITest/deliverables/system-test-platform/b4-seasoning-wave-01-optimization-plan-20260905.json",
+    "Test Automation Platform/scripts/run-system-test-flow.ts",
+    "Test Automation Platform/scripts/run-system-test.ts"
+  ],
+  "supersedesAttemptIds": []
+}

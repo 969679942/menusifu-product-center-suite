@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-035"
+  ],
+  "rootCause": "TC-ITEM-ADD-035 的旧证据判定器把通用 CSS cursor:pointer 单独等同为可触发大图预览的业务点击能力；实际观察为 role=none、tabIndex=-1 且点击后 previewCount=0，因此旧 product-defect 结论属于自动化误判。实现检查点同时漏登记该独立判定器，导致代码变化无法自动使旧结论失效。",
+  "correctiveAction": "将 cursor:pointer 仅保留为视觉提示证据；业务可点击能力只由 button/link/祖先可操作角色、可聚焦语义或实际预览出现证明。把判定器登记为 TC-ITEM-ADD-035 专属实现指纹输入，并以专项合同覆盖仅手型光标、有可操作语义、实际出现预览三类边界。仅批准并重跑 TC-ITEM-ADD-035，记录当前 UI 操作、断言、API 持久化及 UI/API 零残留证据，不重跑其他已通过用例。",
+  "evidenceRefs": [
+    "flows/product-center/item-216/addon-item-216.flow.ts",
+    "flows/product-center/item-216/addon-main-image-evidence.ts",
+    "tests/api/product-center-current-failure-remediation.contract.spec.ts",
+    "scripts/import-product-center-item-failure-manual-decisions.ts",
+    "output/system-test-repair/product-center/repair-attempt-ledger.json",
+    "deliverables/test-plan-governance/product-center-closure-audit.json"
+  ],
+  "supersedesAttemptIds": [],
+  "validation": {
+    "typecheck": "passed",
+    "targetedContract": "passed",
+    "implementationFingerprint": "7bc187a23c2171b3a5d4f5bd89361b9dbdf6914b968282513796032957980ce6",
+    "targetExecutionLimit": 1,
+    "excludedCaseIds": [
+      "TC-GRP-PKG-041",
+      "TC-GRP-PKG-043"
+    ]
+  }
+}

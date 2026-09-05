@@ -1,0 +1,1376 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-page-gap",
+  "status": "review-required",
+  "generatedAt": "2026-08-30T10:06:52.409Z",
+  "observation": {
+    "observationId": "ui-observed:product-center-item:2026-07-30",
+    "observedAt": "2026-07-30",
+    "mode": "read-only",
+    "routes": [
+      "/pp/brand/list",
+      "/pp/brand/create",
+      "/pp/brand/create/standard",
+      "/pp/brand/create/combo",
+      "/pp/brand/edit/standard?id={id}"
+    ],
+    "screenshots": [
+      {
+        "path": "output/page-audit/product-center-item-2026-07-30/item-list.png",
+        "status": "verified-current-page",
+        "note": "商品列表、查询、操作入口、分页和列配置按钮可见。"
+      },
+      {
+        "path": "output/page-audit/product-center-item-2026-07-30/item-create-standard.png",
+        "status": "verified-current-page",
+        "note": "已在 2026-07-30 重新截取标准商品创建页，替换原权限加载态截图。"
+      },
+      {
+        "path": "output/page-audit/product-center-item-2026-07-30/item-create-combo.png",
+        "status": "verified-current-page",
+        "note": "已在 2026-07-30 重新截取添加可选搭配弹窗，替换原权限加载态截图。"
+      }
+    ]
+  },
+  "summary": {
+    "formalCases": 216,
+    "structurallyValidFormalCases": 123,
+    "invalidFormalCases": 93,
+    "observedCapabilities": 26,
+    "coveredCapabilities": 18,
+    "supplementRequiredCapabilities": 8,
+    "conflictCapabilities": 0,
+    "supplementCases": 8,
+    "xmindBlockedLeaves": 39,
+    "xmindTemplateLeaves": 1,
+    "xmindAlreadyCoveredLeaves": 38,
+    "xmindStructureRepairableLeaves": 0,
+    "xmindBusinessSourceRequiredLeaves": 0
+  },
+  "capabilities": [
+    {
+      "id": "item.list.search-filter",
+      "route": "/pp/brand/list",
+      "label": "商品名称、类型、分类、状态查询",
+      "observedFacts": [
+        "商品名称搜索框与三类筛选入口可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-028",
+        "TC-ITEM-PKG-034",
+        "TC-ITEM-ADD-023"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.reset",
+      "route": "/pp/brand/list",
+      "label": "重置查询条件",
+      "observedFacts": [
+        "重置按钮可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-029",
+        "TC-ITEM-PKG-047",
+        "TC-ITEM-ADD-040"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.import-records",
+      "route": "/pp/brand/list",
+      "label": "导入记录入口",
+      "observedFacts": [
+        "导入记录按钮可见"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-001"
+    },
+    {
+      "id": "item.list.import-actions",
+      "route": "/pp/brand/list",
+      "label": "图片导入与商品导入入口",
+      "observedFacts": [
+        "操作菜单展示图片导入、商品导入"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-002"
+    },
+    {
+      "id": "item.list.column-config",
+      "route": "/pp/brand/list",
+      "label": "列表列配置",
+      "observedFacts": [
+        "列配置图标按钮可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-003",
+        "TC-ITEM-STD-072",
+        "TC-ITEM-STD-073"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.pagination",
+      "route": "/pp/brand/list",
+      "label": "分页与每页条数",
+      "observedFacts": [
+        "分页器与 50 条/页选择器可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-063"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.lifecycle",
+      "route": "/pp/brand/list",
+      "label": "行级启用与停用",
+      "observedFacts": [
+        "启用商品菜单展示停用，停用商品菜单展示启用"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-065",
+        "TC-ITEM-STD-066",
+        "TC-ITEM-PKG-061",
+        "TC-ITEM-PKG-062",
+        "TC-ITEM-ADD-042",
+        "TC-ITEM-ADD-043"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.copy",
+      "route": "/pp/brand/list",
+      "label": "行级复制",
+      "observedFacts": [
+        "行操作菜单展示复制"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-003"
+    },
+    {
+      "id": "item.list.delete",
+      "route": "/pp/brand/list",
+      "label": "行级删除",
+      "observedFacts": [
+        "行操作菜单展示删除"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-068",
+        "TC-ITEM-STD-069",
+        "TC-ITEM-STD-070",
+        "TC-ITEM-STD-075"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.list.batch-fields",
+      "route": "/pp/brand/list",
+      "label": "批量编辑基础字段",
+      "observedFacts": [
+        "批量菜单展示图片、名称、第二语言、分类、POS名称、送厨名称、助记码、编码、单位、设备编码、描述"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-004"
+    },
+    {
+      "id": "item.list.batch-commerce",
+      "route": "/pp/brand/list",
+      "label": "批量修改销售信息、价格与属性",
+      "observedFacts": [
+        "批量菜单展示修改销售信息、修改价格、修改属性"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-005"
+    },
+    {
+      "id": "item.list.batch-menu-delete",
+      "route": "/pp/brand/list",
+      "label": "批量添加至菜单与删除",
+      "observedFacts": [
+        "批量菜单展示添加至菜单、删除"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-006"
+    },
+    {
+      "id": "item.create.type-selection",
+      "route": "/pp/brand/create",
+      "label": "标准、套餐、加料三类商品入口",
+      "observedFacts": [
+        "商品类型选择页展示三类商品"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-001",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-ADD-005"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.save-and-new",
+      "route": "/pp/brand/create/standard",
+      "label": "标准商品保存并新建入口",
+      "observedFacts": [
+        "标准商品创建页展示保存并新建按钮"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-007"
+    },
+    {
+      "id": "item.standard.required-fields",
+      "route": "/pp/brand/create/standard",
+      "label": "标准商品必填字段",
+      "observedFacts": [
+        "商品名称与标准价显示必填标记"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-005",
+        "TC-ITEM-STD-038"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.advanced-fields",
+      "route": "/pp/brand/create/standard",
+      "label": "标准商品高级字段与长度",
+      "observedFacts": [
+        "高级设置包含 POS名称、送厨名称、助记码、编码、单位、设备编码、描述与起售数量"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-042",
+        "TC-ITEM-STD-045",
+        "TC-ITEM-STD-046"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.spec-modes",
+      "route": "/pp/brand/create/standard",
+      "label": "称重、单规格与多规格",
+      "observedFacts": [
+        "单规格、多规格和称重控件可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-047",
+        "TC-ITEM-STD-049",
+        "TC-ITEM-STD-050"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.print-stall",
+      "route": "/pp/brand/create/standard",
+      "label": "打印档口搜索与多选",
+      "observedFacts": [
+        "打印设置展示档口名称搜索框和档口复选框"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-082"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.attributes",
+      "route": "/pp/brand/create/standard",
+      "label": "商品属性与互斥规则",
+      "observedFacts": [
+        "商品属性添加入口和属性互斥规则区域可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-057",
+        "TC-ITEM-STD-058",
+        "TC-ITEM-STD-061"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.standard.more-settings",
+      "route": "/pp/brand/create/standard",
+      "label": "详情图片、标签、角标、统计标签与材料信息",
+      "observedFacts": [
+        "更多设置入口可见"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-054",
+        "TC-ITEM-STD-055",
+        "TC-ITEM-STD-056"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.combo.save-and-new",
+      "route": "/pp/brand/create/combo",
+      "label": "套餐商品保存并新建入口",
+      "observedFacts": [
+        "套餐商品创建页展示保存并新建按钮"
+      ],
+      "formalCaseIds": [],
+      "disposition": "supplement-required",
+      "supplementCaseId": "TC-ITEM-UI-008"
+    },
+    {
+      "id": "item.combo.required-fields",
+      "route": "/pp/brand/create/combo",
+      "label": "套餐商品必填字段",
+      "observedFacts": [
+        "商品名称、标准价和添加套餐分组显示必填标记"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-PKG-010",
+        "TC-ITEM-PKG-017",
+        "TC-ITEM-PKG-046"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.combo.fixed-group",
+      "route": "/pp/brand/create/combo",
+      "label": "固定搭配新增、选择、搜索与确认",
+      "observedFacts": [
+        "套餐分组菜单展示添加固定搭配、选择固定搭配"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-PKG-002",
+        "TC-ITEM-PKG-003",
+        "TC-ITEM-PKG-006",
+        "TC-ITEM-PKG-040",
+        "TC-ITEM-PKG-041",
+        "TC-ITEM-PKG-042"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.combo.optional-select",
+      "route": "/pp/brand/create/combo",
+      "label": "可选搭配选择、搜索、移除与确认",
+      "observedFacts": [
+        "选择可选搭配弹窗展示套餐组名称搜索、列表、已选区域，未选择时确认禁用"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-PKG-004",
+        "TC-ITEM-PKG-040",
+        "TC-ITEM-PKG-041",
+        "TC-ITEM-PKG-043",
+        "TC-ITEM-PKG-044",
+        "TC-ITEM-PKG-045",
+        "TC-ITEM-PKG-056"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.combo.optional-add",
+      "route": "/pp/brand/create/combo",
+      "label": "新增可选搭配字段、规则与组卡片边界",
+      "observedFacts": [
+        "弹窗展示组名称、第二语言、选择数量、相同商品合并展示、组内商品是否可重复选中、商品名称与分类筛选",
+        "添加后的组卡片展示规则摘要和组级编辑、删除入口，商品行无单项移除入口"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-057",
+        "TC-ITEM-PKG-058",
+        "TC-ITEM-PKG-059"
+      ],
+      "disposition": "covered"
+    },
+    {
+      "id": "item.edit.standard",
+      "route": "/pp/brand/edit/standard?id={id}",
+      "label": "标准商品编辑页",
+      "observedFacts": [
+        "编辑页结构与创建页一致"
+      ],
+      "formalCaseIds": [
+        "TC-ITEM-STD-031",
+        "TC-ITEM-STD-033",
+        "TC-ITEM-STD-092",
+        "TC-ITEM-STD-096"
+      ],
+      "disposition": "covered"
+    }
+  ],
+  "supplementCases": [
+    {
+      "id": "TC-ITEM-UI-001",
+      "title": "商品列表提供导入记录入口",
+      "proposedPriority": "P2",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "查看列表顶部工具栏。"
+      ],
+      "expectedResults": [
+        "导入记录按钮可见且处于可点击状态。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.import-records"
+      ],
+      "reviewRequired": [
+        "导入记录目标页面和记录字段尚未在本轮只读审计中验证。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-002",
+      "title": "商品列表操作菜单提供图片导入与商品导入入口",
+      "proposedPriority": "P2",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "点击列表顶部「操作」。"
+      ],
+      "expectedResults": [
+        "操作菜单同时展示「图片导入」「商品导入」。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.import-actions"
+      ],
+      "reviewRequired": [
+        "导入模板、校验规则、失败处理和导入结果需正式来源确认。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-003",
+      "title": "复制商品时打印档口信息随商品复制",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 列表操作 → 复制",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list 行操作菜单展示“复制”",
+          "acceptanceEligible": false
+        },
+        {
+          "kind": "business-rule-explicit",
+          "citation": "商品中心业务规则 §22：商品复制时，档口信息随商品复制",
+          "acceptanceEligible": true
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "存在已绑定打印档口的 AUTO_AUDIT 标准商品。"
+      ],
+      "actions": [
+        "通过侧边栏进入商品列表。",
+        "打开 AUTO_AUDIT 商品行操作菜单并点击「复制」。",
+        "为复制商品设置唯一名称并保存。",
+        "在列表搜索复制后的商品并打开编辑页。"
+      ],
+      "expectedResults": [
+        "复制流程可进入新增商品编辑状态。",
+        "复制商品保存成功。",
+        "复制商品的打印档口与原商品一致。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.copy"
+      ],
+      "reviewRequired": [
+        "复制流程的其他继承字段范围未有正式规则，本候选只验证打印档口。",
+        "自动化前需定义按服务端 ID 清理复制商品。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-004",
+      "title": "勾选商品后批量操作菜单提供基础字段编辑入口",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "勾选一条 AUTO_AUDIT 商品。",
+        "打开「批量操作(1)」。"
+      ],
+      "expectedResults": [
+        "菜单展示图片、商品名称、第二语言、商品分类、POS名称、送厨名称、助记码、商品编码、单位、设备编码、商品描述编辑入口。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.batch-fields"
+      ],
+      "reviewRequired": [
+        "各字段批量更新范围、覆盖策略和校验规则缺少正式业务来源。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-005",
+      "title": "勾选商品后批量操作菜单提供销售信息价格与属性入口",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "勾选一条 AUTO_AUDIT 商品。",
+        "打开「批量操作(1)」。"
+      ],
+      "expectedResults": [
+        "菜单展示「修改销售信息」「修改价格」「修改属性」。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.batch-commerce"
+      ],
+      "reviewRequired": [
+        "品牌商品批量改价和批量属性规则不能沿用门店商品规则，需产品确认。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-006",
+      "title": "勾选商品后批量操作菜单提供添加至菜单与删除入口",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/list",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/list",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "勾选一条 AUTO_AUDIT 商品。",
+        "打开「批量操作(1)」。"
+      ],
+      "expectedResults": [
+        "菜单展示「添加至菜单」「删除」。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.list.batch-menu-delete"
+      ],
+      "reviewRequired": [
+        "批量添加菜单范围、删除前置限制、确认弹窗和部分失败策略缺少正式业务来源。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-007",
+      "title": "标准商品创建页提供保存并新建入口",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/create/standard",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/create/standard",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "进入标准商品创建页。",
+        "查看页面顶部保存操作区。"
+      ],
+      "expectedResults": [
+        "「保存并新建」按钮可见且处于可点击状态。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.standard.save-and-new"
+      ],
+      "reviewRequired": [
+        "保存成功后的留页、清空字段、默认值和失败处理未验证。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-UI-008",
+      "title": "套餐商品创建页提供保存并新建入口",
+      "proposedPriority": "P1",
+      "module": "商品管理 → 商品 → 页面补充候选",
+      "route": "/pp/brand/create/combo",
+      "sourceCitations": [
+        {
+          "kind": "ui-observed",
+          "citation": "只读页面审计 2026-07-30 ← /pp/brand/create/combo",
+          "acceptanceEligible": false
+        }
+      ],
+      "preconditions": [
+        "已登录且有商品管理权限。",
+        "通过侧边栏进入商品列表。"
+      ],
+      "actions": [
+        "进入套餐商品创建页。",
+        "查看页面顶部保存操作区。"
+      ],
+      "expectedResults": [
+        "「保存并新建」按钮可见且处于可点击状态。"
+      ],
+      "status": "review-required",
+      "generationAllowed": false,
+      "capabilityIds": [
+        "navigation.sidebar.open",
+        "item.combo.save-and-new"
+      ],
+      "reviewRequired": [
+        "保存成功后的留页、清空字段、默认值和失败处理未验证。"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "xmindBlockedLeaves": [
+    {
+      "nodeId": "7na7d1hgoe25l0goi2j6ftp3ms",
+      "title": "[无标题节点]",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "一级功能模块",
+        "二级功能模块",
+        "主要功能点",
+        "概要",
+        "预置条件",
+        "操作步骤",
+        "预期结果"
+      ],
+      "disposition": "source-template",
+      "matchedFormalCaseIds": []
+    },
+    {
+      "nodeId": "19b3gomebq96vfr5ltm9c49qd7",
+      "title": "4. 商品类型选择页面有三个选项，标准商品，套餐，配菜/加料\n5. 商品编辑页面分为7大模块：\n - 导航栏\n- 基础信息 行业名称的输入库置灰，不可手动输入\n- 商品属性\n- 展示设置\n- 材料信息（这期没有）\n- 统计标签\n- 商品描述\n6. 快速定位到标签属性",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "展示",
+        "页面展示",
+        "新建标准商品，页面信息正确",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 查看页面展示\n6. 点击导航栏的商品标签",
+        "4. 商品类型选择页面有三个选项，标准商品，套餐，配菜/加料\n5. 商品编辑页面分为7大模块：\n - 导航栏\n- 基础信息 行业名称的输入库置灰，不可手动输入\n- 商品属性\n- 展示设置\n- 材料信息（这期没有）\n- 统计标签\n- 商品描述\n6. 快速定位到标签属性"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-001"
+      ]
+    },
+    {
+      "nodeId": "4h62hherct59574922865ac6rb",
+      "title": "4. 商品列表页面区域分为2块\n左侧区域为：后台分类\n右侧区域为：商品列表\n4.2 分类树形结构展示，支持到三级树形结构，每一级的分类下有功能按钮：新增 修改删除\n4.3 分类和商品都有查询框，默认查询条件为空，商品查询支持 商品名 商品分类 标签 商品状态等条件查询\n4.4. 商品列表页展示所有的商品，一页展示20条数据，可更改为一页展示50或者100条\n4.5 商品列表默认展示全部的商品，按照商品的创建顺序，后创建的展示在最上面\n4.6   - 列表字段\n    - 选择：可多选商品\n    - 图片：商品主体第一张\n    - 商品名称（中英文）\n    - 商品类型：单品、套餐、配菜/加料\n    - 后台分类\n    - 标准价\n    - 状态：可售、禁售\n    - 更新时间\n    - 操作：编辑、删除、停售/启售",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "展示",
+        "页面展示",
+        "商品列表页面展示正确",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 查看商品列表展示",
+        "4. 商品列表页面区域分为2块\n左侧区域为：后台分类\n右侧区域为：商品列表\n4.2 分类树形结构展示，支持到三级树形结构，每一级的分类下有功能按钮：新增 修改删除\n4.3 分类和商品都有查询框，默认查询条件为空，商品查询支持 商品名 商品分类 标签 商品状态等条件查询\n4.4. 商品列表页展示所有的商品，一页展示20条数据，可更改为一页展示50或者100条\n4.5 商品列表默认展示全部的商品，按照商品的创建顺序，后创建的展示在最上面\n4.6   - 列表字段\n    - 选择：可多选商品\n    - 图片：商品主体第一张\n    - 商品名称（中英文）\n    - 商品类型：单品、套餐、配菜/加料\n    - 后台分类\n    - 标准价\n    - 状态：可售、禁售\n    - 更新时间\n    - 操作：编辑、删除、停售/启售"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-ADD-002",
+        "TC-ITEM-ADD-035",
+        "TC-ITEM-ADD-037",
+        "TC-ITEM-ADD-038",
+        "TC-ITEM-ADD-046"
+      ]
+    },
+    {
+      "nodeId": "479aj7fe093g113aq50if5qn1g",
+      "title": "4. 列表页默认展示商品的全部字段，选择”、“图片”、“商品名称”、“商品类型”、“操作”列固定展示，且锁定位置，左右滑动可看到所有的列\n6. 只展示固定展示的列和分类 规格 标准价\n5. 只展示固定展示的列和分类  标准价",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "展示",
+        "页面展示",
+        "商品展示列设置，商品列表只展示选择的列",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 查看商品列表展示\n5. 点击展示列设置，选择分类 规格和标准价\n6. 查看列表页展示\n7. 去勾选规格\n8. 查看列表页展示",
+        "4. 列表页默认展示商品的全部字段，选择”、“图片”、“商品名称”、“商品类型”、“操作”列固定展示，且锁定位置，左右滑动可看到所有的列\n6. 只展示固定展示的列和分类 规格 标准价\n5. 只展示固定展示的列和分类  标准价"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-003"
+      ]
+    },
+    {
+      "nodeId": "440eac4d-0c26-4922-92e7-0ed90a959110",
+      "title": "中英文切换后，各文本展示正确",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "展示",
+        "页面展示",
+        "中英文切换",
+        "中英文切换后，各文本展示正确"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-004"
+      ]
+    },
+    {
+      "nodeId": "6it6hc3v384sc0hlme4n805n6n",
+      "title": "6. 提交失败，组名称这边高亮提示必填项缺失",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "必填项缺失",
+        "新建标准商品，必填项缺失，新建失败",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息，但部分必填项缺失（商品名称、起售数量:默认生成为1、商品的标准价格）\n6. 点提交",
+        "6. 提交失败，组名称这边高亮提示必填项缺失"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-005"
+      ]
+    },
+    {
+      "nodeId": "498k863f58s7d5u5game0kl1l1",
+      "title": "一级分类下有商品，不可创建二级分类",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "分类相关校验（一级分类下有商品不可建二级分类/有二级分类不可建标准商品）",
+        "一级分类下有商品，不可创建二级分类"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-037"
+      ]
+    },
+    {
+      "nodeId": "083vafg5nagslgj3perchpakvi",
+      "title": "6.1 新增成功，输入字符自动格式化前100个有效字符，首尾空格去掉 中间连续多个空格格式化到1个空格，只保留中文数字 英文特殊字符自动去掉 \n7. 数据库中存储的字符信息与格式化之后的信息一致\n=====",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "商品属性各字段字符格式化校验",
+        "新增标准商品，商品名称超过100个字符，字符包含特殊字符，商品名称前后有空格，保存之后，名称自动格式化到100个字符，首尾空格去掉，不支持的特殊字符自动去掉",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 点击新增商品\n5. 输入商品的名称输入超过100个字符，名称的首尾有空格，名称包含字母 数字 中文 特殊字符\n6. 提交\n7. 数据库入库校验\n====\n下发",
+        "6.1 新增成功，输入字符自动格式化前100个有效字符，首尾空格去掉 中间连续多个空格格式化到1个空格，只保留中文数字 英文特殊字符自动去掉 \n7. 数据库中存储的字符信息与格式化之后的信息一致\n====="
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-009"
+      ]
+    },
+    {
+      "nodeId": "51kohmbuel2m89cq1o5ghpbgcn",
+      "title": "6.1 新增成功，输入字符自动格式化前100个有效字符，首尾空格去掉 中间连续多个空格格式化到1个空格，只保留中文数字 英文特殊字符自动去掉 \n7. 数据库中存储的字符信息与格式化之后的信息一致\n=====",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "商品属性各字段字符格式化校验",
+        "新增标准商品，POS名称/送厨名称超过20个字符，字符包含特殊字符，商品名称前后有空格，保存之后，名称自动格式化到20个字符，首尾空格去掉，不支持的特殊字符自动去掉",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 点击新增商品\n5. 输入POS名称/送厨名称输入超过20个字符，名称的首尾有空格，名称包含字母 数字 中文 特殊字符\n6. 提交\n7. 数据库入库校验\n====\n下发",
+        "6.1 新增成功，输入字符自动格式化前100个有效字符，首尾空格去掉 中间连续多个空格格式化到1个空格，只保留中文数字 英文特殊字符自动去掉 \n7. 数据库中存储的字符信息与格式化之后的信息一致\n====="
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-ADD-022",
+        "TC-ITEM-PKG-026"
+      ]
+    },
+    {
+      "nodeId": "4chu03vu62t9h4fo6nojiqkvrp",
+      "title": "6. 提交失败，提示商品编码重复",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "商品属性各字段字符格式化校验",
+        "新增标准商品，如果商品编码重复，保存失败",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 点击新增商品\n5. 商品编码输入一个与之前重新的编码\n6. 提交",
+        "6. 提交失败，提示商品编码重复"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-010"
+      ]
+    },
+    {
+      "nodeId": "28v7p7lp0v1u86af6h0nvjsc97",
+      "title": "6. 提交成功,类A/A1下新增一条商品记录，展示在该二级分类商品的最上面，标准价格为0，图片展示商品的主图的信息\n8. 数据库中的字段信息与输入的一致",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "不同规格商品新建",
+        "新建价格为0的单规格商品，新建成功",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，商品的标准价输入为0，添加口味 口味 加料 添加商品主图 详情图 标签 角标 统计标签 商品描述\n6. 点提交\n7. 商品列表页查看新增的商品\n8. 数据库入库校验\n9. ==== 下发",
+        "6. 提交成功,类A/A1下新增一条商品记录，展示在该二级分类商品的最上面，标准价格为0，图片展示商品的主图的信息\n8. 数据库中的字段信息与输入的一致"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-015"
+      ]
+    },
+    {
+      "nodeId": "42sps6b10h8g9g8ikdukb3o5tq",
+      "title": "6. 规格组只能单选\n7. 列表页展示的规格名称正确，标准价展示该商品默认规格的价格\n8. 数据库中的字段信息与输入的一致",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "不同规格商品新建",
+        "新建价格为多规格商品，新建成功",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，商品售价选择多规格\n6. 选择规格组，确认，输入不同规格的标准价格，其他价格不填\n7. 商品列表页查看新增的商品\n8. 数据库入库校验\n9. ==== 下发",
+        "6. 规格组只能单选\n7. 列表页展示的规格名称正确，标准价展示该商品默认规格的价格\n8. 数据库中的字段信息与输入的一致"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016"
+      ]
+    },
+    {
+      "nodeId": "1sipmo7825esbn565bboddll08",
+      "title": "6. 规格组只能单选\n7. 列表页展示的规格名称正确，标准价展示该商品规格中的最低价格\n8. 数据库中的字段信息与输入的一致",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "不同规格商品新建",
+        "新建价格为多规格商品，未选默认规格，新建成功",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，商品售价选择多规格\n6. 选择规格组，确认，输入不同规格的标准价格，其他价格不填，默认规格不选\n7. 商品列表页查看新增的商品\n8. 数据库入库校验\n9. ==== 下发",
+        "6. 规格组只能单选\n7. 列表页展示的规格名称正确，标准价展示该商品规格中的最低价格\n8. 数据库中的字段信息与输入的一致"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-017"
+      ]
+    },
+    {
+      "nodeId": "1p6t3m66d4jdj7m22pbdafsucd",
+      "title": "7. 新增商品成功，信息与输入一致\n8. 数据库中的字段信息与输入的一致\n====\n9.",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "不同规格商品新建",
+        "新建称重菜品，新建成功",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，是否称重菜品选择是，输入标准价，选择售卖单位\n6. 选择口味 加料口味\n7. 商品列表页查看新增的商品\n8. 数据库入库校验\n9. ==== 下发",
+        "7. 新增商品成功，信息与输入一致\n8. 数据库中的字段信息与输入的一致\n====\n9."
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-015",
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-STD-018"
+      ]
+    },
+    {
+      "nodeId": "1fc83c6b-2165-4f6d-8be5-9eb53aee9495",
+      "title": "销售单位默认为lb",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "不同规格商品新建",
+        "称重菜品目前无地方配置销售单位",
+        "销售单位默认为lb"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-015",
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-STD-018"
+      ]
+    },
+    {
+      "nodeId": "1c57lr35i0l42fsinn29vpgqs9",
+      "title": "6. 提交成功,类A/A1下新增一条商品记录，展示在该二级分类商品的最上面，标准价格为1.99，图片展示商品的主图的信息\n8. 数据库中的字段信息与输入的一致",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "默认值，输入框验证",
+        "新建价格为1.99的单规格商品，新建成功",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，商品的标准价输入为1.99，添加口味 口味 加料 添加商品主图 详情图 标签 角标 统计标签 商品描述\n6. 点提交\n7. 商品列表页查看新增的商品\n8. 数据库入库校验\n9. ==== 下发",
+        "6. 提交成功,类A/A1下新增一条商品记录，展示在该二级分类商品的最上面，标准价格为1.99，图片展示商品的主图的信息\n8. 数据库中的字段信息与输入的一致"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-021"
+      ]
+    },
+    {
+      "nodeId": "58i9s3djnu77jq7g47sqft1s4j",
+      "title": "6. 提交失败，提示价格输入格式不正确",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "默认值，输入框验证",
+        "新建价格为非正数的商品，新建失败",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息分组信息选择A/A1，商品的标准价/成本/包装费，输入为非正数，负数 非数字等\n6. 点提交",
+        "6. 提交失败，提示价格输入格式不正确"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-021",
+        "TC-ITEM-STD-025"
+      ]
+    },
+    {
+      "nodeId": "3qarp9la09jlrdu9l44je520qg",
+      "title": "6. 非数字提交失败，0保存之后恢复默认值1",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "默认值，输入框验证",
+        "新建起售数量为0的商品，保存之后起售数量默认恢复成1",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息，起售数量改为0或者负数或者非数字\n6. 点提交",
+        "6. 非数字提交失败，0保存之后恢复默认值1"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-019",
+        "TC-ITEM-STD-042"
+      ]
+    },
+    {
+      "nodeId": "5o8vmoq5gv665l3orl4g7msimu",
+      "title": "6. 提交成功\n====\n7. 默认的点单页面的数量为2，且不可减少为1",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "默认值，输入框验证",
+        "新建起售数量大于1的商品，新建成功，在C端的点单页面，默认的数量为起售数量",
+        "1. 打开商品中心\n2.导航栏切换到品牌商品\n3. 页签切换到商品\n4. 选择商品类型标准商品，点击去创建\n5. 输入商品信息的基础信息，起售数量设置为2\n6. 点提交\n====\n7. 下发，C端点单页面查看售卖的默认数量",
+        "6. 提交成功\n====\n7. 默认的点单页面的数量为2，且不可减少为1"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-025"
+      ]
+    },
+    {
+      "nodeId": "5o94ihj2pb7cgcn317dt0nq36h",
+      "title": "从行业商品库选择商品可继承行业商品库的信息，后进行编辑，继承过来的口味/口味等信息同步更新",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "新增",
+        "从行业商品库选择商品可继承行业商品库的信息，后进行编辑，继承过来的口味/口味等信息同步更新"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-035"
+      ]
+    },
+    {
+      "nodeId": "29iqa2q9v8vkrikfobg8oa4ejr",
+      "title": "基础信息编辑",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "编辑",
+        "基础信息编辑"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-032"
+      ]
+    },
+    {
+      "nodeId": "3ltg95bv8ntgussasn5ve7tf5s",
+      "title": "商品属性编辑",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "编辑",
+        "商品属性编辑"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-ADD-042",
+        "TC-ITEM-ADD-043"
+      ]
+    },
+    {
+      "nodeId": "23muoh9319l4s0a0hs9st7iegu",
+      "title": "其他信息编辑",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "编辑",
+        "其他信息编辑"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-034"
+      ]
+    },
+    {
+      "nodeId": "4tdoiiklj6a19pc6i1iilc3deu",
+      "title": "关联的套餐组同步更新：\n套餐组下的所有商品均删除，该套餐项在商品中不展示",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "删除",
+        "关联的套餐组同步更新：\n套餐组下的所有商品均删除，该套餐项在商品中不展示"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017"
+      ]
+    },
+    {
+      "nodeId": "6q6l2f3s5o5072luo5kqee3jfn",
+      "title": "查询",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "标准商品",
+        "查询"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017"
+      ]
+    },
+    {
+      "nodeId": "cef9714d-5718-482b-b4cb-455ea22a79a3",
+      "title": "基本信息与标准商品一致：包含：商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、助记码、商品编码、单位、起售数量：默认填充为1，商品价格与标准商品也一致：标准价和包装费",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "基本信息与标准商品一致：包含：商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、助记码、商品编码、单位、起售数量：默认填充为1，商品价格与标准商品也一致：标准价和包装费"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-ADD-010",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-025"
+      ]
+    },
+    {
+      "nodeId": "d4915574-fbe3-4bd8-a711-86ff0a8f8e65",
+      "title": "默认加载为套餐组已创建的所有固定搭配类型",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择固定搭配",
+        "点击选择固定搭配",
+        "默认加载为套餐组已创建的所有固定搭配类型"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "07161af6-2669-4fad-a199-46042a6d0611",
+      "title": "加载的套餐列表中的套餐组，加入右侧已选套餐，右侧已选套餐可移除选择的套餐组",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择固定搭配",
+        "点击选择固定搭配",
+        "加载的套餐列表中的套餐组，加入右侧已选套餐，右侧已选套餐可移除选择的套餐组"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "5f709e7b-1ac2-4f53-8f84-9564f1850846",
+      "title": "支持模糊搜索，按名称精确搜索，删除输入的搜索条件按照默认搜索",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择固定搭配",
+        "点击选择固定搭配",
+        "按套餐组名称搜索",
+        "支持模糊搜索，按名称精确搜索，删除输入的搜索条件按照默认搜索"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-009",
+        "TC-ITEM-PKG-050",
+        "TC-ITEM-PKG-064"
+      ]
+    },
+    {
+      "nodeId": "c6637439-53d1-4017-aa77-9ae801657a09",
+      "title": "未选择套餐组，确认按钮默认不可点击，选择套餐组后确认按钮高亮可点击，点击后退出当前选择页面返回创建套餐页面",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择固定搭配",
+        "点击选择固定搭配",
+        "未选择套餐组，确认按钮默认不可点击，选择套餐组后确认按钮高亮可点击，点击后退出当前选择页面返回创建套餐页面"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "51485e31-4f5d-4bf7-81ef-8d40facb6d73",
+      "title": "默认加载为套餐组已创建的所有组合搭配(可选搭配)类型",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择组合搭配（可选搭配）",
+        "默认加载为套餐组已创建的所有组合搭配(可选搭配)类型"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "4fd929e8-afed-4206-b634-5974aa46fb92",
+      "title": "加载的套餐列表中的套餐组，加入右侧已选套餐，右侧已选套餐可移除选择的套餐组",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择组合搭配（可选搭配）",
+        "加载的套餐列表中的套餐组，加入右侧已选套餐，右侧已选套餐可移除选择的套餐组"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "e3431ee9-ba9f-467b-9e96-3747018cda91",
+      "title": "支持模糊搜索，按名称精确搜索，删除输入的搜索条件按照默认搜索",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择组合搭配（可选搭配）",
+        "按套餐组名称搜索",
+        "支持模糊搜索，按名称精确搜索，删除输入的搜索条件按照默认搜索"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "b8523b81-5b0e-4718-b3cc-a6c7ffeebe51",
+      "title": "未选择套餐组，确认按钮默认不可点击，选择套餐组后确认按钮高亮可点击，点击后退出当前选择页面返回创建套餐页面",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "选择已有套餐组",
+        "选择组合搭配（可选搭配）",
+        "未选择套餐组，确认按钮默认不可点击，选择套餐组后确认按钮高亮可点击，点击后退出当前选择页面返回创建套餐页面"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-008",
+        "TC-ITEM-PKG-048",
+        "TC-ITEM-PKG-049",
+        "TC-ITEM-PKG-050"
+      ]
+    },
+    {
+      "nodeId": "b39cd334-fdac-44bb-b902-02174f217ca6",
+      "title": "借鉴套餐组新增",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "新增套餐组",
+        "添加固定搭配",
+        "借鉴套餐组新增"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007",
+        "TC-ITEM-PKG-054"
+      ]
+    },
+    {
+      "nodeId": "8ba41fbd-c73a-41bf-8443-d40e65c475e2",
+      "title": "借鉴套餐组新增",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "套餐商品特有：添加套餐分组",
+        "新增套餐组",
+        "添加组合搭配（可选搭配）",
+        "借鉴套餐组新增"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-PKG-007"
+      ]
+    },
+    {
+      "nodeId": "ffb61056-78cf-4b0b-8228-5a04bbc05709",
+      "title": "其他设置也与标准商品一致：可添加详情图片，描述标签，商品角标，统计标签，材料信息",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "套餐商品",
+        "其他设置也与标准商品一致：可添加详情图片，描述标签，商品角标，统计标签，材料信息"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-ADD-010",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-026"
+      ]
+    },
+    {
+      "nodeId": "0649c441-e2e1-4dea-bad4-1815740fa9ef",
+      "title": "基本信息与标准商品一致：包含：商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、助记码、商品编码、单位，商品价格与标准商品也一致：标准价和包装费和成本\n注意：无起售数量",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "加料商品",
+        "基本信息与标准商品一致：包含：商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、助记码、商品编码、单位，商品价格与标准商品也一致：标准价和包装费和成本\n注意：无起售数量"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-ADD-010",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-025"
+      ]
+    },
+    {
+      "nodeId": "af2e2d99-5991-4b5f-8510-ddad5ffe79c8",
+      "title": "其他设置也与标准商品一致：可添加详情图片，描述标签，商品角标，统计标签，材料信息",
+      "path": [
+        "商品中心-商品管理测试用例",
+        "加料商品",
+        "其他设置也与标准商品一致：可添加详情图片，描述标签，商品角标，统计标签，材料信息"
+      ],
+      "disposition": "already-covered",
+      "matchedFormalCaseIds": [
+        "TC-ITEM-STD-016",
+        "TC-ITEM-STD-017",
+        "TC-ITEM-ADD-010",
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-026"
+      ]
+    }
+  ],
+  "guardrails": {
+    "pageEvidenceMayDefineBusinessRule": false,
+    "reviewRequiredMayGenerateRecipe": false,
+    "duplicateFormalCasesAllowed": false,
+    "unresolvedConflictMayGenerateRecipe": false
+  },
+  "fingerprint": "ad9fbd616938603df15470ee3120e183313e2cac7a7c0d79c4e6996f1f27b87d"
+}

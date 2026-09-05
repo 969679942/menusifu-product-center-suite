@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-y2-runtime-acceptance",
+  "generatedAt": "2026-08-02T13:00:00.000Z",
+  "status": "accepted-with-canonical-conflict",
+  "runId": "AUTO_AUDIT_YELLOW_Y2_20260802_03",
+  "caseId": "TC-ITEM-STD-061",
+  "source": {
+    "reportPath": "output/audit/product-center-item-yellow-y2-runtime-AUTO_AUDIT_YELLOW_Y2_20260802_03.json",
+    "reportSha256": "43437c37abb0f5b4be06960cdf25590cfa1a5dcd57e67e122ee1e511a7e60c0f"
+  },
+  "summary": {
+    "total": 1,
+    "accepted": 0,
+    "canonicalConflicts": 1,
+    "executorErrors": 0,
+    "createdServerObjects": 3,
+    "residueVerified": 3,
+    "generationPromotable": 0,
+    "exactTechnicalBindingRequired": 1
+  },
+  "conflict": {
+    "reason": "配置互斥规则并选择前置项后，冲突项在商品编辑页仍可用",
+    "update": {
+      "method": "PUT",
+      "path": "/item/v1/ops-brand/brand-items/standard/261346",
+      "status": 200
+    },
+    "conflictState": {
+      "checked": true,
+      "disabled": false,
+      "ariaDisabled": ""
+    }
+  },
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "canonicalConflictsDoNotFailHarness": true,
+    "runtimeEvidenceDoesNotReplaceExactRecipeBinding": true,
+    "controlledMutationRequired": true,
+    "residueVerificationRequired": true
+  },
+  "fingerprint": "4e0fab8b6cb4ce2b1be6618dbb524523e07c864656e950cc20bc391acf03b2f2"
+}

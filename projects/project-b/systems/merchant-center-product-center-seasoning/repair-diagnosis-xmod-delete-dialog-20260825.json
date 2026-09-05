@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "独立业务 trace 已确认组卡片及操作入口修复有效；删除菜单打开的实际确认弹窗标题为‘确认删除’，正文为‘确认删除该调味组吗？’，底部按钮为‘取消’和‘删除’。旧适配器按品牌编辑弹窗习惯查找‘确定’，导致未发出 DELETE 请求。",
+  "correctiveAction": "门店组、单项和批量删除弹窗均使用对话框内唯一实际按钮‘删除’，继续以对应 DELETE/POST 响应、API 持久化和 UI 身份消失作为终态；保留独立 trace、截图和零残留恢复证据。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787651685337/playwright-business/system-门店删除调味组二次确认后组内调味一并删除-system/trace.zip",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787651685337/playwright-business/system-门店删除调味组二次确认后组内调味一并删除-system/error-context.md",
+    "pages/product-center/seasoning-boundary.page.ts"
+  ],
+  "supersedesAttemptIds": [
+    "152886a92411705f",
+    "dc40d4f3efe626c6"
+  ]
+}

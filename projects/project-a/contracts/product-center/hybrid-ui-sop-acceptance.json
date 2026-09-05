@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedDate": "2026-07-22",
+  "status": "complete",
+  "scope": {
+    "entities": [
+      "商品分类",
+      "做法组",
+      "原料",
+      "品牌调味",
+      "配方单"
+    ],
+    "actions": [
+      "edit",
+      "delete"
+    ],
+    "generatedCaseCount": 10
+  },
+  "architecture": {
+    "seed": "API",
+    "action": "UI",
+    "verification": "API",
+    "cleanup": "fixture finally API cleanup",
+    "identityPrefix": "AUTO_AUDIT_"
+  },
+  "verification": {
+    "uiStability": {
+      "runs": 3,
+      "passed": 30,
+      "failed": 0,
+      "command": "playwright test tests/e2e/product-center-five-hybrid-sop.spec.ts --project=chrome --workers=1"
+    },
+    "apiContracts": {
+      "passed": 7,
+      "failed": 0,
+      "files": [
+        "tests/api/product-center-sop-generator.contract.spec.ts",
+        "tests/api/product-center-sop-data.factory.spec.ts"
+      ]
+    },
+    "typescript": {
+      "passed": true,
+      "command": "npx tsc --noEmit"
+    },
+    "forbiddenPatterns": {
+      "passed": true,
+      "findingCount": 0,
+      "patterns": [
+        "waitForTimeout",
+        ".first()",
+        ".last()",
+        ".nth()",
+        ".or()"
+      ]
+    },
+    "residue": {
+      "passed": true,
+      "routeCount": 34,
+      "hitCount": 0,
+      "routeErrorCount": 0,
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\residue-scan-v2-1784743537425\\residue-scan.json"
+    },
+    "sensitive": {
+      "passed": true,
+      "findingCount": 0,
+      "artifact": "D:\\Menusifu\\TestOps\\artifacts\\hybrid-ui-sop-final-20260722\\sensitive-scan.json"
+    },
+    "savedAuthState": {
+      "passed": true,
+      "count": 0
+    }
+  },
+  "deliverables": [
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\sop\\product-center",
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\test-data\\product-center\\sop\\product-center-sop-data.factory.ts",
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\pages\\product-center\\product-center-sop.page.ts",
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\flows\\product-center\\product-center-sop.flow.ts",
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\tests\\e2e\\product-center-five-hybrid-sop.spec.ts",
+    "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\docs\\product-center-sop.md"
+  ]
+}

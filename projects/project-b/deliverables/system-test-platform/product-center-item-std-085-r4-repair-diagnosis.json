@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-STD-085"
+  ],
+  "rootCause": "保存接口返回后，自动化成功提示监听返回 0，但失败截图中存在 Successfully Submitted；当前证据不足以判定产品未展示提示，需保持同实现定向复核提示监听与顺序持久化。",
+  "correctiveAction": "不修改共享页面或业务流，仅废止本次监听误判尝试并定向重跑 TC-ITEM-STD-085；复核仍必须同时满足成功提示、保存响应、重进编辑页顺序一致和零残留。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-item-source-governed-project-canary-product-center-item-canary-current-r4.json",
+    "Merchant Center UITest/test-results/source-governed/project-canary-product-center-item-canary-current-r4/item/generated-product-center-i-ebb7f--商品自动化入口-多规格商品拖动调整规格顺序后保存成功-chrome/test-failed-1.png",
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-085"
+  ],
+  "supersedesAttemptIds": [
+    "8ac4edf62f787ef8"
+  ]
+}

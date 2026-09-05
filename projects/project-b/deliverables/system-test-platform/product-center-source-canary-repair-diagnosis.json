@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "当前优化计划已将所选 source-governed 用例判定为需要当前指纹收据；历史失败只作为诊断输入，不能替代本轮 sentinel 结果。",
+  "correctiveAction": "使用当前定向复核路由执行所选用例，保留业务失败、自动化失败或环境失败的真实分类，并以当前用例和实现指纹生成标准收据。",
+  "evidenceRefs": [
+    "Merchant Center UITest/scripts/run-product-center-project-canary.ts",
+    "Merchant Center UITest/scripts/run-product-center-source-governed.ts",
+    "Merchant Center UITest/utils/product-center-auth-batch-session.ts",
+    "Merchant Center UITest/output/product-center-source-governed-project-canary-product-center-all-landed-canary-20260830-v2-reports.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "240481b381324e47"
+  ]
+}

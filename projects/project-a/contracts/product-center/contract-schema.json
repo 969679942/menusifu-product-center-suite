@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://menusifu.local/schemas/product-center-test-contract.json",
+  "title": "Product Center Test Contract",
+  "type": "object",
+  "required": [
+    "metadata",
+    "routes",
+    "controls",
+    "fields",
+    "dialogs",
+    "apiOperations",
+    "uiApiMappings",
+    "businessRules",
+    "testDataFactories",
+    "cleanupAdapters",
+    "assertions",
+    "traceability",
+    "unresolved"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "contractVersion",
+        "generatedAt",
+        "sourcePriority"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "contractVersion": {
+          "type": "string"
+        },
+        "generatedAt": {
+          "type": "string"
+        },
+        "sourcePriority": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceArtifacts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "dialogs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "validations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "apiOperations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "uiApiMappings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "businessRules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "testDataFactories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "cleanupAdapters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "traceability": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    }
+  },
+  "$defs": {
+    "evidenceRecord": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "sourceType",
+        "confidence",
+        "generationAllowed"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "observed",
+            "confirmed",
+            "provisional",
+            "inferred",
+            "blocked",
+            "unresolved",
+            "not-applicable",
+            "generated"
+          ]
+        },
+        "sourceType": {
+          "enum": [
+            "ui-runtime",
+            "api-runtime",
+            "openapi",
+            "postman",
+            "prd",
+            "formal-case",
+            "manual-case",
+            "xmind",
+            "br-traceability",
+            "design-standard",
+            "ai-rule",
+            "generated"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "generationAllowed": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "locator": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "module": {
+          "type": "string"
+        },
+        "route": {
+          "type": "string"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

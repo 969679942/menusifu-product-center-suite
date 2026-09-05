@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "b4-seasoning-reversible-pilot-20260905",
+  "generatedAt": "2026-09-04T21:01:55.311Z",
+  "source": {
+    "runReport": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788553329917-run-single-store-000407/run-report.json",
+    "evidenceLedger": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788553329917-run-single-store-000407/evidence-ledger.json"
+  },
+  "summary": {
+    "receipts": 1,
+    "passed": 1,
+    "evidenceComplete": 1,
+    "cleanupComplete": 1,
+    "lifecycleComplete": 1
+  },
+  "receipts": [
+    {
+      "caseId": "TC-FLV-SEA-032",
+      "caseFingerprint": "32bae3fc558348beac5f118b0c980010dcf1254f5824c4efcc46f3d386ba3f25",
+      "implementationFingerprint": "ea9a9fed0ce13f9ee089f9a70ef615856b6df1ed0f2fe81bbed2258805bcb7f9",
+      "status": "passed",
+      "evidenceComplete": true,
+      "operationReceiptCount": 40,
+      "assertionReceiptCount": 2,
+      "cleanupComplete": true,
+      "contextReceiptComplete": true
+    }
+  ],
+  "lifecycle": [
+    {
+      "sequence": 3,
+      "operationKey": "brand-menu:POST /ops-brand/global-modifier/batch",
+      "method": "UI",
+      "phase": "create"
+    },
+    {
+      "sequence": 4,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/list",
+      "method": "GET",
+      "phase": "read-created-api"
+    },
+    {
+      "sequence": 5,
+      "operationKey": "ui:seasoning/read-created",
+      "method": "UI",
+      "phase": "read-created-ui"
+    },
+    {
+      "sequence": 11,
+      "operationKey": "brand-menu:PUT /ops-brand/global-modifier/{id}",
+      "method": "UI",
+      "phase": "update"
+    },
+    {
+      "sequence": 29,
+      "operationKey": "ui:seasoning/read-updated",
+      "method": "UI",
+      "phase": "read-updated-ui"
+    },
+    {
+      "sequence": 35,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/list",
+      "method": "GET",
+      "phase": "read-updated-api"
+    },
+    {
+      "sequence": 37,
+      "operationKey": "brand-menu:DELETE /ops-brand/global-modifier/{id}",
+      "method": "DELETE",
+      "phase": "delete"
+    },
+    {
+      "sequence": 38,
+      "operationKey": "brand-menu:GET /ops-brand/global-modifier/list",
+      "method": "GET",
+      "phase": "read-absent-api"
+    },
+    {
+      "sequence": 39,
+      "operationKey": "ui:seasoning/read-absent",
+      "method": "UI",
+      "phase": "read-absent-ui"
+    }
+  ],
+  "cleanup": {
+    "apiIdentityCounts": {
+      "AUTO_AUDIT_EZM30M6O1": 0,
+      "AUTO_AUDIT_EZM30M6OE": 0
+    },
+    "uiIdentityCounts": {
+      "AUTO_AUDIT_EZM30M6O1": 0,
+      "AUTO_AUDIT_EZM30M6OE": 0
+    },
+    "objects": [
+      {
+        "entityType": "seasoning",
+        "serverId": 251809,
+        "businessIdentity": "AUTO_AUDIT_EZM30M6O1",
+        "cleanupAttempt": 1,
+        "apiResidueCount": 0,
+        "outcome": "verified-zero",
+        "uiResidueCount": 0
+      }
+    ]
+  }
+}

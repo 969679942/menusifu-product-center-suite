@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-y3-b3-runtime-acceptance",
+  "generatedAt": "2026-08-03T02:00:00.000Z",
+  "status": "accepted-with-blocks",
+  "runId": "AUTO_AUDIT_YELLOW_Y3_B3_20260803_01",
+  "batchId": "Y3-B3",
+  "source": {
+    "reportPath": "output/audit/product-center-item-yellow-y3-b3-runtime-AUTO_AUDIT_YELLOW_Y3_B3_20260803_01.json",
+    "reportSha256": "d8e147af7c63eb1ec41cc0c40b9d3058033b5ded5a8131062af0c7cefb5de156"
+  },
+  "summary": {
+    "total": 15,
+    "accepted": 8,
+    "canonicalConflicts": 1,
+    "environmentBlocked": 6,
+    "executorErrors": 0,
+    "generationPromotable": 8,
+    "canonicalRepairRequired": 1,
+    "environmentAdapterRequired": 6,
+    "humanReviewRequired": 0,
+    "mutationIntents": 7,
+    "ledgerResidueVerified": 45,
+    "lateUiResidueDeleted": 2
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-ADD-018",
+    "TC-ITEM-ADD-019",
+    "TC-ITEM-ADD-020",
+    "TC-ITEM-ADD-045",
+    "TC-ITEM-PKG-020",
+    "TC-ITEM-PKG-036",
+    "TC-ITEM-PKG-042",
+    "TC-ITEM-PKG-043"
+  ],
+  "canonicalConflicts": [
+    {
+      "caseId": "TC-ITEM-UI-003",
+      "evidence": {
+        "sourceItemId": 261381,
+        "routeAfterCopy": "/pp/brand/list",
+        "visibleMessages": [],
+        "targetRecordCount": 0,
+        "canonicalExpected": "点击复制后进入新增商品编辑状态，并继承打印档口。",
+        "observed": "点击真实复制菜单后仍停留商品列表，未进入标准商品创建页。"
+      }
+    }
+  ],
+  "environmentBlocks": [
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "evidence": {
+        "requiredFixture": [
+          "ingredient",
+          "allergen",
+          "nutrition"
+        ],
+        "capability": {
+          "detailImageUpload": 1,
+          "descriptionLabels": 1,
+          "badges": 1,
+          "stats": 1,
+          "ingredientInfo": 0
+        },
+        "controlledIngredientAvailable": true,
+        "controlledAllergenAvailable": false,
+        "controlledNutritionAvailable": false,
+        "blockReason": "原料可创建，但过敏原与营养成分没有可控 AUTO_AUDIT 创建/清理接口，不能选择非审计共享数据。"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "evidence": {
+        "requiredFixture": "temporary-side-item + add-on-group create-page search",
+        "controlledFixtureApiAvailable": true,
+        "stableCreatePageSelectionContractAvailable": false,
+        "blockReason": "加料组新增页尚无唯一选择器合同，禁止使用候选选择器猜测商品行。"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "evidence": {
+        "requiredFixture": "brand-image-library-image",
+        "controlledBrandImageLifecycleAvailable": true,
+        "stableItemLibrarySelectionContractAvailable": false,
+        "blockReason": "品牌图库可控创建已存在，但商品表单图库弹窗尚未形成按图片身份唯一选择的合同。"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-025",
+      "evidence": {
+        "route": "/pp/brand/create/standard",
+        "industryGoodsFieldObserved": true,
+        "industryGoodsDisabled": false,
+        "controlledFixtureAdapter": false,
+        "blockReason": "当前可控接口只能创建品牌商品，不能创建行业商品库单规格、多规格及三规格样本。",
+        "requiredFixture": "industry-library-single-spec-item"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-026",
+      "evidence": {
+        "route": "/pp/brand/create/standard",
+        "industryGoodsFieldObserved": true,
+        "industryGoodsDisabled": false,
+        "controlledFixtureAdapter": false,
+        "blockReason": "当前可控接口只能创建品牌商品，不能创建行业商品库单规格、多规格及三规格样本。",
+        "requiredFixture": "industry-library-multi-spec-item"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-027",
+      "evidence": {
+        "route": "/pp/brand/create/standard",
+        "industryGoodsFieldObserved": true,
+        "industryGoodsDisabled": false,
+        "controlledFixtureAdapter": false,
+        "blockReason": "当前可控接口只能创建品牌商品，不能创建行业商品库单规格、多规格及三规格样本。",
+        "requiredFixture": "industry-library-three-spec-item"
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "canonicalConflictsDoNotFailHarness": true,
+    "environmentBlocksDoNotPromote": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiIdentityResidueVerificationRequired": true
+  },
+  "fingerprint": "375929e9fa2c95ac4e9571ae3d4ac1333083f63c32989e8df037cf5692c38b16"
+}

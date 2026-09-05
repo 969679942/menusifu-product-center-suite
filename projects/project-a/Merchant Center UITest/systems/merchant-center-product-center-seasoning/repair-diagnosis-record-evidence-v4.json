@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-002", "TC-FLV-REC-005"],
+  "rootCause": "领域适配器曾以 operation receipt 是否存在推断 mutationObserved，导致 POST 查询被误判为写入并错误要求双端清理；同时 REC-005 的页面对象曾在正式断言前抛出超时，丢失 observed-mismatch claim receipt。",
+  "correctiveAction": "公共 system-test evidence 层新增 resolveSystemTestMutationObserved，只依据 recipe 声明的 mutation 或显式观察到的意外写入判定；调味适配器接入该公共合同，REC-005 保留可见终态并在断言层记录不一致。",
+  "evidenceRefs": [
+    "D:/Menusifu/Test Automation Platform/src/automation/system-test/system-test-evidence.ts",
+    "D:/Menusifu/Test Automation Platform/tests/api/system-test-platform.contract.spec.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787545638228/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "60c36974b5beff51",
+    "54ec56b2193d3bbc",
+    "f0bba9cee8a740d9",
+    "29e0b6b61f58fdcd"
+  ]
+}

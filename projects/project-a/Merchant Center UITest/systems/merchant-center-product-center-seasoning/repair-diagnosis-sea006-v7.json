@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "定向结构探针证明数据区采用 Ant Table 虚拟列表，业务行元素是 div.ant-table-row 而不是标准 tr.ant-table-row；旧定位因此在已有唯一业务身份的 wrapper 内返回 0。",
+  "correctiveAction": "保持 API 身份与唯一 ant-table-wrapper 约束，将行合同改为 div.ant-table-row，并操作行内唯一 checkbox；继续验证批量按钮由禁用转为启用及选择数量。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/seasoning-checkbox-structure.json",
+    "systems/merchant-center-product-center-seasoning/tests/seasoning-checkbox-structure.probe.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787566058972/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["eb02de6b6c5036db"]
+}

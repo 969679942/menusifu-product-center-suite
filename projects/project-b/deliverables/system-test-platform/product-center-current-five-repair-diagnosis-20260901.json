@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-TASTE-012",
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-ADD-027",
+    "TC-ITEM-ADD-034",
+    "TC-TAG-BDG-019"
+  ],
+  "rootCause": "非调味 r2 全量执行的 6 条失败中，TC-GRP-TASTE-012 为搜索输入未提交导致旧列表被读取；TC-ITEM-ADD-010 为环境返回 403 但旧页面对象等待 Save 导致错误分类；TC-ITEM-ADD-027/034 需要先证明引用关系真实持久化，并将稳定的预期/实际差异作为结构化收据；TC-TAG-BDG-019 的旧收据把服务器 ID 非空错误推导为 UI 零残留，报告与 source 裁决又接受了该不可信值。TC-ITEM-ADD-035 已有独立完整产品差异证据，保持当前失败结论且不重复执行。",
+  "correctiveAction": "仅对列出的 5 条当前指纹用例开启一个定向修复周期：提交并等待组搜索稳定；把 403 明确分类为业务操作前环境/权限阻断；在删除保护前回读精确引用关系并输出结构化断言；为角标清理增加真实标签页面观察；报告和 source 裁决只有在 uiVerificationObserved=true 时才允许签发完整产品差异。先通过类型检查和定向合同测试，再以单浏览器、单 worker 串行执行；不得扩大到已通过 330 条、TC-ITEM-ADD-035 或调味 83 条。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/product-center-non-seasoning-batch-checkpoint-20260901-r2.json",
+    "../deliverables/product-center-source-governance/execution-result.json",
+    "pages/product-management/item/item-create-standard.page.ts",
+    "pages/product-management/item/item-create-form.page.ts",
+    "flows/product-center/item-216/addon-item-216.flow.ts",
+    "test-data/product-center/item-216/addon-item-216.factory.ts",
+    "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+    "pages/product-center/tag-management.page.ts",
+    "adapters/test-automation-platform/allure-reporting.ts",
+    "scripts/run-product-center-source-governed.ts"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "contractTests": "24/24 passed",
+    "browserConcurrency": 1,
+    "excludedCaseIds": [
+      "TC-ITEM-ADD-035"
+    ]
+  }
+}

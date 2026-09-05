@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-013", "TC-FLV-SEA-014", "TC-FLV-SEA-022", "TC-FLV-SEA-023", "TC-FLV-SEA-024",
+    "TC-FLV-SEA-025", "TC-FLV-SEA-026", "TC-FLV-SEA-027", "TC-FLV-SEA-028", "TC-FLV-SEA-030"
+  ],
+  "rootCause": "上一轮暴露三处自动化缺口：SEA-013 错把已有组编辑规则执行成新建表单，SEA-014 未完成保存后持久化终态断言，SEA-030 未提供空调味组服务端身份；第二轮又发现 SEA-013/014/030 的种子声明与统一业务身份守卫未连通，第三轮确认编辑详情异步回填早于控件可见导致读取空组名。",
+  "correctiveAction": "新增已有组添加空名称项的真实 UI 流程、新增空调味组 API 前置与清理、含表情调味保存后的 API/UI 终态回读，并把 SEA-013/014 的种子和 SEA-030 空组身份接入统一执行上下文；编辑页在操作前等待服务端组名回填；已通过类型检查、合同编译和适配器指纹刷新。",
+  "evidenceRefs": [
+    "D:/Menusifu/Test Automation Platform/tests/api/system-test-request-correlation.contract.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787675422665/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787679812678/run-report.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json"
+  ],
+  "supersedesAttemptIds": ["system-test-1787675422665", "system-test-1787677787486", "system-test-1787678446308", "system-test-1787678832390", "system-test-1787679812678"]
+}

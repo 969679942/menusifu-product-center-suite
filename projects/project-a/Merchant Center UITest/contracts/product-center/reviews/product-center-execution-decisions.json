@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-execution-decisions",
+  "generatedAt": "2026-09-05T08:00:00.000Z",
+  "source": "当前业务确认、现网审计与运行时控件漂移审计",
+  "decisions": [
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "module": "brand-seasoning",
+      "status": "deferred",
+      "reason": "金将军明确要求在无法安全清空并恢复调味数据时持续延期；保留正式用例和已落地脚本，但不得自动执行。",
+      "resumeWhen": "金将军明确恢复，且已提供专用空数据商户或经验证可恢复快照。",
+      "evidenceRefs": [
+        "contracts/product-center/reviews/product-center-rule-confirmations-20260901.json",
+        "systems/merchant-center-product-center-seasoning/classification-ledger.json"
+      ]
+    },
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "module": "brand-seasoning",
+      "status": "handled",
+      "reason": "2026-08-24 业务规则确认已替代旧负数校验预期；正式用例、自动化断言和当前标准收据均已闭环，本轮不重复执行。",
+      "evidenceRefs": [
+        "contracts/product-center/reviews/product-center-runtime-drift-decisions.json",
+        "output/system-test/merchant-center-product-center-seasoning/system-test-1787561427151/evidence-ledger.json",
+        "../Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-调味管理/产品偏差/TC-FLV-SEA-016.md"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "module": "brand-item",
+      "status": "handled",
+      "reason": "已完成人工业务确认和自动化整改，页面与 API 删除保护断言已纳入现有脚本；本轮不重复执行，待公共标准收据迁移时再按当前指纹校验。",
+      "evidenceRefs": [
+        "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json",
+        "contracts/product-center/business-rules/product-center-item-authoritative-business-rules.json",
+        "flows/product-center/item-216/addon-item-216.flow.ts"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "module": "brand-item",
+      "status": "handled",
+      "reason": "已完成人工业务确认和自动化整改，页面与 API 删除保护断言已纳入现有脚本；本轮不重复执行，待公共标准收据迁移时再按当前指纹校验。",
+      "evidenceRefs": [
+        "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json",
+        "contracts/product-center/business-rules/product-center-item-authoritative-business-rules.json",
+        "flows/product-center/item-216/addon-item-216.flow.ts"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "module": "brand-item",
+      "status": "not-applicable",
+      "reason": "当前套餐商品创建页仅支持选择已有固定搭配、可选搭配和随心配套餐组，不再支持在商品页内新增可选搭配；原场景由套餐组创建与商品选择已有套餐组两条用例共同覆盖",
+      "replacementCaseIds": ["TC-GRP-PKG-005", "TC-ITEM-PKG-004"],
+      "evidenceRefs": ["output/audit/product-center-item-control-drift-audit.json"]
+    },
+    { "caseId": "TC-ITEM-STD-025", "module": "brand-item", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/test-cases/canonical/product-center-item-full-review.md", "contracts/product-center/business-rules/product-center-item-candidate-rules.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-ITEM-STD-026", "module": "brand-item", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/test-cases/canonical/product-center-item-full-review.md", "contracts/product-center/business-rules/product-center-item-candidate-rules.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-ITEM-STD-027", "module": "brand-item", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/test-cases/canonical/product-center-item-full-review.md", "contracts/product-center/business-rules/product-center-item-candidate-rules.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-ITEM-STD-034", "module": "brand-item", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/test-cases/canonical/product-center-item-full-review.md", "contracts/product-center/business-rules/product-center-item-candidate-rules.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-ITEM-STD-067", "module": "brand-item", "status": "deferred", "reason": "当前不具备门店下发及渠道终态验证能力", "resumeWhen": "具备下发触发、渠道终态观测和清理能力" },
+    { "caseId": "TC-ITEM-STD-070", "module": "brand-item", "status": "deferred", "reason": "当前不具备菜单引用后的完整终态验证能力", "resumeWhen": "具备菜单引用适配器及下发后终态观测能力" },
+    { "caseId": "TC-ITEM-STD-077", "module": "brand-item", "status": "deferred", "reason": "当前不具备门店下发及终端终态验证能力", "resumeWhen": "具备下发触发和终端状态观测能力" },
+    { "caseId": "TC-ITEM-PKG-039", "module": "brand-item", "status": "deferred", "reason": "当前不具备套餐下发后的渠道终态验证能力", "resumeWhen": "具备套餐下发和渠道终态观测能力" },
+    { "caseId": "TC-ITEM-PKG-060", "module": "brand-item", "status": "deferred", "reason": "当前不具备门店下发及终端终态验证能力", "resumeWhen": "具备下发触发和终端状态观测能力" },
+    { "caseId": "TC-ITEM-STD-080", "module": "brand-item", "status": "deferred", "reason": "当前不具备 POS 称重、皮重和最终价格终态驱动", "resumeWhen": "具备可控 POS 称重、皮重和价格终态驱动" },
+    { "caseId": "TC-ITEM-STD-083", "module": "brand-item", "status": "deferred", "reason": "当前不具备 POS 默认规格点餐终态驱动", "resumeWhen": "具备可控 POS 默认规格点餐和结果观测能力" },
+    { "caseId": "TC-ITEM-PKG-070", "module": "brand-item", "status": "deferred", "reason": "当前不具备套餐下发及门店终端点餐终态验证能力", "resumeWhen": "具备套餐下发和门店终端点餐结果观测能力" },
+    { "caseId": "TC-GRP-SPEC-024", "module": "brand-group", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/group/product-center-group-automation-contract.json", "contracts/product-center/reviews/unsupported-source-format-decisions.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-GRP-MTH-013", "module": "brand-group", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/group/product-center-group-automation-contract.json", "contracts/product-center/reviews/unsupported-source-format-decisions.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-GRP-TASTE-014", "module": "brand-group", "status": "not-applicable", "reason": "行业商品规则及继承能力已由产品确认废弃，本用例同步废弃，历史来源保留", "evidenceRefs": ["contracts/product-center/group/product-center-group-automation-contract.json", "contracts/product-center/reviews/unsupported-source-format-decisions.json"], "resumeWhen": "不再恢复，除非产品重新定义并确认新的行业商品规则" },
+    { "caseId": "TC-GRP-ADD-017", "module": "brand-group", "status": "deferred", "reason": "当前不具备 C 端/终端同步终态验证能力", "resumeWhen": "具备 C 端/终端同步触发和结果观测能力" },
+    { "caseId": "TC-GRP-ADD-026", "module": "brand-group", "status": "deferred", "reason": "当前不具备 C 端/终端同步终态验证能力", "resumeWhen": "具备 C 端/终端同步触发和结果观测能力" },
+    { "caseId": "TC-GRP-ADD-029", "module": "brand-group", "status": "deferred", "reason": "当前不具备门店终端默认数量终态验证能力", "resumeWhen": "具备门店终端点餐和默认数量观测能力" },
+    { "caseId": "TC-GRP-ADD-030", "module": "brand-group", "status": "deferred", "reason": "当前不具备门店终端未选加料终态验证能力", "resumeWhen": "具备门店终端点餐和加料选择结果观测能力" },
+    { "caseId": "TC-GRP-ADD-031", "module": "brand-group", "status": "deferred", "reason": "当前不具备门店终端加料排序终态验证能力，本轮按人工确认跳过", "resumeWhen": "具备门店终端排序结果观测能力" },
+    { "caseId": "TC-GRP-PKG-034", "module": "brand-group", "status": "deferred", "reason": "当前不具备 C 端/终端同步终态验证能力", "resumeWhen": "具备 C 端/终端同步触发和结果观测能力" },
+    { "caseId": "TC-GRP-PKG-035", "module": "brand-group", "status": "deferred", "reason": "当前不具备 C 端/终端同步终态验证能力", "resumeWhen": "具备 C 端/终端同步触发和结果观测能力" },
+    {
+      "caseId": "TC-GRP-ADD-010",
+      "module": "brand-group",
+      "status": "not-applicable",
+      "reason": "当前加料组页面及现行正式合同已不存在历史默认商品数量超过最多选择数量的字段组合；不得以旧 XMind 语义生成或执行当前版本用例。",
+      "evidenceRefs": [
+        "contracts/product-center/group/product-center-group-bindings.json",
+        "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md"
+      ],
+      "resumeWhen": "不再恢复，除非产品重新定义并确认新的业务规则"
+    },
+    {
+      "caseId": "TC-GRP-ADD-011",
+      "module": "brand-group",
+      "status": "not-applicable",
+      "reason": "当前加料组页面及现行正式合同已不存在历史新增加料组商品默认数量必填语义；不得恢复已废弃字段并据此生成当前版本用例。",
+      "evidenceRefs": [
+        "contracts/product-center/group/product-center-group-bindings.json",
+        "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md"
+      ],
+      "resumeWhen": "不再恢复，除非产品重新定义并确认新的业务规则"
+    },
+    {
+      "caseId": "TC-GRP-PKG-045",
+      "module": "brand-group",
+      "status": "product-defect",
+      "reason": "2026-09-05 当前标准执行收据显示，已保存套餐组编辑页三个类型单选项均禁用但均未选中，违反正式预期中的单一选中不变量；当前页面表现稳定，已登记产品偏差。",
+      "resumeWhen": "产品修复或业务规则确认后，更新正式用例与绑定并重新执行当前用例。",
+      "evidenceRefs": [
+        "../Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/产品偏差/TC-GRP-PKG-045-已保存套餐组类型无选中状态.md",
+        "output/allure/source-governed/b6-failed-cases-revalidation-20260905-source-governed/group/allure-results/3f0bd279-aa61-415c-aa98-8a2eed2e59fe-result.json",
+        "output/allure/source-governed/b6-failed-cases-revalidation-20260905-source-governed/group/allure-results/cf3e01dc-ca57-44f8-9095-8b5587ac0491-attachment.md"
+      ]
+    }
+  ]
+}

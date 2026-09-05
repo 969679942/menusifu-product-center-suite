@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-002",
+    "TC-FLV-TPL-005"
+  ],
+  "rootCause": "首次模板执行中，TPL-005 在 before-action 上下文守卫前没有进入模板路由；TPL-002 把只需可见的选择调味控件错误要求为 enabled。修复领域页面适配器后，复用 000420 登录态时通用认证流仍因商户选择关键字 23918 与页面展示名 MenuSifu Cloud-G 不同而误开商户弹窗，导致第二次尝试在 setup 阶段中断。",
+  "correctiveAction": "模板页面对象新增明确的模板列表初始化，选择调味控件只验证唯一可见；空提交只记录实际 UI 保存点击，不伪造 POST。通用认证流新增可配置身份探针路由，调味 profile 分别以模板列表和品牌调味列表触发真实 x-brand-id 请求，只有 Brand ID 不匹配时才切换商户。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/template-create-live-audit.json",
+    "systems/merchant-center-product-center-seasoning/template-distribution-live-audit-000420.json",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "flows/auth.flow.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787553246618/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787553501095/run-report.json"
+  ],
+  "supersedesAttemptIds": [
+    "f0522ed3ca312226",
+    "c626443b18a9ac36",
+    "f253681614cd7f95",
+    "22fd6de834a7f309"
+  ]
+}

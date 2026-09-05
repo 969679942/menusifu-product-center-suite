@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-STD-031"
+  ],
+  "rootCause": "当前标准商品图片夹具生成的 68 字节 1x1 PNG 的 IDAT zlib 数据校验失败。浏览器 trace 显示上传接口 HTTP 200、业务码 0 并返回 imagePath/imageUrl，但随后加载该图片引用时发生 net::ERR_BLOCKED_BY_ORB，页面图片卡片进入 Failed to load，导致主图没有形成可验证的预览终态。",
+  "correctiveAction": "标准商品本地图片工厂改为生成 256x256、8-bit RGBA、包含正确 deflate 数据和 CRC 的有效 PNG；保留主图上传接口收据、预览终态和图片引用断言，不放宽业务断言。完成后仅定向重跑 TC-ITEM-STD-031，并依据新的 UI/API/清理收据重新分类。",
+  "evidenceRefs": [
+    "test-results/source-governed/20260829T185500Z/item/generated-product-center-i-be86a-13-条唯一自动化入口-标准商品编辑基础信息后保存成功-chrome/test-failed-1.png",
+    "test-results/source-governed/20260829T185500Z/item/generated-product-center-i-be86a-13-条唯一自动化入口-标准商品编辑基础信息后保存成功-chrome/trace.zip",
+    "test-data/product-center/item-216/standard-item-216.factory.ts",
+    "pages/product-management/item/item-create-standard.page.ts"
+  ],
+  "supersedesAttemptIds": [
+    "b679f2eba432f4cb"
+  ]
+}

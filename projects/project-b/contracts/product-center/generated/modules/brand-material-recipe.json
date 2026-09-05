@@ -1,0 +1,5587 @@
+{
+  "metadata": {
+    "moduleId": "brand-material-recipe",
+    "moduleName": "品牌原料配方",
+    "levelOne": "商品管理",
+    "routes": [
+      "/pp/brandMaterial",
+      "/pp/brandMaterialCategory",
+      "/pp/bom/ingredient",
+      "/pp/bom/list",
+      "/pp/bom/record/list"
+    ],
+    "recordCount": 157
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:235400d77dbb",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "name": "配方列表",
+          "href": "/pp/bom/list",
+          "status": "passed",
+          "expectedControls": 5,
+          "evidencedControls": 5,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:6faf50a788e3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "name": "原料分类",
+          "href": "/pp/brandMaterialCategory",
+          "status": "passed",
+          "expectedControls": 10,
+          "evidencedControls": 10,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:7cbe5e6e2734",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "name": "原料管理",
+          "href": "/pp/brandMaterial",
+          "status": "passed",
+          "expectedControls": 3,
+          "evidencedControls": 3,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:e2b9620ba5ee",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "name": "原料管理",
+          "href": "/pp/bom/ingredient",
+          "status": "passed",
+          "expectedControls": 2,
+          "evidencedControls": 2,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:f4fbbdbdecba",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "name": "记录中心",
+          "href": "/pp/bom/record/list",
+          "status": "passed",
+          "expectedControls": 1,
+          "evidencedControls": 1,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/pp/bom/ingredient#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/bom/ingredient.controls[0]"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "id": "/pp/bom/ingredient#control-1",
+          "route": "/pp/bom/ingredient",
+          "routeName": "原料管理",
+          "index": 0,
+          "name": "添加原料",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "添加原料",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|添加原料|plus||plus|button||",
+          "fingerprint": "c24cf90a6230ea84",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加原料",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/ingredient#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/bom/ingredient.controls[1]"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "id": "/pp/bom/ingredient#control-2",
+          "route": "/pp/bom/ingredient",
+          "routeName": "原料管理",
+          "index": 1,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/bom/list.controls[0]"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#control-1",
+          "route": "/pp/bom/list",
+          "routeName": "配方列表",
+          "index": 0,
+          "name": "记录中心",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "记录中心",
+          "aria": "unordered-list",
+          "title": "",
+          "icon": "unordered-list",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|记录中心|unordered-list||unordered-list|button||",
+          "fingerprint": "541225ccd0b32174",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "记录中心",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/bom/list.controls[1]"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#control-2",
+          "route": "/pp/bom/list",
+          "routeName": "配方列表",
+          "index": 1,
+          "name": "批量导入",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "批量导入",
+          "aria": "cloud-upload",
+          "title": "",
+          "icon": "cloud-upload",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|批量导入|cloud-upload||cloud-upload|button||",
+          "fingerprint": "7db51af1dceb77fb",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "批量导入",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/bom/list.controls[2]"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#control-3",
+          "route": "/pp/bom/list",
+          "routeName": "配方列表",
+          "index": 2,
+          "name": "新增配方单",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "新增配方单",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|新增配方单|plus||plus|button||",
+          "fingerprint": "8d7e305a71c4d778",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "新增配方单",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/bom/list.controls[3]"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#control-4",
+          "route": "/pp/bom/list",
+          "routeName": "配方列表",
+          "index": 3,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "关联商品状态 配方分组 门店 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+            "locator": "/pp/bom/list.controls[4]"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#control-5",
+          "route": "/pp/bom/list",
+          "routeName": "配方列表",
+          "index": 4,
+          "name": "button:cc 啤酒 Default Group 0",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json",
+          "legacyName": "位置5",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "cc 啤酒 Default Group 0",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/record/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/bom/record/list.controls[0]"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "id": "/pp/bom/record/list#control-1",
+          "route": "/pp/bom/record/list",
+          "routeName": "记录中心",
+          "index": 0,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "门店 执行状态 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brandMaterial.controls[0]"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#control-1",
+          "route": "/pp/brandMaterial",
+          "routeName": "原料管理",
+          "index": 0,
+          "name": "添加",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "添加",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|添加|plus||plus|button||",
+          "fingerprint": "d215286e634a8ba5",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brandMaterial.controls[1]"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#control-2",
+          "route": "/pp/brandMaterial",
+          "routeName": "原料管理",
+          "index": 1,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "分类 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brandMaterial.controls[2]"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#control-3",
+          "route": "/pp/brandMaterial",
+          "routeName": "原料管理",
+          "index": 2,
+          "name": "详情",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "profile",
+          "title": "",
+          "icon": "profile",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||profile||profile|button||",
+          "fingerprint": "dc37ba369a79cb41",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "profile",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[0]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-1",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 0,
+          "name": "展开",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "down",
+          "title": "",
+          "icon": "down",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "糖类",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||down||down|button||",
+          "fingerprint": "63788007abf235b3",
+          "primaryLocator": {
+            "strategy": "row-icon",
+            "rowText": "糖类",
+            "icon": "down",
+            "column": "",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-10",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[9]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-10",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 9,
+          "name": "新增原料分类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置10",
+          "tag": "SPAN",
+          "role": "button",
+          "text": "新增原料分类",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "SPAN|button|新增原料分类||||||",
+          "fingerprint": "2c12f852d7b77d9c",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "SPAN|button|新增原料分类||||||",
+            "occurrence": 0,
+            "fingerprint": "2c12f852d7b77d9c",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[1]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-2",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 1,
+          "name": "button:糖类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "糖类",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[2]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-3",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 2,
+          "name": "button:cc",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "cc",
+          "group": "",
+          "occurrence": 1,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "08f8d4c0120716e1",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 1,
+            "fingerprint": "08f8d4c0120716e1",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[3]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-4",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 3,
+          "name": "添加分类 到 糖类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "DIV",
+          "role": "button",
+          "text": "添加分类 到 糖类",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "DIV|button|添加分类 到 糖类|plus||plus|||",
+          "fingerprint": "4ef9830926f2a701",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加分类 到 糖类",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[4]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-5",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 4,
+          "name": "添加",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置5",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||plus||plus|button||",
+          "fingerprint": "51e6cfc0ce8b9937",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||plus||plus|button||",
+            "occurrence": 0,
+            "fingerprint": "51e6cfc0ce8b9937",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[5]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-6",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 5,
+          "name": "添加分类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置6",
+          "tag": "SPAN",
+          "role": "button",
+          "text": "添加分类",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "SPAN|button|添加分类||||||",
+          "fingerprint": "6862d15f1c12d3a9",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加分类",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[6]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-7",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 6,
+          "name": "到 糖类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置7",
+          "tag": "SPAN",
+          "role": "button",
+          "text": "到 糖类",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "SPAN|button|到 糖类||||||",
+          "fingerprint": "d9e97d31d8a13dc8",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "到 糖类",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-8",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[7]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-8",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 7,
+          "name": "新增原料分类",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置8",
+          "tag": "DIV",
+          "role": "button",
+          "text": "新增原料分类",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "DIV|button|新增原料分类|plus||plus|||",
+          "fingerprint": "c69f7649a4c3fbdc",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "DIV|button|新增原料分类|plus||plus|||",
+            "occurrence": 0,
+            "fingerprint": "c69f7649a4c3fbdc",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#control-9",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+            "locator": "/pp/brandMaterialCategory.controls[8]"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#control-9",
+          "route": "/pp/brandMaterialCategory",
+          "routeName": "原料分类",
+          "index": 8,
+          "name": "添加",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json",
+          "legacyName": "位置9",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 1,
+          "signature": "BUTTON|button||plus||plus|button||",
+          "fingerprint": "7d6e7d42f6a440aa",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button||plus||plus|button||",
+            "occurrence": 1,
+            "fingerprint": "7d6e7d42f6a440aa",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/pp/brandMaterial#action-3#primary-1#field-40",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#action-3#primary-1#field-40",
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "overlayId": "/pp/brandMaterial#action-3#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "全部",
+          "required": false,
+          "disabled": false,
+          "value": "on",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#action-3#primary-1#field-41",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#action-3#primary-1#field-41",
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "overlayId": "/pp/brandMaterial#action-3#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "原材料名称(第二语言)",
+          "required": false,
+          "disabled": false,
+          "value": "secondName",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [
+      {
+        "id": "/pp/bom/list#action-2#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#action-2#primary-1",
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-2",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "批量导入配方 上传你的文件或下载模版以帮助您管理商品配方单。 确 定 将文件拖放到此处或 点击选择上传 支持最大10MB的CSV和XLSX文件",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/bom/list#action-2#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "id": "/pp/bom/list#action-2#secondary-1",
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-2",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#action-3#primary-1",
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "全部 原材料名称(第二语言) 恢复默认",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "全部",
+              "required": false,
+              "disabled": false,
+              "value": "on"
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "原材料名称(第二语言)",
+              "required": false,
+              "disabled": false,
+              "value": "secondName"
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterial#action-3#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "id": "/pp/brandMaterial#action-3#secondary-1",
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brandMaterialCategory#action-2#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "id": "/pp/brandMaterialCategory#action-2#primary-1",
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-2",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "编辑 删除",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "validations": [
+      {
+        "id": "validation:01bdd3e2e98c",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "entity": "普通原料",
+        "evidence": {
+          "entity": "普通原料",
+          "route": "/pp/brandMaterial",
+          "status": "passed",
+          "fields": [
+            "原材料名称",
+            "分类"
+          ],
+          "behavior": "空提交显示错误且未发送 mutation",
+          "source": "artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "validation:113284bcd772",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-bom-1784613459920/result.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "entity": "配方单",
+        "evidence": {
+          "entity": "配方单",
+          "route": "/pp/bom/list",
+          "status": "passed",
+          "fields": [
+            "商品名称",
+            "配方单名称",
+            "每个配方至少一个原料"
+          ],
+          "behavior": "空提交显示请选择商品，未发送 mutation",
+          "source": "artifacts/required-validation-bom-1784613459920/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "validation:4f17ebdda342",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "entity": "配方原料",
+        "evidence": {
+          "entity": "配方原料",
+          "route": "/pp/bom/ingredient",
+          "status": "passed",
+          "fields": [
+            "原料分类/原料"
+          ],
+          "behavior": "空提交显示此项为必填",
+          "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "validation:749ce52e2a0b",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-material-category-1784613337186/result.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "entity": "原料分类",
+        "evidence": {
+          "entity": "原料分类",
+          "route": "/pp/brandMaterialCategory",
+          "status": "passed",
+          "fields": [
+            "分类名称",
+            "第二语言"
+          ],
+          "behavior": "空表单保存禁用",
+          "source": "artifacts/required-validation-material-category-1784613337186/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:GET /ops-brand/bom/groups",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/bom/groups"
+          }
+        ],
+        "route": "/ops-brand/bom/groups",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/bom/groups",
+          "operationId": "getAllGroupNames_1",
+          "method": "GET",
+          "path": "/ops-brand/bom/groups",
+          "summary": "查询所有分组名称",
+          "description": null,
+          "tags": [
+            "品牌BOM管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultListString"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-categories/treeList",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-categories/treeList"
+          }
+        ],
+        "route": "/ops-brand/brand-categories/treeList",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/treeList",
+          "operationId": "treeList_1",
+          "method": "GET",
+          "path": "/ops-brand/brand-categories/treeList",
+          "summary": "获取品牌分类树形列表",
+          "description": "获取指定分类类型下的完整分类树形结构，支持多级分类展示，用于前端树形选择器等场景",
+          "tags": [
+            "品牌分类管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "categoryType",
+              "in": "query",
+              "required": true,
+              "description": "分类类型，1-商品分类，2-其他分类",
+              "schema": {
+                "type": "integer",
+                "enum": [
+                  "1",
+                  "2"
+                ]
+              }
+            },
+            {
+              "name": "keyWord",
+              "in": "query",
+              "required": false,
+              "description": null,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "itemType",
+              "in": "query",
+              "required": false,
+              "description": null,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "获取成功",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "ref": "#/components/schemas/Result"
+                  },
+                  "hasExample": false
+                }
+              }
+            },
+            "400": {
+              "description": "分类类型参数错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            },
+            "500": {
+              "description": "服务器内部错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-ingredients",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-ingredients"
+          }
+        ],
+        "route": "/ops-brand/brand-ingredients",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-ingredients",
+          "operationId": "getByList",
+          "method": "GET",
+          "path": "/ops-brand/brand-ingredients",
+          "summary": "根据条件获取原材料列表",
+          "description": null,
+          "tags": [
+            "品牌原材料"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": "品牌ID",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "searchData",
+              "in": "query",
+              "required": false,
+              "description": "原材料搜索内容",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "categoryId",
+              "in": "query",
+              "required": false,
+              "description": "原材料分类ID",
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": true,
+              "description": "每页大小",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 20,
+                "minimum": 1,
+                "maximum": 100
+              }
+            },
+            {
+              "name": "pageNumber",
+              "in": "query",
+              "required": true,
+              "description": "页码",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1,
+                "minimum": 1
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandIngredientResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-modifiers/with-exclusive-settings",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-modifiers/with-exclusive-settings"
+          }
+        ],
+        "route": "/ops-brand/brand-modifiers/with-exclusive-settings",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/with-exclusive-settings",
+          "operationId": "getSettingWithExclusiveSettings",
+          "method": "GET",
+          "path": "/ops-brand/brand-modifiers/with-exclusive-settings",
+          "summary": "查询有专属设置的口味组的高级设置（如果查出多个，返回第一个）",
+          "description": null,
+          "tags": [
+            "品牌商品定制项"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultBrandModifierSettingResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/merchants",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/merchants"
+          }
+        ],
+        "route": "/ops-brand/merchants",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/merchants",
+          "operationId": "list_14",
+          "method": "GET",
+          "path": "/ops-brand/merchants",
+          "summary": "查询品牌门店列表",
+          "description": "支持关键字查询品牌门店（模糊匹配门店名称和编码），返回门店基本信息列表",
+          "tags": [
+            "品牌门店"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": "品牌ID",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "keywords",
+              "in": "query",
+              "required": false,
+              "description": "模糊搜索关键词，支持门店名称和编码模糊匹配",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "查询成功",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "ref": "#/components/schemas/Result"
+                  },
+                  "hasExample": false
+                }
+              }
+            },
+            "400": {
+              "description": "请求参数错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            },
+            "500": {
+              "description": "服务器内部错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/bom/page",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/bom/page"
+          }
+        ],
+        "route": "/ops-brand/bom/page",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/bom/page",
+          "operationId": "page_10",
+          "method": "POST",
+          "path": "/ops-brand/bom/page",
+          "summary": "分页查询BOM列表（BOM模式）",
+          "description": null,
+          "tags": [
+            "品牌BOM管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/PageQueryBrandBomRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandBomResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/brand-bom-sync/job/list",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/brand-bom-sync/job/list"
+          }
+        ],
+        "route": "/ops-brand/brand-bom-sync/job/list",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/brand-bom-sync/job/list",
+          "operationId": "list_9",
+          "method": "POST",
+          "path": "/ops-brand/brand-bom-sync/job/list",
+          "summary": "分页查询bom下发作业",
+          "description": null,
+          "tags": [
+            "bom下发"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/PageQueryBrandBomSyncJobRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandBomSyncJobResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/merchants/page",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/merchants/page"
+          }
+        ],
+        "route": "/ops-brand/merchants/page",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/merchants/page",
+          "operationId": "pageQuery_5",
+          "method": "POST",
+          "path": "/ops-brand/merchants/page",
+          "summary": "分页查询品牌门店列表",
+          "description": "支持按门店编码条件进行分页查询品牌门店，返回门店基本信息列表",
+          "tags": [
+            "品牌门店"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": "品牌ID",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/MerchantPageQueryRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "查询成功",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "ref": "#/components/schemas/Result"
+                  },
+                  "hasExample": false
+                }
+              }
+            },
+            "400": {
+              "description": "请求参数错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            },
+            "500": {
+              "description": "服务器内部错误",
+              "headers": [],
+              "content": {
+                "application/json": {
+                  "schema": null,
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:POST /ops-brand/recipe-ingredients/list",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/recipe-ingredients/list"
+          }
+        ],
+        "route": "/ops-brand/recipe-ingredients/list",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/recipe-ingredients/list",
+          "operationId": "list_2",
+          "method": "POST",
+          "path": "/ops-brand/recipe-ingredients/list",
+          "summary": "查询配方原材料列表（按分类分组）",
+          "description": null,
+          "tags": [
+            "配方原材料管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": "品牌ID",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/BrandRecipeIngredientQueryRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultListBrandRecipeIngredientGroupedResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:15e4cf027bc6",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:16ff9ced564a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:195bfcbd9a8f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:279ebe3c752f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-9",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:27a8bd0a3578",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-8",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:2be7239fb789",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:2e0dd3253f24",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:33528f5b19b3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:33f2f81a0bf4",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-10",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:348114dc475a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:34e79c76cdb5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:3a2dee45cf07",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:3a5a343b08f2",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:3b404d5e3063",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:40a85a261426",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:40ef446b84cf",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4594baa2b2b9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:46c36b72aa01",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4bcedc2db5b8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:537933b3b817",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:54387e399384",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:550afb0544d5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-5",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:58c9177bf509",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:590d6436db48",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5b24abb301c3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5bdd15c5b874",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5dc156e1ab3b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-7",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:60ec24142321",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6262a343edaf",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-5",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:643dbb29b162",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6af7e0603be1",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-6",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6ba3ba36dbed",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-10",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6f39520af461",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:73d7e7fe2c3e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:74ca47f5fe11",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:75c8258ccb0e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7983eb850525",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:81692694199d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:847b332a9620",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8b6c2f779c2d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8e1327ca247d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8edea3c1589a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:904ee2fc47af",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:914d99b806ba",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:959176bac960",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:96920dfbdc19",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:976cad254c99",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-8",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9849bb88a504",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9a060373186e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9d9301d59512",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9ef5422a1797",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-6",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a1509081169e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a4b4a9d4ccc9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a54866256730",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a5c26f82382c",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:aa34d6fabbce",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ae21578e297e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ae47eb41d7a0",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-9",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:aef92aec77eb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-7",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b095d42ed737",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b8c09d03272b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b9ffbe791ad1",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c0d04de9c133",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c241a70da6d5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c4930e37aa5e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:cb42db781fc9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ce173bab4cb7",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d31e099fe261",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d59c862494e1",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d749219029c4",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:dbb826d4a788",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e02a39f6db22",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e4f4421b5dba",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720215716/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "route": "/pp/brandMaterialCategory",
+          "actionId": "/pp/brandMaterialCategory#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:eac056e6cfe7",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ee45d0e98b16",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:f579cc82de05",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "route": "/pp/bom/ingredient",
+          "actionId": "/pp/bom/ingredient#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:f978cac642d5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/record/list",
+        "evidence": {
+          "route": "/pp/bom/record/list",
+          "actionId": "/pp/bom/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:02a906cc61f7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-categories/treeList",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-categories/treeList",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:0311d6a76a32",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/recipe-ingredients/list",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/recipe-ingredients/list",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:0eb61ba9e5a7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/bom/page",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/bom/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:0f362f3df316",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-1",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/brand-bom-sync/job/list",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/brand-bom-sync/job/list",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:17e74dabf962",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/bom/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:POST /ops-brand/bom/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:1e87126870fd",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/merchants/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:POST /ops-brand/merchants/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:797bb365bb6f",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/bom/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:POST /ops-brand/bom/page",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:7b5dc70a9d90",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "route": "/pp/brandMaterial",
+          "actionId": "/pp/brandMaterial#action-2",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-ingredients",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-ingredients",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:d1fdf15fb644",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-3",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-modifiers/with-exclusive-settings",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-modifiers/with-exclusive-settings",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:d576f32bd6bc",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/merchants",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/merchants",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:e55570f48a93",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720205846/audit-report.json"
+          }
+        ],
+        "route": "/pp/bom/list",
+        "evidence": {
+          "route": "/pp/bom/list",
+          "actionId": "/pp/bom/list#action-4",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/bom/groups",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/bom/groups",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:16",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 16. 商品管理 / 原料管理"
+          }
+        ],
+        "module": "商品管理 / 原料管理",
+        "evidence": {
+          "heading": "## 16. 商品管理 / 原料管理",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:17",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 17. 商品管理 / 原料分类"
+          }
+        ],
+        "module": "商品管理 / 原料分类",
+        "evidence": {
+          "heading": "## 17. 商品管理 / 原料分类",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:19",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 19. 商品管理 / 配方管理 / 配方列表"
+          }
+        ],
+        "module": "商品管理 / 配方管理 / 配方列表",
+        "evidence": {
+          "heading": "## 19. 商品管理 / 配方管理 / 配方列表",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:20",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 20. 商品管理 / 配方管理 / 原料管理"
+          }
+        ],
+        "module": "商品管理 / 配方管理 / 原料管理",
+        "evidence": {
+          "heading": "## 20. 商品管理 / 配方管理 / 原料管理",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:21",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 21. 商品管理 / 配方管理 / 记录中心"
+          }
+        ],
+        "module": "商品管理 / 配方管理 / 记录中心",
+        "evidence": {
+          "heading": "## 21. 商品管理 / 配方管理 / 记录中心",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:6f7942bd851f",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[10]"
+          }
+        ],
+        "entity": "原料",
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "原料",
+            "route": "/pp/brandMaterial",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "打印机视图同类行菜单仅暴露删除；原料行菜单仅暴露删除",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "factory:7d005c4dbe16",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[13]"
+          }
+        ],
+        "entity": "配方单",
+        "route": "/pp/bom/list",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "配方单",
+            "route": "/pp/bom/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "factory:7eb5939e7fe5",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[12]"
+          }
+        ],
+        "entity": "配方原料",
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "配方原料",
+            "route": "/pp/bom/ingredient",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "factory:cba03e6002fb",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[11]"
+          }
+        ],
+        "entity": "原料分类",
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "原料分类",
+            "route": "/pp/brandMaterialCategory",
+            "create": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-material-category-AUTO_AUDIT_MC_1784593080554/result.json",
+            "verifyCreate": "passed",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:6f7942bd851f",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+          }
+        ],
+        "entity": "原料",
+        "route": "/pp/brandMaterial",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "原料",
+            "route": "/pp/brandMaterial",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "not-applicable",
+            "editReason": "打印机视图同类行菜单仅暴露删除；原料行菜单仅暴露删除",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "cleanup:7d005c4dbe16",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json"
+          }
+        ],
+        "entity": "配方单",
+        "route": "/pp/bom/list",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "配方单",
+            "route": "/pp/bom/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "cleanup:7eb5939e7fe5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json"
+          }
+        ],
+        "entity": "配方原料",
+        "route": "/pp/bom/ingredient",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "配方原料",
+            "route": "/pp/bom/ingredient",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "cleanup:cba03e6002fb",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-material-category-AUTO_AUDIT_MC_1784593080554/result.json"
+          }
+        ],
+        "entity": "原料分类",
+        "route": "/pp/brandMaterialCategory",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "原料分类",
+            "route": "/pp/brandMaterialCategory",
+            "create": "passed",
+            "edit": "passed",
+            "delete": "passed",
+            "source": "artifacts/crud-material-category-AUTO_AUDIT_MC_1784593080554/result.json",
+            "verifyCreate": "passed",
+            "verifyEdit": "passed",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:create:bom",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://create:bom",
+            "locator": "配方单应通过 UI 创建并完成 API UI 双验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/bom/list",
+        "entity": "配方单",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+          ],
+          "routeIds": [
+            "route:235400d77dbb"
+          ],
+          "functionIds": [
+            "/pp/bom/list#control-1",
+            "/pp/bom/list#control-2",
+            "/pp/bom/list#control-3",
+            "/pp/bom/list#control-4",
+            "/pp/bom/list#control-5"
+          ],
+          "apiMappingIds": [
+            "mapping-na:15e4cf027bc6",
+            "mapping-na:33528f5b19b3",
+            "mapping-na:3a5a343b08f2",
+            "mapping-na:3b404d5e3063",
+            "mapping-na:40ef446b84cf",
+            "mapping-na:847b332a9620",
+            "mapping-na:a54866256730",
+            "mapping-na:aa34d6fabbce",
+            "mapping-na:ae21578e297e",
+            "mapping-na:b8c09d03272b",
+            "mapping-na:cb42db781fc9",
+            "mapping:0311d6a76a32",
+            "mapping:0eb61ba9e5a7",
+            "mapping:0f362f3df316",
+            "mapping:17e74dabf962",
+            "mapping:1e87126870fd",
+            "mapping:797bb365bb6f",
+            "mapping:d1fdf15fb644",
+            "mapping:d576f32bd6bc",
+            "mapping:e55570f48a93"
+          ],
+          "stageGaps": [],
+          "caseId": "create:bom",
+          "sourceIds": [],
+          "sop": {
+            "action": "create",
+            "scenario": null,
+            "seedMode": "api-dependencies",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+            "testTitle": "配方单应通过 UI 创建并完成 API UI 双验证",
+            "rerunGrep": "配方单应通过 UI 创建并完成 API UI 双验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:create:material",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://create:material",
+            "locator": "原料应通过 UI 创建并完成 API UI 双验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brandMaterial",
+        "entity": "原料",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:16",
+            "business-rule-section:17",
+            "business-rule-section:20"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:7cbe5e6e2734"
+          ],
+          "functionIds": [
+            "/pp/brandMaterial#control-1",
+            "/pp/brandMaterial#control-2",
+            "/pp/brandMaterial#control-3"
+          ],
+          "apiMappingIds": [
+            "mapping-na:348114dc475a",
+            "mapping-na:46c36b72aa01",
+            "mapping-na:75c8258ccb0e",
+            "mapping-na:7983eb850525",
+            "mapping-na:eac056e6cfe7",
+            "mapping:02a906cc61f7",
+            "mapping:7b5dc70a9d90"
+          ],
+          "stageGaps": [],
+          "caseId": "create:material",
+          "sourceIds": [],
+          "sop": {
+            "action": "create",
+            "scenario": null,
+            "seedMode": "none",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-create-sop.spec.ts",
+            "testTitle": "原料应通过 UI 创建并完成 API UI 双验证",
+            "rerunGrep": "原料应通过 UI 创建并完成 API UI 双验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:bom",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:bom",
+            "locator": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/bom/list",
+        "entity": "配方单",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+          ],
+          "routeIds": [
+            "route:235400d77dbb"
+          ],
+          "functionIds": [
+            "/pp/bom/list#control-1",
+            "/pp/bom/list#control-2",
+            "/pp/bom/list#control-3",
+            "/pp/bom/list#control-4",
+            "/pp/bom/list#control-5"
+          ],
+          "apiMappingIds": [
+            "mapping-na:15e4cf027bc6",
+            "mapping-na:33528f5b19b3",
+            "mapping-na:3a5a343b08f2",
+            "mapping-na:3b404d5e3063",
+            "mapping-na:40ef446b84cf",
+            "mapping-na:847b332a9620",
+            "mapping-na:a54866256730",
+            "mapping-na:aa34d6fabbce",
+            "mapping-na:ae21578e297e",
+            "mapping-na:b8c09d03272b",
+            "mapping-na:cb42db781fc9",
+            "mapping:0311d6a76a32",
+            "mapping:0eb61ba9e5a7",
+            "mapping:0f362f3df316",
+            "mapping:17e74dabf962",
+            "mapping:1e87126870fd",
+            "mapping:797bb365bb6f",
+            "mapping:d1fdf15fb644",
+            "mapping:d576f32bd6bc",
+            "mapping:e55570f48a93"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:bom",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证",
+            "rerunGrep": "配方单应使用 API 前置数据完成 UI 删除并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:material",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:material",
+            "locator": "原料应使用 API 前置数据完成 UI 删除并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brandMaterial",
+        "entity": "原料",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:16",
+            "business-rule-section:17",
+            "business-rule-section:20"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:7cbe5e6e2734"
+          ],
+          "functionIds": [
+            "/pp/brandMaterial#control-1",
+            "/pp/brandMaterial#control-2",
+            "/pp/brandMaterial#control-3"
+          ],
+          "apiMappingIds": [
+            "mapping-na:348114dc475a",
+            "mapping-na:46c36b72aa01",
+            "mapping-na:75c8258ccb0e",
+            "mapping-na:7983eb850525",
+            "mapping-na:eac056e6cfe7",
+            "mapping:02a906cc61f7",
+            "mapping:7b5dc70a9d90"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:material",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "原料应使用 API 前置数据完成 UI 删除并由 API 验证",
+            "rerunGrep": "原料应使用 API 前置数据完成 UI 删除并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:material-category",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:material-category",
+            "locator": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brandMaterialCategory",
+        "entity": "原料分类",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:17"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:6faf50a788e3"
+          ],
+          "functionIds": [
+            "/pp/brandMaterialCategory#control-1",
+            "/pp/brandMaterialCategory#control-10",
+            "/pp/brandMaterialCategory#control-2",
+            "/pp/brandMaterialCategory#control-3",
+            "/pp/brandMaterialCategory#control-4",
+            "/pp/brandMaterialCategory#control-5",
+            "/pp/brandMaterialCategory#control-6",
+            "/pp/brandMaterialCategory#control-7",
+            "/pp/brandMaterialCategory#control-8",
+            "/pp/brandMaterialCategory#control-9"
+          ],
+          "apiMappingIds": [
+            "mapping-na:195bfcbd9a8f",
+            "mapping-na:279ebe3c752f",
+            "mapping-na:27a8bd0a3578",
+            "mapping-na:33f2f81a0bf4",
+            "mapping-na:3a2dee45cf07",
+            "mapping-na:537933b3b817",
+            "mapping-na:550afb0544d5",
+            "mapping-na:590d6436db48",
+            "mapping-na:5dc156e1ab3b",
+            "mapping-na:6262a343edaf",
+            "mapping-na:6af7e0603be1",
+            "mapping-na:6ba3ba36dbed",
+            "mapping-na:74ca47f5fe11",
+            "mapping-na:96920dfbdc19",
+            "mapping-na:976cad254c99",
+            "mapping-na:9ef5422a1797",
+            "mapping-na:ae47eb41d7a0",
+            "mapping-na:aef92aec77eb",
+            "mapping-na:e4f4421b5dba"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:material-category",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "原料分类应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:recipe-ingredient",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:recipe-ingredient",
+            "locator": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/bom/ingredient",
+        "entity": "配方原料",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+          ],
+          "routeIds": [
+            "route:e2b9620ba5ee"
+          ],
+          "functionIds": [
+            "/pp/bom/ingredient#control-1",
+            "/pp/bom/ingredient#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:16ff9ced564a",
+            "mapping-na:2be7239fb789",
+            "mapping-na:2e0dd3253f24",
+            "mapping-na:34e79c76cdb5",
+            "mapping-na:54387e399384",
+            "mapping-na:5b24abb301c3",
+            "mapping-na:60ec24142321",
+            "mapping-na:6f39520af461",
+            "mapping-na:73d7e7fe2c3e",
+            "mapping-na:81692694199d",
+            "mapping-na:8b6c2f779c2d",
+            "mapping-na:8e1327ca247d",
+            "mapping-na:8edea3c1589a",
+            "mapping-na:9849bb88a504",
+            "mapping-na:9a060373186e",
+            "mapping-na:9d9301d59512",
+            "mapping-na:a4b4a9d4ccc9",
+            "mapping-na:a5c26f82382c",
+            "mapping-na:b9ffbe791ad1",
+            "mapping-na:c0d04de9c133",
+            "mapping-na:c4930e37aa5e",
+            "mapping-na:ce173bab4cb7",
+            "mapping-na:d59c862494e1",
+            "mapping-na:d749219029c4",
+            "mapping-na:e02a39f6db22",
+            "mapping-na:ee45d0e98b16",
+            "mapping-na:f579cc82de05"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:recipe-ingredient",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+            "testTitle": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "配方原料应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:bom",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:bom",
+            "locator": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/bom/list",
+        "entity": "配方单",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+          ],
+          "routeIds": [
+            "route:235400d77dbb"
+          ],
+          "functionIds": [
+            "/pp/bom/list#control-1",
+            "/pp/bom/list#control-2",
+            "/pp/bom/list#control-3",
+            "/pp/bom/list#control-4",
+            "/pp/bom/list#control-5"
+          ],
+          "apiMappingIds": [
+            "mapping-na:15e4cf027bc6",
+            "mapping-na:33528f5b19b3",
+            "mapping-na:3a5a343b08f2",
+            "mapping-na:3b404d5e3063",
+            "mapping-na:40ef446b84cf",
+            "mapping-na:847b332a9620",
+            "mapping-na:a54866256730",
+            "mapping-na:aa34d6fabbce",
+            "mapping-na:ae21578e297e",
+            "mapping-na:b8c09d03272b",
+            "mapping-na:cb42db781fc9",
+            "mapping:0311d6a76a32",
+            "mapping:0eb61ba9e5a7",
+            "mapping:0f362f3df316",
+            "mapping:17e74dabf962",
+            "mapping:1e87126870fd",
+            "mapping:797bb365bb6f",
+            "mapping:d1fdf15fb644",
+            "mapping:d576f32bd6bc",
+            "mapping:e55570f48a93"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:bom",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证",
+            "rerunGrep": "配方单应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:material",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:material",
+            "locator": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brandMaterial",
+        "entity": "原料",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:16",
+            "business-rule-section:17",
+            "business-rule-section:20"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品-重建试点.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-商品/1.商品中心-商品管理-商品.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-BR追溯.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-canonical测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-准确生成90条.xmind",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-场景评审.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-待补充用例标题.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/99-待废弃/商品中心-商品管理-商品/1.商品中心-商品管理-商品-页面补充候选.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:7cbe5e6e2734"
+          ],
+          "functionIds": [
+            "/pp/brandMaterial#control-1",
+            "/pp/brandMaterial#control-2",
+            "/pp/brandMaterial#control-3"
+          ],
+          "apiMappingIds": [
+            "mapping-na:348114dc475a",
+            "mapping-na:46c36b72aa01",
+            "mapping-na:75c8258ccb0e",
+            "mapping-na:7983eb850525",
+            "mapping-na:eac056e6cfe7",
+            "mapping:02a906cc61f7",
+            "mapping:7b5dc70a9d90"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:material",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-five-hybrid-sop.spec.ts",
+            "testTitle": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证",
+            "rerunGrep": "原料应使用 API 前置数据完成 UI 编辑并由 API 验证"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:material-category",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:material-category",
+            "locator": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brandMaterialCategory",
+        "entity": "原料分类",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:17"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-手工测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/1.需求品牌商品与分类.md"
+          ],
+          "routeIds": [
+            "route:6faf50a788e3"
+          ],
+          "functionIds": [
+            "/pp/brandMaterialCategory#control-1",
+            "/pp/brandMaterialCategory#control-10",
+            "/pp/brandMaterialCategory#control-2",
+            "/pp/brandMaterialCategory#control-3",
+            "/pp/brandMaterialCategory#control-4",
+            "/pp/brandMaterialCategory#control-5",
+            "/pp/brandMaterialCategory#control-6",
+            "/pp/brandMaterialCategory#control-7",
+            "/pp/brandMaterialCategory#control-8",
+            "/pp/brandMaterialCategory#control-9"
+          ],
+          "apiMappingIds": [
+            "mapping-na:195bfcbd9a8f",
+            "mapping-na:279ebe3c752f",
+            "mapping-na:27a8bd0a3578",
+            "mapping-na:33f2f81a0bf4",
+            "mapping-na:3a2dee45cf07",
+            "mapping-na:537933b3b817",
+            "mapping-na:550afb0544d5",
+            "mapping-na:590d6436db48",
+            "mapping-na:5dc156e1ab3b",
+            "mapping-na:6262a343edaf",
+            "mapping-na:6af7e0603be1",
+            "mapping-na:6ba3ba36dbed",
+            "mapping-na:74ca47f5fe11",
+            "mapping-na:96920dfbdc19",
+            "mapping-na:976cad254c99",
+            "mapping-na:9ef5422a1797",
+            "mapping-na:ae47eb41d7a0",
+            "mapping-na:aef92aec77eb",
+            "mapping-na:e4f4421b5dba"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:material-category",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态",
+            "rerunGrep": "原料分类应使用 API 前置数据完成 UI 编辑并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:recipe-ingredient",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:recipe-ingredient",
+            "locator": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/bom/ingredient",
+        "entity": "配方原料",
+        "evidence": {
+          "requirementIds": [],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/历史归档/2.商品中心-商品管理-组-历史5条产品偏差人工确认.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-组/2.商品中心-商品管理-组.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/2.需求规格组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/3.需求口味组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/4.需求做法组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/5.需求套餐组.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组-自动化测试用例.md",
+            "merchant-center:/Merchant Center Info/PRD与对应测试用例/6.需求加料组.md"
+          ],
+          "routeIds": [
+            "route:e2b9620ba5ee"
+          ],
+          "functionIds": [
+            "/pp/bom/ingredient#control-1",
+            "/pp/bom/ingredient#control-2"
+          ],
+          "apiMappingIds": [
+            "mapping-na:16ff9ced564a",
+            "mapping-na:2be7239fb789",
+            "mapping-na:2e0dd3253f24",
+            "mapping-na:34e79c76cdb5",
+            "mapping-na:54387e399384",
+            "mapping-na:5b24abb301c3",
+            "mapping-na:60ec24142321",
+            "mapping-na:6f39520af461",
+            "mapping-na:73d7e7fe2c3e",
+            "mapping-na:81692694199d",
+            "mapping-na:8b6c2f779c2d",
+            "mapping-na:8e1327ca247d",
+            "mapping-na:8edea3c1589a",
+            "mapping-na:9849bb88a504",
+            "mapping-na:9a060373186e",
+            "mapping-na:9d9301d59512",
+            "mapping-na:a4b4a9d4ccc9",
+            "mapping-na:a5c26f82382c",
+            "mapping-na:b9ffbe791ad1",
+            "mapping-na:c0d04de9c133",
+            "mapping-na:c4930e37aa5e",
+            "mapping-na:ce173bab4cb7",
+            "mapping-na:d59c862494e1",
+            "mapping-na:d749219029c4",
+            "mapping-na:e02a39f6db22",
+            "mapping-na:ee45d0e98b16",
+            "mapping-na:f579cc82de05"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:recipe-ingredient",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+            "testTitle": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态",
+            "rerunGrep": "配方原料应使用 API 前置数据完成 UI 编辑并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

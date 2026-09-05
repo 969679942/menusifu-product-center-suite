@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006", "TC-FLV-SEA-012", "TC-FLV-SEA-017"],
+  "rootCause": "SEA-006 使用不存在的 tbody checkbox 包装器且以 first() 猜测目标；SEA-012 只填写默认价格没有使调味项第二语言字段进入正式用例要求的有值状态，因此未触发名称必填校验；SEA-017 页面把 1000000 自动纠正为 999999.99 并成功创建后已离开表单，适配器仍读取已销毁的 spinbutton 导致超时。两轮失败均为定位或执行路径缺陷，未构成登录阻断；SEA-017 创建记录均已按服务端 ID 清理为零残留。",
+  "correctiveAction": "SEA-006 从 API 选取页面唯一可见的真实调味项身份，在其所属唯一表格内操作 Select all 复选框；SEA-012 填写同一调味行第二语言而保持调味名称为空，再核对高亮、提示和零 POST；SEA-017 在提交前记录纠正值，提交后以响应和 API 服务端记录判定是否违反正式上限规则，并始终按服务端 ID 清理，不再读取关闭后的表单。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787563525233/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787564128658/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787564128658_TC-FLV-SEA-006.error.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787564128658_TC-FLV-SEA-012.error.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787564128658_TC-FLV-SEA-017.error.json"
+  ],
+  "supersedesAttemptIds": [
+    "f70f0318bcac75ce",
+    "ccd2deb030074d4a",
+    "8ba18eb5060ce8d0",
+    "5ddc8dec26fe9b16",
+    "95cb33211807d965",
+    "6cfc253e26c0497a"
+  ]
+}

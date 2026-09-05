@@ -1,0 +1,4169 @@
+{
+  "metadata": {
+    "moduleId": "brand-tag",
+    "moduleName": "品牌标签管理",
+    "levelOne": "商品管理",
+    "routes": [
+      "/pp/brand/tag/description",
+      "/pp/brand/tag/badge",
+      "/pp/brand/tag/statistic"
+    ],
+    "recordCount": 122
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:79af928fdffc",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "stable-full-discovery"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "name": "商品角标",
+          "href": "/pp/brand/tag/badge",
+          "status": "passed",
+          "expectedControls": 2,
+          "evidencedControls": 2,
+          "evidence": "stable-full-discovery"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:a37130eff6c2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "name": "统计标签",
+          "href": "/pp/brand/tag/statistic",
+          "status": "passed",
+          "expectedControls": 4,
+          "evidencedControls": 4,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:e2cf16e67e4c",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "name": "描述标签",
+          "href": "/pp/brand/tag/description",
+          "status": "passed",
+          "expectedControls": 6,
+          "evidencedControls": 6,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/pp/brand/tag/badge#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/brand/tag/badge.controls[0]"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "id": "/pp/brand/tag/badge#control-1",
+          "route": "/pp/brand/tag/badge",
+          "routeName": "商品角标",
+          "index": 0,
+          "name": "详情",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "profile",
+          "title": "",
+          "icon": "profile",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "添加",
+          "occurrence": 0,
+          "signature": "BUTTON|button||profile||profile|button||",
+          "fingerprint": "dc37ba369a79cb41",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "profile",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/badge#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json",
+            "locator": "/pp/brand/tag/badge.controls[1]"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "id": "/pp/brand/tag/badge#control-2",
+          "route": "/pp/brand/tag/badge",
+          "routeName": "商品角标",
+          "index": 1,
+          "name": "添加",
+          "context": "",
+          "disabled": false,
+          "source": "stable-full-discovery",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "添加",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "添加",
+          "occurrence": 0,
+          "signature": "BUTTON|button|添加|plus||plus|button||",
+          "fingerprint": "d215286e634a8ba5",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720193811/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[0]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-1",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 0,
+          "name": "添加",
+          "context": "添加组名称重置标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作All You Can Eat Item系统预设自助菜品All You Can Eat Item0System Presets系统预设Spicy系统预设辣Spicy1System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "添加",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|添加|plus||plus|button||",
+          "fingerprint": "d215286e634a8ba5",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[1]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-2",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 1,
+          "name": "重置",
+          "context": "添加组名称重置标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作All You Can Eat Item系统预设自助菜品All You Can Eat Item0System Presets系统预设Spicy系统预设辣Spicy1System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "添加",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "组名称 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[2]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-3",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 2,
+          "name": "详情",
+          "context": "添加组名称重置标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作All You Can Eat Item系统预设自助菜品All You Can Eat Item0System Presets系统预设Spicy系统预设辣Spicy1System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "重置",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "profile",
+          "title": "",
+          "icon": "profile",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||profile||profile|button||",
+          "fingerprint": "dc37ba369a79cb41",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "profile",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[3]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-4",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 3,
+          "name": "button:All You Can Eat Item 系统预设 自助菜品 All You Can Eat Item 0 System Presets 系统预设",
+          "context": "添加组名称重置标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作标签名称标签中文名称标签效果关联商品数量分组名称分组名称(第二语言)操作All You Can Eat Item系统预设自助菜品All You Can Eat Item0System Presets系统预设Spicy系统预设辣Spicy1System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "All You Can Eat Item 系统预设 自助菜品 All You Can Eat Item 0 System Presets 系统预设",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[4]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-5",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 4,
+          "name": "button:Shellfish 系统预设 海鲜 Shellfish 0 System Presets 系统预设",
+          "context": "All You Can Eat Item系统预设自助菜品All You Can Eat Item0System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "位置5",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "Shellfish 系统预设 海鲜 Shellfish 0 System Presets 系统预设",
+          "group": "",
+          "occurrence": 8,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "322b782c4974b891",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 8,
+            "fingerprint": "322b782c4974b891",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#control-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+            "locator": "/pp/brand/tag/description.controls[5]"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#control-6",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "index": 5,
+          "name": "button:KTV 系统预设 提供卡拉OK服务 KTV 0 System Presets 系统预设",
+          "context": "Spicy系统预设辣Spicy1System Presets系统预设",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "legacyName": "位置6",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "KTV 系统预设 提供卡拉OK服务 KTV 0 System Presets 系统预设",
+          "group": "",
+          "occurrence": 16,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "dafeef6c446bd83a",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 16,
+            "fingerprint": "dafeef6c446bd83a",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brand/tag/statistic.controls[0]"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#control-1",
+          "route": "/pp/brand/tag/statistic",
+          "routeName": "统计标签",
+          "index": 0,
+          "name": "添加",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "添加",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|添加|plus||plus|button||",
+          "fingerprint": "d215286e634a8ba5",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "添加",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brand/tag/statistic.controls[1]"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#control-2",
+          "route": "/pp/brand/tag/statistic",
+          "routeName": "统计标签",
+          "index": 1,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "组名称 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brand/tag/statistic.controls[2]"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#control-3",
+          "route": "/pp/brand/tag/statistic",
+          "routeName": "统计标签",
+          "index": 2,
+          "name": "详情",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "profile",
+          "title": "",
+          "icon": "profile",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||profile||profile|button||",
+          "fingerprint": "dc37ba369a79cb41",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "profile",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+            "locator": "/pp/brand/tag/statistic.controls[3]"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#control-4",
+          "route": "/pp/brand/tag/statistic",
+          "routeName": "统计标签",
+          "index": 3,
+          "name": "button:统计标签 统计标签 1 统计标签组",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "统计标签 统计标签 1 统计标签组",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-55",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-55",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-56",
+        "status": "confirmed",
+        "sourceType": "human-review",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          },
+          {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "描述标签第二语言边界人工确认"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-56",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签名称（第二语言）",
+          "required": false,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "semanticMaxLength": {
+            "exact": 50,
+            "source": "human-review"
+          },
+          "boundaryGenerationAllowed": true,
+          "reviewDecision": {
+            "decisionId": "review-2026-07-24-description-tag-language-limits",
+            "reviewedBy": "金将军",
+            "reviewedAt": "2026-07-24"
+          }
+        },
+        "conflictStatus": "resolved",
+        "curation": {
+          "reason": "人工确认标签名称（第二语言）最大长度为 50",
+          "source": {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "描述标签第二语言边界人工确认"
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-57",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-57",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 2,
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "label": "分组名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-58",
+        "status": "confirmed",
+        "sourceType": "human-review",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          },
+          {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "描述标签第二语言边界人工确认"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-58",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 3,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签组名称（第二语言）",
+          "required": false,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json",
+          "semanticMaxLength": {
+            "exact": 10,
+            "source": "human-review"
+          },
+          "boundaryGenerationAllowed": true,
+          "reviewDecision": {
+            "decisionId": "review-2026-07-24-description-tag-language-limits",
+            "reviewedBy": "金将军",
+            "reviewedAt": "2026-07-24"
+          }
+        },
+        "conflictStatus": "resolved",
+        "curation": {
+          "reason": "人工确认标签组名称（第二语言）最大长度为 10",
+          "source": {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "描述标签第二语言边界人工确认"
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-59",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-59",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 4,
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "borderRadius",
+          "placeholder": "",
+          "label": "Text",
+          "required": false,
+          "disabled": false,
+          "value": "0",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-60",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-60",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 5,
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "borderRadius",
+          "placeholder": "",
+          "label": "Text",
+          "required": false,
+          "disabled": false,
+          "value": "4",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1#field-61",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1#field-61",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+          "index": 6,
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "borderRadius",
+          "placeholder": "",
+          "label": "Text",
+          "required": false,
+          "disabled": false,
+          "value": "20",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-3#primary-1#field-62",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-3#primary-1#field-62",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "overlayId": "/pp/brand/tag/description#action-3#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "全部",
+          "required": false,
+          "disabled": false,
+          "value": "on",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-3#primary-1#field-63",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-3#primary-1#field-63",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "overlayId": "/pp/brand/tag/description#action-3#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "标签中文名称",
+          "required": false,
+          "disabled": false,
+          "value": "secondName",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-3#primary-1#field-64",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-3#primary-1#field-64",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "overlayId": "/pp/brand/tag/description#action-3#primary-1",
+          "index": 2,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "分组名称(第二语言)",
+          "required": false,
+          "disabled": false,
+          "value": "groupSecondName",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#field-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#field-1",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "disabled": false,
+          "index": 0,
+          "label": "",
+          "name": "",
+          "placeholder": "标签名称",
+          "required": false,
+          "tag": "INPUT",
+          "type": "text",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#field-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-sch-ui-inventory.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#field-2",
+          "route": "/pp/brand/tag/description",
+          "routeName": "描述标签",
+          "disabled": false,
+          "index": 1,
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "INPUT",
+          "type": "search",
+          "source": "artifacts/menusifu-sch-ui-inventory.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#primary-1#field-34",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#primary-1#field-34",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#primary-1#field-35",
+        "status": "confirmed",
+        "sourceType": "human-review",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          },
+          {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "统计标签第二语言边界人工确认"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#primary-1#field-35",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签名称（第二语言）",
+          "required": false,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "semanticMaxLength": {
+            "exact": 50,
+            "source": "human-review"
+          },
+          "boundaryGenerationAllowed": true,
+          "reviewDecision": {
+            "decisionId": "review-2026-07-24-statistic-tag-language-limits",
+            "reviewedBy": "金将军",
+            "reviewedAt": "2026-07-24"
+          }
+        },
+        "conflictStatus": "resolved",
+        "curation": {
+          "reason": "人工确认标签名称（第二语言）最大长度为 50",
+          "source": {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "统计标签第二语言边界人工确认"
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#primary-1#field-36",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#primary-1#field-36",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+          "index": 2,
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "label": "分组名称",
+          "required": true,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#primary-1#field-37",
+        "status": "confirmed",
+        "sourceType": "human-review",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          },
+          {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "统计标签第二语言边界人工确认"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#primary-1#field-37",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+          "index": 3,
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "",
+          "label": "标签组名称（第二语言）",
+          "required": false,
+          "disabled": false,
+          "value": "",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json",
+          "semanticMaxLength": {
+            "exact": 10,
+            "source": "human-review"
+          },
+          "boundaryGenerationAllowed": true,
+          "reviewDecision": {
+            "decisionId": "review-2026-07-24-statistic-tag-language-limits",
+            "reviewedBy": "金将军",
+            "reviewedAt": "2026-07-24"
+          }
+        },
+        "conflictStatus": "resolved",
+        "curation": {
+          "reason": "人工确认标签组名称（第二语言）最大长度为 10",
+          "source": {
+            "path": "review://product-center/p0/2026-07-24",
+            "locator": "统计标签第二语言边界人工确认"
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-3#primary-1#field-38",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-3#primary-1#field-38",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "overlayId": "/pp/brand/tag/statistic#action-3#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "全部",
+          "required": false,
+          "disabled": false,
+          "value": "on",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-3#primary-1#field-39",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-3#primary-1#field-39",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "overlayId": "/pp/brand/tag/statistic#action-3#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "标签中文名称",
+          "required": false,
+          "disabled": false,
+          "value": "secondName",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [
+      {
+        "id": "/pp/brand/tag/description#action-1#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#primary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "创建标签 确 定 基本信息 标签名称 标签第二语言 分组名称 标签组第二语言 标签样式 选择预设模板 Text Text Text Text Text Text Text 标签背景颜色 #E6F4FF 标签边框颜色 #91CAFF 字体颜色 #1677FF 标签样式 Text Text Text",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "标签名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "",
+              "required": false,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 2,
+              "tag": "INPUT",
+              "type": "search",
+              "name": "",
+              "placeholder": "",
+              "label": "分组名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 3,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "",
+              "required": false,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 4,
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "borderRadius",
+              "placeholder": "",
+              "label": "Text",
+              "required": false,
+              "disabled": false,
+              "value": "0"
+            },
+            {
+              "index": 5,
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "borderRadius",
+              "placeholder": "",
+              "label": "Text",
+              "required": false,
+              "disabled": false,
+              "value": "4"
+            },
+            {
+              "index": 6,
+              "tag": "INPUT",
+              "type": "radio",
+              "name": "borderRadius",
+              "placeholder": "",
+              "label": "Text",
+              "required": false,
+              "disabled": false,
+              "value": "20"
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-1#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-1#secondary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-3#primary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "全部 标签中文名称 分组名称(第二语言) 恢复默认",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "全部",
+              "required": false,
+              "disabled": false,
+              "value": "on"
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "标签中文名称",
+              "required": false,
+              "disabled": false,
+              "value": "secondName"
+            },
+            {
+              "index": 2,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "分组名称(第二语言)",
+              "required": false,
+              "disabled": false,
+              "value": "groupSecondName"
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-3#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-3#secondary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-4#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-4#primary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-4",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联商品",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-5#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-5#primary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-5",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联商品",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/description#action-6#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "id": "/pp/brand/tag/description#action-6#primary-1",
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-6",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联商品",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#primary-1",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "创建标签 确 定 基本信息 标签名称 标签第二语言 分组名称 标签组第二语言",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "标签名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "",
+              "required": false,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 2,
+              "tag": "INPUT",
+              "type": "search",
+              "name": "",
+              "placeholder": "",
+              "label": "分组名称",
+              "required": true,
+              "disabled": false,
+              "value": ""
+            },
+            {
+              "index": 3,
+              "tag": "INPUT",
+              "type": "text",
+              "name": "",
+              "placeholder": "",
+              "label": "",
+              "required": false,
+              "disabled": false,
+              "value": ""
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-1#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-1#secondary-1",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-3#primary-1",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "全部 标签中文名称 恢复默认",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "全部",
+              "required": false,
+              "disabled": false,
+              "value": "on"
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "标签中文名称",
+              "required": false,
+              "disabled": false,
+              "value": "secondName"
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-3#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-3#secondary-1",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/pp/brand/tag/statistic#action-4#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "id": "/pp/brand/tag/statistic#action-4#primary-1",
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-4",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "关联商品 删除",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "validations": [
+      {
+        "id": "validation:4a08aa1da13d",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "entity": "描述标签",
+        "evidence": {
+          "entity": "描述标签",
+          "route": "/pp/brand/tag/description",
+          "status": "passed",
+          "fields": [
+            "标签名称",
+            "标签组名称"
+          ],
+          "behavior": "空提交显示两项错误",
+          "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "validation:ba96e7bfaa98",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "entity": "统计标签",
+        "evidence": {
+          "entity": "统计标签",
+          "route": "/pp/brand/tag/statistic",
+          "status": "passed",
+          "fields": [
+            "标签名称",
+            "标签组名称"
+          ],
+          "behavior": "空提交显示两项错误",
+          "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-tag-groups/list",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-tag-groups/list"
+          }
+        ],
+        "route": "/ops-brand/brand-tag-groups/list",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/list",
+          "operationId": "list_18",
+          "method": "GET",
+          "path": "/ops-brand/brand-tag-groups/list",
+          "summary": "批量查询品牌标签组",
+          "description": "支持多条件查询标签组列表",
+          "tags": [
+            "品牌标签组管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "query",
+              "in": "query",
+              "required": true,
+              "description": null,
+              "schema": {
+                "ref": "#/components/schemas/BrandTagGroupQueryRequest"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultListBrandTagGroupResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "operation:brand-menu:GET /ops-brand/brand-tags/page",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:GET /ops-brand/brand-tags/page"
+          }
+        ],
+        "route": "/ops-brand/brand-tags/page",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "operationId": "pageQuery_13",
+          "method": "GET",
+          "path": "/ops-brand/brand-tags/page",
+          "summary": "分页查询品牌标签",
+          "description": "支持多条件分页查询品牌标签列表，可按标签名称、类型、状态等条件筛选，适用于管理后台展示",
+          "tags": [
+            "品牌标签管理"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [
+            {
+              "name": "X-Brand-Id",
+              "in": "header",
+              "required": true,
+              "description": null,
+              "schema": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "name": "query",
+              "in": "query",
+              "required": true,
+              "description": null,
+              "schema": {
+                "ref": "#/components/schemas/BrandTagPageQuery"
+              }
+            }
+          ],
+          "requestBody": null,
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandTagResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:0245de9c5d83",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-6",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:046d03bd36b2",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:08dba0d2864f",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:08f0d5e2a511",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-6",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:0a8eccf83b7a",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:237d11dbf412",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:24292d4a301c",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:28e24d1801c3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:2cbd2d7491b8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:32ba3517d2d8",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:367d84d327c6",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:40d0d6a6d640",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:416eb6140cdb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:4766a35f4327",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6419d4d08a96",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:642bfe262b0e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7133a78df210",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:73b361e59dff",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:76b4ef31b78b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:792f4d49037b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7dcc42e47101",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:7e99ea44876b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8410c3f00247",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:84baeccb4c95",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/j/collect",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:8de1775a2823",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:901065f6d097",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:94f79805bbea",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:95b12f849ebe",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9b08504f29b0",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-5",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:9e1741ef5bcc",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-4",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a4abd2ac4b2e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:a67039929bee",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b21cfb57c7e1",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c407e6002575",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c4b98a908bfa",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/api/idp/login",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:cb1e737272b2",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/refresh",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d0073f029376",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d3f54deb67d5",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/cloud-service/idp/token",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d518e6df1c86",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d5321b8505e0",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d5896f918cfb",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:d98aa6449506",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "GET",
+          "urlPath": "/api/idp/authorize",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:dc1b69f61c4e",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e76d6def7c76",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:e959f94fbc9b",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ecb08f8c9b63",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ed4e4f735e46",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ef99f9013bb1",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-2",
+          "method": "GET",
+          "urlPath": "/cloud-service/idp/pkce",
+          "phase": "response",
+          "statusCode": 200,
+          "classification": "authentication",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:f672cdf9ccee",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-5",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:fc3331566975",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-3",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:fd257d5508f0",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720143822/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/badge",
+        "evidence": {
+          "route": "/pp/brand/tag/badge",
+          "actionId": "/pp/brand/tag/badge#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:139c860aedd1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tag-groups/list",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/list",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:3bc7ab1659b6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-4",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tag-groups/list",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/list",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:4de3c285d35d",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-1",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tag-groups/list",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tag-groups/list",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:55c723ada991",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-6",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:63a3f72241a6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-4",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:837e17cf3464",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-2",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:837e17cf3464~2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-2",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "originalId": "mapping:837e17cf3464"
+      },
+      {
+        "id": "mapping:8beab0f9c0dd",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720204844/audit-report.json"
+          }
+        ],
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "route": "/pp/brand/tag/statistic",
+          "actionId": "/pp/brand/tag/statistic#action-2",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:c279d3ddd6e0",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720212117/audit-report.partial.json"
+          }
+        ],
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "route": "/pp/brand/tag/description",
+          "actionId": "/pp/brand/tag/description#action-3",
+          "method": "GET",
+          "urlPath": "/item/v1/ops-brand/brand-tags/page",
+          "phase": "response",
+          "statusCode": 200,
+          "operationKey": "brand-menu:GET /ops-brand/brand-tags/page",
+          "candidateCount": 2
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:13",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 13. 商品管理 / 标签管理 / 描述标签"
+          }
+        ],
+        "module": "商品管理 / 标签管理 / 描述标签",
+        "evidence": {
+          "heading": "## 13. 商品管理 / 标签管理 / 描述标签",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:14",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 14. 商品管理 / 标签管理 / 商品角标"
+          }
+        ],
+        "module": "商品管理 / 标签管理 / 商品角标",
+        "evidence": {
+          "heading": "## 14. 商品管理 / 标签管理 / 商品角标",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:15",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 15. 商品管理 / 标签管理 / 统计标签"
+          }
+        ],
+        "module": "商品管理 / 标签管理 / 统计标签",
+        "evidence": {
+          "heading": "## 15. 商品管理 / 标签管理 / 统计标签",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:28f1af45ea9e",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[8]"
+          }
+        ],
+        "entity": "描述标签",
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "描述标签",
+            "route": "/pp/brand/tag/description",
+            "create": "passed",
+            "edit": "not-applicable",
+            "delete": "passed",
+            "source": "artifacts/crud-description-tag-AUTO_AUDIT_T92407858/result.json",
+            "verifyCreate": "passed",
+            "editReason": "行菜单仅暴露关联商品与删除",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "factory:578fab90949f",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[9]"
+          }
+        ],
+        "entity": "统计标签",
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "统计标签",
+            "route": "/pp/brand/tag/statistic",
+            "create": "passed",
+            "edit": "not-applicable",
+            "delete": "passed",
+            "source": "artifacts/crud-stat-tag-AUTO_AUDIT_T92237128/result.json",
+            "verifyCreate": "passed",
+            "editReason": "行菜单仅暴露关联商品与删除",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:28f1af45ea9e",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-description-tag-AUTO_AUDIT_T92407858/result.json"
+          }
+        ],
+        "entity": "描述标签",
+        "route": "/pp/brand/tag/description",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "描述标签",
+            "route": "/pp/brand/tag/description",
+            "create": "passed",
+            "edit": "not-applicable",
+            "delete": "passed",
+            "source": "artifacts/crud-description-tag-AUTO_AUDIT_T92407858/result.json",
+            "verifyCreate": "passed",
+            "editReason": "行菜单仅暴露关联商品与删除",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "cleanup:578fab90949f",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-stat-tag-AUTO_AUDIT_T92237128/result.json"
+          }
+        ],
+        "entity": "统计标签",
+        "route": "/pp/brand/tag/statistic",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "统计标签",
+            "route": "/pp/brand/tag/statistic",
+            "create": "passed",
+            "edit": "not-applicable",
+            "delete": "passed",
+            "source": "artifacts/crud-stat-tag-AUTO_AUDIT_T92237128/result.json",
+            "verifyCreate": "passed",
+            "editReason": "行菜单仅暴露关联商品与删除",
+            "verifyDelete": "passed"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:delete:description-tag",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:description-tag",
+            "locator": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/description",
+        "entity": "描述标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:13"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:e2cf16e67e4c"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/description#control-1",
+            "/pp/brand/tag/description#control-2",
+            "/pp/brand/tag/description#control-3",
+            "/pp/brand/tag/description#control-4",
+            "/pp/brand/tag/description#control-5",
+            "/pp/brand/tag/description#control-6"
+          ],
+          "apiMappingIds": [
+            "mapping-na:0245de9c5d83",
+            "mapping-na:08f0d5e2a511",
+            "mapping-na:0a8eccf83b7a",
+            "mapping-na:367d84d327c6",
+            "mapping-na:6419d4d08a96",
+            "mapping-na:792f4d49037b",
+            "mapping-na:7dcc42e47101",
+            "mapping-na:7e99ea44876b",
+            "mapping-na:8410c3f00247",
+            "mapping-na:9b08504f29b0",
+            "mapping-na:a4abd2ac4b2e",
+            "mapping-na:ecb08f8c9b63",
+            "mapping-na:f672cdf9ccee",
+            "mapping:139c860aedd1",
+            "mapping:3bc7ab1659b6",
+            "mapping:55c723ada991",
+            "mapping:63a3f72241a6",
+            "mapping:837e17cf3464",
+            "mapping:837e17cf3464~2",
+            "mapping:c279d3ddd6e0"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:description-tag",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "描述标签应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:delete:statistic-tag",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:statistic-tag",
+            "locator": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/statistic",
+        "entity": "统计标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:15"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:a37130eff6c2"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/statistic#control-1",
+            "/pp/brand/tag/statistic#control-2",
+            "/pp/brand/tag/statistic#control-3",
+            "/pp/brand/tag/statistic#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:046d03bd36b2",
+            "mapping-na:2cbd2d7491b8",
+            "mapping-na:40d0d6a6d640",
+            "mapping-na:9e1741ef5bcc",
+            "mapping-na:b21cfb57c7e1",
+            "mapping-na:d5321b8505e0",
+            "mapping-na:d5896f918cfb",
+            "mapping-na:e959f94fbc9b",
+            "mapping-na:ed4e4f735e46",
+            "mapping-na:fc3331566975",
+            "mapping:4de3c285d35d",
+            "mapping:8beab0f9c0dd"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:statistic-tag",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-low-dependency-hybrid-sop.spec.ts",
+            "testTitle": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "统计标签应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:negative:description-tag-group-second-language-max",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://negative:description-tag-group-second-language-max",
+            "locator": "描述标签组名称第二语言应允许十字符并截断第十一字符"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/description",
+        "entity": "描述标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:13"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:e2cf16e67e4c"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/description#control-1",
+            "/pp/brand/tag/description#control-2",
+            "/pp/brand/tag/description#control-3",
+            "/pp/brand/tag/description#control-4",
+            "/pp/brand/tag/description#control-5",
+            "/pp/brand/tag/description#control-6"
+          ],
+          "apiMappingIds": [
+            "mapping-na:0245de9c5d83",
+            "mapping-na:08f0d5e2a511",
+            "mapping-na:0a8eccf83b7a",
+            "mapping-na:367d84d327c6",
+            "mapping-na:6419d4d08a96",
+            "mapping-na:792f4d49037b",
+            "mapping-na:7dcc42e47101",
+            "mapping-na:7e99ea44876b",
+            "mapping-na:8410c3f00247",
+            "mapping-na:9b08504f29b0",
+            "mapping-na:a4abd2ac4b2e",
+            "mapping-na:ecb08f8c9b63",
+            "mapping-na:f672cdf9ccee",
+            "mapping:139c860aedd1",
+            "mapping:3bc7ab1659b6",
+            "mapping:55c723ada991",
+            "mapping:63a3f72241a6",
+            "mapping:837e17cf3464",
+            "mapping:837e17cf3464~2",
+            "mapping:c279d3ddd6e0"
+          ],
+          "stageGaps": [],
+          "caseId": "negative:description-tag-group-second-language-max",
+          "sourceIds": [
+            "/pp/brand/tag/description#action-1#primary-1#field-58"
+          ],
+          "sop": {
+            "action": "negative",
+            "scenario": "max-length",
+            "seedMode": "none",
+            "verifyModes": [
+              "ui"
+            ],
+            "cleanupMode": "none"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+            "testTitle": "描述标签组名称第二语言应允许十字符并截断第十一字符",
+            "rerunGrep": "描述标签组名称第二语言应允许十字符并截断第十一字符"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:negative:description-tag-second-language-max",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://negative:description-tag-second-language-max",
+            "locator": "描述标签名称第二语言应允许五十字符并截断第五十一字符"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/description",
+        "entity": "描述标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:13"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:e2cf16e67e4c"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/description#control-1",
+            "/pp/brand/tag/description#control-2",
+            "/pp/brand/tag/description#control-3",
+            "/pp/brand/tag/description#control-4",
+            "/pp/brand/tag/description#control-5",
+            "/pp/brand/tag/description#control-6"
+          ],
+          "apiMappingIds": [
+            "mapping-na:0245de9c5d83",
+            "mapping-na:08f0d5e2a511",
+            "mapping-na:0a8eccf83b7a",
+            "mapping-na:367d84d327c6",
+            "mapping-na:6419d4d08a96",
+            "mapping-na:792f4d49037b",
+            "mapping-na:7dcc42e47101",
+            "mapping-na:7e99ea44876b",
+            "mapping-na:8410c3f00247",
+            "mapping-na:9b08504f29b0",
+            "mapping-na:a4abd2ac4b2e",
+            "mapping-na:ecb08f8c9b63",
+            "mapping-na:f672cdf9ccee",
+            "mapping:139c860aedd1",
+            "mapping:3bc7ab1659b6",
+            "mapping:55c723ada991",
+            "mapping:63a3f72241a6",
+            "mapping:837e17cf3464",
+            "mapping:837e17cf3464~2",
+            "mapping:c279d3ddd6e0"
+          ],
+          "stageGaps": [],
+          "caseId": "negative:description-tag-second-language-max",
+          "sourceIds": [
+            "/pp/brand/tag/description#action-1#primary-1#field-56"
+          ],
+          "sop": {
+            "action": "negative",
+            "scenario": "max-length",
+            "seedMode": "none",
+            "verifyModes": [
+              "ui"
+            ],
+            "cleanupMode": "none"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+            "testTitle": "描述标签名称第二语言应允许五十字符并截断第五十一字符",
+            "rerunGrep": "描述标签名称第二语言应允许五十字符并截断第五十一字符"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:negative:statistic-tag-group-second-language-max",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://negative:statistic-tag-group-second-language-max",
+            "locator": "统计标签组名称第二语言应允许十字符并截断第十一字符"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/statistic",
+        "entity": "统计标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:15"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:a37130eff6c2"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/statistic#control-1",
+            "/pp/brand/tag/statistic#control-2",
+            "/pp/brand/tag/statistic#control-3",
+            "/pp/brand/tag/statistic#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:046d03bd36b2",
+            "mapping-na:2cbd2d7491b8",
+            "mapping-na:40d0d6a6d640",
+            "mapping-na:9e1741ef5bcc",
+            "mapping-na:b21cfb57c7e1",
+            "mapping-na:d5321b8505e0",
+            "mapping-na:d5896f918cfb",
+            "mapping-na:e959f94fbc9b",
+            "mapping-na:ed4e4f735e46",
+            "mapping-na:fc3331566975",
+            "mapping:4de3c285d35d",
+            "mapping:8beab0f9c0dd"
+          ],
+          "stageGaps": [],
+          "caseId": "negative:statistic-tag-group-second-language-max",
+          "sourceIds": [
+            "/pp/brand/tag/statistic#action-1#primary-1#field-37"
+          ],
+          "sop": {
+            "action": "negative",
+            "scenario": "max-length",
+            "seedMode": "none",
+            "verifyModes": [
+              "ui"
+            ],
+            "cleanupMode": "none"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+            "testTitle": "统计标签组名称第二语言应允许十字符并截断第十一字符",
+            "rerunGrep": "统计标签组名称第二语言应允许十字符并截断第十一字符"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:negative:statistic-tag-second-language-max",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://negative:statistic-tag-second-language-max",
+            "locator": "统计标签名称第二语言应允许五十字符并截断第五十一字符"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/pp/brand/tag/statistic",
+        "entity": "统计标签",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:15"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-BR追溯.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理.xmind",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理PRD.md",
+            "merchant-center:/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md"
+          ],
+          "routeIds": [
+            "route:a37130eff6c2"
+          ],
+          "functionIds": [
+            "/pp/brand/tag/statistic#control-1",
+            "/pp/brand/tag/statistic#control-2",
+            "/pp/brand/tag/statistic#control-3",
+            "/pp/brand/tag/statistic#control-4"
+          ],
+          "apiMappingIds": [
+            "mapping-na:046d03bd36b2",
+            "mapping-na:2cbd2d7491b8",
+            "mapping-na:40d0d6a6d640",
+            "mapping-na:9e1741ef5bcc",
+            "mapping-na:b21cfb57c7e1",
+            "mapping-na:d5321b8505e0",
+            "mapping-na:d5896f918cfb",
+            "mapping-na:e959f94fbc9b",
+            "mapping-na:ed4e4f735e46",
+            "mapping-na:fc3331566975",
+            "mapping:4de3c285d35d",
+            "mapping:8beab0f9c0dd"
+          ],
+          "stageGaps": [],
+          "caseId": "negative:statistic-tag-second-language-max",
+          "sourceIds": [
+            "/pp/brand/tag/statistic#action-1#primary-1#field-35"
+          ],
+          "sop": {
+            "action": "negative",
+            "scenario": "max-length",
+            "seedMode": "none",
+            "verifyModes": [
+              "ui"
+            ],
+            "cleanupMode": "none"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-negative-sop.spec.ts",
+            "testTitle": "统计标签名称第二语言应允许五十字符并截断第五十一字符",
+            "rerunGrep": "统计标签名称第二语言应允许五十字符并截断第五十一字符"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

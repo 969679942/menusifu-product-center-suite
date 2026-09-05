@@ -1,0 +1,504 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-combo-mega-runtime-acceptance",
+  "generatedAt": "2026-08-05T04:30:00.000Z",
+  "status": "accepted-with-dispositions",
+  "runId": "AUTO_AUDIT_GREEN_COMBO_MEGA_20260805_01",
+  "batchId": "GREEN-COMBO-MEGA",
+  "source": {
+    "reportPath": "output/audit/product-center-item-green-combo-mega-runtime-AUTO_AUDIT_GREEN_COMBO_MEGA_20260805_01.json",
+    "reportSha256": "dbc3e987ddb91ec0f23c57750a4bf4ab10f3c7203eaaeb8aee2c23312f05a820"
+  },
+  "summary": {
+    "total": 28,
+    "runtimeEvidenceAccepted": 28,
+    "generationPromotable": 10,
+    "canonicalRepairRequired": 16,
+    "environmentAdapterRequired": 2,
+    "humanReviewRequired": 0,
+    "executorErrors": 0,
+    "mutationIntents": 12,
+    "ledgerResidueVerified": 39
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-PKG-011",
+    "TC-ITEM-PKG-018",
+    "TC-ITEM-PKG-029",
+    "TC-ITEM-PKG-031",
+    "TC-ITEM-PKG-034",
+    "TC-ITEM-PKG-049",
+    "TC-ITEM-PKG-055",
+    "TC-ITEM-PKG-058",
+    "TC-ITEM-PKG-061",
+    "TC-ITEM-PKG-062"
+  ],
+  "canonicalConflictCaseIds": [
+    "TC-ITEM-PKG-005",
+    "TC-ITEM-PKG-012",
+    "TC-ITEM-PKG-021",
+    "TC-ITEM-PKG-022",
+    "TC-ITEM-PKG-023",
+    "TC-ITEM-PKG-027",
+    "TC-ITEM-PKG-030",
+    "TC-ITEM-PKG-033",
+    "TC-ITEM-PKG-050",
+    "TC-ITEM-PKG-052",
+    "TC-ITEM-PKG-053",
+    "TC-ITEM-PKG-063",
+    "TC-ITEM-PKG-064",
+    "TC-ITEM-PKG-065",
+    "TC-ITEM-PKG-067",
+    "TC-ITEM-PKG-068"
+  ],
+  "environmentBlockedCaseIds": [
+    "TC-ITEM-PKG-028",
+    "TC-ITEM-PKG-032"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-PKG-005": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "detailImageUpload": 1,
+        "descriptionLabels": 1,
+        "badges": 1,
+        "stats": 1,
+        "ingredientInfo": 0
+      }
+    },
+    "TC-ITEM-PKG-058": {
+      "verdict": "accepted",
+      "evidence": {
+        "dialogCount": 1,
+        "groupNameInputCount": 1,
+        "altNameInputCount": 1,
+        "selectionQuantityInputCount": 1,
+        "mergeSwitchCount": 1,
+        "repeatSwitchCount": 1,
+        "itemSearchInputCount": 1,
+        "categoryFilterCount": 3
+      }
+    },
+    "TC-ITEM-PKG-068": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "firstImage": {
+          "cardCount": 0,
+          "sources": [],
+          "loadingIndicatorCount": 0,
+          "terminalState": "missing-preview",
+          "responseStatus": 200,
+          "responseSummary": {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GCM_A_990FF59604\",\"imagePath\":\"img/item/brand-000407/2026/8/5/874e889c-7a91-4b40-adb5-c803ea881b47\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/874e889c-7a91-4b40-adb5-c803ea881b47\"}",
+            "visibleDialogTexts": []
+          }
+        },
+        "secondImage": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "inputCountBefore": 1,
+          "inputCountAfter": 1,
+          "requestObserved": true,
+          "responseStatus": 200
+        },
+        "finalMainImageCount": 0
+      }
+    },
+    "TC-ITEM-PKG-023": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "fields": {
+          "description": {
+            "count": 0,
+            "visible": false
+          },
+          "posName": {
+            "count": 0,
+            "visible": false
+          },
+          "kitchenName": {
+            "count": 0,
+            "visible": false
+          },
+          "mnemonicCode": {
+            "count": 0,
+            "visible": false
+          }
+        },
+        "canonicalExpected": "套餐商品创建页存在助记码并支持超过 20 字符的提交校验。",
+        "observed": "展开高级设置后未展示助记码输入框。"
+      }
+    },
+    "TC-ITEM-PKG-027": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "fields": {
+          "description": {
+            "count": 0,
+            "visible": false
+          },
+          "posName": {
+            "count": 0,
+            "visible": false
+          },
+          "kitchenName": {
+            "count": 0,
+            "visible": false
+          },
+          "mnemonicCode": {
+            "count": 0,
+            "visible": false
+          }
+        },
+        "canonicalExpected": "套餐商品创建页描述输入达到 500 字符后阻止第 501 字符。",
+        "observed": "展开高级设置后未展示描述输入框。"
+      }
+    },
+    "TC-ITEM-PKG-028": {
+      "verdict": "environment-blocked",
+      "evidence": {
+        "initialCapacity": {
+          "cardCount": 0,
+          "listChildCount": 1,
+          "uploadControlCount": 1,
+          "uploadControlVisible": false,
+          "childClassNames": [
+            "uploadButton___E3bNX"
+          ]
+        },
+        "requiredFixture": "approved-bulk-detail-image-upload-adapter",
+        "blockReason": "逐张严格等待 10 次上传在 QA 环境产生不可接受长尾；需专用批量上传适配器后再验证保存与第 11 张阻断。"
+      }
+    },
+    "TC-ITEM-PKG-011": {
+      "verdict": "accepted",
+      "evidence": {
+        "itemId": 261419,
+        "categorySelected": false,
+        "price": 10
+      }
+    },
+    "TC-ITEM-PKG-012": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "itemId": 261420,
+        "categoryId": 250724,
+        "selectedPath": "AUTO_AUDIT_GCM_CATEGORY_990FF59604(AUTO_AUDIT combo category)",
+        "persistedPath": ""
+      }
+    },
+    "TC-ITEM-PKG-018": {
+      "verdict": "accepted",
+      "evidence": {
+        "itemId": 261421,
+        "price": 0
+      }
+    },
+    "TC-ITEM-PKG-033": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "available": false,
+        "dialogTexts": [],
+        "actionTexts": [],
+        "candidateImageCount": 0,
+        "selectionControlCount": 0,
+        "beforeSources": [],
+        "afterSources": [],
+        "selected": false
+      }
+    },
+    "TC-ITEM-PKG-067": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "itemId": 261422,
+        "upload": {
+          "cardCount": 0,
+          "sources": [],
+          "loadingIndicatorCount": 0,
+          "terminalState": "missing-preview",
+          "responseStatus": 200,
+          "responseSummary": {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GCM_A_990FF59604\",\"imagePath\":\"img/item/brand-000407/2026/8/5/f969e54c-c0db-448d-a81f-39b60cf8d480\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/5/f969e54c-c0db-448d-a81f-39b60cf8d480\"}",
+            "visibleDialogTexts": []
+          }
+        },
+        "persistedImageCount": 0
+      }
+    },
+    "TC-ITEM-PKG-021": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "requestedLength": 139,
+        "inputLength": 100,
+        "inputValue": "AUTO_AUDIT_GCM_NAME_990FF59604  连  空格  Test01@#😀XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "mutationAttempted": false,
+        "canonicalExpected": "保存后自动格式化为不超过 100 字符。"
+      }
+    },
+    "TC-ITEM-PKG-022": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "fieldCapability": {
+          "description": {
+            "count": 0,
+            "visible": false
+          },
+          "posName": {
+            "count": 0,
+            "visible": false
+          },
+          "kitchenName": {
+            "count": 0,
+            "visible": false
+          },
+          "mnemonicCode": {
+            "count": 0,
+            "visible": false
+          }
+        },
+        "canonicalExpected": "套餐商品创建页支持 POS 名称和送厨名称保存格式化。",
+        "observed": "展开高级设置后缺少 POS 名称或送厨名称输入框。"
+      }
+    },
+    "TC-ITEM-PKG-049": {
+      "verdict": "accepted",
+      "evidence": {
+        "fixedGroupName": "AUTO_AUDIT_COMBO_1785931547860101",
+        "customGroupName": "AUTO_AUDIT_COMBO_1785931547860101_MEGA_OPTIONAL",
+        "fixedCount": 1,
+        "customCount": 1,
+        "boundary": {
+          "route": "/pp/brand/edit/combo",
+          "cardCount": 1,
+          "customTypeCount": 1,
+          "groupEditButtonCount": 1,
+          "groupDeleteButtonCount": 1,
+          "repeatRuleCount": 1,
+          "selectionQuantityRuleCount": 1,
+          "productRowCount": 1,
+          "productRowButtonCount": 0,
+          "productRowDeleteIconCount": 0,
+          "cardText": "AUTO_AUDIT_COMBO_1785931547860101_MEGA_OPTIONAL\nCustom Combo\nEdit\nDelete\nAllow duplicate item selection within group\nSelection Quantity1items\nItem Name\tSpecification\n\tMin Qty\tMax Qty\tDefault\n\t\nItem Name\n\t\nSpecification\n\t\nMin Qty\n\t\nMax Qty\n\t\nDefault\n\n\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101_SECOND\n\t\t0\t99\tNo"
+        }
+      }
+    },
+    "TC-ITEM-PKG-050": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "boundary": {
+          "route": "/pp/brand/edit/combo",
+          "cardCount": 1,
+          "customTypeCount": 1,
+          "groupEditButtonCount": 1,
+          "groupDeleteButtonCount": 1,
+          "repeatRuleCount": 1,
+          "selectionQuantityRuleCount": 1,
+          "productRowCount": 1,
+          "productRowButtonCount": 0,
+          "productRowDeleteIconCount": 0,
+          "cardText": "AUTO_AUDIT_COMBO_1785931547860101_MEGA_OPTIONAL\nCustom Combo\nEdit\nDelete\nAllow duplicate item selection within group\nSelection Quantity1items\nItem Name\tSpecification\n\tMin Qty\tMax Qty\tDefault\n\t\nItem Name\n\t\nSpecification\n\t\nMin Qty\n\t\nMax Qty\n\t\nDefault\n\n\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101_SECOND\n\t\t0\t99\tNo"
+        },
+        "canonicalExpected": "移除全部组内商品并保存后空套餐项不展示。"
+      }
+    },
+    "TC-ITEM-PKG-065": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "boundary": {
+          "route": "/pp/brand/edit/combo",
+          "cardCount": 1,
+          "customTypeCount": 1,
+          "groupEditButtonCount": 1,
+          "groupDeleteButtonCount": 1,
+          "repeatRuleCount": 1,
+          "selectionQuantityRuleCount": 1,
+          "productRowCount": 1,
+          "productRowButtonCount": 0,
+          "productRowDeleteIconCount": 0,
+          "cardText": "AUTO_AUDIT_COMBO_1785931547860101_MEGA_OPTIONAL\nCustom Combo\nEdit\nDelete\nAllow duplicate item selection within group\nSelection Quantity1items\nItem Name\tSpecification\n\tMin Qty\tMax Qty\tDefault\n\t\nItem Name\n\t\nSpecification\n\t\nMin Qty\n\t\nMax Qty\n\t\nDefault\n\n\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101\nAUTO_AUDIT_COMBO_PRODUCT_1785931547860101_SECOND\n\t\t0\t99\tNo"
+        },
+        "canonicalExpected": "不允许单独新增子项，但允许移除已引用子项。"
+      }
+    },
+    "TC-ITEM-PKG-029": {
+      "verdict": "accepted",
+      "evidence": {
+        "selectedDescription": {
+          "maximumText": "Maximum 5",
+          "attemptedCount": 2,
+          "checkedNames": [
+            "AUTO_AUDIT_DESCRIPTION_TAG_1785931588360102",
+            "AUTO_AUDIT_DESCRIPTION_TAG_1785931589623104"
+          ],
+          "blockedNames": [],
+          "selectedNames": [
+            "AUTO_AUDIT_DESCRIPTION_TAG_1785931588360102",
+            "AUTO_AUDIT_DESCRIPTION_TAG_1785931589623104"
+          ]
+        },
+        "persistedDescription": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_1785931588360102",
+          "AUTO_AUDIT_DESCRIPTION_TAG_1785931589623104"
+        ],
+        "responseStatus": 200
+      }
+    },
+    "TC-ITEM-PKG-030": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "selectedCorner": {
+          "name": "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785931593879110_1",
+          "selected": true
+        },
+        "persistedCorner": [],
+        "responseStatus": 200
+      }
+    },
+    "TC-ITEM-PKG-031": {
+      "verdict": "accepted",
+      "evidence": {
+        "selectedStatistics": [
+          "AUTO_AUDIT_STAT_TAG_1785931590887106",
+          "AUTO_AUDIT_STAT_TAG_1785931592146108"
+        ],
+        "persistedStatistics": [
+          "AUTO_AUDIT_STAT_TAG_1785931590887106",
+          "AUTO_AUDIT_STAT_TAG_1785931592146108"
+        ],
+        "responseStatus": 200
+      }
+    },
+    "TC-ITEM-PKG-032": {
+      "verdict": "environment-blocked",
+      "evidence": {
+        "capability": {
+          "detailImageUpload": 1,
+          "descriptionLabels": 1,
+          "badges": 1,
+          "stats": 1,
+          "ingredientInfo": 0
+        },
+        "controlledIngredientAvailable": true,
+        "controlledAllergenAvailable": false,
+        "controlledNutritionAvailable": false,
+        "blockReason": "过敏原和营养成分缺少可控 AUTO_AUDIT 创建、定位与清理适配器。"
+      }
+    },
+    "TC-ITEM-PKG-052": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "group": "AUTO_AUDIT_W6_FLAVOR_GROUP_1785931638442111",
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        }
+      }
+    },
+    "TC-ITEM-PKG-063": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "group": "AUTO_AUDIT_W6_METHOD_GROUP_1785931638442111",
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        }
+      }
+    },
+    "TC-ITEM-PKG-064": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "group": "AUTO_AUDIT_W6_ADDON_GROUP_1785931638442111",
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        }
+      }
+    },
+    "TC-ITEM-PKG-053": {
+      "verdict": "canonical-conflict",
+      "evidence": {
+        "taste": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "method": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "addon": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "canonicalExpected": "套餐商品属性区域支持配置互斥规则。"
+      }
+    },
+    "TC-ITEM-PKG-034": {
+      "verdict": "accepted",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GCM_BASE_990FF59604",
+        "type": "Combo",
+        "status": "Enabled",
+        "totalText": "Total 1 item",
+        "currentPage": 1
+      }
+    },
+    "TC-ITEM-PKG-062": {
+      "verdict": "accepted",
+      "evidence": {
+        "responseStatus": 200,
+        "requestItemId": 31037,
+        "uiStatus": "Disabled",
+        "messages": [
+          "Successfully Disabled and Hidden from Menu"
+        ]
+      }
+    },
+    "TC-ITEM-PKG-061": {
+      "verdict": "accepted",
+      "evidence": {
+        "responseStatus": 200,
+        "requestItemId": 31037,
+        "uiStatus": "Enabled",
+        "messages": [
+          "Successfully Enabled"
+        ]
+      }
+    },
+    "TC-ITEM-PKG-055": {
+      "verdict": "accepted",
+      "evidence": {
+        "identity": "AUTO_AUDIT_GCM_BASE_990FF59604",
+        "confirmationText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_GCM_BASE_990FF59604\"?\nCancel\nDelete"
+      }
+    }
+  },
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "evidenceInheritanceAllowed": false,
+    "nonIdempotentReplayPerformedForDisposition": false,
+    "canonicalRepairBeforeGenerationRequired": true,
+    "blockedPromotionForbidden": true,
+    "humanCaseReviewRequired": false,
+    "uiAndApiResidueVerificationRequired": true
+  },
+  "fingerprint": "dd5508cd05e60dbd8e03d8b32a69f087e2d2ffb0a8bc34a81c226684eeb87579"
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078"
+  ],
+  "supersedesAttemptIds": [
+    "04d2e15a7ac906c4"
+  ],
+  "rootCause": "TC-ITEM-PKG-078 的加料商品创建步骤使用了仅匹配 /ops-brand/brand-items/addon 的固定响应路径；商品中心现有加料保存契约允许具体商品类型路径变化，导致保存已成功但标准响应收据监听超时。",
+  "correctiveAction": "将该步骤的响应捕获谓词收敛到商品中心已验证的 /ops-brand/brand-items/ 写入边界，排除 pageQuery 与 brand-image-files，并保留实际请求方法、路径、状态和 API/UI 清理证据；重新生成脚本并按单用例门禁重验。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-item-source-governed-20260902T071003Z.json",
+    "Merchant Center UITest/test-results/source-governed/20260902T071003Z/item/generated-product-center-i-5209a--商品自动化入口-套餐商品与加料商品允许同名并同时保留-chrome/error-context.md",
+    "Merchant Center UITest/flows/product-center/item-216/package-item-216.flow.ts",
+    "Merchant Center UITest/flows/product-center/item-216/addon-item-216.flow.ts"
+  ]
+}

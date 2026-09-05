@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-formal-rule-bindings",
+  "authorityPolicy": "仅允许经人工确认且具有当前正式来源的规则进入；旧 AIQA 汇总不得写入",
+  "bindings": [
+    {
+      "bindingId": "formal-binding:BR-ITEM-CATEGORY-OPTIONAL",
+      "ruleId": "BR-ITEM-CATEGORY-OPTIONAL",
+      "module": "item",
+      "statement": "商品分类非必填：创建或编辑时可以不选择分类；编辑时不修改分类则保留原分类，主动清空分类可以保存为空；保存后列表可按商品分类过滤，重新进入编辑详情应回显最后一次保存结果",
+      "confirmationId": "product-confirmation:BR-ITEM-CATEGORY-OPTIONAL",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item"],
+        "operationKeys": ["item.create", "item.update", "item.read"],
+        "channels": ["ui", "api"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-CATEGORY-OPTIONAL",
+        "timeEvidenceStatus": "partial"
+      }
+    },
+    {
+      "bindingId": "formal-binding:BR-ITEM-CATEGORY-LEAF-SELECTION",
+      "ruleId": "BR-ITEM-CATEGORY-LEAF-SELECTION",
+      "module": "item",
+      "statement": "商品分类非必填；创建或编辑时若选择的一级分类存在二级分类，必须选择到叶子分类；编辑可以重新选择一级/二级分类，但不能把有子分类的一级分类保存为最终分类（即不能从叶子分类改回其父级一级分类）；保存后列表可按分类过滤，重新进入编辑详情应回显最终分类",
+      "confirmationId": "product-confirmation:BR-ITEM-CATEGORY-LEAF-SELECTION",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item"],
+        "operationKeys": ["item.create", "item.update", "item.read"],
+        "channels": ["ui", "api"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-CATEGORY-LEAF-SELECTION",
+        "timeEvidenceStatus": "partial"
+      }
+    },
+    {
+      "bindingId": "formal-binding:BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE",
+      "ruleId": "BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE",
+      "module": "item",
+      "statement": "一级分类下无二级分类时，可以直接选择该一级分类并成功创建商品；编辑时一级分类正确回显，可修改或清空，保存后分类持久化且商品状态保持原状态",
+      "confirmationId": "product-confirmation:BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item"],
+        "operationKeys": ["item.create", "item.update", "item.read"],
+        "channels": ["ui", "api"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE",
+        "timeEvidenceStatus": "partial"
+      }
+    },
+    {
+      "bindingId": "formal-binding:BR-ITEM-COMBO-GROUP-REQUIRED",
+      "ruleId": "BR-ITEM-COMBO-GROUP-REQUIRED",
+      "module": "item",
+      "statement": "创建套餐商品未添加任何套餐分组时，点击保存或保存并新建均不可提交并提示 BITEM-6003：套餐中未找到区块；编辑套餐商品删除全部套餐分组后点击保存同样失败并提示 BITEM-6003，编辑页不提供保存并新建，返回后原商品数据保持不变",
+      "confirmationId": "product-confirmation:BR-ITEM-COMBO-GROUP-REQUIRED",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item", "combo-group"],
+        "operationKeys": ["item.create", "item.update", "item.read"],
+        "channels": ["ui", "api"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-COMBO-GROUP-REQUIRED",
+        "timeEvidenceStatus": "partial"
+      }
+    },
+    {
+      "bindingId": "formal-binding:BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY",
+      "ruleId": "BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY",
+      "module": "item",
+      "statement": "套餐商品可选搭配组编辑页展示重复选择和选择数量规则；右上角只提供组级编辑、删除入口，商品行展示名称、规格、最小/最大数量和默认选中状态且不提供单项移除；组级编辑或删除点击确定后同步关联套餐商品，品牌侧须重新下发菜单或点击“同步到门店”，所有门店数据仅在菜单重新下发/同步到门店后更新，终端再由“门店商品管理”同步，禁止从品牌商品管理直接同步终端；删除需确认，取消保持原数据，确认删除后移除该组并更新组卡片、商品行、套餐详情和列表，清理通过接口验证",
+      "confirmationId": "product-confirmation:BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item", "combo-group", "combo-item", "store-item", "terminal-item"],
+        "operationKeys": ["item.read", "item.update", "item.delete", "menu.publish", "store-item.sync", "terminal.sync"],
+        "channels": ["ui", "api", "downstream"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY",
+        "timeEvidenceStatus": "partial"
+      }
+    },
+    {
+      "bindingId": "formal-binding:BR-ITEM-010",
+      "ruleId": "BR-ITEM-010",
+      "module": "item",
+      "statement": "同一商户内标准商品与套餐商品共享名称唯一性空间，彼此及各自同类型创建或编辑同名均失败并提示 BITEM-7014：商品名称与其它类型商品名称重复；加料商品使用独立名称空间，标准商品或套餐商品在创建及编辑改名时均可与加料商品同名，但加料商品之间创建或编辑同名均失败；分类不参与判重；同类型无重复时允许改名，编辑失败原名称保持不变",
+      "confirmationId": "product-confirmation:BR-ITEM-010",
+      "effectiveVersion": "current-production-as-of-2026-09-02",
+      "scope": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "product-center-item",
+        "entityTypes": ["item"],
+        "operationKeys": ["item.create", "item.update", "item.read"],
+        "channels": ["ui", "api"]
+      },
+      "governance": {
+        "changedAt": "2026-09-02T00:00:00.000Z",
+        "effectiveFrom": "current-production-as-of-2026-09-02",
+        "changeReason": "direct-user-confirmation:BR-ITEM-010",
+        "timeEvidenceStatus": "partial",
+        "effectiveContextStatus": "explicit"
+      }
+    }
+  ]
+}

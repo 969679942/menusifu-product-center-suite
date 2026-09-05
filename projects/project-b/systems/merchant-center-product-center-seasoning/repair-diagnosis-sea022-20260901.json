@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-022"
+  ],
+  "rootCause": "旧运行在当时页面观察到第 51 行被加入且没有上限提示，因此被分类为产品失败；金将军于 2026-09-01 提供当前页面证据并确认现版本存在精确限制提示 BITEM-11072：一个调味组最大仅能添加50个调味。旧结果属于历史版本事实，不能代替当前用例指纹的重验。当前脚本还只断言页面行数和提示，缺少未发送保存请求及服务端仍为 50 项的证据。",
+  "correctiveAction": "保留现有 50 项可清理夹具和精确中文提示断言；新增点击添加期间的调味写请求计数，并在操作后按服务端 ID 回读调味详情，要求页面保持 50 行、精确提示出现、写请求为 0、服务端调味项仍为 50。静态合同和类型检查通过后，仅重验 TC-FLV-SEA-022。",
+  "evidenceRefs": [
+    "contracts/product-center/reviews/product-center-rule-confirmations-20260901.json",
+    "D:/Menusifu/Merchant Center/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788124954744-run-single-store-000407/diagnostics.json",
+    "output/system-test/merchant-center-product-center-seasoning/repair-attempt-ledger.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ]
+}

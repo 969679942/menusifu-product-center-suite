@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-012",
+    "TC-FLV-TPL-013"
+  ],
+  "rootCause": "模板选择弹窗确认后旧实现没有等待弹窗遮罩完全隐藏，并使用 force 点击保存；TPL-013 页面字段与已选调味均完整、按钮可用，但点击及 Enter 均未产生模板业务请求，属于提交时序自动化缺口。",
+  "correctiveAction": "等待选择弹窗进入 hidden、保存按钮可用后执行正常点击；保留 POST 模板请求、服务端回读、列表可见和清理断言。TPL-012 与 TPL-013 共享该正向保存路径，因此一并定向重验。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788559392984-run-multi-store-000420/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788559392984-run-multi-store-000420/playwright-business/system-新增调味模板填写全部字段保存成功-system/trace.zip",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ]
+}

@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "create:category",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类应通过 Recipe 完成 UI 创建并验证双终态",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:create:category"
+      ],
+      "preconditions": [
+        "通过 API 准备审计数据与依赖"
+      ],
+      "actions": [
+        "通过 UI 执行创建操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过 API 清理审计数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:create:category:precondition:1",
+          "kind": "precondition",
+          "text": "通过 API 准备审计数据与依赖",
+          "sourceRefs": [
+            "recipe:create:category:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:create:category:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行创建操作",
+          "sourceRefs": [
+            "recipe:create:category:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:create:category:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:create:category:claim:3"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:route:route:b0de43a7ecd9",
+        "coverage:control:category-create"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "coreCreate.execute"
+        ],
+        "mutationMode": "ui-create",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.prepareCreate"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "delete:category",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类应通过 Recipe 完成 UI 删除并验证终态",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:delete:category"
+      ],
+      "preconditions": [
+        "通过 API 准备审计数据与依赖"
+      ],
+      "actions": [
+        "通过 UI 执行删除操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过 API 清理审计数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:delete:category:precondition:1",
+          "kind": "precondition",
+          "text": "通过 API 准备审计数据与依赖",
+          "sourceRefs": [
+            "recipe:delete:category:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:delete:category:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行删除操作",
+          "sourceRefs": [
+            "recipe:delete:category:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:delete:category:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:delete:category:claim:3"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-expand",
+        "coverage:control:category-row-actions",
+        "coverage:dialog:category-row-actions"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "category.open",
+          "category.deleteIdentity"
+        ],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCore"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "edit:category",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类应通过 Recipe 完成 UI 编辑并验证终态",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:edit:category"
+      ],
+      "preconditions": [
+        "通过 API 准备审计数据与依赖"
+      ],
+      "actions": [
+        "通过 UI 执行编辑操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": true,
+      "cleanup": [
+        "通过 API 清理审计数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:edit:category:precondition:1",
+          "kind": "precondition",
+          "text": "通过 API 准备审计数据与依赖",
+          "sourceRefs": [
+            "recipe:edit:category:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:edit:category:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行编辑操作",
+          "sourceRefs": [
+            "recipe:edit:category:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:edit:category:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:edit:category:claim:3"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-expand",
+        "coverage:control:category-row-actions",
+        "coverage:dialog:category-row-actions"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "category.open",
+          "category.editIdentity"
+        ],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCore"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "negative:category-cancel-delete",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "取消商品分类删除应保留原记录且不发送删除请求",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:negative:category-cancel-delete"
+      ],
+      "preconditions": [
+        "通过 API 准备审计数据与依赖"
+      ],
+      "actions": [
+        "通过 UI 执行反向校验操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": false,
+      "cleanup": [
+        "通过 API 清理审计数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:negative:category-cancel-delete:precondition:1",
+          "kind": "precondition",
+          "text": "通过 API 准备审计数据与依赖",
+          "sourceRefs": [
+            "recipe:negative:category-cancel-delete:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:negative:category-cancel-delete:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行反向校验操作",
+          "sourceRefs": [
+            "recipe:negative:category-cancel-delete:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:negative:category-cancel-delete:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:negative:category-cancel-delete:claim:3"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-expand",
+        "coverage:control:category-row-actions",
+        "coverage:dialog:category-row-actions"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "negative.execute"
+        ],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCore"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "TC-ITEM-STD-035",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "priority": "P1",
+      "sourceRefs": [
+        "recipe:TC-ITEM-STD-035"
+      ],
+      "preconditions": [
+        "通过 API 准备审计数据与依赖"
+      ],
+      "actions": [
+        "通过 UI 执行反向校验操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": false,
+      "cleanup": [
+        "通过 API 清理审计数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:TC-ITEM-STD-035:precondition:1",
+          "kind": "precondition",
+          "text": "通过 API 准备审计数据与依赖",
+          "sourceRefs": [
+            "recipe:TC-ITEM-STD-035:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-035:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行反向校验操作",
+          "sourceRefs": [
+            "recipe:TC-ITEM-STD-035:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:TC-ITEM-STD-035:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:TC-ITEM-STD-035:claim:3"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-add-child"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "category.attemptAddChildBlockedByProduct"
+        ],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCategoryWithProduct"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "negative:category-max-length",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类名称应精确限制为一百字符",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:negative:category-max-length"
+      ],
+      "preconditions": [],
+      "actions": [
+        "通过 UI 执行边界校验操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:negative:category-max-length:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行边界校验操作",
+          "sourceRefs": [
+            "recipe:negative:category-max-length:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:negative:category-max-length:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:negative:category-max-length:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-create"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "negative.execute"
+        ],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    },
+    {
+      "id": "negative:category-required",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类空提交应保持保存禁用且不发送创建请求",
+      "priority": "P0",
+      "sourceRefs": [
+        "recipe:negative:category-required"
+      ],
+      "preconditions": [],
+      "actions": [
+        "通过 UI 执行反向校验操作"
+      ],
+      "expectedResults": [
+        "验证约定的 API 或 UI 终态"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:negative:category-required:action:1",
+          "kind": "action",
+          "text": "通过 UI 执行反向校验操作",
+          "sourceRefs": [
+            "recipe:negative:category-required:claim:1"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:negative:category-required:expectation:1",
+          "kind": "expectation",
+          "text": "验证约定的 API 或 UI 终态",
+          "sourceRefs": [
+            "recipe:negative:category-required:claim:2"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-create",
+        "coverage:validation:validation:0e0354674598"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "negative.execute"
+        ],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    }
+  ]
+}

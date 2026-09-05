@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-041"
+  ],
+  "runId": "system-test-flow-1788558537418-run-single-store-000407",
+  "classification": "automation-gap",
+  "phase": "capability-ui-sort-submit",
+  "rootCause": "拖拽后弹窗 DOM 顺序发生变化并点击确定，但 trace 证明没有发出任何 global-modifier 业务写请求；等待预期 PUT 30 秒后超时。失败不是产品断言不匹配，且两个临时调味组均已通过 API/UI 清理为零。",
+  "correctiveAction": "在确认首次未发送任何业务请求且清理完成后，仅安全重放 TC-FLV-SEA-041。若再次出现同因，则停止重试并改造拖拽提交策略，要求实际 PUT 发出后才接受操作完成。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/diagnostics.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/playwright-business/system-调味组排序保存成功-system/trace.zip",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-flow-1788558537418-run-single-store-000407_TC-FLV-SEA-041.error.json"
+  ],
+  "residueVerification": {
+    "apiIdentityCounts": {
+      "AUTO_AUDIT_SEASONING_041_1788558777031_A": 0,
+      "AUTO_AUDIT_SEASONING_041_1788558777031_B": 0
+    },
+    "uiIdentityCounts": {
+      "AUTO_AUDIT_SEASONING_041_1788558777031_A": 0,
+      "AUTO_AUDIT_SEASONING_041_1788558777031_B": 0
+    }
+  },
+  "existingPassedCasesImpact": "unchanged",
+  "rerunScope": [
+    "TC-FLV-SEA-041"
+  ]
+}

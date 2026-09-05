@@ -1,0 +1,1010 @@
+{
+  "schemaVersion": "1.0.0",
+  "system": {
+    "systemId": "merchant-center-product-center-seasoning",
+    "displayName": "Merchant Center Product Center Seasoning",
+    "baseURL": "https://cc-fe.balamxqa.com",
+    "markerPrefix": "AUTO_AUDIT_MERCHANT_CENTER_PRODUCT_CENTER_SEASONING",
+    "executionContext": {
+      "environmentId": "balamxqa",
+      "locale": "zh-CN",
+      "roleId": "merchant-operator",
+      "tenantScope": "configured-merchant",
+      "featureFlagFingerprint": "2181cd3b05b2956a240f65673b6da2e3eac79a5e5d848968c8a52b12d1d717be"
+    },
+    "portabilityScope": {
+      "applicationId": "merchant-center",
+      "businessDomainId": "product-center-seasoning",
+      "authenticationFamilyId": "merchant-center-oauth-merchant-context",
+      "validationAuthority": "target-system"
+    }
+  },
+  "sources": {
+    "recipeCollectionPath": "systems/merchant-center-product-center-seasoning/recipes.json",
+    "recipeCollectionFingerprint": "a5263a98c19c6e89a383742bdbbee2f42925d80dbaec20adeabace561d10ca54",
+    "ruleLedgerPath": "systems/merchant-center-product-center-seasoning/rules.json",
+    "ruleLedgerFingerprint": "7ab34830ae126f531ce5ccd03c3e71730349c5f9920ca74c5bc585841493c7ec",
+    "adapterCatalogPath": "systems/merchant-center-product-center-seasoning/adapters.json",
+    "adapterCatalogFingerprint": "e18ccea61b6f575f6c7ab4c9fdaf29bef7e5a9ea5f2df4983f1604bb9d61f860"
+  },
+  "execution": {
+    "playwrightConfigPath": "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "audit": {
+      "specPath": "systems/merchant-center-product-center-seasoning/tests/audit.spec.ts",
+      "project": "audit",
+      "outputPath": "systems/merchant-center-product-center-seasoning/runtime-audit.json",
+      "trigger": "when-required",
+      "executionContextProfile": "single-store-000407"
+    },
+    "setupSpecPath": "systems/merchant-center-product-center-seasoning/tests/setup.spec.ts",
+    "setupProject": "setup",
+    "recoverySpecPath": "systems/merchant-center-product-center-seasoning/tests/recovery.spec.ts",
+    "recoveryProject": "recovery",
+    "recoveryAdapterId": "merchant-center.seasoning.recovery",
+    "preflightSpecPath": "systems/merchant-center-product-center-seasoning/tests/preflight.spec.ts",
+    "specPath": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "project": "system",
+    "workers": 2,
+    "retries": 0,
+    "authAdapterId": "merchant-center.seasoning.auth"
+  },
+  "dataProfiles": {
+    "seasoning-create-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-negative-read": {
+      "mutationMode": "none",
+      "requiredOperationKeys": [],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-template-create-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/modifier-template"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-template-edit-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:PUT /ops-brand/modifier-template/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-template-delete-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:DELETE /ops-brand/modifier-template/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-template-distribution-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/modifier-template",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-negative-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier",
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-search-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-negative-batch-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-batch-move-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/options/batch-move"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-sort-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:PUT /ops-brand/global-modifier/sort"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-edit-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:PUT /ops-brand/global-modifier/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-cancel-reversible": {
+      "mutationMode": "fixture-reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-fixture-only-reversible": {
+      "mutationMode": "fixture-reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-industry-import-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-delete-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:DELETE /ops-brand/global-modifier/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-distribution-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/modifier-template",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:DELETE /ops-poi/global-modifier/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-store-mutation-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/modifier-template",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/all",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:DELETE /ops-poi/global-modifier/{id}",
+        "brand-menu:DELETE /ops-poi/global-modifier/option/{optionId}",
+        "brand-menu:POST /ops-poi/global-modifier/batch-delete"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-single-store-replace-reversible": {
+      "mutationMode": "reversible",
+      "requireActionReadiness": true,
+      "seedAdapterId": "merchant-center.seasoning.seed-single-store-distribution",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/all",
+        "brand-menu:GET /ops-poi/global-modifier/list"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-store-delete-group-reversible": {
+      "mutationMode": "reversible",
+      "requireActionReadiness": true,
+      "seedAdapterId": "merchant-center.seasoning.seed-multi-store-distribution",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:DELETE /ops-poi/global-modifier/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-store-delete-option-reversible": {
+      "mutationMode": "reversible",
+      "requireActionReadiness": true,
+      "seedAdapterId": "merchant-center.seasoning.seed-multi-store-distribution",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:DELETE /ops-poi/global-modifier/option/{optionId}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-store-batch-delete-reversible": {
+      "mutationMode": "reversible",
+      "requireActionReadiness": true,
+      "seedAdapterId": "merchant-center.seasoning.seed-multi-store-distribution",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:POST /ops-poi/global-modifier/batch-delete"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-store-redeliver-reversible": {
+      "mutationMode": "reversible",
+      "requireActionReadiness": true,
+      "seedAdapterId": "merchant-center.seasoning.seed-multi-store-distribution",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch",
+        "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+        "brand-menu:GET /ops-poi/global-modifier/list",
+        "brand-menu:DELETE /ops-poi/global-modifier/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    "seasoning-template-name-reversible": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "merchant-center.seasoning.seed",
+      "cleanupAdapterId": "merchant-center.seasoning.cleanup",
+      "apiResidueAdapterId": "merchant-center.seasoning.api-zero-residue",
+      "uiResidueAdapterId": "merchant-center.seasoning.ui-zero-residue",
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/modifier-template",
+        "brand-menu:GET /ops-brand/modifier-template/page",
+        "brand-menu:DELETE /ops-brand/modifier-template/{id}"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    }
+  },
+  "cases": [
+    {
+      "caseId": "TC-FLV-REC-001",
+      "ruleId": "RULE-TC-FLV-REC-001",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-001",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-002",
+      "ruleId": "RULE-TC-FLV-REC-002",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-002",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-003",
+      "ruleId": "RULE-TC-FLV-REC-003",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-003",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-004",
+      "ruleId": "RULE-TC-FLV-REC-004",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-004",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-005",
+      "ruleId": "RULE-TC-FLV-REC-005",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-005",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-006",
+      "ruleId": "RULE-TC-FLV-REC-006",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-006",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-REC-007",
+      "ruleId": "RULE-TC-FLV-REC-007",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-REC-007",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-002",
+      "ruleId": "RULE-TC-FLV-SEA-002",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-002",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-003",
+      "ruleId": "RULE-TC-FLV-SEA-003",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-003",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-004",
+      "ruleId": "RULE-TC-FLV-SEA-004",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-004",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-005",
+      "ruleId": "RULE-TC-FLV-SEA-005",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-005",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-006",
+      "ruleId": "RULE-TC-FLV-SEA-006",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-006",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-007",
+      "ruleId": "RULE-TC-FLV-SEA-007",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-007",
+      "dataProfileId": "seasoning-search-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-008",
+      "ruleId": "RULE-TC-FLV-SEA-008",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-008",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-009",
+      "ruleId": "RULE-TC-FLV-SEA-009",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-009",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-010",
+      "ruleId": "RULE-TC-FLV-SEA-010",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-010",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-011",
+      "ruleId": "RULE-TC-FLV-SEA-011",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-011",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-012",
+      "ruleId": "RULE-TC-FLV-SEA-012",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-012",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-013",
+      "ruleId": "RULE-TC-FLV-SEA-013",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-013",
+      "dataProfileId": "seasoning-fixture-only-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-014",
+      "ruleId": "RULE-TC-FLV-SEA-014",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-014",
+      "dataProfileId": "seasoning-negative-batch-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-015",
+      "ruleId": "RULE-TC-FLV-SEA-015",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-015",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "ruleId": "RULE-TC-FLV-SEA-016",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-016",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-017",
+      "ruleId": "RULE-TC-FLV-SEA-017",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-017",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-018",
+      "ruleId": "RULE-TC-FLV-SEA-018",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-018",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-019",
+      "ruleId": "RULE-TC-FLV-SEA-019",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-019",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-020",
+      "ruleId": "RULE-TC-FLV-SEA-020",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-020",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-021",
+      "ruleId": "RULE-TC-FLV-SEA-021",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-021",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "ruleId": "RULE-TC-FLV-SEA-022",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-022",
+      "dataProfileId": "seasoning-fixture-only-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-023",
+      "ruleId": "RULE-TC-FLV-SEA-023",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-023",
+      "dataProfileId": "seasoning-industry-import-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-024",
+      "ruleId": "RULE-TC-FLV-SEA-024",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-024",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-025",
+      "ruleId": "RULE-TC-FLV-SEA-025",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-025",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-026",
+      "ruleId": "RULE-TC-FLV-SEA-026",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-026",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-027",
+      "ruleId": "RULE-TC-FLV-SEA-027",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-027",
+      "dataProfileId": "seasoning-edit-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-028",
+      "ruleId": "RULE-TC-FLV-SEA-028",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-028",
+      "dataProfileId": "seasoning-edit-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-029",
+      "ruleId": "RULE-TC-FLV-SEA-029",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-029",
+      "dataProfileId": "seasoning-delete-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-030",
+      "ruleId": "RULE-TC-FLV-SEA-030",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-030",
+      "dataProfileId": "seasoning-delete-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-031",
+      "ruleId": "RULE-TC-FLV-SEA-031",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-031",
+      "dataProfileId": "seasoning-delete-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-032",
+      "ruleId": "RULE-TC-FLV-SEA-032",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-032",
+      "dataProfileId": "seasoning-edit-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-033",
+      "ruleId": "RULE-TC-FLV-SEA-033",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-033",
+      "dataProfileId": "seasoning-edit-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-034",
+      "ruleId": "RULE-TC-FLV-SEA-034",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-034",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-035",
+      "ruleId": "RULE-TC-FLV-SEA-035",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-035",
+      "dataProfileId": "seasoning-cancel-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-036",
+      "ruleId": "RULE-TC-FLV-SEA-036",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-036",
+      "dataProfileId": "seasoning-cancel-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-037",
+      "ruleId": "RULE-TC-FLV-SEA-037",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-037",
+      "dataProfileId": "seasoning-batch-move-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-040",
+      "ruleId": "RULE-TC-FLV-SEA-040",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-040",
+      "dataProfileId": "seasoning-edit-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-041",
+      "ruleId": "RULE-TC-FLV-SEA-041",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-041",
+      "dataProfileId": "seasoning-sort-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-042",
+      "ruleId": "RULE-TC-FLV-SEA-042",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-042",
+      "dataProfileId": "seasoning-single-store-replace-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-043",
+      "ruleId": "RULE-TC-FLV-SEA-043",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-043",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-SEA-044",
+      "ruleId": "RULE-TC-FLV-SEA-044",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-044",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-045",
+      "ruleId": "RULE-TC-FLV-SEA-045",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-045",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "ruleId": "RULE-TC-FLV-SEA-046",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-046",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-TPL-001",
+      "ruleId": "RULE-TC-FLV-TPL-001",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-001",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-002",
+      "ruleId": "RULE-TC-FLV-TPL-002",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-002",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-003",
+      "ruleId": "RULE-TC-FLV-TPL-003",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-003",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-004",
+      "ruleId": "RULE-TC-FLV-TPL-004",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-004",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-005",
+      "ruleId": "RULE-TC-FLV-TPL-005",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-005",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-006",
+      "ruleId": "RULE-TC-FLV-TPL-006",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-006",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407"
+    },
+    {
+      "caseId": "TC-FLV-TPL-007",
+      "ruleId": "RULE-TC-FLV-TPL-007",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-007",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-008",
+      "ruleId": "RULE-TC-FLV-TPL-008",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-008",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-009",
+      "ruleId": "RULE-TC-FLV-TPL-009",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-009",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-010",
+      "ruleId": "RULE-TC-FLV-TPL-010",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-010",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-011",
+      "ruleId": "RULE-TC-FLV-TPL-011",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-011",
+      "dataProfileId": "seasoning-template-name-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-012",
+      "ruleId": "RULE-TC-FLV-TPL-012",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-012",
+      "dataProfileId": "seasoning-template-create-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-013",
+      "ruleId": "RULE-TC-FLV-TPL-013",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-013",
+      "dataProfileId": "seasoning-template-create-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-014",
+      "ruleId": "RULE-TC-FLV-TPL-014",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-014",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-015",
+      "ruleId": "RULE-TC-FLV-TPL-015",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-015",
+      "dataProfileId": "seasoning-template-create-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-016",
+      "ruleId": "RULE-TC-FLV-TPL-016",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-016",
+      "dataProfileId": "seasoning-template-create-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-017",
+      "ruleId": "RULE-TC-FLV-TPL-017",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-017",
+      "dataProfileId": "seasoning-template-edit-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-018",
+      "ruleId": "RULE-TC-FLV-TPL-018",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-018",
+      "dataProfileId": "seasoning-template-edit-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-019",
+      "ruleId": "RULE-TC-FLV-TPL-019",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-019",
+      "dataProfileId": "seasoning-template-edit-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-020",
+      "ruleId": "RULE-TC-FLV-TPL-020",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-020",
+      "dataProfileId": "seasoning-template-delete-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-021",
+      "ruleId": "RULE-TC-FLV-TPL-021",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-021",
+      "dataProfileId": "seasoning-template-delete-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-022",
+      "ruleId": "RULE-TC-FLV-TPL-022",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-022",
+      "dataProfileId": "seasoning-template-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-023",
+      "ruleId": "RULE-TC-FLV-TPL-023",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-023",
+      "dataProfileId": "seasoning-template-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-024",
+      "ruleId": "RULE-TC-FLV-TPL-024",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-024",
+      "dataProfileId": "seasoning-template-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-TPL-025",
+      "ruleId": "RULE-TC-FLV-TPL-025",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-025",
+      "dataProfileId": "seasoning-template-create-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-001",
+      "ruleId": "RULE-TC-FLV-XMOD-001",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-001",
+      "dataProfileId": "seasoning-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-002",
+      "ruleId": "RULE-TC-FLV-XMOD-002",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-002",
+      "dataProfileId": "seasoning-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-003",
+      "ruleId": "RULE-TC-FLV-XMOD-003",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-003",
+      "dataProfileId": "seasoning-distribution-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-004",
+      "ruleId": "RULE-TC-FLV-XMOD-004",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-004",
+      "dataProfileId": "seasoning-store-delete-group-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-005",
+      "ruleId": "RULE-TC-FLV-XMOD-005",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-005",
+      "dataProfileId": "seasoning-store-delete-option-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-006",
+      "ruleId": "RULE-TC-FLV-XMOD-006",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-006",
+      "dataProfileId": "seasoning-store-batch-delete-reversible",
+      "executionContextProfile": "multi-store-000420"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-011",
+      "ruleId": "RULE-TC-FLV-XMOD-011",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-XMOD-011",
+      "dataProfileId": "seasoning-store-redeliver-reversible",
+      "executionContextProfile": "multi-store-000420"
+    }
+  ],
+  "policies": {
+    "stallMs": 180000,
+    "maxRunMs": 900000,
+    "maxConsecutiveFailures": 2,
+    "maxDuplicateFailureFingerprint": 2,
+    "minimumCompletedForFailureRate": 1,
+    "maximumEnvironmentFailureRate": 0.5,
+    "requireExplicitClaimReceipts": true,
+    "requireApiZeroResidue": true,
+    "requireUiZeroResidue": true,
+    "runtimeMayPromoteRuleToFormal": false,
+    "humanApprovalRequiredForFormal": true
+  }
+}

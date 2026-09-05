@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-at15-runtime-acceptance",
+  "generatedAt": "2026-08-03T14:35:00.000Z",
+  "status": "accepted-with-canonical-conflict",
+  "runId": "AUTO_AUDIT_GREEN_AT15_20260803_01",
+  "batchId": "GREEN-AT15",
+  "source": {
+    "reportPath": "output/audit/product-center-item-green-at15-runtime-AUTO_AUDIT_GREEN_AT15_20260803_01.json",
+    "reportSha256": "df3716c413a29843ebee3a604bcbdd764b3e2709af367884d27d47bf6c4e1e57"
+  },
+  "summary": {
+    "total": 1,
+    "accepted": 0,
+    "canonicalConflicts": 1,
+    "executorErrors": 0,
+    "generationPromotable": 0,
+    "canonicalRepairRequired": 1,
+    "humanReviewRequired": 0,
+    "mutationIntents": 1,
+    "ledgerResidueVerified": 1
+  },
+  "acceptedCaseIds": [],
+  "canonicalConflicts": [
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "evidence": {
+        "firstUpload": {
+          "cardCount": 1,
+          "sources": [
+            "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+          ],
+          "loadingIndicatorCount": 0,
+          "terminalState": "preview-ready",
+          "responseStatus": 200,
+          "responseSummary": {
+            "businessCode": "0",
+            "message": "success",
+            "dataPresent": true,
+            "imageReferenceCount": 1,
+            "dataPreview": "{\"name\":\"AUTO_AUDIT_GREEN_AT15_FIRST_1785767160346\",\"imagePath\":\"img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619\",\"imageUrl\":\"https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619\"}",
+            "visibleDialogTexts": []
+          }
+        },
+        "interactionEvidenceAfterFirstUpload": {
+          "cardCount": 1,
+          "visibleCardCount": 1,
+          "previewCount": 1,
+          "loadingIndicatorCount": 0,
+          "uploadAreaCount": 0,
+          "visibleUploadAreaCount": 0,
+          "fileInputCount": 0,
+          "visibleLocalButtonCount": 0,
+          "controls": [
+            {
+              "tag": "div",
+              "className": "imageCard___FjUee",
+              "role": "",
+              "ariaLabel": "",
+              "title": "",
+              "text": "",
+              "type": "",
+              "accept": "",
+              "visible": true,
+              "disabled": false
+            },
+            {
+              "tag": "button",
+              "className": "ant-btn css-8ze4oq css-var-r1 ant-btn-default ant-btn-color-primary ant-btn-variant-link ant-btn-icon-end",
+              "role": "",
+              "ariaLabel": "",
+              "title": "",
+              "text": "Advanced Settings",
+              "type": "button",
+              "accept": "",
+              "visible": true,
+              "disabled": false
+            }
+          ]
+        },
+        "interactionScreenshot": "AUTO_AUDIT_GREEN_AT15_AFTER_FIRST_1785767160346.png",
+        "replacement": {
+          "beforeCount": 1,
+          "afterCount": 1,
+          "beforeSources": [
+            "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+          ],
+          "afterSources": [
+            "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+          ],
+          "attempted": false,
+          "outcome": "no-visible-upload-control",
+          "requestObserved": false,
+          "triggerKind": "none",
+          "responseStatus": null,
+          "responseSummary": {
+            "message": "visible upload control count=0",
+            "dataPresent": false,
+            "imageReferenceCount": 0,
+            "visibleDialogTexts": []
+          }
+        },
+        "stateBeforeSave": {
+          "count": 1,
+          "sources": [
+            "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+          ]
+        },
+        "submission": {
+          "responseStatus": 200,
+          "successMessageCount": 1
+        },
+        "persistedEvidence": {
+          "itemId": 30998,
+          "apiImageCount": 2,
+          "listImageSources": [
+            "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+          ],
+          "reopenedState": {
+            "count": 1,
+            "sources": [
+              "https://cdn.balamxqa.com/img/item/brand-000407/2026/8/3/153b1799-5823-460b-ba94-78c860ae4619_q2"
+            ]
+          }
+        },
+        "expectedSatisfied": false
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "canonicalConflictsDoNotFailHarness": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiAndApiResidueVerificationRequired": true,
+    "humanCaseReviewRequired": false
+  },
+  "fingerprint": "faa4565a9fafada852f475f06f9d5e519511b4d7a56acc2eb5374923ce26c1da"
+}

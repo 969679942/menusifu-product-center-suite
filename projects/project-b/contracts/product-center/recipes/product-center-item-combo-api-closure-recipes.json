@@ -1,0 +1,1066 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-combo-api-closure-recipes",
+  "fingerprint": "0b72bc63e425928c65be82bc86b36502a7c576e5e349a82945032f626ee66fd9",
+  "sourceCanonicalPath": "contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json",
+  "sourceCanonicalFingerprint": "bd58db3b84e8f33c509a8859a439ce290e1c8aad3ca0fbb9555fb7fdc42073e6",
+  "sourceRuntimeEvidencePath": "output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json",
+  "executionContract": {
+    "capabilityId": "item.combo.apiClosure.collectSharedEvidence",
+    "runner": "scripts/run-product-center-item-combo-api-closure.ts",
+    "sharedExecutionUnit": true,
+    "input": [
+      "packageId",
+      "caseId",
+      "AUTO_AUDIT_ identities",
+      "ephemeral authenticated API context"
+    ],
+    "output": [
+      "operation",
+      "serverIds",
+      "UI terminal",
+      "API terminal",
+      "zero residue"
+    ],
+    "retryReconciliation": "present verify; absent no blind replay; ambiguous stop",
+    "cleanup": "server ID, original identity and derived identity must all be UI/API count=0"
+  },
+  "packageMappings": [
+    {
+      "packageId": "p0-item-binding:item-combo-fixed-group",
+      "caseIds": [
+        "TC-ITEM-PKG-002",
+        "TC-ITEM-PKG-006"
+      ],
+      "routeStateActionOverlay": [
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "add-fixed-saved",
+          "action": "add-fixed",
+          "overlay": [
+            "add-combo-group-menu",
+            "add-fixed-combo-dialog",
+            "fixed-group-card"
+          ]
+        },
+        {
+          "route": "/pp/brand/edit/combo",
+          "state": "fixed-edit-echo",
+          "action": "read-edit-echo",
+          "overlay": [
+            "fixed-group-card"
+          ]
+        }
+      ],
+      "capability": {
+        "input": [
+          "fixedGroupIdentity",
+          "dependencyProductIdentity"
+        ],
+        "output": [
+          "groupServerId",
+          "itemServerId",
+          "editEcho"
+        ]
+      },
+      "uiApiAssertions": {
+        "ui": [
+          "selection-state",
+          "terminal-card",
+          "list-terminal",
+          "edit-echo"
+        ],
+        "api": [
+          "group-create-success",
+          "item-create-success",
+          "id-and-identity-present",
+          "id-and-identity-zero-residue"
+        ]
+      },
+      "operations": [
+        {
+          "operationKey": "POST /ops-brand/brand-sections"
+        },
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        }
+      ],
+      "safetyLevels": [
+        "L0-read-only",
+        "L1-reversible",
+        "L3-crud"
+      ],
+      "retryReconciliation": "read-only bounded retry; present verify; absent no blind replay; ambiguous stop",
+      "zeroResidue": "verified-zero",
+      "generationAllowed": true
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+      "caseIds": [
+        "TC-ITEM-PKG-040",
+        "TC-ITEM-PKG-041"
+      ],
+      "routeStateActionOverlay": [
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "selection-disabled-enabled-returned",
+          "action": "select-fixed-and-custom",
+          "overlay": [
+            "select-combo-dialog",
+            "selected-group-card"
+          ]
+        },
+        {
+          "route": "/pp/brand/edit/combo",
+          "state": "fixed-custom-edit-echo",
+          "action": "read-edit-echo",
+          "overlay": [
+            "fixed-group-card",
+            "custom-group-card"
+          ]
+        }
+      ],
+      "capability": {
+        "input": [
+          "fixedGroupIdentity",
+          "customGroupIdentity"
+        ],
+        "output": [
+          "selectionStates",
+          "savedItems",
+          "editEcho"
+        ]
+      },
+      "uiApiAssertions": {
+        "ui": [
+          "confirm-disabled",
+          "confirm-enabled",
+          "returned-card",
+          "edit-echo"
+        ],
+        "api": [
+          "item-create-success",
+          "id-and-identity-present",
+          "id-and-identity-zero-residue"
+        ]
+      },
+      "operations": [
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        },
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        }
+      ],
+      "safetyLevels": [
+        "L0-read-only",
+        "L1-reversible",
+        "L3-crud"
+      ],
+      "retryReconciliation": "read-only bounded retry; present verify; absent no blind replay; ambiguous stop",
+      "zeroResidue": "verified-zero",
+      "generationAllowed": true
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-optional-add",
+      "caseIds": [
+        "TC-ITEM-PKG-007"
+      ],
+      "routeStateActionOverlay": [
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "add-custom-saved",
+          "action": "add-custom",
+          "overlay": [
+            "add-combo-group-menu",
+            "add-custom-combo-dialog",
+            "custom-group-card"
+          ]
+        },
+        {
+          "route": "/pp/brand/edit/combo",
+          "state": "custom-edit-echo",
+          "action": "read-edit-echo",
+          "overlay": [
+            "custom-group-card"
+          ]
+        }
+      ],
+      "capability": {
+        "input": [
+          "customGroupIdentity",
+          "dependencyProductIdentities"
+        ],
+        "output": [
+          "groupServerId",
+          "itemServerId",
+          "editEcho"
+        ]
+      },
+      "uiApiAssertions": {
+        "ui": [
+          "dialog-fields",
+          "terminal-card",
+          "list-terminal",
+          "edit-echo"
+        ],
+        "api": [
+          "group-create-success",
+          "item-create-success",
+          "id-and-identity-present",
+          "id-and-identity-zero-residue"
+        ]
+      },
+      "operations": [
+        {
+          "operationKey": "POST /ops-brand/brand-sections"
+        },
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        }
+      ],
+      "safetyLevels": [
+        "L0-read-only",
+        "L1-reversible",
+        "L3-crud"
+      ],
+      "retryReconciliation": "read-only bounded retry; present verify; absent no blind replay; ambiguous stop",
+      "zeroResidue": "verified-zero",
+      "generationAllowed": true
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-optional-select",
+      "caseIds": [
+        "TC-ITEM-PKG-004"
+      ],
+      "routeStateActionOverlay": [
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "custom-selected-returned",
+          "action": "select-custom",
+          "overlay": [
+            "select-custom-combo-dialog",
+            "custom-group-card"
+          ]
+        },
+        {
+          "route": "/pp/brand/edit/combo",
+          "state": "custom-edit-echo",
+          "action": "read-edit-echo",
+          "overlay": [
+            "custom-group-card"
+          ]
+        }
+      ],
+      "capability": {
+        "input": [
+          "customGroupIdentity"
+        ],
+        "output": [
+          "selectionStates",
+          "savedItem",
+          "editEcho"
+        ]
+      },
+      "uiApiAssertions": {
+        "ui": [
+          "identity-unique-selection",
+          "returned-card",
+          "edit-echo"
+        ],
+        "api": [
+          "item-create-success",
+          "id-and-identity-present",
+          "id-and-identity-zero-residue"
+        ]
+      },
+      "operations": [
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        }
+      ],
+      "safetyLevels": [
+        "L0-read-only",
+        "L1-reversible",
+        "L3-crud"
+      ],
+      "retryReconciliation": "read-only bounded retry; present verify; absent no blind replay; ambiguous stop",
+      "zeroResidue": "verified-zero",
+      "generationAllowed": true
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-required-fields",
+      "caseIds": [
+        "TC-ITEM-PKG-010",
+        "TC-ITEM-PKG-017"
+      ],
+      "routeStateActionOverlay": [
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "missing-item-name",
+          "action": "save",
+          "overlay": [
+            "item-name-error"
+          ]
+        },
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "missing-standard-price",
+          "action": "save",
+          "overlay": [
+            "standard-price-error"
+          ]
+        },
+        {
+          "route": "/pp/brand/create/combo",
+          "state": "missing-combo-group-rejected",
+          "action": "save",
+          "overlay": [
+            "business-error"
+          ]
+        }
+      ],
+      "capability": {
+        "input": [
+          "fieldUnderTest",
+          "validOtherFields"
+        ],
+        "output": [
+          "validationSignal",
+          "mutationCount",
+          "businessRejection"
+        ]
+      },
+      "uiApiAssertions": {
+        "ui": [
+          "visible-validation",
+          "no-success",
+          "identity-absent"
+        ],
+        "api": [
+          "frontend-mutation-count-zero",
+          "controlled-negative-response",
+          "identity-zero-residue"
+        ]
+      },
+      "operations": [
+        {
+          "operationKey": "POST /ops-brand/brand-items/combo"
+        }
+      ],
+      "safetyLevels": [
+        "L0-read-only",
+        "L1-reversible",
+        "L2-controlled-negative"
+      ],
+      "retryReconciliation": "read-only bounded retry; present verify; absent no blind replay; ambiguous stop",
+      "zeroResidue": "verified-zero",
+      "generationAllowed": true
+    }
+  ],
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-002",
+      "caseId": "TC-ITEM-PKG-002",
+      "title": "套餐商品可选择已有固定搭配套餐组",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@read"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-002",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-002",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-fixed-group"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-002:precondition-1",
+        "TC-ITEM-PKG-002:precondition-2",
+        "TC-ITEM-PKG-002:precondition-3",
+        "TC-ITEM-PKG-002:action-1",
+        "TC-ITEM-PKG-002:action-2",
+        "TC-ITEM-PKG-002:action-3",
+        "TC-ITEM-PKG-002:action-4",
+        "TC-ITEM-PKG-002:expectation-1",
+        "TC-ITEM-PKG-002:expectation-2",
+        "TC-ITEM-PKG-002:expectation-3",
+        "TC-ITEM-PKG-002:expectation-4"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-fixed-group"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-fixed-group",
+            "caseId": "TC-ITEM-PKG-002"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-002",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-002",
+        "obligationIds": [
+          "p0-item-binding:item-combo-fixed-group"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-004",
+      "caseId": "TC-ITEM-PKG-004",
+      "title": "套餐商品可选择已有组合搭配套餐组",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@read"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-004",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-004",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-optional-select"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-004:precondition-1",
+        "TC-ITEM-PKG-004:precondition-2",
+        "TC-ITEM-PKG-004:precondition-3",
+        "TC-ITEM-PKG-004:action-1",
+        "TC-ITEM-PKG-004:action-2",
+        "TC-ITEM-PKG-004:action-3",
+        "TC-ITEM-PKG-004:action-4",
+        "TC-ITEM-PKG-004:expectation-1",
+        "TC-ITEM-PKG-004:expectation-2",
+        "TC-ITEM-PKG-004:expectation-3",
+        "TC-ITEM-PKG-004:expectation-4"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-optional-select"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-optional-select",
+            "caseId": "TC-ITEM-PKG-004"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-004",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-004",
+        "obligationIds": [
+          "p0-item-binding:item-combo-optional-select"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-006",
+      "caseId": "TC-ITEM-PKG-006",
+      "title": "套餐商品可新增固定搭配套餐组",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@create"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-006",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-006",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-fixed-group"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-006:precondition-1",
+        "TC-ITEM-PKG-006:precondition-2",
+        "TC-ITEM-PKG-006:action-1",
+        "TC-ITEM-PKG-006:action-2",
+        "TC-ITEM-PKG-006:action-3",
+        "TC-ITEM-PKG-006:action-4",
+        "TC-ITEM-PKG-006:action-5",
+        "TC-ITEM-PKG-006:action-6",
+        "TC-ITEM-PKG-006:action-7",
+        "TC-ITEM-PKG-006:expectation-1",
+        "TC-ITEM-PKG-006:expectation-2",
+        "TC-ITEM-PKG-006:expectation-3"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-fixed-group"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboApiClosureSharedUnit",
+        "input": {
+          "packageId": "p0-item-binding:item-combo-fixed-group",
+          "caseId": "TC-ITEM-PKG-006"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-fixed-group",
+            "caseId": "TC-ITEM-PKG-006"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "POST /ops-brand/brand-items/combo"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-006",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupItemComboApiClosureSharedUnit"
+      },
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-006",
+        "obligationIds": [
+          "p0-item-binding:item-combo-fixed-group"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-007",
+      "caseId": "TC-ITEM-PKG-007",
+      "title": "套餐商品可新增可选搭配套餐组",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@create"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-007",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-007",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-optional-add"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-007:precondition-1",
+        "TC-ITEM-PKG-007:precondition-2",
+        "TC-ITEM-PKG-007:action-1",
+        "TC-ITEM-PKG-007:action-2",
+        "TC-ITEM-PKG-007:action-3",
+        "TC-ITEM-PKG-007:action-4",
+        "TC-ITEM-PKG-007:action-5",
+        "TC-ITEM-PKG-007:action-6",
+        "TC-ITEM-PKG-007:action-7",
+        "TC-ITEM-PKG-007:action-8",
+        "TC-ITEM-PKG-007:expectation-1",
+        "TC-ITEM-PKG-007:expectation-2",
+        "TC-ITEM-PKG-007:expectation-3"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-optional-add"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboApiClosureSharedUnit",
+        "input": {
+          "packageId": "p0-item-binding:item-combo-optional-add",
+          "caseId": "TC-ITEM-PKG-007"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-optional-add",
+            "caseId": "TC-ITEM-PKG-007"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "POST /ops-brand/brand-items/combo"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-007",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupItemComboApiClosureSharedUnit"
+      },
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-007",
+        "obligationIds": [
+          "p0-item-binding:item-combo-optional-add"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-010",
+      "caseId": "TC-ITEM-PKG-010",
+      "title": "套餐商品必填项缺失时创建失败",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@negative"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-010",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-010",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-required-fields"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-010:precondition-1",
+        "TC-ITEM-PKG-010:precondition-2",
+        "TC-ITEM-PKG-010:precondition-3",
+        "TC-ITEM-PKG-010:action-1",
+        "TC-ITEM-PKG-010:action-2",
+        "TC-ITEM-PKG-010:action-3",
+        "TC-ITEM-PKG-010:action-4",
+        "TC-ITEM-PKG-010:action-5",
+        "TC-ITEM-PKG-010:action-6",
+        "TC-ITEM-PKG-010:expectation-1",
+        "TC-ITEM-PKG-010:expectation-2"
+      ],
+      "ruleIds": [
+        "BR-ITEM-010"
+      ],
+      "coverageIds": [
+        "p0-item-binding:item-combo-required-fields"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboApiClosureSharedUnit",
+        "input": {
+          "packageId": "p0-item-binding:item-combo-required-fields",
+          "caseId": "TC-ITEM-PKG-010"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-required-fields",
+            "caseId": "TC-ITEM-PKG-010"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-010",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupItemComboApiClosureSharedUnit"
+      },
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-010",
+        "obligationIds": [
+          "p0-item-binding:item-combo-required-fields"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-017",
+      "caseId": "TC-ITEM-PKG-017",
+      "title": "套餐商品标准价缺失时创建失败",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@negative"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-017",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-017",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-required-fields"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-017:precondition-1",
+        "TC-ITEM-PKG-017:precondition-2",
+        "TC-ITEM-PKG-017:precondition-3",
+        "TC-ITEM-PKG-017:precondition-4",
+        "TC-ITEM-PKG-017:precondition-5",
+        "TC-ITEM-PKG-017:action-1",
+        "TC-ITEM-PKG-017:action-2",
+        "TC-ITEM-PKG-017:action-3",
+        "TC-ITEM-PKG-017:action-4",
+        "TC-ITEM-PKG-017:action-5",
+        "TC-ITEM-PKG-017:expectation-1",
+        "TC-ITEM-PKG-017:expectation-2",
+        "TC-ITEM-PKG-017:expectation-3"
+      ],
+      "ruleIds": [
+        "BR-ITEM-027"
+      ],
+      "coverageIds": [
+        "p0-item-binding:item-combo-required-fields"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboApiClosureSharedUnit",
+        "input": {
+          "packageId": "p0-item-binding:item-combo-required-fields",
+          "caseId": "TC-ITEM-PKG-017"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-required-fields",
+            "caseId": "TC-ITEM-PKG-017"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-017",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupItemComboApiClosureSharedUnit"
+      },
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-017",
+        "obligationIds": [
+          "p0-item-binding:item-combo-required-fields"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-040",
+      "caseId": "TC-ITEM-PKG-040",
+      "title": "未选择套餐组时确认按钮不可点击",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@read"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-040",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-040",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-040:precondition-1",
+        "TC-ITEM-PKG-040:precondition-2",
+        "TC-ITEM-PKG-040:action-1",
+        "TC-ITEM-PKG-040:action-2",
+        "TC-ITEM-PKG-040:expectation-1"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+            "caseId": "TC-ITEM-PKG-040"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-040",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-040",
+        "obligationIds": [
+          "p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-combo-api-closure:TC-ITEM-PKG-041",
+      "caseId": "TC-ITEM-PKG-041",
+      "title": "选择套餐组后确认按钮可点击并返回创建页",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@combo",
+        "@p0",
+        "@read"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-PKG-041",
+      "sourceIds": [
+        "canonical:contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-041",
+        "runtime-evidence:output/audit/product-center-item-combo-api-closure-AUTO_AUDIT_FINAL_ACCEPTANCE_20260731_23.json#p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+      ],
+      "claimIds": [
+        "TC-ITEM-PKG-041:precondition-1",
+        "TC-ITEM-PKG-041:precondition-2",
+        "TC-ITEM-PKG-041:precondition-3",
+        "TC-ITEM-PKG-041:action-1",
+        "TC-ITEM-PKG-041:action-2",
+        "TC-ITEM-PKG-041:expectation-1",
+        "TC-ITEM-PKG-041:expectation-2"
+      ],
+      "ruleIds": [],
+      "coverageIds": [
+        "p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.combo.apiClosure.collectSharedEvidence",
+          "input": {
+            "packageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+            "caseId": "TC-ITEM-PKG-041"
+          },
+          "saveAs": "itemComboApiClosureEvidence"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboApiClosureCase",
+          "input": {
+            "caseId": "TC-ITEM-PKG-041",
+            "evidence": {
+              "$ref": "$result.itemComboApiClosureEvidence"
+            }
+          }
+        }
+      ],
+      "semanticBindings": {
+        "testCaseIrId": "TC-ITEM-PKG-041",
+        "obligationIds": [
+          "p0-item-binding:item-combo-fixed-group-item-combo-optional-select"
+        ],
+        "assertionContractIds": [
+          "assertion:item-combo-ui-api-terminal"
+        ],
+        "factoryContractIds": [
+          "factory:item-combo-audit-identity"
+        ],
+        "cleanupContractIds": [
+          "cleanup:item-combo-ui-api-zero-residue"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-XMOD-001", "TC-FLV-XMOD-002", "TC-FLV-XMOD-003"],
+  "rootCause": "多门店浏览器已使用 000420，但 API 数据夹具通过静态 runtimeConfig.brandId 仍写入默认 000407，导致模板和品牌调味不在当前 UI 商户；同时门店路由在无数据时被错误等待不存在的列表响应。",
+  "correctiveAction": "Playwright profile 初始化时将 seasoning context 的 brandId 写入 MC_BRAND_ID；门店路由等待稳定可见页面终态而非强制列表响应；下发夹具使用 UI 模板卡片、真实门店选择、服务端模板/调味 ID，并注册模板、品牌和门店零残留清理。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "api/product-center/seasoning-distribution-api.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json"
+  ],
+  "supersedesAttemptIds": ["98447882badfc73c"]
+}

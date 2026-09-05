@@ -1,0 +1,2143 @@
+{
+  "metadata": {
+    "moduleId": "menu",
+    "moduleName": "品牌菜单管理",
+    "levelOne": "菜单管理",
+    "routes": [
+      "/bm/menu/list",
+      "/bm/menu/record/list"
+    ],
+    "recordCount": 57
+  },
+  "collections": {
+    "routes": [
+      {
+        "id": "route:3cc726e3e217",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "name": "下发记录",
+          "href": "/bm/menu/record/list",
+          "status": "passed",
+          "expectedControls": 6,
+          "evidencedControls": 6,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "route:a6e69e8f67a0",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "name": "菜单",
+          "href": "/bm/menu/list",
+          "status": "passed",
+          "expectedControls": 13,
+          "evidencedControls": 13,
+          "evidence": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "controls": [
+      {
+        "id": "/bm/menu/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[0]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-1",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 0,
+          "name": "上传记录",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "上传记录",
+          "aria": "file-text",
+          "title": "",
+          "icon": "file-text",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|上传记录|file-text||file-text|button||",
+          "fingerprint": "cbfa5da013786811",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "上传记录",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-10",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[9]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-10",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 9,
+          "name": "button:位置11",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置10",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 6,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "6aa2657cdb0a2955",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 6,
+            "fingerprint": "6aa2657cdb0a2955",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-11",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[10]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-11",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 10,
+          "name": "button:位置12",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置11",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 7,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "7eff924d374b5036",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 7,
+            "fingerprint": "7eff924d374b5036",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-12",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[11]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-12",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 11,
+          "name": "button:位置13",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置12",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 8,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "322b782c4974b891",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 8,
+            "fingerprint": "322b782c4974b891",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-13",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[12]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-13",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 12,
+          "name": "button:位置14",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置13",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 9,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "770a69d659f40511",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 9,
+            "fingerprint": "770a69d659f40511",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[1]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-2",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 1,
+          "name": "创建",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "创建",
+          "aria": "plus",
+          "title": "",
+          "icon": "plus",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|创建|plus||plus|button||",
+          "fingerprint": "20e16846c5c07b6a",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "创建",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[2]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-3",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 2,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "reset",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|reset||",
+          "fingerprint": "a2fdd27dc8e9d4b2",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[3]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-4",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 3,
+          "name": "button:位置5",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[4]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-5",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 4,
+          "name": "button:位置6",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置5",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 1,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "08f8d4c0120716e1",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 1,
+            "fingerprint": "08f8d4c0120716e1",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[5]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-6",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 5,
+          "name": "button:位置7",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置6",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 2,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "1122d5f6b53f712d",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 2,
+            "fingerprint": "1122d5f6b53f712d",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-7",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[6]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-7",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 6,
+          "name": "button:位置8",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置7",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 3,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "86fcb97aaa01b643",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 3,
+            "fingerprint": "86fcb97aaa01b643",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-8",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[7]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-8",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 7,
+          "name": "button:位置9",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置8",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 4,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "0e511ba735760dc5",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 4,
+            "fingerprint": "0e511ba735760dc5",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/list#control-9",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+            "locator": "/bm/menu/list.controls[8]"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "evidence": {
+          "id": "/bm/menu/list#control-9",
+          "route": "/bm/menu/list",
+          "routeName": "菜单",
+          "index": 8,
+          "name": "button:位置10",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json",
+          "legacyName": "位置9",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 5,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "43ff0b1c1f520b59",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 5,
+            "fingerprint": "43ff0b1c1f520b59",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720213439/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[0]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-1",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 0,
+          "name": "重置",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置1",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "重置",
+          "aria": "redo",
+          "title": "",
+          "icon": "redo",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "渠道 重置",
+          "occurrence": 0,
+          "signature": "BUTTON|button|重置|redo||redo|button||",
+          "fingerprint": "7101b505c7962b14",
+          "primaryLocator": {
+            "strategy": "role-text",
+            "role": "button",
+            "text": "重置",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-2",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[1]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-2",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 1,
+          "name": "详情",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置2",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "profile",
+          "title": "",
+          "icon": "profile",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||profile||profile|button||",
+          "fingerprint": "dc37ba369a79cb41",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "profile",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-3",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[2]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-3",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 2,
+          "name": "button:sdi Self Dine In 1 2026-07-14 13:59:58 zhangxi@menusifu.cn 2026-07-14 14:00:08 成功",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置3",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "sdi Self Dine In 1 2026-07-14 13:59:58 zhangxi@menusifu.cn 2026-07-14 14:00:08 成功",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "233b4d4045d57d37",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 0,
+            "fingerprint": "233b4d4045d57d37",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-4",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[3]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-4",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 3,
+          "name": "button:手工创建菜单 POS Kiosk E-Menu Online Order Self Dine In 1 2026-03-28 14:01:27 <redacted-email> 2026-03-28 14:01:38 成功",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置4",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "手工创建菜单 POS Kiosk E-Menu Online Order Self Dine In 1 2026-03-28 14:01:27 <redacted-email> 2026-03-28 14:01:38 成功",
+          "group": "",
+          "occurrence": 24,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "d9fde1b890e04012",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 24,
+            "fingerprint": "d9fde1b890e04012",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-5",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.82,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[4]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-5",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 4,
+          "name": "button:Menu POS Kiosk E-Menu Online Order Self Dine In 1 2026-03-26 09:44:15 <redacted-email> 2026-03-26 09:44:28 成功",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置5",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "",
+          "title": "",
+          "icon": "",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "Menu POS Kiosk E-Menu Online Order Self Dine In 1 2026-03-26 09:44:15 <redacted-email> 2026-03-26 09:44:28 成功",
+          "group": "",
+          "occurrence": 49,
+          "signature": "BUTTON|button|||||button||",
+          "fingerprint": "f903e75cca178d38",
+          "primaryLocator": {
+            "strategy": "signature-occurrence",
+            "signature": "BUTTON|button|||||button||",
+            "occurrence": 49,
+            "fingerprint": "f903e75cca178d38",
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#control-6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.94,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+            "locator": "/bm/menu/record/list.controls[5]"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#control-6",
+          "route": "/bm/menu/record/list",
+          "routeName": "下发记录",
+          "index": 5,
+          "name": "right",
+          "context": "",
+          "disabled": false,
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json",
+          "legacyName": "位置6",
+          "tag": "BUTTON",
+          "role": "button",
+          "text": "",
+          "aria": "right",
+          "title": "",
+          "icon": "right",
+          "type": "button",
+          "href": "",
+          "column": "",
+          "row": "",
+          "group": "",
+          "occurrence": 0,
+          "signature": "BUTTON|button||right||right|button||",
+          "fingerprint": "0fa359c603932bb6",
+          "primaryLocator": {
+            "strategy": "role-aria",
+            "role": "button",
+            "aria": "right",
+            "exact": true,
+            "expectedCount": 1
+          },
+          "terminalReport": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "fields": [
+      {
+        "id": "/bm/menu/record/list#action-2#primary-1#field-65",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#primary-1#field-65",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "overlayId": "/bm/menu/record/list#action-2#primary-1",
+          "index": 0,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "全部",
+          "required": false,
+          "disabled": false,
+          "value": "on",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-2#primary-1#field-66",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#primary-1#field-66",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "overlayId": "/bm/menu/record/list#action-2#primary-1",
+          "index": 1,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "提交时间",
+          "required": false,
+          "disabled": false,
+          "value": "createdAt",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-2#primary-1#field-67",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#primary-1#field-67",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "overlayId": "/bm/menu/record/list#action-2#primary-1",
+          "index": 2,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "操作人",
+          "required": false,
+          "disabled": false,
+          "value": "createdBy",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-2#primary-1#field-68",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#primary-1#field-68",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "overlayId": "/bm/menu/record/list#action-2#primary-1",
+          "index": 3,
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "placeholder": "",
+          "label": "执行时间",
+          "required": false,
+          "disabled": false,
+          "value": "startedAt",
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "dialogs": [
+      {
+        "id": "/bm/menu/record/list#action-2#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#primary-1",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "全部 提交时间 操作人 执行时间 恢复默认",
+          "buttons": [],
+          "fields": [
+            {
+              "index": 0,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "全部",
+              "required": false,
+              "disabled": false,
+              "value": "on"
+            },
+            {
+              "index": 1,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "提交时间",
+              "required": false,
+              "disabled": false,
+              "value": "createdAt"
+            },
+            {
+              "index": 2,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "操作人",
+              "required": false,
+              "disabled": false,
+              "value": "createdBy"
+            },
+            {
+              "index": 3,
+              "tag": "INPUT",
+              "type": "checkbox",
+              "name": "",
+              "placeholder": "",
+              "label": "执行时间",
+              "required": false,
+              "disabled": false,
+              "value": "startedAt"
+            }
+          ],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-2#secondary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-2#secondary-1",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "kind": "secondary",
+          "depth": 2,
+          "title": "",
+          "text": "",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-3#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-3#primary-1",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-3",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "对比结果 任务详情",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-4#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-4#primary-1",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-4",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "对比结果 任务详情",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "/bm/menu/record/list#action-5#primary-1",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "id": "/bm/menu/record/list#action-5#primary-1",
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-5",
+          "kind": "primary",
+          "depth": 1,
+          "title": "",
+          "text": "对比结果 任务详情",
+          "buttons": [],
+          "fields": [],
+          "source": "artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "validations": [
+      {
+        "id": "validation:419e45473dd6",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+          }
+        ],
+        "route": "/bm/menu/list",
+        "entity": "菜单",
+        "evidence": {
+          "entity": "菜单",
+          "route": "/bm/menu/list",
+          "status": "passed",
+          "fields": [
+            "菜单名称",
+            "适用渠道",
+            "每个菜单页名称"
+          ],
+          "behavior": "空提交逐步显示错误且未发送 mutation",
+          "source": "artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "apiOperations": [
+      {
+        "id": "operation:brand-menu:POST /ops-brand/brand-menu-sync-job/list",
+        "status": "confirmed",
+        "sourceType": "openapi",
+        "confidence": 0.9,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/operations/brand-menu.operations.json",
+            "locator": "brand-menu:POST /ops-brand/brand-menu-sync-job/list"
+          }
+        ],
+        "route": "/ops-brand/brand-menu-sync-job/list",
+        "evidence": {
+          "service": "brand-menu",
+          "runtimeBaseEnv": "MC_ITEM_API_BASE_URL",
+          "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-job/list",
+          "operationId": "list_6",
+          "method": "POST",
+          "path": "/ops-brand/brand-menu-sync-job/list",
+          "summary": "分页查询菜单下发作业",
+          "description": null,
+          "tags": [
+            "菜单下发作业"
+          ],
+          "deprecated": false,
+          "security": [],
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "ref": "#/components/schemas/PageQueryBrandMenuSyncJobRequest"
+                },
+                "hasExample": false
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "headers": [],
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "ref": "#/components/schemas/ResultPageResultBrandMenuSyncJobResponse"
+                  },
+                  "hasExample": false
+                }
+              }
+            }
+          }
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "uiApiMappings": [
+      {
+        "id": "mapping-na:1f95f53dfcd4",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-2",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:5a9116391e23",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:6f358850c5c9",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-6",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:75fc65ecfb45",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-4",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ad8b92efa165",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-5",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:b6f101a5beba",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-6",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:c07c024148c3",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-3",
+          "method": "POST",
+          "urlPath": "/g/collect",
+          "phase": "response",
+          "statusCode": 204,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping-na:ca7688af2b0d",
+        "status": "not-applicable",
+        "sourceType": "ui-runtime",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/api/4510402003009537/envelope/",
+          "phase": "blocked",
+          "statusCode": null,
+          "classification": "telemetry",
+          "reason": "outside supplied business OpenAPI scope"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:367f32739210",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-6",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/brand-menu-sync-job/list",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-job/list",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "mapping:d872a214cc34",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.95,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-p0-AUTO_AUDIT_V2_20260720214514/audit-report.json"
+          }
+        ],
+        "route": "/bm/menu/record/list",
+        "evidence": {
+          "route": "/bm/menu/record/list",
+          "actionId": "/bm/menu/record/list#action-1",
+          "method": "POST",
+          "urlPath": "/item/v1/ops-brand/brand-menu-sync-job/list",
+          "phase": "blocked",
+          "statusCode": null,
+          "operationKey": "brand-menu:POST /ops-brand/brand-menu-sync-job/list",
+          "candidateCount": 1
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "businessRules": [
+      {
+        "id": "business-rule-section:25",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单"
+          }
+        ],
+        "module": "菜单管理 / 菜单",
+        "evidence": {
+          "heading": "## 25. 菜单管理 / 菜单",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "business-rule-section:26",
+        "status": "provisional",
+        "sourceType": "ai-rule",
+        "confidence": 0.45,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 26. 菜单管理 / 下发记录"
+          }
+        ],
+        "module": "菜单管理 / 下发记录",
+        "evidence": {
+          "heading": "## 26. 菜单管理 / 下发记录",
+          "reason": "AI-assisted and manually corrected source requires runtime or product confirmation"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      },
+      {
+        "id": "rule:catalog-price-sync-respects-menu-price-override",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 菜单未编辑过售卖价时，商品中心价格变更可同步到菜单商品；菜单已编辑过售卖价时，商品中心价格变更不再自动覆盖菜单商品售卖价。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "菜单未编辑过售卖价时，商品中心价格变更可同步；菜单已编辑过售卖价时不再自动覆盖。"
+        }
+      },
+      {
+        "id": "rule:channel-and-scenario-price-fallback",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 渠道价优先匹配当前渠道；场景价优先匹配当前订单类型；未命中渠道价或场景价时回退标准价。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "渠道价和场景价优先匹配；未命中时回退标准价。"
+        }
+      },
+      {
+        "id": "rule:client-hidden-applies-after-publish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 客户端隐藏配置下发后，门店菜单只读展示，终端按配置隐藏。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "客户端隐藏配置下发后，门店菜单只读展示，终端按配置隐藏。"
+        }
+      },
+      {
+        "id": "rule:deleted-special-price-falls-back-after-publish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 删除渠道价或场景价并下发后，终端回退展示标准价。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "删除渠道价或场景价并下发后，终端回退展示标准价。"
+        }
+      },
+      {
+        "id": "rule:display-time-applies-after-republish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 异常与生效 / 更新菜单页或区块展示时间后，需重新下发后终端按新时间展示。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "更新菜单页或区块展示时间后，需重新下发后终端按新时间展示。"
+        }
+      },
+      {
+        "id": "rule:menu-price-syncs-on-publish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 菜单价格随菜单下发同步到门店。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "菜单价格随菜单下发同步到门店。"
+        }
+      },
+      {
+        "id": "rule:menu-publish-generates-store-menu-and-products",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 上下游关系 / 菜单引用品牌商品库商品，并通过下发生成门店菜单和门店商品。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "菜单引用品牌商品库商品，并通过下发生成门店菜单和门店商品。"
+        }
+      },
+      {
+        "id": "rule:pos-price-change-applies-after-publish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / POS 端是否支持改价字段打开或关闭后，需下发后在门店 POS 生效。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "POS 端是否支持改价字段打开或关闭后，需下发后在门店 POS 生效。"
+        }
+      },
+      {
+        "id": "rule:pos-price-change-disabled-after-publish",
+        "status": "confirmed",
+        "sourceType": "product-confirmed-business-rule",
+        "confidence": 1,
+        "generationAllowed": true,
+        "source": [
+          {
+            "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+            "locator": "## 25. 菜单管理 / 菜单 / 异常与生效 / POS 端是否支持改价字段从开切为关并下发 POS 后，之前可改价的商品不再允许 POS 改价。"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "module": "菜单管理 / 菜单",
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "conflictStatus": "none",
+        "evidence": {
+          "statement": "POS 改价从开切为关并下发后，之前可改价的商品不再允许 POS 改价。"
+        }
+      }
+    ],
+    "testDataFactories": [
+      {
+        "id": "factory:70824562078a",
+        "status": "provisional",
+        "sourceType": "generated",
+        "confidence": 0.5,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/menusifu-final-audit-report.json",
+            "locator": "crud[14]"
+          }
+        ],
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "evidence": {
+          "requiredPrefix": "AUTO_AUDIT_",
+          "crudEvidence": {
+            "entity": "菜单",
+            "route": "/bm/menu/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+          },
+          "implementationStatus": "pending"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "cleanupAdapters": [
+      {
+        "id": "cleanup:70824562078a",
+        "status": "observed",
+        "sourceType": "ui-runtime",
+        "confidence": 0.85,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "testops:/artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+          }
+        ],
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "evidence": {
+          "crudEvidence": {
+            "entity": "菜单",
+            "route": "/bm/menu/list",
+            "create": "passed",
+            "verifyCreate": "passed",
+            "edit": "passed",
+            "verifyEdit": "passed",
+            "delete": "passed",
+            "verifyDelete": "passed",
+            "source": "artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+          },
+          "implementationStatus": "project-specific-adapter-required"
+        },
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0"
+      }
+    ],
+    "assertions": [],
+    "traceability": [
+      {
+        "id": "trace:sop:delete:menu",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://delete:menu",
+            "locator": "菜单应使用 API 前置数据完成 UI 删除并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/bm/menu/list",
+        "entity": "菜单",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:25",
+            "business-rule-section:26",
+            "business-rule-section:27",
+            "rule:catalog-price-sync-respects-menu-price-override",
+            "rule:channel-and-scenario-price-fallback",
+            "rule:client-hidden-applies-after-publish",
+            "rule:deleted-special-price-falls-back-after-publish",
+            "rule:display-time-applies-after-republish",
+            "rule:menu-price-syncs-on-publish",
+            "rule:menu-publish-generates-store-menu-and-products",
+            "rule:pos-price-change-applies-after-publish",
+            "rule:pos-price-change-disabled-after-publish"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单.xmind",
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单下发.xmind",
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-门店菜单.xmind"
+          ],
+          "routeIds": [
+            "route:3cc726e3e217",
+            "route:a6e69e8f67a0"
+          ],
+          "functionIds": [
+            "/bm/menu/list#control-1",
+            "/bm/menu/list#control-10",
+            "/bm/menu/list#control-11",
+            "/bm/menu/list#control-12",
+            "/bm/menu/list#control-13",
+            "/bm/menu/list#control-2",
+            "/bm/menu/list#control-3",
+            "/bm/menu/list#control-4",
+            "/bm/menu/list#control-5",
+            "/bm/menu/list#control-6",
+            "/bm/menu/list#control-7",
+            "/bm/menu/list#control-8",
+            "/bm/menu/list#control-9",
+            "/bm/menu/record/list#control-1",
+            "/bm/menu/record/list#control-2",
+            "/bm/menu/record/list#control-3",
+            "/bm/menu/record/list#control-4",
+            "/bm/menu/record/list#control-5",
+            "/bm/menu/record/list#control-6"
+          ],
+          "apiMappingIds": [
+            "mapping-na:1f95f53dfcd4",
+            "mapping-na:5a9116391e23",
+            "mapping-na:6f358850c5c9",
+            "mapping-na:75fc65ecfb45",
+            "mapping-na:ad8b92efa165",
+            "mapping-na:b6f101a5beba",
+            "mapping-na:c07c024148c3",
+            "mapping-na:ca7688af2b0d",
+            "mapping:367f32739210",
+            "mapping:d872a214cc34"
+          ],
+          "stageGaps": [],
+          "caseId": "delete:menu",
+          "sourceIds": [],
+          "sop": {
+            "action": "delete",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+            "testTitle": "菜单应使用 API 前置数据完成 UI 删除并验证双终态",
+            "rerunGrep": "菜单应使用 API 前置数据完成 UI 删除并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      },
+      {
+        "id": "trace:sop:edit:menu",
+        "status": "generated",
+        "sourceType": "generated",
+        "confidence": 1,
+        "generationAllowed": false,
+        "source": [
+          {
+            "path": "sop://edit:menu",
+            "locator": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态"
+          }
+        ],
+        "verifiedAt": "2026-07-22T10:07:53.676Z",
+        "version": "1.0.0",
+        "route": "/bm/menu/list",
+        "entity": "菜单",
+        "evidence": {
+          "requirementIds": [
+            "business-rule-section:25",
+            "business-rule-section:26",
+            "business-rule-section:27",
+            "rule:catalog-price-sync-respects-menu-price-override",
+            "rule:channel-and-scenario-price-fallback",
+            "rule:client-hidden-applies-after-publish",
+            "rule:deleted-special-price-falls-back-after-publish",
+            "rule:display-time-applies-after-republish",
+            "rule:menu-price-syncs-on-publish",
+            "rule:menu-publish-generates-store-menu-and-products",
+            "rule:pos-price-change-applies-after-publish",
+            "rule:pos-price-change-disabled-after-publish"
+          ],
+          "requirementRefs": [
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单.xmind",
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/菜单管理/商品中心-菜单管理-菜单下发.xmind",
+            "merchant-center:/Merchant Center Info/坎昆商品中心PRD测试方案/门店商品管理/商品中心-门店商品管理-门店菜单.xmind"
+          ],
+          "routeIds": [
+            "route:3cc726e3e217",
+            "route:a6e69e8f67a0"
+          ],
+          "functionIds": [
+            "/bm/menu/list#control-1",
+            "/bm/menu/list#control-10",
+            "/bm/menu/list#control-11",
+            "/bm/menu/list#control-12",
+            "/bm/menu/list#control-13",
+            "/bm/menu/list#control-2",
+            "/bm/menu/list#control-3",
+            "/bm/menu/list#control-4",
+            "/bm/menu/list#control-5",
+            "/bm/menu/list#control-6",
+            "/bm/menu/list#control-7",
+            "/bm/menu/list#control-8",
+            "/bm/menu/list#control-9",
+            "/bm/menu/record/list#control-1",
+            "/bm/menu/record/list#control-2",
+            "/bm/menu/record/list#control-3",
+            "/bm/menu/record/list#control-4",
+            "/bm/menu/record/list#control-5",
+            "/bm/menu/record/list#control-6"
+          ],
+          "apiMappingIds": [
+            "mapping-na:1f95f53dfcd4",
+            "mapping-na:5a9116391e23",
+            "mapping-na:6f358850c5c9",
+            "mapping-na:75fc65ecfb45",
+            "mapping-na:ad8b92efa165",
+            "mapping-na:b6f101a5beba",
+            "mapping-na:c07c024148c3",
+            "mapping-na:ca7688af2b0d",
+            "mapping:367f32739210",
+            "mapping:d872a214cc34"
+          ],
+          "stageGaps": [],
+          "caseId": "edit:menu",
+          "sourceIds": [],
+          "sop": {
+            "action": "edit",
+            "scenario": null,
+            "seedMode": "api",
+            "verifyModes": [
+              "api",
+              "ui"
+            ],
+            "cleanupMode": "api-finally"
+          },
+          "automation": {
+            "specFile": "tests/e2e/product-center-high-dependency-hybrid-sop.spec.ts",
+            "testTitle": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态",
+            "rerunGrep": "菜单应使用 API 前置数据完成 UI 编辑并验证双终态"
+          },
+          "resultRef": "contracts/product-center/product-center-production-sop-acceptance.json"
+        }
+      }
+    ],
+    "unresolved": []
+  }
+}

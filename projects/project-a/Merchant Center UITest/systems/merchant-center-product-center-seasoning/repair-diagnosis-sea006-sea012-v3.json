@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006", "TC-FLV-SEA-012"],
+  "rootCause": "Playwright filter.has 的内部 locator 带 main 根作用域，放入 ant-table-wrapper 或 ant-table-row 候选后无法从候选节点相对匹配，导致只读审计已存在的 wrapper/输入框仍返回 0；属于定位器组合方式错误。",
+  "correctiveAction": "SEA-006 的 has 改用 page 根的精确业务文本 locator，再由唯一 ant-table-wrapper 定位 Select all；SEA-012 直接使用只读审计证明在新增默认单行内唯一的 tr.ant-table-row input[type=text]:not([placeholder])，避免根作用域交叉。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787565322731/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["f2d5a9acece3b0bf", "3ee44ef2407a1b3f"]
+}

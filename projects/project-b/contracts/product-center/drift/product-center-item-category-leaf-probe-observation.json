@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "observationId": "TC-ITEM-STD-007-current-release-read-only-probe",
+  "canonicalId": "TC-ITEM-STD-007",
+  "status": "observed-for-runtime-probe",
+  "observedAt": "2026-07-29T14:41:00.000Z",
+  "source": "current-version-authenticated-browser",
+  "routeEntry": {
+    "targetPath": "/pp/brand/list",
+    "arrivedPath": "/pp/brand/list",
+    "mode": "sidebar",
+    "locatorCount": 1
+  },
+  "createPage": {
+    "arrivedPath": "/pp/brand/create/standard",
+    "standardEntryLocatorCount": 1,
+    "saveClicked": false
+  },
+  "visibleUi": {
+    "categoryFieldVisible": true,
+    "categoryMenuVisible": true,
+    "parentName": "Special Offer(特惠)",
+    "leafName": "Special Offer01(特惠1号)"
+  },
+  "locatorUniqueness": {
+    "categoryFieldCount": 1,
+    "categoryCascaderCount": 1,
+    "parentNodeCount": 1,
+    "leafNodeCount": 1
+  },
+  "observableBehavior": {
+    "parentHasChildren": true,
+    "parentCommitted": false,
+    "leafCommitted": true,
+    "selectedPath": "Special Offer(特惠) / Special Offer01(特惠1号)"
+  },
+  "network": {
+    "status": "runtime-required",
+    "expectedMethod": "GET",
+    "expectedPath": "/ops-brand/brand-categories/treeList"
+  },
+  "release": {
+    "status": "runtime-required"
+  },
+  "mutation": {
+    "attempted": false,
+    "saveAllowed": false,
+    "createAllowed": false,
+    "updateAllowed": false,
+    "deleteAllowed": false
+  }
+}

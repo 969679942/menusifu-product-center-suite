@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "模板列表字段展示用例属于单门店品牌页面，先前批次按模板编号误归入多门店队列，未产生业务执行。",
+  "correctiveAction": "在 SCH / Brand 000407 单门店上下文中独立执行 TPL-006，并记录当前页面字段和零残留证据。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/execution-selection.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-001", "TC-FLV-REC-002", "TC-FLV-REC-003", "TC-FLV-REC-004", "TC-FLV-REC-005", "TC-FLV-REC-006", "TC-FLV-REC-007",
+    "TC-FLV-SEA-001", "TC-FLV-SEA-002", "TC-FLV-SEA-003", "TC-FLV-SEA-004", "TC-FLV-SEA-005", "TC-FLV-SEA-006", "TC-FLV-SEA-007", "TC-FLV-SEA-008", "TC-FLV-SEA-009", "TC-FLV-SEA-010", "TC-FLV-SEA-011", "TC-FLV-SEA-012", "TC-FLV-SEA-013", "TC-FLV-SEA-014", "TC-FLV-SEA-015", "TC-FLV-SEA-016", "TC-FLV-SEA-017", "TC-FLV-SEA-018", "TC-FLV-SEA-019", "TC-FLV-SEA-020", "TC-FLV-SEA-021", "TC-FLV-SEA-022", "TC-FLV-SEA-023", "TC-FLV-SEA-024", "TC-FLV-SEA-025", "TC-FLV-SEA-026", "TC-FLV-SEA-027", "TC-FLV-SEA-028", "TC-FLV-SEA-029", "TC-FLV-SEA-030", "TC-FLV-SEA-031", "TC-FLV-SEA-032", "TC-FLV-SEA-033", "TC-FLV-SEA-034", "TC-FLV-SEA-035", "TC-FLV-SEA-036", "TC-FLV-SEA-037", "TC-FLV-SEA-040", "TC-FLV-SEA-041", "TC-FLV-SEA-042", "TC-FLV-SEA-043", "TC-FLV-SEA-044", "TC-FLV-SEA-045", "TC-FLV-SEA-046",
+    "TC-FLV-TPL-006", "TC-FLV-TPL-011", "TC-FLV-TPL-012", "TC-FLV-TPL-014", "TC-FLV-TPL-015", "TC-FLV-TPL-016", "TC-FLV-TPL-018", "TC-FLV-TPL-020", "TC-FLV-TPL-021", "TC-FLV-TPL-025"
+  ],
+  "rootCause": "当前实现指纹变更后，61 条可执行用例缺少当前标准执行收据；本诊断文件用于按最终合同重新执行并仲裁。",
+  "correctiveAction": "按正式 caseId 分批执行，复用认证和只读预检收据；每条用例独立记录 UI/API/清理证据。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/classification-ledger.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "deliverables/system-test-platform/seasoning-module-closure.json"
+  ]
+}

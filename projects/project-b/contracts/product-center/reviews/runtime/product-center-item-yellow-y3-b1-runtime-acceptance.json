@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-y3-b1-runtime-acceptance",
+  "generatedAt": "2026-08-02T15:30:00.000Z",
+  "status": "accepted-with-canonical-conflicts",
+  "runId": "AUTO_AUDIT_YELLOW_Y3_20260802_02",
+  "batchId": "Y3-B1",
+  "source": {
+    "reportPath": "output/audit/product-center-item-yellow-y3-runtime-AUTO_AUDIT_YELLOW_Y3_20260802_02.json",
+    "reportSha256": "56506cce75e099d26fc6902679f8eb2dd8b04ad6154422771c56dbfc27e354e6"
+  },
+  "summary": {
+    "total": 9,
+    "accepted": 5,
+    "canonicalConflicts": 4,
+    "executorErrors": 0,
+    "generationPromotable": 5,
+    "canonicalRepairRequired": 4,
+    "humanReviewRequired": 0,
+    "mutationIntents": 3,
+    "apiResidueVerified": 3,
+    "uiResidueVerified": 3
+  },
+  "acceptedCaseIds": [
+    "TC-ITEM-UI-004",
+    "TC-ITEM-UI-005",
+    "TC-ITEM-UI-006",
+    "TC-ITEM-UI-007",
+    "TC-ITEM-UI-008"
+  ],
+  "canonicalConflicts": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "evidence": {
+        "detailImageUpload": 1,
+        "descriptionLabels": 1,
+        "badges": 1,
+        "stats": 1,
+        "ingredientInfo": 0
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "evidence": {
+        "keyword": "AUTO_AUDIT_Y3_ADD_MEMORY_1785679757907",
+        "typeLabel": "Add-On",
+        "before": {
+          "search": "AUTO_AUDIT_Y3_ADD_MEMORY_1785679757907",
+          "checkedTypeCount": 1,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        },
+        "after": {
+          "search": "",
+          "checkedTypeCount": 0,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        }
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "evidence": {
+        "keyword": "AUTO_AUDIT_Y3_PKG_MEMORY_1785679771863",
+        "typeLabel": "Combo",
+        "before": {
+          "search": "AUTO_AUDIT_Y3_PKG_MEMORY_1785679771863",
+          "checkedTypeCount": 1,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        },
+        "after": {
+          "search": "",
+          "checkedTypeCount": 0,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        }
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "evidence": {
+        "keyword": "AUTO_AUDIT_Y3_STD_MEMORY_1785679739441",
+        "typeLabel": "Standard",
+        "before": {
+          "search": "AUTO_AUDIT_Y3_STD_MEMORY_1785679739441",
+          "checkedTypeCount": 1,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        },
+        "after": {
+          "search": "",
+          "checkedTypeCount": 0,
+          "checkedStatusCount": 0,
+          "currentPage": 1
+        }
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "canonicalConflictsDoNotFailHarness": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "controlledMutationRequired": true,
+    "crossCheckpointResidueVerificationRequired": true
+  },
+  "fingerprint": "6dc1510c8a46e4a62efd5f6c03201b2f0d489958f18acacd75097093062be712"
+}

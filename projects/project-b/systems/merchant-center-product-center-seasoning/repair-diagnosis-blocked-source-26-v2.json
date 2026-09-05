@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-001", "TC-FLV-SEA-009", "TC-FLV-SEA-010", "TC-FLV-SEA-013", "TC-FLV-SEA-014",
+    "TC-FLV-SEA-019", "TC-FLV-SEA-020", "TC-FLV-SEA-021", "TC-FLV-SEA-022", "TC-FLV-SEA-023",
+    "TC-FLV-SEA-024", "TC-FLV-SEA-025", "TC-FLV-SEA-026", "TC-FLV-SEA-027", "TC-FLV-SEA-029",
+    "TC-FLV-SEA-031", "TC-FLV-SEA-034", "TC-FLV-SEA-037", "TC-FLV-SEA-040", "TC-FLV-SEA-041",
+    "TC-FLV-SEA-044", "TC-FLV-SEA-045"
+  ],
+  "rootCause": "首次 26 条执行后公共执行器修复改变了 implementation fingerprint；未覆盖完整断言面的 13 条收据需要按当前实现重新验证，不能继续沿用历史收据。",
+  "correctiveAction": "按当前 execution-selection 对剩余 22 条进行一次定向重跑，保留现有 4 条当前有效收据；失败继续按产品偏差或自动化合同缺口分类，不以页面脚本退出码替代标准证据。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787582666856/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787584049263/evidence-ledger.json",
+    "systems/merchant-center-product-center-seasoning/execution-selection.json"
+  ],
+  "supersedesAttemptIds": ["system-test-1787582666856"]
+}

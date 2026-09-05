@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-25",
+  "scope": {
+    "executableDescriptors": {
+      "total": 46,
+      "create": 5,
+      "edit": 13,
+      "delete": 16,
+      "negative": 12
+    },
+    "notApplicable": {
+      "total": 5,
+      "status": "evidence-backed"
+    },
+    "reviewRequired": {
+      "total": 3,
+      "status": "not-generated"
+    }
+  },
+  "commands": {
+    "coreCreate": "npm run test:product-center:sop:core:create",
+    "coreHybrid": "npm run test:product-center:sop:core:hybrid",
+    "lowDependency": "npm run test:product-center:sop:low",
+    "highDependency": "npm run test:product-center:sop:high",
+    "negative": "npm run test:product-center:sop:negative",
+    "rerunFailed": "npm run test:product-center:sop:rerun",
+    "recover": "npm run recover:product-center",
+    "fast": "npm run test:product-center:sop:fast",
+    "full": "npm run test:product-center:sop:full",
+    "stability": "npm run test:product-center:sop:stability",
+    "stabilitySoak": "npm run test:product-center:sop:stability:soak",
+    "stabilitySerial": "npm run test:product-center:sop:stability:serial",
+    "incrementalPlan": "npm run plan:product-center:incremental",
+    "incremental": "npm run test:product-center:incremental",
+    "reviewBatches": "npm run build:product-center:review-batches",
+    "projectAcceptance": "npm run accept:product-center",
+    "projectRouteScan": "npm run accept:product-center:scan",
+    "storeProductPilotScan": "npm run accept:store-product:scan",
+    "recipeBuild": "npm run build:product-center:recipes",
+    "recipeContracts": "npm run test:product-center:recipes:contracts",
+    "recipePilot": "npm run test:product-center:recipes",
+    "categoryPilotBuild": "npm run build:product-center:category-pilot",
+    "categoryPilot": "npm run test:product-center:category-pilot",
+    "recipeIncremental": "npm run build:product-center:recipes:incremental",
+    "recipePromote": "npm run promote:product-center:recipes",
+    "recipeMetrics": "npm run build:product-center:recipes:metrics"
+  },
+  "gates": {
+    "typescript": {
+      "status": "passed"
+    },
+    "apiContracts": {
+      "targetPassed": 135,
+      "actualPassed": 135,
+      "status": "passed"
+    },
+    "testCasePreflight": {
+      "existingCases": 46,
+      "semanticPassed": 46,
+      "executable": 46,
+      "coverageDenominator": 328,
+      "coverageCovered": 152,
+      "coverageMissing": 176,
+      "scope": "case-only",
+      "fullCoverageRequired": true,
+      "evidence": "output/test-case-audit/product-center/preflight-latest.json",
+      "status": "passed"
+    },
+    "recipePilot": {
+      "targetPassed": 46,
+      "actualPassed": 46,
+      "unresolved": 0,
+      "workers": 4,
+      "durationSeconds": 218.06,
+      "evidence": "output/recipes/product-center-pilot-feedback.json",
+      "timingEvidence": "output/performance/product-center-timing-1784973135478.json",
+      "status": "passed"
+    },
+    "categoryModulePilot": {
+      "totalCases": 7,
+      "executable": 7,
+      "manual": 0,
+      "coverageRequired": 7,
+      "coverageCovered": 7,
+      "coverageMissing": 0,
+      "uiPassed": 7,
+      "runnerPassed": 8,
+      "workers": 4,
+      "durationSeconds": 57.5,
+      "incompleteCheckpoints": 0,
+      "auditEvidence": "output/test-case-audit/product-center/category-route-pilot-latest.json",
+      "timingEvidence": "output/performance/product-center-category-pilot-latest.json",
+      "status": "passed"
+    },
+    "recipeGovernance": {
+      "compiled": 46,
+      "totalSopCases": 46,
+      "coverageRate": 1,
+      "sourceBindingRate": 1,
+      "legacySourceAliases": 1,
+      "incrementalSelected": 4,
+      "incrementalUnsupported": 0,
+      "promoted": 46,
+      "locatorDrift": 0,
+      "evidence": "contracts/product-center/recipes/product-center-recipe-metrics.json",
+      "status": "passed"
+    },
+    "allSopSuites": {
+      "targetPassed": 46,
+      "actualPassed": 46,
+      "status": "passed"
+    },
+    "incrementalContractImpact": {
+      "targetPassed": 4,
+      "actualPassed": 4,
+      "selectedBy": "exact-source-id",
+      "durationSeconds": 46.42,
+      "status": "passed"
+    },
+    "coreStability": {
+      "targetPassed": 46,
+      "actualPassed": 46,
+      "workers": 4,
+      "status": "covered-by-full"
+    },
+    "routeResidueScan": {
+      "targetRoutes": 34,
+      "actualRoutes": 34,
+      "allowedHits": 0,
+      "actualHits": 0,
+      "allowedErrors": 0,
+      "actualErrors": 0,
+      "evidence": "output/acceptance/product-center/route-scan.json",
+      "status": "passed"
+    },
+    "projectNativeAcceptance": {
+      "stages": 3,
+      "durationMinutes": 3.92,
+      "evidence": "output/acceptance/product-center/latest.json",
+      "status": "passed"
+    },
+    "storeProductReusePilot": {
+      "targetRoutes": 10,
+      "actualRoutes": 10,
+      "actualHits": 0,
+      "actualErrors": 0,
+      "evidence": "output/acceptance/store-product/route-scan.json",
+      "status": "passed"
+    },
+    "p0ReviewBatches": {
+      "reviewItems": 94,
+      "batchCount": 19,
+      "maxBatchSize": 16,
+      "evidence": "contracts/product-center/reviews/batches/manifest.json",
+      "status": "passed"
+    },
+    "sensitiveScan": {
+      "allowedFindings": 0,
+      "actualFindings": 0,
+      "status": "passed"
+    },
+    "savedAuthState": {
+      "allowedFiles": 0,
+      "actualFiles": 0,
+      "status": "passed"
+    },
+    "incompleteCheckpoints": {
+      "allowedEntries": 0,
+      "actualEntries": 0,
+      "status": "passed"
+    },
+    "fullRegression": {
+      "targetPassed": 46,
+      "actualPassed": 46,
+      "workers": 4,
+      "durationMinutes": 3.63,
+      "status": "passed"
+    },
+    "loginReuse": {
+      "storageState": "output/auth-state.json",
+      "status": "implemented"
+    },
+    "coreStabilitySoak": {
+      "targetPassed": 46,
+      "status": "scheduled-not-routine"
+    },
+    "tokenReuse": {
+      "scope": "worker",
+      "status": "passed-by-contract"
+    },
+    "deletedRecordUiVerification": {
+      "status": "passed-by-targeted-regression",
+      "maxObservedSeconds": 5.37
+    }
+  },
+  "results": {
+    "passed": 46,
+    "blocked": 0,
+    "reviewRequired": 3,
+    "notes": [
+      "Token worker 缓存合同通过，三并发调用仅发起一次登录。",
+      "登录态三态复用探针验证通过，setup 13.1 秒且无账号密码也能复用。",
+      "高依赖删除 UI 验证从约60秒上限降至约5秒实际等待。",
+      "合同字段变化通过 sourceIds 精确命中四条边界用例，不再扩散到同路由删除用例。",
+      "增量执行4/4通过，46.42秒，结果回写 current-incremental-test-result.json。",
+      "full 最终46/46，3.44分钟，4 workers。",
+      "Recipe 全量46/46通过，unresolved为0，4 workers独立运行墙钟218.06秒。",
+      "四十六条Recipe均绑定统一合同真实记录，来源绑定率100%，旧field-constraint别名已归一。",
+      "当前合同差异精确选择四条标签第二语言边界Recipe，unsupported为0，route fallback为0。",
+      "晋级门禁通过后正式聚合命令仅运行全量Recipe Spec，业务总数保持46且不再重复旧套件。",
+      "Recipe反馈按最高retry去重，失败诊断脱敏且不自动修改合同或locator。",
+      "一键验收三阶段全部通过，3.91分钟；证据为 output/acceptance/product-center/latest.json。",
+      "项目内34路由残留扫描：0 hits、0 errors；证据为 output/acceptance/product-center/route-scan.json。",
+      "门店商品管理第二清单试点10/10通过，0 hits、0 errors。",
+      "P0九十四条已按可证实的API模块生成十九个审核批次，单包最大十六条。",
+      "最终敏感信息扫描：0 finding；认证状态文件：0；未完成checkpoint：0。",
+      "计时Reporter已对Fill步骤和凭据字段统一脱敏。",
+      "全局 teardown 自动恢复未完成审计、删除登录态、扫描敏感生成物并裁剪已完成历史。",
+      "项目内覆盖矩阵包含18个实体、17个 UI+API 覆盖实体、12个 API-only 创建动作与1个评审实体。",
+      "测试用例前置 P0.5/P0.6/P0.7 门禁已接入统一入口；重复DOM覆盖归并后分母328项，存量46条覆盖152项，full 模式对剩余176项严格阻断。",
+      "商品分类 module-full 试点7条达到稳定能力7/7覆盖，7条UI自动化全部通过；4 workers墙钟57.50秒，未完成checkpoint为0。"
+    ]
+  }
+}

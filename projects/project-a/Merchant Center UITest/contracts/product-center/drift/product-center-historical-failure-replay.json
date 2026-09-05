@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-historical-failure-replay",
+  "policy": {
+    "requiredCategories": [
+      "execution-platform-transient",
+      "environment",
+      "test-data",
+      "locator-drift",
+      "product-behavior",
+      "cleanup-residue",
+      "automation-defect",
+      "unknown"
+    ]
+  },
+  "replays": [
+    {
+      "id": "history:menu:hidden-submenu-target",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "memory:menu-hidden-submenu-timeout" },
+      "input": {
+        "status": "timedOut",
+        "diagnostic": "locator failed because the submenu target stayed hidden before click",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "locator-drift",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:tax:sidebar-target-not-reached",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "memory:tax-sidebar-target" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "sidebar target path was not reached: element not found",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "locator-drift",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:combo:async-table-uniqueness",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "memory:combo-table-uniqueness" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "strict mode violation: locator resolved to multiple asynchronous table rows",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "locator-drift",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:platform:connection-reset",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "memory:platform-connection-reset" },
+      "input": {
+        "status": "interrupted",
+        "diagnostic": "execution platform connection reset before the work unit completed",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "execution-platform-transient",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:environment:auth-context",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:environment-auth-context" },
+      "input": {
+        "status": "failed",
+        "statusCode": 401,
+        "diagnostic": "authenticated merchant context unavailable",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "environment",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:test-data:missing-prerequisite",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:test-data-prerequisite" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "seed prerequisite test data was not found",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "test-data",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:cleanup:residue",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:cleanup-residue" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "cleanup residue detected after verification",
+        "cleanupStatus": "residue-detected"
+      },
+      "expectedCategory": "cleanup-residue",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:automation:type-error",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:automation-defect" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "TypeError cannot read properties of undefined",
+        "cleanupStatus": "verified-clean"
+      },
+      "expectedCategory": "automation-defect",
+      "expectedProductFailure": false
+    },
+    {
+      "id": "history:product:observable-mismatch",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:product-behavior" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "expected accepted state received rejected state",
+        "assertion": true,
+        "cleanupStatus": "verified-clean",
+        "claimCoverageComplete": true,
+        "sidebarEntryVerified": true,
+        "environmentVerified": true,
+        "testDataVerified": true,
+        "pageContractStatus": "clean"
+      },
+      "expectedCategory": "product-behavior",
+      "expectedProductFailure": true
+    },
+    {
+      "id": "history:unknown:unclassified",
+      "sourceType": "historical-sanitized-replay",
+      "status": "confirmed",
+      "confidence": 1,
+      "generationAllowed": false,
+      "sourceEvidence": { "type": "sanitized-history", "ref": "baseline:unknown" },
+      "input": {
+        "status": "failed",
+        "diagnostic": "execution stopped with an unclassified diagnostic",
+        "cleanupStatus": "unknown"
+      },
+      "expectedCategory": "unknown",
+      "expectedProductFailure": false
+    }
+  ]
+}

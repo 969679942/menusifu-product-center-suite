@@ -1,0 +1,2417 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-source-auto-resolution",
+  "generatedAt": "2026-09-04T17:57:25.106Z",
+  "policy": {
+    "policyId": "runtime-source-auto-resolution-v1",
+    "automationCodeAsBusinessSourceAllowed": false,
+    "requirePassedRuntime": true,
+    "requireExactAssertions": true,
+    "requireCompleteEvidence": true,
+    "requireMutationCleanup": true,
+    "recoveryContract": "Test Automation Platform/src/automation/system-test/system-test-source-recovery.ts",
+    "originalRequirementClaimAllowed": false,
+    "humanRequiredOnlyForBusinessConflict": true
+  },
+  "summary": {
+    "evaluated": 89,
+    "currentBlockedAtBuild": 1,
+    "autoApproved": 65,
+    "runtimeAuditRequired": 20,
+    "automationRepairRequired": 3,
+    "productDecisionRequired": 1,
+    "productDefectConfirmed": 0,
+    "humanRequired": 1
+  },
+  "cases": [
+    {
+      "caseId": "TC-FLV-SEA-012",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+        "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+        "startedAt": "2026-09-04T17:32:36.253Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-SEA-012",
+        "caseId": "TC-FLV-SEA-012",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "新增调味组名称为空时保存失败并提示"
+        },
+        "semantics": {
+          "preconditions": [
+            "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+          ],
+          "actions": [
+            "进入品牌调味新增页，填写第二名称和 POS 名称，保持调味组名称为空。",
+            "点击确定，读取“调味组名称必填”字段级反馈且确认未发送创建请求。"
+          ],
+          "outcomes": [
+            "新增调味组名称为空时保存失败并提示"
+          ],
+          "assertionIds": [
+            "TC-FLV-SEA-012:expectation-1"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+          "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+          "startedAt": "2026-09-04T17:32:36.253Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-FLV-SEA-017",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-b2-sea017-diff-repair-20260905/evidence-ledger.json",
+        "sha256": "1ff8418d94b3c809c802f201db14301805607f14c871413d9bd7f7c130427d51",
+        "startedAt": "2026-09-04T17:56:54.464Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-SEA-017",
+        "caseId": "TC-FLV-SEA-017",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "调味价格上限及非法输入自动纠正"
+        },
+        "semantics": {
+          "preconditions": [
+            "已建立目标商户认证会话。",
+            "已有可进入详情编辑的调味项，并记录其原价格。"
+          ],
+          "actions": [
+            "分别新增价格为非数字字符、负数和留空的唯一调味项并回读价格。",
+            "进入已有调味详情，分别输入非数字字符和负数后失焦，核对恢复值、确定按钮状态和更新请求。"
+          ],
+          "outcomes": [
+            "新增价格输入非数字字符、负数或留空后均保存成功，服务端最终价格为0。",
+            "编辑详情输入非数字字符或负数后恢复原价，确定按钮置灰且不发送更新请求。"
+          ],
+          "assertionIds": [
+            "TC-FLV-SEA-017:expectation-1",
+            "TC-FLV-SEA-017:expectation-2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-b2-sea017-diff-repair-20260905/evidence-ledger.json",
+          "sha256": "1ff8418d94b3c809c802f201db14301805607f14c871413d9bd7f7c130427d51",
+          "startedAt": "2026-09-04T17:56:54.464Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543242397/evidence-ledger.json",
+        "sha256": "c9f631a46ccc4a41690020b4a55e7483bace93e31530c1402839d50b2216e360",
+        "startedAt": "2026-09-04T17:34:40.993Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-SEA-022",
+        "caseId": "TC-FLV-SEA-022",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "调味组下调味项达50个上限后不可再添加"
+        },
+        "semantics": {
+          "preconditions": [
+            "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+          ],
+          "actions": [
+            "打开包含 50 个已审计调味项的调味组编辑页。",
+            "点击添加调味，填写唯一的第 51 个调味项并点击确定提交。",
+            "记录精确限制提示、实际拦截通道和请求结果，并按服务端 ID 回读确认第 51 项未持久化且总数仍为 50。"
+          ],
+          "outcomes": [
+            "调味组下调味项达50个上限后不可再添加"
+          ],
+          "assertionIds": [
+            "TC-FLV-SEA-022:expectation-1"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543242397/evidence-ledger.json",
+          "sha256": "c9f631a46ccc4a41690020b4a55e7483bace93e31530c1402839d50b2216e360",
+          "startedAt": "2026-09-04T17:34:40.993Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+        "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+        "startedAt": "2026-09-04T17:32:36.253Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-SEA-046",
+        "caseId": "TC-FLV-SEA-046",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "调味价格输入超过两位小数保存时四舍五入为两位"
+        },
+        "semantics": {
+          "preconditions": [
+            "已进入新增调味项页面。",
+            "当前审计已确认价格输入、创建请求和详情回读合同。"
+          ],
+          "actions": [
+            "保存价格为 1.235 的唯一调味项。",
+            "保存价格为 1.234 的另一条唯一调味项。",
+            "通过 API 详情核对最终价格。"
+          ],
+          "outcomes": [
+            "价格 1.235 保存后为 1.24。",
+            "价格 1.234 保存后为 1.23。"
+          ],
+          "assertionIds": [
+            "TC-FLV-SEA-046:expectation-1",
+            "TC-FLV-SEA-046:expectation-2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+          "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+          "startedAt": "2026-09-04T17:32:36.253Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-FLV-TPL-001",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+        "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+        "startedAt": "2026-09-04T17:35:43.061Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-TPL-001",
+        "caseId": "TC-FLV-TPL-001",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "调味模板列表页字段展示正确"
+        },
+        "semantics": {
+          "preconditions": [
+            "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+          ],
+          "actions": [
+            "按正式用例在当前可见页面合同上执行只读操作或前端校验，不产生未登记业务写入。"
+          ],
+          "outcomes": [
+            "调味模板列表页字段展示正确"
+          ],
+          "assertionIds": [
+            "TC-FLV-TPL-001:expectation-1"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+          "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+          "startedAt": "2026-09-04T17:35:43.061Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-FLV-TPL-014",
+      "module": "brand-seasoning",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+        "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+        "startedAt": "2026-09-04T17:35:43.061Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-FLV-TPL-014",
+        "caseId": "TC-FLV-TPL-014",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+          "title": "新增调味模板未选择调味组时阻止保存并提示必选"
+        },
+        "semantics": {
+          "preconditions": [
+            "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+          ],
+          "actions": [
+            "进入调味模板新增页，填写唯一模板名称但不选择调味组。",
+            "点击保存，核对精确必选提示、路由未离开且未发送创建请求。"
+          ],
+          "outcomes": [
+            "新增调味模板未选择调味组时阻止保存并提示必选"
+          ],
+          "assertionIds": [
+            "TC-FLV-TPL-014:expectation-1"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+          "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+          "startedAt": "2026-09-04T17:35:43.061Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-ADD-005",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T075318Z.json",
+        "sha256": "c4d98c84dbbf044e69ce9264be87470ee14b5eb66caac5fadc6707b61e713ca2",
+        "startedAt": "2026-09-04T08:00:27.307Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-008",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:24:46.960Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-010",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:32:44.813Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-011",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:32:52.772Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-016",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084259Z.json",
+        "sha256": "7cbee5eb56030c88476684926333dee7cd4e28106b5cedd25f9fda5c0f57ef06",
+        "startedAt": "2026-09-04T08:48:23.235Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-019",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:20:40.738Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-020",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:21:09.275Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-021",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:21:51.096Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-023",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:22:31.669Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-024",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:22:52.223Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-025",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:23:04.297Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-026",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:44:00.042Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-027",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:40:21.606Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-029",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:47:51.948Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-030",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:48:12.780Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ADD-031",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:48:32.606Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ATTR-001",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:20:14.815Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-ATTR-002",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:20:27.112Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-008",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T03:44:57.885Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-009",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T03:45:46.591Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-010",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T075318Z.json",
+        "sha256": "c4d98c84dbbf044e69ce9264be87470ee14b5eb66caac5fadc6707b61e713ca2",
+        "startedAt": "2026-09-04T07:59:47.507Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-013",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "AUTOMATION_BINDING_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:41:45.756Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-014",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:24:22.327Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-015",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:24:45.753Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-017",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:25:35.689Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-018",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:18:41.094Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-MTH-018",
+        "caseId": "TC-GRP-MTH-018",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "编辑做法组添加明细后点击取消不保存"
+        },
+        "semantics": {
+          "preconditions": [
+            "做法组 A 仅有明细 A1。"
+          ],
+          "actions": [
+            "编辑 A，在做法组编辑面板点击「添加做法」追加一行并填写做法名称，然后点击左上角关闭按钮取消本次编辑。",
+            "查看做法组 A 明细列表。"
+          ],
+          "outcomes": [
+            "做法组编辑面板关闭且未发送写请求。",
+            "做法组 A 仍仅含 A1。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-MTH-018:1",
+            "assertion:group:expected:TC-GRP-MTH-018:2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:18:41.094Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-MTH-019",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:25:47.468Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-020",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:26:16.590Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-MTH-021",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:26:41.110Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-001",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:02:24.095Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-002",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:17:11.098Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-PKG-002",
+        "caseId": "TC-GRP-PKG-002",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "套餐组按名称和类型筛选及清空条件正确"
+        },
+        "semantics": {
+          "preconditions": [
+            "固定搭配与可选搭配列表均至少存在 1 条可查询记录。"
+          ],
+          "actions": [
+            "在名称搜索框输入目标套餐组名称关键字。",
+            "选择目标套餐组类型。",
+            "清空名称和类型筛选条件。"
+          ],
+          "outcomes": [
+            "列表仅展示名称与关键字匹配的记录。",
+            "列表仅保留目标类型且名称匹配的记录。",
+            "筛选条件清空，列表恢复展示全部套餐组。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-PKG-002:1",
+            "assertion:group:expected:TC-GRP-PKG-002:2",
+            "assertion:group:expected:TC-GRP-PKG-002:3"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:17:11.098Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-PKG-003",
+      "module": "brand-group",
+      "disposition": "automation-repair-required",
+      "humanRequired": false,
+      "reasons": [
+        "AUTOMATION_REPAIR_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084259Z.json",
+        "sha256": "7cbee5eb56030c88476684926333dee7cd4e28106b5cedd25f9fda5c0f57ef06",
+        "startedAt": "2026-09-04T08:52:17.473Z",
+        "status": "failed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-004",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T095523Z.json",
+        "sha256": "e423229b6b9faaa2071a5937b6d57af04c6173665e6ed43fc459717d7a955af8",
+        "startedAt": "2026-09-04T09:56:14.251Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-005",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:30:09.027Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-007",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:04:33.586Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-008",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:17:51.064Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-PKG-008",
+        "caseId": "TC-GRP-PKG-008",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "三种套餐组选择数量字段分布正确"
+        },
+        "semantics": {
+          "preconditions": [
+            "已进入新增套餐组页。"
+          ],
+          "actions": [
+            "切换到固定搭配，查看选择规则区和套餐商品表头。",
+            "切换到可选搭配，查看选择规则区和套餐商品表头。",
+            "切换到随心配，查看选择规则区和套餐商品表头。"
+          ],
+          "outcomes": [
+            "固定搭配无组级选择规则，商品行仅配置数量。",
+            "可选搭配仅有必填「选择数量」，默认 `1`；不存在组级最少/最多选择字段。",
+            "随心配展示必填「最少选择数量」「最多选择数量」，默认均为 `1`。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-PKG-008:1",
+            "assertion:group:expected:TC-GRP-PKG-008:2",
+            "assertion:group:expected:TC-GRP-PKG-008:3"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:17:51.064Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-PKG-011",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:07:09.194Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-012",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:07:59.650Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-014",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084259Z.json",
+        "sha256": "7cbee5eb56030c88476684926333dee7cd4e28106b5cedd25f9fda5c0f57ef06",
+        "startedAt": "2026-09-04T08:55:08.866Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-015",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "CASE_TITLE_MISMATCH",
+        "RUNTIME_BINDING_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-group-incremental-unresolved-20260819.json",
+        "sha256": "2b517ada59ceb8c535479d08034ea7db3522d396d6e20410697a087c66830d84",
+        "startedAt": "2026-08-18T16:09:29.663Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "0b745eeb2fbb3b33e8e70e62ca7640f7fb710844f724f1ecf13d0587571a0d44"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-016",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T075318Z.json",
+        "sha256": "c4d98c84dbbf044e69ce9264be87470ee14b5eb66caac5fadc6707b61e713ca2",
+        "startedAt": "2026-09-04T08:11:54.346Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-018",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:11:01.645Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-019",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:11:42.507Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-021",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:12:30.270Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-022",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:13:04.278Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-024",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:13:49.439Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-025",
+      "module": "brand-group",
+      "disposition": "automation-repair-required",
+      "humanRequired": false,
+      "reasons": [
+        "AUTOMATION_REPAIR_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-legacy116-auto-025-defect-evidence-02.json",
+        "sha256": "fdeda9383973fb0002a6e970c3aceaaedba86aded747e7d5748b97517c382f21",
+        "startedAt": "2026-08-17T09:45:25.564Z",
+        "status": "failed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-026",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:14:44.684Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-027",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:15:22.912Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-032",
+      "module": "brand-group",
+      "disposition": "automation-repair-required",
+      "humanRequired": false,
+      "reasons": [
+        "AUTOMATION_REPAIR_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-tc-grp-pkg-032-diagnostic-20260819.json",
+        "sha256": "646c3d773e0d7bb6100bc9fa46a6ce37265bb30550bf0432527c55ffdae74364",
+        "startedAt": "2026-08-18T16:31:18.256Z",
+        "status": "failed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-033",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260901T054346Z.json",
+        "sha256": "039b6c7e50f1984cad0de14e26132382b35e09dcb31722fb05f0758666ba4840",
+        "startedAt": "2026-09-01T05:44:31.614Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-034",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:49:51.555Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-035",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "STRUCTURED_RUNTIME_EVIDENCE_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:50:11.241Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-036",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:18:15.593Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-PKG-036",
+        "caseId": "TC-GRP-PKG-036",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "新增套餐组页展示固定搭配可选搭配随心配及说明"
+        },
+        "semantics": {
+          "preconditions": [
+            "已登录商品中心并进入新增套餐组页。"
+          ],
+          "actions": [
+            "查看套餐组类型区域中的类型选项及业务说明。",
+            "依次切换固定搭配、可选搭配和随心配，观察当前选中状态和专属字段。"
+          ],
+          "outcomes": [
+            "展示固定搭配、可选搭配、随心配三种单选类型及各自业务说明。",
+            "任一时刻仅选中一种类型，表单随当前类型切换对应选择规则和商品字段。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-PKG-036:1",
+            "assertion:group:expected:TC-GRP-PKG-036:2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:18:15.593Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-PKG-037",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:36:36.189Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-038",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:37:25.442Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-039",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:38:06.157Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-040",
+      "module": "brand-group",
+      "disposition": "product-decision-required",
+      "humanRequired": true,
+      "reasons": [
+        "PRODUCT_DECISION_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T102913Z.json",
+        "sha256": "25059530ada6eb8fce31e69bada2d4763bde3f0df55c25c082a81a69653d334b",
+        "startedAt": "2026-09-04T10:30:03.503Z",
+        "status": "failed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-042",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084136Z.json",
+        "sha256": "d5fb92fb6f1a5b6733c542e86e3a997a966977d8f2ff00aa68abd302838b6101",
+        "startedAt": "2026-09-04T08:47:41.746Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-045",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:39:30.271Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-PKG-046",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084136Z.json",
+        "sha256": "d5fb92fb6f1a5b6733c542e86e3a997a966977d8f2ff00aa68abd302838b6101",
+        "startedAt": "2026-09-04T08:48:56.295Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-SPEC-025",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:41:43.466Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-SPEC-026",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T084136Z.json",
+        "sha256": "d5fb92fb6f1a5b6733c542e86e3a997a966977d8f2ff00aa68abd302838b6101",
+        "startedAt": "2026-09-04T08:50:20.901Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-SPEC-027",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T042139Z.json",
+        "sha256": "fc91f8a7bfa26d07e873e9d26d03dfae5c42feda25ccd6de5e401d663334f26d",
+        "startedAt": "2026-09-04T04:42:22.532Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-SPEC-028",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:19:14.146Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-SPEC-028",
+        "caseId": "TC-GRP-SPEC-028",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "新增规格组填写全部字段保存成功"
+        },
+        "semantics": {
+          "preconditions": [
+            "品牌内无同名规格组。"
+          ],
+          "actions": [
+            "新增规格组，填写组名称、编码、备注及规格明细全部可填字段，保存。",
+            "列表按名称查询。"
+          ],
+          "outcomes": [
+            "保存成功且页面无错误提示。",
+            "API 详情包含全部已填写字段；列表按组名称查询并展示新建规格组及其规格明细名称。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-SPEC-028:1",
+            "assertion:group:expected:TC-GRP-SPEC-028:2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:19:14.146Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-TASTE-014",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "AUTOMATION_BINDING_REQUIRED"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-full-run-latest.json",
+        "sha256": "63171781a376e6c31b318ec78abd4a7c8ae4777b1a9a9fc52fb58d439e65b2d6",
+        "startedAt": "2026-08-11T16:40:38.030Z",
+        "status": "passed",
+        "applicationVersionFingerprint": null
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-TASTE-015",
+      "module": "brand-group",
+      "disposition": "runtime-audit-required",
+      "humanRequired": false,
+      "reasons": [
+        "RUNTIME_REQUIRED_EVIDENCE_MISMATCH"
+      ],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:29:08.705Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-TASTE-016",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:29:40.229Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-TASTE-018",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:30:32.747Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-TASTE-019",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:19:44.839Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      },
+      "sourceRecovery": {
+        "disposition": "reconstructed-current-baseline",
+        "executionAllowed": false,
+        "promotionAllowed": true,
+        "humanRequired": false,
+        "sourceAuthority": "reconstructed-current-baseline",
+        "reasonCodes": []
+      },
+      "recoveredRule": {
+        "ruleId": "BR-RECOVERED-TC-GRP-TASTE-019",
+        "caseId": "TC-GRP-TASTE-019",
+        "authority": "reconstructed-current-baseline",
+        "originalRequirementRecovered": false,
+        "source": {
+          "kind": "existing-test-case",
+          "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+          "title": "编辑口味组添加明细后点击取消不保存"
+        },
+        "semantics": {
+          "preconditions": [
+            "口味组 A 仅有明细 A1。"
+          ],
+          "actions": [
+            "编辑 A，在编辑页新增一行口味明细并填写信息后点击「取消」。",
+            "查看口味组 A 明细列表。"
+          ],
+          "outcomes": [
+            "口味组编辑面板关闭且未发送写请求。",
+            "口味组 A 仍仅含 A1。"
+          ],
+          "assertionIds": [
+            "assertion:group:expected:TC-GRP-TASTE-019:1",
+            "assertion:group:expected:TC-GRP-TASTE-019:2"
+          ]
+        },
+        "runtimeEvidence": {
+          "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+          "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+          "startedAt": "2026-09-04T15:19:44.839Z",
+          "status": "passed",
+          "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+        }
+      }
+    },
+    {
+      "caseId": "TC-GRP-TASTE-020",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:30:44.803Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-GRP-TASTE-022",
+      "module": "brand-group",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "7a3cc13ea693b0d4c60d698e31c4297024ab9e73779487f77be905ea807e00d8",
+        "startedAt": "2026-08-31T04:31:32.510Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-IMG-LIB-025",
+      "module": "brand-item",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:03:08.534Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-IMG-LIB-026",
+      "module": "brand-item",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:03:16.832Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-BDG-009",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:05:17.201Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-BDG-020",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:05:37.351Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-BDG-021",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:05:46.049Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-BDG-024",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-20260901T020437Z.json",
+        "sha256": "79998eff9a12dccee39915a05b5d64fd6e1bd2b210ac43e194f4687e6a35b269",
+        "startedAt": "2026-09-01T02:07:30.349Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-DESC-014",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-20260831T075223Z.json",
+        "sha256": "7e62a643e46b25c561927a935ee5b917849c5e90a2fb3369354df492ae1ebb69",
+        "startedAt": "2026-08-31T07:56:37.448Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-DESC-027",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-20260901T020437Z.json",
+        "sha256": "79998eff9a12dccee39915a05b5d64fd6e1bd2b210ac43e194f4687e6a35b269",
+        "startedAt": "2026-09-01T02:07:12.407Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-STAT-013",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-20260831T075223Z.json",
+        "sha256": "7e62a643e46b25c561927a935ee5b917849c5e90a2fb3369354df492ae1ebb69",
+        "startedAt": "2026-08-31T07:57:01.618Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-STAT-024",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-source-governed-all-non-seasoning-20260831-r2.json",
+        "sha256": "508796984151b42487562f2cb411aec345b1e711d98202a2732cfb6fa96a7003",
+        "startedAt": "2026-08-31T06:05:58.434Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    },
+    {
+      "caseId": "TC-TAG-STAT-029",
+      "module": "brand-tag",
+      "disposition": "auto-approved-runtime",
+      "humanRequired": false,
+      "reasons": [],
+      "evidence": {
+        "path": "Merchant Center UITest/output/product-center-remaining-source-governed-20260901T020437Z.json",
+        "sha256": "79998eff9a12dccee39915a05b5d64fd6e1bd2b210ac43e194f4687e6a35b269",
+        "startedAt": "2026-09-01T02:07:21.360Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f56c3af30e24f930c97762670a9e95f4c0e34c791aa8e9229a5c845dad18b6d8"
+      },
+      "sourceRecovery": null,
+      "recoveredRule": null
+    }
+  ],
+  "recoveredRules": [
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-SEA-012",
+      "caseId": "TC-FLV-SEA-012",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "新增调味组名称为空时保存失败并提示"
+      },
+      "semantics": {
+        "preconditions": [
+          "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+        ],
+        "actions": [
+          "进入品牌调味新增页，填写第二名称和 POS 名称，保持调味组名称为空。",
+          "点击确定，读取“调味组名称必填”字段级反馈且确认未发送创建请求。"
+        ],
+        "outcomes": [
+          "新增调味组名称为空时保存失败并提示"
+        ],
+        "assertionIds": [
+          "TC-FLV-SEA-012:expectation-1"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+        "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+        "startedAt": "2026-09-04T17:32:36.253Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-SEA-017",
+      "caseId": "TC-FLV-SEA-017",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "调味价格上限及非法输入自动纠正"
+      },
+      "semantics": {
+        "preconditions": [
+          "已建立目标商户认证会话。",
+          "已有可进入详情编辑的调味项，并记录其原价格。"
+        ],
+        "actions": [
+          "分别新增价格为非数字字符、负数和留空的唯一调味项并回读价格。",
+          "进入已有调味详情，分别输入非数字字符和负数后失焦，核对恢复值、确定按钮状态和更新请求。"
+        ],
+        "outcomes": [
+          "新增价格输入非数字字符、负数或留空后均保存成功，服务端最终价格为0。",
+          "编辑详情输入非数字字符或负数后恢复原价，确定按钮置灰且不发送更新请求。"
+        ],
+        "assertionIds": [
+          "TC-FLV-SEA-017:expectation-1",
+          "TC-FLV-SEA-017:expectation-2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-b2-sea017-diff-repair-20260905/evidence-ledger.json",
+        "sha256": "1ff8418d94b3c809c802f201db14301805607f14c871413d9bd7f7c130427d51",
+        "startedAt": "2026-09-04T17:56:54.464Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-SEA-022",
+      "caseId": "TC-FLV-SEA-022",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "调味组下调味项达50个上限后不可再添加"
+      },
+      "semantics": {
+        "preconditions": [
+          "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+        ],
+        "actions": [
+          "打开包含 50 个已审计调味项的调味组编辑页。",
+          "点击添加调味，填写唯一的第 51 个调味项并点击确定提交。",
+          "记录精确限制提示、实际拦截通道和请求结果，并按服务端 ID 回读确认第 51 项未持久化且总数仍为 50。"
+        ],
+        "outcomes": [
+          "调味组下调味项达50个上限后不可再添加"
+        ],
+        "assertionIds": [
+          "TC-FLV-SEA-022:expectation-1"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543242397/evidence-ledger.json",
+        "sha256": "c9f631a46ccc4a41690020b4a55e7483bace93e31530c1402839d50b2216e360",
+        "startedAt": "2026-09-04T17:34:40.993Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-SEA-046",
+      "caseId": "TC-FLV-SEA-046",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "调味价格输入超过两位小数保存时四舍五入为两位"
+      },
+      "semantics": {
+        "preconditions": [
+          "已进入新增调味项页面。",
+          "当前审计已确认价格输入、创建请求和详情回读合同。"
+        ],
+        "actions": [
+          "保存价格为 1.235 的唯一调味项。",
+          "保存价格为 1.234 的另一条唯一调味项。",
+          "通过 API 详情核对最终价格。"
+        ],
+        "outcomes": [
+          "价格 1.235 保存后为 1.24。",
+          "价格 1.234 保存后为 1.23。"
+        ],
+        "assertionIds": [
+          "TC-FLV-SEA-046:expectation-1",
+          "TC-FLV-SEA-046:expectation-2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543019785/evidence-ledger.json",
+        "sha256": "2600798aabfabf8da237968b6099f956a7ef71a5a99cbfce816f86f80d540b6b",
+        "startedAt": "2026-09-04T17:32:36.253Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-TPL-001",
+      "caseId": "TC-FLV-TPL-001",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "调味模板列表页字段展示正确"
+      },
+      "semantics": {
+        "preconditions": [
+          "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+        ],
+        "actions": [
+          "按正式用例在当前可见页面合同上执行只读操作或前端校验，不产生未登记业务写入。"
+        ],
+        "outcomes": [
+          "调味模板列表页字段展示正确"
+        ],
+        "assertionIds": [
+          "TC-FLV-TPL-001:expectation-1"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+        "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+        "startedAt": "2026-09-04T17:35:43.061Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-FLV-TPL-014",
+      "caseId": "TC-FLV-TPL-014",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "title": "新增调味模板未选择调味组时阻止保存并提示必选"
+      },
+      "semantics": {
+        "preconditions": [
+          "已通过 UI OAuth 自动化建立正式用例指定的单门店或多门店商户上下文。"
+        ],
+        "actions": [
+          "进入调味模板新增页，填写唯一模板名称但不选择调味组。",
+          "点击保存，核对精确必选提示、路由未离开且未发送创建请求。"
+        ],
+        "outcomes": [
+          "新增调味模板未选择调味组时阻止保存并提示必选"
+        ],
+        "assertionIds": [
+          "TC-FLV-TPL-014:expectation-1"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/system-test-1788543297200/evidence-ledger.json",
+        "sha256": "f324ccdf757ee0a81257987127b1b8bab7e3ff5cad9e03925e546f7fdeae3115",
+        "startedAt": "2026-09-04T17:35:43.061Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-MTH-018",
+      "caseId": "TC-GRP-MTH-018",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "编辑做法组添加明细后点击取消不保存"
+      },
+      "semantics": {
+        "preconditions": [
+          "做法组 A 仅有明细 A1。"
+        ],
+        "actions": [
+          "编辑 A，在做法组编辑面板点击「添加做法」追加一行并填写做法名称，然后点击左上角关闭按钮取消本次编辑。",
+          "查看做法组 A 明细列表。"
+        ],
+        "outcomes": [
+          "做法组编辑面板关闭且未发送写请求。",
+          "做法组 A 仍仅含 A1。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-MTH-018:1",
+          "assertion:group:expected:TC-GRP-MTH-018:2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:18:41.094Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-PKG-002",
+      "caseId": "TC-GRP-PKG-002",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "套餐组按名称和类型筛选及清空条件正确"
+      },
+      "semantics": {
+        "preconditions": [
+          "固定搭配与可选搭配列表均至少存在 1 条可查询记录。"
+        ],
+        "actions": [
+          "在名称搜索框输入目标套餐组名称关键字。",
+          "选择目标套餐组类型。",
+          "清空名称和类型筛选条件。"
+        ],
+        "outcomes": [
+          "列表仅展示名称与关键字匹配的记录。",
+          "列表仅保留目标类型且名称匹配的记录。",
+          "筛选条件清空，列表恢复展示全部套餐组。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-PKG-002:1",
+          "assertion:group:expected:TC-GRP-PKG-002:2",
+          "assertion:group:expected:TC-GRP-PKG-002:3"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:17:11.098Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-PKG-008",
+      "caseId": "TC-GRP-PKG-008",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "三种套餐组选择数量字段分布正确"
+      },
+      "semantics": {
+        "preconditions": [
+          "已进入新增套餐组页。"
+        ],
+        "actions": [
+          "切换到固定搭配，查看选择规则区和套餐商品表头。",
+          "切换到可选搭配，查看选择规则区和套餐商品表头。",
+          "切换到随心配，查看选择规则区和套餐商品表头。"
+        ],
+        "outcomes": [
+          "固定搭配无组级选择规则，商品行仅配置数量。",
+          "可选搭配仅有必填「选择数量」，默认 `1`；不存在组级最少/最多选择字段。",
+          "随心配展示必填「最少选择数量」「最多选择数量」，默认均为 `1`。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-PKG-008:1",
+          "assertion:group:expected:TC-GRP-PKG-008:2",
+          "assertion:group:expected:TC-GRP-PKG-008:3"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:17:51.064Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-PKG-036",
+      "caseId": "TC-GRP-PKG-036",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "新增套餐组页展示固定搭配可选搭配随心配及说明"
+      },
+      "semantics": {
+        "preconditions": [
+          "已登录商品中心并进入新增套餐组页。"
+        ],
+        "actions": [
+          "查看套餐组类型区域中的类型选项及业务说明。",
+          "依次切换固定搭配、可选搭配和随心配，观察当前选中状态和专属字段。"
+        ],
+        "outcomes": [
+          "展示固定搭配、可选搭配、随心配三种单选类型及各自业务说明。",
+          "任一时刻仅选中一种类型，表单随当前类型切换对应选择规则和商品字段。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-PKG-036:1",
+          "assertion:group:expected:TC-GRP-PKG-036:2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:18:15.593Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-SPEC-028",
+      "caseId": "TC-GRP-SPEC-028",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "新增规格组填写全部字段保存成功"
+      },
+      "semantics": {
+        "preconditions": [
+          "品牌内无同名规格组。"
+        ],
+        "actions": [
+          "新增规格组，填写组名称、编码、备注及规格明细全部可填字段，保存。",
+          "列表按名称查询。"
+        ],
+        "outcomes": [
+          "保存成功且页面无错误提示。",
+          "API 详情包含全部已填写字段；列表按组名称查询并展示新建规格组及其规格明细名称。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-SPEC-028:1",
+          "assertion:group:expected:TC-GRP-SPEC-028:2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:19:14.146Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    },
+    {
+      "ruleId": "BR-RECOVERED-TC-GRP-TASTE-019",
+      "caseId": "TC-GRP-TASTE-019",
+      "authority": "reconstructed-current-baseline",
+      "originalRequirementRecovered": false,
+      "source": {
+        "kind": "existing-test-case",
+        "path": "00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "title": "编辑口味组添加明细后点击取消不保存"
+      },
+      "semantics": {
+        "preconditions": [
+          "口味组 A 仅有明细 A1。"
+        ],
+        "actions": [
+          "编辑 A，在编辑页新增一行口味明细并填写信息后点击「取消」。",
+          "查看口味组 A 明细列表。"
+        ],
+        "outcomes": [
+          "口味组编辑面板关闭且未发送写请求。",
+          "口味组 A 仍仅含 A1。"
+        ],
+        "assertionIds": [
+          "assertion:group:expected:TC-GRP-TASTE-019:1",
+          "assertion:group:expected:TC-GRP-TASTE-019:2"
+        ]
+      },
+      "runtimeEvidence": {
+        "path": "Merchant Center UITest/output/product-center-group-source-governed-20260904T151629Z.json",
+        "sha256": "d8685706e4c2b41c80ca783f219592e152e5ab87dc49dad5d59479cbad6c0d58",
+        "startedAt": "2026-09-04T15:19:44.839Z",
+        "status": "passed",
+        "applicationVersionFingerprint": "f9edd7b559e8be8881070d97920e9dd85826d33cd55ea05f5436bc5a31c7b2a2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+[
+  {
+    "id": "cleanup:09482df68d8a",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-category-AUTO_AUDIT_CATEGORY_1784562505632\\result.json"
+      }
+    ],
+    "entity": "商品分类",
+    "route": "/pp/brand/category",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "商品分类",
+        "route": "/pp/brand/category",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "verifyEdit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-category-AUTO_AUDIT_CATEGORY_1784562505632/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:ac448c1a1c62",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-printer-stall-AUTO_AUDIT_STALL_1784562651808\\result.json"
+      }
+    ],
+    "entity": "打印档口（品牌）",
+    "route": "/pp/printer-stall/list",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "打印档口（品牌）",
+        "route": "/pp/printer-stall/list",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "not-applicable",
+        "editReason": "页面未暴露编辑控件",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-printer-stall-AUTO_AUDIT_STALL_1784562651808/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:be8271fec05d",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-spec-v2-AUTO_AUDIT_SPEC_1784593612769\\result.json"
+      }
+    ],
+    "entity": "规格组",
+    "route": "/pp/brand/spec",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "规格组",
+        "route": "/pp/brand/spec",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-spec-v2-AUTO_AUDIT_SPEC_1784593612769/result.json",
+        "verifyEdit": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:8782356a3e7e",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-tax-AUTO_AUDIT_TAX_1784587192492\\result.json + 删除后 pageQuery 仅默认税"
+      }
+    ],
+    "entity": "税种",
+    "route": "/poi/tax/tax-types",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "税种",
+        "route": "/poi/tax/tax-types",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "not-applicable",
+        "editReason": "P0 动作菜单仅暴露删除",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-tax-AUTO_AUDIT_TAX_1784587192492/result.json + 删除后 pageQuery 仅默认税"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:b882138add10",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-taste-robust-AUTO_AUDIT_TASTE_1784589534029\\result.json"
+      }
+    ],
+    "entity": "口味组",
+    "route": "/pp/brand/option-group/taste",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "口味组",
+        "route": "/pp/brand/option-group/taste",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-taste-robust-AUTO_AUDIT_TASTE_1784589534029/result.json",
+        "verifyEdit": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:93a6dd1dc8d5",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-method-robust-AUTO_AUDIT_METHOD_1784589065548\\result.json"
+      }
+    ],
+    "entity": "做法组",
+    "route": "/pp/brand/option-group/method",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "做法组",
+        "route": "/pp/brand/option-group/method",
+        "create": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "source": "artifacts/crud-method-robust-AUTO_AUDIT_METHOD_1784589065548/result.json",
+        "verifyCreate": "passed",
+        "verifyEdit": "passed",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:912eb2dc22a5",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-additional-v2-AUTO_AUDIT_ADDITIONAL_1784591701918\\result.json"
+      }
+    ],
+    "entity": "加料组",
+    "route": "/pp/brand/option-group/additional",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "加料组",
+        "route": "/pp/brand/option-group/additional",
+        "create": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "source": "artifacts/crud-additional-v2-AUTO_AUDIT_ADDITIONAL_1784591701918/result.json",
+        "verifyCreate": "passed",
+        "verifyEdit": "passed",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:a4d37c5aacbc",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-combo-AUTO_AUDIT_COMBO_1784594291192\\result.json"
+      }
+    ],
+    "entity": "套餐组",
+    "route": "/pp/brand/combo",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "套餐组",
+        "route": "/pp/brand/combo",
+        "create": "passed",
+        "edit": "not-applicable",
+        "delete": "passed",
+        "source": "artifacts/crud-combo-AUTO_AUDIT_COMBO_1784594291192/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:28f1af45ea9e",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-description-tag-AUTO_AUDIT_T92407858\\result.json"
+      }
+    ],
+    "entity": "描述标签",
+    "route": "/pp/brand/tag/description",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "描述标签",
+        "route": "/pp/brand/tag/description",
+        "create": "passed",
+        "edit": "not-applicable",
+        "delete": "passed",
+        "source": "artifacts/crud-description-tag-AUTO_AUDIT_T92407858/result.json",
+        "verifyCreate": "passed",
+        "editReason": "行菜单仅暴露关联商品与删除",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:578fab90949f",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-stat-tag-AUTO_AUDIT_T92237128\\result.json"
+      }
+    ],
+    "entity": "统计标签",
+    "route": "/pp/brand/tag/statistic",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "统计标签",
+        "route": "/pp/brand/tag/statistic",
+        "create": "passed",
+        "edit": "not-applicable",
+        "delete": "passed",
+        "source": "artifacts/crud-stat-tag-AUTO_AUDIT_T92237128/result.json",
+        "verifyCreate": "passed",
+        "editReason": "行菜单仅暴露关联商品与删除",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:6f7942bd851f",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-material-AUTO_AUDIT_MAT_1784597419381\\result.json"
+      }
+    ],
+    "entity": "原料",
+    "route": "/pp/brandMaterial",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "原料",
+        "route": "/pp/brandMaterial",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "not-applicable",
+        "editReason": "打印机视图同类行菜单仅暴露删除；原料行菜单仅暴露删除",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-material-AUTO_AUDIT_MAT_1784597419381/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:cba03e6002fb",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-material-category-AUTO_AUDIT_MC_1784593080554\\result.json"
+      }
+    ],
+    "entity": "原料分类",
+    "route": "/pp/brandMaterialCategory",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "原料分类",
+        "route": "/pp/brandMaterialCategory",
+        "create": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "source": "artifacts/crud-material-category-AUTO_AUDIT_MC_1784593080554/result.json",
+        "verifyCreate": "passed",
+        "verifyEdit": "passed",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:7eb5939e7fe5",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-bom-AUTO_AUDIT_BOM_1784609581385\\result.json"
+      }
+    ],
+    "entity": "配方原料",
+    "route": "/pp/bom/ingredient",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "配方原料",
+        "route": "/pp/bom/ingredient",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "verifyEdit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:7d005c4dbe16",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-bom-AUTO_AUDIT_BOM_1784609581385\\result.json"
+      }
+    ],
+    "entity": "配方单",
+    "route": "/pp/bom/list",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "配方单",
+        "route": "/pp/bom/list",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "source": "artifacts/crud-bom-AUTO_AUDIT_BOM_1784609581385/result.json",
+        "verifyEdit": "passed",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:70824562078a",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-menu-AUTO_AUDIT_MENU_1784599719758\\result.json"
+      }
+    ],
+    "entity": "菜单",
+    "route": "/bm/menu/list",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "菜单",
+        "route": "/bm/menu/list",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "verifyEdit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-menu-AUTO_AUDIT_MENU_1784599719758/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:491f7e6d04fe",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-printer-AUTO_AUDIT_PRINTER_1784598605918\\result.json"
+      }
+    ],
+    "entity": "打印机",
+    "route": "/poi/printer-stall/list",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "打印机",
+        "route": "/poi/printer-stall/list",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "verifyEdit": "passed",
+        "delete": "passed",
+        "verifyDelete": "passed",
+        "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:ee782839140a",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258\\result.json"
+      }
+    ],
+    "entity": "品牌调味",
+    "route": "/pp/brand/seasoning/list",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "品牌调味",
+        "route": "/pp/brand/seasoning/list",
+        "create": "passed",
+        "verifyCreate": "passed",
+        "edit": "passed",
+        "delete": "passed",
+        "source": "artifacts/crud-seasoning-AUTO_AUDIT_SEASONING_1784616375258/result.json",
+        "verifyEdit": "passed",
+        "verifyDelete": "passed"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  },
+  {
+    "id": "cleanup:5a6080c20e44",
+    "status": "observed",
+    "sourceType": "ui-runtime",
+    "confidence": 0.85,
+    "generationAllowed": false,
+    "source": [
+      {
+        "path": "D:\\Menusifu\\TestOps\\artifacts\\store-seasoning-crud-blocked.json"
+      }
+    ],
+    "entity": "门店调味",
+    "route": "/poi/location/seasoning",
+    "evidence": {
+      "crudEvidence": {
+        "entity": "门店调味",
+        "route": "/poi/location/seasoning",
+        "create": "not-applicable",
+        "edit": "not-applicable",
+        "delete": "blocked",
+        "source": "artifacts/store-seasoning-crud-blocked.json",
+        "deleteReason": "仅暴露既有记录删除入口；无安全可创建并下发的 AUTO_AUDIT_* 门店调味，禁止删除业务数据"
+      },
+      "implementationStatus": "project-specific-adapter-required"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-035",
+    "TC-FLV-SEA-037",
+    "TC-FLV-SEA-041",
+    "TC-FLV-TPL-024"
+  ],
+  "rootCause": "本轮报告整改改变了调味页面步骤标题参数渲染、取消编辑的值收据、批量移动目标组回读、调味组排序服务端回读以及多门店模板编辑目标项校验；执行入口同时补齐了优化计划和显式定向选择门禁。历史执行收据和历史修复诊断均不覆盖当前实现，不能授权本轮定向验证。",
+  "correctiveAction": "在 single-store-000407 上定向重跑 SEA-035、SEA-037、SEA-041，在 multi-store-000420 上定向重跑 TPL-024；验证中文业务步骤、真实 UI 操作、具体期望与实际值、接口收据、服务端回读、失败证据绑定、失败分类以及 API/UI 零残留。",
+  "evidenceRefs": [
+    "pages/product-center/product-center-sop.page.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/allure-step-policy.contract.spec.ts",
+    "output/system-test-optimization/plan.json",
+    "systems/merchant-center-product-center-seasoning/execution-selection.json"
+  ],
+  "supersedesAttemptIds": []
+}

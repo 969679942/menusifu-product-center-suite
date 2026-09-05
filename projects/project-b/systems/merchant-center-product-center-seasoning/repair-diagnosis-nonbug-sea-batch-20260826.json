@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-001", "TC-FLV-SEA-022", "TC-FLV-SEA-023", "TC-FLV-SEA-024", "TC-FLV-SEA-025",
+    "TC-FLV-SEA-026", "TC-FLV-SEA-027", "TC-FLV-SEA-028", "TC-FLV-SEA-030", "TC-FLV-SEA-043"
+  ],
+  "rootCause": "本批用例属于非 bug 的自动化合同/执行链复核；此前存在静态合同、列表终态或种子身份未覆盖完整动作的问题，不能使用历史收据直接授权当前通过。",
+  "correctiveAction": "使用当前模块适配器、统一上下文守卫、精确请求关联、真实 UI 动作、API/UI 双通道断言和 finally 清理重新执行；失败仅按当前证据分类。",
+  "evidenceRefs": [
+    "D:/Menusifu/Test Automation Platform/tests/api/system-test-request-correlation.contract.spec.ts",
+    "systems/merchant-center-product-center-seasoning/manifest.json"
+  ],
+  "supersedesAttemptIds": [
+    "system-test-1787675422665", "system-test-1787677787486", "system-test-1787678446308",
+    "system-test-1787678832390", "system-test-1787679812678", "system-test-1787681859901"
+  ]
+}

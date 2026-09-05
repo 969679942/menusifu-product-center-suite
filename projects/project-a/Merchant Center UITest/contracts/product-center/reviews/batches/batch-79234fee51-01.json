@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.970Z",
+  "id": "batch-79234fee51-01",
+  "group": "industry-item:platform-regulation-type-controller",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:d5e0206ce222",
+      "group": "industry-item:platform-regulation-type-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[67]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:GET /ops/platform-regulation/all",
+          "operationId": "getAll_1"
+        },
+        "question": "请确认 industry-item:GET /ops/platform-regulation/all 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

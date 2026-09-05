@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectedAt": "2026-09-04T21:39:35.311Z",
+  "applicationVersion": {
+    "fingerprint": null,
+    "signals": [],
+    "status": "unavailable",
+    "source": "unavailable",
+    "stable": false
+  },
+  "observations": {
+    "TC-FLV-SEA-015": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/list",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "not-present",
+      "businessWriteRequest": "not-sent",
+      "controls": [
+        {
+          "id": "seasoning.add-entry",
+          "state": "enabled",
+          "visible": true,
+          "required": false,
+          "label": "Add Seasoning / 新增调味"
+        },
+        {
+          "id": "seasoning.list",
+          "state": "enabled",
+          "visible": true,
+          "required": false,
+          "label": "Seasoning list / 调味列表"
+        }
+      ],
+      "fields": [],
+      "network": [
+        {
+          "method": "GET",
+          "path": "/item/v1/ops-brand/global-modifier/list",
+          "operationKey": "brand-menu:GET /item/v1/ops-brand/global-modifier/list",
+          "outcome": "sent",
+          "requestFingerprint": "d988695699a81910bac81ad1f564fa4d8e5437ea4f60455297a20acb22271b37"
+        }
+      ]
+    },
+    "TC-FLV-SEA-046": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/create",
+      "pageMode": "create",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [
+        {
+          "id": "seasoning.add-entry",
+          "state": "enabled",
+          "visible": true,
+          "required": false,
+          "label": "Add Seasoning / 新增调味"
+        },
+        {
+          "id": "seasoning.list",
+          "state": "enabled",
+          "visible": true,
+          "required": false,
+          "label": "Seasoning list / 调味列表"
+        }
+      ],
+      "fields": [
+        {
+          "id": "field-0",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "field-1",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "field-2",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": ":rbs:",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": "on"
+        },
+        {
+          "id": ":rbs:",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": "on"
+        },
+        {
+          "id": "field-5",
+          "visible": true,
+          "enabled": true,
+          "required": true,
+          "value": ""
+        },
+        {
+          "id": "field-6",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": ""
+        },
+        {
+          "id": "field-7",
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "value": ""
+        }
+      ],
+      "network": [
+        {
+          "method": "GET",
+          "path": "/item/v1/ops-brand/global-modifier/list",
+          "operationKey": "brand-menu:GET /item/v1/ops-brand/global-modifier/list",
+          "outcome": "sent",
+          "requestFingerprint": "d988695699a81910bac81ad1f564fa4d8e5437ea4f60455297a20acb22271b37"
+        }
+      ]
+    },
+    "TC-FLV-SEA-016": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/create",
+      "pageMode": "create",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "exactUiFeedback": [
+        "Network Error"
+      ],
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "sent",
+      "fields": [
+        {
+          "id": "seasoning.price",
+          "value": "-1",
+          "min": 0,
+          "max": 999999.99
+        }
+      ],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/global-modifier",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/global-modifier",
+          "outcome": "sent",
+          "requestFingerprint": "bc6c8864a27ea47401692ac900d9ef9c96bb4d48b9c66cdf76495d057787e762"
+        }
+      ]
+    },
+    "TC-FLV-REC-001": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/record",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        },
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        }
+      ]
+    },
+    "TC-FLV-REC-002": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/record",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        },
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        }
+      ]
+    },
+    "TC-FLV-REC-003": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/record",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        },
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        }
+      ]
+    },
+    "TC-FLV-REC-004": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/record",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        },
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        }
+      ]
+    },
+    "TC-FLV-REC-005": {
+      "locale": "zh-CN",
+      "route": "/pp/brand/seasoning/record",
+      "pageMode": "list",
+      "applicationVersionFingerprint": "unavailable",
+      "environmentId": "balamxqa",
+      "roleId": "merchant-operator",
+      "persisted": "not-checked",
+      "uiLookup": "not-checked",
+      "apiLookup": "not-checked",
+      "cleanup": {
+        "required": false,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true
+      },
+      "submitButtonState": "enabled",
+      "businessWriteRequest": "not-sent",
+      "controls": [],
+      "network": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        },
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-modifier-sync/job/list",
+          "operationKey": "brand-menu:POST /item/v1/ops-brand/brand-modifier-sync/job/list",
+          "outcome": "sent",
+          "requestFingerprint": "4d64012e309140f84b05ffaf21ef17a4e9bee5c03283e22fdfbc7704897e1d62"
+        }
+      ]
+    }
+  },
+  "network": [
+    {
+      "method": "GET",
+      "path": "/item/v1/ops-brand/global-modifier/list",
+      "operationKey": "brand-menu:GET /item/v1/ops-brand/global-modifier/list",
+      "outcome": "sent",
+      "requestFingerprint": "d988695699a81910bac81ad1f564fa4d8e5437ea4f60455297a20acb22271b37"
+    },
+    {
+      "method": "POST",
+      "path": "/item/v1/ops-brand/global-modifier",
+      "operationKey": "brand-menu:POST /item/v1/ops-brand/global-modifier",
+      "outcome": "sent",
+      "requestFingerprint": "bc6c8864a27ea47401692ac900d9ef9c96bb4d48b9c66cdf76495d057787e762"
+    }
+  ],
+  "note": "审计阶段为只读合同采集；业务写请求在审计阶段被客户端拦截，不创建、不修改、不删除业务数据。截图和视频不作为通过依据，正式执行阶段负责写入、回读和清理。"
+}

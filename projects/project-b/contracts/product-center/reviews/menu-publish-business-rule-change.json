@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "menu-publish-rule-change-2026-07-27",
+  "status": "product-confirmed-change-request",
+  "source": {
+    "type": "product-owner-direction",
+    "recordedDate": "2026-07-27",
+    "summary": "菜单下发需要增加新商品下发、门店多余商品处理和字段下发范围选择。"
+  },
+  "formalRuleSource": {
+    "type": "product-confirmed-business-rule",
+    "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+    "locator": "## 25. 菜单管理 / 菜单",
+    "scope": "section-only"
+  },
+  "generationAllowed": false,
+  "businessRuleMutationAllowed": false,
+  "confirmedRequirements": [
+    {
+      "id": "new-product-distribution",
+      "status": "confirmed-direction",
+      "requirement": "菜单下发时必须选择新商品是否下发。"
+    },
+    {
+      "id": "extra-store-product-handling",
+      "status": "confirmed-direction",
+      "requirement": "菜单下发时必须选择门店多余商品的处理方式。"
+    },
+    {
+      "id": "field-distribution-scope",
+      "status": "confirmed-direction",
+      "requirement": "菜单下发时必须明确哪些字段下发、哪些字段不下发。"
+    }
+  ],
+  "confirmedSourceRules": [
+    {
+      "id": "rule:menu-publish-generates-store-menu-and-products",
+      "status": "confirmed",
+      "rule": "菜单引用品牌商品库商品，并通过下发生成门店菜单和门店商品。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 上下游关系 / 菜单引用品牌商品库商品，并通过下发生成门店菜单和门店商品。"
+      }
+    },
+    {
+      "id": "rule:menu-price-syncs-on-publish",
+      "status": "confirmed",
+      "rule": "菜单价格随菜单下发同步到门店。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 菜单价格随菜单下发同步到门店。"
+      }
+    },
+    {
+      "id": "rule:pos-price-change-applies-after-publish",
+      "status": "confirmed",
+      "rule": "POS 端是否支持改价字段打开或关闭后，需下发后在门店 POS 生效。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / POS 端是否支持改价字段打开或关闭后，需下发后在门店 POS 生效。"
+      }
+    },
+    {
+      "id": "rule:client-hidden-applies-after-publish",
+      "status": "confirmed",
+      "rule": "客户端隐藏配置下发后，门店菜单只读展示，终端按配置隐藏。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 客户端隐藏配置下发后，门店菜单只读展示，终端按配置隐藏。"
+      }
+    },
+    {
+      "id": "rule:catalog-price-sync-respects-menu-price-override",
+      "status": "confirmed",
+      "rule": "菜单未编辑过售卖价时，商品中心价格变更可同步；菜单已编辑过售卖价时不再自动覆盖。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 菜单未编辑过售卖价时，商品中心价格变更可同步到菜单商品；菜单已编辑过售卖价时，商品中心价格变更不再自动覆盖菜单商品售卖价。"
+      }
+    },
+    {
+      "id": "rule:channel-and-scenario-price-fallback",
+      "status": "confirmed",
+      "rule": "渠道价和场景价优先匹配；未命中时回退标准价。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 渠道价优先匹配当前渠道；场景价优先匹配当前订单类型；未命中渠道价或场景价时回退标准价。"
+      }
+    },
+    {
+      "id": "rule:deleted-special-price-falls-back-after-publish",
+      "status": "confirmed",
+      "rule": "删除渠道价或场景价并下发后，终端回退展示标准价。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 核心业务规则 / 删除渠道价或场景价并下发后，终端回退展示标准价。"
+      }
+    },
+    {
+      "id": "rule:pos-price-change-disabled-after-publish",
+      "status": "confirmed",
+      "rule": "POS 改价从开切为关并下发后，之前可改价的商品不再允许 POS 改价。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 异常与生效 / POS 端是否支持改价字段从开切为关并下发 POS 后，之前可改价的商品不再允许 POS 改价。"
+      }
+    },
+    {
+      "id": "rule:display-time-applies-after-republish",
+      "status": "confirmed",
+      "rule": "更新菜单页或区块展示时间后，需重新下发后终端按新时间展示。",
+      "source": {
+        "path": "merchant-center:/Merchant Center Info/商品中心业务规则.md",
+        "locator": "## 25. 菜单管理 / 菜单 / 异常与生效 / 更新菜单页或区块展示时间后，需重新下发后终端按新时间展示。"
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "new-product-distribution-options",
+      "status": "unresolved",
+      "reason": "§25 尚未提供该选择项的精确枚举、默认值和各选项语义。"
+    },
+    {
+      "id": "extra-store-product-handling-options",
+      "status": "unresolved",
+      "reason": "§25 尚未提供门店多余商品处理方式的精确枚举、默认值和终态规则。"
+    },
+    {
+      "id": "distributed-field-list",
+      "status": "unresolved",
+      "reason": "§25 尚未提供允许下发的字段白名单及字段级覆盖策略。"
+    },
+    {
+      "id": "excluded-field-list",
+      "status": "unresolved",
+      "reason": "§25 尚未提供禁止下发的字段清单及门店保留策略。"
+    }
+  ],
+  "guardrails": {
+    "assertionGeneration": "blocked-until-product-confirmed",
+    "automationAsBusinessSourceAllowed": false,
+    "titleOrIndustryInferenceAllowed": false
+  }
+}

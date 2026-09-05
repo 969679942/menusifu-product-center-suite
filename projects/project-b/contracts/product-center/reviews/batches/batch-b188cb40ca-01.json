@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.967Z",
+  "id": "batch-b188cb40ca-01",
+  "group": "brand-menu:missing-security-schemes",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:af7db39a193d",
+      "group": "brand-menu:missing-security-schemes",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[1]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-security-schemes",
+          "service": "brand-menu"
+        },
+        "question": "请确认 无具体接口 的鉴权要求和可复用身份范围。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

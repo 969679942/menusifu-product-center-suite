@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "checkpointId": "reference-system-context-gap-20260830",
+  "generatedAt": "2026-08-30T09:00:00.000Z",
+  "scope": ["public-core", "generated-evidence"],
+  "issue": {
+    "id": "PUBLIC-REF-CONTEXT-001",
+    "caseId": "CASE-SMOKE-001",
+    "category": "automation-gap",
+    "failurePhase": "execution.context-guard",
+    "expected": "en-US",
+    "actual": "undefined",
+    "productFailure": false
+  },
+  "rootCause": {
+    "planHasExecutionContext": true,
+    "recipeContextGuardHasExpectedFields": false,
+    "compilerMaterializesExpectedFields": true,
+    "scaffoldBypassesCompiler": true
+  },
+  "requiredActions": [
+    {"id":"A-01","action":"修复 scaffoldSystemTest 生成的 contextGuards 输入","owner":"public-core","priority":"必须","status":"completed"},
+    {"id":"A-02","action":"统一计划到 Recipe 的上下文守卫生成入口","owner":"public-core","priority":"必须","status":"completed"},
+    {"id":"A-03","action":"增加生成前上下文字段一致性门禁","owner":"public-core","priority":"必须","status":"completed"},
+    {"id":"A-04","action":"增加参考基线正向和负向合同测试","owner":"public-core","priority":"必须","status":"completed"},
+    {"id":"A-05","action":"修复后使用新 runId 重新验证参考系统","owner":"public-core","priority":"必须","status":"completed","evidence":"reference-1788054442152/run-report.json"}
+  ],
+  "additionalFindings": [
+    {
+      "id": "PUBLIC-REF-EVIDENCE-001",
+      "category": "automation-gap",
+      "finding": "断言收据曾依赖可选 reporter，且只读导航未上报操作收据，导致 Playwright 通过但公共证据评估不完整。",
+      "resolution": "公共执行器在动作成功后独立生成断言收据；参考脚手架上报 GET 导航操作收据。",
+      "verification": "参考系统新 run 的 assertionReceipts 和 operationReceipts 均完整，exit=0"
+    }
+  ],
+  "notRecommended": [
+    "在执行器中猜测默认 locale、role 或 tenant",
+    "在 Merchant Center 适配器中增加公共参考系统兜底",
+    "为验证参考基线而重跑 Merchant Center 业务用例"
+  ],
+  "resultImpact": "existing-merchant-center-results-unchanged",
+  "crossSystemStatus": "deferred-until-explicit-start"
+}

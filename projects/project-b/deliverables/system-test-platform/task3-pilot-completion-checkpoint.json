@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-09-04T11:38:32.633Z",
+  "status": "completed",
+  "pilots": [
+    {
+      "pilotId": "merchant-center-product-center-seasoning",
+      "applicationId": "merchant-center",
+      "businessDomainId": "product-center-seasoning",
+      "caseId": "TC-FLV-REC-001",
+      "status": "passed",
+      "evidenceStatus": "complete",
+      "apiUiZeroResidue": true,
+      "evidenceLedger": "output/system-test/merchant-center-product-center-seasoning/system-test-1788513288714/evidence-ledger.json"
+    },
+    {
+      "pilotId": "merchant-center-store-operations-tax",
+      "applicationId": "merchant-center",
+      "businessDomainId": "store-operations",
+      "caseId": "CASE-TAX-EDIT-001",
+      "status": "passed",
+      "evidenceStatus": "complete",
+      "apiUiZeroResidue": true,
+      "evidenceLedger": "output/system-test/merchant-center-store-operations-tax/system-test-1788513882226/evidence-ledger.json"
+    }
+  ],
+  "qualification": {
+    "crossDomainReady": true,
+    "crossApplicationReady": false,
+    "blocker": "CROSS_APPLICATION_PILOT_REQUIRED",
+    "reason": "两个 pilot 的 applicationId 均为 merchant-center，只能证明跨业务域复用。"
+  },
+  "pendingWorkUnits": []
+}

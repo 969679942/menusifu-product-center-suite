@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-category-leaf-probe",
+  "fingerprint": "e24d0b2532da957047f5b5c6b42846c84f6d1af37ece5af5a6b3d4d3369bf756",
+  "sourceObservationId": "TC-ITEM-STD-007-current-release-read-only-probe",
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-category-leaf:TC-ITEM-STD-007",
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@item",
+        "@read-only",
+        "@p1"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-007",
+      "sourceIds": [
+        "xmind:3nkakilp5sp9jupkg7bg1sdp95",
+        "product-confirmed-rule:BR-ITEM-CATEGORY-LEAF-SELECTION"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-007:precondition-1",
+        "TC-ITEM-STD-007:action-1",
+        "TC-ITEM-STD-007:action-2",
+        "TC-ITEM-STD-007:action-3",
+        "TC-ITEM-STD-007:action-4",
+        "TC-ITEM-STD-007:action-5",
+        "TC-ITEM-STD-007:expectation-1",
+        "TC-ITEM-STD-007:expectation-2"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "item.openStandardCreate",
+          "saveAs": "standardCreate"
+        },
+        {
+          "id": "item.category.openCascader",
+          "saveAs": "categoryMenu"
+        },
+        {
+          "id": "item.category.selectParentWithChildren",
+          "input": {
+            "parentName": "Special Offer(特惠)",
+            "leafName": "Special Offer01(特惠1号)"
+          },
+          "saveAs": "categoryParent"
+        },
+        {
+          "id": "item.category.selectLeaf",
+          "input": {
+            "parentName": "Special Offer(特惠)",
+            "leafName": "Special Offer01(特惠1号)"
+          },
+          "saveAs": "categoryLeaf"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCategoryParentNotCommitted",
+          "input": {
+            "result": {
+              "$ref": "$result.categoryParent"
+            }
+          }
+        },
+        {
+          "adapterId": "productCenter.verifyCategoryLeafCommitted",
+          "input": {
+            "result": {
+              "$ref": "$result.categoryLeaf"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

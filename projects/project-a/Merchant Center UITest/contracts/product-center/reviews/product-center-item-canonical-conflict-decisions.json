@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-canonical-conflict-decisions",
+  "confirmedBy": "金将军",
+  "confirmedAt": "2026-07-31T18:00:00+08:00",
+  "sourceType": "direct-user-confirmation",
+  "sourceReference": "conversation:按照推荐执行",
+  "summary": {
+    "groups": 9,
+    "cases": 19,
+    "updateCanonical": 9,
+    "retainCanonicalFileBug": 6,
+    "needsPrd": 4
+  },
+  "groups": [
+    { "groupId": "C01", "title": "列表结构", "decision": "update-canonical", "caseIds": ["TC-ITEM-STD-002"] },
+    { "groupId": "C02", "title": "加料字段", "decision": "needs-prd", "caseIds": ["TC-ITEM-ADD-001"] },
+    { "groupId": "C03", "title": "数值与分类拒绝", "decision": "mixed", "caseIds": ["TC-ITEM-STD-021", "TC-ITEM-STD-023", "TC-ITEM-ADD-010", "TC-ITEM-PKG-019", "TC-ITEM-PKG-013"] },
+    { "groupId": "C04", "title": "跨类型同名", "decision": "needs-prd", "caseIds": ["TC-ITEM-ADD-015"] },
+    { "groupId": "C05", "title": "名称格式化", "decision": "update-canonical", "caseIds": ["TC-ITEM-STD-008"] },
+    { "groupId": "C06", "title": "重复详情图", "decision": "retain-canonical-file-bug", "caseIds": ["TC-ITEM-STD-081"] },
+    { "groupId": "C07", "title": "套餐共享属性", "decision": "update-canonical", "caseIds": ["TC-ITEM-PKG-073", "TC-ITEM-PKG-069", "TC-ITEM-PKG-071", "TC-ITEM-PKG-072"] },
+    { "groupId": "C08", "title": "编辑持久化", "decision": "retain-canonical-file-bug", "caseIds": ["TC-ITEM-ADD-024", "TC-ITEM-PKG-035"] },
+    { "groupId": "C09", "title": "菜单引用停用", "decision": "update-canonical", "caseIds": ["TC-ITEM-STD-067", "TC-ITEM-ADD-044", "TC-ITEM-PKG-039"] }
+  ],
+  "caseDecisions": [
+    { "caseId": "TC-ITEM-STD-002", "groupId": "C01", "decision": "update-canonical", "reason": "当前商品列表无左侧分类树，应按当前页面结构更新正式断言。", "evidencePaths": ["output/audit/product-center-item-p0-w1-20260731/audit.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-ADD-001", "groupId": "C02", "decision": "needs-prd", "reason": "加料字段与标准商品是否必须一致缺少最新产品规则。", "evidencePaths": ["output/audit/product-center-item-p0-w1-20260731/audit.json"], "generationDisposition": "blocked-until-prd-confirmation" },
+    { "caseId": "TC-ITEM-STD-021", "groupId": "C03", "decision": "retain-canonical-file-bug", "reason": "负价格成功落库违反现有正式规则，登记产品缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w2-AUTO_AUDIT_P0_REMAINING_W2_20260731_02.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-STD-023", "groupId": "C03", "decision": "retain-canonical-file-bug", "reason": "非数字起售数量成功落库违反现有正式规则，登记产品缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w2-AUTO_AUDIT_P0_REMAINING_W2_20260731_02.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-ADD-010", "groupId": "C03", "decision": "retain-canonical-file-bug", "reason": "负价格成功落库违反现有正式规则，登记产品缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w2-AUTO_AUDIT_P0_REMAINING_W2_20260731_02.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-PKG-019", "groupId": "C03", "decision": "needs-prd", "reason": "套餐负价格归一为 0.00 是否为最新规则需要 PRD 确认。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w2-AUTO_AUDIT_P0_REMAINING_W2_20260731_02.json"], "generationDisposition": "blocked-until-prd-confirmation" },
+    { "caseId": "TC-ITEM-PKG-013", "groupId": "C03", "decision": "needs-prd", "reason": "套餐只选有子级的一级分类是否允许需要 PRD 确认。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w2-AUTO_AUDIT_P0_REMAINING_W2_20260731_02.json"], "generationDisposition": "blocked-until-prd-confirmation" },
+    { "caseId": "TC-ITEM-ADD-015", "groupId": "C04", "decision": "needs-prd", "reason": "跨商品类型名称唯一性作用域需要 PRD 确认。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w3-AUTO_AUDIT_P0_REMAINING_W3_20260731_03.json"], "generationDisposition": "blocked-until-prd-confirmation" },
+    { "caseId": "TC-ITEM-STD-008", "groupId": "C05", "decision": "update-canonical", "reason": "当前边界为 100 字符截断且连续空格拒绝保存。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w4-AUTO_AUDIT_P0_REMAINING_W4_20260731_09.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-STD-081", "groupId": "C06", "decision": "retain-canonical-file-bug", "reason": "重复详情图提示错误后仍创建空图商品，保留正式规则并登记缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w5-AUTO_AUDIT_P0_REMAINING_W5_20260731_06.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-PKG-073", "groupId": "C07", "decision": "update-canonical", "reason": "当前套餐仅通过固定或可选套餐分组配置子商品。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w5-AUTO_AUDIT_P0_REMAINING_W5_20260731_06.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-PKG-069", "groupId": "C07", "decision": "update-canonical", "reason": "套餐编辑页不提供共享口味组入口。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w6-AUTO_AUDIT_P0_REMAINING_W6_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-PKG-071", "groupId": "C07", "decision": "update-canonical", "reason": "套餐编辑页不提供共享做法组入口。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w6-AUTO_AUDIT_P0_REMAINING_W6_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-PKG-072", "groupId": "C07", "decision": "update-canonical", "reason": "套餐编辑页不提供共享加料组入口。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w6-AUTO_AUDIT_P0_REMAINING_W6_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-ADD-024", "groupId": "C08", "decision": "retain-canonical-file-bug", "reason": "更新接口成功但名称、价格和主图未持久化，登记产品缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w6-AUTO_AUDIT_P0_REMAINING_W6_20260731_05.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-PKG-035", "groupId": "C08", "decision": "retain-canonical-file-bug", "reason": "更新接口成功但套餐名称和主图未持久化，登记产品缺陷。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w6-AUTO_AUDIT_P0_REMAINING_W6_20260731_05.json"], "generationDisposition": "blocked-until-defect-fixed-and-rerun" },
+    { "caseId": "TC-ITEM-STD-067", "groupId": "C09", "decision": "update-canonical", "reason": "菜单引用中的标准商品不可停用，接口返回 BITEM-2013。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w8-AUTO_AUDIT_P0_REMAINING_W8_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-ADD-044", "groupId": "C09", "decision": "update-canonical", "reason": "菜单引用中的加料商品不可停用，接口返回 BITEM-2013。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w8-AUTO_AUDIT_P0_REMAINING_W8_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" },
+    { "caseId": "TC-ITEM-PKG-039", "groupId": "C09", "decision": "update-canonical", "reason": "菜单引用中的套餐商品不可停用，接口返回 BITEM-2013。", "evidencePaths": ["output/audit/product-center-item-p0-remaining-w8-AUTO_AUDIT_P0_REMAINING_W8_20260731_05.json"], "generationDisposition": "allowed-after-canonical-rebuild" }
+  ]
+}

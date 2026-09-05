@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-ADD-014",
+    "TC-GRP-ATTR-001",
+    "TC-GRP-ATTR-002",
+    "TC-GRP-PKG-012",
+    "TC-GRP-PKG-019",
+    "TC-GRP-PKG-033",
+    "TC-GRP-PKG-045",
+    "TC-GRP-SPEC-020"
+  ],
+  "classification": "evidence-gap",
+  "phase": "pre-execution-repair-governance",
+  "rootCause": "组历史收据缺少可证明当前逐案语义指纹的谱系，不能通过批量替换指纹继续授权 passed；当前用例、绑定和执行路由已具备，只缺当前标准执行收据。",
+  "correctiveAction": "仅执行当前计划中的 8 条组定向重验证用例；逐条保存操作、断言、上下文与清理收据，独立失败继续执行并按产品、自动化、证据、环境或瞬时平台问题分类。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/b6-failed-cases-revalidation-impact-20260905.json",
+    "deliverables/system-test-platform/b6-failed-cases-revalidation-optimization-plan-20260905.json",
+    "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+    "deliverables/system-test-platform/product-center-asset-remediation-queues.json"
+  ],
+  "planFingerprint": "f4252d4616dce5b6ab6119439f4198e6db54faee0ee114f6cb280763bced413f",
+  "selectionFingerprint": "fd6f3abbd3133c9b4f7bbf6cc8147992606b2eaa15cc1ec912e4799e404bbea4",
+  "existingPassedCasesImpact": "仅重验当前整改队列用例；指纹匹配的既有通过结果保持不变。",
+  "rerunScope": [
+    "TC-GRP-ADD-014",
+    "TC-GRP-ATTR-001",
+    "TC-GRP-ATTR-002",
+    "TC-GRP-PKG-012",
+    "TC-GRP-PKG-019",
+    "TC-GRP-PKG-033",
+    "TC-GRP-PKG-045",
+    "TC-GRP-SPEC-020"
+  ]
+}

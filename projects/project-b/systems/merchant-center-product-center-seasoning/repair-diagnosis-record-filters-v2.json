@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-002", "TC-FLV-REC-005"],
+  "rootCause": "用户提供的实时截图和接口响应确认接口 data.list 有真实记录且页面 DOM 使用 ant-table-tbody 下的 ant-table-row；旧适配器读取过宽的 tbody tr 并在响应后未等待受控输入状态，因此没有形成有效 UI assertion receipt。",
+  "correctiveAction": "将记录行定位收紧为 tbody.ant-table-tbody > tr.ant-table-row:not([aria-hidden=true])，任务名称从真实数据单元格读取；重置请求完成后等待任务名称输入框 value 进入空字符串；查询和重置均记录 brand-modifier-sync/job/list operation receipt。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/page-contract-live-audit.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787542449432/evidence-ledger.json",
+    "C:/Users/Administrator/.codex/attachments/a052e9f7-043e-469a-b73e-d14b8c49bf38/pasted-text.txt"
+  ],
+  "supersedesAttemptIds": [
+    "70a997118e1e1a94", "19fbb64c97683b2a", "c72ca87cefb4732f", "9858582f82092ac5"
+  ]
+}

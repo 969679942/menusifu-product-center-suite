@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "product-center-group-drift-decisions",
+  "generatedAt": "2026-09-04T10:30:26.324Z",
+  "decisions": [
+    {
+      "decisionId": "GRP-DRIFT-TC-GRP-PKG-040",
+      "caseId": "TC-GRP-PKG-040",
+      "ruleId": "test-expectation:TC-GRP-PKG-040",
+      "sourceRef": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md#TC-GRP-PKG-040",
+      "sourceTitle": "新增随心配套餐组无商品保存失败",
+      "expectedClaims": [
+        "页面显示 `至少有一个子项`，停留在新增页且不发送创建请求。",
+        "UI 与 API 均查询不到该随心配套餐组。"
+      ],
+      "expectedClaimsHash": "sha256:6e57c9a47022bb1fc670bec83f914ab10dab1341778bcee94ca67bfa3dd9718a",
+      "observedClaim": "当前新增随心配页稳定显示英文 `At least one option is required`，而来源要求 zh-CN 精确提示 `至少有一个子项`；提交仍被拦截且 API 零落库。",
+      "comparisonSurface": "validation-feedback",
+      "evidence": [
+        {
+          "path": "Merchant Center UITest/output/audit/product-center-group-pkg040-current-product-drift.json",
+          "sha256": "sha256:e0fa452532528bb2ae0efce79f1eeb25b4be39dbbb0fb56855b042cd4dec9236",
+          "bytes": 1573
+        }
+      ],
+      "decisionStatus": "evidence-confirmed",
+      "confirmedBy": "runtime-evidence-gate",
+      "decidedAt": "2026-09-04T10:30:26.324Z",
+      "rationale": "当前运行证据确认验证提示与原始精确预期冲突；该登记只允许产品偏差分类，不代表正式业务规则批准，也不修改来源预期。"
+    }
+  ]
+}

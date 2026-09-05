@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006", "TC-FLV-SEA-012", "TC-FLV-SEA-017"],
+  "rootCause": "v1 修复后的只读 DOM 审计证明 Ant Table 的表头复选框与数据行位于同一 ant-table-wrapper 但分属不同 table，SEA-006 的 table 作用域过窄；新增调味项行实际为 tr.ant-table-row 且没有 role=button，SEA-012 的行定位与真实 DOM 不符。SEA-017 已完整复现正式规则冲突，但通用静态断言尚未在抛错前写入 observed-mismatch 收据和产品偏差注解，所以证据账本仍误分为 automation-gap。",
+  "correctiveAction": "SEA-006 以包含唯一业务身份的 ant-table-wrapper 为作用域定位唯一 Select all；SEA-012 改用已审计的 tr.ant-table-row 并定位行内唯一无 placeholder 文本输入；SEA-017 在通用断言失败前登记 observed-mismatch、product-mismatch-confirmed 和 execution-path-equivalent，使完整 UI/API/清理证据按 product-failure 裁决。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787564870879/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787564870879_TC-FLV-SEA-017.error.json"
+  ],
+  "supersedesAttemptIds": ["ac3bd89d4bdf7905", "9aec2746a7a0f006", "5a316363535e454a"]
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "上一次定向复核在业务操作前失败：共享批次登录态已建立，但新浏览器页尚未进入商品列表，语言切换 helper 立即查找 translation 按钮并超时。失败附件证明业务输入和提交均未发生，属于自动化初始化与定位时序缺口，不是产品结果。",
+  "correctiveAction": "中文校验前若当前页面尚无中英文商品列表标识，先打开商品列表并等待加载；语言按钮必须唯一、可见且可用后再点击，删除 force 点击。仅重跑 TC-GRP-PKG-030，并继续要求完整 UI、API、断言和零残留证据。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-group-finding-source-governed-product-center-group-pkg030-blackbox-recheck-20260903-r2.json",
+    "Merchant Center UITest/pages/sidebar.page.ts",
+    "Merchant Center UITest/utils/product-center-group-runner.ts",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "bb4688999c05c616"
+  ]
+}

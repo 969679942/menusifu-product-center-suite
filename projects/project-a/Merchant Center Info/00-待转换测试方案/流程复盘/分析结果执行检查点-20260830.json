@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "checkpointId": "merchant-center-analysis-execution-20260830",
+  "generatedAt": "2026-08-30T02:22:54.134Z",
+  "scope": ["domain-asset", "public-core", "project-adapter", "generated-evidence"],
+  "executionBoundary": {
+    "staticAudit": "allowed",
+    "contractValidation": "allowed",
+    "crossSystemPilot": "deferred",
+    "businessWriteOperations": "not-started",
+    "businessRerun": "not-started"
+  },
+  "assetSnapshot": {
+    "completedLanded": 420,
+    "unlanded": 188,
+    "notApplicable": 16,
+    "sourceOfTruth": "Merchant Center Info/00-待转换测试方案/已完成/index.json and 未落地/index.json"
+  },
+  "omissionReview": {
+    "status": "completed",
+    "supplementedItems": [
+      "source-conflict-and-human-confirmation",
+      "audit-artifact-freshness-and-atomic-publish",
+      "trigger-deduplication-and-checkpoint-recovery",
+      "stale-case-classification",
+      "write-case-cleanup-residue",
+      "coverage-denominator-conservation",
+      "transient-retry-safety",
+      "redaction-and-owner-closure"
+    ]
+  },
+  "workUnits": [
+    {"id": "WU-01", "name": "asset-and-source-intake", "status": "completed"},
+    {"id": "WU-02", "name": "audit-freshness-and-page-probe", "status": "completed"},
+    {"id": "WU-03", "name": "case-generation-and-claim-completeness", "status": "completed"},
+    {"id": "WU-04", "name": "preflight-stale-impact-analysis", "status": "completed"},
+    {"id": "WU-05", "name": "static-and-contract-validation", "status": "completed-with-findings"},
+    {"id": "WU-07", "name": "reference-system-regression-validation", "status": "completed"},
+    {"id": "WU-06", "name": "business-execution", "status": "deferred"}
+  ],
+  "executionResult": {
+    "status": "completed-with-findings",
+    "passed": [
+      "typecheck",
+      "capabilities-check-after-regeneration",
+      "ui-cases-check",
+      "product-center-test-case-ir-contracts",
+      "product-center-contract-verification",
+      "public-platform-acceptance-contracts-13-of-13",
+      "public-platform-contracts-68-of-68",
+      "combined-flow-runtime-platform-contracts-99-of-99",
+      "merchant-center-adapter-contracts",
+      "reference-system-run-reference-1788056569158"
+    ],
+    "diagnostics": [
+      {
+        "kind": "reference-verification-mode-diagnostic",
+        "code": "CURRENT_IMPLEMENTATION_ALREADY_PASSED",
+        "classification": "verification-entrypoint-mismatch",
+        "resolution": "reference verifier now explicitly authorizes self-controlled full-regression; production repair guard unchanged",
+        "runId": "reference-1788056569158"
+      }
+    ],
+    "referenceRun": {
+      "runId": "reference-1788056569158",
+      "runReport": "D:/Menusifu/Test Automation Platform/output/system-test/reference-system/reference-1788056569158/run-report.json",
+      "evidenceLedger": "D:/Menusifu/Test Automation Platform/output/system-test/reference-system/reference-1788056569158/evidence-ledger.json",
+      "status": "passed",
+      "exitCode": 0,
+      "setupRuns": 1,
+      "preflightRuns": 1,
+      "businessRuns": 1,
+      "selectedCaseCount": 1,
+      "evidenceComplete": 1,
+      "securityFindings": 0,
+      "implementationFingerprint": "7df39c6aeb5ebf41e977382be10fc94bd727f3bd1c0f731b1e467e70fb161b48",
+      "caseImplementationFingerprint": "e18d1c92de2a3b580b5a3fe4b7d66e7f79248d842e2c9b5b51f79ae7ce9cd707"
+    }
+  },
+  "resultImpact": "existing-results-unchanged",
+  "sensitiveDataPolicy": "redacted-metadata-only"
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.971Z",
+  "id": "batch-68436ae677-01",
+  "group": "industry-item:relative-server",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:bb746730fb74",
+      "group": "industry-item:relative-server",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[8]"
+          }
+        ],
+        "evidence": {
+          "type": "relative-server",
+          "service": "industry-item",
+          "runtimeBaseEnv": "MC_PLATFORM_ITEM_API_BASE_URL",
+          "servers": [
+            "/",
+            "/platform-item/v1/"
+          ]
+        },
+        "question": "请确认 无具体接口 所属服务的运行时基础地址。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

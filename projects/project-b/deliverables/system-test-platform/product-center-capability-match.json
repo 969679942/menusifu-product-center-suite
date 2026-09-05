@@ -1,0 +1,3370 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "environmentId": "balamxqa",
+  "registeredCapabilityIds": [
+    "bom.deleteIdentity",
+    "bom.editIdentity",
+    "bom.open",
+    "category.attemptAddChildBlockedByProduct",
+    "category.deleteIdentity",
+    "category.editIdentity",
+    "category.open",
+    "coreCreate.execute",
+    "highDependency.execute",
+    "item.category.openCascader",
+    "item.category.selectLeaf",
+    "item.category.selectParentWithChildren",
+    "item.combo.mega.createFormattedName",
+    "item.combo.mega.createFormattedNames",
+    "item.combo.mega.createWithFixedAndCustomGroups",
+    "item.combo.mega.createWithLibraryMainImage",
+    "item.combo.mega.createWithLocalMainImage",
+    "item.combo.mega.createWithParentCategory",
+    "item.combo.mega.createWithZeroPrice",
+    "item.combo.mega.createWithoutCategory",
+    "item.combo.mega.disableEnabledItem",
+    "item.combo.mega.editAddonGroup",
+    "item.combo.mega.editCornerMark",
+    "item.combo.mega.editDescriptionTags",
+    "item.combo.mega.editMaterialInformation",
+    "item.combo.mega.editMethodGroup",
+    "item.combo.mega.editStatisticsTags",
+    "item.combo.mega.editTasteGroup",
+    "item.combo.mega.enableDisabledItem",
+    "item.combo.mega.probeDeleteConfirmation",
+    "item.combo.mega.probeDescriptionMaximum",
+    "item.combo.mega.probeDetailImageLimit",
+    "item.combo.mega.probeMainImageReplacement",
+    "item.combo.mega.probeMnemonicMaximum",
+    "item.combo.mega.probeMutualExclusion",
+    "item.combo.mega.probeReferencedGroupChildControls",
+    "item.combo.mega.readOptionalGroupRules",
+    "item.combo.mega.readOtherSettings",
+    "item.combo.mega.removeAllGroupItems",
+    "item.combo.mega.searchByCombinedFilters",
+    "item.combo.probeGroupRequired",
+    "item.combo.probeOptionalEditBoundary",
+    "item.combo.readOptionalGroupDialog",
+    "item.createComboRequiredOnly",
+    "item.createStandard",
+    "item.list.mega.enableDisabledItem",
+    "item.list.mega.probeColumnSelection",
+    "item.list.mega.probeDefaultColumns",
+    "item.list.mega.probeLanguageSwitch",
+    "item.list.mega.probePageSizes",
+    "item.list.mega.probeRestoreColumns",
+    "item.list.probeImagePreview",
+    "item.list.searchSecondLanguage",
+    "item.openList",
+    "item.openStandardCreate",
+    "item.side.createWithDetailImageLimit",
+    "item.standard.createRoundedPricePair",
+    "item.standard.mega.createFormattedNames",
+    "item.standard.mega.createWithLibraryMainImage",
+    "item.standard.mega.createWithLocalMainImage",
+    "item.standard.mega.createWithParentCategory",
+    "item.standard.mega.editCornerMark",
+    "item.standard.mega.editDescriptionTags",
+    "item.standard.mega.editMaterialInformation",
+    "item.standard.mega.editOtherInformation",
+    "item.standard.mega.editStatisticsTags",
+    "item.standard.mega.probeAdvancedFields",
+    "item.standard.mega.probeTasteGroupSync",
+    "item.standard.probeDescriptionLengthBoundary",
+    "item.standard.probeDetailImageLimit",
+    "item.standard.probeFieldValidation",
+    "item.standard.probeMainImageReplacement",
+    "item.standard.probeMultiSpecWeightDisabled",
+    "item.standard.probeReferencedGroupChildControls",
+    "item.standard.probeSpecGroupCreateNavigation",
+    "item.validateRequiredName",
+    "lowDependency.execute",
+    "material.deleteIdentity",
+    "material.editIdentity",
+    "material.open",
+    "merchant-center.seasoning.api-zero-residue",
+    "merchant-center.seasoning.assert-api-created",
+    "merchant-center.seasoning.assert-api-deleted",
+    "merchant-center.seasoning.assert-api-edited",
+    "merchant-center.seasoning.assert-api-identity",
+    "merchant-center.seasoning.assert-create-price-correction",
+    "merchant-center.seasoning.assert-edit-price-reversion",
+    "merchant-center.seasoning.assert-record-reset",
+    "merchant-center.seasoning.assert-record-task-search",
+    "merchant-center.seasoning.assert-round-down",
+    "merchant-center.seasoning.assert-round-half-up",
+    "merchant-center.seasoning.assert-single-store-template-absence",
+    "merchant-center.seasoning.assert-static-contract",
+    "merchant-center.seasoning.assert-store-mutation",
+    "merchant-center.seasoning.assert-template-create-fields",
+    "merchant-center.seasoning.assert-template-create-required",
+    "merchant-center.seasoning.assert-template-distribution-menu",
+    "merchant-center.seasoning.assert-template-store-dialog",
+    "merchant-center.seasoning.assert-ui-created",
+    "merchant-center.seasoning.assert-ui-deleted",
+    "merchant-center.seasoning.assert-ui-edited",
+    "merchant-center.seasoning.assert-ui-mutation",
+    "merchant-center.seasoning.auth",
+    "merchant-center.seasoning.cleanup",
+    "merchant-center.seasoning.context",
+    "merchant-center.seasoning.create-boundary",
+    "merchant-center.seasoning.create-minimal",
+    "merchant-center.seasoning.delete-empty-group",
+    "merchant-center.seasoning.edit-group",
+    "merchant-center.seasoning.preflight",
+    "merchant-center.seasoning.price-correction",
+    "merchant-center.seasoning.record-reset",
+    "merchant-center.seasoning.record-task-search",
+    "merchant-center.seasoning.recovery",
+    "merchant-center.seasoning.rounding",
+    "merchant-center.seasoning.seed",
+    "merchant-center.seasoning.seed-multi-store-distribution",
+    "merchant-center.seasoning.seed-single-store-distribution",
+    "merchant-center.seasoning.single-store-action-readiness",
+    "merchant-center.seasoning.single-store-template-absence",
+    "merchant-center.seasoning.static-contract",
+    "merchant-center.seasoning.store-batch-delete",
+    "merchant-center.seasoning.store-batch-delete-action-readiness",
+    "merchant-center.seasoning.store-delete-group",
+    "merchant-center.seasoning.store-delete-option",
+    "merchant-center.seasoning.store-group-delete-action-readiness",
+    "merchant-center.seasoning.store-option-delete-action-readiness",
+    "merchant-center.seasoning.store-redeliver-action-readiness",
+    "merchant-center.seasoning.store-redeliver-restore",
+    "merchant-center.seasoning.store-replace-distribution",
+    "merchant-center.seasoning.template-create-audit",
+    "merchant-center.seasoning.template-distribution-audit",
+    "merchant-center.seasoning.template-name-normalization",
+    "merchant-center.seasoning.ui-mutation",
+    "merchant-center.seasoning.ui-zero-residue",
+    "method.deleteIdentity",
+    "method.editIdentity",
+    "method.open",
+    "methodDetail.enforceNameMaxLength",
+    "navigation.sidebar.open",
+    "negative.execute",
+    "seasoning.deleteIdentity",
+    "seasoning.editIdentity",
+    "seasoning.open",
+    "statisticTag.closeCreateDialog",
+    "statisticTag.openCreateDialog",
+    "statisticTag.readSecondLanguageBoundary",
+    "store-operations.auth.merchant-session",
+    "store-operations.context.tax",
+    "store-operations.recovery.tax-checkpoints",
+    "store-operations.tax.api-zero-residue",
+    "store-operations.tax.assert-api-edited",
+    "store-operations.tax.assert-ui-edited",
+    "store-operations.tax.cleanup",
+    "store-operations.tax.preflight",
+    "store-operations.tax.seed",
+    "store-operations.tax.ui-edit",
+    "store-operations.tax.ui-zero-residue",
+    "storeProduct.searchByName"
+  ],
+  "cases": [
+    {
+      "caseId": "TC-FLV-REC-001",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-002",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.record-task-search"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-003",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-004",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-005",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.record-reset"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-006",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-REC-007",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-001",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-002",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-003",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-004",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-005",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-006",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-007",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-008",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-009",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.create-minimal"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-010",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-011",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-012",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-013",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-014",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-015",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.create-boundary"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.price-correction"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-017",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.price-correction"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-018",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.create-minimal"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-019",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-020",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.create-minimal"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-021",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-023",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-024",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-025",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-026",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-027",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-028",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-029",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.delete-empty-group"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-030",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.delete-empty-group"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-031",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.delete-empty-group"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-032",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.edit-group"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-033",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-034",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-035",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-036",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-037",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-040",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-041",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-042",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.store-replace-distribution"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-043",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-044",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-045",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.rounding"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-001",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-002",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.template-create-audit"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-003",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-004",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-005",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.template-distribution-audit"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-006",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.single-store-template-absence"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-007",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-008",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-009",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-010",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-011",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.template-name-normalization"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-012",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-013",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-014",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-015",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-016",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-017",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-018",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-019",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-020",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-021",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-022",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-023",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-024",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-TPL-025",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.ui-mutation"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-001",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-002",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-003",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.static-contract"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-004",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.store-delete-group"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-005",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.store-delete-option"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-006",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.store-batch-delete"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-FLV-XMOD-011",
+      "requiredCapabilityIds": [
+        "merchant-center.seasoning.store-redeliver-restore"
+      ],
+      "missingCapabilityIds": [],
+      "status": "matched"
+    },
+    {
+      "caseId": "TC-GRP-ADD-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/additional.list.read",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/additional.list.read",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-002",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.query-reset",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.query-reset"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-003",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-004",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-005",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-006",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-007",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-008",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-009",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-010",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-011",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-012",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-013",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-014",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-015",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.dependency-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.dependency-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-016",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/additional.mutation.sop",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/additional.mutation.sop",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-017",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-018",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.dependency-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.dependency-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-019",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-020",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-021",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.selection-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.selection-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-023",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-024",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.cancel",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.cancel",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-025",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.mutation-probe",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-026",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-027",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "group./pp/brand/option-group/additional.form-validation",
+        "group./pp/brand/option-group/additional.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ADD-029",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-030",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ADD-031",
+      "requiredCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.addon-candidate.api",
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/additional.open",
+        "group./pp/brand/option-group/additional.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-ATTR-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/attribute-group-set.list.read",
+        "group./pp/brand/option-group/attribute-group-set.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/attribute-group-set.list.read",
+        "group./pp/brand/option-group/attribute-group-set.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-ATTR-002",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/attribute-group-set.row-menu.close",
+        "group./pp/brand/option-group/attribute-group-set.row-menu.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/attribute-group-set.row-menu.close",
+        "group./pp/brand/option-group/attribute-group-set.row-menu.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.list.read",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.list.read",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-002",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.query-reset",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.query-reset"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-003",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-004",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-005",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-006",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-007",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-008",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-009",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-010",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-011",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation.sop",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation.sop",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-012",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.open",
+        "group./pp/brand/option-group/method.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-014",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-015",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.dependency-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/method.dependency-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-017",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.cancel",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.cancel",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-018",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.cancel",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.cancel",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-019",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-020",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.mutation-probe",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-MTH-021",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/method.form-validation",
+        "group./pp/brand/option-group/method.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/combo.list.read",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/combo.list.read",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-002",
+      "requiredCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-003",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-004",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-005",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-006",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-007",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-008",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-009",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-010",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-011",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-012",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-013",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-014",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-015",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-016",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-018",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.cancel",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.cancel",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-019",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.multi-sku.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.multi-sku.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-021",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-022",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-023",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-024",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.dependency-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-025",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-026",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.selection-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.selection-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-027",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-028",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-029",
+      "requiredCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-030",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-031",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-032",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-033",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-034",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-035",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.open",
+        "group./pp/brand/combo.terminal-probe"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-036",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-037",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-038",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-039",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-040",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.form-validation",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "excluded"
+    },
+    {
+      "caseId": "TC-GRP-PKG-041",
+      "requiredCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.combo-candidate.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-042",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-043",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-044",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-045",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-PKG-046",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.combo-candidate.api",
+        "brand-product.single-sku.api",
+        "group./pp/brand/combo.mutation-probe",
+        "group./pp/brand/combo.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/spec.list.read",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/spec.list.read",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-002",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.query-reset",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.query-reset"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-003",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.query-reset",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.query-reset"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-004",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-005",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-006",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-007",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-008",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-009",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-010",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-011",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-012",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-013",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-014",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-015",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-016",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-017",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-018",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.dependency-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-019",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-020",
+      "requiredCapabilityIds": [
+        "group./pp/brand/spec.mutation.sop",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/spec.mutation.sop",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-021",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.open",
+        "group./pp/brand/spec.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-022",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.cancel",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.cancel",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-023",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.cancel",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.cancel",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-025",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.form-validation",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-026",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-027",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-SPEC-028",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/spec.mutation-probe",
+        "group./pp/brand/spec.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-001",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.list.read",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.list.read",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-002",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.query-reset",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.query-reset"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-003",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-004",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-005",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-006",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-007",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-008",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-009",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-010",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-011",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-012",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation.sop",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation.sop",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-013",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.terminal-probe",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.open",
+        "group./pp/brand/option-group/taste.terminal-probe"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-015",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-016",
+      "requiredCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.dependency-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "brand-product.cleanup.api-ui",
+        "brand-product.group-reference-owner.ui",
+        "brand-product.single-sku.api",
+        "group./pp/brand/option-group/taste.dependency-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-018",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.cancel",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.cancel",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-019",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.cancel",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.cancel",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-020",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-021",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.mutation-probe",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-GRP-TASTE-022",
+      "requiredCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open",
+        "navigation.sidebar.open"
+      ],
+      "missingCapabilityIds": [
+        "group./pp/brand/option-group/taste.form-validation",
+        "group./pp/brand/option-group/taste.open"
+      ],
+      "status": "missing-environment"
+    },
+    {
+      "caseId": "TC-IMG-ITEM-029",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-IMG-ITEM-030",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-IMG-LIB-025",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-IMG-LIB-026",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-009",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-018",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-019",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-020",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-021",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-BDG-024",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-DESC-013",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-DESC-014",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-DESC-027",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-DESC-028",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-STAT-012",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-STAT-013",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-STAT-024",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-STAT-028",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    },
+    {
+      "caseId": "TC-TAG-STAT-029",
+      "requiredCapabilityIds": [],
+      "missingCapabilityIds": [],
+      "status": "missing-declaration"
+    }
+  ],
+  "summary": {
+    "total": 243,
+    "matched": 83,
+    "missingDeclaration": 19,
+    "missingEnvironment": 128,
+    "excluded": 13
+  }
+}

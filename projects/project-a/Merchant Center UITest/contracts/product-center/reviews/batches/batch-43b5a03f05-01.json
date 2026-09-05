@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.967Z",
+  "id": "batch-43b5a03f05-01",
+  "group": "industry-item:health-controller",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:3c4d42ffdb8e",
+      "group": "industry-item:health-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[91]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:GET /health",
+          "operationId": "health"
+        },
+        "question": "请确认 industry-item:GET /health 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

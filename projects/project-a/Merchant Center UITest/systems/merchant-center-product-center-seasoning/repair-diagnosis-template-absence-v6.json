@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "TPL-006 的初始化阶段和 capability 阶段重复调用单门店模板缺失读取，导致 403 路由重复导航并在第二次导航后缺少 before-assertion 证据。",
+  "correctiveAction": "初始化阶段只导航到正式路由建立 before-action 上下文，单门店模板缺失 capability 负责唯一一次终态读取；继续使用混合认证和 000407 profile，并要求 before-assertion 守卫及正式 assertion receipt 均写入当前收据。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787557698672/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["4ae90efad645dca3"]
+}

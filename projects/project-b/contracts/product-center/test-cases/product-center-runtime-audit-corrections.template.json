@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "2.0.0",
+  "collectionId": "<方案标识>-runtime-audit",
+  "planId": "<方案标识>",
+  "generatedAt": "<ISO-8601>",
+  "planFingerprint": "<当前方案 SHA-256>",
+  "context": {
+    "applicationVersionFingerprint": "<应用版本 SHA-256>",
+    "environmentId": "<环境>",
+    "roleId": "<角色>",
+    "locale": "zh-CN",
+    "maxEvidenceAgeDays": 30
+  },
+  "evidenceDiscovery": {
+    "rootPaths": ["<本方案专属审计证据目录>"],
+    "extensions": [".json", ".md", ".png", ".jpg", ".mp4"],
+    "strict": true
+  },
+  "autoApprovalPolicy": {
+    "policyId": "runtime-evidence-safe-v1",
+    "enabled": true,
+    "minimumConsumedEvidence": 1,
+    "allowedActions": ["no-change", "correct-case", "add-case", "delete-case", "split-case", "merge-cases"],
+    "allowBusinessRuleChanges": true,
+    "allowTechnicalBindingChanges": true,
+    "allowCoverageChanges": true,
+    "requireMutationSafety": true
+  },
+  "evidenceInventory": [
+    {
+      "evidenceId": "audit:<稳定标识>",
+      "path": "<相对项目根目录的证据路径>",
+      "sha256": "<证据 SHA-256>",
+      "observedAt": "<ISO-8601>",
+      "disposition": "consumed",
+      "applicationVersionFingerprint": "<应用版本 SHA-256>",
+      "environmentId": "<环境>",
+      "roleId": "<角色>",
+      "locale": "zh-CN"
+    }
+  ],
+  "coverageInventory": [
+    {
+      "coverageId": "coverage:<route|control|field|dialog|validation|api-operation|state>:<稳定标识>",
+      "kind": "state",
+      "route": "/<route>",
+      "sourceIds": ["audit:<稳定标识>"],
+      "disposition": "required",
+      "linkedCaseIds": ["TC-<MODULE>-001"]
+    }
+  ],
+  "corrections": [
+    {
+      "caseId": "TC-<MODULE>-001",
+      "reviewedCaseFingerprint": "<被审核用例 SHA-256>",
+      "evidenceIds": ["audit:<稳定标识>"],
+      "status": "auto-confirmed-runtime",
+      "automatedDecision": {
+        "policyId": "runtime-evidence-safe-v1",
+        "decisionEngine": "codex:test-expert",
+        "decidedAt": "<ISO-8601>",
+        "rationale": "证据、指纹、上下文、断言和写请求安全门禁全部通过"
+      },
+      "observation": {
+        "locale": "zh-CN",
+        "route": "/<route>",
+        "pageMode": "create",
+        "applicationVersionFingerprint": "<应用版本 SHA-256>",
+        "environmentId": "<环境>",
+        "roleId": "<角色>",
+        "exactUiFeedback": ["<实际逐字提示>"],
+        "submitButtonState": "disabled",
+        "businessWriteRequest": "not-sent",
+        "persisted": "no",
+        "uiLookup": "not-found",
+        "apiLookup": "not-found",
+        "controls": [{"id": "confirm", "state": "disabled", "visible": true}],
+        "fields": [{"id": "name", "visible": true, "required": true, "enabled": true}],
+        "network": [{"method": "POST", "path": "/<api>", "operationKey": "<operation-key>", "outcome": "not-sent"}]
+      },
+      "impacts": {
+        "businessRule": "update",
+        "technicalBinding": "update",
+        "coverage": "update"
+      },
+      "resolution": {
+        "action": "correct-case",
+        "reason": "以通过自动裁决门禁的运行时审计事实校正方案",
+        "patches": {
+          "expectedResults": ["<包含实际事实的精确预期>"]
+        },
+        "businessRuleChanges": [
+          {"action": "update", "ruleId": "BR-<ID>", "statement": "<确认后的规则>", "sourceIds": ["audit:<稳定标识>"]}
+        ],
+        "technicalBindingChanges": [
+          {"caseId": "TC-<MODULE>-001", "route": "/<route>", "capabilityIds": ["<capability>"], "assertionAdapterIds": ["<assertion>"], "verificationSignals": ["ui", "network"], "apiOperations": [{"method": "POST", "path": "/<api>", "operationKey": "<operation-key>"}]}
+        ],
+        "coverageChanges": [
+          {"coverageId": "coverage:state:<ID>", "kind": "state", "route": "/<route>", "sourceIds": ["audit:<稳定标识>"], "disposition": "required", "linkedCaseIds": ["TC-<MODULE>-001"]}
+        ],
+        "assertions": [
+          {"fact": "exact-ui-feedback", "expectedValue": ["<实际逐字提示>"], "text": "<包含实际逐字提示的预期>"},
+          {"fact": "submit-button-state", "expectedValue": "disabled", "text": "<包含按钮禁用状态的预期>"},
+          {"fact": "business-write-request", "expectedValue": "not-sent", "text": "<包含未发送写请求的预期>"}
+        ]
+      }
+    }
+  ]
+}

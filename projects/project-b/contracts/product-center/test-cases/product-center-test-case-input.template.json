@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "TC-PC-<MODULE>-001",
+      "module": "brand-item",
+      "route": "/pp/brand/<route>",
+      "title": "应能完成明确的业务操作并观察到终态",
+      "priority": "P0",
+      "sourceRefs": [
+        "PRD:<文件>#<章节>",
+        "TEST-SCHEME:<文件>#<场景>"
+      ],
+      "preconditions": [
+        "声明必要的角色、配置和数据状态"
+      ],
+      "actions": [
+        "描述业务操作，不编写 locator"
+      ],
+      "expectedResults": [
+        "描述可观察的 UI 或 API 结果"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:TC-PC-<MODULE>-001:precondition:1",
+          "kind": "precondition",
+          "text": "声明必要的角色、配置和数据状态",
+          "sourceRefs": [
+            "PRD:<文件>#<章节>"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "prd-explicit",
+              "refs": [
+                "PRD:<文件>#<章节>"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "<统一合同中的稳定记录 ID>"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:TC-PC-<MODULE>-001:action:1",
+          "kind": "action",
+          "text": "描述业务操作，不编写 locator",
+          "sourceRefs": [
+            "TEST-SCHEME:<文件>#<场景>"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-SCHEME:<文件>#<场景>"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "<统一合同中的稳定记录 ID>"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:TC-PC-<MODULE>-001:expectation:1",
+          "kind": "expectation",
+          "text": "描述可观察的 UI 或 API 结果",
+          "sourceRefs": [
+            "PRD:<文件>#<章节>"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "prd-explicit",
+              "refs": [
+                "PRD:<文件>#<章节>"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "<统一合同中的稳定记录 ID>"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:TC-PC-<MODULE>-001:expectation:2",
+          "kind": "expectation",
+          "text": "如为一步可推导结果，必须声明推导依据",
+          "sourceRefs": [
+            "PRD:<文件>#<章节>"
+          ],
+          "evidenceLevel": "inferred",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "single-step-inference",
+              "refs": [
+                "PRD:<文件>#<章节>"
+              ],
+              "rationale": "A 已被材料定义，B 是 A 的直接必然后果",
+              "hopCount": 1
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "<统一合同中的稳定记录 ID>"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "coverageIds": [
+        "coverage:<kind>:<合同记录 ID>"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "<已注册 Recipe 能力 ID>"
+        ],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    }
+  ]
+}

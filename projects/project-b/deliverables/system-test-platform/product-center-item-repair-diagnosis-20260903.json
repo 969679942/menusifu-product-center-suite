@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-059",
+    "TC-ITEM-PKG-078",
+    "TC-ITEM-PKG-079",
+    "TC-ITEM-STD-013",
+    "TC-ITEM-STD-014"
+  ],
+  "supersedesAttemptIds": [],
+  "rootCause": "本轮 5 条用例均已执行到可分类的失败终态：TC-ITEM-PKG-059 是可选套餐组确认按钮在异步布局稳定前点击，TC-ITEM-STD-013/014 是分类树异步加载完成前读取节点，TC-ITEM-PKG-078 的历史确定性问题已通过既有收据确认其加料保存响应捕获和改名持久化链路需要按当前契约重验，TC-ITEM-PKG-079 的完整收据证明套餐改名为已有标准商品名称时 API 返回 success 但名称未按 BR-ITEM-010 返回 BITEM-7014，属于产品行为缺陷。",
+  "correctiveAction": "已对 TC-ITEM-PKG-059 使用选择状态、弹窗可见且按钮几何位置稳定 300ms 后再确认；已对 TC-ITEM-STD-013/014 在读取分类节点前等待唯一节点加载，避免把异步加载竞态误判为产品失败；TC-ITEM-PKG-078 仅在当前实现指纹和修复诊断门禁允许时定向重验，不以旧收据替代新收据；TC-ITEM-PKG-079 不修改测试预期或伪造通过，保留产品偏差并要求产品修复或明确更新 BR-ITEM-010 后再重验。",
+  "evidenceRefs": [
+    "Merchant Center UITest/output/product-center-item-source-governed-20260903T020548Z.json",
+    "Merchant Center UITest/test-results/source-governed/20260903T020548Z/item/generated-product-center-i-e4c14-商品自动化入口-套餐商品编辑页可选搭配组仅支持组级操作-chrome/error-context.md",
+    "Merchant Center UITest/test-results/source-governed/20260903T020548Z/item/generated-product-center-i-ec6ba-理-商品自动化入口-同一二级分类下新建同名商品创建失败-chrome/error-context.md",
+    "Merchant Center UITest/test-results/source-governed/20260903T020548Z/item/generated-product-center-i-6c1fb-品自动化入口-同一商户下不同一级分类仍不可创建同名商品-chrome/error-context.md",
+    "Merchant Center UITest/flows/product-center/item-216/package-item-216.flow.ts",
+    "Merchant Center UITest/flows/product-center/item-216/standard-item-216.flow.ts",
+    "Merchant Center UITest/pages/product-management/item/item-create-combo.page.ts",
+    "Merchant Center UITest/pages/product-management/item/item-create-standard.page.ts",
+    "Merchant Center UITest/deliverables/system-test-platform/product-center-item-pkg-078-repair-diagnosis-20260902.json"
+  ]
+}

@@ -1,0 +1,164 @@
+# 商品中心商品当前技术闭环状态
+
+- 状态：partial-runtime-accepted
+- 活动用例：225
+- Runtime accepted：94
+- 剩余：131
+- 当前 canonical 基线兼容闭环：89
+- Canonical reconciliation 待处理：5
+- Capability mapping required：27
+- Page observation required：92
+- Canonical conflict required：0
+- Product defect open：6
+- Product rule confirmation required：4
+- External terminal blocked：1
+- Acceptance 来源：既有=4；P0四波=36；剩余W1-W8=54（其中 reconciliation=9）；重叠=0
+- 剩余 P0 证据：observed accepted=45；observed canonical-conflict=19；reconciled=9；unresolved=10；blocked=1；harness-error=0
+
+## 优先级
+
+- P0：总数=86；运行覆盖=82；基线兼容=79；待 reconciliation=3；剩余=4
+- P1：总数=132；运行覆盖=12；基线兼容=10；待 reconciliation=2；剩余=120
+- P2：总数=7；运行覆盖=0；基线兼容=0；待 reconciliation=0；剩余=7
+
+## Canonical Reconciliation
+
+- TC-ITEM-STD-007 [P1] product-rule-confirmed=true：一级分类存在二级分类时必须选择二级分类才能完成商品分类选择
+- TC-ITEM-STD-011 [P0] product-rule-confirmed=true：同一一级分类下新建同名商品创建失败
+- TC-ITEM-STD-012 [P1] product-rule-confirmed=true：同一一级分类不同二级分类的标准商品同名提示 BITEM-7010
+- TC-ITEM-STD-013 [P0] product-rule-confirmed=true：同一二级分类下新建同名商品创建失败
+- TC-ITEM-STD-014 [P0] product-rule-confirmed=true：同一商户下不同一级分类仍不可创建同名商品
+
+## 剩余用例
+
+- TC-ITEM-STD-080 [P0] blocked-until-terminal-access：称重商品购买重量小于皮重时终端价格为 0
+- TC-ITEM-ADD-001 [P0] product-rule-confirmation-required：加料商品基础字段与标准商品一致且无起售数量
+- TC-ITEM-ADD-024 [P0] product-defect-open：加料商品编辑基础信息后保存成功
+- TC-ITEM-STD-081 [P0] product-defect-open：详情图重复引用同一张图片保存失败并提示 BITEM-3006
+- TC-ITEM-STD-094 [P1] page-observation-required：POS名称首尾含空格时保存失败
+- TC-ITEM-STD-019 [P1] page-observation-required：称重商品销售单位下拉展示 g、kg、ml
+- TC-ITEM-STD-020 [P1] page-observation-required：单规格商品标准价为1.99时创建成功
+- TC-ITEM-STD-024 [P1] page-observation-required：起售数量大于1时创建成功且C端默认点单数量为起售数量
+- TC-ITEM-STD-048 [P1] page-observation-required：多规格商品点击去创建可跳转规格组新增页
+- TC-ITEM-STD-049 [P1] capability-mapping-required：选择多规格后是否称重商品置灰不可选
+- TC-ITEM-STD-050 [P1] capability-mapping-required：单规格商品包装费合法输入时保存成功
+- TC-ITEM-STD-083 [P1] page-observation-required：多规格商品默认规格下发后终端点餐默认选中该规格
+- TC-ITEM-STD-084 [P1] page-observation-required：称重商品销售单位切换 g、kg、ml 后保存成功
+- TC-ITEM-STD-085 [P1] page-observation-required：多规格商品拖动调整规格顺序后保存成功
+- TC-ITEM-STD-098 [P1] page-observation-required：单规格商品成本合法输入时保存成功
+- TC-ITEM-ADD-011 [P1] page-observation-required：加料商品包装费合法输入时保存成功
+- TC-ITEM-ADD-049 [P1] page-observation-required：加料商品成本合法输入时保存成功
+- TC-ITEM-PKG-014 [P1] page-observation-required：套餐商品起售数量默认值为 1
+- TC-ITEM-PKG-016 [P1] page-observation-required：套餐商品起售数量大于 1 时创建成功
+- TC-ITEM-PKG-020 [P1] page-observation-required：套餐商品包装费合法输入时保存成功
+- TC-ITEM-PKG-051 [P1] page-observation-required：套餐商品创建页不展示多规格与称重相关入口
+- TC-ITEM-UI-005 [P1] page-observation-required：勾选商品后批量操作菜单提供销售信息价格与属性入口
+- TC-ITEM-STD-079 [P1] page-observation-required：标准商品创建页不支持添加套餐组
+- TC-ITEM-PKG-005 [P1] page-observation-required：套餐商品其他设置与标准商品一致
+- TC-ITEM-PKG-011 [P1] page-observation-required：套餐商品不选择分类时创建成功
+- TC-ITEM-PKG-012 [P1] page-observation-required：一级分类下无二级分类时套餐可直接创建成功
+- TC-ITEM-PKG-018 [P1] page-observation-required：套餐商品标准价为 0 时创建成功
+- TC-ITEM-PKG-022 [P1] page-observation-required：套餐商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化
+- TC-ITEM-PKG-027 [P1] page-observation-required：套餐商品描述达到500字符后输入框不可继续录入
+- TC-ITEM-PKG-029 [P1] page-observation-required：套餐商品描述标签多选保存成功
+- TC-ITEM-PKG-030 [P1] page-observation-required：套餐商品商品角标单选保存成功
+- TC-ITEM-PKG-031 [P1] page-observation-required：套餐商品统计标签多选保存成功
+- TC-ITEM-PKG-032 [P1] page-observation-required：套餐商品配置材料信息后保存成功
+- TC-ITEM-PKG-033 [P1] page-observation-required：套餐商品从图片库选择主图后创建成功
+- TC-ITEM-PKG-042 [P1] capability-mapping-required：已选固定搭配套餐组可从右侧移除
+- TC-ITEM-PKG-043 [P1] capability-mapping-required：已选组合搭配套餐组可从右侧移除
+- TC-ITEM-PKG-049 [P1] page-observation-required：套餐商品同时引用已有固定搭配与可选搭配组
+- TC-ITEM-PKG-057 [P1] capability-mapping-required：套餐商品通过选择入口引用已有可选搭配组
+- TC-ITEM-PKG-058 [P1] capability-mapping-required：套餐商品回显已有可选搭配组规则摘要
+- TC-ITEM-PKG-003 [P1] capability-mapping-required：套餐商品可按名称搜索固定搭配套餐组
+- TC-ITEM-PKG-044 [P1] capability-mapping-required：组合搭配套餐组按名称模糊搜索成功
+- TC-ITEM-PKG-045 [P1] capability-mapping-required：组合搭配套餐组清空搜索条件后恢复默认列表
+- TC-ITEM-PKG-056 [P1] capability-mapping-required：组合搭配套餐组按名称精确搜索成功
+- TC-ITEM-PKG-036 [P1] page-observation-required：套餐商品编辑其他信息后保存成功
+- TC-ITEM-PKG-059 [P1] recipe-drift-repair-required：套餐商品编辑页可选搭配组仅支持组级操作
+- TC-ITEM-PKG-034 [P1] capability-mapping-required：套餐商品列表按名称类型分类状态组合查询成功
+- TC-ITEM-PKG-060 [P1] page-observation-required：套餐商品状态变更后需下发到门店终端才生效
+- TC-ITEM-PKG-061 [P1] capability-mapping-required：套餐商品列表启用商品操作成功
+- TC-ITEM-PKG-062 [P1] capability-mapping-required：套餐商品列表停用未被菜单引用的商品操作成功
+- TC-ITEM-PKG-070 [P1] page-observation-required：套餐必选子项停用后终端不可正常点单
+- TC-ITEM-PKG-055 [P1] page-observation-required：套餐商品列表删除操作展示确认文案
+- TC-ITEM-UI-008 [P1] page-observation-required：套餐商品创建页提供保存并新建入口
+- TC-ITEM-STD-064 [P1] page-observation-required：商品列表按商品名称第二语言模糊查询成功
+- TC-ITEM-ADD-033 [P1] page-observation-required：加料组新增时可搜索并选择该加料商品
+- TC-ITEM-STD-033 [P1] capability-mapping-required：标准商品编辑其他信息后保存成功
+- TC-ITEM-STD-061 [P1] capability-mapping-required：配置互斥规则后冲突项在编辑页置灰不可同时选中
+- TC-ITEM-ADD-025 [P1] page-observation-required：加料商品编辑其他信息后保存成功
+- TC-ITEM-UI-004 [P1] page-observation-required：勾选商品后批量操作菜单提供基础字段编辑入口
+- TC-ITEM-STD-065 [P1] capability-mapping-required：列表启用商品操作成功
+- TC-ITEM-STD-077 [P1] page-observation-required：商品状态变更后需下发到门店终端才生效
+- TC-ITEM-UI-006 [P1] page-observation-required：勾选商品后批量操作菜单提供添加至菜单与删除入口
+- TC-ITEM-UI-003 [P1] page-observation-required：复制商品时打印档口信息随商品复制
+- TC-ITEM-STD-052 [P1] page-observation-required：从图片库选择主图后创建成功
+- TC-ITEM-STD-055 [P1] capability-mapping-required：标准商品选择多个描述标签后保存成功
+- TC-ITEM-STD-099 [P1] page-observation-required：标准商品选择一个商品角标后保存成功
+- TC-ITEM-STD-100 [P1] page-observation-required：标准商品选择多个统计标签后保存成功
+- TC-ITEM-ADD-018 [P1] page-observation-required：加料商品描述标签多选保存成功
+- TC-ITEM-ADD-019 [P1] page-observation-required：加料商品商品角标单选保存成功
+- TC-ITEM-ADD-020 [P1] page-observation-required：加料商品统计标签多选保存成功
+- TC-ITEM-ADD-021 [P1] page-observation-required：加料商品配置材料信息中原料、过敏原和营养成分后保存成功
+- TC-ITEM-ADD-039 [P1] page-observation-required：加料商品从图片库选择主图后创建成功
+- TC-ITEM-ADD-017 [P1] page-observation-required：加料商品添加详情图片不超过 10 张
+- TC-ITEM-ADD-045 [P1] page-observation-required：加料商品角标切换选择后仅保留最新一个角标
+- TC-ITEM-STD-006 [P1] capability-mapping-required：一级分类下无二级分类，可新增商品成功
+- TC-ITEM-STD-009 [P1] page-observation-required：POS名称和送厨名称超长及特殊字符保存后自动格式化
+- TC-ITEM-STD-035 [P1] page-observation-required：分类下已有商品时不可继续新增子分类
+- TC-ITEM-STD-041 [P1] page-observation-required：标准商品创建页高级设置区域默认不展开
+- TC-ITEM-STD-046 [P1] capability-mapping-required：助记码超过 20 字符时保存失败
+- TC-ITEM-STD-053 [P1] page-observation-required：本地上传主图后创建成功
+- TC-ITEM-STD-101 [P1] page-observation-required：设备编码超过 20 字符时保存失败
+- TC-ITEM-ADD-007 [P1] page-observation-required：加料商品不选择分类时创建成功
+- TC-ITEM-ADD-009 [P1] page-observation-required：加料商品标准价为 0 时创建成功
+- TC-ITEM-ADD-012 [P1] page-observation-required：加料商品名称超长及特殊字符保存后自动格式化
+- TC-ITEM-ADD-013 [P1] page-observation-required：加料商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化
+- TC-ITEM-ADD-022 [P1] page-observation-required：加料商品本地上传主图后创建成功
+- TC-ITEM-STD-004 [P1] page-observation-required：切换中英文后商品页面文案随系统语言切换
+- TC-ITEM-STD-045 [P1] capability-mapping-required：商品描述达到 250 字符后不可继续输入
+- TC-ITEM-STD-054 [P1] capability-mapping-required：详情图超过 10 张时不可继续添加
+- TC-ITEM-STD-059 [P1] page-observation-required：商品内不可单独添加组子项仅可移除已引用子项
+- TC-ITEM-STD-063 [P1] capability-mapping-required：商品列表分页支持切换 10/20/50/100 条
+- TC-ITEM-ADD-002 [P1] page-observation-required：加料商品其他设置与标准商品一致
+- TC-ITEM-ADD-038 [P1] page-observation-required：加料商品继续上传第 2 张主图时覆盖第 1 张主图
+- TC-ITEM-STD-003 [P1] capability-mapping-required：商品展示列设置后列表仅展示所选列
+- TC-ITEM-STD-042 [P1] capability-mapping-required：点击展开高级设置后展示 POS 名称等 8 个字段
+- TC-ITEM-STD-072 [P1] capability-mapping-required：商品列表默认展示字段与默认收起字段正确
+- TC-ITEM-STD-073 [P1] capability-mapping-required：商品列表支持还原默认展示列
+- TC-ITEM-STD-074 [P1] page-observation-required：商品列表展示总商品数量且不展示总金额
+- TC-ITEM-STD-076 [P1] page-observation-required：商品列表空值字段展示空而非“-”
+- TC-ITEM-STD-086 [P1] page-observation-required：移除已引用口味组子项后详情不再展示该子项
+- TC-ITEM-UI-007 [P1] page-observation-required：标准商品创建页提供保存并新建入口
+- TC-ITEM-ADD-015 [P1] product-rule-confirmation-required：加料商品允许与其他商品类型同名
+- TC-ITEM-STD-023 [P1] product-defect-open：标准商品非法起售数量保存时归一化为 1
+- TC-ITEM-STD-051 [P1] page-observation-required：超限价格保存成功并按 999999.99 展示
+- TC-ITEM-PKG-050 [P1] page-observation-required：删除全部套餐分组后因分组必填无法保存
+- TC-ITEM-PKG-019 [P1] product-rule-confirmation-required：套餐商品标准价输入负数时创建失败
+- TC-ITEM-PKG-021 [P1] page-observation-required：套餐商品名称首尾空格校验及 100 字符上限
+- TC-ITEM-PKG-023 [P1] page-observation-required：套餐商品助记码超过 20 字符时保存失败
+- TC-ITEM-PKG-028 [P1] page-observation-required：套餐商品最多保存 10 张有效详情图片
+- TC-ITEM-PKG-052 [P1] page-observation-required：套餐商品不支持引用口味做法加料组
+- TC-ITEM-PKG-053 [P1] page-observation-required：套餐和加料商品不支持互斥规则
+- TC-ITEM-PKG-067 [P1] page-observation-required：套餐商品本地上传主图回显后保存成功
+- TC-ITEM-PKG-068 [P1] page-observation-required：套餐商品先删原图再上传第二张主图替换成功
+- TC-ITEM-PKG-048 [P1] page-observation-required：切换页面返回套餐商品列表时不保留查询条件
+- TC-ITEM-PKG-065 [P1] page-observation-required：套餐商品创建页没有加料组子项编辑能力
+- TC-ITEM-PKG-035 [P1] product-defect-open：套餐编辑基础信息并删除主图后允许无图
+- TC-ITEM-PKG-063 [P1] page-observation-required：套餐商品创建页不提供做法组引用入口
+- TC-ITEM-PKG-064 [P1] page-observation-required：套餐商品创建页不提供加料组引用入口
+- TC-ITEM-STD-030 [P1] page-observation-required：切换页面返回标准商品列表时不保留查询条件
+- TC-ITEM-ADD-041 [P1] page-observation-required：切换页面返回加料商品列表时不保留查询条件
+- TC-ITEM-STD-056 [P1] capability-mapping-required：原料过敏原营养成分保存后编辑回显
+- TC-ITEM-ADD-037 [P1] page-observation-required：加料商品状态变更后需下发到门店终端才生效
+- TC-ITEM-STD-021 [P1] product-defect-open：标准价输入负数时创建失败
+- TC-ITEM-ADD-010 [P1] product-defect-open：加料商品标准价输入负数时创建失败
+- TC-ITEM-STD-078 [P1] page-observation-required：标准商品主图上传后不提供第二次本地上传入口
+- TC-ITEM-UI-001 [P2] page-observation-required：商品列表提供导入记录入口
+- TC-ITEM-UI-002 [P2] page-observation-required：商品列表操作菜单提供图片导入与商品导入入口
+- TC-ITEM-STD-095 [P2] page-observation-required：商品标准价输入超过两位小数保存时四舍五入为两位
+- TC-ITEM-PKG-013 [P2] product-rule-confirmation-required：存在二级分类时未选二级分类不影响套餐商品提交
+- TC-ITEM-STD-071 [P2] page-observation-required：标准商品列表主图不支持点击查看大图
+- TC-ITEM-ADD-035 [P2] page-observation-required：加料商品列表主图不支持点击查看大图
+- TC-ITEM-PKG-054 [P2] page-observation-required：商品列表主图不支持点击查看大图

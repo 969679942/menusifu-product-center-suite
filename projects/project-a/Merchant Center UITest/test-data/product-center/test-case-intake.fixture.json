@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "TC-PC-INTAKE-SMOKE",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "商品分类页面应暴露新增入口",
+      "priority": "P0",
+      "sourceRefs": [
+        "AUDIT:/pp/brand/category#新增入口"
+      ],
+      "preconditions": [
+        "已建立商品中心登录与商户上下文"
+      ],
+      "actions": [
+        "打开商品分类页面"
+      ],
+      "expectedResults": [
+        "页面显示可操作的新增入口"
+      ],
+      "mutatesData": false,
+      "cleanup": [],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:TC-PC-INTAKE-SMOKE:precondition:1",
+          "kind": "precondition",
+          "text": "已建立商品中心登录与商户上下文",
+          "sourceRefs": [
+            "AUDIT:/pp/brand/category#新增入口"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:TC-PC-INTAKE-SMOKE:action:1",
+          "kind": "action",
+          "text": "打开商品分类页面",
+          "sourceRefs": [
+            "AUDIT:/pp/brand/category#新增入口"
+          ],
+          "evidenceLevel": "observed"
+        },
+        {
+          "id": "claim:TC-PC-INTAKE-SMOKE:expectation:1",
+          "kind": "expectation",
+          "text": "页面显示可操作的新增入口",
+          "sourceRefs": [
+            "AUDIT:/pp/brand/category#新增入口"
+          ],
+          "evidenceLevel": "observed"
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:/pp/brand/category#control-1"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "category.open"
+        ],
+        "mutationMode": "none",
+        "verificationSignals": [
+          "ui"
+        ],
+        "seedAdapterIds": [],
+        "cleanupAdapterIds": [],
+        "asyncPolicy": "none"
+      }
+    }
+  ]
+}

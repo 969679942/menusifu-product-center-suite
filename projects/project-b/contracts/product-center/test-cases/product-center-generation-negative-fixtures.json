@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-generation-negative-fixtures",
+  "fixtures": [
+    {
+      "caseId": "fixture:vague-action",
+      "module": "brand-seasoning",
+      "scenario": "review-required",
+      "probeKind": "semantic-action",
+      "text": "核对页面、列表、终端展示与业务规则。",
+      "expectedIssueCode": "VAGUE_ACTION",
+      "expectedDecision": "review-required"
+    },
+    {
+      "caseId": "fixture:vague-expectation",
+      "module": "brand-item",
+      "scenario": "review-required",
+      "probeKind": "semantic-expectation",
+      "text": "页面展示正常。",
+      "expectedIssueCode": "VAGUE_EXPECTATION",
+      "expectedDecision": "review-required"
+    },
+    {
+      "caseId": "fixture:missing-source-trace",
+      "module": "brand-group",
+      "scenario": "blocked",
+      "probeKind": "missing-source-trace",
+      "text": "点击保存按钮提交做法明细。",
+      "expectedIssueCode": "SOURCE_TRACE_REQUIRED",
+      "expectedDecision": "review-required"
+    },
+    {
+      "caseId": "fixture:unknown-capability",
+      "module": "brand-print",
+      "scenario": "blocked",
+      "probeKind": "unknown-capability",
+      "text": "通过打印档口能力保存记录。",
+      "expectedIssueCode": "UNKNOWN_CAPABILITY",
+      "expectedDecision": "review-required"
+    },
+    {
+      "caseId": "fixture:markdown-format-drift",
+      "module": "brand-tag",
+      "scenario": "format-drift",
+      "probeKind": "markdown-format",
+      "text": "点击保存",
+      "expectedIssueCode": "NON_NUMBERED_STEP",
+      "expectedDecision": "review-required"
+    }
+  ]
+}

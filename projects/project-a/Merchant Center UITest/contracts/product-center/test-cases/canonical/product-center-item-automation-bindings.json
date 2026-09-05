@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-canonical-automation-bindings",
+  "fingerprint": "8203dd2b2a0ba9969be9be23546893a9d240c06d333cdc6411de4104b5a134a5",
+  "bindings": [
+    {
+      "canonicalId": "TC-ITEM-STD-006",
+      "nodeId": "7l7h2blkkkak5s2ovti99bqtjh",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=7l7h2blkkkak5s2ovti99bqtjh；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 分类相关校验（一级分类下有商品不可建二级分类/有二级分类不可建标准商品） / 一级分类下无二级分类，可新增商品成功",
+        "旧规则线索 ← 商品分类叶子选择规则 @ 1. 商品管理 / 商品",
+        "产品确认规则 ← BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE @ product-confirmation:BR-ITEM-CATEGORY-DIRECT-PARENT-CREATE"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-006:precondition-1",
+        "TC-ITEM-STD-006:action-1",
+        "TC-ITEM-STD-006:action-2",
+        "TC-ITEM-STD-006:action-3",
+        "TC-ITEM-STD-006:action-4",
+        "TC-ITEM-STD-006:action-5",
+        "TC-ITEM-STD-006:action-6",
+        "TC-ITEM-STD-006:action-7",
+        "TC-ITEM-STD-006:action-8",
+        "TC-ITEM-STD-006:action-9",
+        "TC-ITEM-STD-006:action-10",
+        "TC-ITEM-STD-006:expectation-1",
+        "TC-ITEM-STD-006:expectation-2",
+        "TC-ITEM-STD-006:expectation-3",
+        "TC-ITEM-STD-006:expectation-4",
+        "TC-ITEM-STD-006:expectation-5"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-006"
+      ],
+      "executionChannel": "acceptance",
+      "status": "ready-for-technical-binding"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-007",
+      "nodeId": "3nkakilp5sp9jupkg7bg1sdp95",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=3nkakilp5sp9jupkg7bg1sdp95；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 分类相关校验（一级分类下有商品不可建二级分类/有二级分类不可建标准商品） / 一级分类下有二级分类，必须选择到二级分类，才能新增成功",
+        "旧规则线索 ← 商品分类叶子选择规则 @ 1. 商品管理 / 商品",
+        "产品确认规则 ← BR-ITEM-CATEGORY-LEAF-SELECTION @ product-confirmation:BR-ITEM-CATEGORY-LEAF-SELECTION"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-007:precondition-1",
+        "TC-ITEM-STD-007:action-1",
+        "TC-ITEM-STD-007:action-2",
+        "TC-ITEM-STD-007:action-3",
+        "TC-ITEM-STD-007:action-4",
+        "TC-ITEM-STD-007:action-5",
+        "TC-ITEM-STD-007:action-6",
+        "TC-ITEM-STD-007:action-7",
+        "TC-ITEM-STD-007:action-8",
+        "TC-ITEM-STD-007:action-9",
+        "TC-ITEM-STD-007:expectation-1",
+        "TC-ITEM-STD-007:expectation-2",
+        "TC-ITEM-STD-007:expectation-3",
+        "TC-ITEM-STD-007:expectation-4",
+        "TC-ITEM-STD-007:expectation-5",
+        "TC-ITEM-STD-007:expectation-6"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-007"
+      ],
+      "executionChannel": "acceptance",
+      "status": "ready-for-technical-binding"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-011",
+      "nodeId": "1g5c9rbjd6bmkdnho5o3qumd5i",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=1g5c9rbjd6bmkdnho5o3qumd5i；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 唯一性校验： 同一个一级分类下，不允许建同名的菜（不同的二级分类） 不同的一级分类下，允许同名 / 同一个一级分类下，新建相同商品名称的商品，创建失败",
+        "旧规则线索 ← BR-ITEM-010 @ 2.4 商品规则（BR-ITEM 摘要 · 2026-06-16 产品确认）#BR-ITEM-010",
+        "产品确认规则 ← BR-ITEM-010 @ product-confirmation:BR-ITEM-010"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-011:precondition-1",
+        "TC-ITEM-STD-011:action-1",
+        "TC-ITEM-STD-011:action-2",
+        "TC-ITEM-STD-011:action-3",
+        "TC-ITEM-STD-011:action-4",
+        "TC-ITEM-STD-011:action-5",
+        "TC-ITEM-STD-011:expectation-1"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-011"
+      ],
+      "executionChannel": "acceptance",
+      "status": "review-required"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-012",
+      "nodeId": "5nps4c4rebgh2bb38j2bp5sh2j",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=5nps4c4rebgh2bb38j2bp5sh2j；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 唯一性校验： 同一个一级分类下，不允许建同名的菜（不同的二级分类） 不同的一级分类下，允许同名 / 同一个一级分类下，新建相同商品名称不同商品类型的商品，创建失败",
+        "旧规则线索 ← BR-ITEM-010 @ 2.4 商品规则（BR-ITEM 摘要 · 2026-06-16 产品确认）#BR-ITEM-010",
+        "产品确认规则 ← BR-ITEM-010 @ product-confirmation:BR-ITEM-010"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-012:precondition-1",
+        "TC-ITEM-STD-012:action-1",
+        "TC-ITEM-STD-012:action-2",
+        "TC-ITEM-STD-012:action-3",
+        "TC-ITEM-STD-012:expectation-1"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-012"
+      ],
+      "executionChannel": "acceptance",
+      "status": "ready-for-technical-binding"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-013",
+      "nodeId": "56qm12npj4iodhphpmi8nqg8oa",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=56qm12npj4iodhphpmi8nqg8oa；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 唯一性校验： 同一个一级分类下，不允许建同名的菜（不同的二级分类） 不同的一级分类下，允许同名 / 同一个二级分类下，新建相同商品名称的商品，创建失败",
+        "旧规则线索 ← BR-ITEM-010 @ 2.4 商品规则（BR-ITEM 摘要 · 2026-06-16 产品确认）#BR-ITEM-010",
+        "产品确认规则 ← BR-ITEM-010 @ product-confirmation:BR-ITEM-010"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-013:precondition-1",
+        "TC-ITEM-STD-013:action-1",
+        "TC-ITEM-STD-013:action-2",
+        "TC-ITEM-STD-013:action-3",
+        "TC-ITEM-STD-013:action-4",
+        "TC-ITEM-STD-013:action-5",
+        "TC-ITEM-STD-013:expectation-1"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-013"
+      ],
+      "executionChannel": "acceptance",
+      "status": "review-required"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-014",
+      "nodeId": "3vud493ll768u9t0iqhiqqftg8",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=3vud493ll768u9t0iqhiqqftg8；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 唯一性校验： 同一个一级分类下，不允许建同名的菜（不同的二级分类） 不同的一级分类下，允许同名 / 不同的一级分类下，可以新增相同商品名称的商品",
+        "旧规则线索 ← BR-ITEM-010 @ 2.4 商品规则（BR-ITEM 摘要 · 2026-06-16 产品确认）#BR-ITEM-010",
+        "产品确认规则 ← BR-ITEM-010 @ product-confirmation:BR-ITEM-010"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-014:precondition-1",
+        "TC-ITEM-STD-014:action-1",
+        "TC-ITEM-STD-014:action-2",
+        "TC-ITEM-STD-014:action-3",
+        "TC-ITEM-STD-014:action-4",
+        "TC-ITEM-STD-014:action-5",
+        "TC-ITEM-STD-014:action-6",
+        "TC-ITEM-STD-014:expectation-1",
+        "TC-ITEM-STD-014:expectation-2"
+      ],
+      "ruleIds": [
+        "CBR-ITEM-STD-014"
+      ],
+      "executionChannel": "acceptance",
+      "status": "review-required"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-025",
+      "nodeId": "4idefkot8f9al0d5eaqjlsukei",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=4idefkot8f9al0d5eaqjlsukei；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择商品，可以继承行业商品的信息到品牌商品",
+        "旧规则线索 ← 行业商品继承范围 @ 1. 商品管理 / 商品"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-025:precondition-1",
+        "TC-ITEM-STD-025:action-1",
+        "TC-ITEM-STD-025:action-2",
+        "TC-ITEM-STD-025:action-3",
+        "TC-ITEM-STD-025:action-4",
+        "TC-ITEM-STD-025:action-5",
+        "TC-ITEM-STD-025:action-6",
+        "TC-ITEM-STD-025:action-7",
+        "TC-ITEM-STD-025:action-8",
+        "TC-ITEM-STD-025:action-9",
+        "TC-ITEM-STD-025:action-10",
+        "TC-ITEM-STD-025:action-11",
+        "TC-ITEM-STD-025:expectation-1",
+        "TC-ITEM-STD-025:expectation-2",
+        "TC-ITEM-STD-025:expectation-3",
+        "TC-ITEM-STD-025:expectation-4",
+        "TC-ITEM-STD-025:expectation-5",
+        "TC-ITEM-STD-025:expectation-6",
+        "TC-ITEM-STD-025:expectation-7",
+        "TC-ITEM-STD-025:expectation-8",
+        "TC-ITEM-STD-025:expectation-9",
+        "TC-ITEM-STD-025:expectation-10",
+        "TC-ITEM-STD-025:expectation-11",
+        "TC-ITEM-STD-025:expectation-12",
+        "TC-ITEM-STD-025:expectation-13",
+        "TC-ITEM-STD-025:expectation-14"
+      ],
+      "ruleIds": [],
+      "executionChannel": "none",
+      "status": "review-required"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-026",
+      "nodeId": "7lbkbtis9nhoheguguq1p4q0hq",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=7lbkbtis9nhoheguguq1p4q0hq；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择多规格商品，可以继承行业商品的信息到品牌商品",
+        "旧规则线索 ← 行业商品继承范围 @ 1. 商品管理 / 商品"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-026:precondition-1",
+        "TC-ITEM-STD-026:action-1",
+        "TC-ITEM-STD-026:action-2",
+        "TC-ITEM-STD-026:action-3",
+        "TC-ITEM-STD-026:action-4",
+        "TC-ITEM-STD-026:action-5",
+        "TC-ITEM-STD-026:action-6",
+        "TC-ITEM-STD-026:action-7",
+        "TC-ITEM-STD-026:action-8",
+        "TC-ITEM-STD-026:action-9",
+        "TC-ITEM-STD-026:action-10",
+        "TC-ITEM-STD-026:action-11",
+        "TC-ITEM-STD-026:action-12",
+        "TC-ITEM-STD-026:expectation-1",
+        "TC-ITEM-STD-026:expectation-2",
+        "TC-ITEM-STD-026:expectation-3",
+        "TC-ITEM-STD-026:expectation-4",
+        "TC-ITEM-STD-026:expectation-5",
+        "TC-ITEM-STD-026:expectation-6",
+        "TC-ITEM-STD-026:expectation-7",
+        "TC-ITEM-STD-026:expectation-8",
+        "TC-ITEM-STD-026:expectation-9",
+        "TC-ITEM-STD-026:expectation-10",
+        "TC-ITEM-STD-026:expectation-11",
+        "TC-ITEM-STD-026:expectation-12",
+        "TC-ITEM-STD-026:expectation-13",
+        "TC-ITEM-STD-026:expectation-14",
+        "TC-ITEM-STD-026:expectation-15"
+      ],
+      "ruleIds": [],
+      "executionChannel": "none",
+      "status": "review-required"
+    },
+    {
+      "canonicalId": "TC-ITEM-STD-027",
+      "nodeId": "1gld10kchs6ofo359iu2jpbpbg",
+      "route": "/pp/brand/list",
+      "capabilityIds": [
+        "navigation.sidebar.open"
+      ],
+      "assertionAdapterIds": [
+        "canonical.manual-review"
+      ],
+      "sourceIds": [
+        "XMind已有 ← nodeId=1gld10kchs6ofo359iu2jpbpbg；路径=商品中心-商品管理测试用例 / 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择多规格商品，不选全部规格，可继承行业商品的信息到品牌",
+        "旧规则线索 ← 行业商品继承范围 @ 1. 商品管理 / 商品"
+      ],
+      "claimIds": [
+        "TC-ITEM-STD-027:precondition-1",
+        "TC-ITEM-STD-027:action-1",
+        "TC-ITEM-STD-027:action-2",
+        "TC-ITEM-STD-027:action-3",
+        "TC-ITEM-STD-027:action-4",
+        "TC-ITEM-STD-027:action-5",
+        "TC-ITEM-STD-027:action-6",
+        "TC-ITEM-STD-027:action-7",
+        "TC-ITEM-STD-027:action-8",
+        "TC-ITEM-STD-027:action-9",
+        "TC-ITEM-STD-027:action-10",
+        "TC-ITEM-STD-027:action-11",
+        "TC-ITEM-STD-027:action-12",
+        "TC-ITEM-STD-027:expectation-1",
+        "TC-ITEM-STD-027:expectation-2",
+        "TC-ITEM-STD-027:expectation-3",
+        "TC-ITEM-STD-027:expectation-4",
+        "TC-ITEM-STD-027:expectation-5",
+        "TC-ITEM-STD-027:expectation-6",
+        "TC-ITEM-STD-027:expectation-7",
+        "TC-ITEM-STD-027:expectation-8",
+        "TC-ITEM-STD-027:expectation-9",
+        "TC-ITEM-STD-027:expectation-10",
+        "TC-ITEM-STD-027:expectation-11",
+        "TC-ITEM-STD-027:expectation-12",
+        "TC-ITEM-STD-027:expectation-13",
+        "TC-ITEM-STD-027:expectation-14",
+        "TC-ITEM-STD-027:expectation-15"
+      ],
+      "ruleIds": [],
+      "executionChannel": "none",
+      "status": "review-required"
+    }
+  ]
+}

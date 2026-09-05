@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "deferred",
+  "scope": "platform-universal-completion",
+  "applicationId": "merchant-center",
+  "businessDomainId": "product-center",
+  "blocker": "CROSS_APPLICATION_PILOT_REQUIRED",
+  "moduleDeliveryBlocked": false,
+  "currentSystemDelivery": "frozen",
+  "currentSystemEvidence": {
+    "closureAudit": "deliverables/test-plan-governance/product-center-closure-audit.json",
+    "incrementalSelection": "deliverables/test-plan-governance/product-center-incremental-selection.json",
+    "summary": {
+      "total": 360,
+      "evidencePassed": 328,
+      "handled": 2,
+      "deferred": 21,
+      "notApplicable": 9,
+      "blocked": 0
+    }
+  },
+  "sameApplicationCrossDomainPilot": {
+    "systemId": "merchant-center-store-operations-tax",
+    "status": "blocked-environment",
+    "reason": "认证初始化阶段未识别登录页、商户选择或主界面；已完成两次有界尝试，未进入业务步骤。",
+    "evidence": "Merchant Center UITest/output/system-test/merchant-center-store-operations-tax/latest-run-state.json"
+  },
+  "recoveryCondition": [
+    "提供 applicationId 不同于 merchant-center 的真实目标系统。",
+    "完成该系统的认证、上下文、业务操作、断言和 API/UI 清理适配器。",
+    "运行至少一个可逆真实试点并取得完整证据收据。"
+  ],
+  "executionPolicy": {
+    "crossSystemPilotStart": "user-explicit-only",
+    "crossSystemPilotStatus": "deferred",
+    "moduleExecution": "independent",
+    "moduleCanaryAllowed": true,
+    "rerunProductCenter": true,
+    "rerunPassedCases": false,
+    "retryBlockedPilot": false,
+    "resumeFromCheckpoint": true
+  },
+  "recordedAt": "2026-08-21T13:33:24.303Z",
+  "blockers": [
+    "CROSS_APPLICATION_PILOT_REQUIRED",
+    "CROSS_DOMAIN_PILOT_REQUIRED",
+    "DOMAIN_ADAPTER_REQUIRED",
+    "REFERENCE_BASELINE_NOT_READY"
+  ],
+  "updatedAt": "2026-09-03T12:40:20.567Z"
+}

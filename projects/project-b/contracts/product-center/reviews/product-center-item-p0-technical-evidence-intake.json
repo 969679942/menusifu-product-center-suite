@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-p0-technical-evidence-intake",
+  "sourceThreadId": "019fb180-014a-7d53-be4b-d986fd66e7cc",
+  "sourceRunId": "AUTO_AUDIT_COMBO_DEEP_20260730_FINAL",
+  "sourceArtifact": "item-combo-deep-audit-AUTO_AUDIT_COMBO_DEEP_20260730_FINAL.json",
+  "sourceArtifactSha256": "d8afa4991d10e5716276e18f8fe2eeb506e6c7b34d1d1bcd0f8ea89ca5e51f04",
+  "sourceStatus": "harness-blocked",
+  "sourceReason": "authentication-source-unavailable",
+  "capturedAt": "2026-07-30T00:00:00.000Z",
+  "packageMappings": [
+    {
+      "packageId": "p0-item-binding:item-combo-fixed-group",
+      "caseIds": ["TC-ITEM-PKG-002", "TC-ITEM-PKG-006"],
+      "coverageStatus": "partial",
+      "liveEvidenceStatus": "pending-authenticated-run",
+      "unresolved": ["Add Fixed Combo 字段、提交 operation 与终态仍需认证环境实测"]
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-fixed-group-item-combo-optional-select",
+      "caseIds": ["TC-ITEM-PKG-040", "TC-ITEM-PKG-041"],
+      "coverageStatus": "partial",
+      "liveEvidenceStatus": "pending-authenticated-run",
+      "unresolved": ["TC-ITEM-PKG-040/041 的组合终态未取得实测证据"]
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-optional-add",
+      "caseIds": ["TC-ITEM-PKG-007"],
+      "coverageStatus": "covered",
+      "liveEvidenceStatus": "pending-authenticated-run",
+      "unresolved": []
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-optional-select",
+      "caseIds": ["TC-ITEM-PKG-004"],
+      "coverageStatus": "partial",
+      "liveEvidenceStatus": "pending-authenticated-run",
+      "unresolved": ["选择后的保存请求及编辑页回显未实测"]
+    },
+    {
+      "packageId": "p0-item-binding:item-combo-required-fields",
+      "caseIds": ["TC-ITEM-PKG-010", "TC-ITEM-PKG-017"],
+      "coverageStatus": "not-covered",
+      "liveEvidenceStatus": "not-observed",
+      "unresolved": ["需在认证环境逐字段观察空提交、前端校验与后端响应"]
+    }
+  ]
+}

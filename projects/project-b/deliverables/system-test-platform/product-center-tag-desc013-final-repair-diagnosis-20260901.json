@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-TAG-DESC-013"
+  ],
+  "rootCause": "该用例账本仍包含两次已失效的确定性失败：旧实现只覆盖首次创建，缺少重复提交、列表回读和 UI 清理的正式收据；2026-09-01T10:52:38Z 的重验则在共享 OAuth setup 阶段中断，目标业务用例未开始，却被旧 runner 错记为 automation-gap。当前实现已补齐三项业务操作、两项逐值断言及标签分组选择器 UI 零残留证据，runner 也已将未命中目标 caseId 的 setup 失败登记为 interrupted。",
+  "correctiveAction": "只重验 TC-TAG-DESC-013，使用当前实现指纹生成标准收据；验证同名描述标签组第二次创建返回 HTTP 400/BITEM-15020、服务端仅保留首次创建记录，并在清理后通过真实标签分组选择器确认 UI 无残留。不得运行 TC-FLV-SEA-001、其他已通过用例或跨系统试点。",
+  "evidenceRefs": [
+    "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+    "pages/product-center/tag-management.page.ts",
+    "scripts/run-product-center-source-governed.ts",
+    "tests/api/product-center-current-failure-remediation.contract.spec.ts",
+    "output/product-center-remaining-source-governed-20260901T105034Z.json",
+    "output/product-center-remaining-source-governed-20260901T105238Z.json"
+  ],
+  "supersedesAttemptIds": [
+    "fd585836a413cc19",
+    "876534d639e16958"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [],
+  "rootCause": "公共 runner 修复了同批 case 的门禁隔离；本诊断仅允许当前调味 canary 中已有失败收据的用例开启新修复周期。",
+  "correctiveAction": "逐条运行当前 canary，用当前 caseFingerprint、implementationFingerprint、业务操作、断言、清理和 Allure 收据重新验证；失败按真实分类保留。",
+  "evidenceRefs": [
+    "Test Automation Platform/scripts/run-system-test.ts",
+    "Merchant Center UITest/scripts/run-product-center-project-canary.ts",
+    "Merchant Center UITest/output/system-test/merchant-center-product-center-seasoning/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": []
+}

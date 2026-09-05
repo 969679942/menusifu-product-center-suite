@@ -1,0 +1,416 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-05T05:45:45.636Z",
+  "identity": {
+    "applicationId": "merchant-center",
+    "businessDomainId": "product-center",
+    "scope": "product-center-all-formal-cases"
+  },
+  "source": {
+    "lifecyclePath": "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+    "lifecycleGeneratedAt": "2026-09-05T05:45:45.163Z",
+    "lifecycleSourceManifest": [
+      {
+        "kind": "binding",
+        "path": "Merchant Center UITest/contracts/product-center/group/product-center-group-bindings.json",
+        "fingerprint": "af9c7c6e0c710799b62a2c4949b687539425f490ec68e695920045c87190c501"
+      },
+      {
+        "kind": "binding",
+        "path": "Merchant Center UITest/contracts/product-center/test-cases/canonical/product-center-legacy-remaining-automation-bindings.json",
+        "fingerprint": "cfc23c645ecca851dec1724345040f3e93859e3d87520aa685f6f8e3b07fbaf0"
+      },
+      {
+        "kind": "binding",
+        "path": "Merchant Center UITest/contracts/product-center/test-plan-additional-automation-bindings.json",
+        "fingerprint": "4467737efd854d0092d8b34a40a04cea4f08bfaff951b947936baba2f76163e7"
+      },
+      {
+        "kind": "binding",
+        "path": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/binding-registry.json",
+        "fingerprint": "95c2fa91dc0659356ca6c779b98d9c355988e08050a5b5c6e80b753538c3f9f8"
+      },
+      {
+        "kind": "canonical",
+        "path": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-标签管理/4.商品中心-商品管理-标签管理-正式测试用例.md",
+        "fingerprint": "502006486dcd899fb67dc6158655c08d4a1acb0493e0603ed1a879441b3e2ff1"
+      },
+      {
+        "kind": "canonical",
+        "path": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+        "fingerprint": "e297193a5e12470ca3e3d8417c76573aa5d9c100f788685cef950c934c3459c6"
+      },
+      {
+        "kind": "canonical",
+        "path": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+        "fingerprint": "6cb6a0be14246ada52fc4f508f41726bfdbd0ad71eebdd39660aff2c0f1feb77"
+      },
+      {
+        "kind": "canonical",
+        "path": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-图片管理/5.商品中心-商品管理-图片管理-正式测试用例.md",
+        "fingerprint": "a7170c6f99288b88010445159745295e1cb563a402ca9789ee68bff8033ce90b"
+      },
+      {
+        "kind": "canonical",
+        "path": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-组/2.商品中心-商品管理-组-正式测试用例.md",
+        "fingerprint": "b67c130c1d668dd1577dcb3991cdfdcfcde100f6f6a395ac1c45c39c39d14f2f"
+      },
+      {
+        "kind": "closure-audit",
+        "path": "deliverables/test-plan-governance/product-center-closure-audit.json",
+        "fingerprint": "7974f5a012a1ddeb9b9feee81b485b80183bb67ff2111a6013b746c149ea88e3"
+      },
+      {
+        "kind": "completed-index",
+        "path": "Merchant Center Info/00-待转换测试方案/已完成/index.json",
+        "fingerprint": "17d7972b6cbc104237236a5db1baaaeef1ccc19b1cc1a3336a5864d7b48baa92"
+      },
+      {
+        "kind": "execution-decisions",
+        "path": "Merchant Center UITest/contracts/product-center/reviews/product-center-execution-decisions.json",
+        "fingerprint": "5c21a1c97b9ee64c43863d39f7b61a06c92e82fbbcfba17a3f449d3b8a996aa0"
+      },
+      {
+        "kind": "execution-index",
+        "path": "Merchant Center UITest/deliverables/system-test-platform/execution-index.json",
+        "fingerprint": "7ea18636990c7753ab7a6cae19c0e4aa7d63ad652763487037fa185b7b050f6f"
+      },
+      {
+        "kind": "registry",
+        "path": "Merchant Center UITest/contracts/product-center/test-plan-registry.json",
+        "fingerprint": "8893d25bb121494ba21a42ec0dae67e4d43c99adbab1bc7328e929f92b0e0189"
+      },
+      {
+        "kind": "unlanded-index",
+        "path": "Merchant Center Info/00-待转换测试方案/未落地/index.json",
+        "fingerprint": "f929622d26bb37db374f864ef9dad1e2733a09c8ad89d0e9e57a9e8103ec4585"
+      }
+    ]
+  },
+  "policy": {
+    "pageExecutionTriggered": false,
+    "historicalBindingDeletion": false,
+    "automaticFingerprintReplacement": false,
+    "automaticPassPromotion": false,
+    "existingBusinessResults": "unchanged"
+  },
+  "summary": {
+    "orphanBinding": 0,
+    "fingerprintRevalidation": 19,
+    "receiptAdaptation": 0,
+    "executableReady": 0,
+    "totalQueued": 19
+  },
+  "queues": {
+    "orphanBinding": [],
+    "fingerprintRevalidation": [
+      {
+        "caseId": "TC-IMG-ITEM-029",
+        "title": "详情图仅一张时删除后无图片展示",
+        "module": "image",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "8145de65aa459c7823f1e760da7319c9c245a939c5d8c3fcc5c574bb8cbc9e17",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "4cbc14dbe731fe9a6d2d0a4c1af8e2c99c9b86df86bdd51e24200f57e2cb256e",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-IMG-ITEM-030",
+        "title": "详情图多张时删除中间一张其余图片左移",
+        "module": "image",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "7e49695b995507143f3477a30663ca93fd25b96e81c043096c9b322b2fe8c6ae",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "4cbc14dbe731fe9a6d2d0a4c1af8e2c99c9b86df86bdd51e24200f57e2cb256e",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-IMG-LIB-025",
+        "title": "图片库点击缩略图可查看大图",
+        "module": "image",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "52742d27eb5ea0d8952faed8a595568b84a18dafd5fcde5b76a9a40cd1697d54",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "fd28bcaa83229881776a54ed3097ec52063e3a8eebd759de47781f17555ff2fe",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-IMG-LIB-026",
+        "title": "按图片名称搜索可筛选列表",
+        "module": "image",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "017a41189178a70f43c534593eb08100662b607d434da69194d3d9ec78841647",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "fd28bcaa83229881776a54ed3097ec52063e3a8eebd759de47781f17555ff2fe",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-009",
+        "title": "角标名称品牌内重复时保存失败并显示精确中文提示",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "ecb3edb32ec0a4257132e0fdee1cefc0a12c60825a306d5536436479cb2e9f3f",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "e39ed0172831326d8fdebfce91db8cea30b878e3214048e062a7ac4c244518d4",
+        "contextFingerprint": "2743f2ab50fe082061f70b0e64e152426c43ef9e7ee8fb1b3cd29c0da72722da",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-018",
+        "title": "角标有效期内时商品详情与编辑页正常展示角标",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "d5b0d69557fc1c6d72db289e8ecc16745f613ec1941ad6cdaf049821bd400e7d",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "4cbc14dbe731fe9a6d2d0a4c1af8e2c99c9b86df86bdd51e24200f57e2cb256e",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-019",
+        "title": "角标过期不影响商品详情与编辑页关联回显",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "316c6677662215728c176eb987c0fda7d31901164fc54b766f52cf28258bffcd",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "928911d3698d74849867fa1b676712cef6fd04e455082ab9bce360f5eaf3200a",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-020",
+        "title": "角标有效期结束早于开始时控件自动归一化且不提交",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "6ed186be1742aadb1e1d9d342e452d767390849e4293d12b1920f2b880def107",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "928911d3698d74849867fa1b676712cef6fd04e455082ab9bce360f5eaf3200a",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-021",
+        "title": "新增角标配置展示日期与标签风格后列表字段与效果正确",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "6a7b27aad8f4521bb1bdae590a229cdbca700fdb05ce274a273df33a9689883c",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "2743f2ab50fe082061f70b0e64e152426c43ef9e7ee8fb1b3cd29c0da72722da",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-BDG-024",
+        "title": "点击角标名称打开编辑弹窗并可从关联数量查看引用商品",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "8d803cf3607322100a69ec081487a1f881085189bfd3a1c21ab6b1a8b2eb723c",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "928911d3698d74849867fa1b676712cef6fd04e455082ab9bce360f5eaf3200a",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-DESC-013",
+        "title": "描述标签组名称品牌内重复时 API 拒绝且仅保留一条",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "fd812e5e9e40abb5899c654130cc6387502826191e34d82a2795956297a32e7a",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "ede6d7b5c438b2f5ed4823dbd0c9a16529694b71bb8d650022f27091c4cfe6c1",
+        "contextFingerprint": "7c4890466f2657c5fdd88b0186be79359a9c4bc0407a31bf8b0d69275afb807b",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-DESC-014",
+        "title": "描述标签名称品牌内重复时保存失败并提示",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "c8f23d7fafaa887121af9f34515879fcd8b3c5130a9c83577a3007f86ae61c66",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "e39ed0172831326d8fdebfce91db8cea30b878e3214048e062a7ac4c244518d4",
+        "contextFingerprint": "581dab4298fe77ca0767e4a28fcf674d7d02fd0f3b1f0144d0c82ff20e433b71",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-DESC-027",
+        "title": "点击描述标签名称打开编辑弹窗并可从关联数量查看引用商品",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "566c7bdd2503cf470f6e952e4db55258d0c1fc649bef457432347589ab449629",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "7c4890466f2657c5fdd88b0186be79359a9c4bc0407a31bf8b0d69275afb807b",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-DESC-028",
+        "title": "编辑描述标签后两条引用商品详情与编辑页同步新名称",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "99586d4e9cc931968f17202381831912802ed10631eb3de4aac64d47c1f01ba1",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "4cbc14dbe731fe9a6d2d0a4c1af8e2c99c9b86df86bdd51e24200f57e2cb256e",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-STAT-012",
+        "title": "统计标签组名称品牌内重复时 API 拒绝且仅保留一条",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "55da0117b7bdbf39262d790fbe4f1beb49af24e6822eee90122f1ff4dab18ff1",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "ede6d7b5c438b2f5ed4823dbd0c9a16529694b71bb8d650022f27091c4cfe6c1",
+        "contextFingerprint": "6ad5c802b9daa212d39479a58ec4aee5bf4fc3be92da8b001e7e8b925696c550",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-STAT-013",
+        "title": "统计标签名称品牌内重复时保存失败并提示",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "f3b250f7ddab652fddf170a87317bfa9f2411204b975546814525fa9ac08690e",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "e39ed0172831326d8fdebfce91db8cea30b878e3214048e062a7ac4c244518d4",
+        "contextFingerprint": "9e8e9bc8ca5da71b879bc4334d8dc402469cf8fad0aa9d688e6a1cc5d0594850",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-STAT-024",
+        "title": "新增统计标签选择已有分组并填写双语名称后保存成功",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "7ae2c76fc740a7d6cbf9ccf7f33fcf49d1306f54f3ec9fadc0accc6e9e38e919",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "9e8e9bc8ca5da71b879bc4334d8dc402469cf8fad0aa9d688e6a1cc5d0594850",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-STAT-028",
+        "title": "编辑统计标签后两条引用商品详情与编辑页同步新名称",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "f813178f03fc36d25be9a52ad4cea3535ca6b9dc2e029473ea67088527824e35",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "596e38fccd178553b69f3fc3bbf2d5897089ea32289db79a456cbd7dd2672281",
+        "contextFingerprint": "4cbc14dbe731fe9a6d2d0a4c1af8e2c99c9b86df86bdd51e24200f57e2cb256e",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      },
+      {
+        "caseId": "TC-TAG-STAT-029",
+        "title": "点击统计标签名称打开编辑弹窗并可从关联数量查看引用商品",
+        "module": "tag",
+        "action": "execution-fingerprint-revalidation",
+        "status": "revalidation-required",
+        "driftDimensions": [
+          "case"
+        ],
+        "currentCaseFingerprint": "3b0702d593f5c45f3574765c63d62b0175e39711ae254a0028d85ea7a3734a25",
+        "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+        "implementationFingerprint": "cd0143f6402160898e289aef150c5dc31c7a52d6743cd0fbbffe44232372a0e3",
+        "contextFingerprint": "6ad5c802b9daa212d39479a58ec4aee5bf4fc3be92da8b001e7e8b925696c550",
+        "reason": "历史执行收据与当前执行身份不一致（case）；不能直接复用或判定业务失败。",
+        "recoveryCondition": "按漂移维度完成证据谱系核对；无法证明当前语义一致时进入显式定向重跑审批。"
+      }
+    ],
+    "receiptAdaptation": [],
+    "executableReady": []
+  },
+  "unreferencedCaseIds": []
+}

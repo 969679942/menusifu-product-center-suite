@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-041"
+  ],
+  "classification": "automation-gap",
+  "phase": "business-operation",
+  "rootCause": "调味组排序弹窗的拖动实现把目标列表项容器当作落点；页面 DOM 曾短暂换序，但拖放传感器未提交有效排序状态。点击确定后弹窗关闭且网络证据中没有任何调味业务写请求，旧实现继续等待 PUT /ops-brand/global-modifier/sort 并超时。",
+  "correctiveAction": "与已通过的调味项排序保持一致，源和目标都使用 aria-roledescription=sortable 的拖动手柄；保留排序前后 UI 序列、保存请求、弹窗关闭和列表 API 持久化顺序四项断言。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788558537418-run-single-store-000407/playwright-business/system-调味组排序保存成功-system/trace.zip",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ],
+  "existingPassedCasesImpact": "unchanged",
+  "rerunScope": [
+    "TC-FLV-SEA-041"
+  ]
+}

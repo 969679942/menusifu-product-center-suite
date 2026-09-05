@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-003",
+    "TC-FLV-REC-004",
+    "TC-FLV-REC-006",
+    "TC-FLV-SEA-006",
+    "TC-FLV-SEA-012",
+    "TC-FLV-SEA-017",
+    "TC-FLV-TPL-001"
+  ],
+  "rootCause": "本轮人工确认改变了正式用例语义或页面合同：记录页门店/状态为自定义可见控件、门店数为表格数字入口；第一次适配还错误要求标准 role=option 枚举，已移除该非正式断言；SEA-006 删除不存在的已选数量断言；SEA-012 的 POS 名称位于新增页高级折叠区，页面对象未先展开导致控件不可见，已补充展开步骤；同时旧实现只等待错误文案，确定按钮预置禁用时会错误收集空结果，现已加入按钮状态、组名值、字段级错误态和提示的完整终态收据；SEA-017 更新价格纠正规则；TPL-001 以多门店真实模板列表为准，必须使用 multi-store-000420 上下文，不能与单门店用例混用会话。旧实现或旧收据不能证明当前断言面。",
+  "correctiveAction": "更新正式用例、规则账本、system-test 编译计划、页面对象和静态合同适配器；使用统一 runner 按 7 条 execution-selection 签发授权，执行当前 UI/API/清理收据并重新仲裁。",
+  "evidenceRefs": [
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "systems/merchant-center-product-center-seasoning/page-contract-live-audit.json",
+    "systems/merchant-center-product-center-seasoning/template-distribution-live-audit-000420.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "2e825d9d85b670e0",
+    "1fe249060fe8295c",
+    "ccccf82184b81fa5",
+    "7b1c6e9b4e18af26",
+    "851f45203ed6a2f1",
+    "12f1731217a269df",
+    "78463215aec435c3",
+    "62a87d769d73b207",
+    "13296b732beff61d"
+  ]
+}

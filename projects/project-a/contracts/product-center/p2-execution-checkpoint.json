@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-07-22T10:07:53.706Z",
+  "phase": "P2",
+  "status": "complete",
+  "completed": [
+    {
+      "entity": "原料分类",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "配方原料",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "菜单",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "口味组",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "规格组",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "加料组",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "打印档口（品牌）",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "税种",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "打印机",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "套餐组",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "描述标签",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    },
+    {
+      "entity": "统计标签",
+      "result": "passed",
+      "residue": 0,
+      "test": "product-center-p2-direct-crud.spec.ts"
+    }
+  ],
+  "pending": [],
+  "notApplicable": [
+    {
+      "entity": "门店调味",
+      "reason": "无安全 AUTO_AUDIT 创建与下发链路，禁止删除既有业务数据"
+    }
+  ],
+  "fieldBoundary": {
+    "total": 37,
+    "completed": 37,
+    "status": "complete-with-2-runtime-locator-drift",
+    "artifact": "D:\\Menusifu\\TestOps\\artifacts\\field-boundary-probe-final-20260722\\field-boundary-probe-final.json",
+    "breakdown": {
+      "probed": 19,
+      "not-applicable": 14,
+      "api-observed-openapi-confirmed": 2,
+      "openapi-confirmed-runtime-drift": 2
+    },
+    "boundaryAssertionsAllowed": 17,
+    "reviewRequired": [
+      "field-constraint:/poi/printer-stall/list#field-1",
+      "field-constraint:/pp/brand/option-group/attribute-group-set#field-1",
+      "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-56",
+      "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-58",
+      "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-35",
+      "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-37"
+    ]
+  },
+  "nextBatch": [],
+  "regression": {
+    "command": "npx playwright test tests/api/product-center-p2-direct-crud.spec.ts --project=api --workers=1 --reporter=line",
+    "passed": 12,
+    "failed": 0,
+    "durationSeconds": 443.1
+  },
+  "residueVerification": {
+    "artifact": "D:\\Menusifu\\TestOps\\artifacts\\residue-scan-v2-1784712454804\\residue-scan.json",
+    "routeCount": 34,
+    "routeErrors": 0,
+    "matches": 0,
+    "zero": true
+  },
+  "securityScan": {
+    "command": "node tools/security/scan-sensitive.mjs .",
+    "findingCount": 0,
+    "passed": true
+  }
+}

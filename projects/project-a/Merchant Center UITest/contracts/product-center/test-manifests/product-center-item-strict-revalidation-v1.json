@@ -1,0 +1,1289 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-strict-revalidation-v1",
+  "sourceRelease": {
+    "path": "contracts/product-center/test-cases/canonical/product-center-item-authoritative-release.json",
+    "fingerprint": "25022d81af92596ba0b2b10de2692b6ec298d56a79dcc040bc62b99df3c0749d",
+    "executableFingerprint": "372d8dc86bb909879207c85a0b77e42a2332fe0cd732b2e5e946a1d15bf261e0"
+  },
+  "selectionPolicy": {
+    "targetSize": 180,
+    "familyQuota": {
+      "standard": 85,
+      "package": 72,
+      "addon": 23
+    }
+  },
+  "dataProfiles": {
+    "item-standard-read": {
+      "family": "standard",
+      "mutationMode": "none",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/standard"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [],
+      "cleanupAdapterPaths": [],
+      "externalCapabilities": []
+    },
+    "item-standard-validation": {
+      "family": "standard",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/standard"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/standard-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    },
+    "item-standard-write": {
+      "family": "standard",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/standard"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/standard-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    },
+    "item-package-write": {
+      "family": "package",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/combo"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "brand-menu:GET /ops-brand/brand-sections/list"
+      ],
+      "liveProbeIds": [
+        "product-page",
+        "combo-group-list"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/package-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    },
+    "item-addon-read": {
+      "family": "addon",
+      "mutationMode": "none",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/side"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [],
+      "cleanupAdapterPaths": [],
+      "externalCapabilities": []
+    },
+    "item-addon-validation": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/side"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/addon-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    },
+    "item-addon-write": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/side"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery"
+      ],
+      "liveProbeIds": [
+        "product-page"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/addon-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    },
+    "item-addon-cross-entity": {
+      "family": "addon",
+      "mutationMode": "api-seeded-ui-action",
+      "requiredRoutes": [
+        "/pp/brand/list",
+        "/pp/brand/create/side",
+        "/pp/brand/option-group/additional"
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "brand-menu:GET /ops-brand/brand-addon-group/list"
+      ],
+      "liveProbeIds": [
+        "product-page",
+        "addon-group-list"
+      ],
+      "factoryPaths": [
+        "test-data/product-center/item-216/addon-item-216.factory.ts"
+      ],
+      "cleanupAdapterPaths": [
+        "api/product-center/cleanup-registry.ts"
+      ],
+      "externalCapabilities": []
+    }
+  },
+  "caseBindings": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "ruleId": "CBR-ITEM-ADD-002",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "ruleId": "CBR-ITEM-ADD-007",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "ruleId": "CBR-ITEM-ADD-008",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "ruleId": "CBR-ITEM-ADD-009",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "ruleId": "CBR-ITEM-ADD-011",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "ruleId": "CBR-ITEM-ADD-012",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "ruleId": "CBR-ITEM-ADD-013",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "ruleId": "CBR-ITEM-ADD-017",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "ruleId": "CBR-ITEM-ADD-018",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "ruleId": "CBR-ITEM-ADD-019",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "ruleId": "CBR-ITEM-ADD-020",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "ruleId": "CBR-ITEM-ADD-021",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "ruleId": "CBR-ITEM-ADD-022",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "ruleId": "CBR-ITEM-ADD-025",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "ruleId": "CBR-ITEM-ADD-033",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "ruleId": "CBR-ITEM-ADD-035",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "ruleId": "CBR-ITEM-ADD-037",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "ruleId": "CBR-ITEM-ADD-038",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "ruleId": "CBR-ITEM-ADD-039",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "ruleId": "CBR-ITEM-ADD-041",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "ruleId": "CBR-ITEM-ADD-045",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-046",
+      "ruleId": "CBR-ITEM-ADD-046",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-047",
+      "ruleId": "CBR-ITEM-ADD-047",
+      "dataProfile": "item-addon-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "ruleId": "CBR-ITEM-PKG-001",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "ruleId": "CBR-ITEM-PKG-002",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-003",
+      "ruleId": "CBR-ITEM-PKG-003",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "ruleId": "CBR-ITEM-PKG-004",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-005",
+      "ruleId": "CBR-ITEM-PKG-005",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "ruleId": "CBR-ITEM-PKG-006",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "ruleId": "CBR-ITEM-PKG-007",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "ruleId": "CBR-ITEM-PKG-008",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-009",
+      "ruleId": "CBR-ITEM-PKG-009",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "ruleId": "CBR-ITEM-PKG-010",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-011",
+      "ruleId": "CBR-ITEM-PKG-011",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-012",
+      "ruleId": "CBR-ITEM-PKG-012",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "ruleId": "CBR-ITEM-PKG-013",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-014",
+      "ruleId": "CBR-ITEM-PKG-014",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-015",
+      "ruleId": "CBR-ITEM-PKG-015",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "ruleId": "CBR-ITEM-PKG-016",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "ruleId": "CBR-ITEM-PKG-017",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-018",
+      "ruleId": "CBR-ITEM-PKG-018",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "ruleId": "CBR-ITEM-PKG-019",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "ruleId": "CBR-ITEM-PKG-020",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "ruleId": "CBR-ITEM-PKG-021",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "ruleId": "CBR-ITEM-PKG-022",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "ruleId": "CBR-ITEM-PKG-023",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-024",
+      "ruleId": "CBR-ITEM-PKG-024",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-025",
+      "ruleId": "CBR-ITEM-PKG-025",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-026",
+      "ruleId": "CBR-ITEM-PKG-026",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-027",
+      "ruleId": "CBR-ITEM-PKG-027",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "ruleId": "CBR-ITEM-PKG-028",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-029",
+      "ruleId": "CBR-ITEM-PKG-029",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-030",
+      "ruleId": "CBR-ITEM-PKG-030",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "ruleId": "CBR-ITEM-PKG-031",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "ruleId": "CBR-ITEM-PKG-032",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "ruleId": "CBR-ITEM-PKG-033",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-034",
+      "ruleId": "CBR-ITEM-PKG-034",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "ruleId": "CBR-ITEM-PKG-035",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "ruleId": "CBR-ITEM-PKG-036",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-037",
+      "ruleId": "CBR-ITEM-PKG-037",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "ruleId": "CBR-ITEM-PKG-038",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "ruleId": "CBR-ITEM-PKG-040",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "ruleId": "CBR-ITEM-PKG-041",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "ruleId": "CBR-ITEM-PKG-042",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "ruleId": "CBR-ITEM-PKG-043",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-044",
+      "ruleId": "CBR-ITEM-PKG-044",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-045",
+      "ruleId": "CBR-ITEM-PKG-045",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-046",
+      "ruleId": "CBR-ITEM-PKG-046",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "ruleId": "CBR-ITEM-PKG-047",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "ruleId": "CBR-ITEM-PKG-048",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-049",
+      "ruleId": "CBR-ITEM-PKG-049",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "ruleId": "CBR-ITEM-PKG-050",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-051",
+      "ruleId": "CBR-ITEM-PKG-051",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "ruleId": "CBR-ITEM-PKG-052",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "ruleId": "CBR-ITEM-PKG-053",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "ruleId": "CBR-ITEM-PKG-054",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-055",
+      "ruleId": "CBR-ITEM-PKG-055",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-056",
+      "ruleId": "CBR-ITEM-PKG-056",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-057",
+      "ruleId": "CBR-ITEM-PKG-057",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-058",
+      "ruleId": "CBR-ITEM-PKG-058",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-059",
+      "ruleId": "CBR-ITEM-PKG-059",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-061",
+      "ruleId": "CBR-ITEM-PKG-061",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-062",
+      "ruleId": "CBR-ITEM-PKG-062",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "ruleId": "CBR-ITEM-PKG-063",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "ruleId": "CBR-ITEM-PKG-064",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "ruleId": "CBR-ITEM-PKG-065",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "ruleId": "CBR-ITEM-PKG-067",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "ruleId": "CBR-ITEM-PKG-068",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "ruleId": "CBR-ITEM-PKG-069",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "ruleId": "CBR-ITEM-PKG-071",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "ruleId": "CBR-ITEM-PKG-072",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "ruleId": "CBR-ITEM-PKG-073",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-074",
+      "ruleId": "CBR-ITEM-PKG-074",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-075",
+      "ruleId": "CBR-ITEM-PKG-075",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-076",
+      "ruleId": "CBR-ITEM-PKG-076",
+      "dataProfile": "item-package-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "ruleId": "CBR-ITEM-STD-001",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "ruleId": "CBR-ITEM-STD-002",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "ruleId": "CBR-ITEM-STD-003",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "ruleId": "CBR-ITEM-STD-004",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "ruleId": "CBR-ITEM-STD-005",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-006",
+      "ruleId": "CBR-ITEM-STD-006",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "ruleId": "CBR-ITEM-STD-007",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "ruleId": "CBR-ITEM-STD-008",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-009",
+      "ruleId": "CBR-ITEM-STD-009",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-010",
+      "ruleId": "CBR-ITEM-STD-010",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "ruleId": "CBR-ITEM-STD-011",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "ruleId": "CBR-ITEM-STD-012",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "ruleId": "CBR-ITEM-STD-013",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "ruleId": "CBR-ITEM-STD-014",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-015",
+      "ruleId": "CBR-ITEM-STD-015",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-016",
+      "ruleId": "CBR-ITEM-STD-016",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-017",
+      "ruleId": "CBR-ITEM-STD-017",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-018",
+      "ruleId": "CBR-ITEM-STD-018",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "ruleId": "CBR-ITEM-STD-019",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "ruleId": "CBR-ITEM-STD-020",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "ruleId": "CBR-ITEM-STD-021",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-022",
+      "ruleId": "CBR-ITEM-STD-022",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "ruleId": "CBR-ITEM-STD-023",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-024",
+      "ruleId": "CBR-ITEM-STD-024",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "ruleId": "CBR-ITEM-STD-028",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "ruleId": "CBR-ITEM-STD-029",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "ruleId": "CBR-ITEM-STD-030",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "ruleId": "CBR-ITEM-STD-031",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-032",
+      "ruleId": "CBR-ITEM-STD-032",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-033",
+      "ruleId": "CBR-ITEM-STD-033",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-034",
+      "ruleId": "CBR-ITEM-STD-034",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-035",
+      "ruleId": "CBR-ITEM-STD-035",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-036",
+      "ruleId": "CBR-ITEM-STD-036",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-037",
+      "ruleId": "CBR-ITEM-STD-037",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "ruleId": "CBR-ITEM-STD-038",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "ruleId": "CBR-ITEM-STD-039",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "ruleId": "CBR-ITEM-STD-041",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "ruleId": "CBR-ITEM-STD-042",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-043",
+      "ruleId": "CBR-ITEM-STD-043",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-044",
+      "ruleId": "CBR-ITEM-STD-044",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "ruleId": "CBR-ITEM-STD-045",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "ruleId": "CBR-ITEM-STD-046",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "ruleId": "CBR-ITEM-STD-047",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "ruleId": "CBR-ITEM-STD-048",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "ruleId": "CBR-ITEM-STD-049",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "ruleId": "CBR-ITEM-STD-050",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "ruleId": "CBR-ITEM-STD-051",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "ruleId": "CBR-ITEM-STD-052",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-053",
+      "ruleId": "CBR-ITEM-STD-053",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-054",
+      "ruleId": "CBR-ITEM-STD-054",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-055",
+      "ruleId": "CBR-ITEM-STD-055",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "ruleId": "CBR-ITEM-STD-056",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "ruleId": "CBR-ITEM-STD-057",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "ruleId": "CBR-ITEM-STD-058",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-059",
+      "ruleId": "CBR-ITEM-STD-059",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-061",
+      "ruleId": "CBR-ITEM-STD-061",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "ruleId": "CBR-ITEM-STD-063",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-064",
+      "ruleId": "CBR-ITEM-STD-064",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-065",
+      "ruleId": "CBR-ITEM-STD-065",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "ruleId": "CBR-ITEM-STD-066",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "ruleId": "CBR-ITEM-STD-068",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "ruleId": "CBR-ITEM-STD-069",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "ruleId": "CBR-ITEM-STD-071",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "ruleId": "CBR-ITEM-STD-072",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "ruleId": "CBR-ITEM-STD-073",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "ruleId": "CBR-ITEM-STD-074",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "ruleId": "CBR-ITEM-STD-075",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-076",
+      "ruleId": "CBR-ITEM-STD-076",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "ruleId": "CBR-ITEM-STD-078",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-079",
+      "ruleId": "CBR-ITEM-STD-079",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-081",
+      "ruleId": "CBR-ITEM-STD-081",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "ruleId": "CBR-ITEM-STD-082",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "ruleId": "CBR-ITEM-STD-084",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "ruleId": "CBR-ITEM-STD-085",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "ruleId": "CBR-ITEM-STD-086",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-087",
+      "ruleId": "CBR-ITEM-STD-087",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-088",
+      "ruleId": "CBR-ITEM-STD-088",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-089",
+      "ruleId": "CBR-ITEM-STD-089",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-090",
+      "ruleId": "CBR-ITEM-STD-090",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-091",
+      "ruleId": "CBR-ITEM-STD-091",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "ruleId": "CBR-ITEM-STD-092",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-093",
+      "ruleId": "CBR-ITEM-STD-093",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "ruleId": "CBR-ITEM-STD-094",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-095",
+      "ruleId": "CBR-ITEM-STD-095",
+      "dataProfile": "item-standard-write"
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "ruleId": "CBR-ITEM-STD-096",
+      "dataProfile": "item-standard-write"
+    }
+  ],
+  "circuitBreaker": {
+    "stallMs": 180000,
+    "pollMs": 2000,
+    "maxRunMs": 1800000,
+    "maxConsecutiveFailures": 3,
+    "maxDuplicateFailureFingerprint": 2,
+    "minimumCompletedForFailureRate": 4,
+    "maximumEnvironmentFailureRate": 0.5
+  },
+  "evidencePolicy": {
+    "requireRuntimeEvidence": true,
+    "requireIndependentExpectationReceipts": true,
+    "requireApiZeroResidue": true,
+    "requireUiZeroResidue": true
+  },
+  "families": {
+    "standard": [
+      "TC-ITEM-STD-001",
+      "TC-ITEM-STD-002",
+      "TC-ITEM-STD-003",
+      "TC-ITEM-STD-004",
+      "TC-ITEM-STD-005",
+      "TC-ITEM-STD-006",
+      "TC-ITEM-STD-007",
+      "TC-ITEM-STD-008",
+      "TC-ITEM-STD-009",
+      "TC-ITEM-STD-010",
+      "TC-ITEM-STD-011",
+      "TC-ITEM-STD-012",
+      "TC-ITEM-STD-013",
+      "TC-ITEM-STD-014",
+      "TC-ITEM-STD-015",
+      "TC-ITEM-STD-016",
+      "TC-ITEM-STD-017",
+      "TC-ITEM-STD-018",
+      "TC-ITEM-STD-019",
+      "TC-ITEM-STD-020",
+      "TC-ITEM-STD-021",
+      "TC-ITEM-STD-022",
+      "TC-ITEM-STD-023",
+      "TC-ITEM-STD-024",
+      "TC-ITEM-STD-028",
+      "TC-ITEM-STD-029",
+      "TC-ITEM-STD-030",
+      "TC-ITEM-STD-031",
+      "TC-ITEM-STD-032",
+      "TC-ITEM-STD-033",
+      "TC-ITEM-STD-034",
+      "TC-ITEM-STD-035",
+      "TC-ITEM-STD-036",
+      "TC-ITEM-STD-037",
+      "TC-ITEM-STD-038",
+      "TC-ITEM-STD-039",
+      "TC-ITEM-STD-041",
+      "TC-ITEM-STD-042",
+      "TC-ITEM-STD-043",
+      "TC-ITEM-STD-044",
+      "TC-ITEM-STD-045",
+      "TC-ITEM-STD-046",
+      "TC-ITEM-STD-047",
+      "TC-ITEM-STD-048",
+      "TC-ITEM-STD-049",
+      "TC-ITEM-STD-050",
+      "TC-ITEM-STD-051",
+      "TC-ITEM-STD-052",
+      "TC-ITEM-STD-053",
+      "TC-ITEM-STD-054",
+      "TC-ITEM-STD-055",
+      "TC-ITEM-STD-056",
+      "TC-ITEM-STD-057",
+      "TC-ITEM-STD-058",
+      "TC-ITEM-STD-059",
+      "TC-ITEM-STD-061",
+      "TC-ITEM-STD-063",
+      "TC-ITEM-STD-064",
+      "TC-ITEM-STD-065",
+      "TC-ITEM-STD-066",
+      "TC-ITEM-STD-068",
+      "TC-ITEM-STD-069",
+      "TC-ITEM-STD-071",
+      "TC-ITEM-STD-072",
+      "TC-ITEM-STD-073",
+      "TC-ITEM-STD-074",
+      "TC-ITEM-STD-075",
+      "TC-ITEM-STD-076",
+      "TC-ITEM-STD-078",
+      "TC-ITEM-STD-079",
+      "TC-ITEM-STD-081",
+      "TC-ITEM-STD-082",
+      "TC-ITEM-STD-084",
+      "TC-ITEM-STD-085",
+      "TC-ITEM-STD-086",
+      "TC-ITEM-STD-087",
+      "TC-ITEM-STD-088",
+      "TC-ITEM-STD-089",
+      "TC-ITEM-STD-090",
+      "TC-ITEM-STD-091",
+      "TC-ITEM-STD-092",
+      "TC-ITEM-STD-093",
+      "TC-ITEM-STD-094",
+      "TC-ITEM-STD-095",
+      "TC-ITEM-STD-096"
+    ],
+    "package": [
+      "TC-ITEM-PKG-001",
+      "TC-ITEM-PKG-002",
+      "TC-ITEM-PKG-003",
+      "TC-ITEM-PKG-004",
+      "TC-ITEM-PKG-005",
+      "TC-ITEM-PKG-006",
+      "TC-ITEM-PKG-007",
+      "TC-ITEM-PKG-008",
+      "TC-ITEM-PKG-009",
+      "TC-ITEM-PKG-010",
+      "TC-ITEM-PKG-011",
+      "TC-ITEM-PKG-012",
+      "TC-ITEM-PKG-013",
+      "TC-ITEM-PKG-014",
+      "TC-ITEM-PKG-015",
+      "TC-ITEM-PKG-016",
+      "TC-ITEM-PKG-017",
+      "TC-ITEM-PKG-018",
+      "TC-ITEM-PKG-019",
+      "TC-ITEM-PKG-020",
+      "TC-ITEM-PKG-021",
+      "TC-ITEM-PKG-022",
+      "TC-ITEM-PKG-023",
+      "TC-ITEM-PKG-024",
+      "TC-ITEM-PKG-025",
+      "TC-ITEM-PKG-026",
+      "TC-ITEM-PKG-027",
+      "TC-ITEM-PKG-028",
+      "TC-ITEM-PKG-029",
+      "TC-ITEM-PKG-030",
+      "TC-ITEM-PKG-031",
+      "TC-ITEM-PKG-032",
+      "TC-ITEM-PKG-033",
+      "TC-ITEM-PKG-034",
+      "TC-ITEM-PKG-035",
+      "TC-ITEM-PKG-036",
+      "TC-ITEM-PKG-037",
+      "TC-ITEM-PKG-038",
+      "TC-ITEM-PKG-040",
+      "TC-ITEM-PKG-041",
+      "TC-ITEM-PKG-042",
+      "TC-ITEM-PKG-043",
+      "TC-ITEM-PKG-044",
+      "TC-ITEM-PKG-045",
+      "TC-ITEM-PKG-046",
+      "TC-ITEM-PKG-047",
+      "TC-ITEM-PKG-048",
+      "TC-ITEM-PKG-049",
+      "TC-ITEM-PKG-050",
+      "TC-ITEM-PKG-051",
+      "TC-ITEM-PKG-052",
+      "TC-ITEM-PKG-053",
+      "TC-ITEM-PKG-054",
+      "TC-ITEM-PKG-055",
+      "TC-ITEM-PKG-056",
+      "TC-ITEM-PKG-057",
+      "TC-ITEM-PKG-058",
+      "TC-ITEM-PKG-059",
+      "TC-ITEM-PKG-061",
+      "TC-ITEM-PKG-062",
+      "TC-ITEM-PKG-063",
+      "TC-ITEM-PKG-064",
+      "TC-ITEM-PKG-065",
+      "TC-ITEM-PKG-067",
+      "TC-ITEM-PKG-068",
+      "TC-ITEM-PKG-069",
+      "TC-ITEM-PKG-071",
+      "TC-ITEM-PKG-072",
+      "TC-ITEM-PKG-073",
+      "TC-ITEM-PKG-074",
+      "TC-ITEM-PKG-075",
+      "TC-ITEM-PKG-076"
+    ],
+    "addon": [
+      "TC-ITEM-ADD-002",
+      "TC-ITEM-ADD-007",
+      "TC-ITEM-ADD-008",
+      "TC-ITEM-ADD-009",
+      "TC-ITEM-ADD-011",
+      "TC-ITEM-ADD-012",
+      "TC-ITEM-ADD-013",
+      "TC-ITEM-ADD-017",
+      "TC-ITEM-ADD-018",
+      "TC-ITEM-ADD-019",
+      "TC-ITEM-ADD-020",
+      "TC-ITEM-ADD-021",
+      "TC-ITEM-ADD-022",
+      "TC-ITEM-ADD-025",
+      "TC-ITEM-ADD-033",
+      "TC-ITEM-ADD-035",
+      "TC-ITEM-ADD-037",
+      "TC-ITEM-ADD-038",
+      "TC-ITEM-ADD-039",
+      "TC-ITEM-ADD-041",
+      "TC-ITEM-ADD-045",
+      "TC-ITEM-ADD-046",
+      "TC-ITEM-ADD-047"
+    ]
+  }
+}

@@ -1,0 +1,1008 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-approved-technical-binding-recipes",
+  "status": "approved",
+  "candidateFingerprint": "fcfa7e837e09887d25d45300cafd8e594c275f7e9f405ffbea3333a10b1ed9c0",
+  "bindingSemanticFingerprint": "fcfa7e837e09887d25d45300cafd8e594c275f7e9f405ffbea3333a10b1ed9c0",
+  "pageObservationFingerprint": "db447f08438b1b566c2bba813be9850ed1871068de1ef3e54097509029ddae36",
+  "fingerprint": "fdceb6adbf597d167296ca3a1fd61fec0c18465c7b092335bd85d7c3d6965d32",
+  "summary": {
+    "total": 11
+  },
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:review:method-detail-max-length",
+      "caseId": "review:method-detail-max-length",
+      "title": "做法明细名称超长保存后截断为100字符",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@gold-set",
+        "@boundary"
+      ],
+      "route": "/pp/brand/option-group/method",
+      "action": "boundary",
+      "traceabilityId": "trace:sop:review:method-detail-max-length",
+      "sourceIds": [
+        "operation:brand-menu:GET /ops-brand/brand-modifiers/{id}",
+        "operation:brand-menu:POST /ops-brand/brand-modifiers",
+        "route:b0c3b84b758f"
+      ],
+      "claimIds": [
+        "claim:review:method-detail-max-length:precondition:1",
+        "claim:review:method-detail-max-length:action:1",
+        "claim:review:method-detail-max-length:action:2",
+        "claim:review:method-detail-max-length:expectation:1",
+        "claim:review:method-detail-max-length:expectation:2"
+      ],
+      "coverageIds": [
+        "coverage:route:route:b0c3b84b758f"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareCreate",
+        "input": {
+          "entityKey": "method"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/option-group/method"
+          }
+        },
+        {
+          "id": "methodDetail.enforceNameMaxLength",
+          "saveAs": "methodDetailBoundary",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "maxLength": 100,
+            "rejectedLength": 101
+          }
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "method.create"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCreatedApi"
+        },
+        {
+          "adapterId": "productCenter.verifyMethodDetailBoundary",
+          "input": {
+            "result": {
+              "$ref": "$result.methodDetailBoundary"
+            },
+            "maxLength": 100
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:create:item-standard-single-zero-price",
+      "caseId": "create:item-standard-single-zero-price",
+      "title": "单规格商品标准价为0时创建成功",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@gold-set",
+        "@item",
+        "@create"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:create:item-standard-single-zero-price",
+      "sourceIds": [
+        "/pp/brand/list#control-3",
+        "operation:brand-menu:DELETE /ops-brand/brand-items/delete",
+        "operation:brand-menu:GET /ops-brand/brand-items/{id}",
+        "operation:brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "operation:brand-menu:POST /ops-brand/brand-items/standard",
+        "route:cc612d39a954"
+      ],
+      "claimIds": [
+        "claim:create:item-standard-single-zero-price:precondition:1",
+        "claim:create:item-standard-single-zero-price:precondition:2",
+        "claim:create:item-standard-single-zero-price:action:1",
+        "claim:create:item-standard-single-zero-price:action:2",
+        "claim:create:item-standard-single-zero-price:action:3",
+        "claim:create:item-standard-single-zero-price:action:4",
+        "claim:create:item-standard-single-zero-price:expectation:1",
+        "claim:create:item-standard-single-zero-price:expectation:2",
+        "claim:create:item-standard-single-zero-price:expectation:3"
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemStandardSingleZeroPrice"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.createStandard",
+          "saveAs": "itemStandardSingleZeroPrice",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "specification": "single",
+            "price": "0",
+            "minimumOrderQuantity": "1"
+          }
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "brand-menu:POST /ops-brand/brand-items/standard"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemStandardSingleZeroPriceApi"
+        },
+        {
+          "adapterId": "productCenter.verifyItemStandardSingleZeroPriceUi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemStandardSingleZeroPrice"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:create:item-combo-required-only",
+      "caseId": "create:item-combo-required-only",
+      "title": "套餐商品仅填写必填项时创建成功",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@gold-set",
+        "@item",
+        "@combo",
+        "@create"
+      ],
+      "route": "/pp/brand/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:create:item-combo-required-only",
+      "sourceIds": [
+        "/pp/brand/list#control-3",
+        "operation:brand-menu:DELETE /ops-brand/brand-items/delete",
+        "operation:brand-menu:DELETE /ops-brand/brand-sections/{id}",
+        "operation:brand-menu:GET /ops-brand/brand-items/{id}",
+        "operation:brand-menu:GET /ops-brand/brand-sections/list",
+        "operation:brand-menu:POST /ops-brand/brand-items/combo",
+        "operation:brand-menu:POST /ops-brand/brand-items/pageQuery",
+        "operation:brand-menu:POST /ops-brand/brand-items/standard",
+        "operation:brand-menu:POST /ops-brand/brand-sections",
+        "route:cc612d39a954"
+      ],
+      "claimIds": [
+        "claim:create:item-combo-required-only:precondition:1",
+        "claim:create:item-combo-required-only:precondition:2",
+        "claim:create:item-combo-required-only:precondition:3",
+        "claim:create:item-combo-required-only:action:1",
+        "claim:create:item-combo-required-only:action:2",
+        "claim:create:item-combo-required-only:action:3",
+        "claim:create:item-combo-required-only:action:4",
+        "claim:create:item-combo-required-only:expectation:1",
+        "claim:create:item-combo-required-only:expectation:2",
+        "claim:create:item-combo-required-only:expectation:3"
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.prepareItemComboRequiredOnly"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.createComboRequiredOnly",
+          "saveAs": "itemComboRequiredOnly",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "price": "10.00",
+            "minimumOrderQuantity": "1",
+            "comboGroupName": {
+              "$ref": "$record.comboGroupName"
+            }
+          }
+        }
+      ],
+      "mutation": {
+        "method": "POST",
+        "operationKey": "brand-menu:POST /ops-brand/brand-items/combo"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemComboRequiredOnlyApi"
+        },
+        {
+          "adapterId": "productCenter.verifyItemComboRequiredOnlyUi",
+          "input": {
+            "result": {
+              "$ref": "$result.itemComboRequiredOnly"
+            }
+          }
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      }
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:negative:category-child-blocked-by-product",
+      "caseId": "negative:category-child-blocked-by-product",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@fast",
+        "@contract-impact",
+        "@negative"
+      ],
+      "route": "/pp/brand/category",
+      "action": "negative",
+      "traceabilityId": "trace:sop:negative:category-child-blocked-by-product",
+      "sourceIds": [
+        "/pp/brand/category#control-1",
+        "/pp/brand/category#control-10",
+        "/pp/brand/category#control-11",
+        "/pp/brand/category#control-12",
+        "/pp/brand/category#control-13",
+        "/pp/brand/category#control-14",
+        "/pp/brand/category#control-15",
+        "/pp/brand/category#control-16",
+        "/pp/brand/category#control-17",
+        "/pp/brand/category#control-18",
+        "/pp/brand/category#control-19",
+        "/pp/brand/category#control-2",
+        "/pp/brand/category#control-20",
+        "/pp/brand/category#control-21",
+        "/pp/brand/category#control-22",
+        "/pp/brand/category#control-23",
+        "/pp/brand/category#control-24",
+        "/pp/brand/category#control-25",
+        "/pp/brand/category#control-26",
+        "/pp/brand/category#control-27",
+        "/pp/brand/category#control-28",
+        "/pp/brand/category#control-29",
+        "/pp/brand/category#control-3",
+        "/pp/brand/category#control-4",
+        "/pp/brand/category#control-5",
+        "/pp/brand/category#control-6",
+        "/pp/brand/category#control-7",
+        "/pp/brand/category#control-8",
+        "/pp/brand/category#control-9",
+        "mapping-na:00ebf75265ea",
+        "mapping-na:0b8b5fecb3b9",
+        "mapping-na:15ea9db0348a",
+        "mapping-na:1c39489c499d",
+        "mapping-na:1e68370b8c01",
+        "mapping-na:2352f3836c67",
+        "mapping-na:2355440a110e",
+        "mapping-na:262ce9ecd5a2",
+        "mapping-na:264e001d8369",
+        "mapping-na:2a3991aad73d",
+        "mapping-na:442b7b2703e3",
+        "mapping-na:450a7d983c93",
+        "mapping-na:4b2869e02aad",
+        "mapping-na:4c7ad7ffcc68",
+        "mapping-na:4f3d0e2cfe5b",
+        "mapping-na:506bf40244e2",
+        "mapping-na:5e03bddd97cd",
+        "mapping-na:5e226a1790f1",
+        "mapping-na:5e8acc80075e",
+        "mapping-na:6bfc8c0e8988",
+        "mapping-na:6c23d31f089c",
+        "mapping-na:6e3afd7a589c",
+        "mapping-na:7c4b68e5ead4",
+        "mapping-na:8383b7e02b22",
+        "mapping-na:8903401d16e8",
+        "mapping-na:8bf324f4f27c",
+        "mapping-na:8cd4c7a5dd5c",
+        "mapping-na:91a35a22f2af",
+        "mapping-na:936cbeb0b931",
+        "mapping-na:9670e7a20026",
+        "mapping-na:9de157cd5a8b",
+        "mapping-na:a0d5b84b28d8",
+        "mapping-na:a70344317ff3",
+        "mapping-na:afcbd8b84cce",
+        "mapping-na:b1ba4f7dc487",
+        "mapping-na:b76186600d89",
+        "mapping-na:bcd05980c6fe",
+        "mapping-na:c2d9f8733015",
+        "mapping-na:c67ced7d87d8",
+        "mapping-na:c724e7bc42e1",
+        "mapping-na:c8657e07fee2",
+        "mapping-na:d70f91d1c5b0",
+        "mapping-na:e13f937e02a5",
+        "mapping-na:f2968690e12a",
+        "mapping-na:f378a8c86fa5",
+        "mapping-na:f69c83e1b756",
+        "mapping-na:f7006532862e",
+        "mapping-na:f795a0e70bba",
+        "mapping-na:fb2f6b688b3f",
+        "mapping:1e3f83ff2788",
+        "mapping:35c5a613a7e3",
+        "route:b0de43a7ecd9",
+        "rule:category-child-blocked-by-product"
+      ],
+      "coverageIds": [
+        "coverage:control:category-add-child"
+      ],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.seedCategoryWithProduct"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/category"
+          }
+        },
+        {
+          "id": "category.attemptAddChildBlockedByProduct",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCategoryChildBlockedApi"
+        },
+        {
+          "adapterId": "productCenter.verifyCategoryChildBlockedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:negative:category-child-blocked-by-product:precondition:1",
+        "claim:negative:category-child-blocked-by-product:action:1",
+        "claim:negative:category-child-blocked-by-product:action:2",
+        "claim:negative:category-child-blocked-by-product:action:3",
+        "claim:negative:category-child-blocked-by-product:expectation:1",
+        "claim:negative:category-child-blocked-by-product:expectation:2"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:delete:menu",
+      "caseId": "delete:menu",
+      "title": "菜单应通过 Recipe 完成 UI 删除并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@hybrid",
+        "@high-dependency"
+      ],
+      "route": "/bm/menu/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:delete:menu",
+      "sourceIds": [
+        "/bm/menu/list#control-1",
+        "/bm/menu/list#control-10",
+        "/bm/menu/list#control-11",
+        "/bm/menu/list#control-12",
+        "/bm/menu/list#control-13",
+        "/bm/menu/list#control-2",
+        "/bm/menu/list#control-3",
+        "/bm/menu/list#control-4",
+        "/bm/menu/list#control-5",
+        "/bm/menu/list#control-6",
+        "/bm/menu/list#control-7",
+        "/bm/menu/list#control-8",
+        "/bm/menu/list#control-9",
+        "/bm/menu/record/list#control-1",
+        "/bm/menu/record/list#control-2",
+        "/bm/menu/record/list#control-3",
+        "/bm/menu/record/list#control-4",
+        "/bm/menu/record/list#control-5",
+        "/bm/menu/record/list#control-6",
+        "business-rule-section:25",
+        "business-rule-section:26",
+        "business-rule-section:27",
+        "mapping-na:1f95f53dfcd4",
+        "mapping-na:5a9116391e23",
+        "mapping-na:6f358850c5c9",
+        "mapping-na:75fc65ecfb45",
+        "mapping-na:ad8b92efa165",
+        "mapping-na:b6f101a5beba",
+        "mapping-na:c07c024148c3",
+        "mapping-na:ca7688af2b0d",
+        "mapping:367f32739210",
+        "mapping:d872a214cc34",
+        "route:3cc726e3e217",
+        "route:a6e69e8f67a0",
+        "rule:catalog-price-sync-respects-menu-price-override",
+        "rule:channel-and-scenario-price-fallback",
+        "rule:client-hidden-applies-after-publish",
+        "rule:deleted-special-price-falls-back-after-publish",
+        "rule:display-time-applies-after-republish",
+        "rule:menu-price-syncs-on-publish",
+        "rule:menu-publish-generates-store-menu-and-products",
+        "rule:pos-price-change-applies-after-publish",
+        "rule:pos-price-change-disabled-after-publish"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.seedHighDependency",
+        "input": {
+          "entityKey": "menu"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/bm/menu/list"
+          }
+        },
+        {
+          "id": "highDependency.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "mutation": {
+        "method": "DELETE",
+        "operationKey": "menu.delete"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyAbsentApi"
+        },
+        {
+          "adapterId": "productCenter.verifyDeletedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:delete:menu:precondition:1",
+        "claim:delete:menu:action:1",
+        "claim:delete:menu:expectation:1"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:delete:print-stall",
+      "caseId": "delete:print-stall",
+      "title": "品牌打印档口应通过 Recipe 完成 UI 删除并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@hybrid",
+        "@low-dependency"
+      ],
+      "route": "/pp/printer-stall/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:delete:print-stall",
+      "sourceIds": [
+        "/pp/printer-stall/list#control-1",
+        "/pp/printer-stall/list#control-2",
+        "/pp/printer-stall/list#control-3",
+        "/pp/printer-stall/list#control-4",
+        "mapping-na:32d64a6029a8",
+        "mapping-na:49e3a06906aa",
+        "mapping-na:4e1b37eddbe9",
+        "mapping-na:50b583e94544",
+        "mapping-na:589f17535864",
+        "mapping-na:859f1b3e97bb",
+        "mapping-na:9d7470518c6a",
+        "mapping-na:abcee38b3cf5",
+        "mapping-na:b6de2779b33a",
+        "mapping-na:d41337a61130",
+        "mapping:313a81df5aea",
+        "mapping:5f6d04a795e7",
+        "mapping:803fc7b79c7c",
+        "mapping:b4ddd84ea0ab",
+        "route:973f08f8ed79"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.seedLowDependency",
+        "input": {
+          "entityKey": "print-stall"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/printer-stall/list"
+          }
+        },
+        {
+          "id": "lowDependency.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "mutation": {
+        "method": "DELETE",
+        "operationKey": "print-stall.delete"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyAbsentApi"
+        },
+        {
+          "adapterId": "productCenter.verifyDeletedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:delete:print-stall:precondition:1",
+        "claim:delete:print-stall:action:1",
+        "claim:delete:print-stall:expectation:1"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:create:bom",
+      "caseId": "create:bom",
+      "title": "配方单应通过 Recipe 完成 UI 创建并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@create"
+      ],
+      "route": "/pp/bom/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:create:bom",
+      "sourceIds": [
+        "/pp/bom/list#control-1",
+        "/pp/bom/list#control-2",
+        "/pp/bom/list#control-3",
+        "/pp/bom/list#control-4",
+        "/pp/bom/list#control-5",
+        "mapping-na:15e4cf027bc6",
+        "mapping-na:33528f5b19b3",
+        "mapping-na:3a5a343b08f2",
+        "mapping-na:3b404d5e3063",
+        "mapping-na:40ef446b84cf",
+        "mapping-na:847b332a9620",
+        "mapping-na:a54866256730",
+        "mapping-na:aa34d6fabbce",
+        "mapping-na:ae21578e297e",
+        "mapping-na:b8c09d03272b",
+        "mapping-na:cb42db781fc9",
+        "mapping:0311d6a76a32",
+        "mapping:0eb61ba9e5a7",
+        "mapping:0f362f3df316",
+        "mapping:17e74dabf962",
+        "mapping:1e87126870fd",
+        "mapping:797bb365bb6f",
+        "mapping:d1fdf15fb644",
+        "mapping:d576f32bd6bc",
+        "mapping:e55570f48a93",
+        "route:235400d77dbb"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/bom/list"
+          }
+        },
+        {
+          "id": "coreCreate.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "seed": {
+        "adapterId": "productCenter.prepareCreate",
+        "input": {
+          "entityKey": "bom"
+        }
+      },
+      "mutation": {
+        "method": "POST",
+        "operationKey": "bom.create"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCreatedApi"
+        },
+        {
+          "adapterId": "productCenter.verifyCreatedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:create:bom:precondition:1",
+        "claim:create:bom:action:1",
+        "claim:create:bom:expectation:1"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:create:seasoning",
+      "caseId": "create:seasoning",
+      "title": "品牌调味应通过 Recipe 完成 UI 创建并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@create"
+      ],
+      "route": "/pp/brand/seasoning/list",
+      "action": "create",
+      "traceabilityId": "trace:sop:create:seasoning",
+      "sourceIds": [
+        "/pp/brand/seasoning/list#control-1",
+        "/pp/brand/seasoning/list#control-10",
+        "/pp/brand/seasoning/list#control-11",
+        "/pp/brand/seasoning/list#control-12",
+        "/pp/brand/seasoning/list#control-13",
+        "/pp/brand/seasoning/list#control-14",
+        "/pp/brand/seasoning/list#control-15",
+        "/pp/brand/seasoning/list#control-16",
+        "/pp/brand/seasoning/list#control-17",
+        "/pp/brand/seasoning/list#control-18",
+        "/pp/brand/seasoning/list#control-19",
+        "/pp/brand/seasoning/list#control-2",
+        "/pp/brand/seasoning/list#control-20",
+        "/pp/brand/seasoning/list#control-21",
+        "/pp/brand/seasoning/list#control-22",
+        "/pp/brand/seasoning/list#control-23",
+        "/pp/brand/seasoning/list#control-24",
+        "/pp/brand/seasoning/list#control-25",
+        "/pp/brand/seasoning/list#control-26",
+        "/pp/brand/seasoning/list#control-27",
+        "/pp/brand/seasoning/list#control-28",
+        "/pp/brand/seasoning/list#control-3",
+        "/pp/brand/seasoning/list#control-4",
+        "/pp/brand/seasoning/list#control-5",
+        "/pp/brand/seasoning/list#control-6",
+        "/pp/brand/seasoning/list#control-7",
+        "/pp/brand/seasoning/list#control-8",
+        "/pp/brand/seasoning/list#control-9",
+        "/pp/brand/seasoning/record#control-1",
+        "/pp/brand/seasoning/record#control-2",
+        "mapping-na:2379d720abdb",
+        "mapping-na:4705fb7ff873",
+        "mapping-na:4c39437a8a3e",
+        "mapping:343c69dd7497",
+        "route:a8e0b800fdf2",
+        "route:d5b0ffff3643"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/seasoning/list"
+          }
+        },
+        {
+          "id": "coreCreate.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "seed": {
+        "adapterId": "productCenter.prepareCreate",
+        "input": {
+          "entityKey": "seasoning"
+        }
+      },
+      "mutation": {
+        "method": "POST",
+        "operationKey": "seasoning.create"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCreatedApi"
+        },
+        {
+          "adapterId": "productCenter.verifyCreatedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:create:seasoning:precondition:1",
+        "claim:create:seasoning:precondition:2",
+        "claim:create:seasoning:action:1",
+        "claim:create:seasoning:action:2",
+        "claim:create:seasoning:action:3",
+        "claim:create:seasoning:action:4",
+        "claim:create:seasoning:expectation:1",
+        "claim:create:seasoning:expectation:2"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:delete:tax",
+      "caseId": "delete:tax",
+      "title": "税种应通过 Recipe 完成 UI 删除并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@hybrid",
+        "@low-dependency"
+      ],
+      "route": "/poi/tax/tax-types",
+      "action": "delete",
+      "traceabilityId": "trace:sop:delete:tax",
+      "sourceIds": [
+        "/poi/tax/tax-types#control-1",
+        "/poi/tax/tax-types#control-2",
+        "business-rule-section:31",
+        "business-rule-section:32",
+        "mapping-na:540018a2043a",
+        "mapping-na:82375cd053ee",
+        "mapping-na:86982306b9b6",
+        "mapping-na:8f4be0ef52d8",
+        "mapping-na:95c430912e7c",
+        "mapping-na:d1c5349a180f",
+        "mapping:f5882e6ace12",
+        "route:5b574e851f6f"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.seedLowDependency",
+        "input": {
+          "entityKey": "tax"
+        }
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/poi/tax/tax-types"
+          }
+        },
+        {
+          "id": "lowDependency.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "mutation": {
+        "method": "DELETE",
+        "operationKey": "tax.delete"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyAbsentApi"
+        },
+        {
+          "adapterId": "productCenter.verifyDeletedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:delete:tax:precondition:1",
+        "claim:delete:tax:action:1",
+        "claim:delete:tax:expectation:1"
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:read:store-product-search",
+      "caseId": "read:store-product-search",
+      "title": "通过商品名称片段查询符合条件的门店商品",
+      "tags": [
+        "@gold",
+        "@store-product"
+      ],
+      "route": "/poi/location/prod-list",
+      "action": "read",
+      "traceabilityId": "trace:sop:read:store-product-search",
+      "sourceIds": [
+        "route:2a967315eebe",
+        "operation:brand-menu:POST /ops-poi/poi-items/pageQuery"
+      ],
+      "claimIds": [
+        "claim:read:store-product-search:precondition:1",
+        "claim:read:store-product-search:action:1",
+        "claim:read:store-product-search:expectation:1"
+      ],
+      "coverageIds": [
+        "coverage:route:route:2a967315eebe"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "input": {
+            "targetPath": "/poi/location/prod-list"
+          },
+          "saveAs": "navigation"
+        },
+        {
+          "id": "storeProduct.searchByName",
+          "saveAs": "storeProductSearch"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStoreProductSearch",
+          "input": {
+            "result": {
+              "$ref": "$result.storeProductSearch"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:test-plan-gold-set:delete:description-tag",
+      "caseId": "delete:description-tag",
+      "title": "描述标签应通过 Recipe 完成 UI 删除并验证双终态",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@sop",
+        "@hybrid",
+        "@low-dependency"
+      ],
+      "route": "/pp/brand/tag/description",
+      "action": "delete",
+      "traceabilityId": "trace:sop:delete:description-tag",
+      "sourceIds": [
+        "/pp/brand/tag/description#control-1",
+        "/pp/brand/tag/description#control-2",
+        "/pp/brand/tag/description#control-3",
+        "/pp/brand/tag/description#control-4",
+        "/pp/brand/tag/description#control-5",
+        "/pp/brand/tag/description#control-6",
+        "business-rule-section:13",
+        "mapping-na:0245de9c5d83",
+        "mapping-na:08f0d5e2a511",
+        "mapping-na:0a8eccf83b7a",
+        "mapping-na:367d84d327c6",
+        "mapping-na:6419d4d08a96",
+        "mapping-na:792f4d49037b",
+        "mapping-na:7dcc42e47101",
+        "mapping-na:7e99ea44876b",
+        "mapping-na:8410c3f00247",
+        "mapping-na:9b08504f29b0",
+        "mapping-na:a4abd2ac4b2e",
+        "mapping-na:ecb08f8c9b63",
+        "mapping-na:f672cdf9ccee",
+        "mapping:139c860aedd1",
+        "mapping:3bc7ab1659b6",
+        "mapping:55c723ada991",
+        "mapping:63a3f72241a6",
+        "mapping:837e17cf3464",
+        "mapping:837e17cf3464~2",
+        "mapping:c279d3ddd6e0",
+        "route:e2cf16e67e4c"
+      ],
+      "coverageIds": [],
+      "generationAllowed": true,
+      "seed": {
+        "adapterId": "productCenter.seedDescriptionTagDeletionScenario"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/tag/description"
+          }
+        },
+        {
+          "id": "lowDependency.execute",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          }
+        }
+      ],
+      "mutation": {
+        "method": "DELETE",
+        "operationKey": "description-tag.delete"
+      },
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyAbsentApi"
+        },
+        {
+          "adapterId": "productCenter.verifyDeletedUi"
+        }
+      ],
+      "cleanup": {
+        "adapterId": "productCenter.cleanupSeed"
+      },
+      "claimIds": [
+        "claim:delete:description-tag:precondition:1",
+        "claim:delete:description-tag:action:1",
+        "claim:delete:description-tag:action:2",
+        "claim:delete:description-tag:action:3",
+        "claim:delete:description-tag:action:4",
+        "claim:delete:description-tag:action:5",
+        "claim:delete:description-tag:expectation:1",
+        "claim:delete:description-tag:expectation:2"
+      ]
+    }
+  ]
+}

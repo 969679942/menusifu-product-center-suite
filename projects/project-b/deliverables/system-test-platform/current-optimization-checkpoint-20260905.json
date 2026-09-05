@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "1.0.0",
+  "planId": "merchant-center-current-optimization-20260905",
+  "updatedAt": "2026-09-05T04:47:00+08:00",
+  "status": "running",
+  "completedWorkUnits": [
+    "feasibility-analysis",
+    "impact-analysis",
+    "plan-double-check",
+    "execution-plan-persisted",
+    "B1-report-and-state-contracts",
+    "B1-acceptance",
+    "B2-source-closure",
+    "B2-acceptance",
+    "B3-targeted-revalidation",
+    "B3-acceptance",
+    "B4-seasoning-reversible-pilot",
+    "B4-acceptance"
+  ],
+  "currentWorkUnit": "B5-final-governance-acceptance",
+  "pendingWorkUnits": [
+    "B5-execution-index-rebuild",
+    "B5-closure-audit",
+    "B5-readiness-and-review-queue",
+    "B5-project-gates",
+    "B5-public-platform-gate",
+    "B5-final-omission-audit"
+  ],
+  "businessExecutionStarted": true,
+  "createdServerIds": [],
+  "externalBlockers": [
+    "CROSS_APPLICATION_PILOT_REQUIRED"
+  ],
+  "humanBusinessItems": [
+    "TC-GRP-PKG-040"
+  ],
+  "batchEvidence": {
+    "B1": {
+      "status": "passed",
+      "businessExecutionStarted": false,
+      "publicContracts": "9/9 passed",
+      "projectContracts": "30/30 passed",
+      "planResultFingerprintMatch": true,
+      "currentGoalBlockingCases": 8,
+      "blockedSourceCountsReconciled": true,
+      "sensitiveFindings": 0,
+      "migrationInventory": {
+        "status": "incomplete",
+        "unacceptedChanges": 11,
+        "handling": "Defer baseline acceptance until all planned batches finish; no bridge or boundary violations."
+      }
+    },
+    "B2": {
+      "status": "passed",
+      "optimizationPlanFingerprint": "2b349cc63ea88cc0fd35292881c20ebaae83c3f6c03917bfed45d17f312d9ec6",
+      "selectionFingerprint": "cbce3fb251e6e56e1e2cd6ce2a1829084d46432750ae10c27df66a2bfd236de3",
+      "selectedCaseIds": [
+        "TC-FLV-SEA-012",
+        "TC-FLV-SEA-017",
+        "TC-FLV-SEA-022",
+        "TC-FLV-SEA-046",
+        "TC-FLV-TPL-001",
+        "TC-FLV-TPL-014"
+      ],
+      "terminalCaseIds": [
+        "TC-FLV-SEA-012",
+        "TC-FLV-SEA-017",
+        "TC-FLV-SEA-022",
+        "TC-FLV-SEA-046",
+        "TC-FLV-TPL-001",
+        "TC-FLV-TPL-014"
+      ],
+      "incompleteCaseIds": [],
+      "createdServerIds": [],
+      "supplementalEvidenceRepair": {
+        "caseId": "TC-FLV-SEA-017",
+        "optimizationPlanFingerprint": "937bcd976ad9a71fedd629e15c6e4a680eb14f3976d6cd60b292f7e72c3aef0c",
+        "runId": "system-test-b2-sea017-diff-repair-20260905",
+        "selectedEqualsTerminal": true,
+        "auditCompleteness": "complete",
+        "changeReceiptCount": 3,
+        "apiUiZeroResidue": true
+      },
+      "acceptance": {
+        "sourceBlocked": 0,
+        "currentGoalBlocking": 0,
+        "recoveredCandidates": 12,
+        "reconstructedCurrentBaseline": 12,
+        "originalRequirementRecoveredFalse": 12,
+        "humanBusinessItems": [
+          "TC-GRP-PKG-040"
+        ],
+        "contractTests": "28/28 passed"
+      }
+    },
+    "B3": {
+      "status": "passed-after-automatic-technical-repair",
+      "historicalImpact": 40,
+      "selectedCaseIds": 38,
+      "classifiedExclusions": [
+        "TC-GRP-ADD-010",
+        "TC-GRP-ADD-011"
+      ],
+      "initialExecution": {
+        "runId": "b3-targeted-revalidation-20260905",
+        "terminal": 38,
+        "passed": 34,
+        "failed": 4,
+        "incomplete": 0
+      },
+      "automaticRepairs": [
+        "navigate-before-locale-switch",
+        "remove-product-data-locale-false-positive",
+        "complex-crud-timeout-420000ms",
+        "run-scoped-cleanup-root",
+        "closed-scope-result-merge"
+      ],
+      "finalDecision": {
+        "status": "revalidation-complete",
+        "receipts": 38,
+        "passed": 38,
+        "evidenceComplete": 38,
+        "contextComplete": 38,
+        "operationReceiptPositive": 38,
+        "assertionReceiptPositive": 38,
+        "cleanupComplete": 38,
+        "executionEligible": 0,
+        "reusable": 38
+      },
+      "unaffectedCasesRerun": false,
+      "businessFindings": []
+    },
+    "B4": {
+      "status": "passed-after-report-contract-repair",
+      "caseId": "TC-FLV-SEA-032",
+      "selected": 1,
+      "terminal": 1,
+      "passed": 1,
+      "evidenceComplete": 1,
+      "operationReceipts": 40,
+      "assertionReceipts": 2,
+      "lifecyclePhases": 9,
+      "reversibleCrud": true,
+      "apiUiZeroResidue": true,
+      "securityFindings": 0,
+      "sourceRunId": "system-test-flow-1788553329917-run-single-store-000407",
+      "businessRerunImpact": "one controlled pilot only; no additional rerun after case-scoped receipt reuse",
+      "automaticRepairs": [
+        "case-scoped-recipe-fingerprint-reuse",
+        "lifecycle-export-create-update-inference"
+      ]
+    }
+  }
+}

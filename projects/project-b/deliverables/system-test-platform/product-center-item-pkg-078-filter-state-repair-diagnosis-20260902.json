@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078"
+  ],
+  "rootCause": "TC-ITEM-PKG-078 的业务创建与同名保留观察已完成，但列表商品类型筛选的自动化收据读取通过复选框父节点复合文本反推选中项。实际页面将辅助文本和图标渲染在同一父节点，导致已勾选 Combo 被读取为 selectionApplied=false，等待器超时并把自动化判断缺陷误报为业务执行失败；修复后又发现产品差异分支的断言状态未使用公共收据约定的 observed-mismatch，导致产品差异未被裁决器识别；这些问题不改变业务规则。",
+  "correctiveAction": "将商品类型筛选状态改为逐一读取三个权威 checkbox 的 isChecked() 状态，并保留行类型与零结果合法性校验；产品差异分支返回完整 UI/API/清理证据，并按公共收据约定写入 status=observed-mismatch、actualStatus=observed、comparison=mismatched；更新流程合同测试和重新生成的商品 216 脚本后，仅按当前执行计划定向重跑 TC-ITEM-PKG-078。",
+  "evidenceRefs": [
+    "pages/product-management/item/item-list.page.ts",
+    "pages/product-management/item/item-list-locators.ts",
+    "tests/api/product-center-current-failure-remediation.contract.spec.ts",
+    "tests/generated/product-center-item-216.generated.spec.ts",
+    "output/performance/product-center-timing-1788346102528.json",
+    "output/product-center-item-source-governed-20260902T104643Z.json",
+    "output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "17b1a102a1ff9e4b"
+  ]
+}

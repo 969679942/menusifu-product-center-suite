@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-PKG-078",
+    "TC-ITEM-PKG-079"
+  ],
+  "rootCause": "上一轮运行在生成 spec 之前被实现指纹一致性门禁拦截，未产生新的业务收据；此前 079 的真实失败仍是标准编辑页价格就绪探针使用页面级可访问名称 Required，导致在数据已回显时持续等待并超时。当前 spec 已按最新实现检查点重新生成，之前的中断尝试必须由本诊断取代。",
+  "correctiveAction": "保持价格回读使用价格区内可见 role=spinbutton，package 族实现检查点覆盖标准编辑基类和定位器；使用重新生成的 spec、当前批准的 078/079 集合和本诊断开启新修复轮次，完成 UI/API/清理收据后再裁决。",
+  "evidenceRefs": [
+    "Merchant Center UITest/pages/product-management/item/item-create-standard.page.ts",
+    "Merchant Center UITest/adapters/product-center/product-center-item-implementation.ts",
+    "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
+    "Merchant Center UITest/output/product-center-item-source-governed-20260903T054704Z.json",
+    "Merchant Center UITest/output/system-test-repair/product-center/repair-attempt-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "dca46bee251a8f29",
+    "b00613446c84cb51"
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "domain-asset",
+  "description": "商品中心权威文档待生命周期规则的显式义务到规范用例断言映射。语义相似度只能生成候选，不能授权覆盖。",
+  "mappings": [
+    {"ruleId":"BR-FMT-002","obligationId":"BR-FMT-002:O01","obligationStatement":"助记码、规格值、设备编码：最长 20 字符","caseClaims":[
+      {"caseId":"TC-ITEM-STD-046","assertionIndexes":[2],"evidenceBasis":"标准商品助记码和设备编码超长出现格式校验。"},
+      {"caseId":"TC-GRP-SPEC-011","assertionIndexes":[1],"evidenceBasis":"规格设备编码最终保存值不超过 20 字符。"},
+      {"caseId":"TC-GRP-SPEC-027","assertionIndexes":[1],"evidenceBasis":"规格值输入框拒绝第 21 个字符。"}
+    ]},
+
+    {"ruleId":"BR-FMT-005","obligationId":"BR-FMT-005:O01","obligationStatement":"价格输入 0.00 可保存","caseClaims":[
+      {"caseId":"TC-ITEM-ADD-009","assertionIndexes":[1,2],"evidenceBasis":"加料商品标准价 0 保存成功并显示 0.00。"},
+      {"caseId":"TC-ITEM-PKG-018","assertionIndexes":[1,2,3],"evidenceBasis":"套餐商品标准价 0 保存成功，列表与提交一致。"}
+    ]},
+    {"ruleId":"BR-FMT-005","obligationId":"BR-FMT-005:O02","obligationStatement":"界面默认展示 2 位小数","caseClaims":[
+      {"caseId":"TC-ITEM-ADD-009","assertionIndexes":[2],"evidenceBasis":"列表价格显示为 0.00。"},
+      {"caseId":"TC-ITEM-PKG-018","assertionIndexes":[3],"evidenceBasis":"套餐商品列表价格显示为 0.00。"}
+    ]},
+    {"ruleId":"BR-FMT-005","obligationId":"BR-FMT-005:O03","obligationStatement":"输入超过 2 位小数时按四舍五入保留 2 位后保存，API 数值与重新进入页面的回显均为舍入后的金额（Q-ITEM-003）","caseClaims":[
+      {"caseId":"TC-GRP-ADD-005","assertionIndexes":[2],"evidenceBasis":"1.999 保存为 2.00，API 与重新打开 UI 一致。"},
+      {"caseId":"TC-ITEM-STD-095","assertionIndexes":[1,2,3],"evidenceBasis":"标准商品两个临界输入均按四舍五入保存成功。"}
+    ]},
+
+    {"ruleId":"BR-FMT-009","obligationId":"BR-FMT-009:O01","obligationStatement":"查询或重置后列表回到第 1 页","caseClaims":[
+      {"caseId":"TC-ITEM-ADD-040","assertionIndexes":[3],"evidenceBasis":"重置后分页回到第 1 页。"},
+      {"caseId":"TC-ITEM-PKG-034","assertionIndexes":[2],"evidenceBasis":"查询后自动定位结果首页。"},
+      {"caseId":"TC-GRP-SPEC-002","assertionIndexes":[2],"evidenceBasis":"规格组重置后恢复全部并回首页。"}
+    ]},
+    {"ruleId":"BR-FMT-009","obligationId":"BR-FMT-009:O02","obligationStatement":"筛选项变更后自动刷新列表","caseClaims":[
+      {"caseId":"TC-ITEM-ADD-023","assertionIndexes":[1,2,3,4],"evidenceBasis":"组合筛选后列表、干扰项、总数和分页同步更新。"},
+      {"caseId":"TC-ITEM-ADD-040","assertionIndexes":[2],"evidenceBasis":"重置筛选后列表自动刷新为全量。"}
+    ]},
+    {"ruleId":"BR-FMT-009","obligationId":"BR-FMT-009:O03","obligationStatement":"重置后查询条件清空、恢复全量结果并回到第 1 页","caseClaims":[
+      {"caseId":"TC-ITEM-ADD-040","assertionIndexes":[1,2,3],"evidenceBasis":"一条用例同时验证条件清空、全量刷新和首页复位。"},
+      {"caseId":"TC-ITEM-PKG-047","assertionIndexes":[1,2,3],"evidenceBasis":"套餐商品重置后的条件、数据和分页完整验证。"}
+    ]},
+
+    {"ruleId":"BR-GRP-001","obligationId":"BR-GRP-001:O01","obligationStatement":"组保存前须至少存在一个有效子项","caseClaims":[
+      {"caseId":"TC-GRP-ADD-003","assertionIndexes":[1,2],"evidenceBasis":"加料组无有效明细不可创建。"},
+      {"caseId":"TC-GRP-PKG-003","assertionIndexes":[1,2],"evidenceBasis":"可选搭配无商品不可创建。"},
+      {"caseId":"TC-GRP-PKG-027","assertionIndexes":[1,2],"evidenceBasis":"固定搭配无商品不可创建。"},
+      {"caseId":"TC-GRP-PKG-040","assertionIndexes":[1,2],"evidenceBasis":"随心配无商品不可创建。"}
+    ]},
+    {"ruleId":"BR-GRP-001","obligationId":"BR-GRP-001:O02","obligationStatement":"加料组无加料明细时「确定」按钮置灰且不发送创建请求","caseClaims":[
+      {"caseId":"TC-GRP-ADD-003","assertionIndexes":[1,2],"evidenceBasis":"按钮置灰、无创建请求且 UI/API 无数据。"}
+    ]},
+    {"ruleId":"BR-GRP-001","obligationId":"BR-GRP-001:O03","obligationStatement":"固定搭配、可选搭配和随心配无商品时提交显示「至少有一个子项」，停留在新增页且不发送创建请求","caseClaims":[
+      {"caseId":"TC-GRP-PKG-003","assertionIndexes":[1,2],"evidenceBasis":"可选搭配空商品阻断。"},
+      {"caseId":"TC-GRP-PKG-027","assertionIndexes":[1,2],"evidenceBasis":"固定搭配空商品阻断。"},
+      {"caseId":"TC-GRP-PKG-040","assertionIndexes":[1,2],"evidenceBasis":"随心配空商品阻断。"}
+    ]},
+
+    {"ruleId":"BR-GRP-002","obligationId":"BR-GRP-002:O01","obligationStatement":"组名称：100 字符，品牌内组名称不可重复（英文字母不区分大小写），必填","caseClaims":[
+      {"caseId":"TC-GRP-PKG-029","assertionIndexes":[1,2,3],"evidenceBasis":"套餐组名 100 字符及保存终态。"},
+      {"caseId":"TC-GRP-PKG-022","assertionIndexes":[1,2],"evidenceBasis":"套餐组名称必填且无不完整数据。"},
+      {"caseId":"TC-GRP-PKG-028","assertionIndexes":[1,2],"evidenceBasis":"大小写变体仍按品牌内重复阻断。"}
+    ]},
+    {"ruleId":"BR-GRP-002","obligationId":"BR-GRP-002:O02","obligationStatement":"重复提示 SYSTEM-0002:参数冲突","caseClaims":[
+      {"caseId":"TC-GRP-ADD-027","assertionIndexes":[1],"evidenceBasis":"加料组重复返回参数冲突。"},
+      {"caseId":"TC-GRP-MTH-021","assertionIndexes":[1],"evidenceBasis":"做法组重复返回参数冲突。"},
+      {"caseId":"TC-GRP-SPEC-012","assertionIndexes":[1],"evidenceBasis":"规格组大小写重复返回参数冲突或等价提示。"},
+      {"caseId":"TC-GRP-TASTE-022","assertionIndexes":[1],"evidenceBasis":"口味组重复返回参数冲突。"}
+    ]},
+    {"ruleId":"BR-GRP-002","obligationId":"BR-GRP-002:O03","obligationStatement":"套餐组名称中空格计入 100 字符长度，首尾空格不能形成有效保存值","caseClaims":[
+      {"caseId":"TC-GRP-PKG-029","assertionIndexes":[1,2,3],"evidenceBasis":"空格计数、100 字符保存及首尾空格终态均被验证。"}
+    ]},
+
+    {"ruleId":"BR-GRP-003","obligationId":"BR-GRP-003:O01","obligationStatement":"子项名称：100 字符，组内不可重复","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-026","assertionIndexes":[1,2],"evidenceBasis":"规格子项名称超长按 100 字符边界保存。"},
+      {"caseId":"TC-GRP-SPEC-009","assertionIndexes":[1],"evidenceBasis":"规格子项组内重名阻断。"},
+      {"caseId":"TC-GRP-TASTE-007","assertionIndexes":[1],"evidenceBasis":"口味子项组内重名阻断。"},
+      {"caseId":"TC-GRP-MTH-006","assertionIndexes":[1],"evidenceBasis":"做法组及子项重复均被阻断。"}
+    ]},
+    {"ruleId":"BR-GRP-003","obligationId":"BR-GRP-003:O02","obligationStatement":"规格子项品牌内不可重复","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-025","assertionIndexes":[1,2],"evidenceBasis":"跨组创建同名规格子项被品牌级唯一性阻断。"}
+    ]},
+
+    {"ruleId":"BR-GRP-004","obligationId":"BR-GRP-004:O01","obligationStatement":"规格设备编码最长 20 字符","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-011","assertionIndexes":[1],"evidenceBasis":"规格设备编码最终值不超过 20 字符。"}
+    ]},
+    {"ruleId":"BR-GRP-004","obligationId":"BR-GRP-004:O02","obligationStatement":"规格值最长 20 字符","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-027","assertionIndexes":[1],"evidenceBasis":"规格值拒绝第 21 个字符。"}
+    ]},
+
+    {"ruleId":"BR-GRP-005","obligationId":"BR-GRP-005:O01","obligationStatement":"口味组/做法组/加料组/套餐组：保存时须至少一个子项","caseClaims":[
+      {"caseId":"TC-GRP-ADD-003","assertionIndexes":[1,2],"evidenceBasis":"加料组缺少有效子项不可保存。"},
+      {"caseId":"TC-GRP-TASTE-005","assertionIndexes":[1,2],"evidenceBasis":"口味子项无有效名称时不可保存。"},
+      {"caseId":"TC-GRP-MTH-005","assertionIndexes":[1,2],"evidenceBasis":"做法子项无有效名称时不可保存。"},
+      {"caseId":"TC-GRP-PKG-040","assertionIndexes":[1,2],"evidenceBasis":"套餐组缺少商品子项不可保存。"}
+    ]},
+    {"ruleId":"BR-GRP-005","obligationId":"BR-GRP-005:O02","obligationStatement":"仅剩一个子项时不可删除，提示「该组只有一个选项，不能删除」（以现网为准）","caseClaims":[
+      {"caseId":"TC-GRP-ADD-014","assertionIndexes":[1,2],"evidenceBasis":"加料组末项删除显示精确提示且数据不变。"},
+      {"caseId":"TC-GRP-TASTE-021","assertionIndexes":[1,2],"evidenceBasis":"口味组末项删除显示精确提示且保留。"},
+      {"caseId":"TC-GRP-MTH-020","assertionIndexes":[1,2],"evidenceBasis":"做法组末项删除被阻止且保留。"},
+      {"caseId":"TC-GRP-PKG-009","assertionIndexes":[1],"evidenceBasis":"套餐组末项删除显示精确提示且保留。"}
+    ]},
+    {"ruleId":"BR-GRP-005","obligationId":"BR-GRP-005:O03","obligationStatement":"口味、做法子项名称必填","caseClaims":[
+      {"caseId":"TC-GRP-TASTE-005","assertionIndexes":[1,2],"evidenceBasis":"口味名称空值阻断且无落库。"},
+      {"caseId":"TC-GRP-MTH-005","assertionIndexes":[1,2],"evidenceBasis":"做法名称空值阻断且无落库。"}
+    ]},
+    {"ruleId":"BR-GRP-005","obligationId":"BR-GRP-005:O04","obligationStatement":"做法组默认空行的做法名称为空时提示「做法名称（必填）」","caseClaims":[
+      {"caseId":"TC-GRP-MTH-005","assertionIndexes":[1,2],"evidenceBasis":"空行提交显示精确中文提示且不发送创建请求。"}
+    ]},
+
+    {"ruleId":"BR-GRP-010","obligationId":"BR-GRP-010:O01","obligationStatement":"固定搭配：组内商品和数量固定，商品行配置数量，由外层套餐商品统一定价","caseClaims":[
+      {"caseId":"TC-GRP-PKG-037","assertionIndexes":[1,2],"evidenceBasis":"固定搭配商品行字段和统一定价说明均被核对。"},
+      {"caseId":"TC-GRP-PKG-021","assertionIndexes":[1,2],"evidenceBasis":"商品和数量保存后 UI/API 与提交一致。"}
+    ]},
+    {"ruleId":"BR-GRP-010","obligationId":"BR-GRP-010:O02","obligationStatement":"无组级选择数量","caseClaims":[
+      {"caseId":"TC-GRP-PKG-037","assertionIndexes":[3],"evidenceBasis":"固定搭配页明确不展示三类组级选择数量字段。"}
+    ]},
+
+    {"ruleId":"BR-GRP-011","obligationId":"BR-GRP-011:O01","obligationStatement":"可选搭配（旧称组合搭配）：组级配置必填选择数量","caseClaims":[
+      {"caseId":"TC-GRP-PKG-038","assertionIndexes":[1],"evidenceBasis":"必填选择数量及默认值可见。"},
+      {"caseId":"TC-GRP-PKG-005","assertionIndexes":[1,2],"evidenceBasis":"选择数量随可选搭配保存并可由 API 查询。"}
+    ]},
+    {"ruleId":"BR-GRP-011","obligationId":"BR-GRP-011:O02","obligationStatement":"商品行展示并保存加价和默认选中","caseClaims":[
+      {"caseId":"TC-GRP-PKG-038","assertionIndexes":[3],"evidenceBasis":"商品表头展示加价和默认字段。"},
+      {"caseId":"TC-GRP-PKG-005","assertionIndexes":[2],"evidenceBasis":"商品明细随可选搭配提交并由 API 核对。"}
+    ]},
+    {"ruleId":"BR-GRP-011","obligationId":"BR-GRP-011:O03","obligationStatement":"页面提供可独立开关的组内重复选择和相同商品合并配置","caseClaims":[
+      {"caseId":"TC-GRP-PKG-038","assertionIndexes":[2],"evidenceBasis":"页面展示两个开关及默认关闭状态。"},
+      {"caseId":"TC-GRP-PKG-042","assertionIndexes":[1,2],"evidenceBasis":"两个开关可独立切换且不会相互改写字段。"}
+    ]},
+
+    {"ruleId":"BR-GRP-012","obligationId":"BR-GRP-012:O01","obligationStatement":"随心配：按总数量配置最少/最多选择","caseClaims":[
+      {"caseId":"TC-GRP-PKG-039","assertionIndexes":[1],"evidenceBasis":"页面展示按总数量计算的最少/最多选择字段。"}
+    ]},
+    {"ruleId":"BR-GRP-012","obligationId":"BR-GRP-012:O02","obligationStatement":"商品行支持原价、默认/自定义价格来源、自定义价格和默认选中，不存在默认数量字段","caseClaims":[
+      {"caseId":"TC-GRP-PKG-039","assertionIndexes":[2,3],"evidenceBasis":"随心配商品字段、无默认数量和价格来源说明均被核对。"},
+      {"caseId":"TC-GRP-PKG-044","assertionIndexes":[1,2],"evidenceBasis":"默认和自定义价格来源切换行为被验证。"}
+    ]},
+    {"ruleId":"BR-GRP-012","obligationId":"BR-GRP-012:O03","obligationStatement":"开启重复选择后可限制子项最大数量","caseClaims":[
+      {"caseId":"TC-GRP-PKG-043","assertionIndexes":[1,2],"evidenceBasis":"重复选择关闭/开启时最大数量列显隐被验证。"}
+    ]},
+
+    {"ruleId":"BR-GRP-013","obligationId":"BR-GRP-013:O01","obligationStatement":"新增套餐组时允许在固定搭配、可选搭配、随心配之间切换，商品列表和类型专属字段随当前类型切换","caseClaims":[
+      {"caseId":"TC-GRP-PKG-045","assertionIndexes":[1,2],"evidenceBasis":"新增页三种类型可单选切换，专属字段随类型更新。"}
+    ]},
+    {"ruleId":"BR-GRP-013","obligationId":"BR-GRP-013:O02","obligationStatement":"点击确定后仅保存当前选择的一种套餐类型","caseClaims":[
+      {"caseId":"TC-GRP-PKG-004","assertionIndexes":[1,2],"evidenceBasis":"固定搭配保存为唯一 sectionType=1。"},
+      {"caseId":"TC-GRP-PKG-005","assertionIndexes":[1,2],"evidenceBasis":"可选搭配保存为唯一 sectionType=2。"},
+      {"caseId":"TC-GRP-PKG-046","assertionIndexes":[1,2,3],"evidenceBasis":"随心配保存为唯一 sectionType=5。"}
+    ]},
+    {"ruleId":"BR-GRP-013","obligationId":"BR-GRP-013:O03","obligationStatement":"套餐组保存后类型锁定，编辑页不可切换类型","caseClaims":[
+      {"caseId":"TC-GRP-PKG-045","assertionIndexes":[3],"evidenceBasis":"当前只读审计和规范用例均验证编辑页三种类型控件全部禁用。"}
+    ]},
+
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O01","obligationStatement":"数量规则：加料组使用组级最少选择份数、最多选择份数和份数内免费，商品行使用最小数量、最大数量","caseClaims":[
+      {"caseId":"TC-GRP-ADD-016","assertionIndexes":[1,2,3],"evidenceBasis":"加料组数量规则、组内商品字段及引用同步均被保存验证。"}
+    ]},
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O02","obligationStatement":"组级最少/最多允许同时为 0，但组内须存在至少一个有效加料商品","caseClaims":[
+      {"caseId":"TC-GRP-ADD-008","assertionIndexes":[1,2,3],"evidenceBasis":"0/0 数量与有效商品共同保存成功并由 UI/API 核对。"}
+    ]},
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O03","obligationStatement":"可选搭配使用单一选择数量和逐商品默认选中开关","caseClaims":[
+      {"caseId":"TC-GRP-PKG-038","assertionIndexes":[1,3],"evidenceBasis":"单一选择数量与商品默认列可见。"},
+      {"caseId":"TC-GRP-PKG-005","assertionIndexes":[2],"evidenceBasis":"可选搭配选择数量和商品明细保存终态由 API 核对。"}
+    ]},
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O04","obligationStatement":"随心配使用组级最少/最多总数量，最多数量必须 >= 最少数量，否则提示 最多选择数量不能小于最少选择数量","caseClaims":[
+      {"caseId":"TC-GRP-PKG-039","assertionIndexes":[1],"evidenceBasis":"随心配最少/最多总数量字段可见。"},
+      {"caseId":"TC-GRP-PKG-030","assertionIndexes":[1,2,3],"evidenceBasis":"最大值小于最小值时以精确提示阻断。"}
+    ]},
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O05","obligationStatement":"随心配最少/最多输入非数字时自动清空，输入负数或 0 时自动更正为 1，输入小数时忽略小数部分","caseClaims":[
+      {"caseId":"TC-GRP-PKG-023","assertionIndexes":[1,2,3,4,5],"evidenceBasis":"非数字、负数和小数归一化及保存终态均被验证。"},
+      {"caseId":"TC-GRP-PKG-031","assertionIndexes":[1,2,3],"evidenceBasis":"最少/最多输入 0 自动更正为 1 并保存。"}
+    ]},
+    {"ruleId":"BR-GRP-020","obligationId":"BR-GRP-020:O06","obligationStatement":"可选搭配和随心配的重复选择开关控制子项数量字段","caseClaims":[
+      {"caseId":"TC-GRP-PKG-041","assertionIndexes":[1,2],"evidenceBasis":"可选搭配重复选择控制最小/最大数量列。"},
+      {"caseId":"TC-GRP-PKG-043","assertionIndexes":[1,2],"evidenceBasis":"随心配重复选择控制最大数量列。"}
+    ]},
+
+    {"ruleId":"BR-GRP-031","obligationId":"BR-GRP-031:O01","obligationStatement":"规格组未被商品引用时新增规格子项直接保存到组","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-014","assertionIndexes":[1],"evidenceBasis":"未引用规格组新增明细保存成功。"}
+    ]},
+    {"ruleId":"BR-GRP-031","obligationId":"BR-GRP-031:O02","obligationStatement":"规格、口味、做法和加料组已被商品引用时，组内新增子项保存到组，但不自动应用到既有引用商品","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-013","assertionIndexes":[1,2],"evidenceBasis":"规格组新增子项保存但引用商品不新增。"},
+      {"caseId":"TC-GRP-TASTE-008","assertionIndexes":[1],"evidenceBasis":"口味组新增明细不自动进入引用商品。"},
+      {"caseId":"TC-GRP-MTH-007","assertionIndexes":[1],"evidenceBasis":"做法组新增明细不自动进入引用商品。"},
+      {"caseId":"TC-GRP-ADD-012","assertionIndexes":[1],"evidenceBasis":"加料组新增明细不自动进入引用商品。"}
+    ]},
+    {"ruleId":"BR-GRP-031","obligationId":"BR-GRP-031:O03","obligationStatement":"可选搭配已被套餐商品引用时，新增套餐商品后的保存确认弹窗展示引用套餐商品数量和影响明细，确认后同步到全部引用套餐商品","caseClaims":[
+      {"caseId":"TC-GRP-PKG-009","assertionIndexes":[2,3],"evidenceBasis":"确认弹窗展示 N 个引用对象，保存后全部引用套餐同步新增商品。"}
+    ]},
+
+    {"ruleId":"BR-GRP-032","obligationId":"BR-GRP-032:O01","obligationStatement":"组基础信息编辑后先保存到组","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-020","assertionIndexes":[1],"evidenceBasis":"规格组基础信息保存后列表展示新值。"},
+      {"caseId":"TC-GRP-PKG-013","assertionIndexes":[1],"evidenceBasis":"套餐组基础信息保存成功。"}
+    ]},
+    {"ruleId":"BR-GRP-032","obligationId":"BR-GRP-032:O02","obligationStatement":"组已被商品使用时，非价格/默认选中变更影响引用商品并进入影响确认","caseClaims":[
+      {"caseId":"TC-GRP-ADD-016","assertionIndexes":[1],"evidenceBasis":"被引用加料组变更显示影响确认。"},
+      {"caseId":"TC-GRP-PKG-010","assertionIndexes":[1],"evidenceBasis":"被引用套餐组删除子项显示变更与影响对象。"}
+    ]},
+    {"ruleId":"BR-GRP-032","obligationId":"BR-GRP-032:O03","obligationStatement":"确认弹窗展示更改前后值、受影响商品总数和默认选中数量 N/N，确认后同步所有已选择的引用商品","caseClaims":[
+      {"caseId":"TC-GRP-ADD-016","assertionIndexes":[1,3],"evidenceBasis":"弹窗字段、N/N 默认选择及确认后全部引用同步被完整验证。"}
+    ]},
+
+    {"ruleId":"BR-GRP-033","obligationId":"BR-GRP-033:O01","obligationStatement":"组内子项编辑后先保存到组","caseClaims":[
+      {"caseId":"TC-GRP-PKG-014","assertionIndexes":[1],"evidenceBasis":"子项数量规则先在套餐组保存成功。"}
+    ]},
+    {"ruleId":"BR-GRP-033","obligationId":"BR-GRP-033:O02","obligationStatement":"组已被商品使用时，非价格、非默认选中字段同步到引用该子项的商品，组侧价格和默认选中不覆盖商品侧独立配置","caseClaims":[
+      {"caseId":"TC-GRP-PKG-014","assertionIndexes":[2],"evidenceBasis":"数量规则同步，引用商品原加价与默认选中保持不变。"},
+      {"caseId":"TC-GRP-MTH-012","assertionIndexes":[1],"evidenceBasis":"做法名称同步到引用商品。"},
+      {"caseId":"TC-GRP-TASTE-013","assertionIndexes":[1],"evidenceBasis":"口味名称同步且用例排除价格/默认选中替代断言。"}
+    ]},
+
+    {"ruleId":"BR-GRP-034","obligationId":"BR-GRP-034:O01","obligationStatement":"规格组被商品引用时删除失败，解除引用后可删除","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-017","assertionIndexes":[1],"evidenceBasis":"被引用规格组删除失败。"},
+      {"caseId":"TC-GRP-SPEC-018","assertionIndexes":[1],"evidenceBasis":"解除引用后规格组删除成功。"}
+    ]},
+    {"ruleId":"BR-GRP-034","obligationId":"BR-GRP-034:O02","obligationStatement":"口味组被引用时可经确认删除并清除商品中的无效引用","caseClaims":[
+      {"caseId":"TC-GRP-TASTE-011","assertionIndexes":[1,2],"evidenceBasis":"口味组删除成功且引用商品清除无效引用。"}
+    ]},
+    {"ruleId":"BR-GRP-034","obligationId":"BR-GRP-034:O03","obligationStatement":"未被引用的做法组可经二次确认删除","caseClaims":[
+      {"caseId":"TC-GRP-MTH-010","assertionIndexes":[1,2,3],"evidenceBasis":"0 引用确认、删除请求和 UI/API 终态均被验证。"}
+    ]},
+    {"ruleId":"BR-GRP-034","obligationId":"BR-GRP-034:O04","obligationStatement":"套餐组内含商品明细不构成删除阻断，未被套餐商品引用时可直接删除，并同步删除组内明细","caseClaims":[
+      {"caseId":"TC-GRP-PKG-016","assertionIndexes":[1,2],"evidenceBasis":"未被引用套餐组连同组内商品关系删除，UI/API 均不可查。"}
+    ]},
+
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O01","obligationStatement":"组内子项删除：未被引用且组内存在多个选项 → 可经确认变更删除","caseClaims":[
+      {"caseId":"TC-GRP-ADD-013","assertionIndexes":[1,2],"evidenceBasis":"未引用加料组多子项经确认后删除成功。"},
+      {"caseId":"TC-GRP-SPEC-015","assertionIndexes":[1,2],"evidenceBasis":"未引用规格明细删除后 UI/API 一致。"}
+    ]},
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O02","obligationStatement":"仅剩一个选项时不可删除并提示「该组只有一个选项，不能删除」","caseClaims":[
+      {"caseId":"TC-GRP-ADD-014","assertionIndexes":[1,2],"evidenceBasis":"加料组唯一项精确提示并保留。"},
+      {"caseId":"TC-GRP-TASTE-021","assertionIndexes":[1,2],"evidenceBasis":"口味组唯一项精确提示并保留。"},
+      {"caseId":"TC-GRP-PKG-009","assertionIndexes":[1],"evidenceBasis":"套餐组唯一商品精确提示并保留。"}
+    ]},
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O03","obligationStatement":"规格 被引用 → 删除失败，须先从商品移除","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-016","assertionIndexes":[1,2],"evidenceBasis":"被引用规格明细删除被阻止且组与商品均保留。"}
+    ]},
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O04","obligationStatement":"口味/做法/加料 被引用 → 走确认变更弹窗（变更预览、影响所有关联商品），确认后同步移除","caseClaims":[
+      {"caseId":"TC-GRP-TASTE-010","assertionIndexes":[1,2,3],"evidenceBasis":"口味明细确认后从组及引用商品同步移除。"},
+      {"caseId":"TC-GRP-MTH-008","assertionIndexes":[1,2,3],"evidenceBasis":"做法明细确认后从组及引用商品同步移除。"},
+      {"caseId":"TC-GRP-ADD-018","assertionIndexes":[1,2,3,4],"evidenceBasis":"加料明细变更预览、取消及确认后的全量同步被验证。"}
+    ]},
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O05","obligationStatement":"套餐组仅剩一个套餐商品时同样不可删除","caseClaims":[
+      {"caseId":"TC-GRP-PKG-009","assertionIndexes":[1],"evidenceBasis":"套餐组唯一商品删除失败并保留。"}
+    ]},
+    {"ruleId":"BR-GRP-035","obligationId":"BR-GRP-035:O06","obligationStatement":"存在多个套餐商品时可删除，已被套餐商品引用则确认后同步更新","caseClaims":[
+      {"caseId":"TC-GRP-PKG-010","assertionIndexes":[1,2,3],"evidenceBasis":"多商品被引用套餐组经影响确认后删除子项并同步引用套餐。"}
+    ]},
+
+    {"ruleId":"BR-GRP-SPEC-001","obligationId":"BR-GRP-SPEC-001:O01","obligationStatement":"规格组保存前须至少一个规格子项","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-006","assertionIndexes":[1,2],"evidenceBasis":"没有有效规格子项时精确必填提示、无请求且无数据。"}
+    ]},
+    {"ruleId":"BR-GRP-SPEC-002","obligationId":"BR-GRP-SPEC-002:O01","obligationStatement":"规格子项名称 品牌内不可重复","caseClaims":[
+      {"caseId":"TC-GRP-SPEC-025","assertionIndexes":[1,2],"evidenceBasis":"跨规格组的同名规格子项被品牌级唯一性阻断。"}
+    ]}
+  ]
+}

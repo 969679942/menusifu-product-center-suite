@@ -1,0 +1,1793 @@
+{
+  "schemaVersion": "1.0.0",
+  "systemId": "merchant-center-product-center-seasoning",
+  "adapters": [
+    {
+      "id": "merchant-center.seasoning.auth",
+      "kind": "auth",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/setup.spec.ts",
+        "sha256": "94d3aa494e395c8bb61bd08e4992cee885454570b0b16db6e9e872ae19154b98",
+        "dependencies": [
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          },
+          {
+            "path": "test-data/seasoning-context.ts",
+            "sha256": "4ba68c60f874b0fbd7036e4fee1bd5556176712c689d7879ec586fd9c6b19b30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.context",
+      "kind": "context-guard",
+      "actions": [
+        "read",
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-context-guard",
+        "sha256": "aa016274c6716aff75472ddf608acd5151210ab013acc540ef0b0ab19ce67919"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.preflight",
+      "kind": "probe",
+      "actions": [
+        "read",
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/preflight.spec.ts",
+        "sha256": "dd53fd5cb53c22cfa44b8c79d688b3efb5fefd59cc2bcf64e39edb7872fb28bd"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.seed",
+      "kind": "seed",
+      "actions": [
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.seed-single-store-distribution",
+      "kind": "seed",
+      "actions": [
+        "create"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-seed-single-store-distribution",
+        "sha256": "3acd514767cf1eacb99d5770369f1d28e8de5abd7102a9a879faa2d919b82fa0",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-seed-store-common",
+            "sha256": "e2d54126a2777a9276c20bee21c3118aa95b2fd74fed64ec5e93cbbe547eab5f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.seed-multi-store-distribution",
+      "kind": "seed",
+      "actions": [
+        "create",
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-seed-multi-store-distribution",
+        "sha256": "c49a1886630dcd6ef64b046b26d8aca130a3bc73328dcfe62d1c61465020e787",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-seed-store-common",
+            "sha256": "e2d54126a2777a9276c20bee21c3118aa95b2fd74fed64ec5e93cbbe547eab5f"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-distribute-template",
+            "sha256": "7f8dadf0ab3607afdf34a491d3ecc9c96ecd7d09520649eda37973d06969779a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.single-store-action-readiness",
+      "kind": "action-readiness",
+      "actions": [
+        "create"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-action-readiness",
+        "sha256": "2fe6607eb730783e48555ef3dcdef96f11326c926c13bff4d9a9cb1701b918d9",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-readiness-identity-helpers",
+            "sha256": "c75fd53a4dc7192c2e101160f58388ee219a6cdd62d5b4a6b6015610db82f6e8"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-action-readiness-dispatch",
+            "sha256": "d209df289e17692240da4e347e787ac6e0c9966e09fa1b328cd009df03ee81af"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-single-store-action-readiness",
+            "sha256": "e1c1c3018d086b57e2e4ef1a5436f661606860b6073c9ce59e750e590acaca5a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-group-delete-action-readiness",
+      "kind": "action-readiness",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-action-readiness",
+        "sha256": "2fe6607eb730783e48555ef3dcdef96f11326c926c13bff4d9a9cb1701b918d9",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-readiness-identity-helpers",
+            "sha256": "c75fd53a4dc7192c2e101160f58388ee219a6cdd62d5b4a6b6015610db82f6e8"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-action-readiness-dispatch",
+            "sha256": "d209df289e17692240da4e347e787ac6e0c9966e09fa1b328cd009df03ee81af"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-group-delete-action-readiness",
+            "sha256": "e7111b92c0480ff0734e3f2ff4bc187d62cf2c5ce4e374ed5508e653e7fc1953"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-option-delete-action-readiness",
+      "kind": "action-readiness",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-action-readiness",
+        "sha256": "2fe6607eb730783e48555ef3dcdef96f11326c926c13bff4d9a9cb1701b918d9",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-readiness-identity-helpers",
+            "sha256": "c75fd53a4dc7192c2e101160f58388ee219a6cdd62d5b4a6b6015610db82f6e8"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-action-readiness-dispatch",
+            "sha256": "d209df289e17692240da4e347e787ac6e0c9966e09fa1b328cd009df03ee81af"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-option-delete-action-readiness",
+            "sha256": "729b389e99cc698caf87084f2dd62ed95c5d6bf2edf60d53e81b9efbb1e2334d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-batch-delete-action-readiness",
+      "kind": "action-readiness",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-action-readiness",
+        "sha256": "2fe6607eb730783e48555ef3dcdef96f11326c926c13bff4d9a9cb1701b918d9",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-readiness-identity-helpers",
+            "sha256": "c75fd53a4dc7192c2e101160f58388ee219a6cdd62d5b4a6b6015610db82f6e8"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-action-readiness-dispatch",
+            "sha256": "d209df289e17692240da4e347e787ac6e0c9966e09fa1b328cd009df03ee81af"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-batch-delete-action-readiness",
+            "sha256": "3cd2433a152736650185a13014359ad14bd0c38c491efd3005c2188c4fc15c87"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-redeliver-action-readiness",
+      "kind": "action-readiness",
+      "actions": [
+        "create"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-action-readiness",
+        "sha256": "2fe6607eb730783e48555ef3dcdef96f11326c926c13bff4d9a9cb1701b918d9",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-readiness-identity-helpers",
+            "sha256": "c75fd53a4dc7192c2e101160f58388ee219a6cdd62d5b4a6b6015610db82f6e8"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-action-readiness-dispatch",
+            "sha256": "d209df289e17692240da4e347e787ac6e0c9966e09fa1b328cd009df03ee81af"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-group-delete-action-readiness",
+            "sha256": "e7111b92c0480ff0734e3f2ff4bc187d62cf2c5ce4e374ed5508e653e7fc1953"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-template-distribution-action-readiness",
+            "sha256": "29d57e46a19ca739afb0cf9419d7511bf53244606f6f5d7846c191f57627f3f8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.cleanup",
+      "kind": "cleanup",
+      "actions": [
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-cleanup",
+        "sha256": "25783f58104323e71205cdce92cd0e3df0d07549ab4012c5e4211ead8795d09a"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.api-zero-residue",
+      "kind": "api-residue",
+      "actions": [
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "observationChannels": [
+        "cleanup"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-cleanup",
+        "sha256": "25783f58104323e71205cdce92cd0e3df0d07549ab4012c5e4211ead8795d09a"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.ui-zero-residue",
+      "kind": "ui-residue",
+      "actions": [
+        "create",
+        "edit",
+        "delete",
+        "negative",
+        "boundary"
+      ],
+      "observationChannels": [
+        "cleanup"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-cleanup",
+        "sha256": "25783f58104323e71205cdce92cd0e3df0d07549ab4012c5e4211ead8795d09a"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.recovery",
+      "kind": "recovery",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/recovery.spec.ts",
+        "sha256": "201bdd497b9a446e784d14b3bd2060e2343e4219ab4896f38fd650ffd0473252"
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.create-boundary",
+      "kind": "capability",
+      "actions": [
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.create-minimal",
+      "kind": "capability",
+      "actions": [
+        "create"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.edit-group",
+      "kind": "capability",
+      "actions": [
+        "edit"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.delete-empty-group",
+      "kind": "capability",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.price-correction",
+      "kind": "capability",
+      "actions": [
+        "negative"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.rounding",
+      "kind": "capability",
+      "actions": [
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.record-task-search",
+      "kind": "capability",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.record-reset",
+      "kind": "capability",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.template-create-audit",
+      "kind": "capability",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.template-distribution-audit",
+      "kind": "capability",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.single-store-template-absence",
+      "kind": "capability",
+      "actions": [
+        "read"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-replace-distribution",
+      "kind": "capability",
+      "actions": [
+        "create",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-replace-distribution",
+        "sha256": "a1aeff6b40d52ff61a1b751c426778293998bcbb9154ae451eef007260840a6e",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-before",
+            "sha256": "9fa86ea31872545406ced4d15ac420c0e38a88e7328ea8158891d1687bed3fb3"
+          },
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-after",
+            "sha256": "f96c587a07b8c3fdb84a4befaa15b1bd05b3ef67221b0b2c9d92d6a0153c37d1"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-distribute-all-single-store",
+            "sha256": "173bf5fef2db3cca383c182ece9efc772e8dd562d153296b23a5bede8959da62"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-delete-group",
+      "kind": "capability",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-delete-group",
+        "sha256": "d080c35351bb1d135ae21239baf6c2d649eac03810c6d98e985a8a5b813e7493",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-before",
+            "sha256": "9fa86ea31872545406ced4d15ac420c0e38a88e7328ea8158891d1687bed3fb3"
+          },
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-after",
+            "sha256": "f96c587a07b8c3fdb84a4befaa15b1bd05b3ef67221b0b2c9d92d6a0153c37d1"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-delete-store-group",
+            "sha256": "386cd76ad9e17c1b6fa1b4bcf049679e6f72e5f57d367b2db80e59938aeda7f9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-delete-option",
+      "kind": "capability",
+      "actions": [
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-delete-option",
+        "sha256": "2e293d3abbc675cf8630745fae2f1a79d07af549462464914199f45f5c6895ce",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-before",
+            "sha256": "9fa86ea31872545406ced4d15ac420c0e38a88e7328ea8158891d1687bed3fb3"
+          },
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-after",
+            "sha256": "f96c587a07b8c3fdb84a4befaa15b1bd05b3ef67221b0b2c9d92d6a0153c37d1"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-delete-store-option",
+            "sha256": "750b1e5a8e1839c8bdc4baf5ab23da261c48acea1d13aa49bae5b3ea9d049037"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-batch-delete",
+      "kind": "capability",
+      "actions": [
+        "delete",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-batch-delete",
+        "sha256": "9f754cbc61cc493447ac78ed946d010882c76108edf14d4a5e68f50d73fcd818",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-before",
+            "sha256": "9fa86ea31872545406ced4d15ac420c0e38a88e7328ea8158891d1687bed3fb3"
+          },
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-after",
+            "sha256": "f96c587a07b8c3fdb84a4befaa15b1bd05b3ef67221b0b2c9d92d6a0153c37d1"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-batch-delete-store",
+            "sha256": "7d352722fe1263aa87801647a776f8b086dee20dc39fb37515b3c73163bdb36a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.store-redeliver-restore",
+      "kind": "capability",
+      "actions": [
+        "create",
+        "delete"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-store-redeliver-restore",
+        "sha256": "c0b6eb8825fb9c390520bbec9860eeb30519d7c822ca4c8affd4bfb023b42450",
+        "dependencies": [
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-before",
+            "sha256": "9fa86ea31872545406ced4d15ac420c0e38a88e7328ea8158891d1687bed3fb3"
+          },
+          {
+            "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+            "sourceSection": "seasoning-store-mutation-common-after",
+            "sha256": "f96c587a07b8c3fdb84a4befaa15b1bd05b3ef67221b0b2c9d92d6a0153c37d1"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-store-mutation-common",
+            "sha256": "0b879af92dfd4cd62b4d0bda1aa4e1ca48d52fa7709b8587ae102c0e3a98cc20"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-delete-store-group",
+            "sha256": "386cd76ad9e17c1b6fa1b4bcf049679e6f72e5f57d367b2db80e59938aeda7f9"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sourceSection": "seasoning-page-distribute-template",
+            "sha256": "7f8dadf0ab3607afdf34a491d3ecc9c96ecd7d09520649eda37973d06969779a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.static-contract",
+      "kind": "capability",
+      "actions": [
+        "read",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.template-name-normalization",
+      "kind": "capability",
+      "actions": [
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.ui-mutation",
+      "kind": "capability",
+      "actions": [
+        "create",
+        "edit",
+        "negative",
+        "boundary"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-static-contract",
+      "kind": "assertion",
+      "actions": [
+        "read",
+        "boundary"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-ui-mutation",
+      "kind": "assertion",
+      "actions": [
+        "create",
+        "edit",
+        "negative",
+        "boundary"
+      ],
+      "observationChannels": [
+        "ui",
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-ui-created",
+      "kind": "assertion",
+      "actions": [
+        "create",
+        "boundary"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-api-created",
+      "kind": "assertion",
+      "actions": [
+        "boundary"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-api-identity",
+      "kind": "assertion",
+      "actions": [
+        "create"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-ui-edited",
+      "kind": "assertion",
+      "actions": [
+        "edit"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-api-edited",
+      "kind": "assertion",
+      "actions": [
+        "edit"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-ui-deleted",
+      "kind": "assertion",
+      "actions": [
+        "delete"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-api-deleted",
+      "kind": "assertion",
+      "actions": [
+        "delete"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-create-price-correction",
+      "kind": "assertion",
+      "actions": [
+        "negative"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-edit-price-reversion",
+      "kind": "assertion",
+      "actions": [
+        "negative"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-round-half-up",
+      "kind": "assertion",
+      "actions": [
+        "boundary"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-round-down",
+      "kind": "assertion",
+      "actions": [
+        "boundary"
+      ],
+      "observationChannels": [
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-record-task-search",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-record-reset",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-template-create-fields",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-template-create-required",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-template-distribution-menu",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-template-store-dialog",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-single-store-template-absence",
+      "kind": "assertion",
+      "actions": [
+        "read"
+      ],
+      "observationChannels": [
+        "ui"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sha256": "597a720de1c4d1fe51277ed1fae3a71e19c751270078c9d80c96d7a53fee67cf",
+        "dependencies": [
+          {
+            "path": "adapters/product-center/seasoning-reporting.ts",
+            "sha256": "c1e14cae3a8c143601c151f3d5c7301fe4fb4272a083cf94c20c5c6ab471bddb"
+          },
+          {
+            "path": "pages/product-center/seasoning-boundary.page.ts",
+            "sha256": "f8509d9c741bd971d4f5417add2ec502dcdfc89f2cde33f76117e7dc9578b053"
+          },
+          {
+            "path": "pages/product-center/product-center-sop.page.ts",
+            "sha256": "99a1230f956661fe2f2dcea84890b84720da233346681b86cffe8a455578aa3f"
+          },
+          {
+            "path": "flows/auth.flow.ts",
+            "sha256": "fb6f73729a0b43e1f874b9e3a58c77c0ca29cd6c0d8add1b11a1fd22105cd132"
+          },
+          {
+            "path": "pages/auth-login.page.ts",
+            "sha256": "8f7b07ba7546b265fea754884e7eb013ee6c41a804be8efa62806060b1b37e80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "merchant-center.seasoning.assert-store-mutation",
+      "kind": "assertion",
+      "actions": [
+        "create",
+        "delete",
+        "boundary"
+      ],
+      "observationChannels": [
+        "ui",
+        "api"
+      ],
+      "implementation": {
+        "path": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+        "sourceSection": "seasoning-assert-store-mutation",
+        "sha256": "ccd651af95dc82b7421edc235e6b930f37830399a3469e6a1a40163d0e6d8d37"
+      }
+    }
+  ],
+  "operationKeys": [
+    "brand-menu:POST /ops-brand/global-modifier",
+    "brand-menu:POST /ops-brand/global-modifier/batch",
+    "brand-menu:PUT /ops-brand/global-modifier/{id}",
+    "brand-menu:DELETE /ops-brand/global-modifier/{id}",
+    "brand-menu:POST /ops-brand/global-modifier/options/batch-move",
+    "brand-menu:PUT /ops-brand/global-modifier/sort",
+    "brand-menu:POST /ops-brand/brand-modifier-sync/all",
+    "brand-menu:POST /ops-brand/brand-modifier-sync/by-template",
+    "brand-menu:POST /ops-brand/modifier-template",
+    "brand-menu:GET /ops-brand/modifier-template/page",
+    "brand-menu:PUT /ops-brand/modifier-template/{id}",
+    "brand-menu:DELETE /ops-brand/modifier-template/{id}",
+    "brand-menu:GET /ops-poi/global-modifier/list",
+    "brand-menu:DELETE /ops-poi/global-modifier/{id}",
+    "brand-menu:DELETE /ops-poi/global-modifier/option/{optionId}",
+    "brand-menu:POST /ops-poi/global-modifier/batch-delete"
+  ],
+  "externalCapabilities": []
+}

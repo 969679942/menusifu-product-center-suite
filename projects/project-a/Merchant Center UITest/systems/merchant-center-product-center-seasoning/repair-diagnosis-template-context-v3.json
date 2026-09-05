@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-002",
+    "TC-FLV-TPL-005"
+  ],
+  "rootCause": "v2 修复轮次继续暴露认证状态机缺口：Page 级请求监听遗漏 worker 请求，复用态权限加载完成前误判商户上下文，OAuth 权限页回退登录页后仍空等权限终态。该轮一条尝试在 setup 中断；另一条中 TPL-005 已通过，TPL-002 在 before-action 守卫前失败且无业务收据。",
+  "correctiveAction": "公共认证层改为 BrowserContext 监听、profile 独立临时状态、真实 x-brand-id 复用验证、15 秒失效态上限、最多两次 UI OAuth 回退和原子状态写入；主项目与调味 setup 共用 bootstrap。当前先定向执行 TPL-002 获取当前实现的精确页面结果，再按收据决定是否需要继续修复。",
+  "evidenceRefs": [
+    "flows/auth.flow.ts",
+    "pages/auth-login.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/setup.spec.ts",
+    "tests/api/auth-flow.contract.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787554243326/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "0d49dfc26b53055b",
+    "9831f54e2f8a214f",
+    "1c9272de3c0b93d1",
+    "d5f6c9c1c86bfd0c"
+  ]
+}

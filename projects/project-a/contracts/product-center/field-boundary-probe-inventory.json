@@ -1,0 +1,928 @@
+{
+  "generatedAt": "2026-07-22T09:36:38.624Z",
+  "total": 37,
+  "byRoute": [
+    {
+      "route": "/pp/language-manage",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/category",
+      "count": 1
+    },
+    {
+      "route": "/pp/brand/spec",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/option-group/attribute-group-set",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/option-group/taste",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/option-group/method",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/option-group/additional",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/combo",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/seasoning/list",
+      "count": 1
+    },
+    {
+      "route": "/pp/brand/seasoning/record",
+      "count": 2
+    },
+    {
+      "route": "/pp/brand/tag/description",
+      "count": 6
+    },
+    {
+      "route": "/poi/tax/product-tax",
+      "count": 2
+    },
+    {
+      "route": "/poi/bom/list",
+      "count": 1
+    },
+    {
+      "route": "/poi/printer-stall/list",
+      "count": 4
+    },
+    {
+      "route": "/pp/brand/tag/statistic",
+      "count": 4
+    },
+    {
+      "route": "/pp/printer-stall/list",
+      "count": 2
+    }
+  ],
+  "records": [
+    {
+      "id": "field-constraint:/pp/language-manage#field-1",
+      "route": "/pp/language-manage",
+      "fieldId": "/pp/language-manage#field-1",
+      "label": "",
+      "placeholder": "商品",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/language-manage#field-6",
+      "route": "/pp/language-manage",
+      "fieldId": "/pp/language-manage#field-6",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/category#field-1",
+      "route": "/pp/brand/category",
+      "fieldId": "/pp/brand/category#field-1",
+      "label": "",
+      "placeholder": "请输入分类名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "商品分类",
+        "fields": [
+          "分类名称"
+        ],
+        "behavior": "空表单提交禁用",
+        "source": "artifacts/required-validation-1784567388786/validation-report.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/spec#field-1",
+      "route": "/pp/brand/spec",
+      "fieldId": "/pp/brand/spec#field-1",
+      "label": "",
+      "placeholder": "规格组名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "规格组名称",
+          "required": false,
+          "minLength": null,
+          "maxLength": 100,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "规格组",
+        "fields": [
+          "规格组名称"
+        ],
+        "behavior": "空提交显示请输入规格组名称",
+        "source": "artifacts/crud-spec-v2-AUTO_AUDIT_SPEC_1784593612769/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/spec#field-2",
+      "route": "/pp/brand/spec",
+      "fieldId": "/pp/brand/spec#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": null,
+          "maxLength": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "规格组",
+        "fields": [
+          "规格组名称"
+        ],
+        "behavior": "空提交显示请输入规格组名称",
+        "source": "artifacts/crud-spec-v2-AUTO_AUDIT_SPEC_1784593612769/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/attribute-group-set#field-1",
+      "route": "/pp/brand/option-group/attribute-group-set",
+      "fieldId": "/pp/brand/option-group/attribute-group-set#field-1",
+      "label": "",
+      "placeholder": "搜索属性集",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/attribute-group-set#field-2",
+      "route": "/pp/brand/option-group/attribute-group-set",
+      "fieldId": "/pp/brand/option-group/attribute-group-set#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/taste#field-1",
+      "route": "/pp/brand/option-group/taste",
+      "fieldId": "/pp/brand/option-group/taste#field-1",
+      "label": "",
+      "placeholder": "口味组名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "口味组",
+        "fields": [
+          "口味组名称"
+        ],
+        "behavior": "空提交显示请输入口味组名称",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/taste#field-2",
+      "route": "/pp/brand/option-group/taste",
+      "fieldId": "/pp/brand/option-group/taste#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "口味组",
+        "fields": [
+          "口味组名称"
+        ],
+        "behavior": "空提交显示请输入口味组名称",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/method#field-1",
+      "route": "/pp/brand/option-group/method",
+      "fieldId": "/pp/brand/option-group/method#field-1",
+      "label": "",
+      "placeholder": "做法组名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "做法组名称",
+          "required": false,
+          "minLength": null,
+          "maxLength": 100,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "做法组",
+        "fields": [
+          "组名称"
+        ],
+        "behavior": "空提交显示请输入组名称",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/method#field-2",
+      "route": "/pp/brand/option-group/method",
+      "fieldId": "/pp/brand/option-group/method#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": null,
+          "maxLength": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "做法组",
+        "fields": [
+          "组名称"
+        ],
+        "behavior": "空提交显示请输入组名称",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/additional#field-1",
+      "route": "/pp/brand/option-group/additional",
+      "fieldId": "/pp/brand/option-group/additional#field-1",
+      "label": "",
+      "placeholder": "加料组名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "加料组",
+        "fields": [
+          "加料组名称",
+          "加料项"
+        ],
+        "behavior": "选择前提交禁用，满足条件后启用",
+        "source": "artifacts/crud-additional-v2-AUTO_AUDIT_ADDITIONAL_1784591701918/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/option-group/additional#field-2",
+      "route": "/pp/brand/option-group/additional",
+      "fieldId": "/pp/brand/option-group/additional#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/combo#field-1",
+      "route": "/pp/brand/combo",
+      "fieldId": "/pp/brand/combo#field-1",
+      "label": "",
+      "placeholder": "套餐组名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "套餐组",
+        "fields": [
+          "套餐组名称",
+          "套餐类型",
+          "套餐组商品"
+        ],
+        "behavior": "空提交禁用",
+        "source": "artifacts/crud-combo-AUTO_AUDIT_COMBO_1784594291192/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/combo#field-2",
+      "route": "/pp/brand/combo",
+      "fieldId": "/pp/brand/combo#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/seasoning/list#field-1",
+      "route": "/pp/brand/seasoning/list",
+      "fieldId": "/pp/brand/seasoning/list#field-1",
+      "label": "",
+      "placeholder": "调味名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/seasoning/record#field-1",
+      "route": "/pp/brand/seasoning/record",
+      "fieldId": "/pp/brand/seasoning/record#field-1",
+      "label": "",
+      "placeholder": "任务名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "任务名称",
+          "required": false,
+          "minLength": null,
+          "maxLength": 100,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/seasoning/record#field-2",
+      "route": "/pp/brand/seasoning/record",
+      "fieldId": "/pp/brand/seasoning/record#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": null,
+          "maxLength": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#field-1",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#field-1",
+      "label": "",
+      "placeholder": "标签名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "描述标签",
+        "fields": [
+          "标签名称",
+          "标签组名称"
+        ],
+        "behavior": "空提交显示两项错误",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#field-2",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#field-2",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/tax/product-tax#field-1",
+      "route": "/poi/tax/product-tax",
+      "fieldId": "/poi/tax/product-tax#field-1",
+      "label": "",
+      "placeholder": "商品名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/tax/product-tax#field-54",
+      "route": "/poi/tax/product-tax",
+      "fieldId": "/poi/tax/product-tax#field-54",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/bom/list#field-1",
+      "route": "/poi/bom/list",
+      "fieldId": "/poi/bom/list#field-1",
+      "label": "",
+      "placeholder": "配方单名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/printer-stall/list#field-1",
+      "route": "/poi/printer-stall/list",
+      "fieldId": "/poi/printer-stall/list#field-1",
+      "label": "",
+      "placeholder": "档口名称",
+      "type": "text",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/printer-stall/list#field-4",
+      "route": "/poi/printer-stall/list",
+      "fieldId": "/poi/printer-stall/list#field-4",
+      "label": "",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": null,
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-34",
+      "route": "/pp/brand/tag/statistic",
+      "fieldId": "/pp/brand/tag/statistic#action-1#primary-1#field-34",
+      "label": "标签名称",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "placeholder": "标签名称",
+          "required": false,
+          "minLength": null,
+          "maxLength": 100,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "统计标签",
+        "fields": [
+          "标签名称",
+          "标签组名称"
+        ],
+        "behavior": "空提交显示两项错误",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-35",
+      "route": "/pp/brand/tag/statistic",
+      "fieldId": "/pp/brand/tag/statistic#action-1#primary-1#field-35",
+      "label": "",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-36",
+      "route": "/pp/brand/tag/statistic",
+      "fieldId": "/pp/brand/tag/statistic#action-1#primary-1#field-36",
+      "label": "分组名称",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+      "liveMatches": [
+        {
+          "tag": "INPUT",
+          "type": "search",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "minLength": null,
+          "maxLength": null,
+          "min": null,
+          "max": null,
+          "step": null,
+          "pattern": null,
+          "accept": null,
+          "multiple": false,
+          "readOnly": false
+        }
+      ],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/statistic#action-1#primary-1#field-37",
+      "route": "/pp/brand/tag/statistic",
+      "fieldId": "/pp/brand/tag/statistic#action-1#primary-1#field-37",
+      "label": "",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/statistic#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/printer-stall/list#action-3#primary-1#field-42",
+      "route": "/pp/printer-stall/list",
+      "fieldId": "/pp/printer-stall/list#action-3#primary-1#field-42",
+      "label": "档口名称",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/printer-stall/list#action-3#primary-1",
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "打印档口（品牌）",
+        "fields": [
+          "档口名称"
+        ],
+        "behavior": "空提交显示请输入档口名称且未发送 mutation",
+        "source": "artifacts/required-validation-1784567388786/validation-report.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/printer-stall/list#action-3#primary-1#field-43",
+      "route": "/pp/printer-stall/list",
+      "fieldId": "/pp/printer-stall/list#action-3#primary-1#field-43",
+      "label": "备注",
+      "placeholder": "",
+      "type": "",
+      "overlayId": "/pp/printer-stall/list#action-3#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/printer-stall/list#action-3#primary-1#field-44",
+      "route": "/poi/printer-stall/list",
+      "fieldId": "/poi/printer-stall/list#action-3#primary-1#field-44",
+      "label": "打印机名称",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/poi/printer-stall/list#action-3#primary-1",
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "打印机",
+        "fields": [
+          "打印机名称",
+          "打印档口"
+        ],
+        "behavior": "空提交显示错误且未发送 mutation",
+        "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/poi/printer-stall/list#action-3#primary-1#field-45",
+      "route": "/poi/printer-stall/list",
+      "fieldId": "/poi/printer-stall/list#action-3#primary-1#field-45",
+      "label": "打印档口",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": "/poi/printer-stall/list#action-3#primary-1",
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "打印机",
+        "fields": [
+          "打印机名称",
+          "打印档口"
+        ],
+        "behavior": "空提交显示错误且未发送 mutation",
+        "source": "artifacts/crud-printer-AUTO_AUDIT_PRINTER_1784598605918/result.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-55",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#action-1#primary-1#field-55",
+      "label": "标签名称",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": {
+        "status": "observed",
+        "entity": "描述标签",
+        "fields": [
+          "标签名称",
+          "标签组名称"
+        ],
+        "behavior": "空提交显示两项错误",
+        "source": "artifacts/required-validation-targeted-1784612952098/required-validation-targeted.json"
+      },
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-56",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#action-1#primary-1#field-56",
+      "label": "",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-57",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#action-1#primary-1#field-57",
+      "label": "分组名称",
+      "placeholder": "",
+      "type": "search",
+      "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    },
+    {
+      "id": "field-constraint:/pp/brand/tag/description#action-1#primary-1#field-58",
+      "route": "/pp/brand/tag/description",
+      "fieldId": "/pp/brand/tag/description#action-1#primary-1#field-58",
+      "label": "",
+      "placeholder": "",
+      "type": "text",
+      "overlayId": "/pp/brand/tag/description#action-1#primary-1",
+      "liveMatches": [],
+      "requiredValidation": null,
+      "unknowns": {
+        "characterSet": "not-probed",
+        "semanticMaxLength": "not-probed",
+        "crossFieldRule": "not-probed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "标准页面对象在权限终态稳定前读取到 Requesting permissions...；此前两次尝试分别暴露该时序缺口及其证据收集影响，均未进入业务断言。",
+  "correctiveAction": "采用有界终态等待修复，并将未进入业务断言的两次尝试作为环境/自动化诊断历史无效化；随后只执行一次当前实现验证，要求完整 context 和 assertion receipts。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787558310214_TC-FLV-TPL-006.error.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": ["f6c841dac163881d", "f76d07aa875f2bd9"]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "seasoning-sea041-no-request-safe-retry-20260905",
+  "applicationId": "merchant-center",
+  "defaultImpactType": "evidence-gap",
+  "impactedCaseIds": [
+    "TC-FLV-SEA-041"
+  ],
+  "caseImpactTypes": {
+    "TC-FLV-SEA-041": "evidence-gap"
+  },
+  "recommendation": "必须",
+  "purpose": "补齐调味组排序在拖拽后未发出业务保存请求造成的当前标准收据缺口。",
+  "expectedResult": "仅重放 TC-FLV-SEA-041；确认排序 PUT、UI/API 顺序回读与两条临时调味组零残留。",
+  "downstreamImpact": "首次尝试已确认没有业务 PUT 且 API/UI 残留为零，因此单条重放不会重复写入；其他已通过用例不重跑、不失效。"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-TAG-BDG-009",
+    "TC-TAG-BDG-018",
+    "TC-TAG-BDG-019",
+    "TC-TAG-BDG-020",
+    "TC-TAG-BDG-021",
+    "TC-TAG-BDG-024",
+    "TC-TAG-DESC-013",
+    "TC-TAG-DESC-014",
+    "TC-TAG-DESC-027",
+    "TC-TAG-DESC-028",
+    "TC-TAG-STAT-012",
+    "TC-TAG-STAT-013",
+    "TC-TAG-STAT-024",
+    "TC-TAG-STAT-028",
+    "TC-TAG-STAT-029"
+  ],
+  "classification": "evidence-gap",
+  "phase": "pre-execution-repair-governance",
+  "rootCause": "标签历史收据缺少可证明当前逐案语义指纹的谱系，不能通过批量替换指纹继续授权 passed；当前用例、绑定和执行路由已具备，只缺当前标准执行收据。",
+  "correctiveAction": "仅执行当前计划中的 15 条标签定向重验证用例；逐条保存操作、断言、上下文与清理收据，独立失败继续执行并按产品、自动化、证据、环境或瞬时平台问题分类。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/tag-semantic-evidence-revalidation-impact-20260905.json",
+    "deliverables/system-test-platform/tag-semantic-evidence-revalidation-optimization-plan-20260905.json",
+    "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+    "deliverables/system-test-platform/product-center-asset-remediation-queues.json"
+  ],
+  "planFingerprint": "ca7119a71056eeaaa0d4dc89688c5958962ef80be0c48f29bad21f0ac2b368f8",
+  "selectionFingerprint": "765ed7958fbf9ebf47da0cf11b5b785c638c73190576d1163ea4b5dc1cf7a2fe",
+  "existingPassedCasesImpact": "仅重验当前整改队列用例；指纹匹配的既有通过结果保持不变。",
+  "rerunScope": [
+    "TC-TAG-BDG-009",
+    "TC-TAG-BDG-018",
+    "TC-TAG-BDG-019",
+    "TC-TAG-BDG-020",
+    "TC-TAG-BDG-021",
+    "TC-TAG-BDG-024",
+    "TC-TAG-DESC-013",
+    "TC-TAG-DESC-014",
+    "TC-TAG-DESC-027",
+    "TC-TAG-DESC-028",
+    "TC-TAG-STAT-012",
+    "TC-TAG-STAT-013",
+    "TC-TAG-STAT-024",
+    "TC-TAG-STAT-028",
+    "TC-TAG-STAT-029"
+  ]
+}

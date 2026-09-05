@@ -1,0 +1,1689 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-automation-fast-lane",
+  "generatedAt": "2026-08-30T06:15:13.017Z",
+  "status": "ready",
+  "sourceFingerprints": {
+    "technicalStatus": "f09ac5edc1fdf4f84a6cb99ac3e718cf7b047757fcfcc5560f81e62f018973de",
+    "canonicalPlan": "1c3be424523e922eb39db7194ea0b94c5c3d4861bc499fdf7ee26eb4cd846233",
+    "fullReview": "5cfaafd5341e9019427ec4854e241c6478815a82548f8201b6c0dc925cfdcd69",
+    "technicalStatusFile": "df2aa721793e626dd5640d00d4dc8f9f9f026ddf313a8e5299d043a08aed7579",
+    "canonicalPlanFile": "fd3d1fa7009371b0ccf621a2a06965499ea5db58b9c7a1a75a930a0cbb1c2c32",
+    "fullReviewFile": "a5633b2355231c23038ece7547395e9b35fd1f31b8e5de876bce66ec9f3afbbc"
+  },
+  "summary": {
+    "excludedFromAccurateRelease": 136,
+    "automaticTechnicalPipeline": 120,
+    "automaticGreen": 59,
+    "automaticYellow": 61,
+    "automaticTemplateGroups": 56,
+    "greenTemplateGroups": 20,
+    "yellowTemplateGroups": 36,
+    "manualRuleReview": 9,
+    "manualRuleReviewGroups": 6,
+    "productDefectQueue": 6,
+    "environmentBlocked": 1,
+    "staticSemanticReReviewRequired": 0
+  },
+  "policy": {
+    "reviewByTemplateNotCase": true,
+    "fullReviewApprovalReused": true,
+    "runtimeEvidenceReusedBySharedChain": true,
+    "runtimeEvidenceInheritanceRequiresIdenticalShape": true,
+    "runtimeEvidenceInheritanceAllowed": false,
+    "caseLevelEvidenceRequired": true,
+    "sharedChainSetupReuseAllowed": true,
+    "greenHumanReviewRequired": false,
+    "yellowReviewScope": "all-cases-in-shared-chain",
+    "yellowSampleMode": "automated-controlled-probe",
+    "redCasesMayGenerateAutomation": false,
+    "productDefectsRequireCaseRewrite": false,
+    "environmentBlockRequiresCaseReview": false
+  },
+  "automaticTechnicalPipeline": {
+    "caseIds": [
+      "TC-ITEM-ADD-002",
+      "TC-ITEM-ADD-007",
+      "TC-ITEM-ADD-009",
+      "TC-ITEM-ADD-011",
+      "TC-ITEM-ADD-012",
+      "TC-ITEM-ADD-013",
+      "TC-ITEM-ADD-017",
+      "TC-ITEM-ADD-018",
+      "TC-ITEM-ADD-019",
+      "TC-ITEM-ADD-020",
+      "TC-ITEM-ADD-021",
+      "TC-ITEM-ADD-022",
+      "TC-ITEM-ADD-025",
+      "TC-ITEM-ADD-033",
+      "TC-ITEM-ADD-035",
+      "TC-ITEM-ADD-037",
+      "TC-ITEM-ADD-038",
+      "TC-ITEM-ADD-039",
+      "TC-ITEM-ADD-041",
+      "TC-ITEM-ADD-045",
+      "TC-ITEM-ADD-049",
+      "TC-ITEM-PKG-003",
+      "TC-ITEM-PKG-005",
+      "TC-ITEM-PKG-011",
+      "TC-ITEM-PKG-012",
+      "TC-ITEM-PKG-014",
+      "TC-ITEM-PKG-016",
+      "TC-ITEM-PKG-018",
+      "TC-ITEM-PKG-020",
+      "TC-ITEM-PKG-021",
+      "TC-ITEM-PKG-022",
+      "TC-ITEM-PKG-023",
+      "TC-ITEM-PKG-027",
+      "TC-ITEM-PKG-028",
+      "TC-ITEM-PKG-029",
+      "TC-ITEM-PKG-030",
+      "TC-ITEM-PKG-031",
+      "TC-ITEM-PKG-032",
+      "TC-ITEM-PKG-033",
+      "TC-ITEM-PKG-034",
+      "TC-ITEM-PKG-036",
+      "TC-ITEM-PKG-042",
+      "TC-ITEM-PKG-043",
+      "TC-ITEM-PKG-044",
+      "TC-ITEM-PKG-045",
+      "TC-ITEM-PKG-048",
+      "TC-ITEM-PKG-049",
+      "TC-ITEM-PKG-050",
+      "TC-ITEM-PKG-051",
+      "TC-ITEM-PKG-052",
+      "TC-ITEM-PKG-053",
+      "TC-ITEM-PKG-054",
+      "TC-ITEM-PKG-055",
+      "TC-ITEM-PKG-056",
+      "TC-ITEM-PKG-057",
+      "TC-ITEM-PKG-058",
+      "TC-ITEM-PKG-059",
+      "TC-ITEM-PKG-060",
+      "TC-ITEM-PKG-061",
+      "TC-ITEM-PKG-062",
+      "TC-ITEM-PKG-063",
+      "TC-ITEM-PKG-064",
+      "TC-ITEM-PKG-065",
+      "TC-ITEM-PKG-067",
+      "TC-ITEM-PKG-068",
+      "TC-ITEM-PKG-070",
+      "TC-ITEM-STD-003",
+      "TC-ITEM-STD-004",
+      "TC-ITEM-STD-006",
+      "TC-ITEM-STD-009",
+      "TC-ITEM-STD-019",
+      "TC-ITEM-STD-020",
+      "TC-ITEM-STD-024",
+      "TC-ITEM-STD-030",
+      "TC-ITEM-STD-033",
+      "TC-ITEM-STD-035",
+      "TC-ITEM-STD-041",
+      "TC-ITEM-STD-042",
+      "TC-ITEM-STD-045",
+      "TC-ITEM-STD-046",
+      "TC-ITEM-STD-048",
+      "TC-ITEM-STD-049",
+      "TC-ITEM-STD-050",
+      "TC-ITEM-STD-051",
+      "TC-ITEM-STD-052",
+      "TC-ITEM-STD-053",
+      "TC-ITEM-STD-054",
+      "TC-ITEM-STD-055",
+      "TC-ITEM-STD-056",
+      "TC-ITEM-STD-059",
+      "TC-ITEM-STD-061",
+      "TC-ITEM-STD-063",
+      "TC-ITEM-STD-064",
+      "TC-ITEM-STD-065",
+      "TC-ITEM-STD-071",
+      "TC-ITEM-STD-072",
+      "TC-ITEM-STD-073",
+      "TC-ITEM-STD-074",
+      "TC-ITEM-STD-076",
+      "TC-ITEM-STD-077",
+      "TC-ITEM-STD-078",
+      "TC-ITEM-STD-079",
+      "TC-ITEM-STD-083",
+      "TC-ITEM-STD-084",
+      "TC-ITEM-STD-085",
+      "TC-ITEM-STD-086",
+      "TC-ITEM-STD-094",
+      "TC-ITEM-STD-095",
+      "TC-ITEM-STD-098",
+      "TC-ITEM-STD-099",
+      "TC-ITEM-STD-100",
+      "TC-ITEM-STD-101",
+      "TC-ITEM-UI-001",
+      "TC-ITEM-UI-002",
+      "TC-ITEM-UI-003",
+      "TC-ITEM-UI-004",
+      "TC-ITEM-UI-005",
+      "TC-ITEM-UI-006",
+      "TC-ITEM-UI-007",
+      "TC-ITEM-UI-008"
+    ],
+    "groups": [
+      {
+        "groupId": "AT01",
+        "templateKey": "标准商品|编辑|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-033": "501e1b826401"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "编辑",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-033"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-033",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-031",
+          "TC-ITEM-STD-096"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT02",
+        "templateKey": "标准商品|编辑|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-STD-061": "7f13220cfde1"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "编辑",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-STD-061"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-061",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT03",
+        "templateKey": "标准商品|编辑|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-056": "637f5d723350"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "编辑",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-056"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-056",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-032",
+          "TC-ITEM-STD-087",
+          "TC-ITEM-STD-088",
+          "TC-ITEM-STD-092"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT04",
+        "templateKey": "标准商品|查询筛选|search|L0",
+        "evidenceShapes": {
+          "TC-ITEM-STD-030": "ebd22da05074",
+          "TC-ITEM-STD-064": "997d0d433990"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "search",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-STD-030",
+          "TC-ITEM-STD-064"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-030",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-002"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT05",
+        "templateKey": "标准商品|创建|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-006": "7f700e65473a",
+          "TC-ITEM-STD-052": "a09ff9f50503",
+          "TC-ITEM-STD-053": "2744bba94f2c"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "创建",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-006",
+          "TC-ITEM-STD-052",
+          "TC-ITEM-STD-053"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-006",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-037",
+          "TC-ITEM-STD-057",
+          "TC-ITEM-STD-058"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT06",
+        "templateKey": "标准商品|创建|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-STD-035": "3bc6b6a5d46d",
+          "TC-ITEM-STD-046": "29ad5a1c8ebf",
+          "TC-ITEM-STD-094": "4c179ebec20d",
+          "TC-ITEM-STD-101": "f3f7ebd43d1a",
+          "TC-ITEM-STD-095": "3907caccb0c3"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "创建",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-STD-035",
+          "TC-ITEM-STD-046",
+          "TC-ITEM-STD-094",
+          "TC-ITEM-STD-101",
+          "TC-ITEM-STD-095"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-035",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-008",
+          "TC-ITEM-STD-010",
+          "TC-ITEM-STD-093"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT07",
+        "templateKey": "标准商品|创建|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-STD-041": "89ac040fadcd"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "创建",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-STD-041"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-041",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT08",
+        "templateKey": "标准商品|创建|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-009": "2cee6111dc86",
+          "TC-ITEM-STD-055": "40dd548f51ca",
+          "TC-ITEM-STD-099": "5a82a9d9623b",
+          "TC-ITEM-STD-100": "87577f6fdffd"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "创建",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-009",
+          "TC-ITEM-STD-055",
+          "TC-ITEM-STD-099",
+          "TC-ITEM-STD-100"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-009",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-082"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT09",
+        "templateKey": "标准商品|价格规格|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-020": "5775b6009f04",
+          "TC-ITEM-STD-048": "14135c463f3c",
+          "TC-ITEM-STD-050": "6a45be91ea16",
+          "TC-ITEM-STD-051": "c26c50b0dc6a",
+          "TC-ITEM-STD-098": "21de433cea52"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "价格规格",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-020",
+          "TC-ITEM-STD-048",
+          "TC-ITEM-STD-050",
+          "TC-ITEM-STD-051",
+          "TC-ITEM-STD-098"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-020",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-015",
+          "TC-ITEM-STD-016",
+          "TC-ITEM-STD-017",
+          "TC-ITEM-STD-018",
+          "TC-ITEM-STD-047"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT10",
+        "templateKey": "标准商品|价格规格|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-STD-049": "d52235c760be"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "价格规格",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-STD-049"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-049",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-022",
+          "TC-ITEM-STD-044",
+          "TC-ITEM-STD-097"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT11",
+        "templateKey": "标准商品|价格规格|negative|L3",
+        "evidenceShapes": {
+          "TC-ITEM-STD-024": "68f16710c6ac"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "价格规格",
+        "operation": "negative",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-STD-024"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-024",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT12",
+        "templateKey": "标准商品|价格规格|read|L3",
+        "evidenceShapes": {
+          "TC-ITEM-STD-083": "62922c5ce9fa"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "价格规格",
+        "operation": "read",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-STD-083"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-083",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT13",
+        "templateKey": "标准商品|价格规格|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-019": "53a43fbeed89",
+          "TC-ITEM-STD-084": "7c3be6debc40",
+          "TC-ITEM-STD-085": "fb39271a7160"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "价格规格",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-019",
+          "TC-ITEM-STD-084",
+          "TC-ITEM-STD-085"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-019",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 3,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT14",
+        "templateKey": "标准商品|套餐规则|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-STD-079": "f9dac025b1a8"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-STD-079"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-079",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT15",
+        "templateKey": "标准商品|展示与其他|delete|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-078": "5fd3ddf7ae77",
+          "TC-ITEM-STD-086": "37811138715d"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "delete",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-078",
+          "TC-ITEM-STD-086"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-078",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT16",
+        "templateKey": "标准商品|展示与其他|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-STD-045": "5dd5f4d1c72d",
+          "TC-ITEM-STD-054": "1b8838114b27",
+          "TC-ITEM-STD-059": "c5a390b182b8"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-STD-045",
+          "TC-ITEM-STD-054",
+          "TC-ITEM-STD-059"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-045",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-043"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT17",
+        "templateKey": "标准商品|展示与其他|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-STD-074": "5015a3a80e8f",
+          "TC-ITEM-STD-076": "3d800ba157ff",
+          "TC-ITEM-STD-071": "a2e0c9ba75eb"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-STD-074",
+          "TC-ITEM-STD-076",
+          "TC-ITEM-STD-071"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-074",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 3,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT18",
+        "templateKey": "标准商品|展示与其他|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-003": "65ad01019eb6",
+          "TC-ITEM-STD-004": "e575b1b9914d",
+          "TC-ITEM-STD-042": "b71df6cdac40",
+          "TC-ITEM-STD-063": "0dfa148ff0f3",
+          "TC-ITEM-STD-072": "26a3c8af75f9",
+          "TC-ITEM-STD-073": "ab61fd6ff2b9"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-003",
+          "TC-ITEM-STD-004",
+          "TC-ITEM-STD-042",
+          "TC-ITEM-STD-063",
+          "TC-ITEM-STD-072",
+          "TC-ITEM-STD-073"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-003",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-089"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT19",
+        "templateKey": "标准商品|状态生命周期|read|L3",
+        "evidenceShapes": {
+          "TC-ITEM-STD-077": "8a30407e1795"
+        },
+        "lane": "yellow",
+        "productType": "标准商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "read",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-STD-077"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-077",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT20",
+        "templateKey": "标准商品|状态生命周期|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-STD-065": "3cb133119c4a"
+        },
+        "lane": "green",
+        "productType": "标准商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-STD-065"
+        ],
+        "representativeCaseId": "TC-ITEM-STD-065",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-STD-028",
+          "TC-ITEM-STD-029",
+          "TC-ITEM-STD-066"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT21",
+        "templateKey": "加料商品|编辑|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-025": "46d532d36095"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "编辑",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-025"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-025",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT22",
+        "templateKey": "加料商品|查询筛选|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-033": "61bfe7580585"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-033"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-033",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT23",
+        "templateKey": "加料商品|查询筛选|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-041": "7b32d54a36d7"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-041"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-041",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT24",
+        "templateKey": "加料商品|创建|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-007": "c12df7d67c1b",
+          "TC-ITEM-ADD-009": "9b819088de2f",
+          "TC-ITEM-ADD-022": "ace54659ec02",
+          "TC-ITEM-ADD-039": "8dc76bbcacaa"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "创建",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-007",
+          "TC-ITEM-ADD-009",
+          "TC-ITEM-ADD-022",
+          "TC-ITEM-ADD-039"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-007",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 4,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT25",
+        "templateKey": "加料商品|创建|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-012": "b1de21a638f0",
+          "TC-ITEM-ADD-013": "aff9e7ae39ae",
+          "TC-ITEM-ADD-018": "a812af1806fa",
+          "TC-ITEM-ADD-019": "89bb24ab1956",
+          "TC-ITEM-ADD-020": "c86d3a61826f",
+          "TC-ITEM-ADD-021": "4122fd10b746"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "创建",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-012",
+          "TC-ITEM-ADD-013",
+          "TC-ITEM-ADD-018",
+          "TC-ITEM-ADD-019",
+          "TC-ITEM-ADD-020",
+          "TC-ITEM-ADD-021"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-012",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 6,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT26",
+        "templateKey": "加料商品|价格规格|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-011": "9cba9d519903",
+          "TC-ITEM-ADD-049": "5ea802912567"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "价格规格",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-011",
+          "TC-ITEM-ADD-049"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-011",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT27",
+        "templateKey": "加料商品|扩展配置|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-017": "2e1fd32e30b9"
+        },
+        "lane": "green",
+        "productType": "加料商品",
+        "scenarioFamily": "扩展配置",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-ADD-017"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-017",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-ADD-046"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT28",
+        "templateKey": "加料商品|扩展配置|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-045": "3b7f22b74c9e"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "扩展配置",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-045"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-045",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT29",
+        "templateKey": "加料商品|展示与其他|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-038": "9d46e88dafe1"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-038"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-038",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT30",
+        "templateKey": "加料商品|展示与其他|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-035": "740b7f4da533"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-ADD-035"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-035",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT31",
+        "templateKey": "加料商品|展示与其他|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-002": "8d7b2c9f1114"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-ADD-002"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-002",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT32",
+        "templateKey": "加料商品|状态生命周期|read|L3",
+        "evidenceShapes": {
+          "TC-ITEM-ADD-037": "3c2afd7e932a"
+        },
+        "lane": "yellow",
+        "productType": "加料商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "read",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-ADD-037"
+        ],
+        "representativeCaseId": "TC-ITEM-ADD-037",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT33",
+        "templateKey": "套餐商品|必填校验|delete|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-050": "c3555fd37483"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "必填校验",
+        "operation": "delete",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-050"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-050",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT34",
+        "templateKey": "套餐商品|编辑|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-036": "f666e6ae11fc",
+          "TC-ITEM-PKG-059": "7fe87c1205c3"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "编辑",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-036",
+          "TC-ITEM-PKG-059"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-036",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT35",
+        "templateKey": "套餐商品|编辑|delete|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-065": "b7e193355f68"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "编辑",
+        "operation": "delete",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-065"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-065",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT36",
+        "templateKey": "套餐商品|查询筛选|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-044": "d03af3996cfa",
+          "TC-ITEM-PKG-056": "c8bc52e00f64"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-PKG-044",
+          "TC-ITEM-PKG-056"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-044",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT37",
+        "templateKey": "套餐商品|查询筛选|search|L0",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-003": "605b604abec9",
+          "TC-ITEM-PKG-045": "f8ce6b7edbab"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "search",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-PKG-003",
+          "TC-ITEM-PKG-045"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-003",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT38",
+        "templateKey": "套餐商品|查询筛选|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-048": "ed93a3426461"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "查询筛选",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-048"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-048",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT39",
+        "templateKey": "套餐商品|价格规格|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-016": "cc2a7ff732f1"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "价格规格",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-PKG-016"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-016",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-015",
+          "TC-ITEM-PKG-077"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT40",
+        "templateKey": "套餐商品|价格规格|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-014": "50aad0afce6f",
+          "TC-ITEM-PKG-051": "558163df449c"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "价格规格",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-PKG-014",
+          "TC-ITEM-PKG-051"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-014",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT41",
+        "templateKey": "套餐商品|价格规格|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-020": "cab1e03cd138"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "价格规格",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-020"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-020",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT42",
+        "templateKey": "套餐商品|删除|delete|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-055": "01ce52b0c8e8"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "删除",
+        "operation": "delete",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-055"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-055",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-037"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT43",
+        "templateKey": "套餐商品|套餐规则|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-011": "7b30229aeb84",
+          "TC-ITEM-PKG-012": "c0d6e69304a4",
+          "TC-ITEM-PKG-018": "fdb399ff548d",
+          "TC-ITEM-PKG-028": "ed0565d47cb1",
+          "TC-ITEM-PKG-033": "a130dda57fd2",
+          "TC-ITEM-PKG-049": "e80197de57d1",
+          "TC-ITEM-PKG-052": "e2f897b49744",
+          "TC-ITEM-PKG-053": "d42712272618",
+          "TC-ITEM-PKG-057": "cec8da645780",
+          "TC-ITEM-PKG-067": "b04ff4de78fb"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-011",
+          "TC-ITEM-PKG-012",
+          "TC-ITEM-PKG-018",
+          "TC-ITEM-PKG-028",
+          "TC-ITEM-PKG-033",
+          "TC-ITEM-PKG-049",
+          "TC-ITEM-PKG-052",
+          "TC-ITEM-PKG-053",
+          "TC-ITEM-PKG-057",
+          "TC-ITEM-PKG-067"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-011",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-001",
+          "TC-ITEM-PKG-002",
+          "TC-ITEM-PKG-004",
+          "TC-ITEM-PKG-006",
+          "TC-ITEM-PKG-007"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT44",
+        "templateKey": "套餐商品|套餐规则|delete|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-042": "483f4d0903e0",
+          "TC-ITEM-PKG-043": "519093ff329f",
+          "TC-ITEM-PKG-068": "da13ba960940"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "delete",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-042",
+          "TC-ITEM-PKG-043",
+          "TC-ITEM-PKG-068"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-042",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 3,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT45",
+        "templateKey": "套餐商品|套餐规则|negative|L1",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-021": "520f4caa5b25",
+          "TC-ITEM-PKG-023": "8468622e97ca",
+          "TC-ITEM-PKG-027": "dce608bf1177"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "negative",
+        "riskLevel": "L1",
+        "caseIds": [
+          "TC-ITEM-PKG-021",
+          "TC-ITEM-PKG-023",
+          "TC-ITEM-PKG-027"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-021",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-024",
+          "TC-ITEM-PKG-025",
+          "TC-ITEM-PKG-026",
+          "TC-ITEM-PKG-040",
+          "TC-ITEM-PKG-046",
+          "TC-ITEM-PKG-074",
+          "TC-ITEM-PKG-076"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT46",
+        "templateKey": "套餐商品|套餐规则|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-058": "b3a2f838034f"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-PKG-058"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-058",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-041"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT47",
+        "templateKey": "套餐商品|套餐规则|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-005": "0ea7f3e78d29",
+          "TC-ITEM-PKG-022": "ff5d7256836e",
+          "TC-ITEM-PKG-029": "a812af1806fa",
+          "TC-ITEM-PKG-030": "89bb24ab1956",
+          "TC-ITEM-PKG-031": "c86d3a61826f",
+          "TC-ITEM-PKG-032": "4122fd10b746"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "套餐规则",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-005",
+          "TC-ITEM-PKG-022",
+          "TC-ITEM-PKG-029",
+          "TC-ITEM-PKG-030",
+          "TC-ITEM-PKG-031",
+          "TC-ITEM-PKG-032"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-005",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-073",
+          "TC-ITEM-PKG-075"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT48",
+        "templateKey": "套餐商品|展示与其他|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-054": "006657abc467"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-054"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-054",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-008"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT49",
+        "templateKey": "套餐商品|展示与其他|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-063": "950aa0a28180",
+          "TC-ITEM-PKG-064": "220bf1592399"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "展示与其他",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-063",
+          "TC-ITEM-PKG-064"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-063",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT50",
+        "templateKey": "套餐商品|状态生命周期|negative|L3",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-070": "4b553b782d8d"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "negative",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-PKG-070"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-070",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-039"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT51",
+        "templateKey": "套餐商品|状态生命周期|read|L3",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-060": "8a30407e1795"
+        },
+        "lane": "yellow",
+        "productType": "套餐商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "read",
+        "riskLevel": "L3",
+        "caseIds": [
+          "TC-ITEM-PKG-060"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-060",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT52",
+        "templateKey": "套餐商品|状态生命周期|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-PKG-034": "72d7dd00843d",
+          "TC-ITEM-PKG-061": "9ceb85251812",
+          "TC-ITEM-PKG-062": "64539284efaa"
+        },
+        "lane": "green",
+        "productType": "套餐商品",
+        "scenarioFamily": "状态生命周期",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-PKG-034",
+          "TC-ITEM-PKG-061",
+          "TC-ITEM-PKG-062"
+        ],
+        "representativeCaseId": "TC-ITEM-PKG-034",
+        "reusableAcceptedTemplateCaseIds": [
+          "TC-ITEM-PKG-047"
+        ],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 0,
+        "sampleMode": "none",
+        "nextAction": "复用已验收模板，批量生成并编译；编译通过后整组共享运行。"
+      },
+      {
+        "groupId": "AT53",
+        "templateKey": "页面补充|批量与导入|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-UI-003": "fc3d053b850a"
+        },
+        "lane": "yellow",
+        "productType": "页面补充",
+        "scenarioFamily": "批量与导入",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-UI-003"
+        ],
+        "representativeCaseId": "TC-ITEM-UI-003",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 1,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT54",
+        "templateKey": "页面补充|展示与其他|create|L2",
+        "evidenceShapes": {
+          "TC-ITEM-UI-007": "00f3b6691bc8",
+          "TC-ITEM-UI-008": "fd5252d1b63c"
+        },
+        "lane": "yellow",
+        "productType": "页面补充",
+        "scenarioFamily": "展示与其他",
+        "operation": "create",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-UI-007",
+          "TC-ITEM-UI-008"
+        ],
+        "representativeCaseId": "TC-ITEM-UI-007",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT55",
+        "templateKey": "页面补充|展示与其他|read|L0",
+        "evidenceShapes": {
+          "TC-ITEM-UI-001": "cd049acf9f31",
+          "TC-ITEM-UI-002": "92cf33c02aea"
+        },
+        "lane": "yellow",
+        "productType": "页面补充",
+        "scenarioFamily": "展示与其他",
+        "operation": "read",
+        "riskLevel": "L0",
+        "caseIds": [
+          "TC-ITEM-UI-001",
+          "TC-ITEM-UI-002"
+        ],
+        "representativeCaseId": "TC-ITEM-UI-001",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 2,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      },
+      {
+        "groupId": "AT56",
+        "templateKey": "页面补充|展示与其他|update|L2",
+        "evidenceShapes": {
+          "TC-ITEM-UI-004": "6058d6ac2287",
+          "TC-ITEM-UI-005": "ae13db1acc34",
+          "TC-ITEM-UI-006": "b5c81d7b0b7c"
+        },
+        "lane": "yellow",
+        "productType": "页面补充",
+        "scenarioFamily": "展示与其他",
+        "operation": "update",
+        "riskLevel": "L2",
+        "caseIds": [
+          "TC-ITEM-UI-004",
+          "TC-ITEM-UI-005",
+          "TC-ITEM-UI-006"
+        ],
+        "representativeCaseId": "TC-ITEM-UI-004",
+        "reusableAcceptedTemplateCaseIds": [],
+        "fullReviewApproved": true,
+        "humanReviewRequired": false,
+        "sampleReviewCount": 3,
+        "sampleMode": "automated-controlled-probe",
+        "nextAction": "复用共享页面与数据链执行整组，但每条用例独立断言、独立证据和独立判定。"
+      }
+    ]
+  },
+  "manualRuleReview": {
+    "caseIds": [
+      "TC-ITEM-ADD-001",
+      "TC-ITEM-ADD-015",
+      "TC-ITEM-PKG-013",
+      "TC-ITEM-PKG-019",
+      "TC-ITEM-STD-007",
+      "TC-ITEM-STD-011",
+      "TC-ITEM-STD-012",
+      "TC-ITEM-STD-013",
+      "TC-ITEM-STD-014"
+    ],
+    "groups": [
+      {
+        "groupId": "MR01",
+        "title": "分类叶子规则 canonical 来源统一",
+        "decisionType": "canonical-source-reconciliation",
+        "caseIds": [
+          "TC-ITEM-STD-007"
+        ]
+      },
+      {
+        "groupId": "MR02",
+        "title": "商品名称唯一性范围 canonical 来源统一",
+        "decisionType": "canonical-source-reconciliation",
+        "caseIds": [
+          "TC-ITEM-STD-011",
+          "TC-ITEM-STD-012",
+          "TC-ITEM-STD-013",
+          "TC-ITEM-STD-014"
+        ]
+      },
+      {
+        "groupId": "MR03",
+        "title": "加料商品字段范围产品确认",
+        "decisionType": "product-rule-confirmation",
+        "caseIds": [
+          "TC-ITEM-ADD-001"
+        ]
+      },
+      {
+        "groupId": "MR04",
+        "title": "套餐负价格归一规则产品确认",
+        "decisionType": "product-rule-confirmation",
+        "caseIds": [
+          "TC-ITEM-PKG-019"
+        ]
+      },
+      {
+        "groupId": "MR05",
+        "title": "套餐分类父级选择规则产品确认",
+        "decisionType": "product-rule-confirmation",
+        "caseIds": [
+          "TC-ITEM-PKG-013"
+        ]
+      },
+      {
+        "groupId": "MR06",
+        "title": "跨商品类型名称唯一性产品确认",
+        "decisionType": "product-rule-confirmation",
+        "caseIds": [
+          "TC-ITEM-ADD-015"
+        ]
+      }
+    ]
+  },
+  "productDefectQueue": {
+    "caseIds": [
+      "TC-ITEM-ADD-010",
+      "TC-ITEM-ADD-024",
+      "TC-ITEM-PKG-035",
+      "TC-ITEM-STD-021",
+      "TC-ITEM-STD-023",
+      "TC-ITEM-STD-081"
+    ],
+    "action": "保留 canonical，研发修复后整批复测；无需重新做静态语义审核。"
+  },
+  "environmentBlocked": {
+    "caseIds": [
+      "TC-ITEM-STD-080"
+    ],
+    "action": "等待可控 POS、订单查询和取消能力；无需重新做静态语义审核。"
+  },
+  "executionOrder": [
+    "绿色模板直接批量生成和编译。",
+    "黄色模板复用共享执行链，但组内每条用例都生成独立证据，禁止代表证据继承。",
+    "MR01-MR06 由产品负责人批量确认，不逐条审核。",
+    "产品缺陷和环境阻断独立排队，不占用用例审核工时。"
+  ],
+  "fingerprint": "307eb558c05dffbec8eddda7146c775b6219d2a9a06da75bf12620346c0ab194"
+}

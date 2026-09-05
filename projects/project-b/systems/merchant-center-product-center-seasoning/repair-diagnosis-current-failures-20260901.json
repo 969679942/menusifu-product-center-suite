@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-007",
+    "TC-FLV-SEA-010",
+    "TC-FLV-SEA-023",
+    "TC-FLV-TPL-018"
+  ],
+  "rootCause": "SEA-007 的正式断言字段为 seasoning.group-name，但脚本误用调味项名称查询；SEA-010 的行业调味页存在组名与调味项同名、虚拟表格 div.ant-table-row 及折叠组交互适配缺口；TPL-018 把模板中已选调味项再次作为新增目标。上述三条自动化缺口已修复并通过。SEA-023 的相同交互链已执行成功，但第二次提交返回 HTTP 200 且页面提示“添加成功”，与正式用例要求“提示已存在”不符，转人工产品规则确认，不得自动改绿。SEA-001 另需零调味隔离商户，不纳入自动修复运行。",
+  "correctiveAction": "保留 SEA-007、SEA-010 与 TPL-018 当前通过收据；SEA-023 保留两次真实 UI 提交、请求体、HTTP 200、页面“添加成功”和零残留清理证据，等待产品确认预期后再决定修改产品或正式用例。SEA-001 等待零调味隔离商户，不得删除当前商户既有数据造空环境。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/build.ts",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1788231467336/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1788231681968/run-report.json"
+  ],
+  "supersedesAttemptIds": []
+}

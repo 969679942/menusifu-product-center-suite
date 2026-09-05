@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-01T00:00:00+08:00",
+  "scope": ["generated-evidence", "domain-asset"],
+  "sourcePolicy": {
+    "timezone": "Asia/Shanghai",
+    "currentThreadIndexRead": true,
+    "archivedThreadIndexRead": true,
+    "archivedNextCursor": null,
+    "historyMode": "summary-level-regenerated",
+    "regenerationScope": "既有本地 sessions/archived_sessions 扫描结果；停止继续扩展搜索范围",
+    "prdVersion": "2.1",
+    "executedOptimizationIsBaseline": true,
+    "newGapItemsAreNotHistoricalExecutionClaims": true,
+    "hiddenReasoningExported": false,
+    "secretsPersisted": false,
+    "prdInputPolicy": {
+      "allowedStages": ["optimized-confirmed", "gap-audit"],
+      "backgroundOnlyStages": ["validated-problem-background"],
+      "excludedStages": ["pre-optimization-proposal", "superseded", "unconfirmed-assistant-suggestion", "unrelated", "duplicate-delegation"],
+      "sourceAuditMatrix": "PRD来源审计矩阵.md",
+      "messageLevelAnchors": "PRD来源审计矩阵.md#消息级来源锚点",
+      "exclusionRegister": "PRD排除与替代清单.md",
+      "publicContract": "公共平台合同与差距登记.md",
+    "prdReviewOutcome": "方向合理；经行业对标后区分已执行基线、P0公共发布阻断、P1企业治理与价值指标、P2体验增强；平台仍未达到GA"
+    }
+  },
+  "coverage": {
+    "currentIndexedThreads": 13,
+    "archivedIndexedThreads": 5,
+    "localStateUserThreads": 21,
+    "localStateActiveThreads": 15,
+    "localStateArchivedThreads": 6,
+    "localStateRolloutMissing": 0,
+    "localStateActiveMissingUserEvent": 6,
+    "localStateActiveWrongProvider": 4,
+    "postRepairUserTasksVisible": 21,
+    "postRepairArchivedUserTasks": 0,
+    "postRepairListTaskCountIncludingDelegations": 23,
+    "repairBackup": "C:\\Users\\Administrator\\.codex\\repair_backups\\merchant-center-history-20260829-1015",
+    "repairActions": {"unarchived":6,"providerFixed":5,"userEventFixed":8},
+    "relevantThreads": 18,
+    "directlyRelatedThreads": 16,
+    "adjacentThreads": 2,
+    "unrelatedThreads": 3,
+    "deletedThreadsConfirmed": 0,
+    "largeThreadOlderPages": "not fully paginated; see 历史覆盖与恢复清单.md",
+    "currentListUnderrepresentsLocalState": true,
+    "localStateDiagnosis": "修复前由归档或 provider/has_user_event 元数据过滤；无 rollout 文件缺失证据；修复后 21/21 用户任务可见"
+    ,"activityDateRange":"2026-07-20..2026-08-29"
+    ,"activityDateBasis":"rollout-record-timestamp (message/event level); task created_at/updated_at retained only as auxiliary metadata"
+    ,"activityDates":["2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-02","2026-08-03","2026-08-05","2026-08-06","2026-08-07","2026-08-08","2026-08-09","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-22","2026-08-23","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-29"]
+    ,"activityGaps":["2026-07-20..2026-07-24","2026-08-01","2026-08-04"]
+    ,"processChainActivityDateBasis":"Merchant Center rollout timestamps plus explicitly linked pre-migration TestOps thread"
+    ,"processChainActivityDates":["2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-25","2026-07-26","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-02","2026-08-03","2026-08-05","2026-08-06","2026-08-07","2026-08-08","2026-08-09","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-15","2026-08-16","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-22","2026-08-23","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-29"]
+    ,"processChainGaps":["2026-08-01","2026-08-04"]
+    ,"crossProjectPreMigrationThreads":[{"id":"019f7e48-594e-71c2-a8f9-ac94a1b0cd8e","cwd":"D:\\Menusifu\\TestOps","range":"2026-07-20..2026-07-25","linkEvidence":"讨论商品中心审计/Recipe/Flow/用例，并明确迁移到 D:\\Menusifu\\Merchant Center"}]
+    ,"taskMetadataOnlyGaps":["2026-07-20..2026-07-24","2026-07-27..2026-07-28","2026-07-30","2026-08-01..2026-08-04","2026-08-06..2026-08-10","2026-08-14","2026-08-19..2026-08-22"]
+    ,"crossDayThreads":[{"id":"019f99ff-bbc0-7370-ba5a-096ed2230de0","range":"2026-07-25..2026-08-05","activeDates":8},{"id":"019f9a80-5074-7353-a238-1e5e57840ccf","range":"2026-07-26..2026-07-29","activeDates":4},{"id":"01a005e0-e408-78f2-8ed8-6b021646d0d0","range":"2026-08-15..2026-08-24","activeDates":10}]
+  },
+  "projectEvidence": {
+    "finalGoal": "Merchant Center Info/00-待转换测试方案/FINAL-GOAL.md",
+    "entryReadme": "Merchant Center Info/00-待转换测试方案/README.md",
+    "completedIndex": {"path":"Merchant Center Info/00-待转换测试方案/已完成/index.json","landed":421,"cases":421,"generatedAt":"2026-08-28T17:29:41.791Z"},
+    "unlandedIndex": {"path":"Merchant Center Info/00-待转换测试方案/未落地/index.json","summaryUnlanded":194,"caseEntries":203,"generatedAt":"2026-08-28T17:29:41.791Z","countMismatch":true},
+    "platformDependency": {"path":"Merchant Center UITest/deliverables/system-test-platform/platform-external-dependency.json","status":"deferred","moduleDeliveryBlocked":false,"rerunPassedCases":false},
+    "groupProductDefectIndex": {"path":"Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/产品偏差/index.md","currentCount":0},
+    "groupDeferredIndex": {"path":"Merchant Center Info/00-待转换测试方案/待处理/商品中心-商品管理-组/明确延期/index.md","currentCount":10}
+  },
+    "threads": [
+    {"id":"01a04b2a-ab9f-7280-a2c7-cb37d361c729","title":"整理对话并生成流程PRD","kind":"codex","hostId":"local","status":"active","createdAt":1787967482,"relevance":"direct","read":"current-summary"},
+    {"id":"01a005e0-e408-78f2-8ed8-6b021646d0d0","title":"现在处理| TC-GRP-ADD-003 | 新增加料组无加料明细时保存失败 | 提交被拒绝并显示至少需要 1 个加料…","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786805019,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"01a00b49-435d-7670-8428-d285ea235133","title":"反向生成用例并评估审计","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786895745,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"01a00896-43dc-7c73-bd94-b8e849177699","title":"帮我处理下这个任务：继续任务 019fb180-014a-7d53-be4b-d986fd66e7cc：修复商品中心-…","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786850460,"relevance":"direct","read":"single-page"},
+    {"id":"019ff0d8-2904-70c3-a983-d3c5b5fb882a","title":"继续任务 019fb180-014a-7d53-be4b-d986fd66e7cc：修复商品中心-商品管理-组 127…","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786452126,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"019f99ff-bbc0-7370-ba5a-096ed2230de0","title":"商品管理-组：139条用例全流程落地","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1784995106,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"019fb6e9-3e96-7ee1-aa58-121819a9d84f","title":"分析流程成熟度","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1785480167,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"019f9a80-5074-7353-a238-1e5e57840ccf","title":"继续商品中心P2收口","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1785003528,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"019f9a55-dd21-7371-9465-6e7263d3beef","title":"Resume Product Center recipe","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1785000751,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"019f9a71-9484-73f1-aded-1af8cdba9590","title":"继续商品中心P2收口","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1785002567,"relevance":"direct","read":"single-page"},
+    {"id":"019ff5fb-4e54-75f1-a7d8-7bb0c2a75b84","title":"修复历史对话丢失","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786538315,"relevance":"direct","read":"single-page"},
+    {"id":"019ff9e9-1070-7a41-bd90-f01dd6340326","title":"修复历史对话框","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786604228,"relevance":"direct","read":"recent-page-summary"},
+    {"id":"01a01299-9940-7311-9eef-1bedcc6925fa","title":"现在我想切换回codex账号登录，历史的上下文之前一切就丢失，你能帮我先处理一下我再切换吗","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787018451,"relevance":"direct","read":"single-page"},
+    {"id":"01a042a7-9674-78c0-a727-d76690ae9e86","title":"帮我修复图片内容","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787824674,"relevance":"direct-adjacent","read":"recent-page-summary"},
+    {"id":"01a03834-e71c-77b3-8888-7569493a9653","title":"修复图片对话框","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787649386,"relevance":"direct-adjacent","read":"single-page"},
+    {"id":"01a02f63-451d-7bf1-be07-4084811c746b","title":"调味管理102条全流程落地","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787415030,"relevance":"direct","read":"summary"},
+    {"id":"01a02a38-8281-7303-b727-f4914130b6ce","title":"商品中心业务规则是如何管理的","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787414741,"relevance":"direct","read":"local-state-summary","visibilityIssue":["old-provider","missing-user-event"]},
+    {"id":"01a02f48-f36c-79b3-a86b-320e8e828028","title":"修复商品中心对话框","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787499705,"relevance":"direct","read":"local-state-summary","visibilityIssue":["archived","old-provider","missing-user-event"]},
+    {"id":"01a03d74-d9e9-7d63-9b90-0254df3fdc31","title":"流程可视报告-报告页面待优化","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787737463,"relevance":"direct","read":"local-state-summary","visibilityIssue":["old-provider","missing-user-event"]},
+    {"id":"6a8da720-2c98-83ee-9f16-352c7da91883","title":"查看会员额度","kind":"chatgpt","status":"idle","createdAt":1787668263.540462,"relevance":"unrelated","read":"single-page"},
+    {"id":"01a012b4-78e6-7a11-b462-e3edf3417374","title":"查询当前时间","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1787020212,"relevance":"unrelated","read":"single-page"},
+    {"id":"019ff126-2c6a-7050-891b-5cddaeaf8bb9","title":"现在检查权限","kind":"codex","hostId":"local","status":"notLoaded","createdAt":1786457238,"relevance":"unrelated","read":"single-page"}
+  ],
+  "prdTraceability": {
+    "FR-001": ["01a04b2a-ab9f-7280-a2c7-cb37d361c729","019ff5fb-4e54-75f1-a7d8-7bb0c2a75b84"],
+    "FR-002": ["01a04b2a-ab9f-7280-a2c7-cb37d361c729"],
+    "FR-003": ["019ff0d8-2904-70c3-a983-d3c5b5fb882a","01a00b49-435d-7670-8428-d285ea235133"],
+    "FR-004": ["01a04b2a-ab9f-7280-a2c7-cb37d361c729","019ff5fb-4e54-75f1-a7d8-7bb0c2a75b84"],
+    "FR-005": ["01a005e0-e408-78f2-8ed8-6b021646d0d0","019ff0d8-2904-70c3-a983-d3c5b5fb882a"],
+    "FR-006": ["01a005e0-e408-78f2-8ed8-6b021646d0d0","019f9a55-dd21-7371-9465-6e7263d3beef"],
+    "FR-007": ["019f9a80-5074-7353-a238-1e5e57840ccf","019ff0d8-2904-70c3-a983-d3c5b5fb882a"],
+    "FR-008": ["01a01299-9940-7311-9eef-1bedcc6925fa","019ff5fb-4e54-75f1-a7d8-7bb0c2a75b84"],
+    "FR-009": ["01a04b2a-ab9f-7280-a2c7-cb37d361c729","019ff0d8-2904-70c3-a983-d3c5b5fb882a"],
+    "FR-010": ["01a04b2a-ab9f-7280-a2c7-cb37d361c729","019ff0d8-2904-70c3-a983-d3c5b5fb882a"],
+    "FR-011": ["01a043f3-e9f1-7c13-a5c7-bd82082ebdfe"],
+    "FR-012": ["01a043f3-e9f1-7c13-a5c7-bd82082ebdfe","01a02f63-451d-7bf1-be07-4084811c746b"],
+    "FR-013": ["01a02a38-8281-7303-b727-f4914130b6ce"],
+    "FR-014": ["01a02a38-8281-7303-b727-f4914130b6ce","01a043f3-e9f1-7c13-a5c7-bd82082ebdfe"],
+    "FR-015": ["01a005e0-e408-78f2-8ed8-6b021646d0d0"],
+    "FR-016": ["01a043f3-e9f1-7c13-a5c7-bd82082ebdfe","01a02a38-8281-7303-b727-f4914130b6ce"],
+    "FR-017": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-018": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-019": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-020": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-021": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-022": ["PUBLIC_PLATFORM_CONTRACT","GAP_AUDIT_2026-08-29"],
+    "FR-023": ["019ff5fb-4e54-75f1-a7d8-7bb0c2a75b84","GAP_AUDIT_2026-08-29"],
+    "FR-024": ["GAP_AUDIT_2026-08-29"]
+    ,"FR-025": ["GAP_AUDIT_2026-09-01"]
+    ,"FR-026": ["GAP_AUDIT_2026-09-01"]
+  },
+  "impact": {
+    "codeScope":"unchanged",
+    "projectAdapterScope":"unchanged",
+    "domainAssetScope":"PRD v2.1 and source-audit/exclusion artifacts",
+    "generatedEvidenceScope":"new timeline, index and coverage ledger",
+    "rerunExistingPassedCases":false,
+    "invalidateExistingResults":false
+  }
+}

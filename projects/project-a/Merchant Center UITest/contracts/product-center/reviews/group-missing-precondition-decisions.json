@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0.0",
+  "authorizedBy": "金将军",
+  "authorizedAt": "2026-07-26T23:38:28.7867243+08:00",
+  "authorization": "允许4条纯列表展示用例继承文档通用前置条件；授权核验22条带BR用例原文；认定原始组.xmind为15条XMind-only用例权威来源；无法精确证明的用例保持blocked。",
+  "guardrails": {
+    "businessRuleMutationAllowed": false,
+    "inferenceAllowed": false,
+    "unmatchedDisposition": "blocked"
+  },
+  "sourceFiles": {
+    "testPlan": "商品管理/2.商品中心-商品管理-组-正式测试用例.md",
+    "xmind": "商品管理/2.商品中心-商品管理-组.xmind",
+    "businessRules": "商品中心业务规则.md"
+  },
+  "summary": {
+    "totalCases": 37,
+    "inheritedDisplayCases": 4,
+    "businessRuleVerifiedCases": 22,
+    "xmindRemappedCases": 15,
+    "repairedCases": 35,
+    "blockedCases": 2
+  },
+  "evidenceCatalog": {
+    "businessRules": {
+      "BR-FMT-005": {
+        "citation": "BR-FMT-005",
+        "sectionHeading": "2.2 全局格式与输入（B 端规范）",
+        "ruleId": "BR-FMT-005",
+        "expectedText": "[B端] 价格输入：**0 ~ 999999.99**；存储 **6** 位小数，界面默认展示 **2** 位；输入超过 2 位小数时**四舍五入**保留 2 位后保存（Q-ITEM-003）；金额超千位用美式千分符。"
+      },
+      "BR-GRP-001": {
+        "citation": "BR-GRP-001",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-001",
+        "expectedText": "[PRD] 组保存前至少一个子项；无子项提示「请先添加子项再保存」。"
+      },
+      "BR-GRP-002": {
+        "citation": "BR-GRP-002",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-002",
+        "expectedText": "[B端] 组名称：100 字符，**品牌内组名称不可重复**（**英文字母不区分大小写**），必填；重复提示 **`SYSTEM-0002:参数冲突`**。套餐组名称中空格计入 100 字符长度，首尾空格不能形成有效保存值。"
+      },
+      "BR-GRP-003": {
+        "citation": "BR-GRP-003",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-003",
+        "expectedText": "[B端] 子项名称：100 字符，**组内不可重复**；**规格子项品牌内不可重复**。"
+      },
+      "BR-GRP-031": {
+        "citation": "BR-GRP-031",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-031",
+        "expectedText": "[PRD] 组内子项新增：组未被商品使用 → 直接生效；组已被商品使用 → **不自动应用**到已引用商品，须提示。"
+      },
+      "BR-GRP-032": {
+        "citation": "BR-GRP-032",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-032",
+        "expectedText": "[PRD] 组编辑：组未被商品使用 → 直接生效；组已被商品使用 → 影响所有引用商品（价格/默认选中除外），须提示。"
+      },
+      "BR-GRP-033": {
+        "citation": "BR-GRP-033",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-033",
+        "expectedText": "[PRD] 组内子项编辑：组未被商品使用 → 直接生效；组已被商品使用 → 影响引用该子项的商品（价格、默认选中除外），须提示。"
+      },
+      "BR-GRP-034": {
+        "citation": "BR-GRP-034",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-034",
+        "expectedText": "[PRD+人工确认] 组删除：被商品引用时须先解除引用；规格/口味/做法/加料组按各自子项删除约束处理。**套餐组内含商品明细不构成删除阻断，未被套餐商品引用时可直接删除，并同步删除组内明细。**"
+      },
+      "BR-GRP-035": {
+        "citation": "BR-GRP-035",
+        "sectionHeading": "A.2 组共用与规格组 BR",
+        "ruleId": "BR-GRP-035",
+        "expectedText": "[PRD] 组内子项删除：未被引用 → 可删。**规格/口味/做法** 被引用 → 删除失败，须先从商品移除。**加料** 被引用 → 走确认变更弹窗（变更预览、影响所有关联商品），确认后同步移除（见 §8）。"
+      },
+      "BR-GRP-005": {
+        "citation": "BR-GRP-005",
+        "sectionHeading": "A.3 口味/做法/加料/套餐组 BR",
+        "ruleId": "BR-GRP-005",
+        "expectedText": "[现网] **口味组/做法组/加料组**：保存时须至少一个子项，子项名称必填；仅剩一个子项时不可删除；加料组删除末项提示「**该组只有一个选项，不能删除**」（以现网为准）。"
+      },
+      "BR-GRP-010": {
+        "citation": "BR-GRP-010",
+        "sectionHeading": "A.3 口味/做法/加料/套餐组 BR",
+        "ruleId": "BR-GRP-010",
+        "expectedText": "[现网] **固定搭配**：组内商品和数量固定，商品行配置数量，由外层套餐商品统一定价；无组级选择数量。"
+      },
+      "BR-GRP-011": {
+        "citation": "BR-GRP-011",
+        "sectionHeading": "A.3 口味/做法/加料/套餐组 BR",
+        "ruleId": "BR-GRP-011",
+        "expectedText": "[现网] **可选搭配**（旧称组合搭配）：套餐基础价叠加所选商品加价；组级仅配置必填选择数量；支持组内重复选择和相同商品合并。"
+      },
+      "BR-GRP-020": {
+        "citation": "BR-GRP-020",
+        "sectionHeading": "A.3 口味/做法/加料/套餐组 BR",
+        "ruleId": "BR-GRP-020",
+        "expectedText": "[PRD+现网+人工确认] 数量规则：加料组沿用最少/最多；可选搭配使用单一选择数量；随心配使用组级最少/最多总数量，最多数量必须 `>=` 最少数量，否则提示 **`最多选择数量不能小于最少选择数量`**。随心配最少/最多输入非数字时自动清空，输入负数或 `0` 时自动更正为 `1`，输入小数时忽略小数部分。可选/随心配的重复选择开关控制子项数量字段；随心配商品默认数量或商品数量不受组级最多数量限制，组级最多数量仅限制终端点单时最多可选择的商品数。"
+      }
+    },
+    "xmind": {
+      "taste-display": {
+        "citation": "口味组 / 展示 / 页面展示 / 口味页面展示信息正确",
+        "expectedPath": ["口味组", "展示", "页面展示", "口味页面展示信息正确"]
+      },
+      "method-display": {
+        "citation": "做法组 / 展示 / 页面展示 / 做法页面展示信息正确",
+        "expectedPath": ["做法组", "展示", "页面展示", "做法页面展示信息正确"]
+      },
+      "method-query": {
+        "citation": "做法组 / 查询 / 模糊查询，多语言查询 / 做法页面默认查询为空，输入查询条件，可展示正确的查询结果",
+        "expectedPath": ["做法组", "查询", "模糊查询，多语言查询", "做法页面默认查询为空，输入查询条件，可展示正确的查询结果"]
+      },
+      "method-reset": {
+        "citation": "做法组 / 查询 / 重置 / 做法页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的做法组",
+        "expectedPath": ["做法组", "查询", "重置", "做法页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的做法组"]
+      },
+      "method-required": {
+        "citation": "做法组 / 新增 / 必填参数校验 / 新增做法组，其中有必填参数为空，点击确认提示有必填项缺失，缺失的必填项高亮提示",
+        "expectedPath": ["做法组", "新增", "必填参数校验", "新增做法组，其中有必填参数为空，点击确认提示有必填项缺失，缺失的必填项高亮提示"]
+      },
+      "method-unreferenced-delete": {
+        "citation": "做法组 / 删除 / 做法明细删除 / 明细所在的做法组被商品引用，但是其中部分做法明细未被引用，未被引用的做法明细可删除成功",
+        "expectedPath": ["做法组", "删除", "做法明细删除", "明细所在的做法组被商品引用，但是其中部分做法明细未被引用，未被引用的做法明细可删除成功"]
+      },
+      "addon-display": {
+        "citation": "加料组 / 展示 / 页面展示 / 加料页面展示信息正确",
+        "expectedPath": ["加料组", "展示", "页面展示", "加料页面展示信息正确"]
+      },
+      "addon-query": {
+        "citation": "加料组 / 查询 / 模糊查询，多语言查询 / 加料页面默认查询为空，输入查询条件，可展示正确的查询结果",
+        "expectedPath": ["加料组", "查询", "模糊查询，多语言查询", "加料页面默认查询为空，输入查询条件，可展示正确的查询结果"]
+      },
+      "addon-reset": {
+        "citation": "加料组 / 查询 / 重置 / 加料页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的加料组",
+        "expectedPath": ["加料组", "查询", "重置", "加料页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的加料组"]
+      },
+      "addon-default-over-max": {
+        "citation": "加料组 / 新增 / 规则校验 / 新增/加料组规则验证 / 新增加料组，默认商品数量超过最多选择的数量，保存失败",
+        "expectedPath": ["加料组", "新增", "规则校验", "新增/加料组规则验证", "新增加料组，默认商品数量超过最多选择的数量，保存失败"]
+      },
+      "addon-unlink-delete": {
+        "citation": "加料组 / 删除 / 加料组删除 / 加料组被商品引用，删除时有提示，不可删除，解除商品和加料组的引用关系后，再删除该加料组，可删除成功",
+        "expectedPath": ["加料组", "删除", "加料组删除", "加料组被商品引用，删除时有提示，不可删除，解除商品和加料组的引用关系后，再删除该加料组，可删除成功"]
+      },
+      "package-display": {
+        "citation": "套餐组 / 展示 / 页面展示 / 固定套餐组页面和组合套餐组页面展示信息正确",
+        "expectedPath": ["套餐组", "展示", "页面展示", "固定套餐组页面和组合套餐组页面展示信息正确"]
+      },
+      "package-query": {
+        "citation": "套餐组 / 查询 / 模糊查询，多语言查询 / 套餐组页面默认查询为空，输入查询条件，可展示正确的查询结果",
+        "expectedPath": ["套餐组", "查询", "模糊查询，多语言查询", "套餐组页面默认查询为空，输入查询条件，可展示正确的查询结果"]
+      },
+      "package-reset": {
+        "citation": "套餐组 / 查询 / 重置 / 套餐组页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的套餐组组",
+        "expectedPath": ["套餐组", "查询", "重置", "套餐组页面默认查询为空，输入查询条件，点击查询之后点重置，之后查询条件清空，展示所有的套餐组组"]
+      },
+      "package-edit-sync": {
+        "citation": "套餐组 / 编辑 / 套餐组下商品编辑 / 编辑套餐组下商品的信息，保存之后，套餐组下商品的信息为最新的，引用此套餐组的所有商品的信息均同步更新",
+        "expectedPath": ["套餐组", "编辑", "套餐组下商品编辑", "编辑套餐组下商品的信息，保存之后，套餐组下商品的信息为最新的，引用此套餐组的所有商品的信息均同步更新"]
+      },
+      "package-has-product-delete": {
+        "citation": "套餐组 / 删除 / 套餐组删除 / 套餐组下有商品，删除时有提示，不可删除",
+        "expectedPath": ["套餐组", "删除", "套餐组删除", "套餐组下有商品，删除时有提示，不可删除"]
+      },
+      "package-clear-delete": {
+        "citation": "套餐组 / 删除 / 套餐组删除 / 套餐组下有商品，删除时有提示，不可删除，删除该套餐组下的所有商品，再删除该套餐组，可删除成功",
+        "expectedPath": ["套餐组", "删除", "套餐组删除", "套餐组下有商品，删除时有提示，不可删除，删除该套餐组下的所有商品，再删除该套餐组，可删除成功"]
+      },
+      "package-multispec-create": {
+        "citation": "套餐组 / 新增 / 新增 / 新增可变套餐组，套餐组的商品中可添加多规格商品，能新增成功",
+        "expectedPath": ["套餐组", "新增", "新增", "新增可变套餐组，套餐组的商品中可添加多规格商品，能新增成功"]
+      }
+    }
+  },
+  "cases": [
+    { "caseId": "TC-GRP-TASTE-001", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["taste-display"], "canonicalSource": "XMind已有 ← 口味组 / 展示 / 页面展示 / 口味页面展示信息正确", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-TASTE-004", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-002", "BR-GRP-005"], "canonicalSource": "BR-GRP-002 / BR-GRP-005", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-TASTE-011", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-034"], "canonicalSource": "BR-GRP-034", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在至少一个已被商品引用的口味组。"] },
+    { "caseId": "TC-GRP-MTH-001", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["method-display"], "canonicalSource": "XMind已有 ← 做法组 / 展示 / 页面展示 / 做法页面展示信息正确", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-MTH-002", "disposition": "blocked", "sourceKind": "xmind", "evidenceRefs": ["method-query", "method-reset"], "inheritsDocumentPrecondition": false, "preconditions": [], "blockReason": "精确来源未定义查询数据前置，且原用例合并了两个XMind节点。" },
+    { "caseId": "TC-GRP-MTH-003", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-002", "BR-GRP-005"], "canonicalSource": "BR-GRP-002 / BR-GRP-005", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-MTH-004", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["method-required"], "canonicalSource": "XMind已有 ← 做法组 / 新增 / 必填参数校验 / 新增做法组，其中有必填参数为空，点击确认提示有必填项缺失，缺失的必填项高亮提示", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-MTH-006", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-002", "BR-GRP-003"], "canonicalSource": "BR-GRP-002 / BR-GRP-003", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "品牌内已存在一个做法组，且该组内已存在一个做法明细。"] },
+    { "caseId": "TC-GRP-MTH-007", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-031"], "canonicalSource": "BR-GRP-031", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的做法组。"] },
+    { "caseId": "TC-GRP-MTH-008", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-035"], "canonicalSource": "BR-GRP-035", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的做法明细。"] },
+    { "caseId": "TC-GRP-MTH-009", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["method-unreferenced-delete"], "canonicalSource": "XMind已有 ← 做法组 / 删除 / 做法明细删除 / 明细所在的做法组被商品引用，但是其中部分做法明细未被引用，未被引用的做法明细可删除成功", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个做法组，该组包含已引用明细和未引用明细，删除目标为未引用明细。"] },
+    { "caseId": "TC-GRP-MTH-010", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-034"], "canonicalSource": "BR-GRP-034", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的做法组。"] },
+    { "caseId": "TC-GRP-MTH-012", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-033"], "canonicalSource": "BR-GRP-033", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的做法明细。"] },
+    { "caseId": "TC-GRP-ADD-001", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["addon-display"], "canonicalSource": "XMind已有 ← 加料组 / 展示 / 页面展示 / 加料页面展示信息正确", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-002", "disposition": "blocked", "sourceKind": "xmind", "evidenceRefs": ["addon-query", "addon-reset"], "inheritsDocumentPrecondition": false, "preconditions": [], "blockReason": "精确来源未定义查询数据前置，且原用例合并了两个XMind节点。" },
+    { "caseId": "TC-GRP-ADD-005", "disposition": "repaired", "sourceKind": "xmind-and-business-rule", "evidenceRefs": ["XMind:addon-price-format", "BR-FMT-005"], "canonicalSource": "XMind已有场景（原文“加料价格”字段身份不明确，仅保留格式化测试意图） ← 当前 UI/API 审计字段 `单次加价` / `pricingRule.additionalPrice` ← BR-FMT-005", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "品牌库存在一条可加入加料组的唯一加料商品。"] },
+    { "caseId": "TC-GRP-ADD-006", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-002"], "canonicalSource": "BR-GRP-002", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "品牌内已存在一个加料组。"] },
+    { "caseId": "TC-GRP-ADD-007", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-020"], "canonicalSource": "BR-GRP-020", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-008", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-020"], "canonicalSource": "BR-GRP-020", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-009", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-020"], "canonicalSource": "BR-GRP-020", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-010", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["addon-default-over-max"], "canonicalSource": "XMind已有 ← 加料组 / 新增 / 规则校验 / 新增/加料组规则验证 / 新增加料组，默认商品数量超过最多选择的数量，保存失败", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-011", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-020"], "canonicalSource": "BR-GRP-020", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。"] },
+    { "caseId": "TC-GRP-ADD-012", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-031"], "canonicalSource": "BR-GRP-031", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的加料组。"] },
+    { "caseId": "TC-GRP-ADD-013", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-035"], "canonicalSource": "BR-GRP-035", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个未被商品引用的加料明细。"] },
+    { "caseId": "TC-GRP-ADD-014", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-034"], "canonicalSource": "BR-GRP-034", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的加料组。"] },
+    { "caseId": "TC-GRP-ADD-015", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["addon-unlink-delete"], "canonicalSource": "XMind已有 ← 加料组 / 删除 / 加料组删除 / 加料组被商品引用，删除时有提示，不可删除，解除商品和加料组的引用关系后，再删除该加料组，可删除成功", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的加料组。"] },
+    { "caseId": "TC-GRP-ADD-016", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-032"], "canonicalSource": "BR-GRP-032", "inheritsDocumentPrecondition": true, "preconditions": ["已满足本文档通用前置条件。", "存在一个已被商品引用的加料组。"] },
+    { "caseId": "TC-GRP-PKG-001", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["package-display"], "canonicalSource": "现网审计 2026-08-15 ← 套餐组列表与三类型新增页", "inheritsDocumentPrecondition": true, "preconditions": ["系统中至少存在固定搭配和可选搭配套餐组。"] },
+    { "caseId": "TC-GRP-PKG-002", "disposition": "repaired", "sourceKind": "runtime-audit", "evidenceRefs": ["combo-v2-review:TC-GRP-PKG-002"], "canonicalSource": "现网审计 2026-08-15 ← 套餐组列表筛选合同", "inheritsDocumentPrecondition": true, "preconditions": ["固定搭配与可选搭配列表均至少存在 1 条已知名称记录。"] },
+    { "caseId": "TC-GRP-PKG-003", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-001"], "canonicalSource": "现网审计 2026-08-15 ← BR-GRP-001 / BR-GRP-011", "inheritsDocumentPrecondition": true, "preconditions": ["已进入新增套餐组页。"] },
+    { "caseId": "TC-GRP-PKG-004", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-010"], "canonicalSource": "BR-GRP-010；现网三类型审计 2026-08-15", "inheritsDocumentPrecondition": true, "preconditions": ["系统中存在可选择的子商品。", "品牌内不存在同名套餐组。"] },
+    { "caseId": "TC-GRP-PKG-005", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-011"], "canonicalSource": "BR-GRP-011；现网三类型审计 2026-08-15", "inheritsDocumentPrecondition": true, "preconditions": ["系统中存在可选择的子商品。", "品牌内不存在同名套餐组。"] },
+    { "caseId": "TC-GRP-PKG-008", "disposition": "repaired", "sourceKind": "business-rule", "evidenceRefs": ["BR-GRP-020"], "canonicalSource": "现网审计 2026-08-15 ← 新版套餐组三类型合同", "inheritsDocumentPrecondition": true, "preconditions": ["已进入新增套餐组页。"] },
+    { "caseId": "TC-GRP-PKG-014", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["package-edit-sync"], "canonicalSource": "BR-GRP-033；新版可选搭配字段合同", "inheritsDocumentPrecondition": true, "preconditions": ["可选搭配已被两个套餐商品引用，且开启组内重复选择。"] },
+    { "caseId": "TC-GRP-PKG-016", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["package-has-product-delete"], "canonicalSource": "人工审核确认 2026-08-16；运行时删除证据 ← BR-GRP-034", "inheritsDocumentPrecondition": true, "preconditions": ["存在一个至少包含 1 个商品的套餐组。"] },
+    { "caseId": "TC-GRP-PKG-017", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["package-clear-delete"], "canonicalSource": "旧合同已替代：三种套餐组均要求至少 1 个商品", "inheritsDocumentPrecondition": false, "preconditions": [] },
+    { "caseId": "TC-GRP-PKG-019", "disposition": "repaired", "sourceKind": "xmind", "evidenceRefs": ["package-multispec-create"], "canonicalSource": "新版可选搭配商品选择弹层合同", "inheritsDocumentPrecondition": true, "preconditions": ["系统中存在含 S/M/L 的多规格商品。"] }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042",
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "旧标准收据使用整个 adapter catalog 的聚合实现指纹；调味 system.spec.ts 与 seasoning-boundary.page.ts 又被多个适配器整文件复用，导致修改一个无关分支时所有门店用例收据同时失效并发生无意义重跑。公共运行器现已改为逐用例收集真实适配器依赖，调味适配器也已拆分单/多门店 seed 和 capability/page 源码分段，因此需要用新指纹模型签发一次当前标准收据。",
+  "correctiveAction": "按 single-store-000407 与 multi-store-000420 两个上下文分批运行；每个用例收据写入独立 implementationFingerprint。setup/preflight 继续按上下文收据复用，业务用例仍逐条独立造数、执行、API/UI 断言和零残留清理。后续无关适配器或无关源码段变化不得使这些用例指纹漂移。",
+  "evidenceRefs": [
+    "../../../../Test Automation Platform/tests/api/system-test-stage-reuse.contract.spec.ts",
+    "tests/api/product-center-seasoning-store-redelivery.contract.spec.ts",
+    "systems/merchant-center-product-center-seasoning/adapters.json",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787655277480/evidence-ledger.json"
+  ]
+}

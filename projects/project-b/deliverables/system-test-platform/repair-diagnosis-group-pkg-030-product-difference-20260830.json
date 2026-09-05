@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-PKG-030"
+  ],
+  "rootCause": "当前中文商户中心界面中，随心配最少选择数量为 3、最多选择数量为 1 时，页面正确阻止提交，但可见校验提示稳定显示为英文 Maximum selection quantity cannot be less than minimum，与 canonical 用例要求的中文精确提示不一致。旧 helper 等待中文文本命中直至超时，导致真实产品差异被误记为 automation-gap。",
+  "correctiveAction": "保留 canonical 中文期望和 3/1 输入断言，不放宽提示断言；helper 改为先采集稳定可见提示和 API 零落库结果，再输出期望/实际、页面路径、输入值、清理状态和结构化产品差异附件，由项目适配器调用公共失败分类器。仅定向复现 TC-GRP-PKG-030。",
+  "evidenceRefs": [
+    "output/product-center-group-source-governed-project-canary-product-center-auth-isolated-canary-20260830-r3.json",
+    "contracts/product-center/group/product-center-group-automation-contract.json",
+    "utils/product-center-group-runner.ts",
+    "scripts/run-product-center-source-governed.ts"
+  ],
+  "supersedesAttemptIds": [
+    "72a5f7e3f659d198",
+    "57d7d7645d339004"
+  ]
+}

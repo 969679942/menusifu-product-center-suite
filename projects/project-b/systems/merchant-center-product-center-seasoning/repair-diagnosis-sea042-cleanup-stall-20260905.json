@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-042"
+  ],
+  "runId": "system-test-flow-1788555108534-run-single-store-000407",
+  "classification": "automation-gap",
+  "phase": "cleanup-ui-verification",
+  "rootCause": "单门店一键下发已返回 200，门店 API 与 UI 已出现目标调味；清理注册表也已将门店调味、品牌调味和冗余模板标记为 residue-verified。随后通用调味清理错误进入单门店无权限的模板列表并等待永远不会出现的模板分页响应，读重试累计超过 stallMs，导致 runner 中止。",
+  "correctiveAction": "SEA-042 只创建品牌调味夹具，不再创建与一键下发无关的模板；动作就绪合同只要求 groupId 和 groupName。多门店模板下发用例继续保留模板身份与模板 UI 清理，不受影响。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788555108534-run-single-store-000407/progress.jsonl",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788555108534-run-single-store-000407/playwright-business/.playwright-artifacts-0/traces/19fec53437319cd87246-07e6c45852944fee868a-recording12.trace",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-flow-1788555108534-run-single-store-000407/playwright-business/.playwright-artifacts-0/traces/19fec53437319cd87246-07e6c45852944fee868a-recording12.network",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-flow-1788555108534-run-single-store-000407_TC-FLV-SEA-042.json"
+  ],
+  "residueVerification": {
+    "brandSeasoningId": 2041,
+    "templateId": 250354,
+    "storeSeasoningId": 300,
+    "allCheckpointPhases": "residue-verified"
+  },
+  "existingPassedCasesImpact": "unchanged",
+  "rerunScope": [
+    "TC-FLV-SEA-042"
+  ]
+}

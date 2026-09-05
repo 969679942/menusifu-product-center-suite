@@ -1,0 +1,24 @@
+project:
+  name: merchant-center-seasoning-sea042-control-audit
+  base_url: https://cc-fe.balamxqa.com
+  start_path: /pp/brand/seasoning/list
+  locale: zh-CN
+auth:
+  source: existing-ui-automation-oauth-flow
+safety:
+  mutation_authorized: false
+  test_prefix: AUTO_AUDIT_
+  allowed_hosts:
+    - cc-fe.balamxqa.com
+coverage:
+  required_roles:
+    - merchant-operator
+  required_languages:
+    - zh-CN
+  editable_entities: []
+  route_scope:
+    - /pp/brand/seasoning/list
+  action_scope:
+    - single-store-brand-distribution-entry
+artifacts:
+  output_dir: systems/merchant-center-product-center-seasoning/audit-sea042

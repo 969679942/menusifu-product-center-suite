@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-001", "TC-FLV-REC-002", "TC-FLV-REC-003", "TC-FLV-REC-004", "TC-FLV-REC-005", "TC-FLV-REC-006", "TC-FLV-REC-007",
+    "TC-FLV-SEA-002", "TC-FLV-SEA-003", "TC-FLV-SEA-004", "TC-FLV-SEA-005", "TC-FLV-SEA-006", "TC-FLV-SEA-007", "TC-FLV-SEA-008",
+    "TC-FLV-SEA-011", "TC-FLV-SEA-012", "TC-FLV-SEA-015", "TC-FLV-SEA-016", "TC-FLV-SEA-017", "TC-FLV-SEA-018", "TC-FLV-SEA-030", "TC-FLV-SEA-032", "TC-FLV-SEA-043", "TC-FLV-SEA-046", "TC-FLV-TPL-006"
+  ],
+  "rootCause": "公共门禁与调味 system-test 适配器在本检查点发生了实现指纹变化；旧运行周期不能代表当前实现，且修复预算要求以新的实现变更诊断开启隔离重验证周期。",
+  "correctiveAction": "保留历史运行账本，使用当前单门店 SCH/000407 上下文按选定 case 重建标准执行收据，并在收据中记录当前 case/implementation 指纹、UI/API/清理证据。",
+  "evidenceRefs": [
+    "D:/Menusifu/Test Automation Platform/src/utils/test-plan-landing-gate.ts",
+    "D:/Menusifu/Test Automation Platform/tests/api/test-platform-flow.contract.spec.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json"
+  ]
+}

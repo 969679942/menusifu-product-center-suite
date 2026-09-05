@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "1.0.0",
+  "planId": "merchant-center-current-optimization-20260905",
+  "createdAt": "2026-09-05T00:35:41+08:00",
+  "status": "approved-for-controlled-execution",
+  "objective": "Close current report freshness, source governance, targeted revalidation, and seasoning pilot gaps without broad business regression or fabricated requirements.",
+  "decision": {
+    "feasible": true,
+    "optimalUnderCurrentConstraints": true,
+    "reasons": [
+      "Governance and report defects can be proven with isolated contract tests.",
+      "Source recovery can remain limited to cases with complete executable definitions and current standard receipts.",
+      "Revalidation must be selected by current fingerprints and receipts instead of rerunning all candidates.",
+      "A single reversible seasoning pilot is sufficient to close the current same-application cross-domain gap."
+    ]
+  },
+  "guardrails": {
+    "fullBusinessRegressionAllowed": false,
+    "humanRequiredOnlyForConfirmedBusinessConflict": true,
+    "observedBehaviorMayMasqueradeAsOriginalRequirement": false,
+    "nonBusinessGapsAreAutomaticallyRemediated": true,
+    "crossApplicationPilotRequiresARealDifferentApplicationId": true,
+    "cleanupRequiresApiAndUiZeroResidue": true,
+    "businessExecutionRequiresPublicExecutionIntent": true
+  },
+  "batches": [
+    {
+      "batchId": "B1-report-and-state-contracts",
+      "status": "completed",
+      "scope": [
+        "Bind generated results to the exact current plan fingerprint and selection fingerprint.",
+        "Reject stale results before exposing summary counts.",
+        "Keep sourceStatus, applicabilityStatus and execution action independent while deriving currentGoalBlocking correctly.",
+        "Rebuild the source-governed result from the current plan without rerunning business cases."
+      ],
+      "businessRerunImpact": "unchanged",
+      "acceptance": [
+        "Public system-neutral negative contract passes.",
+        "Merchant Center adapter contract passes.",
+        "execution-result plan fingerprint matches execution-plan.",
+        "No current-goal blocked-source count drift remains."
+      ]
+    },
+    {
+      "batchId": "B2-source-closure",
+      "status": "completed",
+      "scope": [
+        "Resolve six seasoning source-blocked cases through complete binding plus current standard receipt where possible.",
+        "Close TC-GRP-ADD-010 and TC-GRP-ADD-011 as current-version not-applicable without reviving deprecated semantics.",
+        "Do not send technical binding, evidence, environment or cleanup gaps to humans."
+      ],
+      "businessRerunImpact": "only exact executable source-recovery selection",
+      "acceptance": [
+        "blockedSource is zero or every remaining item is a confirmed business conflict.",
+        "Recovered rules use reconstructed-current-baseline and originalRequirementRecovered=false.",
+        "Every mutation receipt proves API/UI zero residue."
+      ]
+    },
+    {
+      "batchId": "B3-targeted-revalidation",
+      "status": "completed",
+      "recommendation": "必须",
+      "purpose": "只刷新历史 40 条影响集的当前证据，不扩大为商品中心或组模块全量回归。",
+      "expectedResult": "38 条可执行用例获得当前指纹终态，2 条已废弃语义保持正式不适用，选择集守恒。",
+      "downstreamImpact": "仅 38 条当前收据被刷新；其余 80 条组用例、其他模块以及既有通过用例保持不变且不失效。",
+      "scope": [
+        "Reconcile the historical 40-case impact set with the current 122 revalidation candidates.",
+        "Classify each case as reuse, targeted-revalidation, bounded sentinel, or excluded.",
+        "Create and validate one public execution intent before authentication, data creation or browser startup.",
+        "Persist intent/selection fingerprints plus terminal and incomplete sets after every execution unit.",
+        "Ignore out-of-scope generated drafts and non-selected module static gaps without weakening their own execution gate."
+      ],
+      "businessRerunImpact": "only non-reusable affected cases",
+      "execution": {
+        "historicalImpact": 40,
+        "targetedExecution": 38,
+        "classifiedExclusions": [
+          "TC-GRP-ADD-010",
+          "TC-GRP-ADD-011"
+        ],
+        "reuse": 0,
+        "unaffectedGroupCases": 80,
+        "mode": "incremental",
+        "route": "source-governed",
+        "fullRegression": false
+      },
+      "acceptance": [
+        "planned = executionEligible + classifiedExclusions.",
+        "selectedCaseIds equal terminalCaseIds at completion.",
+        "No full-regression parameters or unrelated modules are mixed into the repair run.",
+        "Every selected case has a current terminal receipt and failures do not stop independent cases.",
+        "API/UI cleanup residue is zero for every mutation identity."
+      ],
+      "postCheck": [
+        "Reconcile execution intent, checkpoint, source-governed report manifest and execution index.",
+        "Classify product failures separately from automation/evidence/environment gaps.",
+        "Automatically repair non-business gaps before B4."
+      ]
+    },
+    {
+      "batchId": "B4-seasoning-reversible-pilot",
+      "status": "completed",
+      "recommendation": "必须",
+      "purpose": "补齐同一 applicationId 下跨业务域复用的最小真实可逆生命周期证据。",
+      "expectedResult": "单条 pilot 完成 create/read/update/read/delete/absence，并生成标准 evidence ledger。",
+      "downstreamImpact": "只创建带 AUTO_AUDIT 身份的临时调味数据并在 finally 清理；不使其他已通过用例失效。",
+      "scope": [
+        "Run one minimal authenticated reversible seasoning CRUD lifecycle.",
+        "Generate a standard evidence ledger with operation, assertion and cleanup receipts.",
+        "Rebuild project readiness."
+      ],
+      "businessRerunImpact": "one controlled pilot only",
+      "acceptance": [
+        "reversibleCrud=true.",
+        "runtimePassed=true and evidenceComplete=true.",
+        "apiUiZeroResidue=true and securityFindings=0."
+      ],
+      "postCheck": [
+        "Verify operation receipts are exactly bound to create/read/update/read/delete/absence.",
+        "Verify original and edited identities have API/UI zero residue.",
+        "Automatically repair technical, adapter, environment, evidence or report gaps before final acceptance."
+      ]
+    },
+    {
+      "batchId": "B5-final-governance-acceptance",
+      "status": "pending",
+      "recommendation": "必须",
+      "purpose": "重建索引、闭环审计、readiness 和 review queue，并执行项目与公共最终门禁。",
+      "expectedResult": "商品中心项目结论与平台跨系统结论分离，所有当前证据可追溯且遗漏清单收敛。",
+      "downstreamImpact": "仅重建治理和报告产物，不触发业务回归；缺少不同 applicationId 时保留 CROSS_APPLICATION_PILOT_REQUIRED。",
+      "acceptance": [
+        "Project execution, source, binding, evidence, cleanup and index gates reconcile.",
+        "npm run verify:system-test-platform is executed as the final public gate.",
+        "CROSS_APPLICATION_PILOT_REQUIRED is not relabeled as a Merchant Center product failure.",
+        "Only TC-GRP-PKG-040 remains a human business decision."
+      ]
+    }
+  ],
+  "externalOrHumanBoundaries": [
+    {
+      "item": "TC-GRP-PKG-040",
+      "classification": "human-business-decision",
+      "reason": "Confirmed business intent is required; automation must not choose the expected rule."
+    },
+    {
+      "item": "CROSS_APPLICATION_PILOT_REQUIRED",
+      "classification": "external-target-required",
+      "reason": "No real target with a different applicationId is currently in scope."
+    }
+  ]
+}

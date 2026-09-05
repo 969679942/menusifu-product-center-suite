@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-016"],
+  "rootCause": "2026-08-24 业务规则已确认并替代旧负数拒绝规则。两次新规则执行已证明新增三种输入完成创建、编辑非法输入恢复0.00且按钮置灰无PUT；失败来自适配器先写死12.5，随后又在编辑路由执行要求列表路由的通用上下文守卫。API对默认0可能省略价格字段。",
+  "correctiveAction": "读取编辑页实际原价作为基线；编辑断言完成后返回列表再进入before-assertion守卫；API默认价格字段缺失按业务合同归一为0。将两次未进入正式断言的尝试标记为历史诊断后，只重跑当前实现。",
+  "evidenceRefs": [
+    "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787560935760_TC-FLV-SEA-016.error.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787560935760/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["36a3e2da767ef7f2", "894fcb0a25a1bbec"]
+}

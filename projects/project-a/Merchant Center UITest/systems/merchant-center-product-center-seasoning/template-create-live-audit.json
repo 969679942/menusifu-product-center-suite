@@ -1,0 +1,81 @@
+{
+  "merchant": "23918",
+  "brandId": "000420",
+  "route": "/pp/brand/seasoning/addtemplate",
+  "body": "MenuSifu\n商品管理\n商品\n分类\n菜序管理\n规格组\n属性管理\n套餐组\n调味管理\n调味\n调味模版\n下发记录\n标签管理\n原料管理\n原料分类\n图片管理\n配方管理\n打印档口\n多语言管理\n菜单管理\n门店商品管理\n品牌消息\n门店消息\nMenuSifu Cloud-G\n\n新增调味模版\n\n保 存\n基本信息\n调味模版名称\n调味模版名称必填\n第二语言\n模板说明\n调味列表\n组排序\n选择调味",
+  "fields": [
+    {
+      "tag": "input",
+      "role": null,
+      "type": "text",
+      "name": null,
+      "placeholder": "调味模版名称",
+      "ariaLabel": null,
+      "maxLength": "100",
+      "required": false,
+      "value": ""
+    },
+    {
+      "tag": "input",
+      "role": null,
+      "type": "text",
+      "name": null,
+      "placeholder": "请输入第二语言",
+      "ariaLabel": null,
+      "maxLength": "100",
+      "required": false,
+      "value": ""
+    },
+    {
+      "tag": "input",
+      "role": null,
+      "type": "text",
+      "name": null,
+      "placeholder": "模板说明",
+      "ariaLabel": null,
+      "maxLength": "500",
+      "required": false,
+      "value": ""
+    }
+  ],
+  "labels": [
+    "调味模版名称",
+    "第二语言",
+    "模板说明"
+  ],
+  "controls": [
+    {
+      "tag": "button",
+      "role": null,
+      "name": "保 存",
+      "disabled": false
+    },
+    {
+      "tag": "button",
+      "role": null,
+      "name": "组排序",
+      "disabled": true
+    },
+    {
+      "tag": "button",
+      "role": null,
+      "name": "选择调味",
+      "disabled": false
+    }
+  ],
+  "validation": {
+    "submitted": true,
+    "invalidFields": [
+      "调味模版名称\n调味模版名称必填"
+    ],
+    "visibleErrors": [],
+    "mutations": 0
+  },
+  "traffic": [
+    {
+      "method": "GET",
+      "path": "/item/v1/ops-brand/modifier-template/page",
+      "status": 200
+    }
+  ]
+}

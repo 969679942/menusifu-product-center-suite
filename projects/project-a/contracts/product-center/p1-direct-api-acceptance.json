@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-22T15:38:35.8763476+08:00",
+  "status": "passed",
+  "authentication": {
+    "loginEndpoint": "https://cloud.menusifucloudqa.com/api/auth/login",
+    "apiTokenHeader": "token",
+    "brandContextHeader": "x-brand-id",
+    "brandContext": "000407",
+    "authorizationBearerSupported": false,
+    "secretsPersisted": false
+  },
+  "execution": {
+    "command": "npm run test:product-center:api -- --reporter=line",
+    "passed": 9,
+    "failed": 0,
+    "durationSeconds": 256.7,
+    "project": "api",
+    "uiStorageStateRequired": false
+  },
+  "entities": [
+    {
+      "entity": "商品分类",
+      "lifecycle": "create-query-update-delete",
+      "residue": 0
+    },
+    {
+      "entity": "做法组",
+      "lifecycle": "create-query-precheck-update-delete",
+      "residue": 0
+    },
+    {
+      "entity": "原料",
+      "lifecycle": "create-query-update-delete",
+      "residue": 0
+    },
+    {
+      "entity": "品牌调味",
+      "lifecycle": "create-query-update-delete",
+      "residue": 0
+    },
+    {
+      "entity": "配方单",
+      "lifecycle": "dependency-create-create-query-update-delete-reverse-cleanup",
+      "residue": 0
+    }
+  ],
+  "residueVerification": {
+    "artifact": "D:\\Menusifu\\TestOps\\artifacts\\residue-scan-v2-1784705496715\\residue-scan.json",
+    "routeCount": 34,
+    "routeErrors": 0,
+    "matches": 0,
+    "zero": true
+  },
+  "security": {
+    "findingCount": 0,
+    "scannedSecrets": [
+      "MC_USERNAME",
+      "MC_PASSWORD",
+      "MC_ACCESS_TOKEN"
+    ],
+    "literalJwtFindingCount": 0,
+    "literalBearerFindingCount": 0
+  },
+  "evidence": [
+    "Merchant Center UITest/tests/api/product-center-auth.contract.spec.ts",
+    "Merchant Center UITest/tests/api/product-center-direct-crud.spec.ts",
+    "Merchant Center UITest/api/operation-client.ts",
+    "Merchant Center UITest/api/product-center/product-center-api.ts"
+  ]
+}

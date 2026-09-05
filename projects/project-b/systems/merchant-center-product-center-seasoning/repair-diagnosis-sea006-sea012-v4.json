@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006", "TC-FLV-SEA-012"],
+  "rootCause": "SEA-006 已唯一定位 checkbox input，但虚拟列表的固定 header/group 容器拦截 input 指针事件，应操作其可见 label；SEA-012 已执行等价正式路径并观察到无 POST、无提示、无高亮，自动化却等待不存在的校验直到超时，掩盖了正式规则与产品行为的真实偏差。",
+  "correctiveAction": "SEA-006 点击 input 的审计 DOM label 后读取按钮可用与数量；SEA-012 以 2 秒无请求/无提示/无高亮作为稳定终态返回，并在断言层写入 observed-mismatch 与产品偏差注解。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787565565272/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["3753155d8cc9a838", "9b24f140a5a07c20"]
+}

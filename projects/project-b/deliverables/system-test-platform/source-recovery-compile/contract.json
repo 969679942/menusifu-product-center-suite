@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "system-test-run-contract",
+  "generatedAt": "2026-09-04T17:57:27.995Z",
+  "system": {
+    "systemId": "merchant-center-product-center-seasoning",
+    "displayName": "Merchant Center Product Center Seasoning",
+    "baseURL": "https://cc-fe.balamxqa.com",
+    "markerPrefix": "AUTO_AUDIT_MERCHANT_CENTER_PRODUCT_CENTER_SEASONING",
+    "executionContext": {
+      "environmentId": "balamxqa",
+      "locale": "zh-CN",
+      "roleId": "merchant-operator",
+      "tenantScope": "configured-merchant",
+      "featureFlagFingerprint": "2181cd3b05b2956a240f65673b6da2e3eac79a5e5d848968c8a52b12d1d717be"
+    },
+    "portabilityScope": {
+      "applicationId": "merchant-center",
+      "businessDomainId": "product-center-seasoning",
+      "authenticationFamilyId": "merchant-center-oauth-merchant-context",
+      "validationAuthority": "target-system"
+    }
+  },
+  "execution": {
+    "playwrightConfigPath": "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "audit": {
+      "specPath": "systems/merchant-center-product-center-seasoning/tests/audit.spec.ts",
+      "project": "audit",
+      "outputPath": "systems/merchant-center-product-center-seasoning/runtime-audit.json",
+      "trigger": "when-required",
+      "executionContextProfile": "single-store-000407"
+    },
+    "setupSpecPath": "systems/merchant-center-product-center-seasoning/tests/setup.spec.ts",
+    "setupProject": "setup",
+    "recoverySpecPath": "systems/merchant-center-product-center-seasoning/tests/recovery.spec.ts",
+    "recoveryProject": "recovery",
+    "recoveryAdapterId": "merchant-center.seasoning.recovery",
+    "preflightSpecPath": "systems/merchant-center-product-center-seasoning/tests/preflight.spec.ts",
+    "specPath": "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "project": "system",
+    "workers": 2,
+    "retries": 0,
+    "authAdapterId": "merchant-center.seasoning.auth"
+  },
+  "policies": {
+    "stallMs": 180000,
+    "maxRunMs": 900000,
+    "maxConsecutiveFailures": 2,
+    "maxDuplicateFailureFingerprint": 2,
+    "minimumCompletedForFailureRate": 1,
+    "maximumEnvironmentFailureRate": 0.5,
+    "requireExplicitClaimReceipts": true,
+    "requireApiZeroResidue": true,
+    "requireUiZeroResidue": true,
+    "runtimeMayPromoteRuleToFormal": false,
+    "humanApprovalRequiredForFormal": true
+  },
+  "sourceFingerprints": {
+    "recipes": "bba3cf7245723e15a92694ebf8e42690266236d4de4f7b325179ad2f78c6c800",
+    "rules": "7ab34830ae126f531ce5ccd03c3e71730349c5f9920ca74c5bc585841493c7ec",
+    "adapters": "2b17366fbb07680951baa00b1556ce970dbdca50c75ab434ff494e373f98a6dc",
+    "evidenceRuntime": "3ad3bcb8527ababbbf7790bd6055c3691584e922fd76ab3baf5e3040970487aa",
+    "executionContext": "2783a8255c6007dd40dd8eef584a2c18819ada80f98ee520fb52868d8da64b51"
+  },
+  "summary": {
+    "cases": 6,
+    "readOnly": 3,
+    "mutation": 3,
+    "expectationClaims": 8
+  },
+  "cases": [
+    {
+      "caseId": "TC-FLV-SEA-012",
+      "ruleId": "RULE-TC-FLV-SEA-012",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-012",
+      "action": "negative",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "single-store-000407",
+      "mutationMode": "none",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-SEA-012:expectation-1",
+          "expected": "新增调味组名称为空时保存失败并提示",
+          "assertionAdapterId": "merchant-center.seasoning.assert-ui-mutation",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "目标业务请求完成，页面进入稳定可见终态，逐项断言均成立。",
+          "fieldId": "seasoning.group-name",
+          "assertionSurfaceId": "ui.seasoning-list"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    {
+      "caseId": "TC-FLV-SEA-017",
+      "ruleId": "RULE-TC-FLV-SEA-017",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-017",
+      "action": "negative",
+      "dataProfileId": "seasoning-negative-reversible",
+      "executionContextProfile": "single-store-000407",
+      "mutationMode": "reversible",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-SEA-017:expectation-1",
+          "expected": "新增价格输入非数字字符、负数或留空后均保存成功，服务端最终价格为0。",
+          "assertionAdapterId": "merchant-center.seasoning.assert-create-price-correction",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "terminalCondition": "三种新增输入均完成保存，服务端详情回读价格为0。",
+          "fieldId": "seasoning.price",
+          "assertionSurfaceId": "api.seasoning-record",
+          "feedback": {
+            "mode": "state",
+            "trigger": "post-submit"
+          }
+        },
+        {
+          "claimId": "TC-FLV-SEA-017:expectation-2",
+          "expected": "编辑详情输入非数字字符或负数后恢复原价，确定按钮置灰且不发送更新请求。",
+          "assertionAdapterId": "merchant-center.seasoning.assert-edit-price-reversion",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "编辑页价格恢复原值、确定按钮为 disabled 且无 PUT。",
+          "fieldId": "seasoning.price",
+          "assertionSurfaceId": "ui.seasoning-create"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier",
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    {
+      "caseId": "TC-FLV-SEA-022",
+      "ruleId": "RULE-TC-FLV-SEA-022",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-022",
+      "action": "boundary",
+      "dataProfileId": "seasoning-fixture-only-reversible",
+      "executionContextProfile": "single-store-000407",
+      "mutationMode": "fixture-reversible",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-SEA-022:expectation-1",
+          "expected": "调味组下调味项达50个上限后不可再添加",
+          "assertionAdapterId": "merchant-center.seasoning.assert-ui-mutation",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "目标业务请求完成，页面进入稳定可见终态，逐项断言均成立。",
+          "fieldId": "seasoning.group-name",
+          "assertionSurfaceId": "ui.seasoning-list"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier/batch"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "ruleId": "RULE-TC-FLV-SEA-046",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-SEA-046",
+      "action": "boundary",
+      "dataProfileId": "seasoning-create-reversible",
+      "executionContextProfile": "single-store-000407",
+      "mutationMode": "reversible",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-SEA-046:expectation-1",
+          "expected": "价格 1.235 保存后为 1.24。",
+          "assertionAdapterId": "merchant-center.seasoning.assert-round-half-up",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "terminalCondition": "服务端详情回读第一条调味项价格为 1.24。",
+          "fieldId": "seasoning.price",
+          "assertionSurfaceId": "api.seasoning-record"
+        },
+        {
+          "claimId": "TC-FLV-SEA-046:expectation-2",
+          "expected": "价格 1.234 保存后为 1.23。",
+          "assertionAdapterId": "merchant-center.seasoning.assert-round-down",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "terminalCondition": "服务端详情回读第二条调味项价格为 1.23。",
+          "fieldId": "seasoning.price",
+          "assertionSurfaceId": "api.seasoning-record"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [
+        "brand-menu:POST /ops-brand/global-modifier"
+      ],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    {
+      "caseId": "TC-FLV-TPL-001",
+      "ruleId": "RULE-TC-FLV-TPL-001",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-001",
+      "action": "read",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420",
+      "mutationMode": "none",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-TPL-001:expectation-1",
+          "expected": "调味模板列表页字段展示正确",
+          "assertionAdapterId": "merchant-center.seasoning.assert-static-contract",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "目标业务请求完成，页面进入稳定可见终态，逐项断言均成立。",
+          "fieldId": "seasoning.template-distribution",
+          "assertionSurfaceId": "ui.seasoning-template"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    },
+    {
+      "caseId": "TC-FLV-TPL-014",
+      "ruleId": "RULE-TC-FLV-TPL-014",
+      "ruleStatus": "provisional",
+      "recipeId": "merchant-center-product-center-seasoning:TC-FLV-TPL-014",
+      "action": "negative",
+      "dataProfileId": "seasoning-negative-read",
+      "executionContextProfile": "multi-store-000420",
+      "mutationMode": "none",
+      "expectationClaims": [
+        {
+          "claimId": "TC-FLV-TPL-014:expectation-1",
+          "expected": "新增调味模板未选择调味组时阻止保存并提示必选",
+          "assertionAdapterId": "merchant-center.seasoning.assert-ui-mutation",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "目标业务请求完成，页面进入稳定可见终态，逐项断言均成立。",
+          "fieldId": "seasoning.template-fields",
+          "assertionSurfaceId": "ui.seasoning-template-create"
+        }
+      ],
+      "requiredContextGuards": [
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-action"
+        },
+        {
+          "adapterId": "merchant-center.seasoning.context",
+          "phase": "before-assertion"
+        }
+      ],
+      "requiredOperationKeys": [],
+      "probeAdapterIds": [
+        "merchant-center.seasoning.preflight"
+      ],
+      "externalCapabilities": []
+    }
+  ],
+  "fingerprint": "55c315abbc5cc4c4ee035589497b97d191105d586e09f5aa2a7049e64b80f2ea"
+}

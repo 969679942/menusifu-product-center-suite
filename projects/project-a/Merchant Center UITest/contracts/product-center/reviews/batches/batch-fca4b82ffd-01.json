@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.966Z",
+  "id": "batch-fca4b82ffd-01",
+  "group": "brand-menu:品牌过敏原管理",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:373a6cbf0afc",
+      "group": "brand-menu:品牌过敏原管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[6]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-brand/brand-allergens/list",
+          "operationId": "list_34"
+        },
+        "question": "请确认 brand-menu:GET /ops-brand/brand-allergens/list 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:7c29cf2ba297",
+      "group": "brand-menu:品牌过敏原管理",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[7]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "brand-menu",
+          "operationKey": "brand-menu:GET /ops-brand/brand-allergens/all",
+          "operationId": "getAll_3"
+        },
+        "question": "请确认 brand-menu:GET /ops-brand/brand-allergens/all 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

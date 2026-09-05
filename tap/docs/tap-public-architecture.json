@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "测试自动化平台公共架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "viewBox": [1280, 720],
+    "views": [
+      {
+        "id": "main-run",
+        "label": "主执行路径",
+        "focus": ["source", "compiler", "intent", "gate", "runner", "target"],
+        "note": "从编译到目标系统执行，门禁在认证、造数和浏览器启动前生效。"
+      },
+      {
+        "id": "evidence",
+        "label": "收据与报告",
+        "focus": ["runner", "receipts", "arbiter", "allure", "output"],
+        "note": "通过资格只来自当前标准收据与独立仲裁，不来自 Allure 原始 status。"
+      },
+      {
+        "id": "adapter-cut",
+        "label": "适配边界",
+        "focus": ["adapter", "compiler", "intent", "output"],
+        "note": "适配器只声明分区、路由和业务操作，不得复制公共状态机。"
+      }
+    ]
+  },
+  "components": [
+    { "id": "source", "type": "external", "label": "用例来源", "sublabel": "契约与指纹", "pos": [48, 268], "size": [148, 72] },
+    { "id": "compiler", "type": "backend", "label": "公共编译器", "sublabel": "可追溯绑定", "pos": [248, 268], "size": [148, 72] },
+    { "id": "adapter", "type": "frontend", "label": "项目适配器", "sublabel": "分区与操作", "pos": [248, 88], "size": [148, 72] },
+    { "id": "intent", "type": "backend", "label": "执行意图", "sublabel": "范围与指纹", "pos": [448, 268], "size": [148, 72] },
+    { "id": "gate", "type": "security", "label": "模式门禁", "sublabel": "增量 / 全量", "pos": [648, 268], "size": [148, 72] },
+    { "id": "runner", "type": "backend", "label": "公共 Runner", "sublabel": "批次与检查点", "pos": [848, 268], "size": [148, 72] },
+    { "id": "target", "type": "cloud", "label": "目标系统", "sublabel": "Playwright UI/API", "pos": [1048, 268], "size": [148, 72] },
+    { "id": "receipts", "type": "database", "label": "标准收据", "sublabel": "操作与断言", "pos": [648, 468], "size": [148, 72] },
+    { "id": "arbiter", "type": "backend", "label": "状态仲裁", "sublabel": "独立状态轴", "pos": [848, 468], "size": [148, 72] },
+    { "id": "allure", "type": "messagebus", "label": "Allure 报告", "sublabel": "中文业务层级", "pos": [1048, 468], "size": [148, 72] },
+    { "id": "output", "type": "database", "label": "项目产出根", "sublabel": "拒绝路径穿越", "pos": [448, 468], "size": [148, 72] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "公共平台", "wraps": ["compiler", "intent", "gate", "runner", "receipts", "arbiter"] },
+    { "kind": "region", "label": "项目适配", "wraps": ["adapter", "output"] },
+    { "kind": "security-group", "label": "目标环境", "wraps": ["target"] }
+  ],
+  "connections": [
+    { "id": "src-compile", "from": "source", "to": "compiler", "label": "编译", "variant": "emphasis" },
+    { "id": "adapter-compile", "from": "adapter", "to": "compiler", "label": "字段与路由", "labelDy": 24 },
+    { "id": "compile-intent", "from": "compiler", "to": "intent", "label": "选择集" },
+    { "id": "intent-gate", "from": "intent", "to": "gate", "label": "校验集合" },
+    { "id": "gate-runner", "from": "gate", "to": "runner", "label": "放行", "variant": "emphasis" },
+    { "id": "runner-target", "from": "runner", "to": "target", "label": "执行", "variant": "emphasis" },
+    { "id": "runner-receipts", "from": "runner", "to": "receipts", "label": "写入收据" },
+    { "id": "receipts-arbiter", "from": "receipts", "to": "arbiter", "label": "当前事实", "labelDy": 18 },
+    { "id": "arbiter-allure", "from": "arbiter", "to": "allure", "label": "正式结论" },
+    { "id": "receipts-output", "from": "receipts", "to": "output", "label": "项目目录", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "公共与适配",
+      "items": [
+        "公共层拥有状态机、门禁、检查点与报告合同",
+        "适配器只提供分区、上下文、操作、断言与清理"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "通过资格",
+      "items": [
+        "每条业务操作必须有唯一可执行收据",
+        "Allure 原始 status 不能单独授权通过"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "模式互斥",
+      "items": [
+        "incremental/repair 与 full-regression 参数不得混用",
+        "selectedCaseIds = terminalCaseIds 才能标记完成"
+      ]
+    }
+  ]
+}

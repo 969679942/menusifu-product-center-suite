@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-REC-003",
+    "TC-FLV-SEA-001",
+    "TC-FLV-SEA-009",
+    "TC-FLV-SEA-010",
+    "TC-FLV-SEA-022",
+    "TC-FLV-SEA-023",
+    "TC-FLV-SEA-024",
+    "TC-FLV-SEA-025",
+    "TC-FLV-SEA-026",
+    "TC-FLV-SEA-027",
+    "TC-FLV-SEA-028",
+    "TC-FLV-SEA-033",
+    "TC-FLV-SEA-034",
+    "TC-FLV-SEA-035",
+    "TC-FLV-SEA-036",
+    "TC-FLV-SEA-037",
+    "TC-FLV-SEA-040",
+    "TC-FLV-SEA-041",
+    "TC-FLV-TPL-021",
+    "TC-FLV-TPL-023",
+    "TC-FLV-TPL-024"
+  ],
+  "rootCause": "上一轮目标结果显示 5 条通过用例证据不完整，16 条失败集中在真实 UI 操作缺失。本轮已按可审计页面合同补齐目标用例的真实操作、UI/API 断言、请求收据、失败证据绑定和 finally 清理；同时修正 SEA-028/033/037/040/041 的数据画像与接口目录映射。该重验需要在当前实现指纹下重新建立标准执行收据。",
+  "correctiveAction": "按执行上下文拆分为 single-store-000407 与 multi-store-000420 批次，使用最多 2 个 worker 定向执行 21 条目标用例；每条用例保留 caseId、实现指纹、接口收据、UI/API 断言、失败截图或 trace（如失败）、耗时、失败分类，并在 finally 中完成 API/UI 零残留校验。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "pages/product-center/product-center-sop.page.ts",
+    "systems/merchant-center-product-center-seasoning/build.ts",
+    "systems/merchant-center-product-center-seasoning/manifest.json",
+    "systems/merchant-center-product-center-seasoning/runtime-audit.json"
+  ]
+}

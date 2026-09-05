@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-019"],
+  "rootCause": "第一次执行将高级表格字段“送厨名称”按表单标签定位，页面实际以审计确认的表头列呈现；第二次执行已完成真实保存和服务端详情回读，但在页面跳转后的同一路由上直接读取列表，未触发列表刷新，导致 UI 可见性断言读取旧数据。",
+  "correctiveAction": "按可见表头“送厨名称”解析新增调味项表格列并填写；保存后显式重新打开品牌调味列表，等待列表请求和控件稳定后再断言唯一业务身份。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787804100897/checkpoints/system-test-1787804100897_TC-FLV-SEA-019.error.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787804765324/run-report.json",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": ["system-test-1787804100897", "system-test-1787804765324"]
+}

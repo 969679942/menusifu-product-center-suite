@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportId": "seasoning-system-test-efficiency-optimization-20260825",
+  "applicationId": "merchant-center",
+  "systemId": "merchant-center-product-center-seasoning",
+  "status": "mechanism-verified-platform-release-incomplete",
+  "incident": {
+    "observedWindow": "2026-08-25T17:43:55+08:00/2026-08-25T19:20:28+08:00",
+    "wallDurationMs": 5793000,
+    "knownTestProcessDurationMs": 2270000,
+    "diagnosisAuditEditBuildDurationMs": 3523000,
+    "launches": 23,
+    "failedLaunches": 11,
+    "blockedLaunches": 4,
+    "passedLaunches": 8,
+    "rootCauses": [
+      "浏览器 Brand 身份正确但 POI 身份未建立，页面和 API 读取不同门店。",
+      "定向运行仍无条件执行 setup 和与目标路由无关的 preflight。",
+      "写入前缺少精确控件、顺序、服务端身份与清理身份动作链合同。",
+      "Ctrl-C 后修复账本 attempt 停留在 running，后续运行被误判为并发修复。",
+      "interrupted/transient-platform 被错误计入确定性修复预算。",
+      "门店调味种子把硬编码 Vegetable 与声明的唯一 optionName 混用。",
+      "删除确认、模板下发等不同弹窗被错误复用同一关闭方式。",
+      "五类动作链共用单个适配器源码指纹，修一类会扩大其他用例重跑范围。"
+    ]
+  },
+  "commonInfrastructure": {
+    "capabilities": [
+      "setup/preflight 阶段收据与上下文、路由、实现、release 指纹复用",
+      "Brand/POI 双身份认证上下文守卫",
+      "执行候选冻结与写入前漂移阻断",
+      "声明式动作链就绪合同、服务端身份验证和逐阶段收据",
+      "定位漂移自动生成动作链审计修复队列",
+      "终止运行 orphan attempt 自动对账，活进程并发仍 fail-closed",
+      "interrupted/transient-platform 不消耗确定性修复预算",
+      "seed/action-readiness/context/capability/assertion/cleanup 分阶段耗时"
+    ],
+    "contractEvidence": {
+      "platformTypecheck": "passed",
+      "platformContractTests": "70/70 passed",
+      "crossSystemNegativeGates": [
+        "动作链合同缺失时浏览器前阻断",
+        "服务端身份缺失时 capability 前阻断",
+        "候选集漂移时写入前阻断",
+        "活跃 run 不得被新 run 覆盖",
+        "orphan attempt 自动收口但活跃 attempt 不变"
+      ]
+    }
+  },
+  "domainAdapter": {
+    "contexts": {
+      "singleStore": "SCH / Brand 000407",
+      "multiStore": "merchant 23918 / Brand 000420 / POI M000023918 / Ces test"
+    },
+    "isolatedActionReadinessAdapters": [
+      "merchant-center.seasoning.single-store-action-readiness",
+      "merchant-center.seasoning.store-group-delete-action-readiness",
+      "merchant-center.seasoning.store-option-delete-action-readiness",
+      "merchant-center.seasoning.store-batch-delete-action-readiness",
+      "merchant-center.seasoning.store-redeliver-action-readiness"
+    ],
+    "contractEvidence": {
+      "merchantTypecheck": "passed",
+      "domainContractTests": "16/16 passed"
+    }
+  },
+  "runtimeAcceptance": {
+    "runs": [
+      {
+        "runId": "system-test-1787662503805",
+        "caseIds": [
+          "TC-FLV-XMOD-004",
+          "TC-FLV-XMOD-005",
+          "TC-FLV-XMOD-006",
+          "TC-FLV-XMOD-011"
+        ],
+        "status": "passed",
+        "durationMs": 414532,
+        "evidenceComplete": 4,
+        "evidenceIncomplete": 0,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "checkpointEntriesResidueVerified": 12
+      },
+      {
+        "runId": "system-test-1787662927888",
+        "caseIds": [
+          "TC-FLV-SEA-042"
+        ],
+        "status": "passed",
+        "durationMs": 129629,
+        "evidenceComplete": 1,
+        "evidenceIncomplete": 0,
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "checkpointEntriesResidueVerified": 3
+      }
+    ],
+    "closure": {
+      "planned": 102,
+      "bound": 83,
+      "passed": 5,
+      "ready": 78,
+      "deferred": 19,
+      "failed": 0,
+      "productDefect": 0,
+      "blockedSource": 0,
+      "blockedTechnical": 0,
+      "notApplicable": 0,
+      "conserved": true
+    }
+  },
+  "assessment": {
+    "rootCauseClassResolved": true,
+    "absoluteNoFutureDelayGuaranteed": false,
+    "reason": "认证、阶段复用、动作合同、候选冻结、孤儿账本、诊断路由和指纹隔离均已形成公共门禁；真实后端下发、页面渲染与清理仍有不可消除的运行时间和外部波动。",
+    "remainingPlatformReleaseBlockers": {
+      "inventoryChanged": 162,
+      "historicalReferenceGaps": 21,
+      "moduleDeliveryBlocked": false
+    }
+  }
+}

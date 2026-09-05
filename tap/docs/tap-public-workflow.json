@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "测试自动化平台业务流程",
+    "locale": "zh-CN",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "intake", "label": "来源与适配" },
+    { "id": "public", "label": "公共运行" },
+    { "id": "gate", "label": "门禁与分流", "variant": "exception" },
+    { "id": "evidence", "label": "收据与收口" }
+  ],
+  "phases": [
+    { "id": "prepare", "label": "编译与意图", "fromCol": 0, "toCol": 1 },
+    { "id": "control", "label": "模式门禁", "fromCol": 2, "toCol": 3, "variant": "security" },
+    { "id": "finish", "label": "执行与完成", "fromCol": 4, "toCol": 5, "variant": "emphasis" }
+  ],
+  "groups": [
+    { "id": "intent_gate", "label": "意图合同", "lane": "public", "fromCol": 1, "toCol": 2, "variant": "emphasis" },
+    { "id": "mode_split", "label": "增量 / 全量", "lane": "gate", "fromCol": 2, "toCol": 3, "variant": "security" },
+    { "id": "receipt_close", "label": "完成合同", "lane": "evidence", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["cases", "compile", "intent", "modedecide", "batch", "receipt", "close"],
+  "nodes": [
+    { "id": "cases", "lane": "intake", "col": 0, "type": "external", "label": "用例来源", "sublabel": "契约与指纹", "width": 132 },
+    { "id": "adapter", "lane": "intake", "col": 1, "type": "frontend", "label": "项目适配器", "sublabel": "分区与操作", "width": 132 },
+    { "id": "compile", "lane": "public", "col": 1, "type": "backend", "label": "公共编译", "sublabel": "可追溯绑定", "width": 132 },
+    { "id": "intent", "lane": "public", "col": 2, "type": "backend", "label": "执行意图", "sublabel": "范围与指纹", "width": 132 },
+    { "id": "modedecide", "lane": "gate", "col": 2, "type": "security", "label": "模式门禁", "sublabel": "启动前校验", "tag": "互斥参数", "width": 132 },
+    { "id": "blocked", "lane": "gate", "col": 3, "type": "security", "label": "硬阻断", "sublabel": "混用或漏分区", "width": 132 },
+    { "id": "canary", "lane": "public", "col": 3, "type": "backend", "label": "Canary", "sublabel": "ready-for-batch", "width": 132 },
+    { "id": "batch", "lane": "public", "col": 4, "type": "backend", "label": "批次执行", "sublabel": "检查点恢复", "width": 132 },
+    { "id": "target", "lane": "intake", "col": 4, "type": "cloud", "label": "目标系统", "sublabel": "Playwright UI/API", "width": 132 },
+    { "id": "receipt", "lane": "evidence", "col": 4, "type": "database", "label": "标准收据", "sublabel": "操作与断言", "width": 132 },
+    { "id": "close", "lane": "evidence", "col": 5, "type": "backend", "label": "完成合同", "sublabel": "选择集=终态集", "width": 132 },
+    { "id": "allure", "lane": "intake", "col": 5, "type": "messagebus", "label": "Allure 报告", "sublabel": "中文业务层级", "width": 132 }
+  ],
+  "edges": [
+    { "id": "cases-compile", "from": "cases", "to": "compile", "label": "编译", "variant": "emphasis" },
+    { "id": "adapter-compile", "from": "adapter", "to": "compile", "label": "路由映射" },
+    { "id": "compile-intent", "from": "compile", "to": "intent", "label": "选择集" },
+    { "id": "intent-gate", "from": "intent", "to": "modedecide", "label": "校验集合" },
+    { "id": "gate-block", "from": "modedecide", "to": "blocked", "label": "混用/缺分区", "variant": "security", "role": "error" },
+    { "id": "gate-canary", "from": "modedecide", "to": "canary", "label": "incremental", "variant": "dashed", "role": "branch" },
+    { "id": "gate-batch", "from": "modedecide", "to": "batch", "label": "full-regression", "variant": "emphasis" },
+    { "id": "canary-batch", "from": "canary", "to": "batch", "label": "放量" },
+    { "id": "adapter-batch", "from": "adapter", "to": "batch", "label": "业务操作", "variant": "dashed" },
+    { "id": "batch-target", "from": "batch", "to": "target", "label": "执行" },
+    { "id": "batch-receipt", "from": "batch", "to": "receipt", "label": "写入收据", "variant": "emphasis" },
+    { "id": "receipt-close", "from": "receipt", "to": "close", "label": "终态校验" },
+    { "id": "close-allure", "from": "close", "to": "allure", "label": "正式结论" }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "启动前阻断",
+      "items": [
+        "认证、造数、浏览器启动前必须校验意图与选择集",
+        "incremental 与 full-regression 参数混用直接失败"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "两种模式",
+      "items": [
+        "incremental 先过静态合同、优化计划和 Canary",
+        "full-regression 不消费 Canary，失败不停止后续独立批次"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "完成事实",
+      "items": [
+        "selectedCaseIds = terminalCaseIds 才能标记完成",
+        "全选执行但有失败时是 completed-with-findings，不是 blocked"
+      ]
+    }
+  ]
+}

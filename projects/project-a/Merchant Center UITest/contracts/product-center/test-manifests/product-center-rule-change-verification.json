@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-rule-change-verification",
+  "profiles": [
+    {
+      "id": "targeted",
+      "commands": [
+        {
+          "id": "typecheck",
+          "kind": "npm-script",
+          "script": "typecheck"
+        },
+        {
+          "id": "build-item-canonical",
+          "kind": "npm-script",
+          "script": "build:product-center:item-canonical"
+        },
+        {
+          "id": "targeted-contracts",
+          "kind": "playwright-contract",
+          "tests": [
+            "tests/api/product-center-canonical-item-test-plan.contract.spec.ts",
+            "tests/api/product-center-rule-evidence-ledger.contract.spec.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "associated",
+      "commands": [
+        {
+          "id": "typecheck",
+          "kind": "npm-script",
+          "script": "typecheck"
+        },
+        {
+          "id": "build-item-canonical",
+          "kind": "npm-script",
+          "script": "build:product-center:item-canonical"
+        },
+        {
+          "id": "associated-contracts",
+          "kind": "playwright-contract",
+          "tests": [
+            "tests/api/product-center-canonical-item-test-plan.contract.spec.ts",
+            "tests/api/product-center-item-source-coverage.contract.spec.ts",
+            "tests/api/product-center-item-category-leaf-proposal.contract.spec.ts",
+            "tests/api/product-center-rule-evidence-ledger.contract.spec.ts",
+            "tests/api/product-center-technical-binding-candidates.contract.spec.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shared-static",
+      "commands": [
+        {
+          "id": "typecheck",
+          "kind": "npm-script",
+          "script": "typecheck"
+        },
+        {
+          "id": "all-product-center-contracts",
+          "kind": "npm-script",
+          "script": "test:product-center:contract"
+        }
+      ]
+    },
+    {
+      "id": "authorization-required",
+      "commands": []
+    }
+  ]
+}

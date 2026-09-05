@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "b4-seasoning-reversible-pilot-20260905",
+  "generatedAt": "2026-09-04T20:34:36.672Z",
+  "recommendation": "必须",
+  "purpose": "用一条当前 Seasoning 用例证明同一 applicationId 下跨业务域的最小可逆 CRUD 生命周期。",
+  "expectedResult": "TC-FLV-SEA-032 依次完成创建、API/UI 回读、编辑、API/UI 回读、删除、API/UI 不存在校验。",
+  "downstreamImpact": "仅运行 TC-FLV-SEA-032；其他 419 条项目用例不执行、既有通过收据不失效。",
+  "selectedCaseIds": [
+    "TC-FLV-SEA-032"
+  ],
+  "excludedCaseCount": 419,
+  "fullRegression": false,
+  "cleanupIdentities": [
+    "original",
+    "edited"
+  ]
+}

@@ -1,0 +1,1383 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-y3-execution-matrix",
+  "generatedAt": "2026-08-02T15:00:00.000Z",
+  "status": "ready-for-batched-execution",
+  "source": {
+    "fastLanePath": "contracts/product-center/reviews/automation-fast-lane/product-center-item-automation-fast-lane.json",
+    "fastLaneSha256": "72793ae9862be699776936cb788ed9b9e58a55ee15abf88c00e5a413496d4af4",
+    "canonicalPath": "contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json",
+    "canonicalSha256": "a3810e04dcb2e9128b2c9870b3e885782b59a7280c8441182f8eac8425d56332"
+  },
+  "summary": {
+    "groups": 19,
+    "cases": 37,
+    "firstBatchGroups": 6,
+    "firstBatchCases": 9,
+    "secondBatchGroups": 6,
+    "secondBatchCases": 11,
+    "readyExistingCapability": 9,
+    "adapterRequired": 11,
+    "controlledFixtureRequired": 15,
+    "ruleEvidenceRequired": 2,
+    "humanReviewRequired": 0
+  },
+  "policy": {
+    "executionMode": "wave-shared-chain",
+    "caseLevelRunsAllowed": false,
+    "caseLevelEvidenceRequired": true,
+    "evidenceInheritanceAllowed": false,
+    "sharedSetupReuseAllowed": true,
+    "nonIdempotentReplayRequiresReconciliation": true,
+    "cleanupInFinally": true,
+    "zeroResidueRequired": true
+  },
+  "firstBatch": {
+    "batchId": "Y3-B1",
+    "caseIds": [
+      "TC-ITEM-STD-030",
+      "TC-ITEM-ADD-041",
+      "TC-ITEM-ADD-002",
+      "TC-ITEM-PKG-048",
+      "TC-ITEM-UI-007",
+      "TC-ITEM-UI-008",
+      "TC-ITEM-UI-004",
+      "TC-ITEM-UI-005",
+      "TC-ITEM-UI-006"
+    ],
+    "groupIds": [
+      "AT04",
+      "AT24",
+      "AT32",
+      "AT38",
+      "AT52",
+      "AT54"
+    ],
+    "executionOrder": [
+      "list-filter-memory",
+      "create-page-actions",
+      "other-settings-capability",
+      "batch-menu"
+    ]
+  },
+  "secondBatch": {
+    "batchId": "Y3-B2",
+    "caseIds": [
+      "TC-ITEM-STD-019",
+      "TC-ITEM-STD-084",
+      "TC-ITEM-STD-085",
+      "TC-ITEM-STD-086",
+      "TC-ITEM-ADD-025",
+      "TC-ITEM-ADD-007",
+      "TC-ITEM-ADD-009",
+      "TC-ITEM-ADD-022",
+      "TC-ITEM-ADD-011",
+      "TC-ITEM-ADD-049",
+      "TC-ITEM-ADD-038"
+    ],
+    "groupIds": [
+      "AT13",
+      "AT16",
+      "AT22",
+      "AT25",
+      "AT27",
+      "AT30"
+    ],
+    "executionOrder": [
+      "weighted-unit",
+      "multi-spec-order",
+      "attribute-removal",
+      "side-create",
+      "side-price",
+      "side-image",
+      "side-other-settings"
+    ]
+  },
+  "groups": [
+    {
+      "groupId": "AT04",
+      "templateKey": "标准商品|查询筛选|update|L2",
+      "productType": "标准商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-STD-030"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "item-list-filter-memory",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT13",
+      "templateKey": "标准商品|价格规格|update|L2",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-STD-019",
+        "TC-ITEM-STD-025",
+        "TC-ITEM-STD-026",
+        "TC-ITEM-STD-027",
+        "TC-ITEM-STD-084",
+        "TC-ITEM-STD-085"
+      ],
+      "readiness": [
+        "adapter-required",
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "标准商品|价格规格|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-STD-019",
+        "TC-ITEM-STD-084",
+        "TC-ITEM-STD-085"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 6
+    },
+    {
+      "groupId": "AT16",
+      "templateKey": "标准商品|展示与其他|delete|L2",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "delete",
+      "caseIds": [
+        "TC-ITEM-STD-086"
+      ],
+      "readiness": [
+        "adapter-required"
+      ],
+      "setupReuseKey": "标准商品|展示与其他|delete",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-STD-086"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT22",
+      "templateKey": "加料商品|编辑|create|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "编辑",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-ADD-025"
+      ],
+      "readiness": [
+        "adapter-required"
+      ],
+      "setupReuseKey": "加料商品|编辑|create",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-ADD-025"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT23",
+      "templateKey": "加料商品|查询筛选|create|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-ADD-033"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "加料商品|查询筛选|create",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT24",
+      "templateKey": "加料商品|查询筛选|update|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-ADD-041"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "item-list-filter-memory",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT25",
+      "templateKey": "加料商品|创建|create|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-ADD-007",
+        "TC-ITEM-ADD-009",
+        "TC-ITEM-ADD-022",
+        "TC-ITEM-ADD-039"
+      ],
+      "readiness": [
+        "adapter-required",
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "加料商品|创建|create",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-ADD-007",
+        "TC-ITEM-ADD-009",
+        "TC-ITEM-ADD-022"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 4
+    },
+    {
+      "groupId": "AT26",
+      "templateKey": "加料商品|创建|update|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-ADD-012",
+        "TC-ITEM-ADD-013",
+        "TC-ITEM-ADD-018",
+        "TC-ITEM-ADD-019",
+        "TC-ITEM-ADD-020",
+        "TC-ITEM-ADD-021"
+      ],
+      "readiness": [
+        "rule-evidence-required",
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "加料商品|创建|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 6
+    },
+    {
+      "groupId": "AT27",
+      "templateKey": "加料商品|价格规格|update|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-049"
+      ],
+      "readiness": [
+        "adapter-required"
+      ],
+      "setupReuseKey": "加料商品|价格规格|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-ADD-011",
+        "TC-ITEM-ADD-049"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 2
+    },
+    {
+      "groupId": "AT29",
+      "templateKey": "加料商品|扩展配置|update|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "扩展配置",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-ADD-045"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "加料商品|扩展配置|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT30",
+      "templateKey": "加料商品|展示与其他|create|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-ADD-038"
+      ],
+      "readiness": [
+        "adapter-required"
+      ],
+      "setupReuseKey": "加料商品|展示与其他|create",
+      "firstBatch": false,
+      "secondBatchCaseIds": [
+        "TC-ITEM-ADD-038"
+      ],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT32",
+      "templateKey": "加料商品|展示与其他|update|L2",
+      "productType": "加料商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-ADD-002"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "side-item-other-settings",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT35",
+      "templateKey": "套餐商品|编辑|create|L2",
+      "productType": "套餐商品",
+      "scenarioFamily": "编辑",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-PKG-036"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "套餐商品|编辑|create",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT38",
+      "templateKey": "套餐商品|查询筛选|update|L2",
+      "productType": "套餐商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-PKG-048"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "item-list-filter-memory",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT41",
+      "templateKey": "套餐商品|价格规格|update|L2",
+      "productType": "套餐商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-PKG-020"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "套餐商品|价格规格|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT44",
+      "templateKey": "套餐商品|套餐规则|delete|L2",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "operation": "delete",
+      "caseIds": [
+        "TC-ITEM-PKG-042",
+        "TC-ITEM-PKG-043"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "套餐商品|套餐规则|delete",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 2
+    },
+    {
+      "groupId": "AT51",
+      "templateKey": "页面补充|批量与导入|update|L2",
+      "productType": "页面补充",
+      "scenarioFamily": "批量与导入",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-UI-003"
+      ],
+      "readiness": [
+        "controlled-fixture-required"
+      ],
+      "setupReuseKey": "页面补充|批量与导入|update",
+      "firstBatch": false,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 1
+    },
+    {
+      "groupId": "AT52",
+      "templateKey": "页面补充|展示与其他|create|L2",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "create",
+      "caseIds": [
+        "TC-ITEM-UI-007",
+        "TC-ITEM-UI-008"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "item-create-action-surface",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 2
+    },
+    {
+      "groupId": "AT54",
+      "templateKey": "页面补充|展示与其他|update|L2",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "caseIds": [
+        "TC-ITEM-UI-004",
+        "TC-ITEM-UI-005",
+        "TC-ITEM-UI-006"
+      ],
+      "readiness": [
+        "ready-existing-capability"
+      ],
+      "setupReuseKey": "item-list-batch-menu",
+      "firstBatch": true,
+      "secondBatchCaseIds": [],
+      "sharedSetupAllowed": true,
+      "caseLevelEvidenceRequired": 3
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "groupId": "AT04",
+      "title": "切换页面返回标准商品列表时不保留查询条件",
+      "productType": "标准商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "运行审计接受 ← flows/product-center/item-216/standard-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 3,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "groupId": "AT13",
+      "title": "称重商品销售单位下拉展示 g、kg、ml",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-ITEM-015",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-025",
+      "groupId": "AT13",
+      "title": "从行业商品库选择单规格商品时可继承行业商品信息",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "industry-library-single-spec-item"
+      ],
+      "source": "XMind已有 ← 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择商品，可以继承行业商品的信息到品牌商品",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 5,
+        "expectedResults": 4
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-026",
+      "groupId": "AT13",
+      "title": "从行业商品库选择多规格商品时可继承多规格及图库信息",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "industry-library-multi-spec-item",
+        "brand-image-library-category"
+      ],
+      "source": "XMind已有 ← 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择多规格商品，可以继承行业商品的信息到品牌商品",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 5,
+        "expectedResults": 4
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-027",
+      "groupId": "AT13",
+      "title": "从行业商品库选择多规格商品时仅勾选部分规格可成功继承所选规格",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "industry-library-three-spec-item"
+      ],
+      "source": "XMind已有 ← 标准商品 / 新增 / 从行业商品库选择商品可继承行业商品库的信息 / 从行业商品库选择多规格商品，不选全部规格，可继承行业商品的信息到品牌",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 5,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "groupId": "AT13",
+      "title": "称重商品销售单位切换 g、kg、ml 后保存成功",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-ITEM-015",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 3,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "groupId": "AT13",
+      "title": "多规格商品拖动调整规格顺序后保存成功",
+      "productType": "标准商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "业务规则明确 ← BR-ITEM-016",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 3,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "groupId": "AT16",
+      "title": "移除已引用口味组子项后详情不再展示该子项",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "delete",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [
+        "temporary-flavor-group-with-three-options",
+        "temporary-standard-item"
+      ],
+      "source": "BR-ITEM-033",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 3,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "groupId": "AT22",
+      "title": "加料商品编辑其他信息后保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "编辑",
+      "operation": "create",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [
+        "detail-image-file",
+        "description-label",
+        "statistics-label"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-005 / BR-ITEM-006",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 5,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "groupId": "AT23",
+      "title": "加料组新增时可搜索并选择该加料商品",
+      "productType": "加料商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "create",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-side-item",
+        "temporary-add-on-group"
+      ],
+      "source": "PRD明确 ← 5.1.1 加料组新增时选择商品",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "groupId": "AT24",
+      "title": "切换页面返回加料商品列表时不保留查询条件",
+      "productType": "加料商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-add-041",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 3,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "groupId": "AT25",
+      "title": "加料商品不选择分类时创建成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "create",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "业务规则明确 ← BR-ITEM-022",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 6,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "groupId": "AT25",
+      "title": "加料商品标准价为 0 时创建成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "create",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-FMT-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 4,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "groupId": "AT25",
+      "title": "加料商品本地上传主图后创建成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "create",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "业务规则明确 ← BR-ITEM-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 5,
+        "actions": 5,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "groupId": "AT25",
+      "title": "加料商品从图片库选择主图后创建成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "create",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "brand-image-library-image"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 5,
+        "actions": 5,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "groupId": "AT26",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "rule-evidence-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 5,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "groupId": "AT26",
+      "title": "加料商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "rule-evidence-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 7,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "groupId": "AT26",
+      "title": "加料商品描述标签多选保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "two-description-labels"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-006",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "groupId": "AT26",
+      "title": "加料商品商品角标单选保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "corner-mark"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-006",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "groupId": "AT26",
+      "title": "加料商品统计标签多选保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "two-statistics-labels"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-006",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "groupId": "AT26",
+      "title": "加料商品配置材料信息中原料、过敏原和营养成分后保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "创建",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "ingredient",
+        "allergen",
+        "nutrition"
+      ],
+      "source": "业务规则明确 ← BR-MAT-002",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 3,
+        "actions": 3,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "groupId": "AT27",
+      "title": "加料商品包装费合法输入时保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-FMT-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 6,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-049",
+      "groupId": "AT27",
+      "title": "加料商品成本合法输入时保存成功",
+      "productType": "加料商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-FMT-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 6,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "groupId": "AT29",
+      "title": "加料商品角标切换选择后仅保留最新一个角标",
+      "productType": "加料商品",
+      "scenarioFamily": "扩展配置",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "two-corner-marks"
+      ],
+      "source": "业务规则明确 ← 商品中心业务规则 §1 商品角标数量 0-1；PRD明确 ← 5.1.1 加料商品其他设置",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 3,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "groupId": "AT30",
+      "title": "加料商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "productType": "加料商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "create",
+      "readiness": "adapter-required",
+      "firstBatch": false,
+      "secondBatch": true,
+      "dependencyTypes": [],
+      "source": "BR-ITEM-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "groupId": "AT32",
+      "title": "加料商品其他设置与标准商品一致",
+      "productType": "加料商品",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "业务规则明确 ← BR-ITEM-005 / BR-ITEM-006 / BR-MAT-002；XMind已有 ← 加料商品其他设置与标准商品一致",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 1,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "groupId": "AT35",
+      "title": "套餐商品编辑其他信息后保存成功",
+      "productType": "套餐商品",
+      "scenarioFamily": "编辑",
+      "operation": "create",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-fixed-combo-group",
+        "two-detail-images",
+        "two-description-labels",
+        "corner-mark",
+        "two-statistics-labels"
+      ],
+      "source": "业务规则明确 ← BR-ITEM-005 / BR-ITEM-006",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 6,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "groupId": "AT38",
+      "title": "切换页面返回套餐商品列表时不保留查询条件",
+      "productType": "套餐商品",
+      "scenarioFamily": "查询筛选",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-pkg-048",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 3,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "groupId": "AT41",
+      "title": "套餐商品包装费合法输入时保存成功",
+      "productType": "套餐商品",
+      "scenarioFamily": "价格规格",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-fixed-combo-group"
+      ],
+      "source": "BR-FMT-005",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 4,
+        "actions": 7,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "groupId": "AT44",
+      "title": "已选固定搭配套餐组可从右侧移除",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "operation": "delete",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-fixed-combo-group"
+      ],
+      "source": "XMind已有 ← 套餐商品 / 选择已有套餐组 / 选择固定搭配",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "groupId": "AT44",
+      "title": "已选组合搭配套餐组可从右侧移除",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "operation": "delete",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-optional-combo-group"
+      ],
+      "source": "XMind已有 ← 套餐商品 / 选择已有套餐组 / 选择组合搭配",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 2
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-003",
+      "groupId": "AT51",
+      "title": "复制商品时打印档口信息随商品复制",
+      "productType": "页面补充",
+      "scenarioFamily": "批量与导入",
+      "operation": "update",
+      "readiness": "controlled-fixture-required",
+      "firstBatch": false,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-standard-item-with-print-stall"
+      ],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/list 行操作菜单展示“复制”；business-rule-explicit ← 商品中心业务规则 §22：商品复制时，档口信息随商品复制",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 4,
+        "expectedResults": 3
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-007",
+      "groupId": "AT52",
+      "title": "标准商品创建页提供保存并新建入口",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "create",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/create/standard",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-008",
+      "groupId": "AT52",
+      "title": "套餐商品创建页提供保存并新建入口",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "create",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/create/combo",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-004",
+      "groupId": "AT54",
+      "title": "勾选商品后批量操作菜单提供基础字段编辑入口",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-standard-item"
+      ],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/list",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-005",
+      "groupId": "AT54",
+      "title": "勾选商品后批量操作菜单提供销售信息价格与属性入口",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-standard-item"
+      ],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/list",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    },
+    {
+      "caseId": "TC-ITEM-UI-006",
+      "groupId": "AT54",
+      "title": "勾选商品后批量操作菜单提供添加至菜单与删除入口",
+      "productType": "页面补充",
+      "scenarioFamily": "展示与其他",
+      "operation": "update",
+      "readiness": "ready-existing-capability",
+      "firstBatch": true,
+      "secondBatch": false,
+      "dependencyTypes": [
+        "temporary-standard-item"
+      ],
+      "source": "ui-observed ← 只读页面审计 2026-07-30 ← /pp/brand/list",
+      "evidencePolicy": {
+        "caseLevelEvidenceRequired": true,
+        "evidenceInheritanceAllowed": false,
+        "canonicalConflictAllowed": true
+      },
+      "sourceShape": {
+        "preconditions": 2,
+        "actions": 2,
+        "expectedResults": 1
+      }
+    }
+  ],
+  "fingerprint": "c809fa32a649e988e3c863fa17ad127ec4e7466988a9d63d97cc0bbec3a7c578"
+}

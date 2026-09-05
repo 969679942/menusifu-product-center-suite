@@ -1,0 +1,60 @@
+{
+  "source": "商品中心.postman_collection.json",
+  "requests": [
+    {
+      "group": [],
+      "name": "Get Token",
+      "method": "POST",
+      "url": "{baseUrl}/api/auth/login",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "userName": "{{MC_USERNAME}}",
+        "password": "{{MC_PASSWORD}}"
+      }
+    },
+    {
+      "group": [],
+      "name": "创建商品",
+      "method": "POST",
+      "url": "?Token",
+      "headers": {},
+      "bodyMode": "raw",
+      "body": "{\r\n  \"itemBasic\": {\r\n    \"name\": \"350商品${__intSum(${__counter(,)},0,)}\",\r\n    \"minOrderQuantity\": 1,\r\n    \"type\": 1,\r\n    \"weightItem\": false,\r\n    \"specType\": 1,\r\n    \"itemMainImages\": [],\r\n    \"itemDetailImages\": [\r\n\t  {\r\n        \"brandImageId\": ${brandImageId}\r\n      }\r\n\t]\r\n  },\r\n  \"itemSpecDetail\": {\r\n    \"specList\": [],\r\n    \"skuList\": [\r\n      {\r\n        \"salePrice\": 10,\r\n        \"costPrice\": 0,\r\n        \"packageFee\": 0\r\n      }\r\n    ]\r\n  },\r\n  \"cookList\": [],\r\n  \"tasteList\": [],\r\n  \"mutexAttrRuleList\": [],\r\n  \"addGroupList\": [],\r\n  \"descTagList\": [],\r\n  \"corner\": [],\r\n  \"statisticalsTagList\": [],\r\n  \"flexedSectionList\": [],\r\n  \"fixedSectionList\": [],\r\n  \"allergenList\": [],\r\n  \"nutritionList\": [],\r\n  \"ingredientList\": []\r\n}"
+    },
+    {
+      "group": [],
+      "name": "Login1",
+      "method": "POST",
+      "url": "{baseUrl}/api/idp/login?redirect_uri=https:%2F%2Fcc-fe.balamxqa.com&code_challenge=FK2GkEIjmjRRVot0B3hFV96-zfqG84mAEGIdZD944xM&code_challenge_method=S256",
+      "headers": {
+        "content-type": "application/json",
+        "cookie": "{{MC_ACCESS_TOKEN}}"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "username": "{{MC_USERNAME}}",
+        "password": "{{MC_PASSWORD}}"
+      }
+    },
+    {
+      "group": [],
+      "name": "Login2",
+      "method": "POST",
+      "url": "{baseUrl}/cloud-service/idp/token",
+      "headers": {
+        "cookie": "{{MC_ACCESS_TOKEN}}",
+        "baggage": "sentry-environment=production,sentry-release=1.0.0-6056f46,sentry-public_key=2234651bfd2a2e4e912331dd000363e0,sentry-trace_id=588fe8d0116248cbb10f62a1aeb1c08f,sentry-org_id=4510389618999296,sentry-sampled=true,sentry-sample_rand=0.10181597563844236,sentry-sample_rate=1",
+        "referer": "https://cc-fe.balamxqa.com/pp/brandpictrue?code=09067d50-a826-4c37-a59a-d73562373678"
+      },
+      "bodyMode": "raw",
+      "body": {
+        "code": "c0b8af79-511b-4438-b768-9d981d4f69bb",
+        "redirect_uri": "https://cc-fe.balamxqa.com",
+        "expiryInSec": 2592000
+      }
+    }
+  ]
+}

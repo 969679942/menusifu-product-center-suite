@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-GRP-MTH-018",
+    "TC-GRP-PKG-002",
+    "TC-GRP-PKG-008",
+    "TC-GRP-PKG-036",
+    "TC-GRP-SPEC-028",
+    "TC-GRP-TASTE-019"
+  ],
+  "rootCause": "来源恢复执行、后置证据评估和零残留清理已经通过，但身份治理还存在两类状态污染：局部实现指纹曾受 handler 编译集合、同名声明键及纯类型符号影响；业务用例 bindingFingerprint 又错误包含来源 blocked/verified 状态。后者导致同一用例在来源恢复前后改变 caseFingerprint，形成恢复规则、来源审计、绑定重建之间的循环失效。以上均为身份与治理实现缺口，不是产品行为失败。",
+  "correctiveAction": "实现指纹改为每个 handler 独立闭包、声明位置唯一键并排除纯类型声明；业务用例指纹只包含用例语义、handler、证据和断言合同，不包含来源治理状态。合同同时证明完整集/恢复子集/逆序下实现指纹恒定，以及来源状态变化只改变执行资格、不改变 caseFingerprint。由于规范化身份改变了六条收据，本轮仍只对这六条定向重验，继续要求当前指纹、完整操作、断言、清理和证据全部匹配，禁止用现网行为冒充原始 PRD。",
+  "evidenceRefs": [
+    "output/product-center-group-source-governed-20260904T141114Z.json",
+    "output/product-center-source-governed-20260904T141114Z-reports.json",
+    "output/product-center-group-source-governed-20260904T142003Z.json",
+    "output/product-center-source-governed-20260904T142003Z-reports.json",
+    "output/product-center-group-source-governed-20260904T143548Z.json",
+    "output/product-center-source-governed-20260904T143548Z-reports.json",
+    "output/system-test-repair/product-center/repair-attempt-ledger.json",
+    "scripts/run-product-center-source-governed.ts",
+    "utils/product-center-group-runner.ts",
+    "utils/product-center-group-case-fingerprint.ts",
+    "utils/product-center-group-automation.ts",
+    "tests/api/product-center-group-case-fingerprint.contract.spec.ts",
+    "contracts/product-center/reviews/product-center-source-auto-resolution.json",
+    "../deliverables/product-center-source-governance/execution-plan.json",
+    "tests/api/product-center-source-recovery-routing.contract.spec.ts",
+    "deliverables/system-test-platform/source-recovery-six-cases-checkpoint.json"
+  ],
+  "supersedesAttemptIds": [
+    "7147f2b21f841171",
+    "d8dd919be24c5af3",
+    "e5f9420dba92fc56",
+    "69ac770a966b31bd",
+    "75ade96da8ebd540",
+    "07f6d77ebc521ed4"
+  ]
+}

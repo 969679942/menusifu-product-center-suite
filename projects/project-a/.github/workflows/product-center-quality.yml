@@ -1,0 +1,302 @@
+name: 商品中心质量流水线
+
+on:
+  pull_request:
+    paths:
+      - 'Merchant Center UITest/**'
+      - 'Merchant Center Info/00-待转换测试方案/**'
+      - '.github/workflows/product-center-quality.yml'
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'Merchant Center UITest/**'
+      - 'Merchant Center Info/00-待转换测试方案/**'
+      - '.github/workflows/product-center-quality.yml'
+  schedule:
+    - cron: '17 19 * * 0-4'
+  repository_dispatch:
+    types:
+      - prd_published
+      - prd_updated
+      - release_published
+      - configuration_changed
+      - audit_refresh
+      - test_automation_platform_released
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: GitHub Environment 名称
+        required: true
+        default: balamxqa
+        type: string
+      mode:
+        description: 流水线模式
+        required: true
+        default: verify
+        type: choice
+        options:
+          - verify
+          - full
+      controlled_repair:
+        description: 执行已审批的受控修复分支
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+
+concurrency:
+  group: product-center-quality-${{ inputs.environment || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  governance:
+    name: 通用测试治理门禁
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: Merchant Center/Merchant Center UITest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          path: Merchant Center
+
+      - name: 校验公共平台固定来源
+        shell: bash
+        env:
+          PLATFORM_REPOSITORY: ${{ vars.TEST_AUTOMATION_PLATFORM_REPOSITORY }}
+          PLATFORM_REF: ${{ vars.TEST_AUTOMATION_PLATFORM_REF }}
+        run: |
+          [[ -n "$PLATFORM_REPOSITORY" ]] || { echo "CI_PLATFORM_REPOSITORY_CONFIGURATION_REQUIRED"; exit 1; }
+          [[ "$PLATFORM_REF" =~ ^[0-9a-f]{40}$ ]] || { echo "CI_PLATFORM_IMMUTABLE_REF_REQUIRED"; exit 1; }
+
+      - name: 检出固定版本公共平台
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.TEST_AUTOMATION_PLATFORM_REPOSITORY }}
+          ref: ${{ vars.TEST_AUTOMATION_PLATFORM_REF }}
+          token: ${{ secrets.TEST_AUTOMATION_PLATFORM_TOKEN || github.token }}
+          path: Test Automation Platform
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            Merchant Center/Merchant Center UITest/package-lock.json
+            Test Automation Platform/package-lock.json
+
+      - name: 安装依赖
+        run: npm ci && npm --prefix "../../Test Automation Platform" ci
+
+      - name: 校验PRD发布事件
+        if: github.event_name == 'repository_dispatch' && (github.event.action == 'prd_published' || github.event.action == 'prd_updated')
+        env:
+          PRD_CHANGE_EVENT_JSON: ${{ toJson(github.event.client_payload) }}
+        run: npm run validate:product-center:prd-change-event
+
+      - name: 执行通用治理门禁
+        run: npm run typecheck && npm run test:test-platform:gates
+
+      - name: 输出治理优化任务摘要
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f output/governance/product-center-business-rule-governance-optimization.md ]]; then
+            cat output/governance/product-center-business-rule-governance-optimization.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  audit-refresh:
+    name: 商品中心审计刷新
+    if: github.event_name == 'schedule' || github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    environment: balamxqa
+    defaults:
+      run:
+        working-directory: Merchant Center/Merchant Center UITest
+    env:
+      CI: 'true'
+      MC_TEST_ENV: balamxqa
+      PLAYWRIGHT_BASE_URL: ${{ vars.PLAYWRIGHT_BASE_URL }}
+      PLAYWRIGHT_AUTH_BASE_URL: ${{ vars.PLAYWRIGHT_AUTH_BASE_URL }}
+      MC_STORAGE_STATE_PATH: output/auth-state.json
+      MC_USERNAME: ${{ secrets.MC_USERNAME }}
+      MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
+      MC_MERCHANT: ${{ secrets.MC_MERCHANT }}
+      MC_BRAND_ID: ${{ secrets.MC_BRAND_ID }}
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          path: Merchant Center
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            Merchant Center/Merchant Center UITest/package-lock.json
+            Test Automation Platform/package-lock.json
+      - name: 检出固定版本公共平台
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.TEST_AUTOMATION_PLATFORM_REPOSITORY }}
+          ref: ${{ vars.TEST_AUTOMATION_PLATFORM_REF }}
+          token: ${{ secrets.TEST_AUTOMATION_PLATFORM_TOKEN || github.token }}
+          path: Test Automation Platform
+      - name: 安装依赖
+        run: npm ci && npm --prefix "../../Test Automation Platform" ci
+      - name: 安装 Chromium
+        run: npx playwright install --with-deps chromium
+      - name: 刷新当前版本页面与 API 审计
+        shell: bash
+        run: |
+          set +e
+          overall_status=0
+          npm run build:product-center:page-contract-probe:from-current-full
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run observe:product-center:api
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run build:product-center:api-observation-proposal
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run build:product-center:page-contract-observation
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run build:product-center:capability-match
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run build:product-center:orphan-binding-review
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          npm run build:product-center:audit-report
+          status=$?
+          if [[ $status -ne 0 && $overall_status -eq 0 ]]; then overall_status=$status; fi
+          exit $overall_status
+      - name: 上传审计产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-center-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            Merchant Center/Merchant Center UITest/deliverables/product-center-audit/*.json
+            Merchant Center/Merchant Center UITest/deliverables/product-center-audit/*.html
+            Merchant Center/Merchant Center UITest/deliverables/system-test-platform/product-center-capability-match.json
+            Merchant Center/Merchant Center UITest/output/page-contract/*.json
+
+  quality:
+    name: ${{ format('{0}-{1}', inputs.environment, inputs.mode) }}
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment: ${{ inputs.environment }}
+    defaults:
+      run:
+        working-directory: Merchant Center/Merchant Center UITest
+    env:
+      CI: 'true'
+      PRODUCT_CENTER_CI_MODE: ${{ inputs.mode }}
+      PRODUCT_CENTER_CONTROLLED_REPAIR: ${{ inputs.controlled_repair }}
+      MC_TEST_ENV: ${{ inputs.environment }}
+      PLAYWRIGHT_BASE_URL: ${{ vars.PLAYWRIGHT_BASE_URL }}
+      PLAYWRIGHT_AUTH_BASE_URL: ${{ vars.PLAYWRIGHT_AUTH_BASE_URL }}
+      MC_STORAGE_STATE_PATH: output/auth-state.json
+      MC_USERNAME: ${{ secrets.MC_USERNAME }}
+      MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
+      MC_MERCHANT: ${{ secrets.MC_MERCHANT }}
+      MC_BRAND_ID: ${{ secrets.MC_BRAND_ID }}
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          path: Merchant Center
+
+      - name: 校验公共平台固定来源
+        shell: bash
+        env:
+          PLATFORM_REPOSITORY: ${{ vars.TEST_AUTOMATION_PLATFORM_REPOSITORY }}
+          PLATFORM_REF: ${{ vars.TEST_AUTOMATION_PLATFORM_REF }}
+        run: |
+          [[ -n "$PLATFORM_REPOSITORY" ]] || { echo "CI_PLATFORM_REPOSITORY_CONFIGURATION_REQUIRED"; exit 1; }
+          [[ "$PLATFORM_REF" =~ ^[0-9a-f]{40}$ ]] || { echo "CI_PLATFORM_IMMUTABLE_REF_REQUIRED"; exit 1; }
+
+      - name: 检出固定版本公共平台
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.TEST_AUTOMATION_PLATFORM_REPOSITORY }}
+          ref: ${{ vars.TEST_AUTOMATION_PLATFORM_REF }}
+          token: ${{ secrets.TEST_AUTOMATION_PLATFORM_TOKEN || github.token }}
+          path: Test Automation Platform
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            Merchant Center/Merchant Center UITest/package-lock.json
+            Test Automation Platform/package-lock.json
+
+      - name: 安装依赖
+        run: npm ci && npm --prefix "../../Test Automation Platform" ci
+
+      - name: 安装 Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: 执行测试资产与性能门禁
+        run: npm run typecheck && npm run test:test-platform:gates
+
+      - name: 执行商品中心流水线
+        id: pipeline
+        continue-on-error: true
+        run: npm run ci:product-center
+
+      - name: 输出脱敏摘要
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f output/ci/product-center-ci-summary.md ]]; then
+            cat output/ci/product-center-ci-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "商品中心 CI 未生成摘要。" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [[ -f output/owner/product-center-owner-summary.md ]]; then
+            cat output/owner/product-center-owner-summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: 上传白名单产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-center-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            Merchant Center/Merchant Center UITest/output/ci/*.json
+            Merchant Center/Merchant Center UITest/output/ci/*.md
+            Merchant Center/Merchant Center UITest/output/owner/*.json
+            Merchant Center/Merchant Center UITest/output/owner/*.md
+            Merchant Center/Merchant Center UITest/output/pipeline/*.json
+            Merchant Center/Merchant Center UITest/output/recipes/*acceptance.json
+            Merchant Center/Merchant Center UITest/output/failure-analysis/*.json
+            Merchant Center/Merchant Center UITest/output/page-contract/*.json
+            Merchant Center/Merchant Center UITest/output/quality/*.json
+            Merchant Center/Merchant Center UITest/output/governance/*.json
+            Merchant Center/Merchant Center UITest/output/test-case-audit/product-center/quality-program-latest.json
+
+      - name: 保持流水线失败状态
+        if: steps.pipeline.outcome != 'success'
+        run: exit 1

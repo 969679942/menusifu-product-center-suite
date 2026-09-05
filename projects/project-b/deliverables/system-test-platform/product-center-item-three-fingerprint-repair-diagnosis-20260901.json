@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-ADD-027",
+    "TC-ITEM-ADD-034"
+  ],
+  "rootCause": "商品生成脚本在生成时嵌入实现指纹，但标准收据在运行时直接复用嵌入值；生成器或商品实现文件变化后，收据仍可能签发旧指纹。闭包审计因此正确拒绝三条旧收据。",
+  "correctiveAction": "生成脚本在浏览器启动前校验所选用例的嵌入指纹，并在签发标准收据时重新计算当前商品业务实现指纹；仅重跑闭包审计明确授权的三条商品用例，保留既有业务通过或产品差异结论，不扩展到其他用例。",
+  "evidenceRefs": [
+    "scripts/generate-product-center-item-216-spec.ts",
+    "tests/generated/product-center-item-216.generated.spec.ts",
+    "scripts/audit-product-center-420-receipt-closure.ts",
+    "output/allure/combined-420-coverage-20260901-final-v2/420-receipt-closure-audit-after-contract-fix.json",
+    "deliverables/system-test-platform/product-center-item-three-fingerprint-optimization-plan-20260901.json"
+  ],
+  "validation": {
+    "typecheck": "passed",
+    "merchantCenterContractTests": "8/8 passed",
+    "publicRuntimeContractTests": "6/6 passed",
+    "browserConcurrency": 1,
+    "excludedScopes": [
+      "seasoning",
+      "group",
+      "tag",
+      "image",
+      "cross-application-pilot"
+    ]
+  }
+}

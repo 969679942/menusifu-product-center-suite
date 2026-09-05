@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "fingerprint": "9a327bad299166cf5935c8d7b13ce6e5a2849fa27fdf545ccda69549e77fb44f",
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:item-required-name:negative",
+      "caseId": "TC-ITEM-STD-005",
+      "title": "标准商品必填项缺失时创建失败",
+      "tags": [
+        "@item-intake-pilot",
+        "@negative",
+        "@item-validation"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:TC-ITEM-STD-005",
+      "sourceIds": [
+        "test-scheme:item:TC-ITEM-STD-005",
+        "route:cc612d39a954",
+        "/pp/brand/list#control-3",
+        "ui-runtime:item-standard-name-required:2026-07-25",
+        "network-runtime:item-standard-create-request-absent:2026-07-25",
+        "api-runtime:item-total-count-unchanged:2026-07-25"
+      ],
+      "claimIds": [
+        "claim:TC-ITEM-STD-005:precondition:1",
+        "claim:TC-ITEM-STD-005:action:1",
+        "claim:TC-ITEM-STD-005:action:2",
+        "claim:TC-ITEM-STD-005:action:3",
+        "claim:TC-ITEM-STD-005:action:4",
+        "claim:TC-ITEM-STD-005:action:5",
+        "claim:TC-ITEM-STD-005:action:6",
+        "claim:TC-ITEM-STD-005:expectation:1",
+        "claim:TC-ITEM-STD-005:expectation:2",
+        "claim:TC-ITEM-STD-005:expectation:3"
+      ],
+      "coverageIds": [
+        "coverage:route:route:cc612d39a954",
+        "coverage:control:/pp/brand/list#control-3"
+      ],
+      "generationAllowed": true,
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.validateRequiredName",
+          "saveAs": "validation"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyItemRequiredValidationUi",
+          "input": {
+            "result": {
+              "$ref": "$result.validation"
+            }
+          }
+        },
+        {
+          "adapterId": "productCenter.verifyItemNotCreated",
+          "input": {
+            "result": {
+              "$ref": "$result.validation"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

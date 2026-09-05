@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "systemId": "merchant-center-store-operations-tax",
+  "executionContext": {
+    "environmentId": "balamxqa",
+    "locale": "zh-CN",
+    "roleId": "merchant-operator",
+    "tenantScope": "configured-merchant",
+    "featureFlagFingerprint": "2181cd3b05b2956a240f65673b6da2e3eac79a5e5d848968c8a52b12d1d717be"
+  },
+  "sourceRegistry": {
+    "schemaVersion": "1.0.0",
+    "sources": [
+      {
+        "sourceId": "existing-contract:store-operations-tax-ui-api",
+        "kind": "formal-case",
+        "path": "systems/merchant-center-store-operations-tax/test-plan.json#CASE-TAX-EDIT-001",
+        "fingerprint": "4fad350b880b1e4114622f993ea89665161174f15d72aa5d6f1007ae58f18f34",
+        "verified": true,
+        "routes": ["/poi/tax/tax-types"],
+        "contractIds": ["route:poi-tax-tax-types", "api:tax-type-by-server-id", "ui:tax-type-row-by-server-id"],
+        "observationChannels": ["ui", "api", "cleanup"]
+      },
+      {
+        "sourceId": "observed-sop:low-dependency-tax-edit",
+        "kind": "ui-audit",
+        "path": "systems/merchant-center-store-operations-tax/README.md#runtime-contract",
+        "fingerprint": "b0767d88630e1a6a8995eef43b3657850c4d525eadb5f7aa8600e481e5635604",
+        "verified": true,
+        "routes": ["/poi/tax/tax-types"],
+        "contractIds": ["route:poi-tax-tax-types", "api:tax-type-by-server-id", "ui:tax-type-row-by-server-id"],
+        "observationChannels": ["ui", "api", "cleanup"]
+      }
+    ]
+  },
+  "governance": {
+    "schemaVersion": "1.0.0",
+    "semanticDuplicatePolicy": { "enabled": true, "requireVariantEvidence": true },
+    "assertionSurfaces": [
+      {
+        "surfaceId": "api.tax-type-record",
+        "observationChannel": "api",
+        "authority": "persistence",
+        "routes": ["/poi/tax/tax-types"],
+        "fieldIds": ["tax-type.name"]
+      },
+      {
+        "surfaceId": "ui.tax-type-list",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "routes": ["/poi/tax/tax-types"],
+        "fieldIds": ["tax-type.name"]
+      }
+    ],
+    "contextGuardPolicy": {
+      "adapterId": "store-operations.context.tax",
+      "phases": ["before-action", "before-assertion"],
+      "requiredChecks": ["route", "locale", "role", "tenant", "business-identity"]
+    },
+    "feedbackPolicy": {
+      "exactFeedbackRequiresRuntimeEvidence": true,
+      "mutationFeedbackRequiresOperationCorrelation": true
+    }
+  },
+  "cases": [
+    {
+      "caseId": "CASE-TAX-EDIT-001",
+      "ruleId": "RULE-TAX-EDIT-001",
+      "title": "税率类型应通过 API 造数完成 UI 编辑并验证双端零残留",
+      "sourceIds": [
+        "existing-contract:store-operations-tax-ui-api",
+        "observed-sop:low-dependency-tax-edit"
+      ],
+      "route": "/poi/tax/tax-types",
+      "contextRouteMatch": "exact-or-descendant",
+      "action": "edit",
+      "dataProfileId": "tax-reversible-edit",
+      "coverageIds": [
+        "route:poi-tax-tax-types",
+        "operation:store-operations.tax-type.update",
+        "lifecycle:seed-edit-api-ui-cleanup-zero-residue"
+      ],
+      "contractIds": [
+        "route:poi-tax-tax-types",
+        "api:tax-type-by-server-id",
+        "ui:tax-type-row-by-server-id"
+      ],
+      "conditions": [
+        "已建立目标商户认证会话",
+        "税率类型 API 与页面列表通过只读预检"
+      ],
+      "actions": [
+        "使用 API 创建唯一 AUTO_AUDIT 税率类型",
+        "通过税率类型页面编辑同一服务端记录名称"
+      ],
+      "expectations": [
+        {
+          "expected": "API 中同一服务端 ID 使用编辑后名称存在且原名称不存在",
+          "assertionAdapterId": "store-operations.tax.assert-api-edited",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "terminalCondition": "按服务端 ID 查询返回编辑后名称且原名称计数为零",
+          "fieldId": "tax-type.name",
+          "assertionSurfaceId": "api.tax-type-record",
+          "sourceIds": ["existing-contract:store-operations-tax-ui-api"],
+          "contractIds": ["api:tax-type-by-server-id"]
+        },
+        {
+          "expected": "UI 中同一服务端 ID 显示编辑后名称且原名称不存在",
+          "assertionAdapterId": "store-operations.tax.assert-ui-edited",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "terminalCondition": "列表稳定后同一服务端记录显示编辑后名称且原名称不可见",
+          "fieldId": "tax-type.name",
+          "assertionSurfaceId": "ui.tax-type-list",
+          "sourceIds": ["observed-sop:low-dependency-tax-edit"],
+          "contractIds": ["ui:tax-type-row-by-server-id"]
+        }
+      ],
+      "capabilities": [
+        {
+          "id": "store-operations.tax.ui-edit"
+        }
+      ],
+      "semantics": {
+        "businessObjectId": "store-operations.tax-type",
+        "scenarioFamilyId": "edit-persistence",
+        "stateTransitionId": "existing-to-renamed",
+        "scopeId": "merchant-tax-types",
+        "variantId": "api-seed-ui-edit",
+        "variantSourceIds": ["observed-sop:low-dependency-tax-edit"],
+        "businessIdentityStrategy": "server-id"
+      },
+      "mutation": {
+        "method": "PUT",
+        "operationKey": "store-operations.tax-type.update"
+      }
+    }
+  ]
+}

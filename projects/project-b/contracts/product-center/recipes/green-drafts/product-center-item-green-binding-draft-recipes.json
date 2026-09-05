@@ -1,0 +1,3726 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-green-binding-draft-recipes",
+  "generatedAt": "2026-08-05T08:00:00.000Z",
+  "status": "fully-bound",
+  "source": {
+    "fastLanePath": "contracts/product-center/reviews/automation-fast-lane/product-center-item-automation-fast-lane.json",
+    "fastLaneFingerprint": "6e785dc9c2b702d096f15426659d90c716eeb32b7e659c08a9b1078b3b686565",
+    "fastLaneSha256": "72793ae9862be699776936cb788ed9b9e58a55ee15abf88c00e5a413496d4af4"
+  },
+  "summary": {
+    "greenCases": 65,
+    "sharedBindingGroups": 20,
+    "caseRecipes": 65,
+    "structurallyCompiled": 65,
+    "compileBlocked": 0,
+    "exactBindingRequired": 0,
+    "runtimeExecutable": 65,
+    "humanReviewRequired": 0
+  },
+  "recipes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at01:tc-item-std-033",
+      "caseId": "TC-ITEM-STD-033",
+      "title": "绿色组 AT01 用例 TC-ITEM-STD-033 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at01"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-033",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-033",
+        "fast-lane:AT01",
+        "runtime-template:TC-ITEM-STD-031",
+        "runtime-template:TC-ITEM-STD-096"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-033"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT01",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at01-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.editOtherInformation",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardOtherInformationEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at03:tc-item-std-064",
+      "caseId": "TC-ITEM-STD-064",
+      "title": "绿色组 AT03 用例 TC-ITEM-STD-064 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at03"
+      ],
+      "route": "/pp/brand/list",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-064",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-064",
+        "fast-lane:AT03",
+        "runtime-template:TC-ITEM-STD-002"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-064"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT03",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-readonly-pilot.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at03-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.list.searchSecondLanguage",
+          "input": {
+            "keyword": "taco"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifySecondLanguageSearch",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at05:tc-item-std-006",
+      "caseId": "TC-ITEM-STD-006",
+      "title": "绿色组 AT05 用例 TC-ITEM-STD-006 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at05"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-006",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-006",
+        "fast-lane:AT05",
+        "runtime-template:TC-ITEM-STD-037",
+        "runtime-template:TC-ITEM-STD-057",
+        "runtime-template:TC-ITEM-STD-058"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-006"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT05",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at05-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.createWithParentCategory",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyParentCategoryCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at05:tc-item-std-052",
+      "caseId": "TC-ITEM-STD-052",
+      "title": "绿色组 AT05 用例 TC-ITEM-STD-052 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at05"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-052",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-052",
+        "fast-lane:AT05",
+        "runtime-template:TC-ITEM-STD-037",
+        "runtime-template:TC-ITEM-STD-057",
+        "runtime-template:TC-ITEM-STD-058"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-052"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT05",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at05-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.createWithLibraryMainImage",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyLibraryMainImageCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at05:tc-item-std-053",
+      "caseId": "TC-ITEM-STD-053",
+      "title": "绿色组 AT05 用例 TC-ITEM-STD-053 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at05"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-053",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-053",
+        "fast-lane:AT05",
+        "runtime-template:TC-ITEM-STD-037",
+        "runtime-template:TC-ITEM-STD-057",
+        "runtime-template:TC-ITEM-STD-058"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-053"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT05",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at05-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.createWithLocalMainImage",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyLocalMainImageCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at06:tc-item-std-035",
+      "caseId": "TC-ITEM-STD-035",
+      "title": "绿色组 AT06 用例 TC-ITEM-STD-035 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at06"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-035",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-035",
+        "fast-lane:AT06",
+        "runtime-template:TC-ITEM-STD-008",
+        "runtime-template:TC-ITEM-STD-010",
+        "runtime-template:TC-ITEM-STD-093"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-035"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT06",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at06-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "category.attemptAddChildBlockedByProduct",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCategoryChildBlockedByProduct",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at06:tc-item-std-046",
+      "caseId": "TC-ITEM-STD-046",
+      "title": "绿色组 AT06 用例 TC-ITEM-STD-046 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at06"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-046",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-046",
+        "fast-lane:AT06",
+        "runtime-template:TC-ITEM-STD-008",
+        "runtime-template:TC-ITEM-STD-010",
+        "runtime-template:TC-ITEM-STD-093"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-046"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT06",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at06-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeFieldValidation",
+          "input": {
+            "field": "mnemonicCode",
+            "value": "MMMMMMMMMMMMMMMMMMMMM"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyMnemonicCodeMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at06:tc-item-std-094",
+      "caseId": "TC-ITEM-STD-094",
+      "title": "绿色组 AT06 用例 TC-ITEM-STD-094 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at06"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-094",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-094",
+        "fast-lane:AT06",
+        "runtime-template:TC-ITEM-STD-008",
+        "runtime-template:TC-ITEM-STD-010",
+        "runtime-template:TC-ITEM-STD-093"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-094"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT06",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at06-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeFieldValidation",
+          "input": {
+            "field": "posName",
+            "value": "  POS名称-autocreate-094  "
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyPosNameWhitespaceValidation",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at06:tc-item-std-101",
+      "caseId": "TC-ITEM-STD-101",
+      "title": "绿色组 AT06 用例 TC-ITEM-STD-101 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at06"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-101",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-101",
+        "fast-lane:AT06",
+        "runtime-template:TC-ITEM-STD-008",
+        "runtime-template:TC-ITEM-STD-010",
+        "runtime-template:TC-ITEM-STD-093"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-101"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT06",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at06-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeFieldValidation",
+          "input": {
+            "field": "deviceCode",
+            "value": "DDDDDDDDDDDDDDDDDDDDD"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyDeviceCodeMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at06:tc-item-std-095",
+      "caseId": "TC-ITEM-STD-095",
+      "title": "绿色组 AT06 用例 TC-ITEM-STD-095 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at06"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-095",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-095",
+        "fast-lane:AT06",
+        "runtime-template:TC-ITEM-STD-008",
+        "runtime-template:TC-ITEM-STD-010",
+        "runtime-template:TC-ITEM-STD-093"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-095"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT06",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at06-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.createRoundedPricePair",
+          "input": {
+            "values": [
+              "10.235",
+              "10.234"
+            ]
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardPriceRoundingPair",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at08:tc-item-std-009",
+      "caseId": "TC-ITEM-STD-009",
+      "title": "绿色组 AT08 用例 TC-ITEM-STD-009 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at08"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-009",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-009",
+        "fast-lane:AT08",
+        "runtime-template:TC-ITEM-STD-082"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-009"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT08",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at08-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.createFormattedNames",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyFormattedNames",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at08:tc-item-std-055",
+      "caseId": "TC-ITEM-STD-055",
+      "title": "绿色组 AT08 用例 TC-ITEM-STD-055 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at08"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-055",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-055",
+        "fast-lane:AT08",
+        "runtime-template:TC-ITEM-STD-082"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-055"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT08",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at08-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.editDescriptionTags",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyDescriptionTagsEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at08:tc-item-std-056",
+      "caseId": "TC-ITEM-STD-056",
+      "title": "绿色组 AT08 用例 TC-ITEM-STD-056 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at08"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-056",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-056",
+        "fast-lane:AT08",
+        "runtime-template:TC-ITEM-STD-082"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-056"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT08",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at08-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.editMaterialInformation",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyMaterialInformationEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at08:tc-item-std-099",
+      "caseId": "TC-ITEM-STD-099",
+      "title": "绿色组 AT08 用例 TC-ITEM-STD-099 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at08"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-099",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-099",
+        "fast-lane:AT08",
+        "runtime-template:TC-ITEM-STD-082"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-099"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT08",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at08-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.editCornerMark",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyCornerMarkEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at08:tc-item-std-100",
+      "caseId": "TC-ITEM-STD-100",
+      "title": "绿色组 AT08 用例 TC-ITEM-STD-100 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at08"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-100",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-100",
+        "fast-lane:AT08",
+        "runtime-template:TC-ITEM-STD-082"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-100"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT08",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at08-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.editStatisticsTags",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStatisticsTagsEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at09:tc-item-std-020",
+      "caseId": "TC-ITEM-STD-020",
+      "title": "绿色组 AT09 用例 TC-ITEM-STD-020 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at09"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-020",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-020",
+        "fast-lane:AT09",
+        "runtime-template:TC-ITEM-STD-015",
+        "runtime-template:TC-ITEM-STD-016",
+        "runtime-template:TC-ITEM-STD-017",
+        "runtime-template:TC-ITEM-STD-018",
+        "runtime-template:TC-ITEM-STD-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-020"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT09",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at09.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at09-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.createStandard",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "specification": "single",
+            "price": "1.99",
+            "minimumOrderQuantity": "1"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardPricePersistence",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at09:tc-item-std-048",
+      "caseId": "TC-ITEM-STD-048",
+      "title": "绿色组 AT09 用例 TC-ITEM-STD-048 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at09"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-048",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-048",
+        "fast-lane:AT09",
+        "runtime-template:TC-ITEM-STD-015",
+        "runtime-template:TC-ITEM-STD-016",
+        "runtime-template:TC-ITEM-STD-017",
+        "runtime-template:TC-ITEM-STD-018",
+        "runtime-template:TC-ITEM-STD-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-048"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT09",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at09.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at09-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeSpecGroupCreateNavigation",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifySpecGroupCreateNavigation",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at09:tc-item-std-050",
+      "caseId": "TC-ITEM-STD-050",
+      "title": "绿色组 AT09 用例 TC-ITEM-STD-050 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at09"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-050",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-050",
+        "fast-lane:AT09",
+        "runtime-template:TC-ITEM-STD-015",
+        "runtime-template:TC-ITEM-STD-016",
+        "runtime-template:TC-ITEM-STD-017",
+        "runtime-template:TC-ITEM-STD-018",
+        "runtime-template:TC-ITEM-STD-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-050"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT09",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at09.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at09-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.createStandard",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "specification": "single",
+            "price": "10.00",
+            "minimumOrderQuantity": "1",
+            "packagingFee": "1.00"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardPackagingFeePersistence",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at09:tc-item-std-098",
+      "caseId": "TC-ITEM-STD-098",
+      "title": "绿色组 AT09 用例 TC-ITEM-STD-098 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at09"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-098",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-098",
+        "fast-lane:AT09",
+        "runtime-template:TC-ITEM-STD-015",
+        "runtime-template:TC-ITEM-STD-016",
+        "runtime-template:TC-ITEM-STD-017",
+        "runtime-template:TC-ITEM-STD-018",
+        "runtime-template:TC-ITEM-STD-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-098"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT09",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at09.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at09-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.createStandard",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "specification": "single",
+            "price": "10.00",
+            "minimumOrderQuantity": "1",
+            "cost": "5.00"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardCostPersistence",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at10:tc-item-std-049",
+      "caseId": "TC-ITEM-STD-049",
+      "title": "绿色组 AT10 用例 TC-ITEM-STD-049 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at10"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-049",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-049",
+        "fast-lane:AT10",
+        "runtime-template:TC-ITEM-STD-022",
+        "runtime-template:TC-ITEM-STD-044",
+        "runtime-template:TC-ITEM-STD-097"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-049"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT10",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at10-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeMultiSpecWeightDisabled",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyMultiSpecWeightDisabled",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at10:tc-item-std-051",
+      "caseId": "TC-ITEM-STD-051",
+      "title": "绿色组 AT10 用例 TC-ITEM-STD-051 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at10"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-051",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-051",
+        "fast-lane:AT10",
+        "runtime-template:TC-ITEM-STD-022",
+        "runtime-template:TC-ITEM-STD-044",
+        "runtime-template:TC-ITEM-STD-097"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-051"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT10",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at10-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeFieldValidation",
+          "input": {
+            "field": "standardPrice",
+            "value": "1000000.00"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyStandardPriceMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at15:tc-item-std-078",
+      "caseId": "TC-ITEM-STD-078",
+      "title": "绿色组 AT15 用例 TC-ITEM-STD-078 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at15"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-078",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-078",
+        "fast-lane:AT15",
+        "runtime-template:TC-ITEM-STD-001"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-078"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT15",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at15.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at15-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeMainImageReplacement",
+          "input": {
+            "firstImagePath": {
+              "$ref": "$case.firstImagePath"
+            },
+            "secondImagePath": {
+              "$ref": "$case.secondImagePath"
+            }
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyMainImageReplacement",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at17:tc-item-std-045",
+      "caseId": "TC-ITEM-STD-045",
+      "title": "绿色组 AT17 用例 TC-ITEM-STD-045 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at17"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-045",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-045",
+        "fast-lane:AT17",
+        "runtime-template:TC-ITEM-STD-043"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-045"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT17",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at17-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeDescriptionLengthBoundary",
+          "input": {
+            "acceptedLength": 500,
+            "rejectedLength": 501
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyDescriptionMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at17:tc-item-std-054",
+      "caseId": "TC-ITEM-STD-054",
+      "title": "绿色组 AT17 用例 TC-ITEM-STD-054 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at17"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-054",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-054",
+        "fast-lane:AT17",
+        "runtime-template:TC-ITEM-STD-043"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-054"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT17",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at17-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeDetailImageLimit",
+          "input": {
+            "maximum": 10,
+            "attempted": 11
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyDetailImageMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at17:tc-item-std-059",
+      "caseId": "TC-ITEM-STD-059",
+      "title": "绿色组 AT17 用例 TC-ITEM-STD-059 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at17"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-059",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-059",
+        "fast-lane:AT17",
+        "runtime-template:TC-ITEM-STD-043"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-059"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT17",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at17-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.probeReferencedGroupChildControls",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            }
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyReferencedGroupChildControls",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-003",
+      "caseId": "TC-ITEM-STD-003",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-003 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-003",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-003",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-003"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.list.mega.probeColumnSelection",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyColumnSelection",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-004",
+      "caseId": "TC-ITEM-STD-004",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-004 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-004",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-004",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-004"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.list.mega.probeLanguageSwitch",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyLanguageSwitch",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-034",
+      "caseId": "TC-ITEM-STD-034",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-034 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-034",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-034",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-034"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.probeTasteGroupSync",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyTasteGroupSync",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-042",
+      "caseId": "TC-ITEM-STD-042",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-042 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-042",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-042",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-042"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.standard.mega.probeAdvancedFields",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyAdvancedFields",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-063",
+      "caseId": "TC-ITEM-STD-063",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-063 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-063",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-063",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-063"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.list.mega.probePageSizes",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyPageSizes",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-072",
+      "caseId": "TC-ITEM-STD-072",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-072 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-072",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-072",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-072"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.list.mega.probeDefaultColumns",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyDefaultColumns",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at19:tc-item-std-073",
+      "caseId": "TC-ITEM-STD-073",
+      "title": "绿色组 AT19 用例 TC-ITEM-STD-073 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at19"
+      ],
+      "route": "/pp/brand/create/standard",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-073",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-073",
+        "fast-lane:AT19",
+        "runtime-template:TC-ITEM-STD-089"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-073"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT19",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at19-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/standard"
+          }
+        },
+        {
+          "id": "item.list.mega.probeRestoreColumns",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyRestoreColumns",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at21:tc-item-std-065",
+      "caseId": "TC-ITEM-STD-065",
+      "title": "绿色组 AT21 用例 TC-ITEM-STD-065 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at21"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-STD-065",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-STD-065",
+        "fast-lane:AT21",
+        "runtime-template:TC-ITEM-STD-028",
+        "runtime-template:TC-ITEM-STD-029",
+        "runtime-template:TC-ITEM-STD-066"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-STD-065"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT21",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-standard-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at21-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.list.mega.enableDisabledItem",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyEnableDisabledItem",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at28:tc-item-add-017",
+      "caseId": "TC-ITEM-ADD-017",
+      "title": "绿色组 AT28 用例 TC-ITEM-ADD-017 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at28"
+      ],
+      "route": "/pp/brand/create/side",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-ADD-017",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-ADD-017",
+        "fast-lane:AT28",
+        "runtime-template:TC-ITEM-ADD-046"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-ADD-017"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT28",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-validation-01.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at28-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/side"
+          }
+        },
+        {
+          "id": "item.side.createWithDetailImageLimit",
+          "input": {
+            "maximum": 10
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifySideDetailImageMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at34:tc-item-pkg-057",
+      "caseId": "TC-ITEM-PKG-057",
+      "title": "绿色组 AT34 用例 TC-ITEM-PKG-057 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at34"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-057",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-057",
+        "fast-lane:AT34",
+        "runtime-template:TC-ITEM-PKG-009"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-057"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT34",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-readonly-pilot.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at34-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.readOptionalGroupDialog",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyOptionalComboDialog",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at39:tc-item-pkg-016",
+      "caseId": "TC-ITEM-PKG-016",
+      "title": "绿色组 AT39 用例 TC-ITEM-PKG-016 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at39"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-016",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-016",
+        "fast-lane:AT39",
+        "runtime-template:TC-ITEM-PKG-015",
+        "runtime-template:TC-ITEM-PKG-077"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-016"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT39",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-at39.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at39-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.createComboRequiredOnly",
+          "input": {
+            "record": {
+              "$ref": "$record"
+            },
+            "price": "10.00",
+            "minimumOrderQuantity": "2",
+            "comboGroupName": {
+              "$ref": "$record.comboGroupName"
+            }
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMinimumOrderQuantity",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at42:tc-item-pkg-050",
+      "caseId": "TC-ITEM-PKG-050",
+      "title": "绿色组 AT42 用例 TC-ITEM-PKG-050 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at42"
+      ],
+      "route": "/pp/brand/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-050",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-050",
+        "fast-lane:AT42",
+        "runtime-template:TC-ITEM-PKG-037"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-050"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT42",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at42-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.mega.removeAllGroupItems",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboEmptyGroupHidden",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at42:tc-item-pkg-055",
+      "caseId": "TC-ITEM-PKG-055",
+      "title": "绿色组 AT42 用例 TC-ITEM-PKG-055 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at42"
+      ],
+      "route": "/pp/brand/list",
+      "action": "delete",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-055",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-055",
+        "fast-lane:AT42",
+        "runtime-template:TC-ITEM-PKG-037"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-055"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT42",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at42-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeDeleteConfirmation",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboDeleteConfirmation",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-011",
+      "caseId": "TC-ITEM-PKG-011",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-011 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-011",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-011",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-011"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithoutCategory",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboCreateWithoutCategory",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-012",
+      "caseId": "TC-ITEM-PKG-012",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-012 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-012",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-012",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-012"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithParentCategory",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboParentCategoryCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-018",
+      "caseId": "TC-ITEM-PKG-018",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-018 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-018",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-018",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-018"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithZeroPrice",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboZeroPriceCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-033",
+      "caseId": "TC-ITEM-PKG-033",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-033 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-033",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-033",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-033"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithLibraryMainImage",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboLibraryMainImageCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-058",
+      "caseId": "TC-ITEM-PKG-058",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-058 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-058",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-058",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-058"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.readOptionalGroupRules",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboOptionalGroupRules",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-067",
+      "caseId": "TC-ITEM-PKG-067",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-067 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-067",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-067",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-067"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithLocalMainImage",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboLocalMainImageCreate",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at43:tc-item-pkg-068",
+      "caseId": "TC-ITEM-PKG-068",
+      "title": "绿色组 AT43 用例 TC-ITEM-PKG-068 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at43"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "create",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-068",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-068",
+        "fast-lane:AT43",
+        "runtime-template:TC-ITEM-PKG-001",
+        "runtime-template:TC-ITEM-PKG-002",
+        "runtime-template:TC-ITEM-PKG-004",
+        "runtime-template:TC-ITEM-PKG-006",
+        "runtime-template:TC-ITEM-PKG-007",
+        "runtime-template:TC-ITEM-PKG-073"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-068"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT43",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at43-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeMainImageReplacement",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMainImageReplacement",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at45:tc-item-pkg-023",
+      "caseId": "TC-ITEM-PKG-023",
+      "title": "绿色组 AT45 用例 TC-ITEM-PKG-023 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at45"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-023",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-023",
+        "fast-lane:AT45",
+        "runtime-template:TC-ITEM-PKG-024",
+        "runtime-template:TC-ITEM-PKG-025",
+        "runtime-template:TC-ITEM-PKG-026",
+        "runtime-template:TC-ITEM-PKG-040",
+        "runtime-template:TC-ITEM-PKG-046",
+        "runtime-template:TC-ITEM-PKG-074",
+        "runtime-template:TC-ITEM-PKG-076"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-023"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT45",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at45-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeMnemonicMaximum",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMnemonicMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at45:tc-item-pkg-027",
+      "caseId": "TC-ITEM-PKG-027",
+      "title": "绿色组 AT45 用例 TC-ITEM-PKG-027 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at45"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-027",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-027",
+        "fast-lane:AT45",
+        "runtime-template:TC-ITEM-PKG-024",
+        "runtime-template:TC-ITEM-PKG-025",
+        "runtime-template:TC-ITEM-PKG-026",
+        "runtime-template:TC-ITEM-PKG-040",
+        "runtime-template:TC-ITEM-PKG-046",
+        "runtime-template:TC-ITEM-PKG-074",
+        "runtime-template:TC-ITEM-PKG-076"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-027"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT45",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at45-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeDescriptionMaximum",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboDescriptionMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at45:tc-item-pkg-028",
+      "caseId": "TC-ITEM-PKG-028",
+      "title": "绿色组 AT45 用例 TC-ITEM-PKG-028 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at45"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-028",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-028",
+        "fast-lane:AT45",
+        "runtime-template:TC-ITEM-PKG-024",
+        "runtime-template:TC-ITEM-PKG-025",
+        "runtime-template:TC-ITEM-PKG-026",
+        "runtime-template:TC-ITEM-PKG-040",
+        "runtime-template:TC-ITEM-PKG-046",
+        "runtime-template:TC-ITEM-PKG-074",
+        "runtime-template:TC-ITEM-PKG-076"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-028"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT45",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at45-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeDetailImageLimit",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboDetailImageMaximum",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at45:tc-item-pkg-065",
+      "caseId": "TC-ITEM-PKG-065",
+      "title": "绿色组 AT45 用例 TC-ITEM-PKG-065 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at45"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "negative",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-065",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-065",
+        "fast-lane:AT45",
+        "runtime-template:TC-ITEM-PKG-024",
+        "runtime-template:TC-ITEM-PKG-025",
+        "runtime-template:TC-ITEM-PKG-026",
+        "runtime-template:TC-ITEM-PKG-040",
+        "runtime-template:TC-ITEM-PKG-046",
+        "runtime-template:TC-ITEM-PKG-074",
+        "runtime-template:TC-ITEM-PKG-076"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-065"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT45",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at45-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeReferencedGroupChildControls",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboReferencedGroupChildControls",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at46:tc-item-pkg-054",
+      "caseId": "TC-ITEM-PKG-054",
+      "title": "绿色组 AT46 用例 TC-ITEM-PKG-054 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at46"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "read",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-054",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-054",
+        "fast-lane:AT46",
+        "runtime-template:TC-ITEM-PKG-041"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-054"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT46",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-readonly-pilot.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at46-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.list.probeImagePreview",
+          "input": {
+            "typeLabel": "Combo"
+          },
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyImagePreview",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-005",
+      "caseId": "TC-ITEM-PKG-005",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-005 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-005",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-005",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-005"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.readOtherSettings",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboOtherSettings",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-021",
+      "caseId": "TC-ITEM-PKG-021",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-021 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-021",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-021",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-021"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createFormattedName",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboFormattedName",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-022",
+      "caseId": "TC-ITEM-PKG-022",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-022 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-022",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-022",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-022"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createFormattedNames",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboFormattedNames",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-029",
+      "caseId": "TC-ITEM-PKG-029",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-029 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-029",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-029",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-029"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editDescriptionTags",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboDescriptionTagsEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-030",
+      "caseId": "TC-ITEM-PKG-030",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-030 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-030",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-030",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-030"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editCornerMark",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboCornerMarkEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-031",
+      "caseId": "TC-ITEM-PKG-031",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-031 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-031",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-031",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-031"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editStatisticsTags",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboStatisticsTagsEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-032",
+      "caseId": "TC-ITEM-PKG-032",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-032 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-032",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-032",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-032"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editMaterialInformation",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMaterialInformationEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-049",
+      "caseId": "TC-ITEM-PKG-049",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-049 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-049",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-049",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-049"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.createWithFixedAndCustomGroups",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboFixedAndCustomGroups",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-052",
+      "caseId": "TC-ITEM-PKG-052",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-052 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-052",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-052",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-052"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editTasteGroup",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboTasteGroupEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-053",
+      "caseId": "TC-ITEM-PKG-053",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-053 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-053",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-053",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-053"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.probeMutualExclusion",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMutualExclusion",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-063",
+      "caseId": "TC-ITEM-PKG-063",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-063 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-063",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-063",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-063"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editMethodGroup",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboMethodGroupEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at47:tc-item-pkg-064",
+      "caseId": "TC-ITEM-PKG-064",
+      "title": "绿色组 AT47 用例 TC-ITEM-PKG-064 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at47"
+      ],
+      "route": "/pp/brand/create/combo",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-064",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-064",
+        "fast-lane:AT47",
+        "runtime-template:TC-ITEM-PKG-075"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-064"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT47",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at47-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/create/combo"
+          }
+        },
+        {
+          "id": "item.combo.mega.editAddonGroup",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboAddonGroupEdit",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at50:tc-item-pkg-034",
+      "caseId": "TC-ITEM-PKG-034",
+      "title": "绿色组 AT50 用例 TC-ITEM-PKG-034 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at50"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-034",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-034",
+        "fast-lane:AT50",
+        "runtime-template:TC-ITEM-PKG-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-034"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT50",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at50-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.mega.searchByCombinedFilters",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboCombinedFilters",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at50:tc-item-pkg-061",
+      "caseId": "TC-ITEM-PKG-061",
+      "title": "绿色组 AT50 用例 TC-ITEM-PKG-061 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at50"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-061",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-061",
+        "fast-lane:AT50",
+        "runtime-template:TC-ITEM-PKG-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-061"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT50",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at50-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.mega.enableDisabledItem",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboEnableDisabledItem",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "product-center:green-draft:at50:tc-item-pkg-062",
+      "caseId": "TC-ITEM-PKG-062",
+      "title": "绿色组 AT50 用例 TC-ITEM-PKG-062 精确绑定草案",
+      "tags": [
+        "@recipe",
+        "@generated",
+        "@green-draft",
+        "@at50"
+      ],
+      "route": "/pp/brand/list",
+      "action": "edit",
+      "traceabilityId": "trace:sop:green:TC-ITEM-PKG-062",
+      "sourceIds": [
+        "canonical:product-center-item-xmind-rebuild-pilot.json#TC-ITEM-PKG-062",
+        "fast-lane:AT50",
+        "runtime-template:TC-ITEM-PKG-047"
+      ],
+      "coverageIds": [
+        "canonical:TC-ITEM-PKG-062"
+      ],
+      "generationAllowed": true,
+      "executionPolicy": {
+        "mode": "wave-shared-chain",
+        "caseLevelExecutionAllowed": false,
+        "waveId": "GREEN-AT50",
+        "orchestratorSpecPath": "tests/generated/product-center-item-green-combo-mega.generated.spec.ts",
+        "runtimeAcceptanceId": "product-center-item-green-at50-runtime"
+      },
+      "capabilities": [
+        {
+          "id": "navigation.sidebar.open",
+          "saveAs": "navigation",
+          "input": {
+            "targetPath": "/pp/brand/list"
+          }
+        },
+        {
+          "id": "item.combo.mega.disableEnabledItem",
+          "saveAs": "result"
+        }
+      ],
+      "assertions": [
+        {
+          "adapterId": "productCenter.verifyComboDisableEnabledItem",
+          "input": {
+            "result": {
+              "$ref": "$result"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "fingerprint": "057e628da75e9c47a11278ad5557e158d5ac8f6ada89044a466d0956c9972c00"
+}

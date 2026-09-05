@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-005"],
+  "rootCause": "重置请求完成后页面输入值稳定保持 AUTO_AUDIT_NON_EXISTING_TASK，但旧页面对象在正式断言前等待空值并抛出超时，导致 claim receipt 缺失，runner 将真实产品行为错误归类为 automation-gap。",
+  "correctiveAction": "页面对象保留重置后的真实输入值并返回；断言适配器在值未清空时写入 observed-mismatch claim receipt、产品偏差确认和等价执行路径标注，再由正式 expect 产生失败，使完整 UI、上下文和请求证据进入标准收据。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787545243676/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787545243676/run-report.json"
+  ],
+  "supersedesAttemptIds": [
+    "99ec923174105c4b",
+    "0b36ec4cfbb03bd0",
+    "4aaaeda25ac84b53"
+  ]
+}

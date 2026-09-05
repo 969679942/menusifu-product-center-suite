@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-001", "TC-FLV-TPL-002", "TC-FLV-TPL-003", "TC-FLV-TPL-004", "TC-FLV-TPL-005", "TC-FLV-TPL-007", "TC-FLV-TPL-008", "TC-FLV-TPL-009", "TC-FLV-TPL-010",
+    "TC-FLV-XMOD-001", "TC-FLV-XMOD-002", "TC-FLV-XMOD-003"
+  ],
+  "rootCause": "多门店批次需要在当前 000420 浏览器/API 上下文中重建标准收据；此前运行周期包含上下文修复前的实现，不能授权当前实现直接复用。",
+  "correctiveAction": "按多门店 profile 23918/Brand 000420 执行模板、门店列表与下发夹具，记录当前 UI/API/作业/清理证据；POS 下游断言仍保持延期。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json",
+    "api/product-center/seasoning-distribution-api.ts"
+  ]
+}

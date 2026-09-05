@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewId": "item-revalidation-r3-r4-review-20260905",
+  "scope": [
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "status": "incomplete",
+  "recordedAt": "2026-09-05T05:48:04.089Z",
+  "sources": [
+    {
+      "path": "output/product-center-item-source-governed-item-semantic-evidence-revalidation-20260905-r3-source-governed.json",
+      "sha256": "8375c05ddb5e32a19ac2d1f3a8c0aee7c86587abd0fa95a328435f5a333bcc21"
+    },
+    {
+      "path": "output/product-center-item-source-governed-item-semantic-evidence-revalidation-20260905-r4.json",
+      "sha256": "b87028220c25bf526480e988bd066d53d8eea2339c974786aa68e50cd90c1693"
+    },
+    {
+      "path": "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+      "sha256": "2707f5ed5cc22d927332fbadf15ae2f5b83b34f45f418371e0181ea4f3c550d5"
+    },
+    {
+      "path": "deliverables/system-test-platform/product-center-asset-remediation-queues.json",
+      "sha256": "f4fda9d16097db31964c16d689efdff33031325a1fd291b682996989ed2eb123"
+    }
+  ],
+  "lifecycle": {
+    "generatedAt": "2026-09-05T05:45:45.163Z",
+    "summary": {
+      "planned": 628,
+      "executionEligible": 427,
+      "classifiedExclusions": 201,
+      "executed": 408,
+      "passed": 408,
+      "failed": 0,
+      "notRun": 192,
+      "receiptComplete": 428,
+      "reconciliationIssues": 19,
+      "invariantStatus": "violated"
+    },
+    "invariants": {
+      "plannedEqualsEligiblePlusExclusions": true,
+      "executionEligibleEqualsExecuted": false,
+      "executedEqualsPassedPlusFailed": true,
+      "noDuplicateCaseIds": true,
+      "noOrphanIndexEntries": true,
+      "noOrphanReferenceEntries": true,
+      "noPassedWithoutCompleteReceipt": true
+    }
+  },
+  "fingerprintCases": [
+    {
+      "caseId": "TC-IMG-ITEM-029",
+      "module": "image",
+      "currentCaseFingerprint": "8145de65aa459c7823f1e760da7319c9c245a939c5d8c3fcc5c574bb8cbc9e17",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-IMG-ITEM-030",
+      "module": "image",
+      "currentCaseFingerprint": "7e49695b995507143f3477a30663ca93fd25b96e81c043096c9b322b2fe8c6ae",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-IMG-LIB-025",
+      "module": "image",
+      "currentCaseFingerprint": "52742d27eb5ea0d8952faed8a595568b84a18dafd5fcde5b76a9a40cd1697d54",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-IMG-LIB-026",
+      "module": "image",
+      "currentCaseFingerprint": "017a41189178a70f43c534593eb08100662b607d434da69194d3d9ec78841647",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-009",
+      "module": "tag",
+      "currentCaseFingerprint": "ecb3edb32ec0a4257132e0fdee1cefc0a12c60825a306d5536436479cb2e9f3f",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-018",
+      "module": "tag",
+      "currentCaseFingerprint": "d5b0d69557fc1c6d72db289e8ecc16745f613ec1941ad6cdaf049821bd400e7d",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-019",
+      "module": "tag",
+      "currentCaseFingerprint": "316c6677662215728c176eb987c0fda7d31901164fc54b766f52cf28258bffcd",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-020",
+      "module": "tag",
+      "currentCaseFingerprint": "6ed186be1742aadb1e1d9d342e452d767390849e4293d12b1920f2b880def107",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-021",
+      "module": "tag",
+      "currentCaseFingerprint": "6a7b27aad8f4521bb1bdae590a229cdbca700fdb05ce274a273df33a9689883c",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-BDG-024",
+      "module": "tag",
+      "currentCaseFingerprint": "8d803cf3607322100a69ec081487a1f881085189bfd3a1c21ab6b1a8b2eb723c",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-DESC-013",
+      "module": "tag",
+      "currentCaseFingerprint": "fd812e5e9e40abb5899c654130cc6387502826191e34d82a2795956297a32e7a",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-DESC-014",
+      "module": "tag",
+      "currentCaseFingerprint": "c8f23d7fafaa887121af9f34515879fcd8b3c5130a9c83577a3007f86ae61c66",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-DESC-027",
+      "module": "tag",
+      "currentCaseFingerprint": "566c7bdd2503cf470f6e952e4db55258d0c1fc649bef457432347589ab449629",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-DESC-028",
+      "module": "tag",
+      "currentCaseFingerprint": "99586d4e9cc931968f17202381831912802ed10631eb3de4aac64d47c1f01ba1",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-STAT-012",
+      "module": "tag",
+      "currentCaseFingerprint": "55da0117b7bdbf39262d790fbe4f1beb49af24e6822eee90122f1ff4dab18ff1",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-STAT-013",
+      "module": "tag",
+      "currentCaseFingerprint": "f3b250f7ddab652fddf170a87317bfa9f2411204b975546814525fa9ac08690e",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-STAT-024",
+      "module": "tag",
+      "currentCaseFingerprint": "7ae2c76fc740a7d6cbf9ccf7f33fcf49d1306f54f3ec9fadc0accc6e9e38e919",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-STAT-028",
+      "module": "tag",
+      "currentCaseFingerprint": "f813178f03fc36d25be9a52ad4cea3535ca6b9dc2e029473ea67088527824e35",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    },
+    {
+      "caseId": "TC-TAG-STAT-029",
+      "module": "tag",
+      "currentCaseFingerprint": "3b0702d593f5c45f3574765c63d62b0175e39711ae254a0028d85ea7a3734a25",
+      "observedCaseFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09"
+    }
+  ],
+  "policy": {
+    "businessExecutionStarted": false,
+    "existingPassedResults": "unchanged",
+    "historicalEvidenceDeleted": false,
+    "automaticPassPromotion": false,
+    "crossApplicationPilot": "deferred",
+    "authoritativeStateOverridden": false
+  },
+  "r3": {
+    "selected": 196,
+    "terminal": 196,
+    "passed": 193,
+    "failed": 3,
+    "status": "completed-with-findings"
+  },
+  "r4": {
+    "source": "discovered-existing-workspace-report",
+    "selected": 3,
+    "passed": 3,
+    "failed": 0,
+    "strictReceiptAcceptance": "not-confirmed"
+  },
+  "caseReviews": [
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "classification": "transient-platform",
+      "phase": "navigation",
+      "rootCause": "r3 在 page.goto 等待 domcontentloaded 时超过 30000ms，尚未验证销售单位业务断言。",
+      "cleanup": "清理附件未记录创建对象，不能以空集合证明完整业务执行。",
+      "r3Outcome": "failed",
+      "r4Outcome": "passed",
+      "importerEvidenceStatus": "complete",
+      "assertionReceiptCount": 0,
+      "reviewStatus": "evidence-review-required",
+      "successfulExecutionObserved": true,
+      "closureAccepted": false,
+      "nextAction": "优先核对 r4 实际断言步骤与运行附件；修复结构化断言输出及公共导入校验，禁止仅由 claims.verified 合成验证成功。"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "classification": "automation",
+      "phase": "input",
+      "rootCause": "r3 超长名称被控件截断，通用 fillItemName 仍要求 actual === 完整输入，提前抛错，未到业务边界断言。",
+      "cleanup": "API 确认套餐 2886、商品 35119 零残留；UI 附件确认该商品零残留，未提供套餐 UI 查询记录。",
+      "r3Outcome": "failed",
+      "r4Outcome": "passed",
+      "importerEvidenceStatus": "complete",
+      "assertionReceiptCount": 0,
+      "reviewStatus": "evidence-review-required",
+      "successfulExecutionObserved": true,
+      "closureAccepted": false,
+      "nextAction": "优先核对 r4 实际断言步骤与运行附件；修复结构化断言输出及公共导入校验，禁止仅由 claims.verified 合成验证成功。"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "classification": "automation",
+      "phase": "input",
+      "rootCause": "r3 超长名称被控件截断，通用输入稳定性检查抛错，未验证保存后的格式化。",
+      "cleanup": "清理附件未记录创建对象，不能以空集合证明完整业务执行。",
+      "r3Outcome": "failed",
+      "r4Outcome": "passed",
+      "importerEvidenceStatus": "complete",
+      "assertionReceiptCount": 0,
+      "reviewStatus": "evidence-review-required",
+      "successfulExecutionObserved": true,
+      "closureAccepted": false,
+      "nextAction": "优先核对 r4 实际断言步骤与运行附件；修复结构化断言输出及公共导入校验，禁止仅由 claims.verified 合成验证成功。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "R3-REVIEW-001",
+      "priority": "必须",
+      "scope": "project-adapter",
+      "status": "diagnosed",
+      "affectedCount": 19,
+      "purpose": "停止因集合级绑定指纹与逐用例指纹混用造成的重复执行。",
+      "evidence": "tests/generated/product-center-legacy-remaining.generated.spec.ts:914",
+      "rootCause": "caseFingerprint 使用 legacyBindingsDocument.bindingFingerprint；该值与 19 条 observedCaseFingerprint 完全一致。",
+      "expectedResult": "每条用例具备可验证的身份谱系；先适配历史收据，确实不能恢复证据的才定向执行。",
+      "downstreamImpact": "不重写历史指纹，不把 19 条自动转为通过或业务变化。"
+    },
+    {
+      "id": "R3-REVIEW-002",
+      "priority": "必须",
+      "scope": "public-core",
+      "status": "diagnosed",
+      "affectedCaseIds": [
+        "TC-ITEM-STD-019",
+        "TC-ITEM-PKG-021",
+        "TC-ITEM-ADD-012"
+      ],
+      "purpose": "防止运行通过但缺结构化断言收据的结果被误报为完整。",
+      "evidence": "D:/Menusifu/Test Automation Platform/src/utils/playwright-execution-receipt.ts",
+      "rootCause": "r4 的 assertionReceipts 为空；导入器检查 claims 并由 verified ID 合成 assertionStatuses，未验证具体预期/实际/通道/比较。",
+      "expectedResult": "通过隔离负向合同验证空断言收据不可授权 complete；优先从已有实际证据协调，不能伪造断言。",
+      "downstreamImpact": "公共导入修复需要独立影响评估；本次只记录风险，不批量失效或重跑历史通过用例。"
+    },
+    {
+      "id": "R3-REVIEW-003",
+      "priority": "必须",
+      "scope": "project-adapter",
+      "status": "implemented",
+      "purpose": "报告重建时按当前时钟评估有效期，避免沿用观测时间导致过期审计长期显示 fresh。",
+      "evidence": "scripts/build-product-center-audit-report.ts",
+      "expectedResult": "默认 evaluatedAt 使用当前时间；显式 generatedAt 支持固定时间重放；observedAt 与 freshUntil 不被延长。",
+      "downstreamImpact": "仅报告时效变化，不改变业务执行结果或触发重跑。",
+      "validation": "17 audit-report and asset-lifecycle contracts passed"
+    }
+  ],
+  "remainingReviewCaseIds": [
+    "TC-IMG-ITEM-029",
+    "TC-IMG-ITEM-030",
+    "TC-IMG-LIB-025",
+    "TC-IMG-LIB-026",
+    "TC-ITEM-ADD-012",
+    "TC-ITEM-PKG-021",
+    "TC-ITEM-STD-019",
+    "TC-TAG-BDG-009",
+    "TC-TAG-BDG-018",
+    "TC-TAG-BDG-019",
+    "TC-TAG-BDG-020",
+    "TC-TAG-BDG-021",
+    "TC-TAG-BDG-024",
+    "TC-TAG-DESC-013",
+    "TC-TAG-DESC-014",
+    "TC-TAG-DESC-027",
+    "TC-TAG-DESC-028",
+    "TC-TAG-STAT-012",
+    "TC-TAG-STAT-013",
+    "TC-TAG-STAT-024",
+    "TC-TAG-STAT-028",
+    "TC-TAG-STAT-029"
+  ],
+  "acceptance": {
+    "r3ExecutionComplete": true,
+    "r3FailuresAnalyzed": true,
+    "allProductCenterCasesClosed": false,
+    "missingCurrentIdentityCount": 19,
+    "r4StructuredAssertionReviewCount": 3,
+    "countsAloneAuthorizeCompletion": false
+  }
+}

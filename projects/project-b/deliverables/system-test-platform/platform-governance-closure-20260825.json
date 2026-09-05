@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-25T14:05:00.000Z",
+  "scope": "merchant-center-platform-governance",
+  "status": "governed-with-external-prerequisite",
+  "migration": {
+    "inventoryChangedBefore": 162,
+    "inventoryChangedAccepted": 165,
+    "inventoryChangedAfter": 0,
+    "historicalReferenceGapsBefore": 21,
+    "historicalReferenceGapsAfter": 0,
+    "unowned": 0,
+    "brokenReferences": 0,
+    "duplicateImplementations": 0,
+    "publicBoundaryViolations": 0,
+    "contentPolicyViolations": 0,
+    "acceptanceFingerprint": "b09467042014dc5e0d1c4379318617a4d96cfc122527ff3f2c858621b9650e94",
+    "acceptanceReceiptHash": "f21fa7e35fdfcd68a0d768ac68a1f402790c185c605ac32863be9bf719803332"
+  },
+  "changes": {
+    "commonInfrastructure": [
+      "历史结构化引用支持显式旧路径到现路径迁移映射，映射目标缺失仍失败",
+      "修复诊断对定位漂移要求先审计动作链",
+      "中断修复尝试不消耗有效预算，实现变化隔离周期，连续确定性失败或十五分钟超时仍要求诊断"
+    ],
+    "merchantCenterAdapters": [
+      "四个商品管理来源集合的二十一条历史路径映射到现正式用例、来源资料或保留归档",
+      "税种 portability pilot 的三个合同资产刷新当前依赖指纹，不执行或晋级业务结果",
+      "业务规则合同改为验证已收敛后的幂等稳态，不再写死一次性历史重验状态"
+    ]
+  },
+  "verification": {
+    "platformTypecheck": "passed",
+    "merchantCenterTypecheck": "passed",
+    "platformContracts": { "passed": 166, "failed": 0 },
+    "merchantCenterDomainAndAdapterContracts": { "passed": 21, "failed": 0 },
+    "merchantCenterPlatformIntegrationContracts": { "passed": 24, "failed": 0 },
+    "businessRuleSteadyStateContracts": { "passed": 6, "failed": 0 },
+    "migrationAdapterContracts": { "passed": 3, "failed": 0 },
+    "highestGate": {
+      "command": "npm run verify:system-test-platform",
+      "allPreStrictGatesPassed": true,
+      "strictStatus": "incomplete",
+      "strictBlockers": ["CROSS_APPLICATION_PILOT_REQUIRED"]
+    }
+  },
+  "platformVerdict": {
+    "commonImplementationReady": true,
+    "adapterImplementationReady": true,
+    "commonPlatformReady": true,
+    "crossPlanReady": true,
+    "crossSystemReady": false,
+    "moduleDeliveryBlocked": false
+  },
+  "seasoningImpact": {
+    "existingPassedCasesRerun": false,
+    "existingPassedCasesInvalidated": false,
+    "businessExecutionTriggered": false,
+    "current": {
+      "total": 102,
+      "bound": 83,
+      "executed": 5,
+      "passed": 5,
+      "ready": 78,
+      "deferred": 19,
+      "failed": 0,
+      "blockedSource": 0,
+      "blockedTechnical": 0,
+      "apiUiZeroResidue": true
+    }
+  },
+  "remaining": [
+    {
+      "classification": "必须（仅平台正式通用发布）",
+      "code": "CROSS_APPLICATION_PILOT_REQUIRED",
+      "purpose": "证明公共 system-test 能被不同 applicationId 的真实目标系统采用",
+      "expectedResult": "新增一个不同 applicationId、具备当前领域适配器、认证、可逆 CRUD、完整收据与 API/UI 零残留的合格试点",
+      "downstreamImpact": "不影响 Merchant Center 调味模块；只解除平台 universal completion 的最后门禁",
+      "recoveryCondition": "指定并接入 Merchant Center 之外的真实应用，完成目标系统标准执行并生成当前证据收据"
+    },
+    {
+      "classification": "暂不建议",
+      "code": "PRODUCT_CENTER_API_ARCHITECTURE_HOTSPOT",
+      "purpose": "降低 product-center-api.ts 的文件行数和方法数",
+      "expectedResult": "架构基线从 777/121 降回不高于 759/117",
+      "downstreamImpact": "会改变调味与税种适配器依赖指纹，导致当前五条调味 passed 收据转为待重验；不是迁移或平台最终目标门禁，当前不为此重开已通过业务结果"
+    }
+  ]
+}

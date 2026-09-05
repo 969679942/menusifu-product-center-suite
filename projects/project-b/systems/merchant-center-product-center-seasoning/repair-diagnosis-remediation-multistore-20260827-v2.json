@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-021",
+    "TC-FLV-TPL-024"
+  ],
+  "rootCause": "当前标准执行证明 TPL-021 错把删除模板二次确认实现为编辑模板内调味，TPL-024 只收集门店响应中第一个同名组而遗漏再次下发产生的后续组；两条失败均为自动化合同偏差。",
+  "correctiveAction": "TPL-021 改为真实模板删除入口、二次确认、DELETE 响应与服务端不存在断言；TPL-024 对完整门店响应递归收集调味项，并与编辑后模板执行顺序无关的全量集合比对，同时保留再次下发响应和清理收据。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787837756525/run-report.json"
+  ],
+  "supersedesAttemptIds": [
+    "system-test-1787837756525"
+  ]
+}

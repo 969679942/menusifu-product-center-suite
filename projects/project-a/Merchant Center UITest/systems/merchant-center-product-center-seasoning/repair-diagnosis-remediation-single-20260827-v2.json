@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-028",
+    "TC-FLV-SEA-035",
+    "TC-FLV-SEA-036",
+    "TC-FLV-SEA-037",
+    "TC-FLV-SEA-040",
+    "TC-FLV-SEA-041"
+  ],
+  "rootCause": "当前标准执行证明六条单店用例分别存在删除行定位错误、取消场景数据档案不可造数、批量移动重复展开首组、调味项排序误用调味组弹窗以及排序控件误判为 HTML draggable 的自动化合同缺陷；旧结果不能授权当前实现。",
+  "correctiveAction": "按当前 DOM 与网络证据改为从调味项输入框反向定位删除行、为取消场景启用可逆造数与清理、按源组身份精确展开、分别使用编辑页调味项 sortable 行和调味组弹窗 sortable 手柄执行键盘拖动，并核对当前更新响应、服务端回读与零残留。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787835265629/playwright-business/system-手动拖动调味项排序保存成功-system/trace.zip"
+  ],
+  "supersedesAttemptIds": [
+    "system-test-1787835265629",
+    "system-test-1787836505312"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "merchant-center",
+  "applicationId": "merchant-center",
+  "catalogId": "process-reverse-scenarios-v1",
+  "mappingKind": "evidence-candidate",
+  "mappings": [
+    {"scenarioId":"RS-FR-005","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"运行时证据已登记并消费，但仅覆盖组模块校正样本"},
+    {"scenarioId":"RS-FR-006","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"状态与影响字段存在，尚未形成全项目场景映射"},
+    {"scenarioId":"RS-FR-011","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"有运行时审计证据，但不是完整流程事件流收据"},
+    {"scenarioId":"RS-FR-012","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/audit-reconciliation.json"],"reason":"组模块审计分母存在，未覆盖全部商品中心方案"},
+    {"scenarioId":"RS-FR-013","caseIds":["TC-GRP-ADD-003"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"存在业务规则更新候选，但仍需规则生命周期全链路收据"},
+    {"scenarioId":"RS-FR-015","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"技术绑定/路由已观察，缺少全方案 API 生命周期映射"},
+    {"scenarioId":"RS-FR-017","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"逐条 assertions 存在，仍需纳入流程项目场景索引"},
+    {"scenarioId":"RS-FR-018","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"上下文字段存在，但执行 grant 不在该证据中"},
+    {"scenarioId":"RS-FR-020","caseIds":["TC-GRP-ADD-003","TC-GRP-PKG-003","TC-GRP-PKG-027","TC-GRP-PKG-040","TC-GRP-PKG-045"],"status":"partial","evidenceRefs":["deliverables/product-center-group/audit-reconciliation.json"],"reason":"局部审计可消费，未替代公共状态裁决"},
+    {"scenarioId":"RS-FR-021","caseIds":["TC-GRP-ADD-003"],"status":"partial","evidenceRefs":["deliverables/product-center-group/runtime-audit-v2.json"],"reason":"当前样本为无写入负向场景，不能代表全量 CRUD 清理闭环"}
+  ],
+  "unmappedScenarioPolicy": "missing",
+  "guardrails": {"businessExecutionStarted": false,"existingPassedCasesInvalidated": false}
+}

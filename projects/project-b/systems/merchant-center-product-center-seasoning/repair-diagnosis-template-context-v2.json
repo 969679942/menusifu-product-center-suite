@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-002",
+    "TC-FLV-TPL-005"
+  ],
+  "rootCause": "v1 已证明身份探针路由会发出 x-brand-id=000420，但认证流在 Page 级 request 事件上持续未收到该请求。模板数据已渲染且脱敏审计捕获了 header，表明请求可能由 SPA worker 或非当前 Page 发起，Page 级监听覆盖面不足。",
+  "correctiveAction": "将通用认证流与复用态验证的 Brand 身份观察提升到 BrowserContext request 事件，继续只读取精确 x-brand-id；保留身份探针等待和 Brand 不匹配才切商户的决策规则。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/template-distribution-live-audit-000420.json",
+    "flows/auth.flow.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787553812697/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787554000683/run-report.json"
+  ],
+  "supersedesAttemptIds": [
+    "f5e3c52dc0d74769",
+    "a328e7d4609bfd5d",
+    "8bacfc0a2b1cb0cd",
+    "0662378440786e49"
+  ]
+}

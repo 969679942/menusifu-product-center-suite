@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "projectId": "merchant-center-product-center",
+  "projectRoot": ".",
+  "artifactRoot": "deliverables/system-test-platform",
+  "migrationManifestPath": "adapters/test-automation-platform/migration-closure.manifest.json",
+  "status": "initialized",
+  "lifecycle": {
+    "schemaVersion": "1.0.0",
+    "businessDomainId": "product-center",
+    "workspaceRoot": "..",
+    "governanceRoot": "../..",
+    "referenceClosureAuditPath": "deliverables/test-plan-governance/product-center-closure-audit.json",
+    "referenceModule": "商品管理-组",
+    "systemsRoot": "systems",
+    "systemOutputRoot": "output/system-test",
+    "governanceFiles": [
+      {
+        "root": "workspace",
+        "path": "AGENTS.md"
+      },
+      {
+        "root": "workspace",
+        "path": "Merchant Center Info/00-待转换测试方案/FINAL-GOAL.md"
+      },
+      {
+        "root": "workspace",
+        "path": "Merchant Center Info/00-待转换测试方案/README.md"
+      },
+      {
+        "root": "workspace",
+        "path": "Merchant Center API/api-lifecycle-registry.json"
+      }
+    ],
+    "remediationScope": {
+      "schemaVersion": "1.0.0",
+      "scopeId": "product-center-all-landed",
+      "landedIndex": {
+        "root": "workspace",
+        "path": "Merchant Center Info/00-待转换测试方案/已完成/index.json"
+      },
+      "exclusionIndex": {
+        "root": "workspace",
+        "path": "Merchant Center Info/00-待转换测试方案/未落地/index.json"
+      },
+      "modules": {
+        "item": {
+          "expectedLanded": 202,
+          "registrationSources": [
+            {
+              "root": "project",
+              "path": "tests/generated/product-center-item-216.generated.spec.ts"
+            }
+          ]
+        },
+        "group": {
+          "expectedLanded": 128,
+          "registrationSources": [
+            {
+              "root": "project",
+              "path": "contracts/product-center/group/product-center-group-bindings.json"
+            }
+          ]
+        },
+        "seasoning": {
+          "expectedLanded": 83,
+          "registrationSources": [
+            {
+              "root": "project",
+              "path": "systems/merchant-center-product-center-seasoning/binding-registry.json"
+            }
+          ]
+        },
+        "image": {
+          "expectedLanded": 4,
+          "registrationSources": [
+            {
+              "root": "project",
+              "path": "tests/generated/product-center-legacy-remaining.generated.spec.ts"
+            }
+          ]
+        },
+        "tag": {
+          "expectedLanded": 15,
+          "registrationSources": [
+            {
+              "root": "project",
+              "path": "tests/generated/product-center-legacy-remaining.generated.spec.ts"
+            }
+          ]
+        }
+      },
+      "expectedExclusionsByStatus": {
+        "unlanded": 181,
+        "not-applicable": 13
+      },
+      "outputPath": "deliverables/system-test-platform/product-center-remediation-scope.json"
+    }
+  }
+}

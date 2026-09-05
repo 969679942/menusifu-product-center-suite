@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "已唯一定位真实调味组的 Select all input 与 label，但页面的拖拽 groupItemContainer/header 层持续拦截指针事件；普通 input.check 和 label.click 均未触发产品状态变化。",
+  "correctiveAction": "对已由 API 业务身份、唯一 ant-table-wrapper 和唯一 Select all 三重约束的 label 使用 force 指针动作，并继续强制要求批量按钮从 disabled 变 enabled 且按钮文案出现选择数量，防止无效点击误判通过。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-single-store-000407.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787565761696/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["2a902c8fe0a772fd"]
+}

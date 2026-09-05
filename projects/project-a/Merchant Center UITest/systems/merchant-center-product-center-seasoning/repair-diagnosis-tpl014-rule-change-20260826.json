@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-014"
+  ],
+  "rootCause": "用户确认并提供运行时 UI 证据：旧 XMind 规则错误；未选择调味组时页面应阻止保存并提示‘调味模版至少需要一个调味组’，且不发送创建请求。标准执行 trace 进一步确认页面精确用字为‘模版’。",
+  "correctiveAction": "更新正式用例和模板页面合同；把 TPL-014 改为无业务写入的前端必选校验，断言精确提示、无 POST、路由不跳转、API 无记录。",
+  "evidenceRefs": [
+    "../Merchant Center Info/00-待转换测试方案/来源资料/商品中心-商品管理-调味管理/TC-FLV-TPL-014-未选择调味组校验-20260826.png",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts"
+  ]
+}

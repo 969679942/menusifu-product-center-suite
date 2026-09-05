@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-022"],
+  "rootCause": "TPL-022 从门店调味列表中定位模板时只保留 name 和 id，丢失同一门店对象内的 options；因此真实接口和页面均返回调味项时，脚本仍计算出空的实际调味项集合。该用例的标准收据同时缺少模板创建和门店列表回读的真实接口执行记录。",
+  "correctiveAction": "改用保留完整对象的身份查找函数读取门店模板及 options；对模板创建和门店列表回读的真实请求包裹可执行操作收据；保持模板下发后的 UI 页面可见断言、API 逐项比对和 finally 清理不变。仅定向执行 TC-FLV-TPL-022。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/product-center-seasoning-template-distribution-readback.contract.spec.ts",
+    "_tmp_trace_tpl022_20260827/"
+  ]
+}

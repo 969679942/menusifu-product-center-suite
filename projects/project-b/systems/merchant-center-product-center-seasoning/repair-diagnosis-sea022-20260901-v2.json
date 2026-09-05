@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-SEA-022"
+  ],
+  "rootCause": "旧正式步骤把上限拦截点写成点击“添加调味”后立即提示并保持 50 行，自动化因此没有填写和提交第 51 项。2026-09-01 当前页面证据证明真实拦截点是：已有 50 项时添加并填写第 51 项，点击确定提交后显示精确提示，第 51 项不持久化。",
+  "correctiveAction": "同步业务规则、正式用例和确认登记；页面对象执行添加、填写、确定提交，按当前中文 UI 精确展示 BITEM-11072 : 一个调味组最大仅能添加50个调味读取反馈，记录前端提交校验或服务端拒绝的实际拦截通道与请求结果；随后按调味组服务端 ID 回读，断言总数仍为 50 且第 51 项不存在。仅重验 TC-FLV-SEA-022。",
+  "evidenceRefs": [
+    "contracts/product-center/reviews/product-center-rule-confirmations-20260901.json",
+    "D:/Menusifu/Merchant Center/Merchant Center Info/商品中心业务规则.md",
+    "D:/Menusifu/Merchant Center/Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-调味管理/3.商品中心-商品管理-调味管理-正式测试用例.md",
+    "output/system-test/merchant-center-product-center-seasoning/seasoning-rule-revalidation-sea022-20260901/run-report.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "tests/api/product-center-seasoning-runtime-remediation.contract.spec.ts"
+  ]
+}

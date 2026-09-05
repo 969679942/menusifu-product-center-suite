@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-TPL-002"
+  ],
+  "rootCause": "认证、预检和模板新增路由均已成功；TPL-002 连续两次在初始化阶段找不到选择调味按钮。定向审计证明该元素是全页唯一可见原生 button，textContent 为选择调味，但当前运行的 accessible-name 查询返回 count=0，因此 getByRole name 不是该控件的稳定 DOM 合同。",
+  "correctiveAction": "页面对象改用审计已证明的 button:visible + 精确可见文本合同，并新增复用同一 SeasoningBoundaryPage.openTemplateCreate/readTemplateCreateFields 的页面对象探针；当前 000420 登录态下探针已通过后，才重新启动正式用例。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/template-create-live-audit.json",
+    "systems/merchant-center-product-center-seasoning/tests/template-page-object.probe.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787556282848/evidence-ledger.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787556600356/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": [
+    "a452937dda261089",
+    "332ff41610c3fc99"
+  ]
+}

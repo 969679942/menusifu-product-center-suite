@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "seasoning-template-save-settle-repair-20260905",
+  "applicationId": "merchant-center",
+  "defaultImpactType": "adapter-only",
+  "impactedCaseIds": [
+    "TC-FLV-TPL-012",
+    "TC-FLV-TPL-013"
+  ],
+  "caseImpactTypes": {
+    "TC-FLV-TPL-012": "adapter-only",
+    "TC-FLV-TPL-013": "adapter-only"
+  },
+  "recommendation": "必须",
+  "purpose": "验证模板选择弹窗关闭后正常保存，消除强制点击导致的偶发丢失提交。",
+  "expectedResult": "仅执行 TPL-012、TPL-013，均形成模板创建、UI/API 回读和零残留完整收据。",
+  "downstreamImpact": "TPL-025 同路径变更在第四波执行；其余第三波通过用例不重跑、不失效。"
+}

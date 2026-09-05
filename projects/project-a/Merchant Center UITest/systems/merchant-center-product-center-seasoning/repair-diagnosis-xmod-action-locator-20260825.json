@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-XMOD-004",
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006",
+    "TC-FLV-XMOD-011"
+  ],
+  "rootCause": "多门店 Brand/POI 会话与门店调味路由已建立并验证，但 XMOD-004 在真实业务身份可见后，旧页面对象假定组操作入口是组容器内最后一个 button；当前 DOM 不满足该合同，形成 locator-drift。历史 runner 又让 recovery 与业务阶段共用 test-results，覆盖失败截图和 DOM，放大了定位耗时。",
+  "correctiveAction": "公共 runner 为 setup、preflight、business、recovery 分配独立 Playwright 证据目录；调味配置保留失败 trace 和截图；先采集目标业务身份祖先范围内的可交互元素合同，再以唯一真实控件修正页面对象，定向重跑 XMOD-004。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787651114661/run-report.json",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787651114661/evidence-ledger.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "D:/Menusifu/Test Automation Platform/scripts/run-system-test.ts"
+  ],
+  "supersedesAttemptIds": [
+    "7dfc320c333daef4",
+    "cde8afb35dfc4324"
+  ]
+}

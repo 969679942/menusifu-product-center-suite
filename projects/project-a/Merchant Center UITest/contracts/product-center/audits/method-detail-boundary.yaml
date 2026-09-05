@@ -1,0 +1,30 @@
+project:
+  name: product-center-method-detail-boundary
+  base_url: https://cc-fe.balamxqa.com
+  start_path: /
+  locale: zh-CN
+auth:
+  email_env: MC_USERNAME
+  password_env: MC_PASSWORD
+safety:
+  mutation_authorized: true
+  test_prefix: AUTO_AUDIT_METHOD_DETAIL_
+  allowed_hosts:
+    - cc-fe.balamxqa.com
+    - api-balamxqa.menusifucloud.com
+coverage:
+  required_roles:
+    - merchant-center-product-admin
+  required_languages:
+    - zh-CN
+  editable_entities:
+    - method-detail
+scope:
+  routes:
+    - /pp/brand/option-group/method
+  entry_capability: navigation.sidebar.open
+  target_fields:
+    - method-group-name
+    - method-detail-name
+artifacts:
+  output_dir: output/audits/product-center/method-detail-boundary

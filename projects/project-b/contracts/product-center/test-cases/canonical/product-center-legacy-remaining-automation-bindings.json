@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-legacy-remaining-automation-bindings",
+  "bindingFingerprint": "3dbb7a351b9a12910a80e402e9d1d9164d53dafb9631d6b2e9226bbecc2b0e09",
+  "bindings": [
+    {
+      "caseId": "TC-IMG-ITEM-029",
+      "title": "详情图仅一张时删除后无图片展示",
+      "handlerId": "legacy-remaining:item-detail-image-delete-only",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-IMG-ITEM-029:single-image-deleted",
+        "assertion:legacy:TC-IMG-ITEM-029:no-image-retained"
+      ]
+    },
+    {
+      "caseId": "TC-IMG-ITEM-030",
+      "title": "详情图多张时删除中间一张其余图片左移",
+      "handlerId": "legacy-remaining:item-detail-image-delete-middle",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-IMG-ITEM-030:middle-image-deleted",
+        "assertion:legacy:TC-IMG-ITEM-030:remaining-images-shift-left"
+      ]
+    },
+    {
+      "caseId": "TC-IMG-LIB-025",
+      "title": "图片库点击缩略图可查看大图",
+      "handlerId": "legacy-remaining:image-library-preview",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": [
+        "navigation",
+        "ui-assertion"
+      ],
+      "assertionIds": [
+        "assertion:legacy:TC-IMG-LIB-025:preview-visible",
+        "assertion:legacy:TC-IMG-LIB-025:same-image",
+        "assertion:legacy:TC-IMG-LIB-025:close-stable"
+      ]
+    },
+    {
+      "caseId": "TC-IMG-LIB-026",
+      "title": "按图片名称搜索可筛选列表",
+      "handlerId": "legacy-remaining:image-library-search",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": [
+        "navigation",
+        "network-read",
+        "ui-assertion"
+      ],
+      "assertionIds": [
+        "assertion:legacy:TC-IMG-LIB-026:matched-only",
+        "assertion:legacy:TC-IMG-LIB-026:no-match-empty",
+        "assertion:legacy:TC-IMG-LIB-026:clear-restores"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-DESC-027",
+      "title": "点击描述标签名称打开编辑弹窗并可从关联数量查看引用商品",
+      "handlerId": "legacy-remaining:tag-detail-related-description",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "network-read", "ui-assertion"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-DESC-027:name-opens-edit",
+        "assertion:legacy:TC-TAG-DESC-027:edit-retains-name",
+        "assertion:legacy:TC-TAG-DESC-027:related-count-matches-list"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-STAT-029",
+      "title": "点击统计标签名称打开编辑弹窗并可从关联数量查看引用商品",
+      "handlerId": "legacy-remaining:tag-detail-related-statistic",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "network-read", "ui-assertion"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-STAT-029:name-opens-edit",
+        "assertion:legacy:TC-TAG-STAT-029:edit-retains-name",
+        "assertion:legacy:TC-TAG-STAT-029:related-count-matches-list"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-024",
+      "title": "点击角标名称打开编辑弹窗并可从关联数量查看引用商品",
+      "handlerId": "legacy-remaining:tag-detail-related-badge",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "network-read", "ui-assertion"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-024:name-opens-edit",
+        "assertion:legacy:TC-TAG-BDG-024:edit-retains-name",
+        "assertion:legacy:TC-TAG-BDG-024:related-count-matches-list"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-DESC-013",
+      "title": "描述标签组名称品牌内重复时 API 拒绝且仅保留一条",
+      "handlerId": "legacy-remaining:tag-group-duplicate-1",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["mutation", "api-read", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-DESC-013:duplicate-rejected",
+        "assertion:legacy:TC-TAG-DESC-013:single-record-retained"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-STAT-012",
+      "title": "统计标签组名称品牌内重复时 API 拒绝且仅保留一条",
+      "handlerId": "legacy-remaining:tag-group-duplicate-3",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["mutation", "api-read", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-STAT-012:duplicate-rejected",
+        "assertion:legacy:TC-TAG-STAT-012:single-record-retained"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-DESC-014",
+      "title": "描述标签名称品牌内重复时保存失败并显示精确中文提示",
+      "handlerId": "legacy-remaining:tag-name-duplicate-description",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-DESC-014:duplicate-rejected",
+        "assertion:legacy:TC-TAG-DESC-014:exact-zh-feedback",
+        "assertion:legacy:TC-TAG-DESC-014:single-record-retained"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-STAT-013",
+      "title": "统计标签名称品牌内重复时保存失败并显示精确中文提示",
+      "handlerId": "legacy-remaining:tag-name-duplicate-statistic",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-STAT-013:duplicate-rejected",
+        "assertion:legacy:TC-TAG-STAT-013:exact-zh-feedback",
+        "assertion:legacy:TC-TAG-STAT-013:single-record-retained"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-009",
+      "title": "角标名称品牌内重复时保存失败并显示精确中文提示",
+      "handlerId": "legacy-remaining:tag-name-duplicate-badge",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-009:duplicate-rejected",
+        "assertion:legacy:TC-TAG-BDG-009:exact-zh-feedback",
+        "assertion:legacy:TC-TAG-BDG-009:single-record-retained"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-020",
+      "title": "角标有效期结束早于开始时控件自动归一化且不提交",
+      "handlerId": "legacy-remaining:badge-validity-normalization",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "network-read", "ui-assertion"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-020:end-normalized-to-start",
+        "assertion:legacy:TC-TAG-BDG-020:no-mutation",
+        "assertion:legacy:TC-TAG-BDG-020:not-persisted"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-021",
+      "title": "新增角标配置有效期与胶囊形状后列表展示一致",
+      "handlerId": "legacy-remaining:badge-validity-style-create",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-021:create-succeeds",
+        "assertion:legacy:TC-TAG-BDG-021:validity-matches-list",
+        "assertion:legacy:TC-TAG-BDG-021:pill-shape-persisted"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-STAT-024",
+      "title": "新增统计标签选择已有分组并填写双语名称后保存成功",
+      "handlerId": "legacy-remaining:statistic-tag-create-existing-group",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-STAT-024:create-succeeds",
+        "assertion:legacy:TC-TAG-STAT-024:name-matches-list",
+        "assertion:legacy:TC-TAG-STAT-024:group-matches-list"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-DESC-028",
+      "title": "编辑描述标签后两条引用商品详情与编辑页同步新名称",
+      "handlerId": "legacy-remaining:tag-rename-propagation-description",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-DESC-028:update-succeeds",
+        "assertion:legacy:TC-TAG-DESC-028:two-product-details-updated",
+        "assertion:legacy:TC-TAG-DESC-028:item-edit-shows-new-only"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-STAT-028",
+      "title": "编辑统计标签后两条引用商品详情与编辑页同步新名称",
+      "handlerId": "legacy-remaining:tag-rename-propagation-statistic",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-STAT-028:update-succeeds",
+        "assertion:legacy:TC-TAG-STAT-028:two-product-details-updated",
+        "assertion:legacy:TC-TAG-STAT-028:item-edit-shows-new-only"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-018",
+      "title": "角标有效期内时商品详情与编辑页正常展示角标",
+      "handlerId": "legacy-remaining:badge-valid-association",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-018:association-succeeds",
+        "assertion:legacy:TC-TAG-BDG-018:detail-shows-valid-badge",
+        "assertion:legacy:TC-TAG-BDG-018:item-edit-shows-valid-badge"
+      ]
+    },
+    {
+      "caseId": "TC-TAG-BDG-019",
+      "title": "角标过期不影响商品详情与编辑页关联回显",
+      "handlerId": "legacy-remaining:badge-expiry-propagation",
+      "scriptPath": "tests/generated/product-center-legacy-remaining.generated.spec.ts",
+      "requiredEvidence": ["navigation", "mutation", "api-read", "ui-assertion", "cleanup"],
+      "assertionIds": [
+        "assertion:legacy:TC-TAG-BDG-019:badge-record-retained",
+        "assertion:legacy:TC-TAG-BDG-019:detail-retains-expired-badge",
+        "assertion:legacy:TC-TAG-BDG-019:item-edit-retains-expired-badge"
+      ]
+    }
+  ]
+}

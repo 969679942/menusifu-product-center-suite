@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-04T01:54:12.968Z",
+  "id": "batch-5e3f00e0ef-01",
+  "group": "industry-item:platform-category-controller",
+  "sequence": 1,
+  "items": [
+    {
+      "id": "api-unresolved:17c75208e0a5",
+      "group": "industry-item:platform-category-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[78]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:GET /ops/platform-category/treeList",
+          "operationId": "treeList"
+        },
+        "question": "请确认 industry-item:GET /ops/platform-category/treeList 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:387fb9f54a57",
+      "group": "industry-item:platform-category-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[32]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:PUT /ops/platform-category/{id}",
+          "operationId": "update_8"
+        },
+        "question": "请确认 industry-item:PUT /ops/platform-category/{id} 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:593b8e2eb649",
+      "group": "industry-item:platform-category-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[33]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:DELETE /ops/platform-category/{id}",
+          "operationId": "delete_8"
+        },
+        "question": "请确认 industry-item:DELETE /ops/platform-category/{id} 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:cae89bd9a093",
+      "group": "industry-item:platform-category-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[53]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:POST /ops/platform-category",
+          "operationId": "create_8"
+        },
+        "question": "请确认 industry-item:POST /ops/platform-category 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    },
+    {
+      "id": "api-unresolved:df0a6d90020c",
+      "group": "industry-item:platform-category-controller",
+      "payload": {
+        "category": "unresolved-contract",
+        "priority": "P0",
+        "reason": "黑盒证据存在未解决冲突或缺失，禁止自动生成操作/断言",
+        "source": [
+          {
+            "path": "merchant-center:/contracts/api/unresolved-api-contracts.json",
+            "locator": "[31]"
+          }
+        ],
+        "evidence": {
+          "type": "missing-summary",
+          "service": "industry-item",
+          "operationKey": "industry-item:GET /ops/platform-category/{id}",
+          "operationId": "getById_8"
+        },
+        "question": "请确认 industry-item:GET /ops/platform-category/{id} 的业务用途、操作对象及是否允许进入自动化。",
+        "allowedDecisions": [
+          "confirm",
+          "exclude",
+          "defer"
+        ]
+      }
+    }
+  ]
+}

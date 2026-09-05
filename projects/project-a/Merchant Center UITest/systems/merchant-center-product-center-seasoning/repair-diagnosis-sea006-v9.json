@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-SEA-006"],
+  "rootCause": "准确定位的首个 API 调味身份行处于拖拽固定层覆盖区域；即使强制点击，React 受控 checkbox 状态也不变化。问题不是身份或选择器歧义，而是选取了当前视口不可真实点击的挂载行。",
+  "correctiveAction": "遍历 API 当前调味身份，要求身份文本、wrapper、虚拟业务行和 checkbox 各自唯一，并通过 elementFromPoint 证明 checkbox 中心顶层元素属于其 label 后才执行普通 check；仍以批量按钮启用和数量为后置条件。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/seasoning-checkbox-structure.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787566419382/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["c819ab19d9187014"]
+}

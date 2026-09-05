@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-IMG-ITEM-029",
+    "TC-IMG-ITEM-030",
+    "TC-IMG-LIB-025",
+    "TC-IMG-LIB-026"
+  ],
+  "classification": "evidence-gap",
+  "phase": "pre-execution-repair-governance",
+  "rootCause": "图片历史收据缺少可证明当前逐案语义指纹的谱系，不能通过批量替换指纹继续授权 passed；当前用例、绑定和执行路由已具备，只缺当前标准执行收据。",
+  "correctiveAction": "仅执行当前计划中的 4 条图片定向重验证用例；逐条保存操作、断言、上下文与清理收据，独立失败继续执行并按产品、自动化、证据、环境或瞬时平台问题分类。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/image-semantic-evidence-revalidation-impact-20260905.json",
+    "deliverables/system-test-platform/image-semantic-evidence-revalidation-optimization-plan-20260905.json",
+    "deliverables/system-test-platform/product-center-asset-lifecycle.json",
+    "deliverables/system-test-platform/product-center-asset-remediation-queues.json"
+  ],
+  "planFingerprint": "107e32aa5f8b9b2435c635d9eb7a18b57019f3700a576a6af3e6a785aa388cad",
+  "selectionFingerprint": "01fbbce1d298afd5a3ebd00647b8fd6d3278d8b018a01c65af48e709ba2509e6",
+  "existingPassedCasesImpact": "仅重验当前整改队列用例；指纹匹配的既有通过结果保持不变。",
+  "rerunScope": [
+    "TC-IMG-ITEM-029",
+    "TC-IMG-ITEM-030",
+    "TC-IMG-LIB-025",
+    "TC-IMG-LIB-026"
+  ]
+}

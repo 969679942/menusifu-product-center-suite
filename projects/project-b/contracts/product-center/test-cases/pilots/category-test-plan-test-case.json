@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "negative:category-child-blocked-by-product",
+      "module": "brand-item",
+      "route": "/pp/brand/category",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "priority": "P1",
+      "sourceRefs": [
+        "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+        "PRD:1.需求品牌商品与分类.md#5.1.1 品牌商品 / 商品分类 3",
+        "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+      ],
+      "preconditions": [
+        "一级分类 A 下已存在商品。"
+      ],
+      "actions": [
+        "进入 品牌商品 → 分类 页面。",
+        "在一级分类 A 下点击新增子分类。",
+        "输入二级分类名称并尝试保存。"
+      ],
+      "expectedResults": [
+        "不可成功新增二级分类。",
+        "一级分类 A 下不新增子分类数据。"
+      ],
+      "mutatesData": false,
+      "cleanup": [
+        "通过 API 清理商品与分类测试数据并验证零残留"
+      ],
+      "automationPreference": "candidate",
+      "claims": [
+        {
+          "id": "claim:negative:category-child-blocked-by-product:precondition:1",
+          "kind": "precondition",
+          "text": "一级分类 A 下已存在商品。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "rule:category-child-blocked-by-product"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:1",
+          "kind": "action",
+          "text": "进入 品牌商品 → 分类 页面。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "route:b0de43a7ecd9"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:2",
+          "kind": "action",
+          "text": "在一级分类 A 下点击新增子分类。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "/pp/brand/category#control-1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:action:3",
+          "kind": "action",
+          "text": "输入二级分类名称并尝试保存。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "/pp/brand/category#control-1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:expectation:1",
+          "kind": "expectation",
+          "text": "不可成功新增二级分类。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "PRD:1.需求品牌商品与分类.md#5.1.1 品牌商品 / 商品分类 3"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "prd-explicit",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "PRD:1.需求品牌商品与分类.md#5.1.1 品牌商品 / 商品分类 3"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "rule:category-child-blocked-by-product"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "claim:negative:category-child-blocked-by-product:expectation:2",
+          "kind": "expectation",
+          "text": "一级分类 A 下不新增子分类数据。",
+          "sourceRefs": [
+            "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+            "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+          ],
+          "evidenceLevel": "confirmed",
+          "sourceTrace": {
+            "businessBasis": {
+              "kind": "xmind-existing",
+              "refs": [
+                "TEST-PLAN:1.需求品牌商品与分类-测试用例.md#TC-需求1-150",
+                "XMIND:1.商品中心-商品管理-商品.xmind#标准商品 / 新增 / 分类相关校验 / 一级分类下有商品，不可创建二级分类"
+              ]
+            },
+            "executionEvidence": [
+              {
+                "kind": "contract-observed",
+                "sourceIds": [
+                  "mapping:1e3f83ff2788"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "coverageIds": [
+        "coverage:control:category-add-child"
+      ],
+      "execution": {
+        "roleIds": [
+          "merchant-center-product-admin"
+        ],
+        "environmentIds": [
+          "balamxqa"
+        ],
+        "capabilityIds": [
+          "navigation.sidebar.open",
+          "category.attemptAddChildBlockedByProduct"
+        ],
+        "mutationMode": "api-seeded-ui-action",
+        "verificationSignals": [
+          "api",
+          "ui"
+        ],
+        "seedAdapterIds": [
+          "productCenter.seedCategoryWithProduct"
+        ],
+        "cleanupAdapterIds": [
+          "productCenter.cleanupSeed"
+        ],
+        "asyncPolicy": "none"
+      }
+    }
+  ]
+}

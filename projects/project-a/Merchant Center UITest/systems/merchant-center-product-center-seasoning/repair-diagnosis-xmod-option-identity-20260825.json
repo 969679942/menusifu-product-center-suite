@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": [
+    "TC-FLV-XMOD-005",
+    "TC-FLV-XMOD-006"
+  ],
+  "rootCause": "门店下发后的实际 API 保留自动化组身份，但组内选项由平台映射为门店身份 Vegetable/id=4019，不能沿用品牌选项名。真实 trace 同时证明目标位于 div.ant-table-row[data-row-key]、单项删除入口为 button[accessible-name=delete]，且目标组可能处于 grid-template-rows: 0fr 的折叠态；批量删除确认弹窗的实际按钮为“删除”，旧适配器错误写成“确定”。",
+  "correctiveAction": "从目标门店组的实际 options 读取选项名和门店 option ID；UI 定位严格限定在目标组卡片和虚拟表格行；操作前按真实动画样式展开目标组并等待展开完成，使用普通可操作性点击；单项和批量删除均按实际“删除”按钮确认，再等待真实请求、API/UI 终态和零残留。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787651986228/playwright-business/system-门店删除单个调味项成功-system/trace.zip",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787652195412/playwright-business/system-门店删除单个调味项成功-system/trace.zip",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787652918045/playwright-business/system-门店批量删除调味未勾选置灰、勾选后可删并二次确认-system/trace.zip",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": [
+    "ac3ed6bc7d9777ff",
+    "dab122971a989c1f"
+  ]
+}

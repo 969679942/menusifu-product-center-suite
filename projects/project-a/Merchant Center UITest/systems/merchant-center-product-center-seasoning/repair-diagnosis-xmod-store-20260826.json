@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-XMOD-001", "TC-FLV-XMOD-002", "TC-FLV-XMOD-003", "TC-FLV-XMOD-004", "TC-FLV-XMOD-005", "TC-FLV-XMOD-006", "TC-FLV-XMOD-011"],
+  "rootCause": "当前 XMOD 用例需要在多门店 23918/Brand 000420/POI M000023918 建立当前 UI、API、门店调味与清理收据；历史尝试包含上下文修复前的静态品牌身份和门店路由等待，不能复用。",
+  "correctiveAction": "按当前多门店认证上下文执行模板/门店调味真实 UI 流程，使用服务端 ID 做持久化和零残留核验；XMOD-007~010 的 POS 终端断言继续明确延期。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json",
+    "systems/merchant-center-product-center-seasoning/playwright.config.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/pages/product-center/seasoning-boundary.page.ts"
+  ],
+  "supersedesAttemptIds": ["98447882badfc73c"]
+}

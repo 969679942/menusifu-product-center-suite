@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "registryId": "product-center-runtime-drift-decisions",
+  "generatedAt": "2026-08-17T10:00:00.000Z",
+  "decisions": [
+    {
+      "decisionId": "RUNTIME-DRIFT-TC-FLV-SEA-016",
+      "caseId": "TC-FLV-SEA-016",
+      "ruleId": "BR-FLV-001",
+      "sourceRef": "Merchant Center Info/商品中心业务规则.md#BR-FLV-001",
+      "sourceTitle": "调味价格非法输入按新增与编辑场景分别归一化",
+      "expectedClaims": [
+        "新增时输入非数字、负数或留空归一化为0后允许保存；编辑时输入非数字或负数恢复原价格且不发送更新请求。"
+      ],
+      "observedClaim": "当前标准收据确认新增三类非法或空值输入均保存为0；编辑两类非法输入均恢复原价格、确定按钮置灰且无PUT请求。",
+      "comparisonSurface": "validation-feedback",
+      "evidence": [
+        {
+          "path": "Merchant Center UITest/output/product-center-seasoning-016-defect-evidence.json",
+          "sha256": "sha256:e9b3143e413ae0fa1f9caf1d2da7d804931605ba59b817ba9b6e18791f064642",
+          "bytes": 1219
+        }
+      ],
+      "decisionStatus": "human-confirmed",
+      "confirmedBy": "金将军",
+      "decidedAt": "2026-08-24T00:00:00.000+08:00",
+      "rationale": "金将军确认当前归一化行为为正式规则；正式用例、自动化断言和当前标准收据均已更新并通过，原产品偏差分类关闭。"
+    },
+    {
+      "decisionId": "RUNTIME-DRIFT-TC-TAG-BDG-019",
+      "caseId": "TC-TAG-BDG-019",
+      "ruleId": "BR-TAG-004",
+      "sourceRef": "Merchant Center Info/商品中心业务规则.md#BR-TAG-004",
+      "sourceTitle": "角标过期不影响商品详情与编辑页关联回显",
+      "expectedClaims": [
+        "角标过期后，商品详情 API 与引用商品编辑页继续保留该角标。"
+      ],
+      "observedClaim": "角标更新为已过期后，角标记录仍保留，商品详情 API 与商品编辑页仍回显该过期角标。",
+      "comparisonSurface": "expiry-propagation",
+      "evidence": [
+        {
+          "path": "Merchant Center UITest/output/product-center-tag-bdg-019-defect-evidence.json",
+          "sha256": "sha256:79edef96687a250d225081d5fceeb6567ca5810a526c62442c46e911435b8104",
+          "bytes": 1366
+        }
+      ],
+      "decisionStatus": "human-confirmed",
+      "confirmedBy": "金将军",
+      "decidedAt": "2026-09-01T00:00:00.000+08:00",
+      "rationale": "金将军确认角标过期无任何影响为当前正式规则；历史运行证据与新规则一致，原产品偏差分类终止，但更新后的自动化仍需重新执行取得当前收据。"
+    }
+  ],
+  "resolvedDecisions": [
+    {
+      "decisionId": "RUNTIME-DRIFT-TC-ITEM-ADD-008",
+      "caseId": "TC-ITEM-ADD-008",
+      "ruleId": "test-expectation:TC-ITEM-ADD-008:expectation-2",
+      "sourceRef": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-008",
+      "sourceTitle": "加料商品标准价缺失时创建失败",
+      "expectedClaims": [
+        "标准价字段出现必填校验提示。"
+      ],
+      "correctedObservedClaim": "提交被前端阻断，页面停留创建页且无写请求、无新增记录；标准价输入框进入红色字段错误状态。",
+      "resolutionStatus": "false-positive-corrected",
+      "resolvedBy": "runtime-evidence-correction",
+      "resolvedAt": "2026-08-20T07:00:00.000Z",
+      "rationale": "原判定只统计独立错误文本，遗漏了字段红框这一可见必填校验状态；实际行为满足正式用例，不属于产品偏差。"
+    }
+  ]
+}

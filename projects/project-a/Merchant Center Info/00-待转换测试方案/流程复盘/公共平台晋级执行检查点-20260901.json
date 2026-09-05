@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "planVersion": "1.0",
+  "createdAt": "2026-09-01T00:00:00+08:00",
+  "scope": ["public-core", "project-adapter", "pilot-adapter", "domain-asset", "generated-evidence"],
+  "status": "in-progress-with-findings",
+  "currentWorkUnit": "W3",
+  "completedWorkUnits": ["W0", "W1", "W2"],
+  "executionAuthorization": {
+    "issued": false,
+    "crossApplicationPilotExplicitlyStarted": false,
+    "businessCasesExecuted": false
+  },
+  "gates": {
+    "contractsC001C007": "passed-contract-tests-with-architecture-finding",
+    "enterpriseGovernanceC008": "passed-contract-tests",
+    "valueTelemetryC009": "contract-passed-baseline-pending",
+    "merchantCenterAdapter": "blocked-migration-incomplete",
+    "differentApplicationIdPilot": "deferred",
+    "platformGa": "not-ready"
+  },
+  "currentDependency": {
+    "applicationId": "merchant-center",
+    "status": "deferred",
+    "blocker": "CROSS_APPLICATION_PILOT_REQUIRED",
+    "moduleDeliveryBlocked": false,
+    "retryBlockedPilot": false
+  },
+  "artifacts": [
+    {"path": "D:\\Menusifu\\Test Automation Platform\\tests\\api\\system-test-platform.contract.spec.ts", "kind": "public-contract-tests", "result": "68 passed; included in 126-test double-check"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\tests\\api\\acceptance-core.contract.spec.ts", "kind": "public-contract-tests", "result": "15 passed"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\tests\\api\\business-rule-lifecycle.contract.spec.ts", "kind": "public-contract-tests", "result": "23 passed"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\tests\\api\\migration-closure.contract.spec.ts", "kind": "public-contract-tests", "result": "14 passed"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\tests\\api\\enterprise-governance.contract.spec.ts", "kind": "C-008/C-009 contract-tests", "result": "6 passed; included in 126-test double-check"},
+    {"path": "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-audit-reference\\audit-pipeline-result.json", "kind": "reference-audit", "result": "audit-complete"},
+    {"path": "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\deliverables\\system-test-platform\\readiness.json", "kind": "project-readiness", "result": "candidate; reference baseline, cross-domain and cross-application blockers"},
+    {"path": "D:\\Menusifu\\Merchant Center\\deliverables\\test-plan-governance\\product-center-historical-evidence-reconciliation.json", "kind": "evidence-reconciliation", "result": "attempted; TC-GRP-PKG-033 still missing current receipt"},
+    {"path": "D:\\Menusifu\\Merchant Center\\Merchant Center UITest\\adapters\\test-automation-platform\\reports\\merchant-center-migration-closure.json", "kind": "migration-closure", "result": "incomplete"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\src\\governance\\enterprise-governance.ts", "kind": "C-008 implementation", "result": "typecheck-passed"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\src\\governance\\value-metrics.ts", "kind": "C-009 implementation", "result": "typecheck-passed; batch deduplication/window/denominator validation added"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\src\\reporters\\system-test-audit-report.ts", "kind": "compile-fix", "result": "metricCards definition restored; typecheck-passed"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\scripts\\check-ui-architecture.ts", "kind": "architecture-entry-guard", "result": "missing project root/config now fails with explicit diagnostic"},
+    {"path": "D:\\Menusifu\\Test Automation Platform\\src\\governance\\disaster-recovery.ts", "kind": "recovery implementation", "result": "typecheck-passed"},
+    {"path": "D:\\Menusifu\\Merchant Center\\Merchant Center Info\\00-待转换测试方案\\流程复盘\\公共平台晋级执行结果-20260901.md", "kind": "execution-result", "result": "in-progress-with-findings; double-check complete"}
+  ],
+  "findings": [
+    {"id": "F-001", "workUnit": "W2", "category": "platform-contract", "severity": "high", "summary": "默认 architecture:check 未指定项目根目录时找不到 config/ui-architecture.json；按 Merchant Center UITest 根目录运行后发现既有架构热点债务增加。", "classification": "technical-blocked", "nextAction": "命令入口已增加显式 project-root/config 诊断；仍需清理或批准架构债务基线后复核。"},
+    {"id": "F-002", "workUnit": "W3", "category": "value-metrics", "severity": "medium", "summary": "C-009 遥测聚合、去重、时间窗口和分母完整性合同已通过，但 30 天真实基线尚未建立。", "classification": "evidence-incomplete", "nextAction": "接入脱敏运行事件并连续采集 30 天，生成带分母、责任人和更新时间的基线快照。"},
+    {"id": "F-003", "workUnit": "W4", "category": "migration", "severity": "high", "summary": "项目 lifecycle readiness/review 被 PROJECT_MIGRATION_NOT_COMPLETE 阻断。", "classification": "technical-blocked", "nextAction": "由项目负责人完成迁移闭环审计、批准基线和变更接收后重试 W4。"},
+    {"id": "F-004", "workUnit": "W5", "category": "cross-application", "severity": "high", "summary": "当前仅有 merchant-center applicationId；不同 applicationId 真实试点仍缺失。", "classification": "deferred", "nextAction": "提供不同 applicationId 的真实目标系统、认证和适配器，并由用户明确启动。"},
+    {"id": "F-005", "workUnit": "W5", "category": "reference-baseline", "severity": "high", "summary": "当前 readiness 仍为 REFERENCE_BASELINE_NOT_READY，参考基线缺少完整证据覆盖且存在 1 条缺失收据。", "classification": "evidence-incomplete", "nextAction": "补齐参考基线逐用例收据、清理证据和当前指纹后重新构建 readiness。"},
+    {"id": "F-006", "workUnit": "W5", "category": "cross-domain", "severity": "high", "summary": "当前 readiness 仍为 CROSS_DOMAIN_PILOT_REQUIRED，尚无合格的同应用跨业务域试点。", "classification": "deferred", "nextAction": "在不替代跨应用门槛的前提下，完成一个同应用不同业务域的可逆试点。"},
+    {"id": "F-007", "workUnit": "W2", "category": "architecture-debt", "severity": "medium", "summary": "Merchant Center UI 架构检查报告既有热点债务增加；默认公共根目录命令缺少 UI 配置。", "classification": "technical-blocked", "nextAction": "明确 project-root 参数并清理或批准架构债务基线，避免以未解释债务进入 GA。"},
+    {"id": "F-008", "workUnit": "W3", "category": "evidence-reconciliation", "severity": "high", "summary": "证据闭环已执行但 readiness 仍显示 TC-GRP-PKG-033 缺少运行收据附件。", "classification": "evidence-incomplete", "nextAction": "补录可验证历史收据；若无法证明完整执行，按显式批准流程仅重验该 caseId。"},
+    {"id": "F-009", "workUnit": "W3", "category": "business-rule-governance", "severity": "medium", "summary": "证据闭环报告仍有 RULE_EFFECTIVE_CONTEXT_UNKNOWN、TEST_PLAN_RULE_CANDIDATES_REMAIN_UNREVIEWED 和 MIGRATION_ACCEPTANCE_PENDING。", "classification": "technical-blocked", "nextAction": "补充规则生效上下文、评审候选规则并完成迁移接收；不将候选规则自动晋级 formal。"}
+  ],
+  "impact": {
+    "codeScope": "unchanged",
+    "projectAdapterScope": "unchanged",
+    "domainAssetScope": "execution-plan-and-checkpoint",
+    "generatedEvidenceScope": "contract-results-and-checkpoint",
+    "rerunExistingPassedCases": false,
+    "invalidateExistingResults": false
+  },
+  "resumeRule": "从首个未完成工作单元恢复；输入、候选、治理或选择集指纹变化时拒绝复用旧结果",
+  "sensitiveDataPolicy": "不保存密码、Token、Cookie、授权头、浏览器存储或明文执行令牌"
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-item-yellow-y3-b4-runtime-acceptance",
+  "generatedAt": "2026-08-03T03:30:00.000Z",
+  "status": "accepted-with-canonical-conflicts",
+  "runId": "AUTO_AUDIT_YELLOW_Y3_B4_20260803_01",
+  "batchId": "Y3-B4",
+  "source": {
+    "reportPath": "output/audit/product-center-item-yellow-y3-b4-runtime-AUTO_AUDIT_YELLOW_Y3_B4_20260803_01.json",
+    "reportSha256": "e3bff90a6657a5230e5e05e3d12f6257c50fe02b6079b25db645217779678fba"
+  },
+  "summary": {
+    "total": 2,
+    "accepted": 0,
+    "canonicalConflicts": 2,
+    "executorErrors": 0,
+    "generationPromotable": 0,
+    "canonicalRepairRequired": 2,
+    "humanReviewRequired": 0,
+    "mutationIntents": 3,
+    "ledgerResidueVerified": 2
+  },
+  "acceptedCaseIds": [],
+  "canonicalConflicts": [
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "evidence": {
+        "sourceRules": [
+          "BR-FMT-001",
+          "BR-FMT-004",
+          "BR-ITEM-010"
+        ],
+        "rawInput": {
+          "itemName": "AUTO_AUDIT_Y3_B4_NAME_1785727176021_商品名称  连  空格 Test01@#😀_超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段",
+          "codePointLength": 154
+        },
+        "inputBeforeSubmit": {
+          "itemName": "AUTO_AUDIT_Y3_B4_NAME_1785727176021_商品名称  连  空格 Test01@#😀_超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超长字段超"
+        },
+        "validationErrors": [
+          "字符之间只允许单空格"
+        ],
+        "responseEvidence": {
+          "observed": false
+        },
+        "successMessageCount": 0,
+        "persistedEvidence": {
+          "created": false,
+          "listMatchCount": 0
+        },
+        "expectedSatisfied": false
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "evidence": {
+        "sourceRules": [
+          "BR-FMT-001",
+          "BR-FMT-004",
+          "BR-ITEM-010"
+        ],
+        "rawInput": {
+          "posName": "POS名称  连  空格 Test01@#😀ABCDEFGHIJKLMN",
+          "kitchenName": "送厨名称  连  空格 Test02@#😀ABCDEFGHIJKLMN"
+        },
+        "inputBeforeSubmit": {
+          "itemName": "AUTO_AUDIT_Y3_B4_ADVANCED_1785727485201",
+          "posName": "POS名称 连 空格 Test01@#😀ABCDEFGHIJKLMN",
+          "kitchenName": "送厨名称 连 空格 Test02@#😀ABCDEFGHIJKLMN"
+        },
+        "validationErrors": [],
+        "responseEvidence": {
+          "observed": true,
+          "status": 200,
+          "ok": true,
+          "businessCode": "0",
+          "message": "success"
+        },
+        "successMessageCount": 1,
+        "persistedEvidence": {
+          "created": true,
+          "serverId": 30991,
+          "itemName": "",
+          "posName": "POS名称 连 空格 Test01@#ABCDEFGHIJKLMN",
+          "kitchenName": "送厨名称 连 空格 Test02@#ABCDEFGHIJKLMN",
+          "advancedFieldsReadable": false,
+          "advancedFieldsDiagnostic": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#section-base').locator('.ant-form-item').filter({ hasText: /^POS Name/ }).getByRole('textbox').first() to be visible\u001b[22m\n",
+          "listMatchCount": 1
+        },
+        "expectedSatisfied": false
+      }
+    }
+  ],
+  "policy": {
+    "runtimeEvidenceAccepted": true,
+    "canonicalConflictsDoNotFailHarness": true,
+    "evidenceInheritanceAllowed": false,
+    "checkpointResumeAccepted": true,
+    "interruptedMutationReconciliationRequired": true,
+    "controlledMutationRequired": true,
+    "uiAndApiResidueVerificationRequired": true,
+    "humanCaseReviewRequired": false
+  },
+  "fingerprint": "f79f9832030fc947f4fbb2dd29484feaa5d5cf20729b9d65eb3bab76fa64475d"
+}

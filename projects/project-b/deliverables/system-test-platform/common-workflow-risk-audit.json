@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "merchant-center-common-system-test-risk-audit",
+  "generatedAt": "2026-08-24T10:20:00+08:00",
+  "scope": "cross-plan-cross-system",
+  "status": "complete-with-platform-external-dependencies",
+  "invariants": [
+    {
+      "id": "execution-selection",
+      "status": "fixed-and-gated",
+      "evidence": [
+        "Test Automation Platform/src/automation/system-test/system-test-plan-compiler.ts",
+        "Test Automation Platform/scripts/compile-system-test-plan.ts",
+        "Test Automation Platform/src/automation/system-test/system-test-universal-invariants.ts"
+      ],
+      "result": "new-or-changed-executable-bindings only; legacy initialExecutionCaseIds is rejected; empty selection never falls back to full run"
+    },
+    {
+      "id": "auth-context",
+      "status": "fixed-and-gated",
+      "evidence": [
+        "Merchant Center UITest/flows/auth.flow.ts",
+        "Merchant Center UITest/tests/api/auth-flow.contract.spec.ts",
+        "Merchant Center UITest/systems/merchant-center-product-center-seasoning/page-contract-live-audit.json"
+      ],
+      "result": "UI OAuth authentication is reused when shell, brand identity and route context are already verified; every recipe requires before-action and before-assertion context guards"
+    },
+    {
+      "id": "evidence-authority",
+      "status": "fixed-and-gated",
+      "evidence": [
+        "Test Automation Platform/src/automation/system-test/system-test-evidence.ts",
+        "Test Automation Platform/src/automation/system-test/system-test-case-state-arbiter.ts",
+        "Test Automation Platform/src/automation/system-test/system-test-universal-invariants.ts"
+      ],
+      "result": "passed requires current implementation and case fingerprints plus complete claim receipts; UI claims remain user-visible and API claims remain persistence evidence; screenshots/manual decisions cannot pass"
+    },
+    {
+      "id": "cleanup-ledger",
+      "status": "fixed-and-gated",
+      "evidence": [
+        "Test Automation Platform/src/automation/system-test/system-test-evidence.ts",
+        "Test Automation Platform/src/automation/system-test/system-test-recipe-executor.ts",
+        "Test Automation Platform/src/automation/system-test/system-test-universal-invariants.ts"
+      ],
+      "result": "reversible mutations require seed, operation receipts, cleanup adapter, API residue adapter and UI residue adapter; non-idempotent retries are rejected"
+    }
+  ],
+  "verification": {
+    "platformTypecheck": "passed",
+    "platformContractTests": "55 passed",
+    "platformFlowTests": "13 passed",
+    "seasoningSelectionContractTests": "2 passed",
+    "authFlowContractTests": "2 passed",
+    "seasoningCompile": "102 planned, 6 executable bindings, 96 classified exclusions",
+    "seasoningRuntime": "6 executed, 5 passed, 1 product-defect, zero residue",
+    "platformUniversalGate": "blocked by PROJECT_MIGRATION_NOT_COMPLETE:df1574c0f94a3c553ce979333a79fb5648a64d21a8b672cb56ce04e9d858ff6e and missing qualified cross-application pilot"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-REC-002"],
+  "rootCause": "REC-002 的列表请求响应完成早于 SPA 表格状态提交，旧实现直接读取全量旧行，未等待查询任务身份出现在当前可见结果中。",
+  "correctiveAction": "在查询响应后等待当前任务名称对应的可见表格行，再仅读取匹配行并以 UI 可见结果完成断言；保留 API 请求收据与零残留检查。",
+  "evidenceRefs": [
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "systems/merchant-center-product-center-seasoning/full-page-contract-multi-store-000420.json"
+  ]
+}

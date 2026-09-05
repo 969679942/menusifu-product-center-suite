@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "TPL-006 的 before-assertion 守卫只按页面中文可见文本判断，403 无权限终态在部分响应中不保证包含中文业务词，导致已完成的 forbidden 观测被错误拦截，未生成 assertion receipt。",
+  "correctiveAction": "守卫在 TPL-006 合同下消费 capability 已观测的 forbidden=true 终态；普通调味页面继续要求中文页面合同。重新执行后必须同时具备 before-action、before-assertion 和 expectation-1 receipt。",
+  "evidenceRefs": [
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "output/system-test/merchant-center-product-center-seasoning/system-test-1787557934541/evidence-ledger.json"
+  ],
+  "supersedesAttemptIds": ["418997bcb8fbf015"]
+}

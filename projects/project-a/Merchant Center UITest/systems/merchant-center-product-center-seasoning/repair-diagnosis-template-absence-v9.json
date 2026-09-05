@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center",
+  "caseIds": ["TC-FLV-TPL-006"],
+  "rootCause": "定向诊断证明单门店模板路由在读取后短暂显示 Requesting permissions...；页面对象未等待权限终态，导致 before-assertion 守卫过早执行。",
+  "correctiveAction": "页面对象增加 15 秒有界终态等待：排除 Requesting permissions... 并要求 403/无权限或正式调味页面文本；超时立即记录阶段化错误，不进行无限重试。",
+  "evidenceRefs": [
+    "output/system-test/merchant-center-product-center-seasoning/checkpoints/system-test-1787558310214_TC-FLV-TPL-006.error.json",
+    "pages/product-center/seasoning-boundary.page.ts",
+    "systems/merchant-center-product-center-seasoning/tests/system.spec.ts"
+  ],
+  "supersedesAttemptIds": ["775e2811e53ec332"]
+}

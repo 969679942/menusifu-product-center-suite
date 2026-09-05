@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "seasoning-wave2-remaining-current-receipts-20260905",
+  "applicationId": "merchant-center",
+  "defaultImpactType": "adapter-only",
+  "impactedCaseIds": [
+    "TC-FLV-SEA-019",
+    "TC-FLV-SEA-022",
+    "TC-FLV-SEA-023",
+    "TC-FLV-SEA-028",
+    "TC-FLV-SEA-037",
+    "TC-FLV-SEA-040",
+    "TC-FLV-SEA-041"
+  ],
+  "caseImpactTypes": {
+    "TC-FLV-SEA-019": "adapter-only",
+    "TC-FLV-SEA-022": "adapter-only",
+    "TC-FLV-SEA-023": "adapter-only",
+    "TC-FLV-SEA-028": "adapter-only",
+    "TC-FLV-SEA-037": "adapter-only",
+    "TC-FLV-SEA-040": "adapter-only",
+    "TC-FLV-SEA-041": "adapter-only"
+  },
+  "recommendation": "必须",
+  "purpose": "补齐上一轮因 SEA-042 清理卡死而未启动的七条调味用例当前标准收据。",
+  "expectedResult": "仅执行七条未完成用例，逐条形成当前指纹、完整断言与 API/UI 零残留收据。",
+  "downstreamImpact": "既有通过用例不重跑、不失效；跨应用 pilot 继续 deferred。"
+}

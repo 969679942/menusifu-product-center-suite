@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-probe-policy",
+  "evidenceMaxAgeMs": 86400000,
+  "liveProbeRequiredForModes": [
+    "live",
+    "full"
+  ],
+  "interactionProbeTrigger": [
+    "page-contract-change",
+    "recipe-semantic-change",
+    "evidence-expired"
+  ],
+  "contractMutationAllowed": false,
+  "businessRuleMutationAllowed": false
+}

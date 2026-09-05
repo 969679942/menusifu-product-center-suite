@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "system": {
+    "systemId": "merchant-center-store-operations-tax",
+    "displayName": "Merchant Center Store Operations - Tax Type",
+    "baseURL": "https://cc-fe.balamxqa.com",
+    "markerPrefix": "AUTO_AUDIT_TAX_SYSTEM",
+    "executionContext": {
+      "environmentId": "balamxqa",
+      "locale": "zh-CN",
+      "roleId": "merchant-operator",
+      "tenantScope": "configured-merchant",
+      "featureFlagFingerprint": "2181cd3b05b2956a240f65673b6da2e3eac79a5e5d848968c8a52b12d1d717be"
+    },
+    "portabilityScope": {
+      "applicationId": "merchant-center",
+      "businessDomainId": "store-operations",
+      "authenticationFamilyId": "merchant-center-oauth-merchant-context",
+      "validationAuthority": "target-system"
+    }
+  },
+  "sources": {
+    "recipeCollectionPath": "systems/merchant-center-store-operations-tax/recipes.json",
+    "recipeCollectionFingerprint": "f7d2915e50d1099149e8883e0180d0664b11820b136f454a11a411065f5d34ef",
+    "ruleLedgerPath": "systems/merchant-center-store-operations-tax/rules.json",
+    "ruleLedgerFingerprint": "136286ce69c01906ca858efbf224bac80a179019a994c7c35bf00a7d7a006fab",
+    "adapterCatalogPath": "systems/merchant-center-store-operations-tax/adapters.json",
+    "adapterCatalogFingerprint": "b5438bbe71bb7a63a68da26863396f58a5680640ee6b078c2c47f1090f86b350"
+  },
+  "execution": {
+    "playwrightConfigPath": "systems/merchant-center-store-operations-tax/playwright.config.ts",
+    "setupSpecPath": "systems/merchant-center-store-operations-tax/tests/setup.spec.ts",
+    "setupProject": "setup",
+    "recoverySpecPath": "systems/merchant-center-store-operations-tax/tests/recovery.spec.ts",
+    "recoveryProject": "recovery",
+    "recoveryAdapterId": "store-operations.recovery.tax-checkpoints",
+    "preflightSpecPath": "systems/merchant-center-store-operations-tax/tests/preflight.spec.ts",
+    "specPath": "systems/merchant-center-store-operations-tax/tests/system.spec.ts",
+    "project": "system",
+    "workers": 1,
+    "retries": 0,
+    "authAdapterId": "store-operations.auth.merchant-session"
+  },
+  "dataProfiles": {
+    "tax-reversible-edit": {
+      "mutationMode": "reversible",
+      "seedAdapterId": "store-operations.tax.seed",
+      "cleanupAdapterId": "store-operations.tax.cleanup",
+      "apiResidueAdapterId": "store-operations.tax.api-zero-residue",
+      "uiResidueAdapterId": "store-operations.tax.ui-zero-residue",
+      "requiredOperationKeys": [
+        "store-operations.tax-type.update"
+      ],
+      "probeAdapterIds": [
+        "store-operations.tax.preflight"
+      ],
+      "externalCapabilities": []
+    }
+  },
+  "cases": [
+    {
+      "caseId": "CASE-TAX-EDIT-001",
+      "ruleId": "RULE-TAX-EDIT-001",
+      "recipeId": "merchant-center-store-operations-tax:CASE-TAX-EDIT-001",
+      "dataProfileId": "tax-reversible-edit"
+    }
+  ],
+  "policies": {
+    "stallMs": 180000,
+    "maxRunMs": 900000,
+    "maxConsecutiveFailures": 2,
+    "maxDuplicateFailureFingerprint": 2,
+    "minimumCompletedForFailureRate": 1,
+    "maximumEnvironmentFailureRate": 0.5,
+    "requireExplicitClaimReceipts": true,
+    "requireApiZeroResidue": true,
+    "requireUiZeroResidue": true,
+    "runtimeMayPromoteRuleToFormal": false,
+    "humanApprovalRequiredForFormal": true
+  }
+}
