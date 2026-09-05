@@ -1247,7 +1247,6 @@ export abstract class ItemCreateFormPage extends MerchantShellPage {
   async selectAdditivesGroupByName(groupName: string): Promise<void> {
     await this.selectCommonRuleGroup('additives', groupName, '/ops-brand/brand-addon-group/list');
   }
-
   private async selectCommonRuleGroup(
     kind: 'flavor' | 'recipe' | 'additives',
     groupName: string,
@@ -1282,7 +1281,6 @@ export abstract class ItemCreateFormPage extends MerchantShellPage {
       this.page.off('response', listener);
     }
   }
-
   private async ensureCommonAttributeOptionsVisible(
     group: import('@playwright/test').Locator,
     firstOptionName: string,
@@ -1297,7 +1295,6 @@ export abstract class ItemCreateFormPage extends MerchantShellPage {
     }
   }
 }
-
 async function isSwitchChecked(locator: import('@playwright/test').Locator): Promise<boolean> {
   const ariaChecked = await locator.getAttribute('aria-checked');
   if (ariaChecked !== null) return ariaChecked === 'true';
@@ -1313,7 +1310,6 @@ async function isSwitchChecked(locator: import('@playwright/test').Locator): Pro
     return Boolean(root.querySelector('input:checked,[aria-checked="true"],.ant-switch-checked,[class*="checked"],[class*="selected"]'));
   });
 }
-
 async function countCheckedSwitches(locator: import('@playwright/test').Locator): Promise<number> {
   const count = await locator.count();
   let checked = 0;
