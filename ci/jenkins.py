@@ -210,7 +210,7 @@ def discover_builds(first_build):
             builds.append({'buildNumber':item['number'],'building':item['building'],'result':item.get('result'),
                 'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
-                'runScope':scope if scope in ['pilot','contracts'] else None})
+                'runScope':scope if scope in ['pilot','contracts','reports'] else None})
         if len(page)<100 or any(item['number']<first_build for item in page): return builds
     raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')
 
@@ -247,7 +247,7 @@ def watch():
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
-    parser.add_argument('--scope',choices=['contracts','pilot'],default='contracts')
+    parser.add_argument('--scope',choices=['contracts','pilot','reports'],default='contracts')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.
     with open(OUT/'transport.lock','a+b') as lock:

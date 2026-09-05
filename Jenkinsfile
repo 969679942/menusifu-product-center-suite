@@ -18,8 +18,20 @@ node {
         }
         load('suite-src/ci/pipeline.groovy')
       } finally {
+        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'reports') && fileExists('suite-src/ci/finalize-allure.cjs')) {
+          stage('Validate Allure evidence bundle') {
+            catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+              bat '@node suite-src/ci/finalize-allure.cjs'
+            }
+          }
+        }
         stage('Archive every terminal outcome') {
           archiveArtifacts artifacts: 'suite-src/output/ci/**/*', allowEmptyArchive: true, fingerprint: true
+        }
+        if (fileExists('suite-src/output/ci/allure-results')) {
+          stage('Publish Allure report') {
+            allure commandline: 'allure-2.36.0', includeProperties: false, results: [[path: 'suite-src/output/ci/allure-results']]
+          }
         }
       }
     }

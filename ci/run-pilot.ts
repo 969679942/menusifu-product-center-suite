@@ -32,6 +32,7 @@ process.env.SYSTEM_TEST_WORKERS='1';
 process.env.MC_STORAGE_STATE_PATH=path.join(project,'output','private',runId,'auth-state.json');
 process.env.SYSTEM_TEST_AUDIT_EVENT_LOG=path.join(source,'events.jsonl');
 process.env.SYSTEM_TEST_RUN_ID=runId;
+process.env.SYSTEM_TEST_ADDITIONAL_REPORTERS=path.join(project,'reporters/product-center-system-allure.reporter.ts');
 function safeText(text:string) {
   let clean=sanitizePlaywrightTraceText(text).text;
   for(const secret of secretValues) clean=clean.split(secret).join('<redacted>');
@@ -44,8 +45,8 @@ function archive(dir:string, dest:string) {
     const from=path.join(dir,item.name), to=path.join(dest,item.name);
     if(item.isSymbolicLink() || /auth-state|storage-state|execution-grant/i.test(item.name))continue;
     if(item.isDirectory()){archive(from,to);continue;}
-    if(/\.(json|jsonl|log|txt|md)$/.test(item.name))fs.writeFileSync(to,safeText(fs.readFileSync(from,'utf8')));
-    else if(/\.(png|webp|jpg)$/.test(item.name))fs.copyFileSync(from,to);
+    if(/\.(json|jsonl|log|txt|md|html|xml|csv|svg|properties)$/.test(item.name))fs.writeFileSync(to,safeText(fs.readFileSync(from,'utf8')));
+    else if(/\.(png|webp|jpg|jpeg|webm|mp4|pdf)$/.test(item.name))fs.copyFileSync(from,to);
     else if(/\.zip$/.test(item.name)){fs.copyFileSync(from,to);sanitizeMerchantCenterPlaywrightTraceArchive(to);sanitizeTraceSecrets(to,secretValues);}
   }
 }

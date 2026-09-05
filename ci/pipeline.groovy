@@ -22,3 +22,12 @@ if (params.RUN_SCOPE == 'pilot') {
     '''
   }
 }
+if (params.RUN_SCOPE == 'reports') {
+  stage('Isolated report integration - no business execution') {
+    bat '''@echo off
+    cd /d "suite-src"
+    node "projects/project-a/Merchant Center UITest/node_modules/@playwright/test/cli.js" test --config=ci/reporting-smoke.config.ts
+    exit /b %ERRORLEVEL%
+    '''
+  }
+}
