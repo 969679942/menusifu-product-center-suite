@@ -1,5 +1,5 @@
 """Single-job transport. Local AI consumes evidence; this script does not impersonate AI."""
-import argparse, hashlib, json, os, pathlib, subprocess, time, uuid
+import argparse, hashlib, json, os, pathlib, re, subprocess, time, uuid
 import xml.etree.ElementTree as ET
 from urllib.parse import quote
 import requests
@@ -89,17 +89,18 @@ def configure():
 def parameters(item):
     return {p['name']:p.get('value') for action in item.get('actions',[]) for p in action.get('parameters',[])}
 
-def reconcile(state):
+def reconcile(state, state_path=None):
+    state_path = state_path or STATE
     query='number,url,building,result,actions[parameters[name,value]]'
     builds=get(JOB_URL+'api/json',params={'tree':'builds['+query+']{0,100}'}).json()['builds']
     for build in builds:
         if parameters(build).get('REQUEST_ID')==state['requestId']:
             state.update(buildNumber=build['number'],buildUrl=build['url'],status='running' if build['building'] else 'finished')
-            write(STATE,state);return True
+            write(state_path,state);return True
     for item in get(BASE+'/queue/api/json').json()['items']:
         if item.get('task',{}).get('url')==JOB_URL and parameters(item).get('REQUEST_ID')==state['requestId']:
             state.update(queueUrl=BASE+'/queue/item/'+str(item['id'])+'/',status='queued')
-            write(STATE,state);return True
+            write(state_path,state);return True
     return False
 
 def git(*args):
@@ -138,18 +139,19 @@ def submit(scope='contracts'):
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);print(json.dumps(state))
 
-def poll():
-    if not STATE.exists():
+def poll(state_path=None):
+    state_path = state_path or STATE
+    if not state_path.exists():
         print(json.dumps({'status':'no-pending-submission'}));return
-    state=read(STATE)
+    state=read(state_path)
     if state['status']=='analyzed': print(json.dumps(state));return
-    if not state.get('buildNumber'): reconcile(state)
+    if not state.get('buildNumber'): reconcile(state, state_path)
     if not state.get('buildNumber'):
         if not state.get('queueUrl'): print(json.dumps(state));return
         q=get(state['queueUrl']+'api/json').json()
         if q.get('cancelled'): raise RuntimeError('Queue cancelled')
         if not q.get('executable'): print(json.dumps(state));return
-        state.update(buildNumber=q['executable']['number'],buildUrl=q['executable']['url'],status='running');write(STATE,state)
+        state.update(buildNumber=q['executable']['number'],buildUrl=q['executable']['url'],status='running');write(state_path,state)
     info=get(state['buildUrl']+'api/json').json()
     if info['building']: print(json.dumps(state));return
     folder=OUT/('build-'+str(state['buildNumber']))
@@ -181,7 +183,7 @@ def poll():
                 if verify.stdout: write(folder/'receipt-audit.json',json.loads(verify.stdout))
     identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
-      'gitSha':state['gitSha'],'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
+      'gitSha':state['gitSha'],'requestId':state['requestId'],'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
       'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
       'skipped':envelope.get('skipped',0) if envelope else 0,
@@ -192,11 +194,59 @@ def poll():
     spec=importlib.util.spec_from_file_location('ci_report',ROOT/'ci/render-report.py')
     renderer=importlib.util.module_from_spec(spec);spec.loader.exec_module(renderer)
     renderer.render(folder)
-    state.update(status='analyzed',analysisPath=str(folder/'analysis.json'));write(STATE,state)
+    state.update(status='analyzed',analysisPath=str(folder/'analysis.json'));write(state_path,state)
     print(json.dumps(analysis,ensure_ascii=False))
 
+def discover_builds(first_build):
+    builds=[]
+    for offset in range(0, 100000, 100):
+        query='builds[number,building,result,actions[parameters[name,value]]]{'+str(offset)+','+str(offset+100)+'}'
+        page=get(JOB_URL+'api/json',params={'tree':query}).json()['builds']
+        for item in page:
+            if item['number'] < first_build: continue
+            params=parameters(item)
+            sha=params.get('GIT_SHA'); request_id=params.get('REQUEST_ID'); scope=params.get('RUN_SCOPE')
+            # Never persist parameter dumps; the same API response contains the password parameter.
+            builds.append({'buildNumber':item['number'],'building':item['building'],'result':item.get('result'),
+                'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
+                'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
+                'runScope':scope if scope in ['pilot','contracts'] else None})
+        if len(page)<100 or any(item['number']<first_build for item in page): return builds
+    raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')
+
+def watch():
+    policy=read(ROOT/'ci/watch-policy.json')
+    if policy['jobName']!=JOB: raise ValueError('Watch policy outside dedicated job')
+    if STATE.exists() and read(STATE)['status']!='analyzed': poll()
+    builds=discover_builds(policy['firstBuildNumber'])
+    analyses={}; reviews={}
+    for build in builds:
+        folder=OUT/('build-'+str(build['buildNumber']))
+        for name,dest in [('analysis.json',analyses),('ai-review.json',reviews)]:
+            if (folder/name).exists(): dest[build['buildNumber']]=read(folder/name)
+    plan=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/build-watch-contract.cjs')],
+        input=json.dumps({'firstBuildNumber':policy['firstBuildNumber'],'builds':builds,'analyses':analyses,'reviews':reviews}),text=True))
+    by_number={b['buildNumber']:b for b in builds}
+    snapshot={'schemaVersion':1,'jobName':JOB,'checkedAt':time.time(),'builds':builds,'actions':plan}
+    write(OUT/'watch-checkpoint.json',snapshot)
+    for item in plan:
+        build=by_number[item['buildNumber']]
+        if item['action']=='collect' and build['runScope'] is not None:
+            folder=OUT/('build-'+str(build['buildNumber']))
+            state={**build,'schemaVersion':1,'jobName':JOB,'status':'finished',
+                'buildUrl':JOB_URL+str(build['buildNumber'])+'/'}
+            write(folder/'checkpoint.json',state)
+            poll(folder/'checkpoint.json')
+            item['action']='review'
+        elif not build['building'] and build['runScope'] is None:
+            item['action']='diagnose-identity'
+        write(OUT/'watch-checkpoint.json',snapshot)
+    print(json.dumps({'jobName':JOB,'pendingAI':[x for x in plan if x['action'] not in ['done','wait']],
+        'running':[x['buildNumber'] for x in plan if x['action']=='wait'],
+        'reviewed':[x['buildNumber'] for x in plan if x['action']=='done']},ensure_ascii=False))
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
     parser.add_argument('--scope',choices=['contracts','pilot'],default='contracts')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.

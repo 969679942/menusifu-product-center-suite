@@ -42,6 +42,10 @@
     "id": "jenkins-ai",
     "status": "ACTIVE",
     "intervalMinutes": 5,
-    "idleBehavior": "quiet; no duplicate business runs"
+    "idleBehavior": "quiet; no duplicate business runs",
+    "entrypoint": "ci/jenkins.ps1 watch",
+    "requiresRepeatedUserInstruction": false,
+    "discoveryValidation": "19 contract tests passed; live Jenkins watch reviewed build 34 with no pending builds",
+    "reviewState": "Separate per-build ai-review.json; downloaded results remain pending until AI review"
   }
 }

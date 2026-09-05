@@ -12,6 +12,8 @@
 ./ci/jenkins.ps1 submit --scope pilot
 # 查询队列/构建，完成后拉取归档并校验精确 Git SHA、build number、request ID、选择集指纹
 ./ci/jenkins.ps1 poll
+# 自动任务固定入口：发现本任务的新构建（含手动构建），下载并列出仍待 AI 分析的结果
+./ci/jenkins.ps1 watch
 # 可选的一次性等候入口
 ./ci/push-trigger-analyze.ps1 -Scope pilot
 ```
@@ -24,7 +26,15 @@
 
 本任务已配置应用内 heartbeat `jenkins-ai`，每五分钟检查一次。调度依赖本机和 Codex 应用运行、网络可达及账户执行额度；不是部署在 Jenkins 的 AI 服务。Jenkins 只执行固定提交并归档，本机 AI 执行分析和修改。
 
-读取 `output/jenkins/checkpoint.json`，调用 `poll` 后读取对应 `build-N/analysis.json`、`pilot-envelope.json`、`business/<runId>/run-report.json`、`diagnostics.json`、`evidence-ledger.json`。传输脚本只下载和核验，不会自行推理或更改业务规则。AI 必须基于这些证据作出诊断并完成修复。
+用户无需在每次聊天中要求获取 Jenkins 结果。自动任务保存的指令就是每轮执行授权和入口；不能因最新消息未提 Jenkins、旧检查点已完成、或聊天处于空闲而跳过检查。仅保持 Codex 打开即可使用现有定时机制，不部署关闭应用后的后台 AI 服务。
+
+每次唤起先运行 `watch`。它只扫描 `watch-policy.json` 指定的本任务，自构建 34 基线开始分页发现全部保留构建；独立跟踪手动构建，不覆盖已有提交检查点。`watch-checkpoint.json` 的 `collect` 表示需要下载，`review` 表示结果已下载但仍需 AI 分析，`wait` 表示运行中，`diagnose-identity` 表示参数缺失或不合法，不能据此认定产品失败。传输阶段的 `analyzed` 仅表示脚本核验完成，不等于 AI 已完成分析。
+
+对每个待分析构建读取 `build-N/analysis.json`、`pilot-envelope.json`、`receipt-audit.json`、`business/<runId>/run-report.json`、`diagnostics.json`、`evidence-ledger.json`。AI 先读取原始 TAP 的 `AGENTS.md`、`FINAL-GOAL.md` 和相关公共合同，再读取 MC 适配器/用例/业务规则；使用 TAP 的收据验证与失败分类能力解释结果。成功且证据完整时登记结论，不重复执行业务。技术问题自动诊断和修复；只有正式业务来源冲突转业务裁决。
+
+AI 分析与处置完成后，亲自写入该构建的 `ai-review.json`：`buildNumber`、`gitSha`、`requestId` 必须与构建一致，另含 `status`、`actionRequired`、中文 `conclusion`、本次读取的相对 `evidence` 路径数组、`reviewedAt`。仅当无需后续动作时设置 `status: complete`、`actionRequired: none`；需要修复或等待验证时保留未完成状态并记录关联修复提交/构建，不重复提交同一修复。脚本不得自动生成 AI 已分析事实。收据缺失、身份不匹配、结论为空或仍需修复的记录不能关闭待办。
+
+传输脚本只发现、下载和核验，不会自行推理或更改业务规则。AI 必须基于这些证据作出诊断并完成修复。
 
 1. 构建仍在队列/运行：记录状态，不重复提交。
 2. 已完成且身份不匹配/选择集不完整：保留原始分类，自动修复传输或执行技术问题。
