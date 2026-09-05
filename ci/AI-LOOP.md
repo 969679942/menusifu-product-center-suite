@@ -12,7 +12,7 @@
 ./ci/jenkins.ps1 submit --scope pilot
 # 查询队列/构建，完成后拉取归档并校验精确 Git SHA、build number、request ID、选择集指纹
 ./ci/jenkins.ps1 poll
-# 自动任务固定入口：发现本任务的新构建（含手动构建），下载并列出仍待 AI 分析的结果
+# 手工维护入口（先暂停 worker）：发现构建并下载
 ./ci/jenkins.ps1 watch
 # 可选的一次性等候入口
 ./ci/push-trigger-analyze.ps1 -Scope pilot
@@ -22,27 +22,19 @@
 
 ## 本机 AI 调度
 
-本机源项目发生代码变更时，先执行 `python ci/sync-sources.py plan`，读取并审查 `output/jenkins/source-export-plan.json`。确认属于本任务影响范围后由 AI 执行 `python ci/sync-sources.py apply`，再查看 Git diff。该导出拒绝目录穿越、凭据值及运行产物，且有源/目标双指纹校验防止覆盖期间发生的修改。生成的系统适配目录不能从旧快照覆盖；在集成工作区按变化重建相应 catalog/manifest，并执行静态门禁。不得将无关原始项目改动一并提交。
+Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 是唯一执行者。它独立于 Codex 桌面窗口，在 Windows 用户保持登录、机器运行且网络和当前 AI 服务可用时持续运行。Codex 应用内 `jenkins-ai` 已迁移成只读观察器，只展示有意义的状态变化，不能调用第二个 AI 修复器、改源码或提交构建。详细部署与恢复入口见 `ci/WORKER.md`。
 
-本任务已配置应用内 heartbeat `jenkins-ai`，每五分钟检查一次。调度依赖本机和 Codex 应用运行、网络可达及账户执行额度；不是部署在 Jenkins 的 AI 服务。Jenkins 只执行固定提交并归档，本机 AI 执行分析和修改。
+协调器每 120 秒做无 AI 的空闲发现；已知构建运行期间每 30 秒探测。仅有未分析证据时才调用本机 `codex exec`，不依赖当前聊天上下文。每个构建按 Jenkins server / job / build number 唯一入队，Git SHA、request ID、runScope 固化；同 SHA 的不同构建不会相互覆盖。首次基线从构建 34 开始。
 
-用户无需在每次聊天中要求获取 Jenkins 结果。自动任务保存的指令就是每轮执行授权和入口；不能因最新消息未提 Jenkins、旧检查点已完成、或聊天处于空闲而跳过检查。仅保持 Codex 打开即可使用现有定时机制，不部署关闭应用后的后台 AI 服务。
+传输的 `analyzed` 只表示下载与合同校验结束。真正 AI 阅读提供的证据后返回中文结论和证据路径，协调器保存 `ai-review.json`。仅通过身份、选择集、完整性及标准收据门禁的结果才可登记审查完成。基础合同、报告样本、真实业务执行、跨系统公共平台最终验收是不同事实。
 
-每次唤起先运行 `watch`。它只扫描 `watch-policy.json` 指定的本任务，自构建 34 基线开始分页发现全部保留构建；独立跟踪手动构建，不覆盖已有提交检查点。`watch-checkpoint.json` 的 `collect` 表示需要下载，`review` 表示结果已下载但仍需 AI 分析，`wait` 表示运行中，`diagnose-identity` 表示参数缺失或不合法，不能据此认定产品失败。传输阶段的 `analyzed` 仅表示脚本核验完成，不等于 AI 已完成分析。
+AI 接收脱敏结果及必要源码，不能执行模型生成的 shell 命令。技术修复通过精确补丁合同，应用到独立 worktree；校验前像、路径、秘密值、静态与合同检查。协调器保存补丁计划和发布检查点，再提交、快进合并、推送及触发匹配影响范围的验证。中断后恢复首个未完成阶段，不盲目重放补丁或 POST。
 
-对每个待分析构建读取 `build-N/analysis.json`、`pilot-envelope.json`、`receipt-audit.json`、`business/<runId>/run-report.json`、`diagnostics.json`、`evidence-ledger.json`。AI 先读取原始 TAP 的 `AGENTS.md`、`FINAL-GOAL.md` 和相关公共合同，再读取 MC 适配器/用例/业务规则；使用 TAP 的收据验证与失败分类能力解释结果。成功且证据完整时登记结论，不重复执行业务。技术问题自动诊断和修复；只有正式业务来源冲突转业务裁决。
+`reports` 只执行隔离报告样本；`contracts` 只执行合同检查；`pilot` 才执行已固化的十条真实业务用例。报告/调度变化不使已有业务收据失效，不为验证格式而重跑业务。技术失败继续自动排查；正式业务来源冲突生成具体裁决材料，禁止放宽断言、减少选择集或伪造观测。
 
-AI 分析与处置完成后，亲自写入该构建的 `ai-review.json`：`buildNumber`、`gitSha`、`requestId` 必须与构建一致，另含 `status`、`actionRequired`、中文 `conclusion`、本次读取的相对 `evidence` 路径数组、`reviewedAt`。仅当无需后续动作时设置 `status: complete`、`actionRequired: none`；需要修复或等待验证时保留未完成状态并记录关联修复提交/构建，不重复提交同一修复。脚本不得自动生成 AI 已分析事实。收据缺失、身份不匹配、结论为空或仍需修复的记录不能关闭待办。
+修复提交等待后续构建验证，必须同时匹配提交、请求、范围及 AI 审查收据，且原始 TAP/MC 源码同步没有冲突，才关闭原构建待办。工作区有用户修改时保留检查点，拒绝覆盖。暂时网络、模型额度或登录问题独立分类，按有界重试和冷却恢复，不记为产品失败。
 
-传输脚本只发现、下载和核验，不会自行推理或更改业务规则。AI 必须基于这些证据作出诊断并完成修复。
-
-1. 构建仍在队列/运行：记录状态，不重复提交。
-2. 已完成且身份不匹配/选择集不完整：保留原始分类，自动修复传输或执行技术问题。
-3. 产品行为尚未被当前 UI/API 证明：只能登记技术、环境、证据或合同问题，不登记产品缺陷。
-4. 技术修复：先证明影响范围和来源，再做最小改动及定向验证；同步源项目和集成工作区，提交、推送、重新触发。
-5. 文档/报告变化：不因新 SHA 自动重跑已通过业务用例；记录影响判定。
-6. 正式来源冲突：生成可执行的业务裁决材料，不通过放宽断言、减少选择集或修改历史通过状态消除失败。
-7. 无新增工作时静默；有实质变化、完成、失败或必需用户动作时报告。
+用户主动修改源码的入口：先暂停 worker，再执行 `python ci/sync-sources.py plan`，按其源/目标指纹审查 `output/jenkins/source-export-plan.json`，仅导出授权范围；应用、验证、提交后通过 `ci/jenkins.ps1 submit --scope <scope>` 触发，最后恢复 worker。原项目同时发生的修改不得被旧快照覆盖。
 
 ## 已验证的闭环基线
 

@@ -13,6 +13,9 @@ stage('Prepare TAP runtime') {
 stage('Fixed contract selection') {
   bat '@node suite-src/ci/run-contracts.cjs'
 }
+stage('CI transport and reporting contracts') {
+  bat '@node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=suite-src/output/ci/ci-contracts.xml suite-src/tap/tests/ci-transport.test.cjs suite-src/tap/tests/build-watch.test.cjs suite-src/tap/tests/result-bundle.test.cjs suite-src/ci/tests/finalize-allure.test.cjs'
+}
 if (params.RUN_SCOPE == 'pilot') {
   stage('Ten governed MC business cases') {
     bat '''@echo off

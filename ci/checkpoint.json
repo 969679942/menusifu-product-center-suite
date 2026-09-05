@@ -43,9 +43,26 @@
     "status": "ACTIVE",
     "intervalMinutes": 5,
     "idleBehavior": "quiet; no duplicate business runs",
-    "entrypoint": "ci/jenkins.ps1 watch",
+    "entrypoint": "read-only worker status observer",
     "requiresRepeatedUserInstruction": false,
     "discoveryValidation": "19 contract tests passed; live Jenkins watch reviewed build 34 with no pending builds",
-    "reviewState": "Separate per-build ai-review.json; downloaded results remain pending until AI review"
+    "reviewState": "Separate per-build ai-review.json; downloaded results remain pending until AI review",
+    "executor": "Windows scheduled task Menusifu-ProductCenter-AI-Worker"
+  },
+  "optimization": {
+    "status": "validating",
+    "scope": "Allure + durable worker + desktop observer",
+    "businessBaselineBuild": 34,
+    "completed": [
+      "Allure native report build 35 SUCCESS",
+      "background AI reviewed build 35 without chat trigger",
+      "real AI proposed exact patch and isolated validation passed",
+      "37 queue/recovery/identity/bundle/adapter contract tests passed",
+      "desktop automation migrated to read-only observer"
+    ],
+    "remaining": [
+      "final optimized commit push",
+      "report-only Jenkins verification and automatic review"
+    ]
   }
 }

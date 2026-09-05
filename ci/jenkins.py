@@ -1,5 +1,5 @@
 """Single-job transport. Local AI consumes evidence; this script does not impersonate AI."""
-import argparse, hashlib, json, os, pathlib, re, subprocess, time, uuid
+import argparse, hashlib, json, os, pathlib, re, subprocess, tempfile, time, uuid
 import xml.etree.ElementTree as ET
 from urllib.parse import quote
 import requests
@@ -157,21 +157,29 @@ def poll(state_path=None):
     folder=OUT/('build-'+str(state['buildNumber']))
     folder.mkdir(exist_ok=True)
     downloaded=[]
-    for artifact in info['artifacts']:
-        rel=artifact['relativePath']
-        if not rel.startswith('suite-src/output/ci/') or '..' in pathlib.PurePosixPath(rel).parts:continue
-        dest=folder / rel.removeprefix('suite-src/output/ci/')
-        dest.parent.mkdir(parents=True,exist_ok=True)
-        content=get(state['buildUrl']+'artifact/'+quote(rel,safe='/')).content
-        dest.write_bytes(content)
-        downloaded.append({'path':str(dest.relative_to(folder)),'sha256':hashlib.sha256(content).hexdigest()})
+    with tempfile.TemporaryDirectory(prefix='download-'+str(state['buildNumber'])+'-',dir=OUT) as staging:
+        stage=pathlib.Path(staging)
+        for artifact in info['artifacts']:
+            rel=artifact['relativePath']
+            if not rel.startswith('suite-src/output/ci/') or '..' in pathlib.PurePosixPath(rel).parts or '\\' in rel or ':' in rel:continue
+            dest=stage / rel.removeprefix('suite-src/output/ci/')
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            content=get(state['buildUrl']+'artifact/'+quote(rel,safe='/')).content
+            dest.write_bytes(content)
+            downloaded.append({'path':dest.relative_to(stage).as_posix(),'sha256':hashlib.sha256(content).hexdigest()})
+        spec=importlib.util.spec_from_file_location('bundle_contract',ROOT/'tap/src/ci/bundle_contract.py')
+        validator=importlib.util.module_from_spec(spec);spec.loader.exec_module(validator)
+        bundle_errors=validator.validate_bundle(stage,{**state,'requireManifest':state.get('runScope') in ['pilot','reports'] and int(state['buildNumber'])>=35})
+        for item in downloaded:
+            dest=folder/item['path'];dest.parent.mkdir(parents=True,exist_ok=True)
+            (stage/item['path']).replace(dest)
     envelopePath=folder/('pilot-envelope.json' if state.get('runScope')=='pilot' else 'result-envelope.json')
     envelope=read(envelopePath) if envelopePath.exists() else None
-    errors=[]
+    errors=list(bundle_errors)
     if not envelope: errors.append('result-envelope-missing')
     else:
         expected={k:state[k] for k in ['gitSha','buildNumber','requestId']}
-        errors=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
+        errors+=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
         if state.get('runScope')=='pilot':
             receipts=list((folder/'business').glob('*/evidence-ledger.json'))
             if len(receipts)!=1:
@@ -181,9 +189,9 @@ def poll(state_path=None):
                     '--ledger='+str(receipts[0]),'--contract='+str(receipts[0].with_name('contract.json'))],capture_output=True,text=True,encoding='utf-8')
                 if verify.returncode!=0: errors.append('standard-assertion-receipts-incomplete')
                 if verify.stdout: write(folder/'receipt-audit.json',json.loads(verify.stdout))
-    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
+    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
-      'gitSha':state['gitSha'],'requestId':state['requestId'],'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
+      'gitSha':state['gitSha'],'requestId':state['requestId'],'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
       'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
       'skipped':envelope.get('skipped',0) if envelope else 0,

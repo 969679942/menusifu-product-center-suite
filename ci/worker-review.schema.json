@@ -1,0 +1,15 @@
+{
+  "type":"object","additionalProperties":false,
+  "properties":{
+    "action":{"type":"string","enum":["complete","repair","business-decision","retry"]},
+    "conclusion":{"type":"string"},
+    "category":{"type":"string"},
+    "impact":{"type":"string","enum":["none","contracts","reports","business"]},
+    "evidence":{"type":"array","items":{"type":"string"}},
+    "sourceFiles":{"type":"array","items":{"type":"string"}},
+    "changes":{"type":"array","items":{"type":"object","additionalProperties":false,
+      "properties":{"path":{"type":"string"},"before":{"type":"string"},"after":{"type":"string"}},
+      "required":["path","before","after"]}}
+  },
+  "required":["action","conclusion","category","impact","evidence","sourceFiles","changes"]
+}

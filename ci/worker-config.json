@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "mode": "repair",
+  "activePollSeconds": 30,
+  "idlePollSeconds": 120,
+  "aiTimeoutSeconds": 1200,
+  "maxAttempts": 3,
+  "provider": "configured",
+  "allowedRepairPrefixes": [
+    "tap/",
+    "projects/project-a/",
+    "ci/"
+  ],
+  "validationCommands": [
+    [
+      "node",
+      "ci/run-contracts.cjs"
+    ],
+    [
+      "node",
+      "--test",
+      "tap/tests/ci-transport.test.cjs",
+      "tap/tests/build-watch.test.cjs",
+      "tap/tests/result-bundle.test.cjs",
+      "ci/tests/finalize-allure.test.cjs"
+    ],
+    [
+      "{python}",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "ci/tests",
+      "-p",
+      "test_*.py"
+    ]
+  ]
+}

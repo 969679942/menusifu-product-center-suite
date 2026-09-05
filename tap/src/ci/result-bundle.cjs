@@ -31,4 +31,20 @@ function writeBundleManifest(root,identity) {
   fs.writeFileSync(path.join(root,'bundle-manifest.json'),JSON.stringify(manifest,null,2));
   return manifest;
 }
-module.exports={verifyAllureAttachments,writeBundleManifest};
+function verifyReportSelection(results,selectedCaseIds,receipts) {
+  const selected=new Set(selectedCaseIds), seen=new Set(), issues=[];
+  if(selected.size!==selectedCaseIds.length || !selected.size)issues.push('invalid-selection');
+  const byCase=new Map(receipts.map(r=>[r.caseId,r]));
+  for(const result of results) {
+    if(!selected.has(result.caseId))issues.push('unexpected-case');
+    if(seen.has(result.caseId))issues.push('duplicate-case');
+    seen.add(result.caseId);
+    const receipt=byCase.get(result.caseId);
+    if(!receipt || (result.status==='passed' && !receipt.accepted))issues.push('report-pass-without-receipt');
+    if(receipt?.accepted && result.status!=='passed')issues.push('report-status-conflict');
+  }
+  if([...selected].some(id=>!seen.has(id)))issues.push('missing-case');
+  if(issues.length)throw new Error([...new Set(issues)].join(','));
+  return {status:'complete',selectedCount:selected.size};
+}
+module.exports={verifyAllureAttachments,writeBundleManifest,verifyReportSelection};
