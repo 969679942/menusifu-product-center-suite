@@ -45,6 +45,8 @@ Windows 任务名 `Menusifu-ProductCenter-AI-Worker`，脚本 `ci/worker.ps1 ser
 
 最终优化验收：Build 36，提交 `bdda5bf1ba5fe63b3ffd338d848d1a20d29b6f81`，Jenkins SUCCESS；64 基础合同通过 / 0 失败 / 1 原有条件跳过，新增 17 项 CI 合同全部通过，1 个 Allure 非业务样本通过。后台自动发现运行、下载并核验 26 份归档、调用 AI 完成审查，`output/jenkins/build-36/ai-review.json` 已完成。另有本机 20 项 Python 合同通过；后台重启后已审查构建未重复分析。完整验收记录为 `output/worker/optimization-acceptance.json`。
 
+商品中心仍只申请一个 Jenkins executor。业务阶段的 Playwright worker 上限由 MC 系统 manifest 声明为 2，并经过 TAP 公共并发决策按 CPU、内存和选择集数量自动裁剪；认证和预检阶段固定单 worker。当前十条试点由单 executor 内最多两个业务 worker 执行，收据、资源锁、运行 ID 和 Allure 结果仍按用例隔离。
+
 独立样本 `output/worker-acceptance/acceptance.json` 证明真实 AI 对错误加法提出补丁、协调器应用、定向检查通过和重复补丁拒绝。队列、进程终止、断点恢复、身份、选择集、附件和发布后验证有系统无关负向测试。此样本不触发线上构建，也不冒充 MC 业务测试。
 
 公共平台总门禁仍返回 `FINAL_GOAL_NOT_MET:PROJECT_ADAPTER_REQUIRED`；这是跨系统最终目标缺口，不是本次 MC 闭环失败，也不能被本次报告验证掩盖。

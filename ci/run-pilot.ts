@@ -28,7 +28,10 @@ delete process.env.MC_RUNTIME_ENV;
 process.env.CI='true';
 process.env.MC_BRAND_ID='000407';
 process.env.SYSTEM_TEST_EXECUTION_CONTEXT_PROFILE=selection.contextProfile;
-process.env.SYSTEM_TEST_WORKERS='1';
+// The system manifest declares the business-worker cap (currently 2). Do not
+// force CI back to one worker here; the public concurrency resolver clamps the
+// request by project policy, CPU, memory, and selected-case count. Jenkins
+// still owns one executor; these are Playwright workers inside that executor.
 process.env.MC_STORAGE_STATE_PATH=path.join(project,'output','private',runId,'auth-state.json');
 process.env.SYSTEM_TEST_AUDIT_EVENT_LOG=path.join(source,'events.jsonl');
 process.env.SYSTEM_TEST_RUN_ID=runId;
