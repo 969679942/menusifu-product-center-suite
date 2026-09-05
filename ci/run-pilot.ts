@@ -3,6 +3,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { runSystemTest } from '../projects/Test Automation Platform/scripts/run-system-test';
 import { buildSystemTestArtifacts } from '../projects/Test Automation Platform/scripts/build-system-test-contract';
+import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-receipts';
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
 import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/project-a/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
 const { selectionFingerprint } = require('../tap/src/ci/transport-contract.cjs');
@@ -66,12 +67,14 @@ async function main() {
     archive(source,path.join(out,'business',runId));
     const load=(name:string)=>fs.existsSync(path.join(source,name))?JSON.parse(fs.readFileSync(path.join(source,name),'utf8')):null;
     const report=load('run-report.json'), ledger=load('evidence-ledger.json');
+    const receiptAudit=verifyCiBusinessReceipts(ledger,load('contract.json'));
     const records=ledger?.cases||[];
     const terminalCaseIds=records.map((item:any)=>item.caseId);
-    const publicReceiptAccepted=code===0 && report?.receiptImport?.records===10 && report?.receiptImport?.diagnostics?.length===0 && records.length===10;
+    const publicReceiptAccepted=code===0 && receiptAudit.status==='complete' && report?.receiptImport?.records===10 && report?.receiptImport?.diagnostics?.length===0 && records.length===10;
+    if(code===0 && !publicReceiptAccepted)code=3;
     const envelope={schemaVersion:1,kind:selection.kind,gitSha,buildNumber:process.env.BUILD_NUMBER,requestId:process.env.REQUEST_ID,
       selectedCaseIds:selection.selectedCaseIds,selectionFingerprint:selectionFingerprint(selection.selectedCaseIds),terminalCaseIds,
-      publicReceiptAccepted,status:terminalCaseIds.length<10?'blocked':publicReceiptAccepted?'completed':'completed-with-findings',
+      publicReceiptAccepted,receiptAudit,status:terminalCaseIds.length<10?'blocked':publicReceiptAccepted?'completed':'completed-with-findings',
       passed:records.filter((x:any)=>x.playwrightStatus==='passed'&&x.evidence?.status==='complete').length,
       failed:records.filter((x:any)=>x.playwrightStatus==='failed').length,skipped:0,exitCode:code,diagnostic,runId,runReport:report};
     fs.writeFileSync(path.join(out,'pilot-envelope.json'),safeText(JSON.stringify(envelope,null,2)));

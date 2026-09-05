@@ -1873,6 +1873,7 @@ function buildAdapters() {
     ...implementation('systems/merchant-center-product-center-seasoning/tests/system.spec.ts'),
     dependencies: [
       implementation('adapters/product-center/seasoning-reporting.ts'),
+      implementation('adapters/product-center/seasoning-read-assertions.ts'),
       implementation('pages/product-center/seasoning-boundary.page.ts'),
       implementation('pages/product-center/product-center-sop.page.ts'),
       implementation('flows/auth.flow.ts'),

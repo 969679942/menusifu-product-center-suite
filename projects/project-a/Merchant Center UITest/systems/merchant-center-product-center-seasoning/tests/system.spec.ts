@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { expect, test, type Page } from '@playwright/test';
 import { CleanupRegistry, type CleanupRegistryEvidence } from '../../../api/product-center/cleanup-registry';
 import { ProductCenterApi } from '../../../api/product-center/product-center-api';
+import { recordSeasoningReadAssertion } from '../../../adapters/product-center/seasoning-read-assertions';
 import { SeasoningDistributionApi } from '../../../api/product-center/seasoning-distribution-api';
 import { ProductCenterExecutionLedger } from '../../../api/product-center/execution-ledger';
 import { ProductCenterSopPage } from '../../../pages/product-center/product-center-sop.page';
@@ -1052,6 +1053,8 @@ for (const recipe of recipeCollection.recipes) {
             matchingRows: string[];
           } | undefined;
           expect(result?.matchingRows.length, '任务名称查询后应至少返回一条记录').toBeGreaterThan(0);
+          recordSeasoningReadAssertion(current,call,{minimumRowCount:1,eachRowContains:result?.taskName},result,
+            Boolean(result?.matchingRows.length && result.matchingRows.every(row=>row.includes(result.taskName))));
           for (const row of result?.matchingRows ?? []) expect(row).toContain(result!.taskName);
           return;
         }
@@ -1061,10 +1064,8 @@ for (const recipe of recipeCollection.recipes) {
             after: string;
           } | undefined;
           expect(result?.before).toBe('AUTO_AUDIT_NON_EXISTING_TASK');
+          recordSeasoningReadAssertion(current,call,{before:'AUTO_AUDIT_NON_EXISTING_TASK',after:''},result,result?.after==='');
           if (result?.after !== '') {
-            for (const claimId of call.claimIds ?? []) {
-              current.assertionReceipts.push({ claimId, assertionAdapterId: call.adapterId, status: 'observed-mismatch' });
-            }
             testInfo.annotations.push({
               type: 'product-mismatch-confirmed',
               description: `重置请求完成后任务名称输入值仍为 ${JSON.stringify(result?.after)}。`,
@@ -1155,10 +1156,11 @@ for (const recipe of recipeCollection.recipes) {
             productMismatch?: string;
           } | undefined;
           expect(result, '静态页面合同结果缺失').toBeDefined();
+          recordSeasoningReadAssertion(current,call,
+            {checks:Object.fromEntries(Object.keys(result?.checks??{}).map(key=>[key,true]))},
+            result?{checks:result.checks,observations:result.observations}:undefined,
+            Boolean(result && Object.keys(result.checks).length && Object.values(result.checks).every(Boolean) && !result.productMismatch));
           if (result?.productMismatch) {
-            for (const claimId of call.claimIds ?? []) {
-              current.assertionReceipts.push({ claimId, assertionAdapterId: call.adapterId, status: 'observed-mismatch' });
-            }
             testInfo.annotations.push({ type: 'product-mismatch-confirmed', description: result.productMismatch });
             testInfo.annotations.push({
               type: 'execution-path-equivalent',
@@ -3827,7 +3829,6 @@ function collectSeasoningOptionNames(value: unknown, output: string[] = []): str
 function findSeasoningOptionNames(value: unknown): string[] {
   return [...new Set(collectSeasoningOptionNames(value))];
 }
-
 
 
 

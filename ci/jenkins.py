@@ -3,6 +3,8 @@ import argparse, hashlib, json, os, pathlib, subprocess, time, uuid
 import xml.etree.ElementTree as ET
 from urllib.parse import quote
 import requests
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
@@ -159,11 +161,22 @@ def poll():
     else:
         expected={k:state[k] for k in ['gitSha','buildNumber','requestId']}
         errors=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
+        if state.get('runScope')=='pilot':
+            receipts=list((folder/'business').glob('*/evidence-ledger.json'))
+            if len(receipts)!=1:
+                errors.append('standard-business-ledger-missing')
+            else:
+                verify=subprocess.run(['node',str(ROOT/'tap/node_modules/tsx/dist/cli.mjs'),str(ROOT/'tap/scripts/verify-ci-business-receipts.ts'),
+                    '--ledger='+str(receipts[0]),'--contract='+str(receipts[0].with_name('contract.json'))],capture_output=True,text=True,encoding='utf-8')
+                if verify.returncode!=0: errors.append('standard-assertion-receipts-incomplete')
+                if verify.stdout: write(folder/'receipt-audit.json',json.loads(verify.stdout))
+    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
-      'gitSha':state['gitSha'],'jenkinsResult':info['result'],'identityVerified':not errors,'errors':errors,
+      'gitSha':state['gitSha'],'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
       'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
       'skipped':envelope.get('skipped',0) if envelope else 0,
+      'failureCategories':envelope.get('runReport',{}).get('failureCategories',[]) if envelope and envelope.get('runReport') else [],
       'actionRequired':'none' if not errors and info['result']=='SUCCESS' else 'ai-evidence-review'}
     write(folder/'artifact-hashes.json',downloaded)
     write(folder/'analysis.json',analysis)
