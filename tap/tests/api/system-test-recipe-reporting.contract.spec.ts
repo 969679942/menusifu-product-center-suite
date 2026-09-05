@@ -47,7 +47,7 @@ test.describe('通用系统测试 Recipe 业务步骤报告', () => {
         { adapterId: 'context.contract', input: { phase: 'before-assertion' } },
       ],
       capabilities: [{ id: 'capability.contract' }],
-      assertions: [{ adapterId: 'assertion.contract' }],
+      assertions: [{ adapterId: 'assertion.contract', claimIds: ['claim-1'] }],
       cleanup: { adapterId: 'cleanup.contract' },
     };
     const phases: SystemTestReportPhase[] = [];
@@ -67,7 +67,10 @@ test.describe('通用系统测试 Recipe 业务步骤报告', () => {
         seed: async (_call, context) => context,
         verifyContext: async () => undefined,
         executeCapability: async () => ({ observed: true }),
-        assert: async () => undefined,
+        assert: async (_call, context) => {
+          context.assertionReceipts.push({claimId:'claim-1',assertionAdapterId:'assertion.contract',status:'verified',
+            expectedValue:'visible',actualValue:'visible',actualStatus:'observed',observationChannel:'ui',authority:'user-visible',comparison:'matched'});
+        },
         cleanup: async () => ({ apiIdentityCounts: {}, uiIdentityCounts: {} }),
         reportStep: async (step, action) => {
           phases.push(step.phase);
@@ -86,6 +89,8 @@ test.describe('通用系统测试 Recipe 业务步骤报告', () => {
       expect(result.stepReceipts).toHaveLength(7);
       expect(result.stepReceipts?.every((receipt) => receipt.status === 'passed' && receipt.startedAt && receipt.finishedAt)).toBe(true);
       expect(result.results['capability.contract']).toEqual({ observed: true });
+      expect(result.assertionReceipts).toHaveLength(1);
+      expect(result.assertionReceipts[0]).toMatchObject({expectedValue:'visible',actualValue:'visible',actualStatus:'observed',comparison:'matched'});
     } finally {
       for (const key of grantEnvKeys) {
         const value = previous[key];

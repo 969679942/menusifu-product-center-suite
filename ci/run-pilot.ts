@@ -7,6 +7,7 @@ import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-rece
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
 import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/project-a/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
 const { selectionFingerprint } = require('../tap/src/ci/transport-contract.cjs');
+const { sanitizeTraceSecrets } = require('./sanitize-trace.cjs');
 const root=path.resolve(__dirname,'..');
 const project=path.join(root,'projects/project-a/Merchant Center UITest');
 const out=path.join(root,'output/ci');
@@ -45,7 +46,7 @@ function archive(dir:string, dest:string) {
     if(item.isDirectory()){archive(from,to);continue;}
     if(/\.(json|jsonl|log|txt|md)$/.test(item.name))fs.writeFileSync(to,safeText(fs.readFileSync(from,'utf8')));
     else if(/\.(png|webp|jpg)$/.test(item.name))fs.copyFileSync(from,to);
-    else if(/\.zip$/.test(item.name)){fs.copyFileSync(from,to);sanitizeMerchantCenterPlaywrightTraceArchive(to);}
+    else if(/\.zip$/.test(item.name)){fs.copyFileSync(from,to);sanitizeMerchantCenterPlaywrightTraceArchive(to);sanitizeTraceSecrets(to,secretValues);}
   }
 }
 async function main() {
