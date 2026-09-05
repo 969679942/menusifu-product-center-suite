@@ -189,15 +189,29 @@ export function runProductCenterSourceGoverned(options: {
     for (const runner of executableRunners) {
       if (runner.selectedCaseIds.length === 0) continue;
       reportPaths.push(reportPathFor(runner.runnerId, runId));
-      const exitCode = runner.runnerId === 'group'
-        ? runGroup(runner.selectedCaseIds, runner.sourceRecoveryCaseIds ?? [], runId, governedEnv)
-        : runner.runnerId === 'group-finding'
-          ? runGroupFinding(runner.selectedCaseIds, runId, governedEnv)
-        : runner.runnerId === 'item'
-          ? runItem(runner.selectedCaseIds, runId, governedEnv)
-          : runRemaining(runner.selectedCaseIds, runId, governedEnv);
+      process.stdout.write(`[source-governed] runner-start runner=${runner.runnerId} selected=${runner.selectedCaseIds.length}\n`);
+      let exitCode = 1;
+      try {
+        exitCode = runner.runnerId === 'group'
+          ? runGroup(runner.selectedCaseIds, runner.sourceRecoveryCaseIds ?? [], runId, governedEnv)
+          : runner.runnerId === 'group-finding'
+            ? runGroupFinding(runner.selectedCaseIds, runId, governedEnv)
+          : runner.runnerId === 'item'
+            ? runItem(runner.selectedCaseIds, runId, governedEnv)
+            : runRemaining(runner.selectedCaseIds, runId, governedEnv);
+      } catch (error) {
+        process.stderr.write(`[source-governed] runner-error runner=${runner.runnerId} error=${error instanceof Error ? error.stack ?? error.message : String(error)}\n`);
+        exitCode = 2;
+      }
+      process.stdout.write(`[source-governed] runner-finish runner=${runner.runnerId} exit=${exitCode}\n`);
       if (exitCode !== 0) executionExitCode = exitCode;
-      if (interruptedSignal) break;
+      // A product/test batch failure must not suppress independent runners.
+      // Only an explicitly requested abort may stop the full-regression plan.
+      if (interruptedSignal && process.env.PC_ABORT_ON_RUNNER_SIGNAL === 'true') break;
+      if (interruptedSignal) {
+        process.stderr.write(`[source-governed] runner-signal-observed signal=${interruptedSignal}; continuing independent runners\n`);
+        interruptedSignal = null;
+      }
     }
   } finally {
     process.removeListener('SIGINT', onInterrupt);
