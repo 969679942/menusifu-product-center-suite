@@ -3,7 +3,7 @@
   "objective": "TAP/MC local AI -> Git -> Jenkins -> exact-SHA artifacts -> local AI repair -> Jenkins validation",
   "jobName": "menusifu-product-center-suite",
   "status": "complete",
-  "latestObservedBuild": 34,
+  "latestObservedBuild": 36,
   "observed": {
     "contractsPassed": 64,
     "contractsFailed": 0,
@@ -42,15 +42,17 @@
     "id": "jenkins-ai",
     "status": "ACTIVE",
     "intervalMinutes": 5,
-    "idleBehavior": "quiet; no duplicate business runs",
+    "idleBehavior": "read-only desktop observation; worker does discovery without AI",
     "entrypoint": "read-only worker status observer",
     "requiresRepeatedUserInstruction": false,
     "discoveryValidation": "19 contract tests passed; live Jenkins watch reviewed build 34 with no pending builds",
     "reviewState": "Separate per-build ai-review.json; downloaded results remain pending until AI review",
-    "executor": "Windows scheduled task Menusifu-ProductCenter-AI-Worker"
+    "executor": "Windows scheduled task Menusifu-ProductCenter-AI-Worker",
+    "requiresDesktopOpenForExecution": false,
+    "requiresWindowsUserSignedIn": true
   },
   "optimization": {
-    "status": "validating",
+    "status": "complete",
     "scope": "Allure + durable worker + desktop observer",
     "businessBaselineBuild": 34,
     "completed": [
@@ -58,11 +60,15 @@
       "background AI reviewed build 35 without chat trigger",
       "real AI proposed exact patch and isolated validation passed",
       "37 queue/recovery/identity/bundle/adapter contract tests passed",
-      "desktop automation migrated to read-only observer"
+      "desktop automation migrated to read-only observer",
+      "Build 36 SUCCESS: 64 baseline contracts, 17 CI contracts, 1 isolated Allure sample",
+      "Background discovered, downloaded and AI-reviewed build 36 without chat trigger",
+      "Worker restart preserved reviewed queue without duplicate AI",
+      "26 artifacts verified against immutable build bundle"
     ],
-    "remaining": [
-      "final optimized commit push",
-      "report-only Jenkins verification and automatic review"
-    ]
+    "remaining": [],
+    "verifiedGitSha": "bdda5bf1ba5fe63b3ffd338d848d1a20d29b6f81",
+    "verifiedBuild": 36,
+    "publicPlatformVerdict": "FINAL_GOAL_NOT_MET:PROJECT_ADAPTER_REQUIRED (unchanged cross-application target)"
   }
 }
