@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "groups": [
+    { "key": "automation", "title": "自动化与验收", "description": "公共验收、运行和证据能力。", "roots": ["src/acceptance", "src/automation"] },
+    { "key": "governance", "title": "治理与门禁", "description": "平台治理、项目边界和优化门禁能力。", "roots": ["src/governance"] },
+    { "key": "audit", "title": "审计与报告", "description": "审计事件、报告和证据输出能力。", "roots": ["src/audit", "src/reporters"] },
+    { "key": "utils", "title": "公共工具", "description": "指纹、等待、索引等公共工具。", "roots": ["src/utils"] }
+  ],
+  "exclude": ["node_modules", "output", "test-results"]
+}

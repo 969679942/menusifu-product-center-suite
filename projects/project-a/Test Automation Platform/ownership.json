@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "platformId": "menusifu-test-platform",
+  "status": "portable-core-with-project-owned-artifacts",
+  "publicCore": {
+    "root": "D:/Menusifu/Test Automation Platform/src",
+    "responsibilities": [
+      "方案合同与 Recipe 类型",
+      "来源、上下文、断言、清理和证据治理",
+      "授权执行、运行状态、失败分类、熔断和修复次数门禁",
+      "执行账本、运行收据、指纹和结果复用判定",
+      "跨方案基线、平台就绪度和平台评审门禁",
+      "验收清单、路由检查点、残留扫描和安全编排",
+      "Allure 保留、合同影响、增量计划、运行审计和审核批次治理",
+      "跨目录全文件归属、公共桥接、重复实现、引用完整性、历史声明和瞬态文件迁移闭环"
+    ],
+    "forbiddenDomainTerms": ["menusifu"]
+  },
+  "projectAdapters": [],
+  "consumerContract": {
+    "newPlanEntry": "系统方案 manifest + source registry + adapters + recipes + rules",
+    "requiredAdapters": ["auth", "context-guard", "assertion", "cleanup"],
+    "optionalAdapters": ["seed", "probe", "api-residue", "ui-residue", "recovery"],
+    "deliveryBoundary": "平台通用完成与项目方案交付分开判定；项目身份、业务资产和治理产物只能写入项目目录"
+  }
+}

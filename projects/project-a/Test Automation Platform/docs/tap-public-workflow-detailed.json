@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "测试自动化平台详细业务流程",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "intent",
+        "label": "执行意图与启动门禁",
+        "focus": ["source", "adapter", "compile", "intent", "preflight", "reject"],
+        "note": "执行意图固化模式、阶段、范围、分区、路由、选择集及指纹，并在外部副作用前校验。"
+      },
+      {
+        "id": "incremental",
+        "label": "增量整改",
+        "focus": ["mode", "plan", "canary", "groupgate", "eligible", "batch"],
+        "note": "静态合同和优化计划先行；Canary 只按分组决定放量，不连带阻断无关分组。"
+      },
+      {
+        "id": "regression",
+        "label": "全量回归",
+        "focus": ["mode", "fullscope", "eligible", "batch", "target"],
+        "note": "全量必须选择完整 planned 集，不消费 Canary，单批失败后继续后续独立批次。"
+      },
+      {
+        "id": "evidence",
+        "label": "收据、仲裁与报告",
+        "focus": ["batch", "target", "receipts", "checkpoint", "completion", "arbiter", "allure"],
+        "note": "标准收据产生当前事实；仲裁决定正式状态；Allure 展示结论但不授权通过。"
+      }
+    ]
+  },
+  "lanes": [
+    { "id": "project", "label": "来源与项目适配" },
+    { "id": "governance", "label": "公共治理与门禁" },
+    { "id": "execution", "label": "公共执行与目标系统" },
+    { "id": "evidence", "label": "证据、仲裁与报告" },
+    { "id": "exception", "label": "阻断与恢复", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "prepare", "label": "编译与固化", "fromCol": 0, "toCol": 1 },
+    { "id": "route", "label": "模式分流与资格", "fromCol": 2, "toCol": 3, "variant": "security" },
+    { "id": "run", "label": "执行、收据与收口", "fromCol": 4, "toCol": 5, "variant": "emphasis" }
+  ],
+  "groups": [
+    { "id": "intentcontract", "label": "Execution Intent 合同", "lane": "governance", "fromCol": 0, "toCol": 1, "variant": "emphasis" },
+    { "id": "modesplit", "label": "互斥模式", "lane": "governance", "fromCol": 2, "toCol": 3, "variant": "security" },
+    { "id": "runtime", "label": "批次执行", "lane": "execution", "fromCol": 4, "toCol": 5, "variant": "emphasis" },
+    { "id": "closure", "label": "完成合同", "lane": "evidence", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["source", "compile", "intent", "preflight", "mode", "eligible", "batch", "receipts", "completion", "arbiter", "allure"],
+  "nodes": [
+    { "id": "source", "lane": "project", "col": 0, "type": "external", "label": "用例与需求来源", "sublabel": "案例、上下文、断言", "width": 140 },
+    { "id": "adapter", "lane": "project", "col": 1, "type": "frontend", "label": "项目适配器", "sublabel": "分区、路由、业务能力", "tag": "不复制状态机", "width": 140 },
+    { "id": "compile", "lane": "governance", "col": 0, "type": "backend", "label": "公共编译器", "sublabel": "绑定与实现指纹", "width": 140 },
+    { "id": "intent", "lane": "governance", "col": 1, "type": "backend", "label": "构造执行意图", "sublabel": "模式、阶段、范围、选择集", "width": 140 },
+    { "id": "preflight", "lane": "governance", "col": 2, "type": "security", "label": "启动前合同校验", "sublabel": "分区、路由、指纹", "tag": "副作用前", "width": 140 },
+    { "id": "mode", "lane": "governance", "col": 3, "type": "security", "label": "按意图模式分流", "sublabel": "incremental / full-regression", "width": 140 },
+    { "id": "plan", "lane": "project", "col": 3, "type": "backend", "label": "静态合同与优化计划", "sublabel": "incremental 专用", "width": 140 },
+    { "id": "canary", "lane": "execution", "col": 3, "type": "backend", "label": "Canary 执行", "sublabel": "每个声明分组有代表用例", "width": 140 },
+    { "id": "groupgate", "lane": "execution", "col": 4, "type": "security", "label": "分组放量判定", "sublabel": "ready-for-batch", "tag": "失败仅阻断所属组", "width": 140 },
+    { "id": "fullscope", "lane": "project", "col": 4, "type": "security", "label": "完整范围校验", "sublabel": "selected = planned", "tag": "full-regression", "width": 140 },
+    { "id": "eligible", "lane": "governance", "col": 4, "type": "backend", "label": "形成执行资格集", "sublabel": "互斥路径汇合", "width": 140 },
+    { "id": "batch", "lane": "execution", "col": 4, "type": "backend", "label": "独立批次执行", "sublabel": "失败后继续后续批次", "width": 140, "yOffset": 80 },
+    { "id": "target", "lane": "execution", "col": 5, "type": "cloud", "label": "目标系统", "sublabel": "认证、造数、UI/API", "width": 140 },
+    { "id": "receipts", "lane": "evidence", "col": 4, "type": "database", "label": "逐步标准收据", "sublabel": "操作、断言、清理、证据", "width": 140 },
+    { "id": "checkpoint", "lane": "evidence", "col": 3, "type": "database", "label": "批次检查点", "sublabel": "意图与选择集指纹", "width": 140 },
+    { "id": "completion", "lane": "evidence", "col": 5, "type": "security", "label": "公共完成合同", "sublabel": "selected = terminal", "width": 140 },
+    { "id": "arbiter", "lane": "evidence", "col": 5, "type": "backend", "label": "独立状态仲裁", "sublabel": "完成、发现或阻断", "width": 140, "yOffset": 72 },
+    { "id": "allure", "lane": "project", "col": 5, "type": "messagebus", "label": "Allure 业务报告", "sublabel": "展示，不授权通过", "width": 140 },
+    { "id": "reject", "lane": "exception", "col": 2, "type": "security", "label": "执行前硬阻断", "sublabel": "缺分区、漏路由、模式混用", "width": 140 },
+    { "id": "resume", "lane": "exception", "col": 4, "type": "messagebus", "label": "恢复判定", "sublabel": "指纹一致才复用", "width": 140 }
+  ],
+  "edges": [
+    { "id": "source-compile", "from": "source", "to": "compile", "label": "编译输入", "variant": "emphasis" },
+    { "id": "adapter-compile", "from": "adapter", "to": "compile", "label": "字段与能力合同", "variant": "dashed" },
+    { "id": "compile-intent", "from": "compile", "to": "intent", "label": "计划与指纹" },
+    { "id": "intent-preflight", "from": "intent", "to": "preflight", "label": "完整意图" },
+    { "id": "preflight-reject", "from": "preflight", "to": "reject", "label": "合同不成立", "variant": "security", "role": "error" },
+    { "id": "preflight-mode", "from": "preflight", "to": "mode", "label": "校验通过", "variant": "emphasis" },
+    { "id": "mode-plan", "from": "mode", "to": "plan", "label": "incremental", "variant": "dashed", "role": "branch" },
+    { "id": "plan-canary", "from": "plan", "to": "canary", "label": "canary-required" },
+    { "id": "canary-groupgate", "from": "canary", "to": "groupgate", "label": "分组收据" },
+    { "id": "groupgate-eligible", "from": "groupgate", "to": "eligible", "label": "通过分组放量", "variant": "emphasis" },
+    { "id": "groupgate-reject", "from": "groupgate", "to": "reject", "label": "所属分组阻断", "variant": "security", "role": "error" },
+    { "id": "mode-fullscope", "from": "mode", "to": "fullscope", "label": "full-regression", "variant": "emphasis", "role": "branch" },
+    { "id": "fullscope-eligible", "from": "fullscope", "to": "eligible", "label": "完整候选集" },
+    { "id": "eligible-batch", "from": "eligible", "to": "batch", "label": "按路由分批", "variant": "emphasis" },
+    { "id": "adapter-batch", "from": "adapter", "to": "batch", "label": "上下文、操作、断言、清理", "variant": "dashed" },
+    { "id": "batch-target", "from": "batch", "to": "target", "label": "执行业务步骤", "variant": "emphasis" },
+    { "id": "target-receipts", "from": "target", "to": "receipts", "label": "每步观察与证据", "role": "return" },
+    { "id": "batch-checkpoint", "from": "batch", "to": "checkpoint", "label": "保存批次终态", "variant": "dashed" },
+    { "id": "checkpoint-resume", "from": "checkpoint", "to": "resume", "label": "请求恢复", "variant": "dashed" },
+    { "id": "resume-batch", "from": "resume", "to": "batch", "label": "指纹匹配则续跑", "variant": "dashed", "role": "return" },
+    { "id": "resume-reject", "from": "resume", "to": "reject", "label": "不匹配拒绝复用", "variant": "security", "role": "error" },
+    { "id": "receipts-completion", "from": "receipts", "to": "completion", "label": "用例终态事实" },
+    { "id": "completion-arbiter", "from": "completion", "to": "arbiter", "label": "完成性结果" },
+    { "id": "arbiter-allure", "from": "arbiter", "to": "allure", "label": "正式结论与诊断", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "执行前硬门禁",
+      "items": [
+        "模式与阶段必须一致；full-regression 不得携带优化计划或 Canary 阶段",
+        "范围、分区、实际选择集、路由及指纹缺失或不一致时禁止启动副作用"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "批次与恢复",
+      "items": [
+        "每批保存检查点和标准收据；单批失败不停止无依赖的后续批次",
+        "仅复用当前执行指纹和当前选择集下已有完整收据的批次"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "状态与报告",
+      "items": [
+        "全部选中用例到达终态但存在失败或证据缺口：completed-with-findings",
+        "执行被阻止或未完成：blocked；Allure 原始 status 不能授权通过"
+      ]
+    }
+  ]
+}
