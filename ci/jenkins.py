@@ -166,7 +166,7 @@ def poll(state_path=None):
             # resources.  Business ledgers, diagnostics and Allure results are
             # the governed AI evidence; the raw duplicate tree is optional and
             # can exceed Windows MAX_PATH during local collection.
-            if '/test-results/' in f'/{rel}':
+            if '/test-results/' in f'/{rel}' or '/.playwright-artifacts-' in f'/{rel}':
                 continue
             dest=stage / rel.removeprefix('suite-src/output/ci/')
             dest.parent.mkdir(parents=True,exist_ok=True)
