@@ -47,6 +47,8 @@ Windows 任务名 `Menusifu-ProductCenter-AI-Worker`，脚本 `ci/worker.ps1 ser
 
 商品中心仍只申请一个 Jenkins executor。业务阶段的 Playwright worker 上限由 MC 系统 manifest 声明为 7，并经过 TAP 公共并发决策按 CPU、内存和选择集数量自动裁剪；认证和预检阶段固定单 worker。当前十条试点由单 executor 内最多七个业务 worker 执行，收据、资源锁、运行 ID 和 Allure 结果仍按用例隔离。
 
+最终 7 worker 验收：Build 38 使用提交 `6a09262052862a808dba0f2e20127eb9c2745add`，Jenkins SUCCESS；日志确认 `Running 10 tests using 7 workers`，公共并发收据确认 `configuredMaxWorkers=7`、`effectiveWorkers=7`，CPU 上限 9、内存上限 57，未发生降级。十条商品中心业务用例 10 通过 / 0 失败 / 0 跳过，Allure 原始结果 10 个均为 passed，后台 AI 已完成身份、收据、证据和清理审查，结论为无需修改源码。
+
 独立样本 `output/worker-acceptance/acceptance.json` 证明真实 AI 对错误加法提出补丁、协调器应用、定向检查通过和重复补丁拒绝。队列、进程终止、断点恢复、身份、选择集、附件和发布后验证有系统无关负向测试。此样本不触发线上构建，也不冒充 MC 业务测试。
 
 公共平台总门禁仍返回 `FINAL_GOAL_NOT_MET:PROJECT_ADAPTER_REQUIRED`；这是跨系统最终目标缺口，不是本次 MC 闭环失败，也不能被本次报告验证掩盖。
