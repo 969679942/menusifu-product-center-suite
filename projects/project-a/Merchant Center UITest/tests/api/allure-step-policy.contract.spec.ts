@@ -70,7 +70,7 @@ test.describe('Merchant Center Allure 步骤注释适配', () => {
 
   test('独立 Allure 报告生成前必须复用中文结果归一化适配', async () => {
     const source = fs.readFileSync(path.join(projectRoot, 'scripts/generate-isolated-allure-report.ts'), 'utf8');
-    expect(source).toContain("import { normalizeMerchantCenterAllureResults } from '../adapters/test-automation-platform/allure-reporting'");
+    expect(source).toMatch(/import\s*\{[^}]*\bnormalizeMerchantCenterAllureResults\b[^}]*\}\s*from\s*['"]\.\.\/adapters\/test-automation-platform\/allure-reporting['"]/);
     expect(source).toContain('normalizeMerchantCenterAllureResults(resultsDir);');
   });
 

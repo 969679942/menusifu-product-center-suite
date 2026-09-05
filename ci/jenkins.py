@@ -93,7 +93,13 @@ def reconcile(state):
     return False
 
 def git(*args):
-    return subprocess.check_output(['git',*args],cwd=ROOT,text=True).strip()
+    for attempt, delay in enumerate([5,15,30,60,0]):
+        try:
+            return subprocess.check_output(['git',*args],cwd=ROOT,text=True,timeout=40).strip()
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            write(OUT/'git-retry.json',{'operation':args[0],'attempt':attempt+1,'delay':delay})
+            if args[0] not in ['ls-remote','push'] or not delay: raise
+            time.sleep(delay)
 
 def submit():
     if STATE.exists():
@@ -104,8 +110,10 @@ def submit():
             if previous['status']=='submitting':
                 raise RuntimeError('Uncertain submission is not replayed; reconcile checkpoint/server')
     sha=git('rev-parse','HEAD')
-    git('push','origin','HEAD:master')
-    if git('ls-remote','origin','refs/heads/master').split()[0]!=sha:
+    # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
+    if git('rev-parse','refs/remotes/origin/master') != sha:
+        git('push','origin','HEAD:master')
+    if git('rev-parse','refs/remotes/origin/master')!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
     state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'status':'submitting'}
     write(STATE,state)
@@ -114,6 +122,8 @@ def submit():
     write(STATE,state);print(json.dumps(state))
 
 def poll():
+    if not STATE.exists():
+        print(json.dumps({'status':'no-pending-submission'}));return
     state=read(STATE)
     if state['status']=='analyzed': print(json.dumps(state));return
     if not state.get('buildNumber'): reconcile(state)
@@ -141,10 +151,8 @@ def poll():
     errors=[]
     if not envelope: errors.append('result-envelope-missing')
     else:
-        if envelope['gitSha']!=state['gitSha']:errors.append('git-sha-mismatch')
-        if str(envelope['buildNumber'])!=str(state['buildNumber']):errors.append('build-number-mismatch')
-        if envelope['requestId']!=state['requestId']:errors.append('request-id-mismatch')
-        if sorted(envelope['selectedCaseIds'])!=sorted(envelope['terminalCaseIds']):errors.append('selection-drift-or-incomplete')
+        expected={k:state[k] for k in ['gitSha','buildNumber','requestId']}
+        errors=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
       'gitSha':state['gitSha'],'jenkinsResult':info['result'],'identityVerified':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':False,'artifactCount':len(downloaded),

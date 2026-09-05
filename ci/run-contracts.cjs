@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const {spawnSync, execFileSync} = require('node:child_process');
-const crypto = require('node:crypto');
+const {selectionFingerprint: fingerprintSelection} = require('../tap/src/ci/transport-contract.cjs');
 const root = path.resolve(__dirname, '..');
 const project = path.join(root, 'projects/project-a/Merchant Center UITest');
 const out = path.join(root, 'output/ci');
@@ -25,7 +25,7 @@ function cases(report) {
   walk(report); return all;
 }
 const plan=cases(JSON.parse(listed.stdout)).map(c=>c.caseId).sort();
-const selectionFingerprint=crypto.createHash('sha256').update(JSON.stringify(plan)).digest('hex');
+const selectionFingerprint=fingerprintSelection(plan);
 const intent={schemaVersion:1,kind:selection.kind,businessPassAuthority:false,gitSha:sha,selectionFingerprint,selectedCaseIds:plan,files};
 fs.writeFileSync(path.join(out,'execution-intent.json'),JSON.stringify(intent,null,2));
 const resultPath=path.join(out,'playwright.json');

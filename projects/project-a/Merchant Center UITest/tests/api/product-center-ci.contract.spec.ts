@@ -121,7 +121,7 @@ test.describe('商品中心 CI 与跨环境运行合同', () => {
     expect(JSON.stringify(summary)).not.toContain(fixturePassword);
   });
 
-  test('GitHub Actions 应仅支持手工跨环境运行并安全保留产物', async () => {
+  test('GitHub Actions 应隔离自动审计与手工跨环境运行并安全保留产物', async () => {
     const projectRoot = process.cwd();
     const workflowPath = path.resolve(
       projectRoot,
@@ -133,7 +133,11 @@ test.describe('商品中心 CI 与跨环境运行合同', () => {
     const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
 
     expect(workflow).toContain('workflow_dispatch:');
-    expect(workflow).not.toContain('schedule:');
+    const manualGate = workflow.indexOf("if: github.event_name == 'workflow_dispatch'");
+    const ciCommand = workflow.indexOf('run: npm run ci:product-center');
+    expect(manualGate).toBeGreaterThan(0);
+    expect(ciCommand).toBeGreaterThan(manualGate);
+    expect(workflow.slice(manualGate, ciCommand)).toContain('PRODUCT_CENTER_CONTROLLED_REPAIR: ${{ inputs.controlled_repair }}');
     expect(workflow).toContain('environment:');
     expect(workflow).toContain('concurrency:');
     expect(workflow).toContain('secrets.MC_USERNAME');
