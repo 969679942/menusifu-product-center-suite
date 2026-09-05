@@ -13,3 +13,12 @@ stage('Prepare TAP runtime') {
 stage('Fixed contract selection') {
   bat '@node suite-src/ci/run-contracts.cjs'
 }
+if (params.RUN_SCOPE == 'pilot') {
+  stage('Ten governed MC business cases') {
+    bat '''@echo off
+    cd /d "suite-src\\projects\\project-a\\Merchant Center UITest"
+    node node_modules/tsx/dist/cli.mjs ../../../ci/run-pilot.ts
+    exit /b %ERRORLEVEL%
+    '''
+  }
+}

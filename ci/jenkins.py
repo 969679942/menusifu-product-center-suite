@@ -64,8 +64,8 @@ def configure():
         existing=props.find(tag)
         if existing is not None: props.remove(existing)
     params=ET.SubElement(ET.SubElement(props,'hudson.model.ParametersDefinitionProperty'),'parameterDefinitions')
-    for name in ['GIT_SHA','REQUEST_ID']:
-        item=ET.SubElement(params,'hudson.model.StringParameterDefinition')
+    for name in ['GIT_SHA','REQUEST_ID','RUN_SCOPE','MC_RUNTIME_ENV']:
+        item=ET.SubElement(params,'hudson.model.PasswordParameterDefinition' if name=='MC_RUNTIME_ENV' else 'hudson.model.StringParameterDefinition')
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
         ET.SubElement(item,'trim').text='true'
@@ -101,7 +101,7 @@ def git(*args):
             if args[0] not in ['ls-remote','push'] or not delay: raise
             time.sleep(delay)
 
-def submit():
+def submit(scope='contracts'):
     if STATE.exists():
         previous=read(STATE)
         if previous['status'] not in ['analyzed']:
@@ -110,14 +110,20 @@ def submit():
             if previous['status']=='submitting':
                 raise RuntimeError('Uncertain submission is not replayed; reconcile checkpoint/server')
     sha=git('rev-parse','HEAD')
+    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope:
+        print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
     # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
     if git('rev-parse','refs/remotes/origin/master') != sha:
         git('push','origin','HEAD:master')
     if git('rev-parse','refs/remotes/origin/master')!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
-    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'status':'submitting'}
+    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'status':'submitting','runScope':scope}
     write(STATE,state)
-    result=post(JOB_URL+'buildWithParameters',data={'GIT_SHA':sha,'REQUEST_ID':state['requestId']})
+    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'RUN_SCOPE':scope}
+    if scope=='pilot':
+        secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+        data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
+    result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);print(json.dumps(state))
 
@@ -146,7 +152,7 @@ def poll():
         content=get(state['buildUrl']+'artifact/'+quote(rel,safe='/')).content
         dest.write_bytes(content)
         downloaded.append({'path':str(dest.relative_to(folder)),'sha256':hashlib.sha256(content).hexdigest()})
-    envelopePath=folder/'result-envelope.json'
+    envelopePath=folder/('pilot-envelope.json' if state.get('runScope')=='pilot' else 'result-envelope.json')
     envelope=read(envelopePath) if envelopePath.exists() else None
     errors=[]
     if not envelope: errors.append('result-envelope-missing')
@@ -155,7 +161,7 @@ def poll():
         errors=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
       'gitSha':state['gitSha'],'jenkinsResult':info['result'],'identityVerified':not errors,'errors':errors,
-      'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':False,'artifactCount':len(downloaded),
+      'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
       'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
       'skipped':envelope.get('skipped',0) if envelope else 0,
       'actionRequired':'none' if not errors and info['result']=='SUCCESS' else 'ai-evidence-review'}
@@ -166,4 +172,7 @@ def poll():
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll'])
-    globals()[parser.parse_args().action]()
+    parser.add_argument('--scope',choices=['contracts','pilot'],default='contracts')
+    args=parser.parse_args()
+    if args.action=='submit': submit(args.scope)
+    else: globals()[args.action]()
