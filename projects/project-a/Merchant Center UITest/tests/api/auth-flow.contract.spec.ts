@@ -1,12 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { isSettledAuthDestination } from '../../flows/auth.flow';
 
 const flowPath = path.resolve(__dirname, '../../flows/auth.flow.ts');
 const setupPath = path.resolve(__dirname, '../setup/auth.setup.ts');
 const seasoningSetupPath = path.resolve(__dirname, '../../systems/merchant-center-product-center-seasoning/tests/setup.spec.ts');
 
 test.describe('商品中心 UI 认证流合同', () => {
+  test('授权域名上的加载中状态不能被当成登录失败而重复提交', () => {
+    expect(isSettledAuthDestination({ permissionsSettled:false, loginVisible:false, passwordVisible:false })).toBe(false);
+    expect(isSettledAuthDestination({ permissionsSettled:false, loginVisible:true, passwordVisible:false })).toBe(false);
+    expect(isSettledAuthDestination({ permissionsSettled:false, loginVisible:true, passwordVisible:true })).toBe(true);
+    expect(isSettledAuthDestination({ permissionsSettled:true, loginVisible:false, passwordVisible:false })).toBe(true);
+  });
   test('必须以可观测状态机完成 OAuth 回跳、权限、商户和品牌身份确认', () => {
     const source = fs.readFileSync(flowPath, 'utf8');
     for (const stage of [

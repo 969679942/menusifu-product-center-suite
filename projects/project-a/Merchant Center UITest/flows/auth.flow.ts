@@ -225,7 +225,7 @@ async function settleAuthenticationState(
     if (state.permissionsVisible) {
       state = await runAuthStage('permissions-loading', page, () => waitForAuthTransition(
         page,
-        (current) => current.permissionsSettled || current.oauthUrl || current.loginVisible,
+        isSettledAuthDestination,
       ));
     }
     if (!state.oauthUrl && !state.loginVisible) return state;
@@ -239,10 +239,18 @@ async function completeOAuthLogin(page: Page, authLoginPage: AuthLoginPage, auth
   await runAuthStage('oauth-callback', page, () => waitForAuthTransition(page, (state) => state.callbackSeen));
   const postSubmit = await runAuthStage('permissions-loading', page, () => waitForAuthTransition(
     page,
-    (state) => state.permissionsSettled || state.oauthUrl || state.loginVisible,
+    isSettledAuthDestination,
   ));
-  if (postSubmit.oauthUrl || postSubmit.loginVisible) return postSubmit;
+  if (postSubmit.loginVisible && postSubmit.passwordVisible) return postSubmit;
   return runAuthStage('post-login-state', page, () => waitForAuthState(page, 'post-login-state'));
+}
+
+// The authorization host also renders a loading screen after login succeeds.
+// Only a visible sign-in form proves a return to login; its URL alone does not.
+export function isSettledAuthDestination(
+  state: Pick<AuthUiSnapshot, 'permissionsSettled' | 'loginVisible' | 'passwordVisible'>,
+): boolean {
+  return state.permissionsSettled || (state.loginVisible && state.passwordVisible);
 }
 
 async function runAuthStage<T>(stage: ProductCenterAuthStage, page: Page, action: () => Promise<T>): Promise<T> {
