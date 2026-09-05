@@ -1,6 +1,6 @@
 node {
   ws("${env.WORKSPACE}-isolated") {
-    timeout(time: 30, unit: 'MINUTES') {
+    timeout(time: params.RUN_SCOPE == 'full-regression' ? 180 : 30, unit: 'MINUTES') {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       deleteDir()
@@ -18,7 +18,7 @@ node {
         }
         load('suite-src/ci/pipeline.groovy')
       } finally {
-        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'reports') && fileExists('suite-src/ci/finalize-allure.cjs')) {
+        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression' || params.RUN_SCOPE == 'reports') && fileExists('suite-src/ci/finalize-allure.cjs')) {
           stage('Validate Allure evidence bundle') {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
               bat '@node suite-src/ci/finalize-allure.cjs'

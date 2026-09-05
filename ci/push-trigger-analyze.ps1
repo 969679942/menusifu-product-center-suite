@@ -1,4 +1,4 @@
-param([ValidateSet('contracts','pilot')][string]$Scope='pilot',[int]$TimeoutSeconds=1800)
+param([ValidateSet('contracts','pilot','full-regression')][string]$Scope='pilot',[int]$TimeoutSeconds=1800)
 $ErrorActionPreference='Stop'
 & (Join-Path $PSScriptRoot 'jenkins.ps1') submit --scope $Scope
 if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}

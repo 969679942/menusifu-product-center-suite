@@ -5,7 +5,7 @@ def escaped(value):return html.escape(str(value))
 def render(folder):
     folder=pathlib.Path(folder);analysis=read(folder/'analysis.json')
     ledgers=list((folder/'business').glob('*/evidence-ledger.json'))
-    ledger=read(ledgers[0]) if len(ledgers)==1 else {'cases':[]}
+    ledger={'cases':[case for file in ledgers for case in read(file).get('cases',[])]}
     audit=read(folder/'receipt-audit.json') if (folder/'receipt-audit.json').exists() else {'cases':[]}
     statuses={c['caseId']:c['status'] for c in audit['cases']}
     accepted=bool(analysis.get('businessPassAuthority'))
@@ -14,13 +14,14 @@ def render(folder):
         receipts=case.get('runtimeEvidence',{}).get('assertionReceipts',[])
         raw=escaped(json.dumps(receipts,ensure_ascii=False,indent=2))
         rows.append(f"<tr><td>{escaped(case['caseId'])}</td><td>{escaped(case.get('playwrightStatus'))}</td><td>{escaped(statuses.get(case['caseId'],'incomplete'))}</td><td><details><summary>查看期望值、实际值与观察来源</summary><pre>{raw}</pre></details></td></tr>")
-    business=analysis.get('kind')=='governed-business-pilot'
+    business=str(analysis.get('kind','')).startswith('governed-business-')
+    full_regression=analysis.get('kind')=='governed-business-full-regression'
     verified=accepted if business else analysis.get('actionRequired')=='none'
     title=('业务执行与收据验证通过' if business else '基础合同与报告验证通过') if verified else '本次验证尚有待处理项'
     color='#087f5b' if verified else '#b45309'
     pass_label='执行与证据通过' if business else '基础合同通过'
     fail_label='业务执行失败' if business else '基础合同失败'
-    scope='固定范围：调味下发记录查询和调味列表页面读取。本次未造数；变更清理不适用。' if business else '本次只验证基础合同或报告集成，不执行真实业务用例，不改变已有业务通过资格。'
+    scope=('商品中心 seasoning 全量回归：82 条用例按单店与多店执行上下文分两批顺序执行；每批独立认证、预检、业务收据和清理。' if full_regression else '固定范围：调味下发记录查询和调味列表页面读取。本次未造数；变更清理不适用。') if business else '本次只验证基础合同或报告集成，不执行真实业务用例，不改变已有业务通过资格。'
     allure_link=f'<a href="{escaped(analysis["buildUrl"])}allure/">查看 Jenkins Allure 报告</a>' if (folder/'allure-audit.json').exists() else ''
     doc=f'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>商品中心 Jenkins 验证</title>
 <style>body{{font:16px/1.65 "Microsoft YaHei",sans-serif;background:#f5f7fa;color:#172b4d;margin:0}}main{{max-width:1100px;margin:36px auto;padding:32px;background:white;border-radius:16px}}h1{{margin:0;color:{color}}}.meta{{color:#52616b;overflow-wrap:anywhere}}.stats{{display:flex;gap:32px;margin:24px 0}}.stat{{background:#f3f6f9;border-radius:10px;padding:16px 28px}}.stat b{{font-size:30px;display:block}}table{{width:100%;border-collapse:collapse}}th,td{{padding:12px;text-align:left;border-bottom:1px solid #dfe5ed;vertical-align:top}}pre{{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-width:570px}}a{{color:#185abc}}summary{{cursor:pointer}}</style>

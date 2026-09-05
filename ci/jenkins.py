@@ -132,7 +132,7 @@ def submit(scope='contracts'):
     state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'status':'submitting','runScope':scope}
     write(STATE,state)
     data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'RUN_SCOPE':scope}
-    if scope=='pilot':
+    if scope in ['pilot','full-regression']:
         secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
@@ -180,15 +180,24 @@ def poll(state_path=None):
     else:
         expected={k:state[k] for k in ['gitSha','buildNumber','requestId']}
         errors+=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
-        if state.get('runScope')=='pilot':
+        if state.get('runScope') in ['pilot','full-regression']:
             receipts=list((folder/'business').glob('*/evidence-ledger.json'))
-            if len(receipts)!=1:
+            expected_receipt_dirs=1 if state.get('runScope')=='pilot' else 2
+            if len(receipts)!=expected_receipt_dirs:
                 errors.append('standard-business-ledger-missing')
             else:
-                verify=subprocess.run(['node',str(ROOT/'tap/node_modules/tsx/dist/cli.mjs'),str(ROOT/'tap/scripts/verify-ci-business-receipts.ts'),
-                    '--ledger='+str(receipts[0]),'--contract='+str(receipts[0].with_name('contract.json'))],capture_output=True,text=True,encoding='utf-8')
-                if verify.returncode!=0: errors.append('standard-assertion-receipts-incomplete')
-                if verify.stdout: write(folder/'receipt-audit.json',json.loads(verify.stdout))
+                audits=[]
+                for ledger in receipts:
+                    verify=subprocess.run(['node',str(ROOT/'tap/node_modules/tsx/dist/cli.mjs'),str(ROOT/'tap/scripts/verify-ci-business-receipts.ts'),
+                        '--ledger='+str(ledger),'--contract='+str(ledger.with_name('contract.json'))],capture_output=True,text=True,encoding='utf-8')
+                    if verify.returncode!=0: errors.append('standard-assertion-receipts-incomplete')
+                    if verify.stdout: audits.append(json.loads(verify.stdout))
+                if audits:
+                    write(folder/'receipt-audit.json',{'status':'complete' if all(a.get('status')=='complete' for a in audits) else 'incomplete',
+                        'selected':sum(a.get('selected',0) for a in audits),'received':sum(a.get('received',0) for a in audits),
+                        'cases':[case for audit in audits for case in audit.get('cases',[])]})
+                if state.get('runScope')=='full-regression' and (not envelope.get('receiptAudit') or envelope['receiptAudit'].get('status')!='complete'):
+                    errors.append('standard-assertion-receipts-incomplete')
     identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
       'gitSha':state['gitSha'],'requestId':state['requestId'],'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
@@ -255,7 +264,7 @@ def watch():
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
-    parser.add_argument('--scope',choices=['contracts','pilot','reports'],default='contracts')
+    parser.add_argument('--scope',choices=['contracts','pilot','full-regression','reports'],default='contracts')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.
     with open(OUT/'transport.lock','a+b') as lock:

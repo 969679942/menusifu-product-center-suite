@@ -221,7 +221,8 @@ def process_task(task,queue):
         if path.exists():prompt+='\nGOVERNANCE '+str(path)+'\n'+path.read_text(encoding='utf-8-sig')[:18000]+'\nEND GOVERNANCE\n'
     for path in [ROOT/'tap/src/ci/transport-contract.cjs',ROOT/'tap/src/ci/result-bundle.cjs',ROOT/'ci/reporting-smoke.spec.ts',ROOT/'ci/reporting-smoke.config.ts']:
         if path.exists():prompt+='\nSOURCE '+str(path.relative_to(ROOT))+'\n'+path.read_text(encoding='utf-8-sig')+'\nEND SOURCE\n'
-    if build['runScope']!='pilot':prompt+='\n本次是基础合同/报告集成验证，业务 pilot-envelope、receipt-audit、business 目录不适用。action=complete 表示本构建审查完成，不表示 TAP 跨系统总目标完成，也不赋予业务用例通过资格。只有实际源码缺陷才选 repair；材料不足选 retry 并具体指出缺少内容。'
+    if build['runScope'] not in ['pilot','full-regression']:prompt+='\n本次是基础合同/报告集成验证，业务 result-envelope、receipt-audit、business 目录不适用。action=complete 表示本构建审查完成，不表示 TAP 跨系统总目标完成，也不赋予业务用例通过资格。只有实际源码缺陷才选 repair；材料不足选 retry 并具体指出缺少内容。'
+    elif build['runScope']=='full-regression':prompt+='\n本次是商品中心 seasoning 全量回归；result-envelope、receipt-audit、business 目录和 Allure 原始结果共同构成业务审查证据。确认 82 条选择集、两个执行上下文批次、逐案标准收据与清理结果，不把单批通过或聚合数字替代逐案证据。'
     prompt+='\n如需修复，sourceFiles 指定需要协调器读取的仓库相对源码路径；本轮 changes 留空。正式 Allure 是根 allure-results，test-results 中的合同样本不能当成真实业务失败。成功时 sourceFiles 和 changes 都为空数组。'
     decision=ai(prompt,folder,queue,task)
     if decision['action']!='retry' or decision['evidence']:valid_evidence(evidence,decision['evidence'])

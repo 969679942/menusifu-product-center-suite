@@ -25,6 +25,15 @@ if (params.RUN_SCOPE == 'pilot') {
     '''
   }
 }
+if (params.RUN_SCOPE == 'full-regression') {
+  stage('Full Merchant Center product-center regression') {
+    bat '''@echo off
+    cd /d "suite-src\\projects\\project-a\\Merchant Center UITest"
+    node node_modules/tsx/dist/cli.mjs ../../../ci/run-product-center-full.ts
+    exit /b %ERRORLEVEL%
+    '''
+  }
+}
 if (params.RUN_SCOPE == 'reports') {
   stage('Isolated report integration - no business execution') {
     bat '''@echo off
