@@ -13,8 +13,11 @@ test('report selection cannot omit, duplicate or invent passing cases',()=>{
 test('complete Allure attachment package has content hashes',()=>fixture(root=>{
  fs.writeFileSync(path.join(root,'receipt.txt'),'observed value');
  fs.writeFileSync(path.join(root,'case-result.json'),JSON.stringify({attachments:[{source:'receipt.txt'}]}));
+ fs.mkdirSync(path.join(root,'test-results'));fs.writeFileSync(path.join(root,'test-results','raw.json'),'{}');
  assert.equal(verifyAllureAttachments(root).resultCount,1);
- assert.equal(writeBundleManifest(root,{gitSha:'a'.repeat(40)}).artifacts.length,2);
+ const manifest=writeBundleManifest(root,{gitSha:'a'.repeat(40)});
+ assert.equal(manifest.artifacts.length,2);
+ assert.equal(manifest.artifacts.some(item=>item.path.startsWith('test-results/')),false);
 }));
 test('missing attachment is not a complete report',()=>fixture(root=>{
  fs.writeFileSync(path.join(root,'case-result.json'),JSON.stringify({steps:[{attachments:[{source:'missing.txt'}]}]}));

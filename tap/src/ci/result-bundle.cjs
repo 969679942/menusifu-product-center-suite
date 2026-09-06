@@ -23,7 +23,13 @@ function verifyAllureAttachments(root) {
   return {status:'complete',resultCount:results.length};
 }
 function writeBundleManifest(root,identity) {
-  const artifacts=files(root).filter(f=>path.basename(f)!=='bundle-manifest.json').map(file=>({
+  // Raw Playwright output is intentionally not transported: it can be deeply
+  // nested on Windows and is not governed evidence.  Keep the manifest aligned
+  // with the receiver's archive filter so every declared item is retrievable.
+  const artifacts=files(root).filter(f=>{
+    const relative=path.relative(root,f).split(path.sep);
+    return path.basename(f)!=='bundle-manifest.json' && !relative.includes('test-results') && !relative.some(part=>part.startsWith('.playwright-artifacts-'));
+  }).map(file=>({
     path:path.relative(root,file).split(path.sep).join('/'),size:fs.statSync(file).size,
     sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')
   }));
