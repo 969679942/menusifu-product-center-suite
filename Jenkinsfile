@@ -31,6 +31,9 @@ node {
         }
         load('suite-src/ci/pipeline.groovy')
       } finally {
+        if (!fileExists('suite-src/output/ci/execution-report.html')) {
+          writeFile file: 'jenkins-terminal-report.html', text: '<!doctype html><meta charset="utf-8"><title>商品中心执行报告</title><h1>INCOMPLETE</h1><p>构建在生成项目报告前终止。请查看 Jenkins Console Log。</p>'
+        }
         if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression' || params.RUN_SCOPE == 'reports') && fileExists('suite-src/ci/finalize-allure.cjs')) {
           stage('Validate Allure evidence bundle') {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
@@ -39,7 +42,7 @@ node {
           }
         }
         stage('Archive every terminal outcome') {
-          archiveArtifacts artifacts: 'suite-src/output/ci/**/*', allowEmptyArchive: true, fingerprint: true
+          archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html', allowEmptyArchive: true, fingerprint: true
         }
         def allurePath = null
         if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-business-publishable.marker')) {

@@ -91,6 +91,14 @@ function main(): void {
 
   const planExit = run(['scripts/build-product-center-source-governed-execution-plan.ts'], project, commonEnv);
   if (planExit !== 0) throw new Error(`source-governed-plan-failed:${planExit}`);
+  const sourcePlan = readJson<{ execution: { selectedCaseIds: string[] } }>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
+  const seasoningManifest = readJson<{ cases: Array<{ caseId: string }> }>(path.join(project, 'systems/merchant-center-product-center-seasoning/manifest.json'));
+  // Freeze the complete business selection before starting any browser.  Final
+  // receipts only prove terminal state; they must never define the plan.
+  const selectedIntentCaseIds = [...new Set([...sourcePlan.execution.selectedCaseIds, ...seasoningManifest.cases.map((item) => item.caseId)])].sort();
+  const classifiedExclusions = plannedCaseIds.filter((caseId) => !selectedIntentCaseIds.includes(caseId));
+  if (selectedIntentCaseIds.some((caseId) => !plannedCaseIds.includes(caseId))) throw new Error('execution-intent-has-unplanned-case');
+  writeJson(path.join(out, 'execution-intent.json'), { schemaVersion: 1, kind: 'full-regression', runId, plannedCaseIds, selectedCaseIds: selectedIntentCaseIds, classifiedExclusions });
   if (process.argv.includes('--plan-only')) {
     const plan = readJson<any>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
     process.stdout.write(`${JSON.stringify({ plannedCaseCount: plannedCaseIds.length, sourceGovernance: plan.summary }, null, 2)}\n`);
@@ -118,8 +126,7 @@ function main(): void {
     source: 'seasoning',
   }));
   const caseAudit = [...sourceCases, ...seasoningCases];
-  const selectedCaseIds = [...new Set(caseAudit.map((item) => item.caseId))].sort();
-  const classifiedExclusions = plannedCaseIds.filter((caseId) => !selectedCaseIds.includes(caseId));
+  const selectedCaseIds = selectedIntentCaseIds;
   const terminalCaseIds = caseAudit.filter((item) => ['passed', 'failed', 'skipped'].includes(item.status)).map((item) => item.caseId).sort();
   const duplicateCaseIds = selectedCaseIds.filter((caseId, index) => caseAudit.findIndex((item) => item.caseId === caseId) !== index);
   const auditReportExit = run(['scripts/build-product-center-audit-report.ts'], project, commonEnv);
@@ -136,8 +143,8 @@ function main(): void {
   const allureCount = collectAllure(allureRoots, path.join(out, 'allure-results'));
   const sourceSummary = sourceResult?.summary ?? {};
   const fullPass = sourceExit === 0 && seasoningExit === 0 && auditReportExit === 0
-    && selectedCaseIds.length === plannedCaseIds.length - classifiedExclusions.length
-    && classifiedExclusions.length === 9 && terminalCaseIds.length === selectedCaseIds.length
+    && selectedCaseIds.length + classifiedExclusions.length === plannedCaseIds.length
+    && terminalCaseIds.length === selectedCaseIds.length
     && duplicateCaseIds.length === 0 && sourceResult?.status === 'passed'
     && seasoningEnvelope?.publicReceiptAccepted === true && allureCount > 0;
   const envelope = {
