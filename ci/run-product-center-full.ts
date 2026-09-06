@@ -4,7 +4,9 @@ import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(__dirname, '..');
 const project = path.join(root, 'projects/project-a/Merchant Center UITest');
-const out = path.join(root, 'output/ci');
+const defaultOut = path.join(root, 'output/ci');
+const out = process.env.PC_CI_OUTPUT_DIR ? path.resolve(process.env.PC_CI_OUTPUT_DIR) : defaultOut;
+if (!out.startsWith(path.resolve(root, 'output') + path.sep)) throw new Error('ci-output-outside-workspace-output');
 const build = process.env.BUILD_NUMBER ?? 'local';
 const requestId = process.env.REQUEST_ID ?? `local-${Date.now()}`;
 const runId = `jenkins-${build}-${requestId}`;
