@@ -14,7 +14,7 @@ class TransportBoundaryTests(unittest.TestCase):
         shutil.copyfile(j.ROOT/'tap/src/ci/build-watch-contract.cjs',helper)
         j.write(root/'ci/watch-policy.json',{'jobName':j.JOB,'firstBuildNumber':34,'autoDiscoverHistorical':True,'registeredBuilds':[]})
         stack=ExitStack()
-        for name,value in [('ROOT',root),('OUT',out),('STATE',out/'checkpoint.json')]:stack.enter_context(patch.object(j,name,value))
+        for name,value in [('ROOT',root),('OUT',out),('STATE',out/'checkpoint.json'),('SUBMITTED_BUILDS',out/'submitted-builds.json')]:stack.enter_context(patch.object(j,name,value))
         return stack
 
     def test_discovery_strips_password_parameters_and_rejects_malformed_identity(self):
@@ -51,6 +51,18 @@ class TransportBoundaryTests(unittest.TestCase):
                 j.write(j.OUT/'build-35/ai-review.json',{**build,'status':'complete','actionRequired':'none','conclusion':'Evidence reviewed','evidence':['analysis.json']})
                 j.watch();poll.assert_not_called()
                 self.assertEqual(j.read(j.OUT/'watch-checkpoint.json')['actions'][0]['action'],'done')
+
+    def test_explicitly_submitted_analyzed_build_remains_discoverable_for_ai_review(self):
+        with tempfile.TemporaryDirectory() as d, self.isolated_watch(d):
+            j.write(j.ROOT/'ci/watch-policy.json',{'jobName':j.JOB,'firstBuildNumber':34,'autoDiscoverHistorical':False,'registeredBuilds':[]})
+            build={'buildNumber':51,'building':False,'result':'SUCCESS','gitSha':'a'*40,'requestId':'request-51','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'reports'}
+            j.write(j.STATE,{**build,'status':'analyzed'})
+            j.write(j.OUT/'build-51/analysis.json',build)
+            with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
+                j.watch();poll.assert_not_called()
+            self.assertEqual(j.read(j.OUT/'watch-checkpoint.json')['actions'][0]['action'],'review')
+            remembered=j.read(j.SUBMITTED_BUILDS)['requests']
+            self.assertEqual(remembered[0]['buildNumber'],51)
 
     def test_other_job_mutation_is_denied_before_network(self):
         with patch.object(j.SESSION,'post') as post:

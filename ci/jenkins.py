@@ -15,6 +15,7 @@ BASE = 'http://192.168.1.50:8081'
 JOB = 'menusifu-product-center-suite'
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
+SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
 SESSION = requests.Session()
 SESSION.auth = (os.environ['SUITE_JENKINS_USER'], os.environ['SUITE_JENKINS_TOKEN'])
 SESSION.trust_env = False
@@ -27,6 +28,28 @@ def write(path, obj):
 
 def read(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
+
+def remember_explicit_submission(state):
+    """Persist only the non-secret identity of an explicitly submitted build.
+
+    Discovery must remain opt-in: a completed request is still eligible for AI
+    review after `poll` changes its checkpoint status to `analyzed`.
+    """
+    request_id = state.get('requestId')
+    intent_id = state.get('intentId')
+    git_sha = state.get('gitSha')
+    scope = state.get('runScope')
+    if not (isinstance(request_id, str) and re.fullmatch('[a-zA-Z0-9-]{1,80}', request_id)
+        and isinstance(intent_id, str) and re.fullmatch('[0-9a-f-]{36}', intent_id)
+        and isinstance(git_sha, str) and re.fullmatch('[0-9a-f]{40}', git_sha)
+        and scope in ['pilot', 'full-regression', 'contracts', 'reports']):
+        return
+    existing = read(SUBMITTED_BUILDS) if SUBMITTED_BUILDS.exists() else {'schemaVersion': 1, 'requests': []}
+    requests_by_id = {item['requestId']: item for item in existing.get('requests', []) if isinstance(item, dict) and item.get('requestId')}
+    record = {key: state[key] for key in ['gitSha', 'requestId', 'intentId', 'runScope']}
+    if isinstance(state.get('buildNumber'), int): record['buildNumber'] = state['buildNumber']
+    requests_by_id[request_id] = {**requests_by_id.get(request_id, {}), **record}
+    write(SUBMITTED_BUILDS, {'schemaVersion': 1, 'requests': sorted(requests_by_id.values(), key=lambda item: item['requestId'])})
 
 def quarantine_legacy_checkpoint():
     """Keep pre-intent submissions as diagnostics; never replay or claim them."""
@@ -154,7 +177,7 @@ def submit(scope='contracts'):
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
-    write(STATE,state);print(json.dumps(state))
+    write(STATE,state);remember_explicit_submission(state);print(json.dumps(state))
 
 def poll(state_path=None):
     state_path = state_path or STATE
@@ -163,6 +186,7 @@ def poll(state_path=None):
     state=read(state_path)
     if state['status']=='analyzed': print(json.dumps(state));return
     if not state.get('buildNumber'): reconcile(state, state_path)
+    remember_explicit_submission(state)
     if not state.get('buildNumber'):
         if not state.get('queueUrl'): print(json.dumps(state));return
         q=get(state['queueUrl']+'api/json').json()
@@ -235,6 +259,7 @@ def poll(state_path=None):
     renderer=importlib.util.module_from_spec(spec);spec.loader.exec_module(renderer)
     renderer.render(folder)
     state.update(status='analyzed',analysisPath=str(folder/'analysis.json'));write(state_path,state)
+    remember_explicit_submission(state)
     print(json.dumps(analysis,ensure_ascii=False))
 
 def discover_builds(first_build):
@@ -267,10 +292,14 @@ def watch():
     if not policy.get('autoDiscoverHistorical',False):
         registered={int(n) for n in policy.get('registeredBuilds',[])}
         active=read(STATE) if STATE.exists() else {}
-        activeRequest=active.get('requestId') if active.get('status') not in ['analyzed'] else None
+        remember_explicit_submission(active)
+        explicit = read(SUBMITTED_BUILDS).get('requests', []) if SUBMITTED_BUILDS.exists() else []
+        explicit_request_ids = {item.get('requestId') for item in explicit if isinstance(item, dict)}
+        active_request = active.get('requestId')
+        if active_request: explicit_request_ids.add(active_request)
         local=[]
         for build in builds:
-            if build['buildNumber'] in registered or (activeRequest and build['requestId']==activeRequest):
+            if build['buildNumber'] in registered or build['requestId'] in explicit_request_ids:
                 local.append(build)
         builds=local
     analyses={}; reviews={}
