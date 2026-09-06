@@ -22,7 +22,7 @@
 
 ## 本机 AI 调度
 
-Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 是唯一执行者。它独立于 Codex 桌面窗口，在 Windows 用户保持登录、机器运行且网络和当前 AI 服务可用时持续运行。Codex 应用内 `jenkins-ai` 已迁移成只读观察器，只展示有意义的状态变化，不能调用第二个 AI 修复器、改源码或提交构建。详细部署与恢复入口见 `ci/WORKER.md`。
+Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 只收集已明确登记构建的状态和归档。当前 `collect-only` 模式不调用 AI、改源码、提交代码或触发构建；Codex 对话收到明确分析请求后才读取已收集证据。详细入口见 `ci/WORKER.md`。
 
 协调器每 120 秒做无 AI 的空闲发现；已知构建运行期间每 30 秒探测。仅有未分析证据时才调用本机 `codex exec`，不依赖当前聊天上下文。每个构建按 Jenkins server / job / build number 唯一入队，Git SHA、request ID、runScope 固化；同 SHA 的不同构建不会相互覆盖。首次基线从构建 34 开始。
 

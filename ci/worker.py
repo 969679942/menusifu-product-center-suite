@@ -54,9 +54,9 @@ def git(*args,cwd=ROOT):
     return subprocess.check_output(['git',*args],cwd=cwd,text=True,encoding='utf-8',timeout=45,
         env={**os.environ,'GIT_TERMINAL_PROMPT':'0','GCM_INTERACTIVE':'Never'},creationflags=subprocess.CREATE_NO_WINDOW).strip()
 
-def ai(prompt,folder,queue,task,cwd=ROOT,edit=False):
+def ai(prompt,folder,queue,task,cwd=ROOT,edit=False,name=None):
     user=tomllib.loads(pathlib.Path.home().joinpath('.codex/config.toml').read_text(encoding='utf-8'))
-    rt=runtime();answer=folder/('repair-answer.json' if edit else 'review-answer.json')
+    rt=runtime();answer=folder/(name or ('repair-answer.json' if edit else 'review-answer.json'))
     if answer.exists():answer.unlink()
     provider=user.get('model_provider','openai') if config()['provider']=='configured' else config()['provider']
     args=[rt['node'],rt['codexEntry'],'exec','--ignore-user-config','-c','model='+json.dumps(user['model']),
@@ -66,7 +66,7 @@ def ai(prompt,folder,queue,task,cwd=ROOT,edit=False):
     for key in ['name','base_url','wire_api','requires_openai_auth']:
         if key in user.get('model_providers',{}).get(provider,{}):args[3:3]=['-c',f'model_providers.{provider}.{key}='+json.dumps(user['model_providers'][provider][key])]
     if user.get('windows',{}).get('sandbox'):args[3:3]=['-c','windows.sandbox='+json.dumps(user['windows']['sandbox'])]
-    rc=run(args,cwd,folder/('repair-cli.log' if edit else 'review-cli.log'),queue,task,config()['aiTimeoutSeconds'],prompt)
+    rc=run(args,cwd,folder/((name or ('repair-answer.json' if edit else 'review-answer.json')).replace('.json','-cli.log')),queue,task,config()['aiTimeoutSeconds'],prompt)
     if rc or not answer.exists():raise RuntimeError('ai-run-incomplete')
     result=j.read(answer)
     if not result.get('conclusion') or result.get('action') not in ['complete','repair','business-decision','retry']:raise RuntimeError('invalid-ai-review')
@@ -87,6 +87,15 @@ def review_record(build,decision,**extra):
         'status':'complete' if decision['action']=='complete' else 'pending',
         'actionRequired':'none' if decision['action']=='complete' else decision['action'],
         'conclusion':decision['conclusion'],'category':decision['category'],'evidence':decision['evidence'],'reviewedAt':now(),**extra}
+
+def post_task_review(build,folder,worktree,queue,task,phase):
+    """Independent completion gate: no repair is published without a second review."""
+    diff=git('diff','--cached','--',cwd=worktree)
+    logs=''.join('\n'+p.name+'\n'+p.read_text(encoding='utf-8',errors='replace')[-12000:] for p in sorted(folder.glob('validation-*.log')))
+    prompt=(ROOT/'ci/worker-prompt.md').read_text(encoding='utf-8')+'\n阶段：发布前独立复审。仅根据以下变更和验证日志判断。若所有原始问题均已覆盖且没有范围外副作用，action=complete；遗漏、风险或验证不足时 action=repair。禁止修改、执行命令或提交。\n原构建：'+json.dumps(build,ensure_ascii=False)+'\n变更：\n'+diff+'\n验证日志：\n'+logs
+    decision=ai(prompt,folder,queue,task,cwd=worktree,name='post-task-review-answer.json')
+    j.write(folder/'post-task-review.json',{'schemaVersion':1,'buildNumber':build['buildNumber'],'reviewedAt':now(),'baseSha':phase['baseSha'],'changedPaths':phase.get('changedPaths',[]),'decision':decision})
+    return decision
 
 def repair(build,decision,folder,queue,task):
     assert_writable(queue,task)
@@ -157,6 +166,12 @@ def repair(build,decision,folder,queue,task):
                 raise RuntimeError('repair-contract-validation-failed')
         phase.update(phase='validated',changedPaths=changed,impact=decision['impact']);j.write(journal,phase)
     if phase['phase']=='validated':
+        review=post_task_review(build,folder,worktree,queue,task,phase)
+        if review['action']!='complete':
+            phase.update(phase='review-rejected',postTaskReview=review);j.write(journal,phase)
+            raise RuntimeError('post-task-review-rejected')
+        phase.update(phase='post-task-reviewed');j.write(journal,phase)
+    if phase['phase']=='post-task-reviewed':
         assert_writable(queue,task)
         if git('rev-parse','HEAD',cwd=worktree)==base:
             git('commit','-m',f'Fix technical findings from Jenkins build {build["buildNumber"]}',cwd=worktree)
@@ -201,7 +216,11 @@ def process_task(task,queue):
     evidence=ROOT/'output/jenkins'/('build-'+str(build['buildNumber']))
     journal=folder/'publish-checkpoint.json'
     if journal.exists():
-        decision=j.read(journal)['decision']
+        saved=j.read(journal);decision=saved['decision']
+        if saved.get('phase')=='review-rejected':
+            j.write(evidence/'ai-review.json',review_record(build,decision,postTaskReview=saved.get('postTaskReview'),actionRequired='repair'))
+            queue.finish(task,'completed-with-findings',{'reason':'post-task-review-rejected','review':saved.get('postTaskReview',{})})
+            return
         phase=repair(build,decision,folder,queue,task)
         j.write(evidence/'ai-review.json',review_record(build,decision,followupRequestId=phase['followupRequestId'],repairCommit=phase['commit']))
         queue.finish(task,'awaiting-verification',phase)
@@ -256,7 +275,7 @@ def cycle(queue):
             record.update(status='complete',actionRequired='none',verifiedByBuild=followup['buildNumber'],conclusion=record['conclusion']+'；修复已由后续构建及 AI 收据审查验证。')
             j.write(j.OUT/('build-'+str(parent['buildNumber']))/'ai-review.json',record)
             queue.db.execute("UPDATE tasks SET state='reviewed' WHERE identity=? AND state='awaiting-verification'",(row['identity'],))
-    task=queue.claim()
+    task=None if config()['mode']=='collect-only' else queue.claim()
     if task:
         try:process_task(task,queue)
         except Exception as error:

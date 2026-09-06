@@ -24,6 +24,10 @@ try {
  if(isBusiness&&audit.status==='complete'){const results=fs.readdirSync(resultsDir).filter(name=>name.endsWith('-result.json')).map(name=>JSON.parse(fs.readFileSync(path.join(resultsDir,name),'utf8')));const projected=results.map(result=>({caseId:caseIdOf(result),status:result.status}));const receipts=scope==='full-regression'&&envelope.kind==='governed-business-full-product-center'?(envelope.caseAudit||[]).map(caseAudit=>({caseId:caseAudit.caseId,accepted:caseAudit.accepted===true&&caseAudit.status==='passed'})):fs.existsSync(businessRoot)?fs.readdirSync(businessRoot).map(entry=>path.join(businessRoot,entry,'evidence-ledger.json')).filter(fs.existsSync).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')).cases||[]).map(item=>({caseId:item.caseId,accepted:item.playwrightStatus==='passed'&&item.evidence?.status==='complete'&&envelope.receiptAudit?.cases?.find(a=>a.caseId===item.caseId)?.status==='complete'})):[];audit.selection=verifyReportSelection(projected,envelope.selectedCaseIds,receipts);}
 }catch(error){audit={status:'incomplete',reason:error.message};}
 fs.writeFileSync(path.join(out,'allure-audit.json'),JSON.stringify(audit,null,2));writeExecutionReport(audit,published);
+if(isBusiness&&published>0){
+ const reason=String(audit.reason||audit.selection?.reason||'none').replace(/[\r\n=]/g,' ');
+ fs.writeFileSync(path.join(businessDir,'environment.properties'),`Evidence status=${audit.status==='complete'?'COMPLETE':'INCOMPLETE'}\nAudit reason=${reason}\nRequest ID=${process.env.REQUEST_ID||'unknown'}\n`);
+}
 if(isBusiness&&published>0)fs.writeFileSync(path.join(out,'allure-business-publishable.marker'),'');
 writeBundleManifest(out,{gitSha:envelope.gitSha,buildNumber:String(process.env.BUILD_NUMBER),requestId:process.env.REQUEST_ID,runScope:scope,selectionFingerprint:envelope.selectionFingerprint,reportStatus:audit.status});
 if(audit.status!=='complete')process.exitCode=2;

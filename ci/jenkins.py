@@ -72,7 +72,7 @@ def configure():
         existing=props.find(tag)
         if existing is not None: props.remove(existing)
     params=ET.SubElement(ET.SubElement(props,'hudson.model.ParametersDefinitionProperty'),'parameterDefinitions')
-    for name in ['GIT_SHA','REQUEST_ID','RUN_SCOPE','MC_RUNTIME_ENV']:
+    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','MC_RUNTIME_ENV']:
         item=ET.SubElement(params,'hudson.model.PasswordParameterDefinition' if name=='MC_RUNTIME_ENV' else 'hudson.model.StringParameterDefinition')
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
@@ -137,7 +137,7 @@ def submit(scope='contracts'):
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'RUN_SCOPE':scope}
+    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope}
     if scope in ['pilot','full-regression']:
         secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')

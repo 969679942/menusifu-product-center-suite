@@ -7,6 +7,8 @@ node {
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
+      if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
+      if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       deleteDir()
       try {
         stage('Checkout exact revision') {
@@ -19,6 +21,13 @@ node {
             git -C suite-src rev-parse HEAD
             '''
           }
+        }
+        stage('Record execution intent') {
+          writeFile file: 'suite-src/output/ci/execution-intent.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+            schemaVersion: 1, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
+            requestId: params.REQUEST_ID, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
+            trigger: 'jenkins-parameterized-build'
+          ]))
         }
         load('suite-src/ci/pipeline.groovy')
       } finally {

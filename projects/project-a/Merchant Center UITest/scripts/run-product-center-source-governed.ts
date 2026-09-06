@@ -146,6 +146,15 @@ export function runProductCenterSourceGoverned(options: {
   }
   let executionExitCode = 0;
   const reportPaths: string[] = [];
+  // This public orchestration ledger survives a runner failure or process
+  // interruption.  Runner-internal checkpoints are not a substitute for the
+  // stage-level selected/terminal reconciliation needed by Jenkins.
+  const stageLedgerPath = path.join(projectRoot, `output/product-center-source-governed-${runId}-stage-ledger.json`);
+  const stageLedger: {
+    schemaVersion: string; runId: string; selectedCaseIds: string[];
+    stages: Array<{ runnerId: string; selectedCaseIds: string[]; terminalCaseIds: string[]; status: string; startedAt?: string; finishedAt?: string; exitCode?: number }>;
+  } = { schemaVersion: '1.0.0', runId, selectedCaseIds, stages: executableRunners.filter((runner) => runner.selectedCaseIds.length > 0).map((runner) => ({ runnerId: runner.runnerId, selectedCaseIds: runner.selectedCaseIds, terminalCaseIds: [], status: 'pending' })) };
+  writeJson(stageLedgerPath, stageLedger);
   const executionGrant = issueSystemTestExecutionGrant({
     rootDir: projectRoot,
     applicationId: 'merchant-center-product-center',
@@ -177,6 +186,8 @@ export function runProductCenterSourceGoverned(options: {
   try {
     authSetupExitCode = runBatchAuthSetup(governedEnv);
     if (authSetupExitCode !== 0) {
+      for (const stage of stageLedger.stages) stage.status = 'blocked-by-auth-setup';
+      writeJson(stageLedgerPath, stageLedger);
       completeRepairRegistrations(repairLedgerPath, repairAttempts, 'interrupted');
       const reportManifestPath = path.join(projectRoot, `output/product-center-source-governed-${runId}-reports.json`);
       writeJson(reportManifestPath, {
@@ -188,6 +199,8 @@ export function runProductCenterSourceGoverned(options: {
     }
     for (const runner of executableRunners) {
       if (runner.selectedCaseIds.length === 0) continue;
+      const stage = stageLedger.stages.find((item) => item.runnerId === runner.runnerId)!;
+      stage.status = 'running'; stage.startedAt = new Date().toISOString(); writeJson(stageLedgerPath, stageLedger);
       reportPaths.push(reportPathFor(runner.runnerId, runId));
       process.stdout.write(`[source-governed] runner-start runner=${runner.runnerId} selected=${runner.selectedCaseIds.length}\n`);
       let exitCode = 1;
@@ -204,6 +217,11 @@ export function runProductCenterSourceGoverned(options: {
         exitCode = 2;
       }
       process.stdout.write(`[source-governed] runner-finish runner=${runner.runnerId} exit=${exitCode}\n`);
+      const report = reportPathFor(runner.runnerId, runId);
+      stage.terminalCaseIds = runner.selectedCaseIds.filter((caseId) => readCaseOutcome([report], caseId).status !== 'interrupted');
+      stage.exitCode = exitCode; stage.finishedAt = new Date().toISOString();
+      stage.status = exitCode === 0 ? 'completed' : 'completed-with-findings';
+      writeJson(stageLedgerPath, stageLedger);
       if (exitCode !== 0) executionExitCode = exitCode;
       // A product/test batch failure must not suppress independent runners.
       // Only an explicitly requested abort may stop the full-regression plan.
