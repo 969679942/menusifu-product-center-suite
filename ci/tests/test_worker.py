@@ -84,6 +84,14 @@ class QueueTests(unittest.TestCase):
     def test_retry_does_not_immediately_call_ai_again(self):
         self.q.enqueue('1',{});task=self.q.claim();self.q.finish(task,'retry',{},60)
         self.assertIsNone(self.q.claim())
+    def test_retry_exhaustion_reaches_blocked_terminal_state(self):
+        self.q.enqueue('1',{})
+        for _ in range(3):
+            task=self.q.claim();self.assertIsNotNone(task)
+            self.q.finish(task,'retry',{'reason':'temporary'},0)
+        row=self.q.rows()[0]
+        self.assertEqual(row['state'],'blocked')
+        self.assertIsNone(self.q.claim())
 
 @unittest.skipUnless(os.name=='nt','Windows job ownership')
 class ProcessTests(unittest.TestCase):

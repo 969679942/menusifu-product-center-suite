@@ -32,9 +32,19 @@ node {
         stage('Archive every terminal outcome') {
           archiveArtifacts artifacts: 'suite-src/output/ci/**/*', allowEmptyArchive: true, fingerprint: true
         }
-        if (fileExists('suite-src/output/ci/allure-results')) {
+        def allurePath = null
+        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-business-publishable.marker')) {
+          allurePath = 'suite-src/output/ci/allure-results-business'
+        } else if (params.RUN_SCOPE == 'reports' && fileExists('suite-src/output/ci/allure-results')) {
+          allurePath = 'suite-src/output/ci/allure-results'
+        }
+        if (allurePath != null) {
           stage('Publish Allure report') {
-            allure commandline: 'allure-2.36.0', includeProperties: false, results: [[path: 'suite-src/output/ci/allure-results']]
+            allure commandline: 'allure-2.36.0', includeProperties: false, results: [[path: allurePath]]
+          }
+        } else if (params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression' || params.RUN_SCOPE == 'reports') {
+          stage('Allure report unavailable') {
+            echo 'No publishable Allure business result. See output/ci/execution-report.html and allure-audit.json in archived artifacts.'
           }
         }
       }

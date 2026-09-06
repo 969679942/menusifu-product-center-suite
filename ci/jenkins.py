@@ -129,8 +129,14 @@ def submit(scope='contracts'):
         git('push','origin','HEAD:master')
     if git('rev-parse','refs/remotes/origin/master')!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
-    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'status':'submitting','runScope':scope}
+    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'intentId':str(uuid.uuid4()),
+        'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'createdAt':time.time()}
     write(STATE,state)
+    write(OUT/'intents'/(state['intentId']+'.json'),{
+        'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
+        'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
+        'createdAt':state['createdAt'],'status':'submitted'
+    })
     data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'RUN_SCOPE':scope}
     if scope in ['pilot','full-regression']:
         secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
@@ -242,6 +248,19 @@ def watch():
     if policy['jobName']!=JOB: raise ValueError('Watch policy outside dedicated job')
     if STATE.exists() and read(STATE)['status']!='analyzed': poll()
     builds=discover_builds(policy['firstBuildNumber'])
+    # Historical discovery is diagnostic-only by default.  A build enters the
+    # AI queue only when it was explicitly registered by a local checkpoint or
+    # listed in the watch policy; this prevents old full-regression runs from
+    # being replayed after a worker restart.
+    if not policy.get('autoDiscoverHistorical',False):
+        registered={int(n) for n in policy.get('registeredBuilds',[])}
+        active=read(STATE) if STATE.exists() else {}
+        activeRequest=active.get('requestId') if active.get('status') not in ['analyzed'] else None
+        local=[]
+        for build in builds:
+            if build['buildNumber'] in registered or (activeRequest and build['requestId']==activeRequest):
+                local.append(build)
+        builds=local
     analyses={}; reviews={}
     for build in builds:
         folder=OUT/('build-'+str(build['buildNumber']))

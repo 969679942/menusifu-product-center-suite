@@ -20,6 +20,9 @@ class BuildQueue:
     def recover(self):
         # Only after acquiring the sole process lock and killing orphan descendants via the OS job.
         self.db.execute("UPDATE tasks SET state='retry',lease_until=0 WHERE state='running'")
+        # Retries are bounded.  A stale historical task must converge to a
+        # terminal state instead of waking the worker forever.
+        self.db.execute("UPDATE tasks SET state='blocked',lease_until=0,next_at=0,detail=json_set(detail,'$.reason','retry-limit-reached') WHERE state='retry' AND attempts>=3")
 
     def claim(self, now=None):
         now=time.time() if now is None else now
@@ -27,7 +30,7 @@ class BuildQueue:
         try:
             if self.db.execute("SELECT 1 FROM tasks WHERE state='running' LIMIT 1").fetchone():
                 self.db.execute('COMMIT');return None
-            row=self.db.execute("SELECT * FROM tasks WHERE state IN ('pending','retry') AND next_at<=? ORDER BY rowid LIMIT 1",(now,)).fetchone()
+            row=self.db.execute("SELECT * FROM tasks WHERE state IN ('pending','retry') AND attempts<3 AND next_at<=? ORDER BY rowid LIMIT 1",(now,)).fetchone()
             if row is None:self.db.execute('COMMIT');return None
             self.db.execute("UPDATE tasks SET state='running',generation=generation+1,attempts=attempts+1,lease_until=? WHERE identity=?",(now+90,row['identity']))
             result=dict(self.db.execute('SELECT * FROM tasks WHERE identity=?',(row['identity'],)).fetchone())
@@ -43,9 +46,11 @@ class BuildQueue:
         self.db.execute('UPDATE tasks SET lease_until=? WHERE identity=?',(time.time()+90,task['identity']))
 
     def finish(self, task, state, detail, delay=0):
-        if state not in ['reviewed','retry','needs-action','awaiting-verification']:raise ValueError('invalid-task-terminal-state')
+        if state not in ['reviewed','retry','needs-action','awaiting-verification','completed-with-findings','cancelled','superseded','blocked']:raise ValueError('invalid-task-terminal-state')
         self.assert_owner(task)
+        if state=='retry' and task['attempts']>=3:
+            state='blocked'; detail={**detail,'reason':detail.get('reason','retry-limit-reached')}
         self.db.execute('UPDATE tasks SET state=?,detail=?,lease_until=0,next_at=? WHERE identity=?',
-                        (state,json.dumps(detail,ensure_ascii=False),time.time()+delay,task['identity']))
+                        (state,json.dumps(detail,ensure_ascii=False),time.time()+delay if state=='retry' else 0,task['identity']))
 
     def rows(self):return [dict(r) for r in self.db.execute('SELECT * FROM tasks ORDER BY rowid')]

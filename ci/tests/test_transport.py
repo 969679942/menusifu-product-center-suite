@@ -12,7 +12,7 @@ class TransportBoundaryTests(unittest.TestCase):
         helper=root/'tap/src/ci/build-watch-contract.cjs'
         helper.parent.mkdir(parents=True)
         shutil.copyfile(j.ROOT/'tap/src/ci/build-watch-contract.cjs',helper)
-        j.write(root/'ci/watch-policy.json',{'jobName':j.JOB,'firstBuildNumber':34})
+        j.write(root/'ci/watch-policy.json',{'jobName':j.JOB,'firstBuildNumber':34,'autoDiscoverHistorical':True,'registeredBuilds':[]})
         stack=ExitStack()
         for name,value in [('ROOT',root),('OUT',out),('STATE',out/'checkpoint.json')]:stack.enter_context(patch.object(j,name,value))
         return stack

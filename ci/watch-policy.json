@@ -2,5 +2,7 @@
   "schemaVersion": 1,
   "jobName": "menusifu-product-center-suite",
   "firstBuildNumber": 34,
-  "purpose": "Discover every retained build from the verified baseline, including manual builds, independently of the local submission checkpoint"
+  "purpose": "Process only explicitly registered builds; historical Jenkins builds are diagnostic evidence and are never auto-enqueued",
+  "autoDiscoverHistorical": false,
+  "registeredBuilds": []
 }

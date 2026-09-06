@@ -244,7 +244,7 @@ def cycle(queue):
         j.watch()
     snapshot=j.read(j.OUT/'watch-checkpoint.json');by_number={b['buildNumber']:b for b in snapshot['builds']}
     for action in snapshot['actions']:
-        if action['action'] not in ['done','wait']:
+        if action['action'] not in ['done','wait','superseded','cancelled']:
             build=by_number[action['buildNumber']];queue.enqueue(identity(build),{k:build[k] for k in ['buildNumber','gitSha','requestId','runScope']})
     for row in queue.rows():
         if row['state']!='awaiting-verification':continue

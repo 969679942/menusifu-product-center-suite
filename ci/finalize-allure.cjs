@@ -1,44 +1,29 @@
 const fs=require('node:fs'),path=require('node:path');
 const {verifyAllureAttachments,writeBundleManifest,verifyReportSelection}=require('../tap/src/ci/result-bundle.cjs');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'output/ci');
-const envelopePath=path.join(out,process.env.RUN_SCOPE==='pilot'?'pilot-envelope.json':'result-envelope.json');
+const scope=process.env.RUN_SCOPE;
+const envelopePath=path.join(out,scope==='pilot'?'pilot-envelope.json':'result-envelope.json');
 const envelope=fs.existsSync(envelopePath)?JSON.parse(fs.readFileSync(envelopePath,'utf8')):{};
-const businessRoot=path.join(out,'business');
-let audit;
+const businessRoot=path.join(out,'business'),rawDir=path.join(out,'allure-results'),businessDir=path.join(out,'allure-results-business');
+const isBusiness=scope==='pilot'||scope==='full-regression';
+const caseIdOf=result=>result.labels?.find(label=>label.name==='caseId')?.value || result.labels?.find(label=>label.name==='tag'&&String(label.value).startsWith('case-'))?.value.slice(5);
+const moduleOf=caseId=>({FLV:'调味管理',GRP:'商品分组',ITEM:'商品管理',TAG:'标签管理',IMG:'图片管理'})[String(caseId||'').split('-')[1]]||'待归类业务用例';
+const labelsFor=(labels,caseId)=>[...labels.filter(label=>!['caseId','tag','parentSuite','suite','subSuite'].includes(label.name)),{name:'caseId',value:caseId},{name:'tag',value:'case-'+caseId},{name:'parentSuite',value:'商品中心'},{name:'suite',value:moduleOf(caseId)},{name:'subSuite',value:'业务用例'}];
+const copy=(from,to)=>{if(!fs.existsSync(to))fs.copyFileSync(from,to);};
+function resultSources(){const sources=[rawDir];if(fs.existsSync(businessRoot))for(const entry of fs.readdirSync(businessRoot))sources.push(path.join(businessRoot,entry,'allure-results'));return sources.filter(fs.existsSync);}
+function projectBusinessResults(){
+ fs.rmSync(businessDir,{recursive:true,force:true});fs.mkdirSync(businessDir,{recursive:true});const selected=new Set(envelope.selectedCaseIds||[]),seen=new Set();
+ for(const source of resultSources())for(const name of fs.readdirSync(source)){const from=path.join(source,name);if(!fs.statSync(from).isFile())continue;if(!name.endsWith('-result.json')){copy(from,path.join(businessDir,name));continue;}const result=JSON.parse(fs.readFileSync(from,'utf8')),caseId=caseIdOf(result);if(!caseId||(selected.size&&!selected.has(caseId)))continue;result.labels=labelsFor(result.labels||[],caseId);if(seen.has(name))throw new Error('duplicate-business-allure-result:'+name);seen.add(name);fs.writeFileSync(path.join(businessDir,name),JSON.stringify(result));}
+ return [...seen];
+}
+function writeExecutionReport(audit,published){const state=audit.status==='complete'?'COMPLETE':'INCOMPLETE',reason=audit.reason||audit.selection?.reason||'none';fs.writeFileSync(path.join(out,'execution-report.html'),`<!doctype html><meta charset="utf-8"><title>商品中心执行报告</title><style>body{font:16px Microsoft YaHei;margin:36px;color:#172b4d}strong{color:${state==='COMPLETE'?'#087f5b':'#b42318'}}code{background:#f1f5f9;padding:2px 5px}</style><h1>商品中心执行报告：<strong>${state}</strong></h1><p>范围：<code>${scope||'unknown'}</code>；构建：<code>${process.env.BUILD_NUMBER||'unknown'}</code></p><p>Allure 业务结果：${published} 条。只统计带 caseId 的业务结果；setup、chrome 项目名、合同和辅助测试均不计入业务结果。</p><p>审计原因：<code>${reason}</code></p><p>业务通过资格取决于选择集、终态收据和 Allure 审计同时完整，不能以本页或 Jenkins SUCCESS 代替。</p>`);}
+let audit={status:'incomplete',reason:'finalizer-not-started'},published=0;
 try {
-if((process.env.RUN_SCOPE==='pilot' || process.env.RUN_SCOPE==='full-regression') && fs.existsSync(businessRoot)) {
-  const dirs=fs.readdirSync(businessRoot).map(n=>path.join(businessRoot,n,'allure-results')).filter(p=>fs.existsSync(p));
-  const expected=process.env.RUN_SCOPE==='pilot'?1:2;
-  const target=path.join(out,'allure-results');
-  if(process.env.RUN_SCOPE==='pilot') fs.rmSync(target,{recursive:true,force:true});
-  fs.mkdirSync(target,{recursive:true});
-  if(process.env.RUN_SCOPE==='pilot' && dirs.length!==expected)throw new Error(`Expected ${expected} business Allure runs, got ${dirs.length}`);
-  if(process.env.RUN_SCOPE==='full-regression' && dirs.length<expected && fs.readdirSync(target).length===0)throw new Error(`Expected at least ${expected} business Allure runs, got ${dirs.length}`);
-  if(fs.readdirSync(target).length===0) for(const dir of dirs) for(const name of fs.readdirSync(dir)) {
-    const dest=path.join(target,name);
-    if(fs.existsSync(dest))throw new Error(`duplicate-allure-result:${name}`);
-    fs.copyFileSync(path.join(dir,name),dest);
-  }
-}
-audit=verifyAllureAttachments(path.join(out,'allure-results'));
-if(process.env.RUN_SCOPE==='pilot' || process.env.RUN_SCOPE==='full-regression') {
-  const dir=path.join(out,'allure-results');
-  const results=fs.readdirSync(dir).filter(n=>n.endsWith('-result.json')).map(n=>JSON.parse(fs.readFileSync(path.join(dir,n),'utf8')));
-  // MC supplies the case identity mapping; the selection and pass arbiter are public TAP contracts.
-  const projected=results.map(r=>({caseId:r.labels?.find(l=>l.name==='caseId')?.value || r.labels?.find(l=>l.name==='tag' && l.value?.startsWith('case-'))?.value.slice(5),status:r.status}));
-  if(process.env.RUN_SCOPE==='full-regression' && envelope.kind==='governed-business-full-product-center') {
-    audit.selection=verifyReportSelection(projected,envelope.selectedCaseIds,(envelope.caseAudit||[]).map(c=>({caseId:c.caseId,accepted:c.accepted===true && c.status==='passed'})));
-  } else {
-  const ledgers=process.env.RUN_SCOPE==='pilot'
-    ? [path.join(businessRoot,envelope.runId,'evidence-ledger.json')]
-    : fs.readdirSync(businessRoot).map(n=>path.join(businessRoot,n,'evidence-ledger.json')).filter(fs.existsSync);
-  const ledgerCases=ledgers.flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')).cases||[]);
-  const receipts=ledgerCases.map(c=>({caseId:c.caseId,accepted:c.playwrightStatus==='passed' && c.evidence?.status==='complete' && envelope.receiptAudit?.cases?.find(a=>a.caseId===c.caseId)?.status==='complete'}));
-  audit.selection=verifyReportSelection(projected,envelope.selectedCaseIds,receipts);
-  }
-}
-}
-catch(error){audit={status:'incomplete',reason:error.message};process.exitCode=2;}
-fs.writeFileSync(path.join(out,'allure-audit.json'),JSON.stringify(audit,null,2));
-writeBundleManifest(out,{gitSha:envelope.gitSha,buildNumber:String(process.env.BUILD_NUMBER),requestId:process.env.REQUEST_ID,
-  runScope:process.env.RUN_SCOPE,selectionFingerprint:envelope.selectionFingerprint,reportStatus:audit.status});
+ const resultsDir=isBusiness?businessDir:rawDir;if(isBusiness)published=projectBusinessResults().length;else fs.mkdirSync(resultsDir,{recursive:true});
+ if(!published&&isBusiness)audit={status:'incomplete',reason:'no-business-allure-results'};else if(!fs.readdirSync(resultsDir).some(name=>name.endsWith('-result.json')))audit={status:'incomplete',reason:'no-allure-results'};else audit=verifyAllureAttachments(resultsDir);
+ if(isBusiness&&audit.status==='complete'){const results=fs.readdirSync(resultsDir).filter(name=>name.endsWith('-result.json')).map(name=>JSON.parse(fs.readFileSync(path.join(resultsDir,name),'utf8')));const projected=results.map(result=>({caseId:caseIdOf(result),status:result.status}));const receipts=scope==='full-regression'&&envelope.kind==='governed-business-full-product-center'?(envelope.caseAudit||[]).map(caseAudit=>({caseId:caseAudit.caseId,accepted:caseAudit.accepted===true&&caseAudit.status==='passed'})):fs.existsSync(businessRoot)?fs.readdirSync(businessRoot).map(entry=>path.join(businessRoot,entry,'evidence-ledger.json')).filter(fs.existsSync).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')).cases||[]).map(item=>({caseId:item.caseId,accepted:item.playwrightStatus==='passed'&&item.evidence?.status==='complete'&&envelope.receiptAudit?.cases?.find(a=>a.caseId===item.caseId)?.status==='complete'})):[];audit.selection=verifyReportSelection(projected,envelope.selectedCaseIds,receipts);}
+}catch(error){audit={status:'incomplete',reason:error.message};}
+fs.writeFileSync(path.join(out,'allure-audit.json'),JSON.stringify(audit,null,2));writeExecutionReport(audit,published);
+if(isBusiness&&published>0)fs.writeFileSync(path.join(out,'allure-business-publishable.marker'),'');
+writeBundleManifest(out,{gitSha:envelope.gitSha,buildNumber:String(process.env.BUILD_NUMBER),requestId:process.env.REQUEST_ID,runScope:scope,selectionFingerprint:envelope.selectionFingerprint,reportStatus:audit.status});
+if(audit.status!=='complete')process.exitCode=2;
