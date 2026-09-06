@@ -59,20 +59,31 @@ class TransportBoundaryTests(unittest.TestCase):
 
     def test_ambiguous_build_submission_is_not_replayed(self):
         with tempfile.TemporaryDirectory() as d, patch.object(j,'STATE',pathlib.Path(d)/'checkpoint.json'):
-            j.write(j.STATE,{'status':'submitting','requestId':'pending'})
+            j.write(j.STATE,{'status':'submitting','requestId':'pending','intentId':'123e4567-e89b-12d3-a456-426614174000'})
             with patch.object(j,'reconcile',return_value=False),patch.object(j,'post') as post:
                 with self.assertRaises(RuntimeError):j.submit()
                 post.assert_not_called()
 
     def test_existing_queued_request_is_resumed(self):
         with tempfile.TemporaryDirectory() as d, patch.object(j,'STATE',pathlib.Path(d)/'checkpoint.json'):
-            j.write(j.STATE,{'status':'queued','requestId':'pending','queueUrl':j.BASE+'/queue/item/1/'})
+            j.write(j.STATE,{'status':'queued','requestId':'pending','intentId':'123e4567-e89b-12d3-a456-426614174000','queueUrl':j.BASE+'/queue/item/1/'})
             with patch.object(j,'reconcile',return_value=True),patch.object(j,'post') as post:
                 j.submit();post.assert_not_called()
 
+    def test_legacy_checkpoint_without_intent_is_quarantined_instead_of_replayed(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=pathlib.Path(d);out=root/'output/jenkins';state=out/'checkpoint.json'
+            with patch.object(j,'OUT',out),patch.object(j,'STATE',state):
+                j.write(state,{'status':'running','buildNumber':46,'requestId':'legacy'})
+                self.assertTrue(j.quarantine_legacy_checkpoint())
+                self.assertFalse(state.exists())
+                records=list((out/'legacy-checkpoints').glob('*.json'))
+                self.assertEqual(len(records),1)
+                self.assertEqual(j.read(records[0])['status'],'legacy-unverified')
+
     def test_analyzed_same_commit_and_scope_do_not_start_another_build(self):
         with tempfile.TemporaryDirectory() as d, patch.object(j,'STATE',pathlib.Path(d)/'checkpoint.json'):
-            j.write(j.STATE,{'status':'analyzed','gitSha':'a'*40,'runScope':'pilot'})
+            j.write(j.STATE,{'status':'analyzed','gitSha':'a'*40,'runScope':'pilot','intentId':'123e4567-e89b-12d3-a456-426614174000'})
             with patch.object(j,'git',return_value='a'*40),patch.object(j,'post') as post:
                 j.submit('pilot');post.assert_not_called()
 

@@ -28,6 +28,16 @@ def write(path, obj):
 def read(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
 
+def quarantine_legacy_checkpoint():
+    """Keep pre-intent submissions as diagnostics; never replay or claim them."""
+    if not STATE.exists(): return False
+    previous=read(STATE)
+    if isinstance(previous.get('intentId'),str) and re.fullmatch('[0-9a-f-]{36}',previous['intentId']): return False
+    legacy=OUT/'legacy-checkpoints'/('checkpoint-'+str(previous.get('buildNumber','unknown'))+'-'+str(int(time.time()))+'.json')
+    write(legacy,{**previous,'status':'legacy-unverified','reason':'intentId-missing; excluded from governed reconciliation'})
+    STATE.unlink()
+    return True
+
 def get(url, **kwargs):
     if not url.startswith(BASE + '/'):
         raise ValueError('Jenkins URL outside authorized server')
@@ -114,6 +124,7 @@ def git(*args):
             time.sleep(delay)
 
 def submit(scope='contracts'):
+    quarantine_legacy_checkpoint()
     if STATE.exists():
         previous=read(STATE)
         if previous['status'] not in ['analyzed']:
