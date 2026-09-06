@@ -29,7 +29,7 @@ def render(folder):
 <main><h1>{title}</h1><p class="meta">商品中心 · 本机 AI / Git / Jenkins / TAP 标准收据</p>
 <p><a href="{escaped(analysis['buildUrl'])}">Jenkins 构建 #{analysis['buildNumber']}</a> · {escaped(analysis['jenkinsResult'])}</p>
 <p class="meta">Git SHA：{escaped(analysis['gitSha'])}<br>身份核验：{escaped(analysis['identityVerified'])} · 执行完整：{escaped(analysis.get('executionComplete',False))}</p>
-<p><b>Allure 审计：{escaped(str(allure_audit.get('status','incomplete')).upper())}</b> · {escaped(allure_audit.get('reason') or allure_audit.get('selection',{{}}).get('reason') or '无')}</p>
+<p><b>Allure 审计：{escaped(str(allure_audit.get('status','incomplete')).upper())}</b> · {escaped(allure_audit.get('reason') or allure_audit.get('selection',{}).get('reason') or '无')}</p>
 <div class="stats"><div class="stat"><b>{len(ledger['cases'])}</b>真实业务用例</div><div class="stat"><b>{analysis.get('passed',0)}</b>{pass_label}</div><div class="stat"><b>{analysis.get('failed',0)}</b>{fail_label}</div><div class="stat"><b>{sum(s!='complete' for s in statuses.values())}</b>收据缺口</div></div>
 <p>{scope} 合同测试与业务用例分别统计。{allure_link}</p>
 <table><thead><tr><th>用例</th><th>执行</th><th>标准收据</th><th>断言证据</th></tr></thead><tbody>{''.join(rows)}</tbody></table>
