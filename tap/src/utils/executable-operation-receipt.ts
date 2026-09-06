@@ -125,7 +125,7 @@ function appendRealtimeAuditEvent(
     ?? process.env.SYSTEM_TEST_APPLICATION_ID ?? process.env.SYSTEM_TEST_SYSTEM_ID ?? 'unknown-application';
   const businessDomainId = operation.auditContext?.businessDomainId ?? process.env.SYSTEM_TEST_BUSINESS_DOMAIN_ID;
   const planId = operation.auditContext?.planId ?? process.env.SYSTEM_TEST_PLAN_ID;
-  const eventId = `realtime-operation:${runId ?? operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${receipt.occurredAt}`;
+  const eventId = `realtime-operation:${runId ?? 'unknown-run'}:${operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${receipt.occurredAt}`;
   appendAuditEvent(filePath, {
     eventId,
     eventType: 'operation.called',
@@ -202,7 +202,7 @@ function appendRealtimeOperationStarted(operation: PendingOperation): void {
     ?? process.env.SYSTEM_TEST_APPLICATION_ID ?? process.env.SYSTEM_TEST_SYSTEM_ID ?? 'unknown-application';
   const startedAt = new Date(operation.startedAt).toISOString();
   appendAuditEvent(filePath, {
-    eventId: `realtime-operation-started:${runId ?? operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${startedAt}`,
+    eventId: `realtime-operation-started:${runId ?? 'unknown-run'}:${operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${startedAt}`,
     eventType: 'operation.started',
     occurredAt: startedAt,
     startedAt,

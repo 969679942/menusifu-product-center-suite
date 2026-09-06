@@ -86,3 +86,27 @@ test('项目适配器可配置正式 caseId 注解而无需修改公共操作合
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('同一运行中的独立执行实例必须生成不同事件身份，不能被误判为冲突', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'realtime-audit-identity-'));
+  const previous = { log: process.env.SYSTEM_TEST_AUDIT_EVENT_LOG, run: process.env.SYSTEM_TEST_RUN_ID };
+  const logPath = path.join(root, 'events.jsonl');
+  Object.assign(process.env, { SYSTEM_TEST_AUDIT_EVENT_LOG: logPath, SYSTEM_TEST_RUN_ID: 'shared-run' });
+  try {
+    for (const executionId of ['parallel-worker-a', 'parallel-worker-b']) {
+      const operation = startExecutableOperation({ executionId, operationKey: 'ui:context-guard', title: '确认上下文', method: 'UI' });
+      finishExecutableOperation(operation, 'passed');
+    }
+    const events = new FileAuditEventStore({ filePath: logPath }).readAll().filter((event) => event.eventType === 'operation.called');
+    expect(events).toHaveLength(2);
+    expect(events.map((event) => event.eventId)).toEqual(expect.arrayContaining([
+      expect.stringContaining(':parallel-worker-a:unknown-case:'),
+      expect.stringContaining(':parallel-worker-b:unknown-case:'),
+    ]));
+    expect(new Set(events.map((event) => event.eventId)).size).toBe(2);
+  } finally {
+    if (previous.log === undefined) delete process.env.SYSTEM_TEST_AUDIT_EVENT_LOG; else process.env.SYSTEM_TEST_AUDIT_EVENT_LOG = previous.log;
+    if (previous.run === undefined) delete process.env.SYSTEM_TEST_RUN_ID; else process.env.SYSTEM_TEST_RUN_ID = previous.run;
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

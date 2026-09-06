@@ -274,10 +274,14 @@ export function createSeasoningSystemTestStepReporter(): SystemTestStepReporter 
     const title = describeSeasoningSystemTestStep(step);
     const testInfo = test.info();
     const operation = startExecutableOperation({
-      executionId: testInfo.testId,
+      // testId alone is shared by repeated recipe invocations in some
+      // Playwright contexts. Carry the business case explicitly so parallel
+      // guards cannot collide in the append-only audit ledger.
+      executionId: `${testInfo.testId}:${step.recipe.caseId}`,
       operationKey: operationKeyForReportStep(step),
       title,
       method: 'UI',
+      auditContext: { caseId: step.recipe.caseId },
     });
     if (step.phase === 'context-guard' && step.input?.phase === 'before-assertion') {
       try {

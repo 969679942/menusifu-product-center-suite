@@ -25,10 +25,27 @@ import ProductCenterSystemAllureReporter, {
 } from '../../reporters/product-center-system-allure.reporter';
 import MerchantCenterSeasoningAllureReporter from '../../systems/merchant-center-product-center-seasoning/allure.reporter';
 import { renderStepTitle } from '../../utils/step';
+import { FileAuditEventStore } from '../../../../Test Automation Platform/src/audit/event-log';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
 test.describe('Merchant Center Allure 步骤注释适配', () => {
+  test('调味适配器将业务 caseId 和执行实例绑定到实时审计事件', async ({}, testInfo) => {
+    const logPath = testInfo.outputPath('seasoning-audit-events.jsonl');
+    const previous = { log: process.env.SYSTEM_TEST_AUDIT_EVENT_LOG, run: process.env.SYSTEM_TEST_RUN_ID };
+    Object.assign(process.env, { SYSTEM_TEST_AUDIT_EVENT_LOG: logPath, SYSTEM_TEST_RUN_ID: 'adapter-contract-run' });
+    const recipe = { caseId: 'TC-ADAPTER-AUDIT-001', title: '审计身份绑定', route: '/pp/brand/seasoning/list', capabilities: [], assertions: [] } as never;
+    try {
+      await createSeasoningSystemTestStepReporter()({ phase: 'context-guard', recipe, input: { phase: 'before-action' } }, async () => undefined);
+      const called = new FileAuditEventStore({ filePath: logPath }).readAll().find((event) => event.eventType === 'operation.called');
+      expect(called).toEqual(expect.objectContaining({ caseId: recipe.caseId }));
+      expect(called?.eventId).toContain(`:${testInfo.testId}:${recipe.caseId}:${recipe.caseId}:`);
+    } finally {
+      if (previous.log === undefined) delete process.env.SYSTEM_TEST_AUDIT_EVENT_LOG; else process.env.SYSTEM_TEST_AUDIT_EVENT_LOG = previous.log;
+      if (previous.run === undefined) delete process.env.SYSTEM_TEST_RUN_ID; else process.env.SYSTEM_TEST_RUN_ID = previous.run;
+    }
+  });
+
   test('业务操作结果必须能从真实前后快照生成结构化 Diff', () => {
     const evidence = buildSeasoningOperationChangeEvidence({
       observations: {
