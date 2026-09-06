@@ -11,8 +11,8 @@ function planBuildReviews({ firstBuildNumber, builds, analyses = {}, reviews = {
     if (!Number.isInteger(n) || n < 1 || seen.has(n)) throw new Error('invalid-or-duplicate-build-number');
     seen.add(n);
     if (n < firstBuildNumber) return null;
-    const validIdentity = /^[0-9a-f]{40}$/.test(build.gitSha ?? '') && /^[a-zA-Z0-9-]{1,80}$/.test(build.requestId ?? '');
-    const matches = receipt => receipt && receipt.buildNumber === n && receipt.gitSha === build.gitSha && receipt.requestId === build.requestId;
+    const validIdentity = /^[0-9a-f]{40}$/.test(build.gitSha ?? '') && /^[a-zA-Z0-9-]{1,80}$/.test(build.requestId ?? '') && /^[0-9a-f-]{36}$/.test(build.intentId ?? '');
+    const matches = receipt => receipt && receipt.buildNumber === n && receipt.gitSha === build.gitSha && receipt.requestId === build.requestId && receipt.intentId === build.intentId && receipt.runScope === build.runScope;
     const review = reviews[n];
     let action;
     if (build.building) action = 'wait';

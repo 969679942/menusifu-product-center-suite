@@ -9,6 +9,8 @@ function verifyBuildEnvelope(envelope, expected) {
   for(const key of ['gitSha','buildNumber','requestId']) {
     if(!envelope[key] || String(envelope[key])!==String(expected[key])) errors.push(key+'-mismatch');
   }
+  if(expected.intentId && String(envelope.intentId||'')!==String(expected.intentId)) errors.push('intentId-mismatch');
+  if(expected.runScope && String(envelope.runScope||'')!==String(expected.runScope)) errors.push('runScope-mismatch');
   const selected=envelope.selectedCaseIds, terminal=envelope.terminalCaseIds;
   if(!Array.isArray(selected)||!selected.length||!Array.isArray(terminal)) return [...errors,'selection-missing'];
   if(new Set(selected).size!==selected.length || new Set(terminal).size!==terminal.length) errors.push('duplicate-case-id');

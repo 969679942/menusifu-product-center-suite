@@ -29,5 +29,5 @@ if(isBusiness&&published>0){
  fs.writeFileSync(path.join(businessDir,'environment.properties'),`Evidence status=${audit.status==='complete'?'COMPLETE':'INCOMPLETE'}\nAudit reason=${reason}\nRequest ID=${process.env.REQUEST_ID||'unknown'}\n`);
 }
 if(isBusiness&&published>0)fs.writeFileSync(path.join(out,'allure-business-publishable.marker'),'');
-writeBundleManifest(out,{gitSha:envelope.gitSha,buildNumber:String(process.env.BUILD_NUMBER),requestId:process.env.REQUEST_ID,runScope:scope,selectionFingerprint:envelope.selectionFingerprint,reportStatus:audit.status});
+writeBundleManifest(out,{gitSha:envelope.gitSha,buildNumber:String(process.env.BUILD_NUMBER),requestId:process.env.REQUEST_ID,intentId:process.env.INTENT_ID,runScope:scope,selectionFingerprint:envelope.selectionFingerprint,reportStatus:audit.status});
 if(audit.status!=='complete')process.exitCode=2;

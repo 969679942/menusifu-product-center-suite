@@ -42,8 +42,9 @@ def apply_changes(root,changes,prefixes):
 
 def verified_followup(detail,build,review):
     return (build.get('gitSha')==detail.get('commit') and build.get('requestId')==detail.get('followupRequestId')
+        and build.get('intentId')==detail.get('followupIntentId')
         and build.get('runScope')==detail.get('verificationScope') and not build.get('building',True)
         and review.get('buildNumber')==build.get('buildNumber') and review.get('gitSha')==build.get('gitSha')
-        and review.get('requestId')==build.get('requestId') and review.get('status')=='complete'
+        and review.get('requestId')==build.get('requestId') and review.get('intentId')==build.get('intentId') and review.get('status')=='complete'
         and review.get('actionRequired')=='none' and bool(review.get('evidence'))
         and not detail.get('sourceSyncPending'))

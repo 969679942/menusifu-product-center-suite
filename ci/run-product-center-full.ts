@@ -98,7 +98,10 @@ function main(): void {
   const selectedIntentCaseIds = [...new Set([...sourcePlan.execution.selectedCaseIds, ...seasoningManifest.cases.map((item) => item.caseId)])].sort();
   const classifiedExclusions = plannedCaseIds.filter((caseId) => !selectedIntentCaseIds.includes(caseId));
   if (selectedIntentCaseIds.some((caseId) => !plannedCaseIds.includes(caseId))) throw new Error('execution-intent-has-unplanned-case');
-  writeJson(path.join(out, 'execution-intent.json'), { schemaVersion: 1, kind: 'full-regression', runId, plannedCaseIds, selectedCaseIds: selectedIntentCaseIds, classifiedExclusions });
+  writeJson(path.join(out, 'execution-intent.json'), { schemaVersion: 1, kind: 'full-regression', runId,
+    gitSha: require('node:child_process').execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
+    buildNumber: build, requestId, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'full-regression',
+    plannedCaseIds, selectedCaseIds: selectedIntentCaseIds, classifiedExclusions });
   if (process.argv.includes('--plan-only')) {
     const plan = readJson<any>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
     process.stdout.write(`${JSON.stringify({ plannedCaseCount: plannedCaseIds.length, sourceGovernance: plan.summary }, null, 2)}\n`);
@@ -151,7 +154,7 @@ function main(): void {
     schemaVersion: 1,
     kind: 'governed-business-full-product-center',
     gitSha: require('node:child_process').execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
-    buildNumber: build, requestId, runId,
+    buildNumber: build, requestId, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'full-regression', runId,
     selectedCaseIds, terminalCaseIds,
     selectionFingerprint: require('../tap/src/ci/transport-contract.cjs').selectionFingerprint(selectedCaseIds),
     plannedCaseIds, plannedCaseCount: plannedCaseIds.length,

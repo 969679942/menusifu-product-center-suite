@@ -83,7 +83,7 @@ def valid_evidence(folder,paths):
         if not target.is_relative_to(folder.resolve()) or not target.is_file():raise ValueError('ai-evidence-path-invalid')
 
 def review_record(build,decision,**extra):
-    return {'schemaVersion':1,'buildNumber':build['buildNumber'],'gitSha':build['gitSha'],'requestId':build['requestId'],
+    return {'schemaVersion':1,'buildNumber':build['buildNumber'],'gitSha':build['gitSha'],'requestId':build['requestId'],'intentId':build['intentId'],'runScope':build['runScope'],
         'status':'complete' if decision['action']=='complete' else 'pending',
         'actionRequired':'none' if decision['action']=='complete' else decision['action'],
         'conclusion':decision['conclusion'],'category':decision['category'],'evidence':decision['evidence'],'reviewedAt':now(),**extra}
@@ -193,7 +193,7 @@ def repair(build,decision,folder,queue,task):
         if rc:raise RuntimeError('repair-submit-incomplete')
         state=j.read(j.STATE)
         if state.get('gitSha')!=phase['commit']:raise RuntimeError('another-submission-still-active')
-        phase.update(phase='submitted',followupRequestId=state['requestId']);j.write(journal,phase)
+        phase.update(phase='submitted',followupRequestId=state['requestId'],followupIntentId=state['intentId']);j.write(journal,phase)
     if phase['phase']=='submitted':
         assert_writable(queue,task)
         exporter=module('exporter_sync',ROOT/'ci/sync-sources.py')
@@ -264,10 +264,10 @@ def cycle(queue):
     snapshot=j.read(j.OUT/'watch-checkpoint.json');by_number={b['buildNumber']:b for b in snapshot['builds']}
     for action in snapshot['actions']:
         if action['action'] not in ['done','wait','superseded','cancelled']:
-            build=by_number[action['buildNumber']];queue.enqueue(identity(build),{k:build[k] for k in ['buildNumber','gitSha','requestId','runScope']})
+            build=by_number[action['buildNumber']];queue.enqueue(identity(build),{k:build[k] for k in ['buildNumber','gitSha','requestId','intentId','runScope']})
     for row in queue.rows():
         if row['state']!='awaiting-verification':continue
-        detail=json.loads(row['detail']);followup=next((b for b in snapshot['builds'] if b['requestId']==detail.get('followupRequestId')),None)
+        detail=json.loads(row['detail']);followup=next((b for b in snapshot['builds'] if b['requestId']==detail.get('followupRequestId') and b['intentId']==detail.get('followupIntentId')),None)
         if not followup:continue
         review_path=j.OUT/('build-'+str(followup['buildNumber']))/'ai-review.json'
         if review_path.exists() and verified_followup(detail,followup,j.read(review_path)):

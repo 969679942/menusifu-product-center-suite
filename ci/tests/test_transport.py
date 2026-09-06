@@ -20,10 +20,12 @@ class TransportBoundaryTests(unittest.TestCase):
     def test_discovery_strips_password_parameters_and_rejects_malformed_identity(self):
         item={'number':35,'building':False,'result':'FAILURE','actions':[{'parameters':[
             {'name':'GIT_SHA','value':'bad sha'},{'name':'REQUEST_ID','value':'request-35'},
+            {'name':'INTENT_ID','value':'123e4567-e89b-12d3-a456-426614174000'},
             {'name':'RUN_SCOPE','value':'pilot'},{'name':'MC_RUNTIME_ENV','value':'secret-fixture'}]}]}
         response=unittest.mock.Mock();response.json.return_value={'builds':[item]}
         with patch.object(j,'get',return_value=response): result=j.discover_builds(34)
         self.assertIsNone(result[0]['gitSha'])
+        self.assertEqual(result[0]['intentId'],'123e4567-e89b-12d3-a456-426614174000')
         self.assertNotIn('secret-fixture',json.dumps(result))
         self.assertNotIn('MC_RUNTIME_ENV',json.dumps(result))
 
@@ -31,7 +33,7 @@ class TransportBoundaryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d, self.isolated_watch(d):
             original={'status':'analyzed','buildNumber':34}
             j.write(j.STATE,original)
-            build={'buildNumber':35,'building':False,'result':'SUCCESS','gitSha':'a'*40,'requestId':'manual-35','runScope':'pilot'}
+            build={'buildNumber':35,'building':False,'result':'SUCCESS','gitSha':'a'*40,'requestId':'manual-35','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'pilot'}
             with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll,patch.object(j,'post') as post:
                 j.watch()
                 self.assertEqual(poll.call_args.args[0],j.OUT/'build-35/checkpoint.json')
@@ -41,7 +43,7 @@ class TransportBoundaryTests(unittest.TestCase):
 
     def test_collected_build_stays_pending_until_ai_review_is_recorded(self):
         with tempfile.TemporaryDirectory() as d, self.isolated_watch(d):
-            build={'buildNumber':35,'building':False,'result':'SUCCESS','gitSha':'a'*40,'requestId':'manual-35','runScope':'pilot'}
+            build={'buildNumber':35,'building':False,'result':'SUCCESS','gitSha':'a'*40,'requestId':'manual-35','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'pilot'}
             j.write(j.OUT/'build-35/analysis.json',build)
             with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
                 j.watch();poll.assert_not_called()

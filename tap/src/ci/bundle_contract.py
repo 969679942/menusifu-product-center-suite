@@ -6,6 +6,8 @@ def validate_bundle(folder,expected):
     value=json.loads(manifest.read_text(encoding='utf-8-sig'));errors=[];seen=set()
     for key in ['gitSha','buildNumber','requestId']:
         if str(value.get(key))!=str(expected.get(key)):errors.append('bundle-'+key+'-mismatch')
+    if expected.get('intentId') and str(value.get('intentId'))!=str(expected.get('intentId')):errors.append('bundle-intentId-mismatch')
+    if expected.get('runScope') and str(value.get('runScope'))!=str(expected.get('runScope')):errors.append('bundle-runScope-mismatch')
     for item in value.get('artifacts',[]):
         rel=item['path'];p=pathlib.PurePosixPath(rel)
         if p.is_absolute() or '..' in p.parts or '\\' in rel or ':' in rel or rel in seen:

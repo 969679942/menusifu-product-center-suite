@@ -94,11 +94,11 @@ def reconcile(state, state_path=None):
     query='number,url,building,result,actions[parameters[name,value]]'
     builds=get(JOB_URL+'api/json',params={'tree':'builds['+query+']{0,100}'}).json()['builds']
     for build in builds:
-        if parameters(build).get('REQUEST_ID')==state['requestId']:
+        if parameters(build).get('REQUEST_ID')==state['requestId'] and parameters(build).get('INTENT_ID')==state['intentId']:
             state.update(buildNumber=build['number'],buildUrl=build['url'],status='running' if build['building'] else 'finished')
             write(state_path,state);return True
     for item in get(BASE+'/queue/api/json').json()['items']:
-        if item.get('task',{}).get('url')==JOB_URL and parameters(item).get('REQUEST_ID')==state['requestId']:
+        if item.get('task',{}).get('url')==JOB_URL and parameters(item).get('REQUEST_ID')==state['requestId'] and parameters(item).get('INTENT_ID')==state['intentId']:
             state.update(queueUrl=BASE+'/queue/item/'+str(item['id'])+'/',status='queued')
             write(state_path,state);return True
     return False
@@ -190,7 +190,7 @@ def poll(state_path=None):
     errors=list(bundle_errors)
     if not envelope: errors.append('result-envelope-missing')
     else:
-        expected={k:state[k] for k in ['gitSha','buildNumber','requestId']}
+        expected={k:state[k] for k in ['gitSha','buildNumber','requestId','intentId']}
         errors+=json.loads(subprocess.check_output(['node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelopePath),json.dumps(expected)],text=True))
         if state.get('runScope') in ['pilot','full-regression']:
             receipts=list((folder/'business').glob('*/evidence-ledger.json'))
@@ -210,9 +210,9 @@ def poll(state_path=None):
                         'cases':[case for audit in audits for case in audit.get('cases',[])]})
                 if state.get('runScope')=='full-regression' and (not envelope.get('receiptAudit') or envelope['receiptAudit'].get('status')!='complete'):
                     errors.append('standard-assertion-receipts-incomplete')
-    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','envelope-or-identity-missing','result-envelope-missing']]
+    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','intentId-mismatch','runScope-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','bundle-intentId-mismatch','bundle-runScope-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
-      'gitSha':state['gitSha'],'requestId':state['requestId'],'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
+      'gitSha':state['gitSha'],'requestId':state['requestId'],'intentId':state.get('intentId'),'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
       'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
       'skipped':envelope.get('skipped',0) if envelope else 0,
@@ -234,11 +234,12 @@ def discover_builds(first_build):
         for item in page:
             if item['number'] < first_build: continue
             params=parameters(item)
-            sha=params.get('GIT_SHA'); request_id=params.get('REQUEST_ID'); scope=params.get('RUN_SCOPE')
+            sha=params.get('GIT_SHA'); request_id=params.get('REQUEST_ID'); intent_id=params.get('INTENT_ID'); scope=params.get('RUN_SCOPE')
             # Never persist parameter dumps; the same API response contains the password parameter.
             builds.append({'buildNumber':item['number'],'building':item['building'],'result':item.get('result'),
                 'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
+                'intentId':intent_id if isinstance(intent_id,str) and re.fullmatch('[0-9a-f-]{36}',intent_id) else None,
                 'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None})
         if len(page)<100 or any(item['number']<first_build for item in page): return builds
     raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')

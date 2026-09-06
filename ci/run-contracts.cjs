@@ -26,7 +26,10 @@ function cases(report) {
 }
 const plan=cases(JSON.parse(listed.stdout)).map(c=>c.caseId).sort();
 const selectionFingerprint=fingerprintSelection(plan);
-const intent={schemaVersion:1,kind:selection.kind,businessPassAuthority:false,gitSha:sha,selectionFingerprint,selectedCaseIds:plan,files};
+const intent={schemaVersion:1,kind:selection.kind,businessPassAuthority:false,gitSha:sha,
+  buildNumber:process.env.BUILD_NUMBER||null,requestId:process.env.REQUEST_ID||null,
+  intentId:process.env.INTENT_ID||null,runScope:process.env.RUN_SCOPE||'contracts',
+  selectionFingerprint,selectedCaseIds:plan,files};
 fs.writeFileSync(path.join(out,'execution-intent.json'),JSON.stringify(intent,null,2));
 const resultPath=path.join(out,'playwright.json');
 const run=spawnSync(process.execPath,[cli,'test',...files,'--project=api','--workers=1','--reporter=line,json'],{

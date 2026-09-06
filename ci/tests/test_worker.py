@@ -16,11 +16,11 @@ class RepairTests(unittest.TestCase):
             p.write_text('user edit')
             with self.assertRaisesRegex(ValueError,'intervening'):apply_plan(root,plan,['src/'])
     def test_followup_requires_exact_identity_scope_review_and_source_sync(self):
-        detail={'commit':'a'*40,'followupRequestId':'r','verificationScope':'reports'}
-        build={'buildNumber':3,'gitSha':'a'*40,'requestId':'r','runScope':'reports','building':False}
+        detail={'commit':'a'*40,'followupRequestId':'r','followupIntentId':'123e4567-e89b-12d3-a456-426614174000','verificationScope':'reports'}
+        build={'buildNumber':3,'gitSha':'a'*40,'requestId':'r','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'reports','building':False}
         review={**build,'status':'complete','actionRequired':'none','evidence':['analysis.json']}
         self.assertTrue(verified_followup(detail,build,review))
-        for key,value in [('gitSha','b'*40),('requestId','other'),('runScope','pilot'),('building',True)]:
+        for key,value in [('gitSha','b'*40),('requestId','other'),('intentId','123e4567-e89b-12d3-a456-426614174001'),('runScope','pilot'),('building',True)]:
             self.assertFalse(verified_followup(detail,{**build,key:value},review))
         self.assertFalse(verified_followup({**detail,'sourceSyncPending':['src/a.py']},build,review))
         self.assertFalse(verified_followup(detail,build,{**review,'evidence':[]}))
@@ -56,6 +56,19 @@ class BundleTests(unittest.TestCase):
             self.assertIn('bundle-content-mismatch',validate_bundle(root,expected))
             manifest['artifacts'][0]['path']='../outside';(root/'bundle-manifest.json').write_text(json.dumps(manifest))
             self.assertIn('bundle-path-invalid',validate_bundle(root,expected))
+
+    def test_manifest_intent_must_match_the_registered_invocation(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as d:
+            root=pathlib.Path(d);(root/'file.json').write_text('{}')
+            expected={'gitSha':'a'*40,'buildNumber':7,'requestId':'request-7','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'reports'}
+            manifest={**expected,'artifacts':[{'path':'file.json','size':2,'sha256':hashlib.sha256(b'{}').hexdigest()}]}
+            (root/'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertEqual(validate_bundle(root,expected),[])
+            manifest['intentId']='123e4567-e89b-12d3-a456-426614174001';(root/'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertIn('bundle-intentId-mismatch',validate_bundle(root,expected))
+            manifest['intentId']=expected['intentId'];manifest['runScope']='pilot';(root/'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertIn('bundle-runScope-mismatch',validate_bundle(root,expected))
 
 class QueueTests(unittest.TestCase):
     def setUp(self):

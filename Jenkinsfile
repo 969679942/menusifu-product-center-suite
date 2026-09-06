@@ -22,8 +22,11 @@ node {
             '''
           }
         }
-        stage('Record execution intent') {
-          writeFile file: 'suite-src/output/ci/execution-intent.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+        stage('Record immutable Jenkins invocation') {
+          // Runners generate their own execution-intent.json after resolving
+          // selections. Keep the parameter identity in a separate immutable
+          // invocation record so it cannot be overwritten by that process.
+          writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
             schemaVersion: 1, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
             requestId: params.REQUEST_ID, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
             trigger: 'jenkins-parameterized-build'
