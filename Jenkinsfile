@@ -26,7 +26,7 @@ node {
       try {
         stage('Check agent GitHub connectivity') {
           bat '''@echo off
-          git -c http.proxy= -c http.https://github.com.proxy= -c http.connectTimeout=20 ls-remote https://github.com/git/git.git HEAD
+          git -c http.proxy= -c http.https://github.com.proxy= -c http.connectTimeout=20 ls-remote https://x-access-token@github.com/git/git.git HEAD
           exit /b %ERRORLEVEL%
           '''
         }
@@ -34,7 +34,7 @@ node {
           dir('suite-src') {
             prepareCheckout()
             def result = checkout([$class: 'GitSCM', branches: [[name: params.GIT_SHA]],
-              userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'menusifu-github-readonly']],
+              userRemoteConfigs: [[url: 'https://x-access-token@github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'menusifu-github-readonly']],
               extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'ci'], [path: 'Jenkinsfile'], [path: 'suite.json']]]]])
             if (result.GIT_COMMIT != params.GIT_SHA) error('PCS checkout identity mismatch')
           }
@@ -58,7 +58,7 @@ node {
             dir(dependency.path) {
               prepareCheckout()
               def result = checkout([$class: 'GitSCM', branches: [[name: dependency.sha]],
-                userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'menusifu-github-readonly']], extensions: []])
+                userRemoteConfigs: [[url: "https://x-access-token@github.com/969679942/${dependency.repo}.git", credentialsId: 'menusifu-github-readonly']], extensions: []])
               if (result.GIT_COMMIT != dependency.sha) error('Dependency checkout identity mismatch')
             }
           }
@@ -102,4 +102,5 @@ node {
     }
   }
 }
+
 
