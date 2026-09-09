@@ -6,7 +6,7 @@ stage('Prepare TAP runtime') {
   cd /d "suite-src\\tap"
   call npm ci --ignore-scripts --no-audit
   if errorlevel 1 exit /b 1
-  cd /d "..\\merchant-center\\Merchant Center UITest"
+  cd /d "..\\projects\\merchant-center\\Merchant Center UITest"
   call npm ci --ignore-scripts --no-audit
   exit /b %ERRORLEVEL%
   '''

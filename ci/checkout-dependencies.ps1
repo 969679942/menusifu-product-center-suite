@@ -11,9 +11,11 @@ foreach($pair in @(@('MC',$McSha),@('TAP',$TapSha))){ if($pair[1] -notmatch '^[0
 $rootPath=[IO.Path]::GetFullPath($Root); New-Item -ItemType Directory -Force $rootPath | Out-Null
 function Checkout([string]$name,[string]$repo,[string]$sha){
   $dest=Join-Path $rootPath $name
-  if(Test-Path $dest){ Remove-Item -LiteralPath $dest -Recurse -Force }
+  if(Test-Path $dest){ throw "Destination already exists; preserve existing checkout: $name" }
   git clone --no-checkout $repo $dest
+  if($LASTEXITCODE -ne 0){throw "$name clone failed"}
   git -C $dest checkout --detach $sha
+  if($LASTEXITCODE -ne 0){throw "$name checkout failed"}
   $actual=(git -C $dest rev-parse HEAD).Trim()
   if($actual -ne $sha.ToLower()){ throw "$name checkout SHA mismatch" }
   return $actual

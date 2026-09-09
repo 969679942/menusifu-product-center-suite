@@ -6,20 +6,19 @@ node {
     def buildTimeoutMinutes = 180
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
+      if (!(params.MC_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact MC_GIT_SHA required')
+      if (!(params.TAP_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact TAP_GIT_SHA required')
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       deleteDir()
       try {
         stage('Checkout exact revision') {
-          withEnv(["SUITE_GIT_SHA=${params.GIT_SHA}"]) {
-            bat '''@echo off
-            git -c http.proxy= -c https.proxy= clone --no-checkout https://github.com/969679942/menusifu-product-center-suite.git suite-src
-            if errorlevel 1 exit /b 1
-            git -C suite-src checkout --detach %SUITE_GIT_SHA%
-            if errorlevel 1 exit /b 1
-            git -C suite-src rev-parse HEAD
-            '''
+          dir('suite-src') {
+            def result = checkout([$class: 'GitSCM', branches: [[name: params.GIT_SHA]],
+              userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'github-credentials']],
+              extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'ci'], [path: 'Jenkinsfile'], [path: 'suite.json']]]]])
+            if (result.GIT_COMMIT != params.GIT_SHA) error('PCS checkout identity mismatch')
           }
         }
         stage('Record immutable Jenkins invocation') {
@@ -27,23 +26,28 @@ node {
           // selections. Keep the parameter identity in a separate immutable
           // invocation record so it cannot be overwritten by that process.
           writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
-            schemaVersion: 1, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
+            schemaVersion: 2, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
+            pcsGitSha: params.GIT_SHA, mcGitSha: params.MC_GIT_SHA, tapGitSha: params.TAP_GIT_SHA,
             requestId: params.REQUEST_ID, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
             trigger: 'jenkins-parameterized-build'
           ]))
         }
-        stage('Checkout optional MC and TAP revisions') {
-          // The migration path is opt-in until the MC and TAP repositories are
-          // fully cut over. If either revision is supplied, both exact SHAs
-          // and both repository URLs are mandatory.
-          if (params.MC_GIT_SHA || params.TAP_GIT_SHA || params.MC_GIT_REPOSITORY || params.TAP_GIT_REPOSITORY) {
-            if (!(params.MC_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact MC_GIT_SHA required when dependency checkout is enabled')
-            if (!(params.TAP_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact TAP_GIT_SHA required when dependency checkout is enabled')
-            if (!params.MC_GIT_REPOSITORY?.trim() || !params.TAP_GIT_REPOSITORY?.trim()) error('MC/TAP repository URLs required when dependency checkout is enabled')
-            bat "@powershell -NoProfile -ExecutionPolicy Bypass -File suite-src\\ci\\checkout-dependencies.ps1 -McRepository '${params.MC_GIT_REPOSITORY}' -McSha '${params.MC_GIT_SHA}' -TapRepository '${params.TAP_GIT_REPOSITORY}' -TapSha '${params.TAP_GIT_SHA}' -Root suite-src\\sources"
-          } else {
-            echo 'Dependency checkout is in legacy embedded mode; provide MC/TAP SHA parameters to enable the cutover path.'
+        stage('Checkout exact MC and TAP revisions') {
+          for (def dependency : [
+            [path: 'suite-src/tap', repo: 'Test-Automation-Platform', sha: params.TAP_GIT_SHA],
+            [path: 'suite-src/projects/merchant-center', repo: 'Merchant-Center', sha: params.MC_GIT_SHA]
+          ]) {
+            dir(dependency.path) {
+              def result = checkout([$class: 'GitSCM', branches: [[name: dependency.sha]],
+                userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'github-credentials']], extensions: []])
+              if (result.GIT_COMMIT != dependency.sha) error('Dependency checkout identity mismatch')
+            }
           }
+          writeFile file: 'suite-src/output/ci/dependency-checkout.json', text: groovy.json.JsonOutput.toJson([
+            pcsGitSha: params.GIT_SHA, mcGitSha: params.MC_GIT_SHA, tapGitSha: params.TAP_GIT_SHA,
+            mode: 'three-repository', mcRoot: 'projects/merchant-center', tapRoot: 'tap'
+          ])
+          bat '@powershell -NoProfile -File suite-src/ci/link-tap-runtime.ps1'
         }
         load('suite-src/ci/pipeline.groovy')
       } finally {

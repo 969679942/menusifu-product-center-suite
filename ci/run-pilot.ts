@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { runSystemTest } from '../projects/Test Automation Platform/scripts/run-system-test';
-import { buildSystemTestArtifacts } from '../projects/Test Automation Platform/scripts/build-system-test-contract';
+import { runSystemTest } from '../tap/scripts/run-system-test';
+import { buildSystemTestArtifacts } from '../tap/scripts/build-system-test-contract';
 import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-receipts';
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
 import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/merchant-center/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
