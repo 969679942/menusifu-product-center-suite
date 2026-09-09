@@ -32,6 +32,19 @@ node {
             trigger: 'jenkins-parameterized-build'
           ]))
         }
+        stage('Checkout optional MC and TAP revisions') {
+          // The migration path is opt-in until the MC and TAP repositories are
+          // fully cut over. If either revision is supplied, both exact SHAs
+          // and both repository URLs are mandatory.
+          if (params.MC_GIT_SHA || params.TAP_GIT_SHA || params.MC_GIT_REPOSITORY || params.TAP_GIT_REPOSITORY) {
+            if (!(params.MC_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact MC_GIT_SHA required when dependency checkout is enabled')
+            if (!(params.TAP_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact TAP_GIT_SHA required when dependency checkout is enabled')
+            if (!params.MC_GIT_REPOSITORY?.trim() || !params.TAP_GIT_REPOSITORY?.trim()) error('MC/TAP repository URLs required when dependency checkout is enabled')
+            bat "@powershell -NoProfile -ExecutionPolicy Bypass -File suite-src\\ci\\checkout-dependencies.ps1 -McRepository '${params.MC_GIT_REPOSITORY}' -McSha '${params.MC_GIT_SHA}' -TapRepository '${params.TAP_GIT_REPOSITORY}' -TapSha '${params.TAP_GIT_SHA}' -Root suite-src\\sources"
+          } else {
+            echo 'Dependency checkout is in legacy embedded mode; provide MC/TAP SHA parameters to enable the cutover path.'
+          }
+        }
         load('suite-src/ci/pipeline.groovy')
       } finally {
         if (!fileExists('suite-src/output/ci/execution-report.html')) {
