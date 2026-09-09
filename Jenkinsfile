@@ -1,6 +1,15 @@
 node {
-  // Scope the GitHub proxy override to this job; never mutate agent/global Git settings.
-  withEnv(['NO_PROXY=github.com,.github.com']) {
+  // Configure only the disposable repository; GitSCM does not retain all withEnv overrides.
+  def prepareCheckout = {
+    bat '''@echo off
+    git init
+    if errorlevel 1 exit /b 1
+    git config --local http.proxy ""
+    if errorlevel 1 exit /b 1
+    git config --local http.https://github.com.proxy ""
+    exit /b %ERRORLEVEL%
+    '''
+  }
   ws("${env.WORKSPACE}-isolated") {
     // Full regression runs the source-governed suite and the two seasoning
     // contexts in one executor.  Keep the job-local ceiling high enough for
@@ -23,6 +32,7 @@ node {
         }
         stage('Checkout exact revision') {
           dir('suite-src') {
+            prepareCheckout()
             def result = checkout([$class: 'GitSCM', branches: [[name: params.GIT_SHA]],
               userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'github-credentials']],
               extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'ci'], [path: 'Jenkinsfile'], [path: 'suite.json']]]]])
@@ -46,6 +56,7 @@ node {
             [path: 'suite-src/projects/merchant-center', repo: 'Merchant-Center', sha: params.MC_GIT_SHA]
           ]) {
             dir(dependency.path) {
+              prepareCheckout()
               def result = checkout([$class: 'GitSCM', branches: [[name: dependency.sha]],
                 userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'github-credentials']], extensions: []])
               if (result.GIT_COMMIT != dependency.sha) error('Dependency checkout identity mismatch')
@@ -91,4 +102,3 @@ node {
     }
   }
 }
-  }
