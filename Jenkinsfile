@@ -27,7 +27,9 @@ node {
       def requestId = params.REQUEST_ID?.trim()
       if (!requestId) requestId = "jenkins-${env.JOB_NAME}-${env.BUILD_NUMBER}".replaceAll('[^a-zA-Z0-9-]', '-')
       if (!(requestId ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
-      if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
+      def intentId = params.INTENT_ID?.trim()
+      if (!intentId) intentId = UUID.randomUUID().toString()
+      if (!(intentId ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
       if (params.AUTO_CHAIN == true && !env.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
@@ -54,7 +56,7 @@ node {
           // selections. Keep the parameter identity in a separate immutable
           // invocation record so it cannot be overwritten by that process.
           writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
-            schemaVersion: 2, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
+            schemaVersion: 2, intentId: intentId, gitSha: params.GIT_SHA,
             pcsGitSha: params.GIT_SHA, mcGitSha: params.MC_GIT_SHA, tapGitSha: params.TAP_GIT_SHA,
             requestId: requestId, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
             trigger: 'jenkins-parameterized-build'
@@ -130,7 +132,7 @@ if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
       string(name: 'MC_GIT_SHA', value: params.MC_GIT_SHA),
       string(name: 'TAP_GIT_SHA', value: params.TAP_GIT_SHA),
       string(name: 'REQUEST_ID', value: "${requestId}-${nextChainScope}"),
-      string(name: 'INTENT_ID', value: params.INTENT_ID),
+      string(name: 'INTENT_ID', value: intentId),
       string(name: 'RUN_SCOPE', value: nextChainScope),
       booleanParam(name: 'AUTO_CHAIN', value: true),
       password(name: 'MC_RUNTIME_ENV', value: params.MC_RUNTIME_ENV)
