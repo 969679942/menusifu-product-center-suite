@@ -36,6 +36,7 @@ for (const project of projects) {
 const tapRoot = suite.platform && suite.platform.root;
 if (tapRoot !== 'tap') fail('platform.root must identify the single tap source');
 if (!fs.existsSync(path.join(root, tapRoot, 'package.json'))) fail('tap/package.json is missing');
+if (fs.existsSync(path.join(root, 'projects', 'project-b'))) fail('legacy project-b must be archived outside projects');
 for (const project of projects) {
   const projectRoot = path.join(root, project.root);
   if (!fs.existsSync(projectRoot)) fail(`${project.id} root is missing: ${project.root}`);
