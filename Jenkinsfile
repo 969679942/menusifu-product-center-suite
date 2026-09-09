@@ -84,7 +84,7 @@ node {
           archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html', allowEmptyArchive: true, fingerprint: true
         }
         def allurePath = null
-        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-business-publishable.marker')) {
+        if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-results-business')) {
           allurePath = 'suite-src/output/ci/allure-results-business'
         } else if (params.RUN_SCOPE == 'reports' && fileExists('suite-src/output/ci/allure-results')) {
           allurePath = 'suite-src/output/ci/allure-results'
