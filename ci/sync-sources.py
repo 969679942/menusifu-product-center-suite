@@ -1,7 +1,7 @@
 """Plan/review source exports; never export private runtime data or overwrite intervening edits."""
 import argparse, hashlib, json, pathlib, subprocess, os
 ROOT=pathlib.Path(__file__).resolve().parent.parent
-MAPPINGS={'tap':pathlib.Path(r'D:\Menusifu\Test Automation Platform'), 'projects/project-a':pathlib.Path(r'D:\Menusifu\Merchant Center')}
+MAPPINGS={'tap':pathlib.Path(os.environ.get('TAP_SOURCE_ROOT', r'D:\Menusifu\Test Automation Platform')), 'projects/merchant-center':pathlib.Path(os.environ.get('MC_SOURCE_ROOT', r'D:\Menusifu\Merchant Center'))}
 PLAN=ROOT/'output/jenkins/source-export-plan.json'
 EXCLUDED={'node_modules','.git','.secrets','output','deliverables','test-results','allure-results'}
 def digest(data):return hashlib.sha256(data).hexdigest()
@@ -21,7 +21,7 @@ def safe_source(target):
             return resolved
     return None
 def secrets():
-    p=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+    p=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(MAPPINGS['projects/merchant-center']/'.secrets/runtime.env')))
     values=[]
     for line in p.read_text(encoding='utf-8-sig').splitlines():
         key,sep,value=line.partition('=')
@@ -61,3 +61,4 @@ def apply():
     print(json.dumps({'exported':len(validated),'next':'Review Git diff and regenerate affected adapter catalogs before committing'}))
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['plan','apply']);globals()[p.parse_args().action]()
+

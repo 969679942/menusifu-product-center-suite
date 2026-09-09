@@ -134,7 +134,7 @@ def repair(build,decision,folder,queue,task):
         apply_plan(worktree,j.read(folder/'patch-plan.json'),config()['allowedRepairPrefixes'])
         phase['phase']='patched';j.write(journal,phase)
     if phase['phase']=='patched':
-        for rel in ['tap','projects/project-a','ci']:
+        for rel in ['tap','projects/merchant-center','ci']:
             git('add','-A','--',rel,cwd=worktree)
         changed=git('diff','--cached','--name-only',cwd=worktree).splitlines()
         if not changed:raise RuntimeError('repair-produced-no-change')
@@ -149,7 +149,7 @@ def repair(build,decision,folder,queue,task):
                 except subprocess.CalledProcessError:original=b''
                 if source.read_bytes().replace(b'\r\n',b'\n')!=original:raise RuntimeError('original-source-has-intervening-edit')
         # Use installed dependencies; no private environment or browser state is exported.
-        for rel in ['tap','projects/project-a/Merchant Center UITest']:
+        for rel in ['tap','projects/merchant-center/Merchant Center UITest']:
             link=worktree/rel/'node_modules';target=ROOT/rel/'node_modules'
             if not link.exists():
                 command=['powershell','-NoProfile','-File',str(ROOT/'ci/link-dependency.ps1'),'-Link',str(link),'-Target',str(target)]
@@ -236,7 +236,8 @@ def process_task(task,queue):
         if limit<=0:break
         excerpt=value[:limit];total+=len(excerpt)
         prompt+='\nFILE '+path.relative_to(evidence).as_posix()+(' [TRUNCATED]' if len(value)>limit else '')+'\n'+excerpt+'\nEND FILE\n'
-    for path in [ROOT/'ci/AI-LOOP.md',pathlib.Path(r'D:\Menusifu\Test Automation Platform\AGENTS.md'),pathlib.Path(r'D:\Menusifu\Test Automation Platform\FINAL-GOAL.md')]:
+    tap_root = pathlib.Path(os.environ.get('TAP_SOURCE_ROOT', r'D:\Menusifu\Test Automation Platform'))
+    for path in [ROOT/'ci/AI-LOOP.md',tap_root/'AGENTS.md',tap_root/'FINAL-GOAL.md']:
         if path.exists():prompt+='\nGOVERNANCE '+str(path)+'\n'+path.read_text(encoding='utf-8-sig')[:18000]+'\nEND GOVERNANCE\n'
     for path in [ROOT/'tap/src/ci/transport-contract.cjs',ROOT/'tap/src/ci/result-bundle.cjs',ROOT/'ci/reporting-smoke.spec.ts',ROOT/'ci/reporting-smoke.config.ts']:
         if path.exists():prompt+='\nSOURCE '+str(path.relative_to(ROOT))+'\n'+path.read_text(encoding='utf-8-sig')+'\nEND SOURCE\n'
@@ -301,3 +302,4 @@ def main():
             if args.action=='once':break
             time.sleep(config()['activePollSeconds'] if active else config()['idlePollSeconds'])
 if __name__=='__main__':main()
+

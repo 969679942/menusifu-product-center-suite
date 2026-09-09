@@ -13,6 +13,9 @@ test('MC Allure adapter uses public selection gate and still archives a failing 
   const execute=()=>spawnSync(process.execPath,[path.join(root,'ci/finalize-allure.cjs')],{env:{...process.env,RUN_SCOPE:'pilot',BUILD_NUMBER:'1',REQUEST_ID:'fixture'},encoding:'utf8'});
   assert.equal(execute().status,0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out,'allure-audit.json'))).selection.status,'complete');
+  write(path.join(business,'evidence-ledger.json'),{cases:[{caseId:'C1',playwrightStatus:'passed',evidence:{status:'incomplete'}}]});
+  assert.equal(execute().status,2,'Allure pass without an accepted receipt must not advance the chain');
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out,'allure-audit.json'))).status,'incomplete');
   write(path.join(allure,'one-result.json'),{labels:[{name:'caseId',value:'WRONG'}],status:'passed'});
   assert.equal(execute().status,2);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out,'bundle-manifest.json'))).reportStatus,'incomplete');

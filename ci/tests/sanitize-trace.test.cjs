@@ -1,7 +1,7 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
-const AdmZip=require('../../projects/project-a/Merchant Center UITest/node_modules/adm-zip');
+const AdmZip=require('../../projects/merchant-center/Merchant Center UITest/node_modules/adm-zip');
 const {sanitizeTraceSecrets}=require('../sanitize-trace.cjs');
 test('trace action values and embedded request bodies are redacted while screenshot bytes survive',()=>{
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'ci-trace-contract-'));
@@ -21,3 +21,4 @@ test('trace action values and embedded request bodies are redacted while screens
     fs.rmSync(dir,{recursive:true,force:true});
   }
 });
+

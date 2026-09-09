@@ -11,7 +11,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
-BASE = 'http://192.168.1.50:8081'
+BASE = os.environ.get('JENKINS_BASE_URL', 'http://192.168.1.50:8081').rstrip('/')
 JOB = 'menusifu-product-center-suite'
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
@@ -173,7 +173,7 @@ def submit(scope='contracts'):
     })
     data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope}
     if scope in ['pilot','full-regression']:
-        secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+        secret_file=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(ROOT.parent/'Merchant Center'/'.secrets/runtime.env')))
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')

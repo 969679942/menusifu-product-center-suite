@@ -3,7 +3,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(__dirname, '..');
-const project = path.join(root, 'projects/project-a/Merchant Center UITest');
+const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
 const defaultOut = path.join(root, 'output/ci');
 const out = process.env.PC_CI_OUTPUT_DIR ? path.resolve(process.env.PC_CI_OUTPUT_DIR) : defaultOut;
 if (!out.startsWith(path.resolve(root, 'output') + path.sep)) throw new Error('ci-output-outside-workspace-output');
@@ -75,7 +75,7 @@ function findAllureResultDirs(rootPath: string): string[] {
 
 function main(): void {
   fs.mkdirSync(out, { recursive: true });
-  const indexPath = path.join(root, 'projects/project-a/Merchant Center Info/00-待转换测试方案/已完成/index.json');
+  const indexPath = path.join(root, 'projects/merchant-center/Merchant Center Info/00-待转换测试方案/已完成/index.json');
   const completedIndex = readJson<{ cases: Array<{ caseId: string }> }>(indexPath);
   const plannedCaseIds = [...new Set(completedIndex.cases.map((item) => item.caseId))].sort();
   // Jenkins passes the runtime file as one masked parameter.  The source-governed
@@ -93,7 +93,7 @@ function main(): void {
 
   const planExit = run(['scripts/build-product-center-source-governed-execution-plan.ts'], project, commonEnv);
   if (planExit !== 0) throw new Error(`source-governed-plan-failed:${planExit}`);
-  const sourcePlan = readJson<{ execution: { selectedCaseIds: string[] } }>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
+  const sourcePlan = readJson<{ execution: { selectedCaseIds: string[] } }>(path.join(root, 'projects/merchant-center/deliverables/product-center-source-governance/execution-plan.json'));
   const seasoningManifest = readJson<{ cases: Array<{ caseId: string }> }>(path.join(project, 'systems/merchant-center-product-center-seasoning/manifest.json'));
   // Freeze the complete business selection before starting any browser.  Final
   // receipts only prove terminal state; they must never define the plan.
@@ -105,12 +105,12 @@ function main(): void {
     buildNumber: build, requestId, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'full-regression',
     plannedCaseIds, selectedCaseIds: selectedIntentCaseIds, classifiedExclusions });
   if (process.argv.includes('--plan-only')) {
-    const plan = readJson<any>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
+    const plan = readJson<any>(path.join(root, 'projects/merchant-center/deliverables/product-center-source-governance/execution-plan.json'));
     process.stdout.write(`${JSON.stringify({ plannedCaseCount: plannedCaseIds.length, sourceGovernance: plan.summary }, null, 2)}\n`);
     return;
   }
   const sourceExit = run(['scripts/run-product-center-source-governed.ts', '--execute'], project, commonEnv);
-  const sourceResultPath = path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-result.json');
+  const sourceResultPath = path.join(root, 'projects/merchant-center/deliverables/product-center-source-governance/execution-result.json');
   const sourceResult = fs.existsSync(sourceResultPath) ? readJson<any>(sourceResultPath) : null;
 
   const seasoningEnv = { ...commonEnv, RUN_SCOPE: 'full-regression', ...(secretEnv ? { MC_RUNTIME_ENV: secretEnv } : {}) };
@@ -181,3 +181,4 @@ function main(): void {
 }
 
 try { main(); } catch (error) { process.stderr.write(`${error instanceof Error ? error.stack ?? error.message : String(error)}\n`); process.exitCode = 2; }
+

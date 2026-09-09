@@ -1,15 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { runSystemTest } from '../projects/Test Automation Platform/scripts/run-system-test';
-import { buildSystemTestArtifacts } from '../projects/Test Automation Platform/scripts/build-system-test-contract';
+import { runSystemTest } from '../tap/scripts/run-system-test';
+import { buildSystemTestArtifacts } from '../tap/scripts/build-system-test-contract';
 import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-receipts';
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
-import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/project-a/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
+import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/merchant-center/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
 const { selectionFingerprint } = require('../tap/src/ci/transport-contract.cjs');
 const { sanitizeTraceSecrets } = require('./sanitize-trace.cjs');
 const root = path.resolve(__dirname, '..');
-const project = path.join(root, 'projects/project-a/Merchant Center UITest');
+const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
 const out = path.join(root, 'output/ci');
 const fullRegression = process.env.RUN_SCOPE === 'full-regression';
 const pilotSelection = JSON.parse(fs.readFileSync(path.join(__dirname, 'business-selection.json'), 'utf8'));
@@ -86,6 +86,8 @@ async function main() {
       const records = ledger?.cases || [], terminalCaseIds = records.map((item: any) => item.caseId), expected = group.caseIds.length;
       const accepted = groupCode === 0 && receiptAudit.status === 'complete' && report?.receiptImport?.records === expected && report?.receiptImport?.diagnostics?.length === 0 && records.length === expected;
       if (groupCode === 0 && !accepted) groupCode = 3; if (groupCode !== 0) code = groupCode;
+      const onboarding = load('onboarding.json');
+      if (onboarding?.blockers?.length) diagnostics.push(`${group.contextProfile}: ${onboarding.blockers.join('; ')}`);
       if (report?.diagnostic) diagnostics.push(`${group.contextProfile}: ${report.diagnostic}`);
       groupResults.push({ runId: groupRunId, contextProfile: group.contextProfile, selectedCaseIds: group.caseIds, terminalCaseIds, code: groupCode, report, ledger, receiptAudit });
       if (fs.existsSync(process.env.MC_STORAGE_STATE_PATH!)) fs.unlinkSync(process.env.MC_STORAGE_STATE_PATH!);
@@ -95,8 +97,10 @@ async function main() {
   const receiptAudit = { status: groupResults.length > 0 && groupResults.every((group) => group.receiptAudit?.status === 'complete') && terminalCaseIds.length === allCaseIds.length ? 'complete' : 'incomplete', selected: allCaseIds.length, received: terminalCaseIds.length, cases: receiptCases };
   const records = groupResults.flatMap((group) => group.ledger?.cases ?? []);
   const caseAudit = records.map((item: any) => ({ caseId: item.caseId, status: item.playwrightStatus ?? 'not-run', accepted: item.playwrightStatus === 'passed' && item.evidence?.status === 'complete' }));
-  const envelope = { schemaVersion: 1, kind: fullRegression ? 'governed-business-full-regression' : pilotSelection.kind, gitSha, buildNumber: process.env.BUILD_NUMBER, requestId: process.env.REQUEST_ID, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'pilot', selectedCaseIds: allCaseIds, selectionFingerprint: selectionFingerprint(allCaseIds), terminalCaseIds, caseAudit, publicReceiptAccepted: code === 0 && receiptAudit.status === 'complete', receiptAudit, status: terminalCaseIds.length < allCaseIds.length ? 'blocked' : code === 0 ? 'completed' : 'completed-with-findings', passed: records.filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: records.filter((item: any) => item.playwrightStatus === 'failed').length, skipped: Math.max(0, allCaseIds.length - terminalCaseIds.length), exitCode: code, diagnostic: diagnostics.join('\n'), runId, contextRuns: groupResults.map((group) => ({ runId: group.runId, contextProfile: group.contextProfile, selectedCaseIds: group.selectedCaseIds, terminalCaseIds: group.terminalCaseIds, status: group.code === 0 ? 'passed' : 'completed-with-findings', passed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'failed').length })) };
+  const envelope = { schemaVersion: 1, kind: fullRegression ? 'governed-business-full-regression' : pilotSelection.kind, gitSha, buildNumber: process.env.BUILD_NUMBER, requestId: process.env.REQUEST_ID, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'pilot', selectedCaseIds: allCaseIds, selectionFingerprint: selectionFingerprint(allCaseIds), terminalCaseIds, caseAudit, publicReceiptAccepted: code === 0 && receiptAudit.status === 'complete', receiptAudit, status: terminalCaseIds.length < allCaseIds.length ? 'blocked' : code === 0 ? 'completed' : 'completed-with-findings', passed: records.filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: records.filter((item: any) => item.playwrightStatus === 'failed').length, skipped: Math.max(0, allCaseIds.length - terminalCaseIds.length), exitCode: code, diagnostic: diagnostics.join('\n'), runId, contextRuns: groupResults.map((group) => ({ runId: group.runId, contextProfile: group.contextProfile, selectedCaseIds: group.selectedCaseIds, terminalCaseIds: group.terminalCaseIds, status: group.terminalCaseIds.length < group.selectedCaseIds.length ? 'blocked' : group.code === 0 ? 'passed' : 'completed-with-findings', passed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'failed').length })) };
   fs.writeFileSync(path.join(out, fullRegression ? 'result-envelope.json' : 'pilot-envelope.json'), safeText(JSON.stringify(envelope, null, 2)));
+  if (diagnostics.length) process.stderr.write(safeText(diagnostics.join('\n')) + '\n');
   process.exitCode = code;
 }
 void main().catch((error) => { process.stderr.write(`${safeText(error instanceof Error ? error.stack || error.message : String(error))}\n`); process.exitCode = 2; });
+
