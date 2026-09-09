@@ -1,5 +1,7 @@
 stage('Prepare TAP runtime') {
   bat '''@echo off
+  node suite-src\\ci\\validate-suite-config.cjs
+  if errorlevel 1 exit /b 1
   if not exist "suite-src\\tap\\package.json" exit /b 1
   cd /d "suite-src\\tap"
   call npm ci --ignore-scripts --no-audit
