@@ -146,7 +146,23 @@ def git(*args):
             if args[0] not in ['ls-remote','push'] or not delay: raise
             time.sleep(delay)
 
-def submit(scope='contracts'):
+def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
+    if auto_chain and scope not in ['contracts', 'reports', 'pilot']:
+        raise ValueError('Automatic chain scope invalid')
+    manifest=read(ROOT/'ci/dependency-manifest.json')
+    data={'GIT_SHA':sha, 'MC_GIT_SHA':manifest['repositories']['mc']['revision'],
+        'TAP_GIT_SHA':manifest['repositories']['tap']['revision'], 'REQUEST_ID':request_id,
+        'INTENT_ID':intent_id, 'RUN_SCOPE':scope, 'AUTO_CHAIN':'true' if auto_chain else 'false'}
+    for name in ['GIT_SHA','MC_GIT_SHA','TAP_GIT_SHA']:
+        if not re.fullmatch('[0-9a-f]{40}',data[name]): raise ValueError('Exact '+name+' required')
+    if auto_chain or scope in ['pilot','full-regression']:
+        secret_file=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(ROOT.parent/'Merchant Center'/'.secrets/runtime.env')))
+        runtime=secret_file.read_text(encoding='utf-8-sig')
+        if not runtime.strip(): raise ValueError('Pilot runtime configuration empty')
+        data['MC_RUNTIME_ENV']=runtime
+    return data
+
+def submit(scope='contracts', auto_chain=False):
     quarantine_legacy_checkpoint()
     if STATE.exists():
         previous=read(STATE)
@@ -156,7 +172,7 @@ def submit(scope='contracts'):
             if previous['status']=='submitting':
                 raise RuntimeError('Uncertain submission is not replayed; reconcile checkpoint/server')
     sha=git('rev-parse','HEAD')
-    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope:
+    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope and previous.get('autoChain',False)==auto_chain:
         print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
     # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
     if git('rev-parse','refs/remotes/origin/master') != sha:
@@ -164,17 +180,16 @@ def submit(scope='contracts'):
     if git('rev-parse','refs/remotes/origin/master')!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
     state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'intentId':str(uuid.uuid4()),
-        'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'createdAt':time.time()}
+        'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'autoChain':auto_chain,'createdAt':time.time()}
+    # Validate all dependencies and load the protected runtime before recording
+    # a pending mutation. Never log or persist this parameter dictionary.
+    data=submission_parameters(sha,scope,state['requestId'],state['intentId'],auto_chain)
     write(STATE,state)
     write(OUT/'intents'/(state['intentId']+'.json'),{
         'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope}
-    if scope in ['pilot','full-regression']:
-        secret_file=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(ROOT.parent/'Merchant Center'/'.secrets/runtime.env')))
-        data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);remember_explicit_submission(state);print(json.dumps(state))
@@ -331,6 +346,7 @@ def watch():
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
     parser.add_argument('--scope',choices=['contracts','pilot','full-regression','reports'],default='contracts')
+    parser.add_argument('--auto-chain',action='store_true',help='Supply pilot runtime now and continue contracts/reports/pilot on Jenkins')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.
     with open(OUT/'transport.lock','a+b') as lock:
@@ -342,5 +358,5 @@ if __name__=='__main__':
         else:
             import fcntl
             fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        if args.action=='submit': submit(args.scope)
+        if args.action=='submit': submit(args.scope,args.auto_chain)
         else: globals()[args.action]()

@@ -1,4 +1,7 @@
 def nextChainScope = null
+// Keep normalized identities available after releasing the node executor.
+def requestId = null
+def intentId = null
 node {
   // Configure only the disposable repository; GitSCM does not retain all withEnv overrides.
   def prepareCheckout = {
@@ -24,16 +27,17 @@ node {
       if (!(params.TAP_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact TAP_GIT_SHA required')
       // Generate a unique request identity when the UI leaves the optional
       // field blank, so ordinary builds do not fail before checkout.
-      def requestId = params.REQUEST_ID?.trim()
-      if (!requestId) requestId = "jenkins-${env.JOB_NAME}-${env.BUILD_NUMBER}".replaceAll('[^a-zA-Z0-9-]', '-')
+      requestId = params.REQUEST_ID?.trim()
+      if (!requestId) requestId = "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"
       if (!(requestId ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
-      def intentId = params.INTENT_ID?.trim()
+      intentId = params.INTENT_ID?.trim()
       if (!intentId) intentId = UUID.randomUUID().toString()
       if (!(intentId ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
       if (params.AUTO_CHAIN == true && !env.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
       def executionSucceeded = false
+      withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}"]) {
       deleteDir()
       try {
         stage('Check agent GitHub connectivity') {
@@ -120,6 +124,7 @@ node {
           }
         }
       }
+      }
     }
   }
 }
@@ -139,5 +144,4 @@ if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
     ]
   }
 }
-
 
