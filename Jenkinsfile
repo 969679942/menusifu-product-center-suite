@@ -34,7 +34,7 @@ node {
           dir('suite-src') {
             prepareCheckout()
             def result = checkout([$class: 'GitSCM', branches: [[name: params.GIT_SHA]],
-              userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'github-credentials']],
+              userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'menusifu-github-readonly']],
               extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'ci'], [path: 'Jenkinsfile'], [path: 'suite.json']]]]])
             if (result.GIT_COMMIT != params.GIT_SHA) error('PCS checkout identity mismatch')
           }
@@ -58,7 +58,7 @@ node {
             dir(dependency.path) {
               prepareCheckout()
               def result = checkout([$class: 'GitSCM', branches: [[name: dependency.sha]],
-                userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'github-credentials']], extensions: []])
+                userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'menusifu-github-readonly']], extensions: []])
               if (result.GIT_COMMIT != dependency.sha) error('Dependency checkout identity mismatch')
             }
           }
@@ -102,3 +102,4 @@ node {
     }
   }
 }
+
