@@ -134,7 +134,7 @@ def repair(build,decision,folder,queue,task):
         apply_plan(worktree,j.read(folder/'patch-plan.json'),config()['allowedRepairPrefixes'])
         phase['phase']='patched';j.write(journal,phase)
     if phase['phase']=='patched':
-        for rel in ['tap','projects/project-a','ci']:
+        for rel in ['tap','projects/merchant-center','ci']:
             git('add','-A','--',rel,cwd=worktree)
         changed=git('diff','--cached','--name-only',cwd=worktree).splitlines()
         if not changed:raise RuntimeError('repair-produced-no-change')
@@ -149,7 +149,7 @@ def repair(build,decision,folder,queue,task):
                 except subprocess.CalledProcessError:original=b''
                 if source.read_bytes().replace(b'\r\n',b'\n')!=original:raise RuntimeError('original-source-has-intervening-edit')
         # Use installed dependencies; no private environment or browser state is exported.
-        for rel in ['tap','projects/project-a/Merchant Center UITest']:
+        for rel in ['tap','projects/merchant-center/Merchant Center UITest']:
             link=worktree/rel/'node_modules';target=ROOT/rel/'node_modules'
             if not link.exists():
                 command=['powershell','-NoProfile','-File',str(ROOT/'ci/link-dependency.ps1'),'-Link',str(link),'-Target',str(target)]
@@ -301,3 +301,4 @@ def main():
             if args.action=='once':break
             time.sleep(config()['activePollSeconds'] if active else config()['idlePollSeconds'])
 if __name__=='__main__':main()
+

@@ -1,5 +1,5 @@
 const path=require('node:path');
-const AdmZip=require(path.resolve(__dirname,'../projects/project-a/Merchant Center UITest/node_modules/adm-zip'));
+const AdmZip=require(path.resolve(__dirname,'../projects/merchant-center/Merchant Center UITest/node_modules/adm-zip'));
 function sanitizeTraceSecrets(file, secrets) {
   const zip=new AdmZip(file);let changed=0;
   for(const entry of zip.getEntries()) {
@@ -17,3 +17,4 @@ function sanitizeTraceSecrets(file, secrets) {
   return changed;
 }
 module.exports={sanitizeTraceSecrets};
+

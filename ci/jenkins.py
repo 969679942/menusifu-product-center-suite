@@ -173,7 +173,7 @@ def submit(scope='contracts'):
     })
     data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope}
     if scope in ['pilot','full-regression']:
-        secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+        secret_file=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(ROOT.parent/'Merchant Center'/'.secrets/runtime.env')))
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')

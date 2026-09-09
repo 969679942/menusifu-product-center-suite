@@ -3,7 +3,7 @@ const path = require('node:path');
 const {spawnSync, execFileSync} = require('node:child_process');
 const {selectionFingerprint: fingerprintSelection} = require('../tap/src/ci/transport-contract.cjs');
 const root = path.resolve(__dirname, '..');
-const project = path.join(root, 'projects/project-a/Merchant Center UITest');
+const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
 const out = path.join(root, 'output/ci');
 fs.mkdirSync(out, {recursive:true});
 const sha = execFileSync('git', ['rev-parse','HEAD'], {cwd:root,encoding:'utf8'}).trim();
@@ -49,3 +49,4 @@ const envelope={...intent,buildNumber:process.env.BUILD_NUMBER||null,requestId:p
   records};
 fs.writeFileSync(path.join(out,'result-envelope.json'),JSON.stringify(envelope,null,2));
 process.exitCode=run.status|| (envelope.status!=='completed'?2:0);
+

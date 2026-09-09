@@ -5,11 +5,11 @@ import { runSystemTest } from '../projects/Test Automation Platform/scripts/run-
 import { buildSystemTestArtifacts } from '../projects/Test Automation Platform/scripts/build-system-test-contract';
 import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-receipts';
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
-import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/project-a/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
+import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/merchant-center/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
 const { selectionFingerprint } = require('../tap/src/ci/transport-contract.cjs');
 const { sanitizeTraceSecrets } = require('./sanitize-trace.cjs');
 const root = path.resolve(__dirname, '..');
-const project = path.join(root, 'projects/project-a/Merchant Center UITest');
+const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
 const out = path.join(root, 'output/ci');
 const fullRegression = process.env.RUN_SCOPE === 'full-regression';
 const pilotSelection = JSON.parse(fs.readFileSync(path.join(__dirname, 'business-selection.json'), 'utf8'));
@@ -100,3 +100,4 @@ async function main() {
   process.exitCode = code;
 }
 void main().catch((error) => { process.stderr.write(`${safeText(error instanceof Error ? error.stack || error.message : String(error))}\n`); process.exitCode = 2; });
+

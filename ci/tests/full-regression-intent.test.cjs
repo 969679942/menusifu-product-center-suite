@@ -5,7 +5,7 @@ const path=require('node:path');
 const {spawnSync}=require('node:child_process');
 
 const root=path.resolve(__dirname,'../..');
-const project=path.join(root,'projects/project-a/Merchant Center UITest');
+const project=path.join(root,'projects/merchant-center/Merchant Center UITest');
 const tsx=path.join(project,'node_modules/tsx/dist/cli.mjs');
 const unique=items=>[...new Set(items)].sort();
 
@@ -18,7 +18,7 @@ test('full regression freezes its selection before execution without a fixed exc
     });
     assert.equal(result.status,0,result.stderr);
     const intent=JSON.parse(fs.readFileSync(path.join(isolatedOut,'execution-intent.json'),'utf8'));
-    const source=JSON.parse(fs.readFileSync(path.join(root,'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'),'utf8'));
+    const source=JSON.parse(fs.readFileSync(path.join(root,'projects/merchant-center/deliverables/product-center-source-governance/execution-plan.json'),'utf8'));
     const seasoning=JSON.parse(fs.readFileSync(path.join(project,'systems/merchant-center-product-center-seasoning/manifest.json'),'utf8'));
     assert.equal(intent.intentId,'123e4567-e89b-12d3-a456-426614174000');
     assert.equal(intent.runScope,'full-regression');
@@ -31,3 +31,4 @@ test('full regression freezes its selection before execution without a fixed exc
     assert.match(implementation,/const selectedCaseIds = selectedIntentCaseIds;/);
   } finally { fs.rmSync(isolatedOut,{recursive:true,force:true}); }
 });
+
