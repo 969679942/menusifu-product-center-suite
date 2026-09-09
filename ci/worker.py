@@ -236,7 +236,8 @@ def process_task(task,queue):
         if limit<=0:break
         excerpt=value[:limit];total+=len(excerpt)
         prompt+='\nFILE '+path.relative_to(evidence).as_posix()+(' [TRUNCATED]' if len(value)>limit else '')+'\n'+excerpt+'\nEND FILE\n'
-    for path in [ROOT/'ci/AI-LOOP.md',pathlib.Path(r'D:\Menusifu\Test Automation Platform\AGENTS.md'),pathlib.Path(r'D:\Menusifu\Test Automation Platform\FINAL-GOAL.md')]:
+    tap_root = pathlib.Path(os.environ.get('TAP_SOURCE_ROOT', r'D:\Menusifu\Test Automation Platform'))
+    for path in [ROOT/'ci/AI-LOOP.md',tap_root/'AGENTS.md',tap_root/'FINAL-GOAL.md']:
         if path.exists():prompt+='\nGOVERNANCE '+str(path)+'\n'+path.read_text(encoding='utf-8-sig')[:18000]+'\nEND GOVERNANCE\n'
     for path in [ROOT/'tap/src/ci/transport-contract.cjs',ROOT/'tap/src/ci/result-bundle.cjs',ROOT/'ci/reporting-smoke.spec.ts',ROOT/'ci/reporting-smoke.config.ts']:
         if path.exists():prompt+='\nSOURCE '+str(path.relative_to(ROOT))+'\n'+path.read_text(encoding='utf-8-sig')+'\nEND SOURCE\n'

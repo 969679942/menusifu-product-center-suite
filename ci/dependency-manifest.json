@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "projectId": "merchant-center",
+  "repositories": {
+    "pcs": { "role": "orchestrator", "checkout": "current-job" },
+    "mc": {
+      "role": "business-source",
+      "repository": "git@github.com:969679942/Merchant-Center.git",
+      "revision": "${MC_GIT_SHA}",
+      "checkout": "sources/merchant-center"
+    },
+    "tap": {
+      "role": "public-runtime",
+      "repository": "${TAP_GIT_REPOSITORY}",
+      "revision": "${TAP_GIT_SHA}",
+      "checkout": "sources/tap"
+    }
+  },
+  "policy": {
+    "exactRevisionRequired": true,
+    "allowLocalAbsoluteSourceRoots": false,
+    "workspaceIsEphemeral": true
+  }
+}

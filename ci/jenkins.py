@@ -11,7 +11,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
-BASE = 'http://192.168.1.50:8081'
+BASE = os.environ.get('JENKINS_BASE_URL', 'http://192.168.1.50:8081').rstrip('/')
 JOB = 'menusifu-product-center-suite'
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
