@@ -22,6 +22,8 @@ test('automatic continuation requires an explicit flag and preserves pinned iden
  assert.match(pipeline,/build job: 'menusifu-product-center-suite', wait: false/);
  for(const name of ['GIT_SHA','MC_GIT_SHA','TAP_GIT_SHA','INTENT_ID']) assert.ok(pipeline.includes(`string(name: '${name}', value: params.${name})`));
  assert.match(pipeline,/password\(name: 'MC_RUNTIME_ENV'/);
+ assert.doesNotMatch(pipeline,/params.MC_RUNTIME_ENV\?\.trim/);
+ assert.match(pipeline,/env.MC_RUNTIME_ENV\?\.trim/);
  assert.match(pipeline,/chain-checkpoint.json/);
  assert.equal((pipeline.match(/build job:/g)||[]).length,1);
 });

@@ -26,7 +26,7 @@ node {
       if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
-      if (params.AUTO_CHAIN == true && !params.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
+      if (params.AUTO_CHAIN == true && !env.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
       def executionSucceeded = false
       deleteDir()
       try {
