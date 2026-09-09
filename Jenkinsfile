@@ -1,8 +1,11 @@
+def nextChainScope = null
 node {
   // Configure only the disposable repository; GitSCM does not retain all withEnv overrides.
   def prepareCheckout = {
     bat '''@echo off
     git init
+    if errorlevel 1 exit /b 1
+    git config --local core.longpaths true
     if errorlevel 1 exit /b 1
     git config --local http.proxy ""
     if errorlevel 1 exit /b 1
@@ -22,6 +25,9 @@ node {
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
+      if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
+      if (params.AUTO_CHAIN == true && !params.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
+      def executionSucceeded = false
       deleteDir()
       try {
         stage('Check agent GitHub connectivity') {
@@ -69,6 +75,7 @@ node {
           bat '@powershell -NoProfile -File suite-src/ci/link-tap-runtime.ps1'
         }
         load('suite-src/ci/pipeline.groovy')
+        executionSucceeded = true
       } finally {
         if (!fileExists('suite-src/output/ci/execution-report.html')) {
           writeFile file: 'jenkins-terminal-report.html', text: '<!doctype html><meta charset="utf-8"><title>商品中心执行报告</title><h1>INCOMPLETE</h1><p>构建在生成项目报告前终止。请查看 Jenkins Console Log。</p>'
@@ -98,8 +105,32 @@ node {
             echo 'No publishable Allure business result. See output/ci/execution-report.html and allure-audit.json in archived artifacts.'
           }
         }
+        if (params.AUTO_CHAIN == true && fileExists('suite-src/ci/chain-next.cjs')) {
+          stage('Persist chain decision') {
+            withEnv(["AUTO_CHAIN=true", "CHAIN_BUILD_RESULT=${executionSucceeded ? currentBuild.currentResult : 'FAILURE'}"]) {
+              nextChainScope = bat(returnStdout: true, script: '@node suite-src/ci/chain-next.cjs').trim()
+            }
+            archiveArtifacts artifacts: 'suite-src/output/ci/chain-checkpoint.json', fingerprint: true
+          }
+        }
       }
     }
+  }
+}
+// Release the executor before queuing this same Job. Jenkins persists this
+// continuation; there is no retry around this non-idempotent build step.
+if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
+  stage('Continue verified chain') {
+    build job: 'menusifu-product-center-suite', wait: false, parameters: [
+      string(name: 'GIT_SHA', value: params.GIT_SHA),
+      string(name: 'MC_GIT_SHA', value: params.MC_GIT_SHA),
+      string(name: 'TAP_GIT_SHA', value: params.TAP_GIT_SHA),
+      string(name: 'REQUEST_ID', value: "${params.REQUEST_ID}-${nextChainScope}"),
+      string(name: 'INTENT_ID', value: params.INTENT_ID),
+      string(name: 'RUN_SCOPE', value: nextChainScope),
+      booleanParam(name: 'AUTO_CHAIN', value: true),
+      password(name: 'MC_RUNTIME_ENV', value: params.MC_RUNTIME_ENV)
+    ]
   }
 }
 
