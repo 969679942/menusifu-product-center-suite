@@ -1,4 +1,6 @@
 node {
+  // Scope the GitHub proxy override to this job; never mutate agent/global Git settings.
+  withEnv(['GIT_CONFIG_COUNT=1', 'GIT_CONFIG_KEY_0=http.https://github.com.proxy', 'GIT_CONFIG_VALUE_0=']) {
   ws("${env.WORKSPACE}-isolated") {
     // Full regression runs the source-governed suite and the two seasoning
     // contexts in one executor.  Keep the job-local ceiling high enough for
@@ -83,3 +85,4 @@ node {
     }
   }
 }
+  }
