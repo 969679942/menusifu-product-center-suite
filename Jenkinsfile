@@ -22,7 +22,11 @@ node {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
       if (!(params.MC_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact MC_GIT_SHA required')
       if (!(params.TAP_GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact TAP_GIT_SHA required')
-      if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
+      // Generate a unique request identity when the UI leaves the optional
+      // field blank, so ordinary builds do not fail before checkout.
+      def requestId = params.REQUEST_ID?.trim()
+      if (!requestId) requestId = "jenkins-${env.JOB_NAME}-${env.BUILD_NUMBER}".replaceAll('[^a-zA-Z0-9-]', '-')
+      if (!(requestId ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       if (!(params.INTENT_ID ==~ /[0-9a-f-]{36}/)) error('Valid INTENT_ID required')
       if (!(params.RUN_SCOPE in ['contracts','reports','pilot','full-regression'])) error('Valid RUN_SCOPE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
@@ -52,7 +56,7 @@ node {
           writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
             schemaVersion: 2, intentId: params.INTENT_ID, gitSha: params.GIT_SHA,
             pcsGitSha: params.GIT_SHA, mcGitSha: params.MC_GIT_SHA, tapGitSha: params.TAP_GIT_SHA,
-            requestId: params.REQUEST_ID, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
+            requestId: requestId, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
             trigger: 'jenkins-parameterized-build'
           ]))
         }
@@ -125,7 +129,7 @@ if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
       string(name: 'GIT_SHA', value: params.GIT_SHA),
       string(name: 'MC_GIT_SHA', value: params.MC_GIT_SHA),
       string(name: 'TAP_GIT_SHA', value: params.TAP_GIT_SHA),
-      string(name: 'REQUEST_ID', value: "${params.REQUEST_ID}-${nextChainScope}"),
+      string(name: 'REQUEST_ID', value: "${requestId}-${nextChainScope}"),
       string(name: 'INTENT_ID', value: params.INTENT_ID),
       string(name: 'RUN_SCOPE', value: nextChainScope),
       booleanParam(name: 'AUTO_CHAIN', value: true),
