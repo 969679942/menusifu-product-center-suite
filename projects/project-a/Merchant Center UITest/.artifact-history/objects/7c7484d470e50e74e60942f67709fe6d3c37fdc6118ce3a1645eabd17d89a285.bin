@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-09-08T16:19:37.648Z",
+  "status": "static-review-complete-runtime-not-admitted",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开标准商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-商品描述达到500字符后输入框不可继续录-{当前时间戳毫秒}」）"
+      ],
+      "steps": [
+        "在商品描述输入 250 字符。",
+        "继续输入第 251 个字符。",
+        "读取输入框 maxlength、计数器和实际长度。"
+      ],
+      "expectedResults": [
+        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+      ],
+      "sources": [
+        "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-std-045"
+      ],
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "fingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+      "gap": "旧flow标题/green recipe仍写500，但当前正式来源明确250；缺三动作严格收据与同名不存在前置",
+      "nextObservation": "观察textarea身份、maxlength、250后继续输入251、计数器与实际长度",
+      "admissionStatus": "current-observation-required"
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-多规格商品点击去创建可跳转规格组新增页-{当前时间戳毫秒}」）",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "在商品价格区域选择多规格。",
+        "点击规格组旁的“去创建”入口。"
+      ],
+      "expectedResults": [
+        "成功跳转到规格组新增页。"
+      ],
+      "sources": [
+        "BR-ITEM-016、BR-ITEM-041"
+      ],
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "fingerprint": "28196ae289a223891b530c9ab819ed9b0c50fb59f44b28dc91146e85fa237f4e",
+      "gap": "旧probe接受任意路径变化或内嵌页签，不能单独证明规格组新增页；缺同名不存在前置",
+      "nextObservation": "观察入口身份、新窗口或同页目标路径及新增表单身份，结束关闭新窗口并恢复列表",
+      "admissionStatus": "current-observation-required"
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "在商品价格区域选择多规格。",
+        "查看是否称重商品选项状态。"
+      ],
+      "expectedResults": [
+        "是否称重商品选项置灰不可选。"
+      ],
+      "sources": [
+        "BR-ITEM-016、BR-ITEM-042"
+      ],
+      "title": "选择多规格后是否称重商品置灰不可选",
+      "fingerprint": "949a4acbc277634f666c6845f1b202fa474854d5e608ecd6dd84cfb20078dff5",
+      "gap": "现有探针可读disabled，尚无两动作一断言的当前正式收据",
+      "nextObservation": "观察多规格选中后称重Yes控件的唯一身份、实际disabled属性及可见禁用态",
+      "admissionStatus": "current-observation-required"
+    }
+  ],
+  "currentQualified": 12,
+  "newQualified": 0,
+  "formalCasesExecuted": 0,
+  "existingPassedRerun": 0,
+  "analysis": {
+    "priority": "必须",
+    "purpose": "按创建页依赖补齐三条具体缺口",
+    "expected": "获得精确来源及当前控件证据后再生成正式实现",
+    "impact": "独立新增实现；不修改12条已有合格的依赖文件，不重跑或失效已有收据；静态审计不判通过",
+    "maturity": "正式来源可追踪；当前控件身份及严格收据未齐，尚未准入"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "routes": [
+    {
+      "id": "standard-create",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "route": "/pp/brand/create/standard"
+    }
+  ],
+  "controls": [],
+  "fields": [],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "advanced-default-and-expanded",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "rule": "高级设置默认收起；展开后展示POS名称、送厨名称、助记码、行业商品、商品编码、单位、设备编码、起售数量"
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-STD-041:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "expectedValue": "高级设置区域默认收起。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-041:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "expectedValue": "页面默认不展示 POS 名称、送厨名称、助记码、行业商品、商品编码、单位、设备编码、起售数量字段。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-042:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "expectedValue": "高级设置区域成功展开。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-042:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 1233
+        }
+      ],
+      "expectedValue": "页面展示 POS 名称、送厨名称、助记码、行业商品、商品编码、单位、设备编码、起售数量 8 个字段。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    }
+  ],
+  "traceability": [],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "runtimeReadiness": "requires-current-DOM-observation",
+    "expectedFieldKeys": [
+      "posName",
+      "kitchenName",
+      "mnemonicCode",
+      "industryGoods",
+      "itemCode",
+      "unit",
+      "deviceCode",
+      "minimumOrderQuantity"
+    ],
+    "implementationConstraints": [
+      "不得由字段可见性推导折叠状态",
+      "读取异常不得转换为false",
+      "默认DOM未挂载字段须有当前展开态身份观察支持，不能把定位失效当隐藏",
+      "保留默认观察，再展开确认字段身份；结束时离开未提交表单",
+      "静态及只读审计不认定正式用例通过"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「标准商品-创建页高级设置区域默认不展开-{当前时间戳毫秒}」）",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "查看基础信息区域下方页面状态。"
+      ],
+      "expectedResults": [
+        "高级设置区域默认收起。",
+        "页面默认不展示 POS 名称、送厨名称、助记码、行业商品、商品编码、单位、设备编码、起售数量字段。"
+      ],
+      "sources": [
+        "BR-ITEM-008、BR-ITEM-009"
+      ],
+      "title": "标准商品创建页高级设置区域默认不展开",
+      "fingerprint": "466d3d560e5f28d5b34a697c65469a29a86ceec038fb547a68d46c032a98a03f",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "466d3d560e5f28d5b34a697c65469a29a86ceec038fb547a68d46c032a98a03f",
+      "assertionIds": [
+        "TC-ITEM-STD-041:expectation-1",
+        "TC-ITEM-STD-041:expectation-2"
+      ],
+      "sourceReady": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "点击高级设置展开入口。",
+        "查看展开后的字段。"
+      ],
+      "expectedResults": [
+        "高级设置区域成功展开。",
+        "页面展示 POS 名称、送厨名称、助记码、行业商品、商品编码、单位、设备编码、起售数量 8 个字段。"
+      ],
+      "sources": [
+        "BR-ITEM-008、BR-ITEM-009"
+      ],
+      "title": "点击展开高级设置后展示 POS 名称等 8 个字段",
+      "fingerprint": "8fbf38f9e35ec87a7babb291e70535c09428be643553a3328a79a1f3735e3b2b",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "8fbf38f9e35ec87a7babb291e70535c09428be643553a3328a79a1f3735e3b2b",
+      "assertionIds": [
+        "TC-ITEM-STD-042:expectation-1",
+        "TC-ITEM-STD-042:expectation-2"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

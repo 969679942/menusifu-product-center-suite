@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-09-08T15:01:19.940Z",
+  "validator": "black-box-test-contract-builder/scripts/validate-contract.mjs",
+  "valid": true,
+  "errorCount": 0,
+  "sourceContract": "contracts/product-center/test-cases/standard-required-name-acceptance.json",
+  "qualifiedFingerprintChecks": 9,
+  "businessAttempts": 0,
+  "goalTurnClassification": "progress",
+  "cost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD005-formal-source-contract",
+    "directionId": "STD005-formal-source-contract",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 83516,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD005-six-source-operations",
+      "STD005-three-source-assertions",
+      "STD005-isolation-fingerprints"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "99efffdbac05e2035eb113344b3c0fb7ad76e0bc81903d0a9b88bb50e5015692"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "next": "STD005-independent-implementation",
+  "tokenSampleCoverage": "goal cumulative between continuation and post-contract sample; excludes closing checkpoint write; billing unavailable"
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T06:11:32.577Z",
+  "status": "indexed-invocations-and-consumers-validated",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicContractsPassed": 115,
+    "projectContractsPassed": 2,
+    "subprocessReporter": "passed-after-fixture-annotation-correction",
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "assets": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "migration": "complete",
+    "reviewedMigrationChanges": 17
+  },
+  "evidence": [
+    "../Test Automation Platform/docs/run-evidence-index.md",
+    "../Test Automation Platform/tests/api/run-evidence-index.contract.spec.ts",
+    "../Test Automation Platform/tests/api/system-test-evidence-reporter-checkpoint.contract.spec.ts",
+    "tests/api/product-center-attempt-accounting.contract.spec.ts"
+  ],
+  "boundary": {
+    "indexedSnapshotsAuthorizeBusinessPass": false,
+    "externalSignedTrustAnchor": false,
+    "crossInvocationCountsImplemented": false,
+    "historicalMissingHeadsCountedAsZero": false,
+    "indexedLegacyOverwriteAllowed": false,
+    "actualBusinessIOCostMeasured": false
+  },
+  "pending": [
+    "same-runId-startup-exclusivity-before-bootstrap",
+    "partial-batch-resume",
+    "cross-invocation-telemetry",
+    "runner-wall-time-and-overhead",
+    "platform-only-fingerprint-impact-audit",
+    "205-current-item-admissions",
+    "97-source-derivation-differences",
+    "remaining-report-writers"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "historicalPassedResultsPreserved": true,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

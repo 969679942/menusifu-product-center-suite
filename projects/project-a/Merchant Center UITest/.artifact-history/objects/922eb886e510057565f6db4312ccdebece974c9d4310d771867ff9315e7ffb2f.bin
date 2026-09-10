@@ -1,0 +1,101 @@
+{
+  "recordedAt": "2026-09-08T12:39:05.886Z",
+  "unit": "standard-name-format-source-binding",
+  "unitStatus": "completed-with-findings",
+  "finalGoalStatus": "incomplete",
+  "execution": {
+    "runId": "standard-name-20260908-02",
+    "selected": 2,
+    "terminal": 2,
+    "executed": 2,
+    "passed": 1,
+    "failed": 1,
+    "currentQualifiedCaseIds": [
+      "TC-ITEM-STD-102"
+    ],
+    "productDeviationCaseIds": [
+      "TC-ITEM-STD-103"
+    ],
+    "cleanup": {
+      "serverIds": [
+        35503,
+        35504
+      ],
+      "apiResidue": 0,
+      "uiResidue": 0,
+      "negativeCleanupReconciledReadonly": true
+    },
+    "businessReplayDuringThisContinuation": 0
+  },
+  "proof": "deliverables/system-test-platform/standard-name-current-receipt-proof.json",
+  "finding": "deliverables/system-test-platform/standard-name-103-finding.json",
+  "passedCaseImpact": "ADD005/006/007资格保持；STD102现有运行收据通过正式动作/断言/上下文/清理准入；未重跑任何已通过用例。ADD002原历史通过事实保留，当前实现不匹配尚未解决。",
+  "validation": {
+    "reportingContracts": 2,
+    "indexAndReleaseContracts": 9,
+    "publicCurrentReceiptContracts": 7,
+    "scopeContracts": 2,
+    "sourceQualificationNegativeChecks": 5,
+    "typecheck": "passed",
+    "architecture": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "caseIndex": "passed",
+    "bindingCounts": {
+      "total": 628,
+      "landed": 434,
+      "excluded": 194
+    },
+    "migration": "complete",
+    "finalPublicGate": {
+      "status": "incomplete",
+      "reasons": [
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED",
+        "REFERENCE_BASELINE_NOT_READY"
+      ]
+    }
+  },
+  "currentReadiness": {
+    "formal": 220,
+    "notApplicable": 8,
+    "executable": 212,
+    "classifiedDeferred": 8,
+    "receiptContractRequired": 204,
+    "currentQualified": 4,
+    "incomplete": 200
+  },
+  "remaining197Precheck": {
+    "selected": 197,
+    "inspected": 197,
+    "withHistoricalAuditObservations": 28,
+    "contractReviewCandidates": 0,
+    "currentPassesAdded": 0,
+    "reasonCounts": {
+      "REGISTERED_REPORT_ATTEMPT_MISSING": 197
+    }
+  },
+  "currentUnitFindings": {
+    "product": "STD103需要研发按已批准BR-FMT-001修复；不用重复业务裁决",
+    "technical": "原finally掩盖主断言已从Allure恢复，但失败标准收据仍需公共机制与生成器接入；后续103重验前完成独立清理查询身份适配，不重跑102"
+  },
+  "nextUnit": {
+    "id": "standard-list-seven-source-implementation",
+    "caseIds": [
+      "TC-ITEM-STD-002",
+      "TC-ITEM-STD-003",
+      "TC-ITEM-STD-004",
+      "TC-ITEM-STD-063",
+      "TC-ITEM-STD-072",
+      "TC-ITEM-STD-073",
+      "TC-ITEM-STD-074"
+    ],
+    "status": "source-and-current-implementation-reviewed",
+    "review": "deliverables/system-test-platform/standard-list-seven-source-review.json",
+    "nextAction": "复核逐依赖影响与可复用接口；独立实现每案动作/断言/状态恢复，不以宽泛探测或静态合同授权业务通过"
+  },
+  "independentWorkMayContinue": true,
+  "externalPilotPolicy": "preserve-existing-deferred-startup-authorization",
+  "aiSinglePointCapabilities": "deferred-until-TAP-mature-and-later-discussion",
+  "secretValuesStored": false
+}

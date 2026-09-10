@@ -1,0 +1,94 @@
+{
+  "recordedAt": "2026-09-08T12:17:32.625Z",
+  "caseId": "TC-ITEM-STD-102",
+  "status": "current-receipt-qualified",
+  "reportPath": "output/product-center-item-handled-standard-name-20260908-02-handled-item-revalidation.json",
+  "reportSha256": "e30f0962d7e5e112d8c56da036c5ec59b74e32831b5e1a7a14f894ac503b8bd7",
+  "observationPath": "deliverables/system-test-platform/readonly-standard-residue-observation.json",
+  "observationSha256": "01651bc05178dd2004784edb18f191d2c52bc609d23baaecbe8d714975860000",
+  "contractPath": "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+  "contractSha256": "8d056dde63a0f1f362d02ae004eb265c6b71c9ba54a07dba85a996039707a8ee",
+  "qualification": {
+    "accepted": true,
+    "reasons": []
+  },
+  "negativeChecks": [
+    {
+      "name": "missing-save",
+      "accepted": false,
+      "reasons": [
+        "BUSINESS_OPERATION_OCCURRENCE_MISSING",
+        "OPERATION_RECEIPT_CARDINALITY_INVALID",
+        "OPERATION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "missing-price",
+      "accepted": false,
+      "reasons": [
+        "RECEIPT_FINGERPRINT_MISMATCH",
+        "SUPPORTING_OPERATION_OCCURRENCE_MISSING"
+      ]
+    },
+    {
+      "name": "missing-assertions",
+      "accepted": false,
+      "reasons": [
+        "ASSERTION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "missing-ui-cleanup",
+      "accepted": false,
+      "reasons": [
+        "CLEANUP_IDENTITY_SET_MISMATCH",
+        "CLEANUP_OBSERVATION_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "wrong-brand",
+      "accepted": false,
+      "reasons": [
+        "EXECUTION_CONTEXT_MISMATCH",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    }
+  ],
+  "sourceSteps": [
+    "「商品名称」输入恰好 100 个字符的唯一名称，名称首尾均不是空格且字符中间包含 1 个空格。",
+    "「起售数量」填写 `1`；「标准价」填写 `10.00`。",
+    "点击「保存」。",
+    "返回商品列表，按完整商品名称查询。"
+  ],
+  "sourceMappingAuthority": "formal4 actions plus independently inspected runner/flow/form/list/auth/cleanup call tree",
+  "expectedContext": {
+    "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+    "environmentId": "balamxqa",
+    "tenantScope": "000407",
+    "locale": "und",
+    "roleId": "merchant-operator",
+    "route": "/pp/brand/list"
+  },
+  "cleanup": {
+    "apiZeroResidue": true,
+    "uiZeroResidue": true,
+    "uiVerificationObserved": true,
+    "apiIdentityCounts": {
+      "AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN": 0
+    },
+    "uiIdentityCounts": {
+      "AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN": 0
+    }
+  },
+  "existingAddonQualified": [
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007"
+  ],
+  "businessReruns": 0,
+  "reuseStatus": "run-only",
+  "releaseStability": "derived-unstable"
+}

@@ -14,7 +14,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
     expect(!fs.existsSync(publicArtifacts) || fs.readdirSync(publicArtifacts).length === 0).toBe(true);
     expect(fs.existsSync(path.join(projectRoot, 'deliverables/system-test-platform'))).toBe(true);
     expect(fs.existsSync(path.join(projectRoot, 'adapters/test-automation-platform/reports'))).toBe(true);
-    expect(fs.existsSync(path.join(workspaceRoot, 'deliverables/system-test-platform'))).toBe(false);
+    expect(!fs.existsSync(path.join(platformRoot, 'deliverables/system-test-platform')) || fs.readdirSync(path.join(platformRoot, 'deliverables/system-test-platform')).length === 0).toBe(true);
   });
 
   test('商品中心项目适配描述必须绑定自己的产物身份', async () => {
@@ -43,7 +43,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
     });
     const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
     expect(packageJson.scripts['close:test-platform:migration']).toBe(
-      'tsx "../../Test Automation Platform/scripts/run-project-lifecycle.ts" --project-root=. --action=close',
+      'tsx "../Test Automation Platform/scripts/run-project-lifecycle.ts" --project-root=. --action=close',
     );
     const pathAdapterSource = fs.readFileSync(
       path.join(projectRoot, 'utils/system-test-platform-paths.ts'),
@@ -58,7 +58,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
     };
     for (const [command, action] of Object.entries(lifecycleCommands)) {
       expect(packageJson.scripts[command], command).toContain(
-        `../../Test Automation Platform/scripts/run-project-lifecycle.ts\" --project-root=. --action=${action}`,
+        `../Test Automation Platform/scripts/run-project-lifecycle.ts\" --project-root=. --action=${action}`,
       );
     }
   });
@@ -76,8 +76,8 @@ test.describe('商品中心公共测试平台适配合同', () => {
       'verify:system-test-reference',
     ];
     for (const command of commands) {
-      expect(packageJson.scripts[command], command).toContain('../../Test Automation Platform/scripts/');
-      expect(packageJson.scripts[command], command).toMatch(/^tsx "\.\.\/\.\.\/Test Automation Platform\/scripts\//);
+      expect(packageJson.scripts[command], command).toContain('../Test Automation Platform/scripts/');
+      expect(packageJson.scripts[command], command).toMatch(/^tsx "\.\.\/Test Automation Platform\/scripts\//);
     }
   });
 
@@ -95,7 +95,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
       .filter((fileName) => fileName.endsWith('.ts'))
       .filter((fileName) => {
         const source = fs.readFileSync(path.join(bridgeRoot, fileName), 'utf8').trim();
-        return !/^export \* from ['"]\.\.\/\.\.\/\.\.\/\.\.\/Test Automation Platform\/src\/automation\/system-test\/[a-z0-9-]+['"];?$/.test(source);
+        return !/^export \* from ['"]\.\.\/\.\.\/\.\.\/Test Automation Platform\/src\/automation\/system-test\/[a-z0-9-]+['"];?$/.test(source);
       });
     expect(violations).toEqual([]);
   });
@@ -128,7 +128,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
     ];
     for (const fileName of acceptanceBridges) {
       const source = fs.readFileSync(path.join(projectRoot, 'utils/acceptance', fileName), 'utf8').trim();
-      expect(source, fileName).toMatch(/^export \* from ['"]\.\.\/\.\.\/\.\.\/\.\.\/Test Automation Platform\/src\/acceptance\/[a-z0-9-]+['"];?$/);
+      expect(source, fileName).toMatch(/^export \* from ['"]\.\.\/\.\.\/\.\.\/Test Automation Platform\/src\/acceptance\/[a-z0-9-]+['"];?$/);
     }
 
     const processBridges = [
@@ -145,7 +145,7 @@ test.describe('商品中心公共测试平台适配合同', () => {
         expect(source).toContain('Test Automation Platform/src/governance/api-lifecycle');
         continue;
       }
-      expect(source, fileName).toMatch(/^export \* from ['"]\.\.\/\.\.\/\.\.\/Test Automation Platform\/src\/utils\/[a-z0-9-]+['"];?$/);
+      expect(source, fileName).toMatch(/^export \* from ['"]\.\.\/\.\.\/Test Automation Platform\/src\/utils\/[a-z0-9-]+['"];?$/);
     }
 
     const projectType = fs.readFileSync(path.join(projectRoot, 'acceptance/projects/acceptance-project.ts'), 'utf8');

@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-09-08T15:01:19.914Z",
+  "input": {
+    "unitId": "STD005-formal-source-contract",
+    "directionId": "STD005-formal-source-contract",
+    "phase": "after-unit",
+    "tokenStart": 1012810,
+    "tokenCurrent": 1096326,
+    "elapsedMs": 136000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "STD005-six-source-operations",
+      "STD005-three-source-assertions",
+      "STD005-isolation-fingerprints"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "contracts/product-center/test-cases/standard-required-name-acceptance.json",
+        "sha256": "99efffdbac05e2035eb113344b3c0fb7ad76e0bc81903d0a9b88bb50e5015692",
+        "kind": "formal-source"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD005-formal-source-contract",
+    "directionId": "STD005-formal-source-contract",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 83516,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD005-six-source-operations",
+      "STD005-three-source-assertions",
+      "STD005-isolation-fingerprints"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "99efffdbac05e2035eb113344b3c0fb7ad76e0bc81903d0a9b88bb50e5015692"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { FileAuditEventStore, type AuditEventInput } from '../../../Test Automation Platform/src/audit/event-log';
+import { FileAuditEventStore, type AuditEventInput } from '../../Test Automation Platform/src/audit/event-log';
 import {
   adaptProductCenterClosureAudit,
   adaptProductCenterExecutionReceipts,

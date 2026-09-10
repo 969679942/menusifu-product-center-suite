@@ -36,12 +36,16 @@ test.describe('商品中心业务规则人工可读治理目录合同', () => {
     expect(ledger.find((item) => item.ruleId === 'BR-ITEM-021')?.statement).toBe('未提取到独立规则正文，仅保留原文引用位置');
   });
 
-  test('当前160条文档规则分类守恒且二十八条正式规则唯一完整', () => {
+  test('当前文档规则分类守恒且正式规则唯一完整', () => {
     const report = buildProductCenterBusinessRuleGovernanceCatalog();
+    const lifecycle = JSON.parse(fs.readFileSync(path.join(
+      projectRoot,
+      'contracts/product-center/business-rules/generated/product-center-business-rule-lifecycle-snapshot.json',
+    ), 'utf8')) as { summary: { formalBindings: number } };
     expect(report.summary).toMatchObject({
       documentRules: 160,
-      formalRules: 28,
-      pendingLifecycleRules: 126,
+      formalRules: lifecycle.summary.formalBindings,
+      pendingLifecycleRules: 148,
       conflictedRules: 0,
       historicalRules: 5,
       deprecatedRules: 1,
@@ -51,8 +55,8 @@ test.describe('商品中心业务规则人工可读治理目录合同', () => {
     expect(report.classificationConservation).toEqual({ expected: 160, actual: 160, valid: true });
     const formalDocument = fs.readFileSync(path.join(catalogRoot, '01-当前正式规则.md'), 'utf8');
     const formalHeadings = [...formalDocument.matchAll(/^## (BR-[A-Z0-9-]+)$/gm)].map((match) => match[1]);
-    expect(formalHeadings).toHaveLength(28);
-    expect(new Set(formalHeadings).size).toBe(28);
+    expect(formalHeadings).toHaveLength(lifecycle.summary.formalBindings);
+    expect(new Set(formalHeadings).size).toBe(lifecycle.summary.formalBindings);
   });
 
   test('待核验规则按模块可定位且候选不混入文档规则清单', () => {
@@ -63,7 +67,7 @@ test.describe('商品中心业务规则人工可读治理目录合同', () => {
     const pendingRuleIds = coverage.documentRuleLedger
       .filter((item: { status: string }) => item.status === 'document-registered-pending-lifecycle')
       .map((item: { ruleId: string }) => item.ruleId);
-    expect(pendingRuleIds).toHaveLength(126);
+    expect(pendingRuleIds).toHaveLength(148);
     for (const ruleId of pendingRuleIds) expect(pendingDocument).toContain(`| ${ruleId} |`);
     expect(report.summary.candidateRules).toBe(225);
     expect(pendingDocument).not.toContain('225 条候选规则明细');

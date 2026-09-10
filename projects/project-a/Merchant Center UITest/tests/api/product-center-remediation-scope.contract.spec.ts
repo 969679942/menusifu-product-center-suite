@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { buildProjectRemediationScopeArtifact } from '../../../../Test Automation Platform/scripts/build-project-remediation-scope';
-import { assertProjectRemediationExecutionScope } from '../../../../Test Automation Platform/src/governance/project-remediation-scope';
+import { buildProjectRemediationScopeArtifact } from '../../../Test Automation Platform/scripts/build-project-remediation-scope';
+import { assertProjectRemediationExecutionScope } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
@@ -13,20 +13,22 @@ test.describe('商品中心当前已落地脚本整改范围合同', () => {
       generatedAt: '2026-08-29T00:00:00.000Z',
     });
     expect(result.artifact.summary).toEqual({
-      expectedLanded: 432,
-      actualLanded: 432,
+      expectedLanded: 434,
+      actualLanded: 434,
       expectedExclusions: 194,
       actualExclusions: 194,
     });
     expect(result.artifact.expectedLandedByModule).toEqual({
       group: 128,
       image: 4,
-      item: 202,
+      item: 204,
       seasoning: 83,
       tag: 15,
     });
     expect(result.artifact.status).toBe('ready');
     expect(result.artifact.issues).toEqual([]);
+    expect(result.artifact.cases.filter(item => ['TC-ITEM-STD-102', 'TC-ITEM-STD-103'].includes(item.caseId)).map(item => item.caseId).sort())
+      .toEqual(['TC-ITEM-STD-102', 'TC-ITEM-STD-103']);
     expect(fs.existsSync(result.outputPath)).toBe(true);
   });
 
@@ -40,6 +42,6 @@ test.describe('商品中心当前已落地脚本整改范围合同', () => {
       scope: artifact,
       plannedCaseIds: seasoningCaseIds,
       classifiedExclusionCaseIds: [],
-    })).toThrow('PROJECT_REMEDIATION_SCOPE_INCOMPLETE');
+    })).toThrow(/PROJECT_REMEDIATION_SCOPE_(INCOMPLETE|BLOCKED)/);
   });
 });

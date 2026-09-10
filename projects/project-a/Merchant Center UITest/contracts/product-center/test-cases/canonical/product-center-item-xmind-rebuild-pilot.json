@@ -2,64 +2,29 @@
   "schemaVersion": "1.0.0",
   "collectionId": "product-center-item-xmind-rebuild-pilot",
   "status": "review-required",
-  "generatedAt": "2026-08-30T10:06:52.499Z",
+  "generatedAt": "2026-09-06T07:11:39.101Z",
   "summary": {
     "originalXmindLeaves": 48,
     "originalXmindCompleteChains": 9,
-    "formalCases": 216,
-    "structurallyValidFormalCases": 123,
-    "structurallyInvalidFormalCases": 93,
+    "formalCases": 220,
+    "structurallyValidFormalCases": 120,
+    "structurallyInvalidFormalCases": 100,
     "productCorrectedCases": 14,
     "expertCorrectedSourceCases": 54,
     "evidencePromotedCases": 14,
     "reviewSplitCases": 8,
-    "sourceNormalizedCases": 44,
-    "structureNormalizedCases": 0,
+    "sourceNormalizedCases": 45,
+    "structureNormalizedCases": 2,
     "pageSupplementCases": 8,
-    "rebuiltCases": 232,
-    "pendingFullReview": 195,
-    "reviewRequired": 30,
+    "rebuiltCases": 236,
+    "pendingFullReview": 198,
+    "reviewRequired": 31,
     "deprecated": 7,
-    "p0": 87,
-    "p1": 136,
+    "p0": 88,
+    "p1": 139,
     "p2": 9
   },
   "cases": [
-    {
-      "id": "TC-ITEM-STD-037",
-      "title": "不选择商品分类时标准商品创建成功",
-      "priority": "P0",
-      "productType": "标准商品",
-      "scenarioFamily": "创建",
-      "source": "业务规则明确 ← BR-ITEM-022",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「标准商品-不选择商品分类创建-{当前时间戳毫秒}」）",
-        "已进入 商品管理 → 商品 列表页。",
-        "已打开标准商品创建页。",
-        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-不选择商品分类创建-{当前时间戳毫秒}」）"
-      ],
-      "actions": [
-        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
-        "点击右上角【新增商品】按钮，进入选择商品类型页面",
-        "点击【标准商品】-【去创建】，进入创建标准商品页面",
-        "填写商品信息： 商品名称：标准商品-不选择商品分类创建-{当前时间戳毫秒} 商品规格：选择【单规格】（不选择商品分类） 展开「高级设置」，「起售数量」填写 `1` 「标准价」填写 `10.00`",
-        "点击右上角【保存】按钮",
-        "在商品列表按本次商品名称查询该商品"
-      ],
-      "expectedResults": [
-        "页面展示「提交成功」的 Toast 提示。",
-        "列表按 「标准商品-不选择商品分类创建-{当前时间戳毫秒}」 查询有且仅有 1 条记录。",
-        "列表可搜索到 「标准商品-不选择商品分类创建-{当前时间戳毫秒}」，商品名称与标准价 `10.00` 与提交一致。"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "expert-reviewed-corrected",
-      "diagnostics": [
-        "SOURCE_FORMAT_NORMALIZED",
-        "FULL_REVIEW_CORRECTED"
-      ]
-    },
     {
       "id": "TC-ITEM-STD-036",
       "title": "标准商品仅填写必填项时创建成功",
@@ -410,11 +375,11 @@
     },
     {
       "id": "TC-ITEM-STD-011",
-      "title": "同一一级分类下新建同名商品创建失败",
+      "title": "同一商户同一商品类型内新建同名商品创建失败",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
-      "source": "XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个一级分类下，新建相同商品名称的商品，创建失败",
+      "source": "产品确认明确 ← BR-ITEM-010；XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个一级分类下，新建相同商品名称的商品，创建失败",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "一级分类 A 下存在二级分类 A 和 B（若不存在，先在【商品管理】-【分类】中创建）",
@@ -425,10 +390,12 @@
         "点击右上角【新增商品】按钮，进入选择商品类型页面",
         "点击【标准商品】-【去创建】，进入创建标准商品页面",
         "填写商品信息： 商品名称：item1 商品分类：选择一级分类 A 下的二级分类 B 「商品规格」选择【单规格】 「标准价」填写 `10.00`",
-        "点击右上角【保存】按钮"
+        "点击右上角【保存】按钮",
+        "读取接口响应错误码并按商品名称查询列表记录数"
       ],
       "expectedResults": [
-        "保存失败，页面提示存在同名商品。"
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，同名标准商品记录数不增加。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -437,11 +404,11 @@
     },
     {
       "id": "TC-ITEM-STD-013",
-      "title": "同一二级分类下新建同名商品创建失败",
+      "title": "同一商品类型同一二级分类下新建同名商品创建失败",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
-      "source": "XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个二级分类下，新建相同商品名称的商品，创建失败",
+      "source": "产品确认明确 ← BR-ITEM-010；XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个二级分类下，新建相同商品名称的商品，创建失败",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-同一二级分类下新建同名商品创建-{当前时间戳毫秒}」）",
@@ -453,10 +420,12 @@
         "点击右上角【新增商品】按钮，进入选择商品类型页面",
         "点击【标准商品】-【去创建】，进入创建标准商品页面",
         "填写商品信息： 商品名称：item1 商品分类：选择一级分类 A 下的二级分类 A 「商品规格」选择【单规格】 「标准价」填写 `10.00`",
-        "点击右上角【保存】按钮"
+        "点击右上角【保存】按钮",
+        "读取接口响应错误码并按商品名称查询列表记录数"
       ],
       "expectedResults": [
-        "保存失败，页面提示存在同名商品。"
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，同名标准商品记录数不增加。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -465,11 +434,11 @@
     },
     {
       "id": "TC-ITEM-STD-014",
-      "title": "同一商户下不同一级分类仍不可创建同名商品",
+      "title": "同一商户同一商品类型下不同一级分类仍不可创建同名商品",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
-      "source": "BR-ITEM-010",
+      "source": "产品确认明确 ← BR-ITEM-010",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-同一商户下不同一级分类仍不可创建同名商品-{当前时间戳毫秒}」）",
@@ -481,11 +450,12 @@
         "点击右上角【新增商品】按钮，进入选择商品类型页面",
         "点击【标准商品】-【去创建】，进入创建标准商品页面",
         "填写商品信息： 商品名称：item1 商品分类：选择一级分类 B 下的有效二级分类 「商品规格」选择【单规格】 「标准价」填写 `10.00`",
-        "点击右上角【保存】按钮"
+        "点击右上角【保存】按钮",
+        "读取接口响应错误码并按商品名称查询列表记录数"
       ],
       "expectedResults": [
-        "保存失败，页面拦截保存。",
-        "商品名称字段提示重复或页面提示存在同名商品。"
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，同名标准商品记录数不增加；改变一级或二级分类不改变判重结论。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -522,35 +492,6 @@
       "diagnostics": []
     },
     {
-      "id": "TC-ITEM-ADD-014",
-      "title": "加料商品同一一级分类下同名创建失败",
-      "priority": "P0",
-      "productType": "加料商品",
-      "scenarioFamily": "创建",
-      "source": "BR-ITEM-010、BR-CAT-005",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-同一一级分类下同名创建-{当前时间戳毫秒}」）",
-        "当前品牌下已存在名称为 `ADD_DUP_001` 的加料商品。",
-        "已打开加料商品创建页。"
-      ],
-      "actions": [
-        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
-        "点击右上角【新增商品】按钮，进入选择商品类型页面",
-        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
-        "填写与已有加料商品同名的商品名称、同一一级分类、标准价 `5.00`",
-        "点击右上角【保存】按钮"
-      ],
-      "expectedResults": [
-        "保存失败，页面拦截保存。",
-        "商品名称字段提示重复。"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "unchanged",
-      "diagnostics": []
-    },
-    {
       "id": "TC-ITEM-ADD-047",
       "title": "加料商品名称首尾含空格时保存失败",
       "priority": "P0",
@@ -579,40 +520,12 @@
       "diagnostics": []
     },
     {
-      "id": "TC-ITEM-STD-044",
-      "title": "品牌内商品名称重复时创建失败",
-      "priority": "P0",
-      "productType": "标准商品",
-      "scenarioFamily": "价格规格",
-      "source": "BR-ITEM-010、BR-CAT-005",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」）",
-        "当前品牌下已存在商品名称为 「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」 的商品。",
-        "已打开标准商品创建页。"
-      ],
-      "actions": [
-        "商品名称填写 「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」。",
-        "起售数量填写 `1`。",
-        "标准价填写 `10.00`。",
-        "点击保存。"
-      ],
-      "expectedResults": [
-        "保存失败，页面拦截保存。",
-        "商品名称字段提示品牌内名称重复。"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "unchanged",
-      "diagnostics": []
-    },
-    {
       "id": "TC-ITEM-PKG-024",
-      "title": "套餐商品同一一级分类下同名创建失败",
+      "title": "同一商户同一商品类型内套餐商品同名创建失败",
       "priority": "P0",
       "productType": "套餐商品",
       "scenarioFamily": "套餐规则",
-      "source": "BR-ITEM-010、BR-CAT-005",
+      "source": "产品确认明确 ← BR-ITEM-010",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「套餐商品-同一一级分类下同名创建-{当前时间戳毫秒}」）",
@@ -624,38 +537,12 @@
         "点击右上角【新增商品】按钮，进入选择商品类型页面",
         "点击【套餐商品】-【去创建】，进入创建套餐商品页面",
         "填写商品名称（与已有商品同名）、选择同一一级分类下已有套餐名称、选择套餐组、填写标准价",
-        "点击右上角【保存】按钮"
+        "点击右上角【保存】按钮",
+        "读取接口响应错误码并按商品名称查询列表记录数"
       ],
       "expectedResults": [
-        "保存失败，页面拦截保存。",
-        "商品名称字段提示重复。"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "unchanged",
-      "diagnostics": []
-    },
-    {
-      "id": "TC-ITEM-PKG-025",
-      "title": "套餐商品同商户同类型同名创建失败",
-      "priority": "P0",
-      "productType": "套餐商品",
-      "scenarioFamily": "套餐规则",
-      "source": "BR-ITEM-010、BR-CAT-005",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「套餐商品-同商户同类型同名创建-{当前时间戳毫秒}」）",
-        "当前商户下已存在名称为 `PKG_DUP_001` 的套餐商品，分类可与本次创建不同。",
-        "已打开套餐商品创建页。"
-      ],
-      "actions": [
-        "商品名称填写 `PKG_DUP_001`。",
-        "「起售数量」填写 `1`；选择 1 个有效套餐组；「标准价」填写 `10.00`。",
-        "点击保存。"
-      ],
-      "expectedResults": [
-        "保存失败，页面拦截保存；改变分类不改变重复判定。",
-        "商品名称字段或页面提示重复。"
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，同名套餐商品记录数不增加。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -686,6 +573,143 @@
         "页面仍停留在商品创建页，未出现保存成功提示。",
         "「商品名称」字段出现格式校验提示（首尾不可为空格，以现网文案为准）。",
         "列表按 `商品名称-autocreate-pkg-076` 查询，无本次新建记录。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "unchanged",
+      "diagnostics": []
+    },
+    {
+      "id": "TC-ITEM-STD-044",
+      "title": "同一商户同一商品类型内商品名称重复时创建或编辑失败",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "编辑",
+      "source": "产品确认明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」）",
+        "当前品牌下已存在同类型标准商品，名称为 「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」。",
+        "当前品牌下另有标准商品 「标准商品-编辑判重目标-{当前时间戳毫秒}」，用于编辑判重。",
+        "已打开标准商品创建页。"
+      ],
+      "actions": [
+        "商品名称填写 「商品-品牌内商品名称重复创建-{当前时间戳毫秒}」。",
+        "起售数量填写 `1`。",
+        "标准价填写 `10.00`。",
+        "点击保存。",
+        "读取接口响应错误码并按商品名称查询列表记录数。",
+        "返回列表打开「标准商品-编辑判重目标-{当前时间戳毫秒}」编辑页，将名称改为已有标准商品名称并保存。",
+        "读取编辑接口响应错误码，重新进入编辑页并按名称查询列表。"
+      ],
+      "expectedResults": [
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，列表中同名标准商品记录数不增加。",
+        "编辑同类型重复名称同样失败，UI/API 均返回 `BITEM-7014`，编辑目标原名称保持不变，列表仍展示原名称。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "unchanged",
+      "diagnostics": []
+    },
+    {
+      "id": "TC-ITEM-ADD-014",
+      "title": "同一商户同一商品类型内加料商品同名创建或编辑失败",
+      "priority": "P0",
+      "productType": "加料商品",
+      "scenarioFamily": "编辑",
+      "source": "产品确认明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-同一一级分类下同名创建-{当前时间戳毫秒}」）",
+        "当前品牌下已存在名称为 `ADD_DUP_001` 的加料商品。",
+        "当前品牌下另有名称为 `ADD_EDIT_TARGET_001` 的加料商品，用于编辑判重。",
+        "已打开加料商品创建页。"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+        "填写与已有加料商品同名的商品名称、同一一级分类、标准价 `5.00`",
+        "点击右上角【保存】按钮",
+        "读取接口响应错误码并按商品名称查询列表记录数",
+        "返回列表打开 `ADD_EDIT_TARGET_001` 编辑页，将名称改为 `ADD_DUP_001` 并保存",
+        "读取编辑接口响应错误码，重新进入编辑页并按名称查询列表"
+      ],
+      "expectedResults": [
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+        "API 返回错误码 `BITEM-7014`，同名加料商品记录数不增加。",
+        "编辑同类型重复名称同样失败，UI/API 均返回 `BITEM-7014`，编辑目标原名称保持不变，列表仍展示原名称。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "unchanged",
+      "diagnostics": []
+    },
+    {
+      "id": "TC-ITEM-PKG-025",
+      "title": "套餐商品同商户同类型同名创建或编辑失败",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "编辑",
+      "source": "产品确认明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「套餐商品-同商户同类型同名创建-{当前时间戳毫秒}」）",
+        "当前商户下已存在名称为 `PKG_DUP_001` 的套餐商品，分类可与本次创建不同。",
+        "当前商户下另有名称为 `PKG_EDIT_TARGET_001` 的套餐商品，用于编辑判重。",
+        "已打开套餐商品创建页。"
+      ],
+      "actions": [
+        "商品名称填写 `PKG_DUP_001`。",
+        "「起售数量」填写 `1`；选择 1 个有效套餐组；「标准价」填写 `10.00`。",
+        "点击保存。",
+        "读取接口响应错误码并按商品名称查询列表记录数。",
+        "返回列表打开 `PKG_EDIT_TARGET_001` 编辑页，将名称改为 `PKG_DUP_001` 并保存。",
+        "读取编辑接口响应错误码，重新进入编辑页并按名称查询列表。"
+      ],
+      "expectedResults": [
+        "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`；改变分类不改变重复判定。",
+        "API 返回错误码 `BITEM-7014`，同名套餐商品记录数不增加。",
+        "编辑同类型重复名称同样失败，UI/API 均返回 `BITEM-7014`，编辑目标原名称保持不变，列表仍展示原名称。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "unchanged",
+      "diagnostics": []
+    },
+    {
+      "id": "TC-ITEM-PKG-079",
+      "title": "标准商品与套餐商品跨类型同名创建或编辑失败",
+      "priority": "P0",
+      "productType": "套餐商品",
+      "scenarioFamily": "编辑",
+      "source": "产品确认明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在本用例使用的名称 `CROSS_STD_PKG_{当前时间戳毫秒}`、`CROSS_PKG_STD_{当前时间戳毫秒}`。",
+        "当前商户下存在至少 1 个可用套餐分组，且该分组包含可选择的有效商品。",
+        "已进入 商品管理 → 商品 列表页。"
+      ],
+      "actions": [
+        "创建名称为 `CROSS_STD_PKG_{当前时间戳毫秒}` 的标准商品并保存成功",
+        "创建套餐商品并填写相同名称 `CROSS_STD_PKG_{当前时间戳毫秒}`，选择有效套餐分组、起售数量 `1`、标准价 `10.00`，点击【保存】",
+        "读取 UI 提示、创建接口响应，并按名称和商品类型查询列表记录",
+        "创建名称为 `CROSS_PKG_STD_{当前时间戳毫秒}` 的套餐商品并保存成功",
+        "创建标准商品并填写相同名称 `CROSS_PKG_STD_{当前时间戳毫秒}`，选择单规格、标准价 `10.00`，点击【保存】",
+        "读取 UI 提示、创建接口响应，并按名称和商品类型查询列表记录",
+        "创建一条名称为 `CROSS_EDIT_STD_{当前时间戳毫秒}` 的标准商品和一条名称为 `CROSS_EDIT_PKG_{当前时间戳毫秒}` 的套餐商品，均保存成功",
+        "打开标准商品 `CROSS_EDIT_STD_{当前时间戳毫秒}` 编辑页，将名称改为已存在的套餐商品名称 `CROSS_EDIT_PKG_{当前时间戳毫秒}` 并点击【保存】",
+        "读取标准商品编辑 UI 提示、API 响应和列表/详情中的最终名称",
+        "打开套餐商品 `CROSS_EDIT_PKG_{当前时间戳毫秒}` 编辑页，将名称改为已存在的标准商品名称 `CROSS_EDIT_STD_{当前时间戳毫秒}` 并点击【保存】",
+        "读取套餐商品编辑 UI 提示、API 响应和列表/详情中的最终名称"
+      ],
+      "expectedResults": [
+        "步骤 2 的套餐商品创建失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`，API 返回 `BITEM-7014`，标准商品仍保留且同名套餐记录不增加",
+        "步骤 5 的标准商品创建失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`，API 返回 `BITEM-7014`，套餐商品仍保留且同名标准商品记录不增加",
+        "交换创建顺序不改变判重结论；分类是否相同不影响标准/套餐跨类型重名失败",
+        "标准商品改名为已有套餐商品名称时失败，UI/API 均提示 `BITEM-7014`，标准商品原名称保持不变",
+        "套餐商品改名为已有标准商品名称时失败，UI/API 均提示 `BITEM-7014`，套餐商品原名称保持不变"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -1209,18 +1233,23 @@
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "已进入 商品管理 → 商品 列表页。",
         "已打开套餐商品创建页。",
-        "当前品牌下不存在同名测试商品（本用例使用名称「套餐商品-未选择任何套餐组不可提交-{当前时间戳毫秒}」）"
+        "当前品牌下不存在同名测试商品（本用例使用名称「套餐商品-未选择任何套餐组不可提交-{当前时间戳毫秒}」）",
+        "当前品牌下存在一个已配置套餐分组的套餐商品，供编辑删除全部分组场景使用。"
       ],
       "actions": [
         "通过侧边栏进入商品列表并创建套餐商品",
         "填写商品名称、起售数量和标准价，不添加固定搭配或可选搭配套餐分组",
         "点击保存并查看页面提示",
-        "点击保存并新建并查看页面提示"
+        "点击保存并新建并查看页面提示",
+        "打开已有套餐商品编辑页，删除全部套餐分组并点击保存",
+        "返回商品列表后重新进入该套餐商品编辑页"
       ],
       "expectedResults": [
         "点击保存后页面仍停留在套餐商品创建页，并提示 BITEM-6003：套餐中未找到区块",
         "点击保存并新建后页面仍停留在套餐商品创建页，并提示 BITEM-6003：套餐中未找到区块",
-        "两次操作均未创建套餐商品"
+        "两次操作均未创建套餐商品",
+        "编辑页删除全部套餐分组后点击保存仍提示 BITEM-6003：套餐中未找到区块，保存失败且编辑页没有保存并新建入口",
+        "返回再进入编辑页时，原套餐分组和其他商品数据保持不变"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -2526,6 +2555,48 @@
       ]
     },
     {
+      "id": "TC-ITEM-STD-037",
+      "title": "不选择商品分类时标准商品创建成功",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "source": "BR-ITEM-CATEGORY-OPTIONAL；XMind已有",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「标准商品-不选择商品分类创建-{当前时间戳毫秒}」）",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开标准商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-不选择商品分类创建-{当前时间戳毫秒}」）",
+        "系统存在可保存的合法商品分类 A（若 A 有子分类，使用其叶子分类）"
+      ],
+      "actions": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "填写唯一商品名称，选择单规格，起售数量填写 1，标准价填写 10.00，不选择商品分类",
+        "点击右上角【保存】按钮",
+        "在商品列表按本次商品名称查询该商品",
+        "进入该商品编辑页，将商品分类设置为合法分类 A 并保存，按商品分类 A 过滤并重新打开编辑详情",
+        "重新进入编辑页，不修改商品分类直接保存，再次按分类 A 过滤并打开编辑详情",
+        "再次编辑该商品，主动清空商品分类并保存，按商品分类过滤列表并重新打开编辑详情"
+      ],
+      "expectedResults": [
+        "页面展示「提交成功」提示",
+        "列表按本次商品名称查询有且仅有 1 条记录",
+        "商品名称与标准价 10.00 与提交内容一致",
+        "编辑将分类设置为 A 后保存，列表过滤和编辑详情均回显 A",
+        "编辑时不修改分类直接保存，原分类 A 保持不变，列表过滤和编辑详情一致",
+        "显式清空分类后保存成功，列表可按空分类结果确认且编辑详情分类为空"
+      ],
+      "origin": "formal-plan",
+      "status": "review-required",
+      "changeType": "expert-reviewed-corrected",
+      "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT",
+        "FULL_REVIEW_CORRECTED"
+      ]
+    },
+    {
       "id": "TC-ITEM-STD-040",
       "title": "【已废弃 v3.3】起售数量为 0 时保存失败并提示 SYSTEM-0001（与 TC-ITEM-STD-022 重复）",
       "priority": "P0",
@@ -2558,35 +2629,104 @@
       ]
     },
     {
-      "id": "TC-ITEM-STD-094",
-      "title": "POS名称首尾含空格时保存失败",
+      "id": "TC-ITEM-PKG-078",
+      "title": "套餐商品与加料商品允许同名并同时保留",
       "priority": "P1",
-      "productType": "标准商品",
-      "scenarioFamily": "创建",
-      "source": "BR-FMT-001",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "source": "BR-ITEM-010",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "已进入 商品管理 → 商品 列表页。",
-        "已打开标准商品创建页。",
-        "当前品牌下不存在同名测试商品（本用例使用名称「商品-POS名称首尾含空格保存-{当前时间戳毫秒}」）"
+        "当前品牌下不存在商品名称 `CROSS_PKG_ADD_{当前时间戳毫秒}` 或 `PKG_RENAME_SOURCE_001` 的商品记录。",
+        "当前商户下存在至少 1 个可用套餐分组，且该分组包含可选择的有效商品。",
+        "当前商户下已存在名称为 `ADD_RENAME_TARGET_002` 的加料商品。",
+        "已进入 商品管理 → 商品 列表页。"
       ],
       "actions": [
-        "展开「高级设置」。",
-        "「商品名称」填写 「商品-POS名称首尾含空格保存-{当前时间戳毫秒}」。",
-        "「POS 名称」填写 `  POS名称-autocreate-094  `（首尾各含空格）。",
-        "「起售数量」填写 `1`；「标准价」填写 `10.00`。",
-        "点击「保存」。"
+        "点击【新增商品】并选择【套餐商品】，进入套餐商品创建页。",
+        "商品名称填写 `CROSS_PKG_ADD_{当前时间戳毫秒}`；起售数量填写 `1`；选择 1 个有效套餐分组；标准价填写 `10.00`。",
+        "点击【保存】。",
+        "再次点击【新增商品】并选择【配菜/加料】，进入加料商品创建页。",
+        "商品名称填写与步骤 2 完全相同的 `CROSS_PKG_ADD_{当前时间戳毫秒}`；标准价填写 `5.00`。",
+        "点击【保存】。",
+        "返回商品列表，按 `CROSS_PKG_ADD_{当前时间戳毫秒}` 查询并查看商品类型。",
+        "创建名称为 `PKG_RENAME_SOURCE_001` 的套餐商品并进入其编辑页。",
+        "将套餐商品名称修改为已有加料商品名称 `ADD_RENAME_TARGET_002`，点击【保存】。",
+        "读取编辑接口响应并按名称和商品类型查询列表。"
       ],
       "expectedResults": [
-        "页面仍停留在当前页，未出现保存/操作成功提示。",
-        "「POS 名称」字段出现格式校验提示（首尾不可为空格，以现网文案为准）。",
-        "商品列表按本次测试商品名称查询不到新增记录。"
+        "套餐商品保存不因已有同名加料商品规则而被拦截，套餐商品创建成功。",
+        "加料商品保存不因已有同名套餐商品规则而被拦截，加料商品创建成功。",
+        "列表按该唯一名称查询到且仅有 2 条记录，商品类型分别为【套餐商品】和【配菜/加料】；两条记录均可保留和查询。",
+        "套餐商品改名为已存在的加料商品名称时允许保存；UI 无重复拦截，API 编辑响应成功，列表展示新名称且原套餐商品名称不再存在。 清理要求：",
+        "删除本用例创建的套餐商品和加料商品，并按商品名称与服务端身份确认 UI/API 均无残留。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
-      "changeType": "expert-reviewed-corrected",
+      "changeType": "structure-normalized",
       "diagnostics": [
-        "FULL_REVIEW_CORRECTED"
+        "STEP_NUMBERING_NORMALIZED"
+      ]
+    },
+    {
+      "id": "TC-ITEM-STD-012",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
+      "priority": "P1",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "source": "业务规则明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "一级分类 A 下存在二级分类 A 和 B",
+        "二级分类 A 下已有名称为 `item1` 的称重标准商品（若不存在，先创建）"
+      ],
+      "actions": [
+        "在一级分类 A 的二级分类 A/a 创建唯一名称的标准商品。",
+        "在同一一级分类 A 的二级分类 A/b 创建相同名称的标准商品。",
+        "点击保存，读取 BITEM-7014 并核对重复记录数未增加。"
+      ],
+      "expectedResults": [
+        "同一商户同一商品类型下，不同二级分类的标准商品同名保存返回 BITEM-7014，UI/API 均不新增重复记录；分类不参与判重。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "source-normalized",
+      "diagnostics": [
+        "SOURCE_FORMAT_NORMALIZED"
+      ]
+    },
+    {
+      "id": "TC-ITEM-ADD-015",
+      "title": "加料商品允许与其他商品类型同名",
+      "priority": "P1",
+      "productType": "加料商品",
+      "scenarioFamily": "展示与其他",
+      "source": "业务规则明确 ← BR-ITEM-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在名称为 `CROSS_DUP_002` 或 `STD_RENAME_SOURCE_001` 的商品。",
+        "当前商户下已存在名称为 `ADD_RENAME_TARGET_001` 的加料商品。",
+        "已打开加料商品创建页。"
+      ],
+      "actions": [
+        "创建名称为 `CROSS_DUP_002` 的标准商品。",
+        "进入加料商品创建页并填写相同商品名称 `CROSS_DUP_002`。",
+        "点击保存。",
+        "核对同名标准商品和加料商品均存在。",
+        "创建名称为 `STD_RENAME_SOURCE_001` 的标准商品并进入其编辑页。",
+        "将标准商品名称修改为已有加料商品名称 `ADD_RENAME_TARGET_001`，点击保存。",
+        "分别读取创建/编辑接口响应并按名称和商品类型查询列表。"
+      ],
+      "expectedResults": [
+        "加料商品允许与其他商品类型使用相同商品名称；保存成功后同名标准商品和加料商品均保留。",
+        "UI 无重复拦截，API 创建响应成功，列表按名称查询到两条不同商品类型记录。",
+        "标准商品改名为已存在的加料商品名称时允许保存；UI 无重复拦截，API 编辑响应成功，列表展示新名称且原标准商品名称不再存在。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "source-normalized",
+      "diagnostics": [
+        "SOURCE_FORMAT_NORMALIZED"
       ]
     },
     {
@@ -3533,33 +3673,6 @@
       "diagnostics": []
     },
     {
-      "id": "TC-ITEM-PKG-049",
-      "title": "套餐商品同时引用已有固定搭配与可选搭配组",
-      "priority": "P1",
-      "productType": "套餐商品",
-      "scenarioFamily": "套餐规则",
-      "source": "PRD明确 ← 新增套餐",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "已进入 商品管理 → 商品 列表页。",
-        "已打开套餐商品创建页。",
-        "当前品牌下不存在同名测试商品（本用例使用名称「套餐商品-同引用固定搭配与组合搭配套餐组-{当前时间戳毫秒}」）"
-      ],
-      "actions": [
-        "准备已存在的固定搭配组和可选搭配组。",
-        "进入套餐商品创建页并分别通过选择入口引用两个组。",
-        "保存套餐并重新进入编辑页。",
-        "核对两个组卡片均回显。"
-      ],
-      "expectedResults": [
-        "固定搭配和可选搭配均通过选择已有组入口引用"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "unchanged",
-      "diagnostics": []
-    },
-    {
       "id": "TC-ITEM-PKG-057",
       "title": "套餐商品通过选择入口引用已有可选搭配组",
       "priority": "P1",
@@ -3583,6 +3696,7 @@
       "status": "pending-full-review",
       "changeType": "product-corrected",
       "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT",
         "SUPERSEDED:Add Custom Combo 菜单项未稳定进入视口"
       ]
     },
@@ -3609,6 +3723,7 @@
       "status": "pending-full-review",
       "changeType": "product-corrected",
       "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT",
         "SUPERSEDED:Add Custom Combo 菜单项未稳定进入视口"
       ]
     },
@@ -3778,31 +3893,55 @@
     },
     {
       "id": "TC-ITEM-PKG-059",
-      "title": "套餐商品编辑页可选搭配组仅支持组级操作",
+      "title": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
       "priority": "P1",
       "productType": "套餐商品",
       "scenarioFamily": "编辑",
-      "source": "产品确认明确 ← BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY；运行审计接受 ← flows/product-center/item-216/package-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md",
+      "source": "产品确认明确 ← BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY；页面截图证据 ← contracts/product-center/evidence/business-rules/BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY.png",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "套餐商品已添加可选搭配套餐组。",
-        "已进入套餐商品编辑页。"
+        "已进入套餐商品编辑页。",
+        "关联套餐商品已加入菜单并已下发到可控门店和终端。",
+        "具备品牌菜单下发/同步到门店、门店商品管理同步及门店/终端结果观测能力。"
       ],
       "actions": [
+        "打开已添加可选搭配组的套餐商品编辑页",
         "展开可选搭配组卡片",
-        "查看组规则摘要",
-        "查看卡片右上角组级操作和商品行操作"
+        "查看组规则摘要、右上角组级操作和组内商品行",
+        "点击组级编辑，修改组配置并保存，重新打开该套餐商品编辑页",
+        "核对关联套餐商品已反映组级编辑结果",
+        "在品牌侧重新下发菜单或点击“同步到门店”，核对门店数据更新",
+        "尝试从品牌商品管理同步终端，确认终端不因该操作更新",
+        "进入门店商品管理执行同步，核对终端已反映组级编辑结果",
+        "点击组级删除，在确认框中选择取消",
+        "再次点击组级删除，在确认框中选择确认",
+        "核对关联套餐商品已移除被删除的组",
+        "在品牌侧重新下发菜单或点击“同步到门店”，核对门店数据更新",
+        "再次进入门店商品管理执行同步，核对终端已反映组级删除结果",
+        "查看组卡片、商品行、套餐详情和商品列表，并通过接口查询确认清理结果"
       ],
       "expectedResults": [
         "组卡片展示组内商品是否允许重复选择和选择数量规则",
         "组卡片右上角展示整个组的编辑和删除入口",
-        "商品行展示名称、规格、最小数量、最大数量和默认选中状态",
-        "商品行不提供单个商品移除入口"
+        "商品行展示名称、规格、最小数量、最大数量和默认选中状态，不提供单个商品移除入口",
+        "组级编辑保存后重新打开商品，组配置与保存结果一致",
+        "组级编辑确认后关联套餐商品配置更新",
+        "菜单重新下发或“同步到门店”后门店数据更新",
+        "从品牌商品管理同步不更新终端",
+        "通过门店商品管理同步后终端数据更新",
+        "删除先弹出确认框；取消删除保持原组卡片和商品数据不变",
+        "确认删除后删除操作提交",
+        "关联套餐商品移除被删除的组",
+        "菜单重新下发或“同步到门店”后门店数据移除该组",
+        "通过门店商品管理同步后终端数据移除该组；品牌商品管理不能直接同步终端",
+        "确认删除后移除该组，组卡片、商品行、套餐详情和列表均不再展示该组；接口查询确认组及关联残留符合清理要求"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
       "changeType": "product-corrected",
       "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT",
         "SUPERSEDED:Add Custom Combo 菜单项未稳定进入视口"
       ]
     },
@@ -4733,10 +4872,18 @@
         "页签切换到商品",
         "点击新增商品",
         "填写页面标记为必填的标准商品字段，商品分类选择分类A",
-        "提交，查看商品列表页面"
+        "提交，查看商品列表页面",
+        "确认本次商品出现在列表第一行并核对商品名称、商品类型、规格、商品价格和商品状态",
+        "进入详情页核对所选一级分类",
+        "进入编辑页确认一级分类回显，修改为其他合法分类后保存并重新查询",
+        "再次编辑商品清空分类后保存并重新进入详情"
       ],
       "expectedResults": [
-        "一级分类 A 被直接选中，标准商品创建成功"
+        "一级分类 A 被直接选中，标准商品创建成功",
+        "创建成功后列表查询到本次商品且位于第一行，名称、类型、规格、价格和状态与提交内容一致",
+        "详情页显示所选一级分类",
+        "编辑页一级分类正确回显，修改合法分类后列表和详情持久化新分类",
+        "清空分类后允许保存，分类为空且商品状态保持保存前状态"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -4926,6 +5073,61 @@
         "FULL_REVIEW_CORRECTED",
         "FULL_REVIEW_SPLIT_FROM:TC-ITEM-STD-046"
       ]
+    },
+    {
+      "id": "TC-ITEM-STD-102",
+      "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+      "priority": "P1",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "source": "业务规则明确 ← BR-FMT-001（2026-09-05 人工确认）",
+      "preconditions": [
+        "已登录商品中心并进入标准商品创建页。",
+        "当前商户下不存在本用例使用的商品名称。"
+      ],
+      "actions": [
+        "「商品名称」输入恰好 100 个字符的唯一名称，名称首尾均不是空格且字符中间包含 1 个空格。",
+        "「起售数量」填写 `1`；「标准价」填写 `10.00`。",
+        "点击「保存」。",
+        "返回商品列表，按完整商品名称查询。"
+      ],
+      "expectedResults": [
+        "商品名称字段不出现长度或空格格式校验提示。",
+        "保存成功并出现成功提示。",
+        "列表按完整名称查询有且仅有 1 条记录，名称中的单个中间空格被保留。 清理要求：",
+        "删除本用例创建的标准商品，并按商品名称和服务端身份确认 UI/API 均无残留。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "structure-normalized",
+      "diagnostics": [
+        "STEP_NUMBERING_NORMALIZED"
+      ]
+    },
+    {
+      "id": "TC-ITEM-STD-103",
+      "title": "商品名称包含 emoji 时保存失败",
+      "priority": "P1",
+      "productType": "标准商品",
+      "scenarioFamily": "创建",
+      "source": "业务规则明确 ← BR-FMT-001（2026-09-05 人工确认）",
+      "preconditions": [
+        "已登录商品中心并进入标准商品创建页。",
+        "当前商户下不存在商品 `商品名称😀103`。"
+      ],
+      "actions": [
+        "「商品名称」输入 `商品名称😀103`。",
+        "「起售数量」填写 `1`；「标准价」填写 `10.00`。",
+        "点击「保存」。"
+      ],
+      "expectedResults": [
+        "「商品名称」字段出现格式校验提示，页面拦截保存且不显示保存成功提示。",
+        "列表中不存在 `商品名称😀103`，也不存在自动删除 emoji 后生成的 `商品名称103`。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "unchanged",
+      "diagnostics": []
     },
     {
       "id": "TC-ITEM-ADD-007",
@@ -5171,7 +5373,7 @@
       "priority": "P1",
       "productType": "标准商品",
       "scenarioFamily": "展示与其他",
-      "source": "XMind已有 ← 标准商品 / 新增 / 分类相关校验 / 一级分类下有二级分类，必须选择到二级分类，才能新增成功",
+      "source": "产品确认明确 ← BR-ITEM-CATEGORY-LEAF-SELECTION；XMind已有 ← 标准商品 / 新增 / 分类相关校验 / 一级分类下有二级分类，必须选择到二级分类，才能新增成功",
       "preconditions": [
         "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
         "系统存在一级分类 A，且分类 A 下存在二级分类。"
@@ -5181,37 +5383,19 @@
         "点击【新增商品】并选择【标准商品】，进入创建页",
         "打开【商品分类】下拉框",
         "点击一级分类A",
-        "点击二级分类A1"
+        "点击二级分类A1",
+        "填写其他必填字段并保存商品",
+        "在列表按商品分类 A1 过滤并进入编辑详情",
+        "编辑时重新选择另一个一级/二级分类路径并保存，再次按分类过滤并打开编辑详情",
+        "尝试将有二级分类的一级分类直接作为最终分类后保存"
       ],
       "expectedResults": [
         "点击一级分类A后，下拉框展开二级分类；一级分类A不作为最终已选分类",
-        "点击二级分类A1后，商品分类字段显示二级分类A1，分类选择完成"
-      ],
-      "origin": "formal-plan",
-      "status": "pending-full-review",
-      "changeType": "unchanged",
-      "diagnostics": []
-    },
-    {
-      "id": "TC-ITEM-STD-045",
-      "title": "商品描述达到 250 字符后不可继续输入",
-      "priority": "P1",
-      "productType": "标准商品",
-      "scenarioFamily": "展示与其他",
-      "source": "BR-FMT-003",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "已进入 商品管理 → 商品 列表页。",
-        "已打开标准商品创建页。",
-        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-商品描述达到500字符后输入框不可继续录-{当前时间戳毫秒}」）"
-      ],
-      "actions": [
-        "在商品描述输入 250 字符。",
-        "继续输入第 251 个字符。",
-        "读取输入框 maxlength、计数器和实际长度。"
-      ],
-      "expectedResults": [
-        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+        "点击二级分类A1后，商品分类字段显示二级分类A1，分类选择完成",
+        "商品分类字段非必填，分类选择与商品创建成功/失败无关",
+        "保存后列表可按商品分类 A1 过滤到本次商品，编辑详情回显 A1",
+        "编辑可重新选择合法一级/二级分类路径，保存后列表过滤和编辑详情回显新叶子分类",
+        "有二级分类时不能将一级分类作为最终值，保存不得接受该非叶子分类"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -5288,6 +5472,36 @@
       "expectedResults": [
         "分页支持 10、20、50、100 四种切换值。",
         "列表每页展示条数与当前分页设置一致。"
+      ],
+      "origin": "formal-plan",
+      "status": "pending-full-review",
+      "changeType": "expert-reviewed-corrected",
+      "diagnostics": [
+        "FULL_REVIEW_CORRECTED"
+      ]
+    },
+    {
+      "id": "TC-ITEM-STD-094",
+      "title": "商品名称超过100字符时失焦拦截",
+      "priority": "P1",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "source": "BR-FMT-001",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开标准商品创建页。",
+        "当前品牌下不存在本用例使用的测试商品名称。"
+      ],
+      "actions": [
+        "「商品名称」输入 101 个合法非空格字符，然后点击字段外使输入框失去焦点。",
+        "「起售数量」填写 `1`；「标准价」填写 `10.00`。",
+        "点击「保存」。"
+      ],
+      "expectedResults": [
+        "「商品名称」字段飘红并提示「内容超出限制，请重新输入」。",
+        "页面仍停留在创建页且未出现保存成功提示；不得保存成功后自动截断为 100 个字符。",
+        "列表中未新增本次超长名称商品。"
       ],
       "origin": "formal-plan",
       "status": "pending-full-review",
@@ -5552,62 +5766,6 @@
       ]
     },
     {
-      "id": "TC-ITEM-STD-012",
-      "title": "同一一级分类不同二级分类的标准商品同名提示 BITEM-7010",
-      "priority": "P1",
-      "productType": "标准商品",
-      "scenarioFamily": "展示与其他",
-      "source": "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-std-012",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "一级分类 A 下存在二级分类 A 和 B",
-        "二级分类 A 下已有名称为 `item1` 的称重标准商品（若不存在，先创建）"
-      ],
-      "actions": [
-        "在一级分类 A 的二级分类 A/a 创建唯一名称的标准商品。",
-        "在同一一级分类 A 的二级分类 A/b 创建相同名称的标准商品。",
-        "点击保存，读取 BITEM-7010 并核对重复记录数未增加。"
-      ],
-      "expectedResults": [
-        "同一一级分类下，不同二级分类的标准商品同名保存返回 BITEM-7010，UI/API 均不新增重复记录。"
-      ],
-      "origin": "formal-plan",
-      "status": "review-required",
-      "changeType": "source-review-required",
-      "diagnostics": [
-        "UNSUPPORTED_SOURCE_FORMAT"
-      ]
-    },
-    {
-      "id": "TC-ITEM-ADD-015",
-      "title": "加料商品允许与其他商品类型同名",
-      "priority": "P1",
-      "productType": "加料商品",
-      "scenarioFamily": "展示与其他",
-      "source": "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-add-015",
-      "preconditions": [
-        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
-        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-与其他商品类型同商户同名创建-{当前时间戳毫秒}」）",
-        "当前商户下已存在名称为 `CROSS_DUP_002` 的标准商品或套餐商品。",
-        "已打开加料商品创建页。"
-      ],
-      "actions": [
-        "创建一个唯一名称的标准商品。",
-        "进入加料商品创建页并填写相同商品名称。",
-        "点击保存。",
-        "核对同名标准商品和加料商品均存在。"
-      ],
-      "expectedResults": [
-        "加料商品允许与其他商品类型使用相同商品名称；保存成功后同名标准商品和加料商品均保留。"
-      ],
-      "origin": "formal-plan",
-      "status": "review-required",
-      "changeType": "source-review-required",
-      "diagnostics": [
-        "UNSUPPORTED_SOURCE_FORMAT"
-      ]
-    },
-    {
       "id": "TC-ITEM-STD-023",
       "title": "标准商品非法起售数量保存时归一化为 1",
       "priority": "P1",
@@ -5826,6 +5984,35 @@
       ],
       "expectedResults": [
         "使用可预览的有效 PNG，前 10 张详情图片均形成页面预览，第 11 张不可新增。"
+      ],
+      "origin": "formal-plan",
+      "status": "review-required",
+      "changeType": "source-review-required",
+      "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT"
+      ]
+    },
+    {
+      "id": "TC-ITEM-PKG-049",
+      "title": "套餐商品同时引用已有固定搭配与可选搭配组",
+      "priority": "P1",
+      "productType": "套餐商品",
+      "scenarioFamily": "套餐规则",
+      "source": "运行审计接受 ← flows/product-center/item-216/package-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开套餐商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「套餐商品-同引用固定搭配与组合搭配套餐组-{当前时间戳毫秒}」）"
+      ],
+      "actions": [
+        "准备已存在的固定搭配组和可选搭配组。",
+        "进入套餐商品创建页并分别通过选择入口引用两个组。",
+        "保存套餐并重新进入编辑页。",
+        "核对两个组卡片均回显。"
+      ],
+      "expectedResults": [
+        "固定搭配和可选搭配均通过选择已有组入口引用"
       ],
       "origin": "formal-plan",
       "status": "review-required",
@@ -6249,6 +6436,34 @@
       ]
     },
     {
+      "id": "TC-ITEM-STD-045",
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "priority": "P1",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "source": "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-std-045",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开标准商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-商品描述达到500字符后输入框不可继续录-{当前时间戳毫秒}」）"
+      ],
+      "actions": [
+        "在商品描述输入 250 字符。",
+        "继续输入第 251 个字符。",
+        "读取输入框 maxlength、计数器和实际长度。"
+      ],
+      "expectedResults": [
+        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+      ],
+      "origin": "formal-plan",
+      "status": "review-required",
+      "changeType": "source-review-required",
+      "diagnostics": [
+        "UNSUPPORTED_SOURCE_FORMAT"
+      ]
+    },
+    {
       "id": "TC-ITEM-STD-078",
       "title": "标准商品主图上传后不提供第二次本地上传入口",
       "priority": "P1",
@@ -6662,8 +6877,8 @@
       },
       {
         "caseId": "TC-ITEM-PKG-059",
-        "oldTitle": "套餐商品编辑页的可选搭配组不提供商品单项移除入口",
-        "newTitle": "套餐商品编辑页可选搭配组仅支持组级操作",
+        "oldTitle": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
+        "newTitle": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
         "removedRule": "最少选择份数、最多选择份数、份数内免费",
         "currentRule": "组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选"
       },
@@ -6750,8 +6965,8 @@
       "TC-ITEM-PKG-066"
     ],
     "sourceNormalizedCaseIds": [
+      "TC-ITEM-STD-012",
       "TC-ITEM-STD-036",
-      "TC-ITEM-STD-037",
       "TC-ITEM-STD-038",
       "TC-ITEM-STD-047",
       "TC-ITEM-STD-052",
@@ -6777,6 +6992,7 @@
       "TC-ITEM-ADD-006",
       "TC-ITEM-ADD-007",
       "TC-ITEM-ADD-008",
+      "TC-ITEM-ADD-015",
       "TC-ITEM-ADD-018",
       "TC-ITEM-ADD-019",
       "TC-ITEM-ADD-020",
@@ -6795,10 +7011,12 @@
       "TC-ITEM-STD-091",
       "TC-ITEM-PKG-074"
     ],
-    "structureNormalizedCaseIds": [],
+    "structureNormalizedCaseIds": [
+      "TC-ITEM-PKG-078",
+      "TC-ITEM-STD-102"
+    ],
     "sourceReviewCaseIds": [
-      "TC-ITEM-STD-012",
-      "TC-ITEM-ADD-015",
+      "TC-ITEM-STD-037",
       "TC-ITEM-STD-023",
       "TC-ITEM-STD-051",
       "TC-ITEM-PKG-050",
@@ -6807,6 +7025,7 @@
       "TC-ITEM-PKG-021",
       "TC-ITEM-PKG-023",
       "TC-ITEM-PKG-028",
+      "TC-ITEM-PKG-049",
       "TC-ITEM-PKG-052",
       "TC-ITEM-PKG-053",
       "TC-ITEM-PKG-067",
@@ -6822,6 +7041,7 @@
       "TC-ITEM-ADD-037",
       "TC-ITEM-STD-021",
       "TC-ITEM-ADD-010",
+      "TC-ITEM-STD-045",
       "TC-ITEM-STD-078",
       "TC-ITEM-PKG-013",
       "TC-ITEM-STD-071",
@@ -6919,5 +7139,5 @@
     "fullReviewRequiredBeforeTechnicalBinding": true,
     "riskFirstOrdering": true
   },
-  "fingerprint": "0db29db2eecebb6c7e5b38b1c2f1ed44b23acead6b517de6953942cc8c69a0b4"
+  "fingerprint": "0bc7064427b3156c0d5cda39293699bbf3accda1ead845826c4f7eda5e211f7f"
 }

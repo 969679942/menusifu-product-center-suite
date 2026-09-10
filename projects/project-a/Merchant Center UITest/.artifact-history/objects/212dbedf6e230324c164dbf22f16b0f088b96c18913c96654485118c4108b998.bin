@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-09-08T13:40:48.300Z",
+  "input": {
+    "unitId": "seven-goal-stop-loss-contract-01",
+    "directionId": "work-unit-stop-loss-implementation",
+    "phase": "after-unit",
+    "tokenStart": 30123,
+    "tokenCurrent": 49393,
+    "elapsedMs": 268000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "public-stop-loss-contract",
+      "evidence-file-verification",
+      "prestart-replay-gate"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/work-unit-stop-loss-proof.json",
+        "sha256": "2d0669ce16132c94e69ea36657f49b43192e37a55ed82a0d68723660a79d03be",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "seven-goal-stop-loss-contract-01",
+    "directionId": "work-unit-stop-loss-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 19270,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "public-stop-loss-contract",
+      "evidence-file-verification",
+      "prestart-replay-gate"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "2d0669ce16132c94e69ea36657f49b43192e37a55ed82a0d68723660a79d03be"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

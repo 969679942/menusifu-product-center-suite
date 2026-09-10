@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditId": "product-center-item-p0-w1-20260731",
+  "capturedAt": "2026-07-31T04:25:27.167Z",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "routeCount": 4,
+  "caseCount": 7,
+  "status": "completed-with-canonical-conflicts",
+  "security": {
+    "credentialsPersisted": false,
+    "authorizationArtifactsPersisted": false,
+    "storageStatePersisted": false
+  },
+  "mutation": {
+    "attempted": 0,
+    "createdIds": [],
+    "cleanupRequired": false,
+    "residueVerified": true
+  },
+  "pages": [
+    {
+      "name": "01-type-selection",
+      "url": "https://cc-fe.balamxqa.com/pp/brand/create",
+      "screenshotPath": "D:/Menusifu/Merchant Center/Merchant Center UITest/output/audit/product-center-item-p0-w1-20260731/01-type-selection.png",
+      "screenshotSha256": "3807abff83d8862d820ac5eac912ed9190619b2f1c6d0a211eb712b8901416e3",
+      "screenshotTerminalState": true
+    },
+    {
+      "name": "02-combo-create",
+      "url": "https://cc-fe.balamxqa.com/pp/brand/create/combo",
+      "screenshotPath": "D:/Menusifu/Merchant Center/Merchant Center UITest/output/audit/product-center-item-p0-w1-20260731/02-combo-create.png",
+      "screenshotSha256": "6b5dd0224832db921721885a35c09bdbca2db09735c75ff2af970bd6c60f9d76",
+      "screenshotTerminalState": true
+    },
+    {
+      "name": "03-side-create",
+      "url": "https://cc-fe.balamxqa.com/pp/brand/create/side",
+      "screenshotPath": "D:/Menusifu/Merchant Center/Merchant Center UITest/output/audit/product-center-item-p0-w1-20260731/03-side-create.png",
+      "screenshotSha256": "6efc715b117845a89a708cac1d502865132f7b938460ffa87d75e21b176f592b",
+      "screenshotTerminalState": true
+    },
+    {
+      "name": "04-item-list",
+      "url": "https://cc-fe.balamxqa.com/pp/brand/list",
+      "screenshotPath": "D:/Menusifu/Merchant Center/Merchant Center UITest/output/audit/product-center-item-p0-w1-20260731/04-item-list.png",
+      "screenshotSha256": "f35c185996bdffd8297869903be6d87ede9d610d5685337df89339acdfa1a23a",
+      "screenshotTerminalState": true
+    }
+  ],
+  "caseEvidence": [
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "verdict": "canonical-conflict",
+      "observed": [
+        "商品名称、商品类型、商品分类、商品状态筛选入口可见",
+        "新增商品入口可见",
+        "主图/名称、商品类型、规格、标准价、商品状态、操作列可见",
+        "总条数、分页及50条/页可见",
+        "商品主区域未展示用例要求的左侧分类树"
+      ],
+      "conflicts": [
+        "LIST_LEFT_CATEGORY_TREE_NOT_VISIBLE"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "verdict": "canonical-conflict",
+      "observed": [
+        "商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、商品编码、单位、设备编码、标准价、包装费、成本可见",
+        "起售数量不可见",
+        "助记码不可见"
+      ],
+      "conflicts": [
+        "ADDON_MNEMONIC_CODE_NOT_VISIBLE"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-029",
+      "verdict": "accepted",
+      "observed": [
+        "加料商品价格区不展示单规格/多规格入口"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-030",
+      "verdict": "accepted",
+      "observed": [
+        "加料商品价格区不展示是否称重商品选项"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-031",
+      "verdict": "accepted",
+      "observed": [
+        "加料商品创建页不展示固定搭配或可选搭配套餐组入口"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-032",
+      "verdict": "accepted",
+      "observed": [
+        "加料商品创建页不展示商品属性区及口味、做法、加料入口"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "verdict": "accepted",
+      "observed": [
+        "套餐商品展示名称、第二名称、分类、描述、POS名称、送厨名称、助记码、商品编码、单位、起售数量、标准价、包装费",
+        "起售数量默认值为1"
+      ]
+    }
+  ],
+  "summary": {
+    "accepted": 5,
+    "canonicalConflict": 2,
+    "failed": 0,
+    "blocked": 0
+  },
+  "guardrails": {
+    "businessRulesInferredFromUi": false,
+    "canonicalAutoModified": false,
+    "originalXmindModified": false
+  },
+  "harnessDiagnostics": [
+    {
+      "code": "SPA_PERMISSION_SPLASH_SCREENSHOT_RACE",
+      "resolved": true,
+      "resolution": "waited for route-specific visible terminal state before screenshot"
+    },
+    {
+      "code": "VIRTUAL_TABLE_TBODY_LOCATOR_MISMATCH",
+      "resolved": true,
+      "resolution": "used ARIA row count after fresh DOM snapshot",
+      "observedRowCount": 51
+    }
+  ],
+  "fingerprint": "660ca341e86fbaf1babca6eea9ad1c8e9f1774c8faf9e916ef20010f8ac2f3a2"
+}

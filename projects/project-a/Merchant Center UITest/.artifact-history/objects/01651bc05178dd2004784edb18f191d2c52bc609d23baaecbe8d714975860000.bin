@@ -1,0 +1,68 @@
+{
+  "runId": "readonly-standard-residue-1788869767550",
+  "caseId": "TC-ITEM-STD-103",
+  "originalRunId": "standard-name-20260908-02",
+  "serverId": 35504,
+  "identities": [
+    "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+    "AUTO_AUDIT_F3N19QLOQ_商品名称103"
+  ],
+  "intentFingerprint": "2b25a72dda8d1f692b3067a01152feef7a3ca6420d992694f8d50cc3968c7505",
+  "selectionFingerprint": "636b1f5e9778f89b9b1d0cc0b76f69e77a650c77caa58263cb9874c8a458c905",
+  "startedAt": "2026-09-08T12:16:07.564Z",
+  "observations": [
+    {
+      "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+      "apiCount": 0,
+      "observedAt": "2026-09-08T12:16:27.376Z",
+      "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+      "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+      "uiCount": 0,
+      "route": "/pp/brand/list"
+    },
+    {
+      "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称103",
+      "apiCount": 0,
+      "observedAt": "2026-09-08T12:16:27.748Z",
+      "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+      "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+      "uiCount": 0,
+      "route": "/pp/brand/list"
+    }
+  ],
+  "businessWrites": 0,
+  "formalCasesReexecuted": 0,
+  "secretsPersisted": false,
+  "authenticationVerified": true,
+  "brandContextVerified": true,
+  "queryDiagnostics": [
+    {
+      "status": 200,
+      "identityValues": []
+    },
+    {
+      "status": 200,
+      "identityValues": [
+        "AUTO_AUDIT_F3N19QLOQ"
+      ]
+    }
+  ],
+  "expectedExecutionContext": {
+    "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+    "environmentId": "balamxqa",
+    "tenantScope": "000407",
+    "locale": "und",
+    "roleId": "merchant-operator",
+    "route": "/pp/brand/list"
+  },
+  "releaseObservation": {
+    "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+    "status": "derived",
+    "stable": false,
+    "source": "browser-runtime"
+  },
+  "status": "diagnostic-incomplete",
+  "failurePhase": "server-id-verification",
+  "errorType": "Error",
+  "completedAt": "2026-09-08T12:16:28.426Z"
+}

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { fingerprintExecutionContext } from '../../../Test Automation Platform/src/utils/test-execution-state';
+import { fingerprintExecutionContext } from '../../Test Automation Platform/src/utils/test-execution-state';
 import { fingerprintProductCenterItemImplementation } from '../adapters/product-center/product-center-item-implementation';
 import { parseProductCenterItemCaseSemanticFingerprints } from '../utils/product-center-item-case-semantic-fingerprint';
 import {

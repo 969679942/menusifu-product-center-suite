@@ -1,0 +1,2182 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditId": "merchant-center-platform-extraction-closure",
+  "applicationId": "merchant-center",
+  "scope": "migration-closure",
+  "status": "incomplete",
+  "inputFingerprint": "d6f21e614211b7c2d61813c0500b7d36bbbdb2f26edfae0af2f7f43518c958c0",
+  "universalPlatformCompletionAsserted": false,
+  "summary": {
+    "scannedFiles": 270,
+    "excludedDirectories": 1,
+    "publicCore": 239,
+    "projectAdapter": 0,
+    "domainAsset": 0,
+    "generatedEvidence": 0,
+    "history": 0,
+    "transient": 0,
+    "unowned": 31,
+    "bridgeViolations": 85,
+    "duplicateImplementations": 0,
+    "brokenReferences": 1,
+    "documentationContradictions": 0,
+    "misplacedTransients": 0,
+    "publicBoundaryViolations": 0,
+    "contentPolicyViolations": 0,
+    "requiredAssetMissing": 15,
+    "inventoryBaselineMissing": 1,
+    "inventoryMissing": 1,
+    "inventoryChanged": 0,
+    "inventoryAcceptanceInvalid": 0,
+    "historicalReferenceGaps": 0
+  },
+  "ownership": [
+    {
+      "rootId": "platform",
+      "path": ".gitignore",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "AGENTS.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "config/capability-index.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "config/ui-architecture.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/项目能力索引.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/business-rule-lifecycle.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/system-test-efficiency-optimization.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.html",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.1440x900.dark.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.1440x900.light.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.2048x1320.dark.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.2048x1320.light.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.html",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-architecture.visual-check.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow-detailed.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.html",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.1440x900.dark.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.1440x900.light.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.2048x1320.dark.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.2048x1320.light.png",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.html",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/tap-public-workflow.visual-check.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "docs/ui-architecture-baseline.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "FINAL-GOAL.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "ownership.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "package-lock.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "package.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "playwright.config.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "README.md",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/audit-migration-closure.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-platform-readiness.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-platform-review-queue.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-project-remediation-scope.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-system-test-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-system-test-execution-result.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/build-system-test-optimization-plan.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/check-boundary.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/check-ui-architecture.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/compile-system-test-plan.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/generate-capability-index.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/reconcile-system-test-flow-checkpoint.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/recover-system-test-evidence-ledger.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/run-project-lifecycle.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/run-system-test-audit-pipeline.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/run-system-test-cli.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/run-system-test-flow.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/run-system-test.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/scaffold-project-adapter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/scaffold-system-test.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/verify-ci-business-receipts.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/verify-system-test-audit-completeness.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/verify-system-test-platform.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "scripts/verify-system-test-reference.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/acceptance-manifest.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/acceptance-orchestrator.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/acceptance-project.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/playwright-route-probe.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/redaction.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/route-residue-scanner.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/acceptance/route-scan-checkpoint.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/audit/change-event.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/audit/change-snapshot.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/audit/event-log.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/audit/playwright-step-audit.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/automation-recipe.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/capability-registry.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/recipe-collection-manifest.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/recipe-feedback.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/recipe-validator.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/recipe/sidebar-navigation-capability.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-change-event.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-change-trigger.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-coverage.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-downstream-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-lifecycle.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-promotion.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/business-rule-review-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/requirements-change-event.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-artifact-lineage.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-asset-lifecycle.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-audit-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-capability-matching.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-case-state-arbiter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-circuit.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-concurrency.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-correction-audit.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-diagnostics.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-evidence.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-execution-candidate.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-execution-grant.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-external-dependency.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-failure.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-final-goal-gate.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-implementation-fingerprint.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-onboarding.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-plan-compiler.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-platform-readiness.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-platform-review.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-progress.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-recipe-executor.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-reference-baseline.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-repair-attempt-guard.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-repair-telemetry.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-report-freshness-arbiter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-request-correlation.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-resource-lock.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-revalidation-policy.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-rule-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-run-state.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-runtime-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-safety.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-semantic-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-source-recovery.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-source-status.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-stage-receipt.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/automation/system-test/system-test-universal-invariants.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/build_queue.py",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/build-watch-contract.cjs",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/bundle_contract.py",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/repair_contract.py",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/result-bundle.cjs",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/transport-contract.cjs",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/ci/windows_process_job.py",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/api-lifecycle.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/capability-index.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/disaster-recovery.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/enterprise-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/execution-intent.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/execution-terminal-receipts.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/integration-status.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/migration-closure.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/optimization-completion-gate.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/optimization-task-registry.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/process-doctor.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/project-adapter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/project-remediation-optimization.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/project-remediation-scope.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/system-test-optimization-gate.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/ui-architecture.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/governance/value-metrics.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/index.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/platform-boundary.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/platform-paths.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/reporters/allure-report-integrity.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/reporters/allure-step-policy.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/reporters/playwright-audit-step.reporter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/reporters/system-test-audit-report.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/reporters/system-test-evidence.reporter.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/allure-result-retention.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/business-feedback-contract.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/case-fingerprint-cutover-authorization.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/case-semantic-fingerprint.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/contract-change-impact.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/dual-case-fingerprint-transition.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/executable-operation-receipt.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/historical-receipt-compatibility.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/idempotent-pipeline.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/incremental-test-plan.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/playwright-batch-policy.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/playwright-execution-receipt.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/reverse-scenario-catalog.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/review-batch.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/runtime-audit-correction-from-receipt.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/runtime-audit-freshness.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/system-test-allure-evidence-recovery.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/system-test-evidence-ledger-receipt.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/test-evidence-governance.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/test-execution-index.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/test-execution-state.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/test-plan-landing-gate.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/test-plan-runtime-audit-correction.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "src/utils/wait.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/acceptance-core.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/acceptance-orchestrator.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/acceptance-route-scanner.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/allure-step-policy.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/api-lifecycle.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/audit-event-log.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-change-event.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-change-trigger.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-coverage.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-lifecycle.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-promotion.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/business-rule-review-governance.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/case-semantic-fingerprint.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/change-snapshot.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/dual-case-fingerprint-transition.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/enterprise-governance.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/executable-operation-audit.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/execution-intent.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/execution-terminal-receipts.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/historical-receipt-compatibility.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/implementation-checkpoint.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/integration-status.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/migration-closure.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/optimization-task-registry.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/platform-boundary.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/platform-paths.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/playwright-audit-step.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/process-governance.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/project-adapter-scaffold.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/project-lifecycle.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/project-remediation-optimization.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/project-remediation-scope.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/recipe-core.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/requirements-change-event.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/reverse-scenario-catalog.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-artifact-lineage.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-asset-lifecycle.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-audit-contract.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-audit-pipeline.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-capability-matching.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-concurrency.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-correction-audit.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-diagnostics.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-evidence-ledger-receipt.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-evidence-reporter-checkpoint.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-external-dependency.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-flow-audit.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-governance.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-optimization-gate.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-platform.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-recipe-reporting.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-report-freshness-arbiter.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-request-correlation.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-resource-lock.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-revalidation-policy.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-runtime-contract.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-source-recovery.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-source-status.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/system-test-stage-reuse.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/test-platform-flow.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tests/api/ui-architecture.contract.spec.ts",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    },
+    {
+      "rootId": "platform",
+      "path": "tsconfig.json",
+      "category": "public-core",
+      "ruleId": "platform-public-core"
+    }
+  ],
+  "excluded": [
+    {
+      "rootId": "platform",
+      "path": "node_modules",
+      "exclusionId": "platform-third-party-dependencies",
+      "reason": "第三方依赖不属于平台自有测试资产"
+    }
+  ],
+  "failures": {
+    "unowned": [
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-audit-event-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-audit-report.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-business-rule-completion-review-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-business-rule-document-coverage-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-business-rule-event-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-business-rule-lifecycle-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-business-rule-observation-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-execution-intent.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-fingerprint-revalidation-impact.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-item-implementation.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-project-optimization.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-recipe-capabilities.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-seasoning-terminal-receipts.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-source-recovery-adapter.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-source-terminal-receipts.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/product-center-system-test-compatibility.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/seasoning-read-assertions.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:product-center/seasoning-reporting.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/allure-reporting.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/audit-step-reporting.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/migration-closure.manifest.json",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/playwright-concurrency.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/product-center-current-status.ts",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/product-center-reverse-scenario-map-v1.json",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/project-adapter.json",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/merchant-center-extraction-audit.md",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/merchant-center-file-governance-result.md",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/merchant-center-integration.md",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/merchant-center-migration-closure.json",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/merchant-center-migration-closure.md",
+        "detail": "文件未匹配任何归属规则"
+      },
+      {
+        "code": "UNOWNED_FILE",
+        "path": "workspace:test-automation-platform/reports/migration-inventory.baseline.json",
+        "detail": "文件未匹配任何归属规则"
+      }
+    ],
+    "bridgeViolations": [
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/automation-recipe.ts",
+        "detail": "缺少公共文件 src/automation/recipe/automation-recipe.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/capability-registry.ts",
+        "detail": "缺少公共文件 src/automation/recipe/capability-registry.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/recipe-collection-manifest.ts",
+        "detail": "缺少公共文件 src/automation/recipe/recipe-collection-manifest.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/recipe-feedback.ts",
+        "detail": "缺少公共文件 src/automation/recipe/recipe-feedback.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/recipe-validator.ts",
+        "detail": "缺少公共文件 src/automation/recipe/recipe-validator.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/recipe/sidebar-navigation-capability.ts",
+        "detail": "缺少公共文件 src/automation/recipe/sidebar-navigation-capability.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-change-event.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-change-event.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-change-trigger.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-change-trigger.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-coverage.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-coverage.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-downstream-contract.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-downstream-contract.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-governance.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-lifecycle.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-lifecycle.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-promotion.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-promotion.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/business-rule-review-governance.ts",
+        "detail": "缺少公共文件 src/automation/system-test/business-rule-review-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/requirements-change-event.ts",
+        "detail": "缺少公共文件 src/automation/system-test/requirements-change-event.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-artifact-lineage.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-artifact-lineage.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-asset-lifecycle.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-asset-lifecycle.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-audit-contract.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-audit-contract.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-capability-matching.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-capability-matching.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-case-state-arbiter.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-case-state-arbiter.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-circuit.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-circuit.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-concurrency.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-concurrency.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-contract.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-contract.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-correction-audit.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-correction-audit.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-diagnostics.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-diagnostics.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-evidence.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-evidence.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-execution-candidate.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-execution-candidate.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-execution-grant.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-execution-grant.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-external-dependency.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-external-dependency.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-failure.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-failure.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-final-goal-gate.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-final-goal-gate.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-governance.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-implementation-fingerprint.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-implementation-fingerprint.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-onboarding.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-onboarding.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-plan-compiler.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-plan-compiler.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-platform-readiness.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-platform-readiness.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-platform-review.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-platform-review.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-progress.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-progress.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-recipe-executor.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-recipe-executor.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-reference-baseline.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-reference-baseline.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-repair-attempt-guard.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-repair-attempt-guard.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-repair-telemetry.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-repair-telemetry.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-report-freshness-arbiter.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-report-freshness-arbiter.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-request-correlation.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-request-correlation.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-resource-lock.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-resource-lock.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-revalidation-policy.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-revalidation-policy.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-rule-governance.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-rule-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-run-state.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-run-state.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-runtime-contract.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-runtime-contract.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-safety.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-safety.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-semantic-governance.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-semantic-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-source-recovery.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-source-recovery.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-source-status.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-source-status.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-stage-receipt.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-stage-receipt.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/automation/system-test/system-test-universal-invariants.ts",
+        "detail": "缺少公共文件 src/automation/system-test/system-test-universal-invariants.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/acceptance-manifest.ts",
+        "detail": "缺少公共文件 src/acceptance/acceptance-manifest.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/acceptance-orchestrator.ts",
+        "detail": "缺少公共文件 src/acceptance/acceptance-orchestrator.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/playwright-route-probe.ts",
+        "detail": "缺少公共文件 src/acceptance/playwright-route-probe.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/redaction.ts",
+        "detail": "缺少公共文件 src/acceptance/redaction.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/route-residue-scanner.ts",
+        "detail": "缺少公共文件 src/acceptance/route-residue-scanner.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/acceptance/route-scan-checkpoint.ts",
+        "detail": "缺少公共文件 src/acceptance/route-scan-checkpoint.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/allure-result-retention.ts",
+        "detail": "缺少公共文件 src/utils/allure-result-retention.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/business-feedback-contract.ts",
+        "detail": "缺少公共文件 src/utils/business-feedback-contract.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/case-fingerprint-cutover-authorization.ts",
+        "detail": "缺少公共文件 src/utils/case-fingerprint-cutover-authorization.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/case-semantic-fingerprint.ts",
+        "detail": "缺少公共文件 src/utils/case-semantic-fingerprint.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/contract-change-impact.ts",
+        "detail": "缺少公共文件 src/utils/contract-change-impact.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/dual-case-fingerprint-transition.ts",
+        "detail": "缺少公共文件 src/utils/dual-case-fingerprint-transition.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/executable-operation-receipt.ts",
+        "detail": "缺少公共文件 src/utils/executable-operation-receipt.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/historical-receipt-compatibility.ts",
+        "detail": "缺少公共文件 src/utils/historical-receipt-compatibility.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/idempotent-pipeline.ts",
+        "detail": "缺少公共文件 src/utils/idempotent-pipeline.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/incremental-test-plan.ts",
+        "detail": "缺少公共文件 src/utils/incremental-test-plan.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/playwright-batch-policy.ts",
+        "detail": "缺少公共文件 src/utils/playwright-batch-policy.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/playwright-execution-receipt.ts",
+        "detail": "缺少公共文件 src/utils/playwright-execution-receipt.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/reverse-scenario-catalog.ts",
+        "detail": "缺少公共文件 src/utils/reverse-scenario-catalog.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/review-batch.ts",
+        "detail": "缺少公共文件 src/utils/review-batch.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/runtime-audit-correction-from-receipt.ts",
+        "detail": "缺少公共文件 src/utils/runtime-audit-correction-from-receipt.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/runtime-audit-freshness.ts",
+        "detail": "缺少公共文件 src/utils/runtime-audit-freshness.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/system-test-allure-evidence-recovery.ts",
+        "detail": "缺少公共文件 src/utils/system-test-allure-evidence-recovery.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/system-test-evidence-ledger-receipt.ts",
+        "detail": "缺少公共文件 src/utils/system-test-evidence-ledger-receipt.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/test-evidence-governance.ts",
+        "detail": "缺少公共文件 src/utils/test-evidence-governance.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/test-execution-index.ts",
+        "detail": "缺少公共文件 src/utils/test-execution-index.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/test-execution-state.ts",
+        "detail": "缺少公共文件 src/utils/test-execution-state.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/test-plan-landing-gate.ts",
+        "detail": "缺少公共文件 src/utils/test-plan-landing-gate.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/test-plan-runtime-audit-correction.ts",
+        "detail": "缺少公共文件 src/utils/test-plan-runtime-audit-correction.ts 的兼容桥"
+      },
+      {
+        "code": "BRIDGE_MISSING",
+        "path": "workspace:Merchant Center UITest/utils/wait.ts",
+        "detail": "缺少公共文件 src/utils/wait.ts 的兼容桥"
+      }
+    ],
+    "duplicateImplementations": [],
+    "brokenReferences": [
+      {
+        "code": "PACKAGE_JSON_MISSING",
+        "path": "workspace:Merchant Center UITest/package.json",
+        "detail": "包命令清单不存在"
+      }
+    ],
+    "documentationContradictions": [],
+    "misplacedTransients": [],
+    "publicBoundaryViolations": [],
+    "contentPolicyViolations": [],
+    "requiredAssetMissing": [
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/project-adapter.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-extraction-audit.md",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-file-governance-result.md",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-integration.md",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/artifact-manifest.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.md",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/execution-index.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/final-goal-verdict.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/platform-external-dependency.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/platform-release.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/platform-review-decision-20260815.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/platform-review-decision.template.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/platform-review-queue.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      },
+      {
+        "code": "REQUIRED_MIGRATION_ASSET_MISSING",
+        "path": "workspace:Merchant Center UITest/deliverables/system-test-platform/readiness.json",
+        "detail": "缺少迁移目标资产，策略 merchant-center-platform-state-and-migration-reports"
+      }
+    ],
+    "inventory": [
+      {
+        "code": "MIGRATION_BASELINE_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/reports/migration-inventory.baseline.json",
+        "detail": "迁移前后文件哈希基线不存在"
+      }
+    ]
+  },
+  "retainedLegacySources": [
+    {
+      "id": "merchant-center-item-legacy-source",
+      "path": "workspace:Merchant Center Info/99-待废弃/商品中心-商品管理-商品",
+      "activeReferenceFiles": 0,
+      "activeReferenceTargets": 0,
+      "disposition": "eligible-for-disposition-review"
+    }
+  ],
+  "historicalReferenceGaps": [],
+  "inventory": {
+    "baselinePath": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\adapters\\Merchant Center UITest\\adapters\\test-automation-platform\\reports\\migration-inventory.baseline.json",
+    "baselineFingerprint": null,
+    "currentFingerprint": "71e0b19f1c95efef98c5ea7d2b15b413219e9e2ca49769d8b4e32c3b841c8953",
+    "missing": [
+      {
+        "code": "MIGRATION_BASELINE_MISSING",
+        "path": "workspace:Merchant Center UITest/adapters/test-automation-platform/reports/migration-inventory.baseline.json",
+        "detail": "迁移前后文件哈希基线不存在"
+      }
+    ],
+    "changed": []
+  }
+}

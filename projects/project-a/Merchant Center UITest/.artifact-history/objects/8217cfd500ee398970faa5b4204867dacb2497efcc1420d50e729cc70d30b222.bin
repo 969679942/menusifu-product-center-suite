@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-09-08T17:30:03.742Z",
+  "input": {
+    "unitId": "addon-price-ownership-repair-20260909-01",
+    "directionId": "price-cleanup-registration-repair",
+    "phase": "after-unit",
+    "tokenStart": 2221716,
+    "tokenCurrent": 2255571,
+    "elapsedMs": 245000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "Chinese-name-ledger-rejection",
+      "created-ID-lost-on-registration-failure"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-ownership-repair-proof.json",
+        "sha256": "01a4131bf1a1db79c7712e39d2d30c1793de36fcf59b64fab77e537c653f856c",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-ownership-repair-20260909-01",
+    "directionId": "price-cleanup-registration-repair",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 33855,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "Chinese-name-ledger-rejection",
+      "created-ID-lost-on-registration-failure"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "01a4131bf1a1db79c7712e39d2d30c1793de36fcf59b64fab77e537c653f856c"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

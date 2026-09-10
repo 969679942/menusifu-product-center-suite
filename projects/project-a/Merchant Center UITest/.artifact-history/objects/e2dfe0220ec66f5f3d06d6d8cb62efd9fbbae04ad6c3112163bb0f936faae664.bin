@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-09-08T14:15:20.225Z",
+  "scope": "static-project-adapter-review",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "status": "automation-source-coverage-gap",
+      "sourceStep": 5,
+      "sourceExpected": "单规格，标准价10.00，商品名称为空；保存后名称必填提示，列表无新增",
+      "actualImplementation": "verifyRequiredFieldsBlocked直接点击保存，没有设置单规格与10.00，也不生成3项断言收据；任何创建POST被当成PRODUCT_BEHAVIOR，未区分被服务端正确拒绝",
+      "evidence": {
+        "path": "flows/product-center/item-216/standard-item-216.flow.ts",
+        "line": 80
+      },
+      "nextAction": "独立补完整前置/价格和字段必填观察；仅以实际创建成功判断负向失败；获取无新增及恢复证据"
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "status": "automation-assertion-strength-gap",
+      "sourceExpected": "仅展示g、kg、ml三个选项",
+      "actualImplementation": "readWeightUnitEvidence只逐项检查三个必需值存在，允许多余选项；返回units但未输出正式断言收据",
+      "evidence": {
+        "path": "flows/product-center/item-216/standard-item-216.flow.ts",
+        "line": 498
+      },
+      "nextAction": "独立执行现有打开称重/销售单位动作；实际选项集合与三个正式期望值做完整相等比较，保留操作和断言收据；不改已合格共享方法"
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "status": "automation-observation-authority-gap",
+      "sourceExpected": "高级设置默认收起且8个字段默认不可见",
+      "actualImplementation": "readAdvancedSettingsCollapsedEvidence把locator读取异常catch为false，再由字段可见性推导expanded；没有独立观察折叠状态，定位失效可能冒充不可见",
+      "evidence": {
+        "path": "pages/product-management/item/item-create-standard.page.ts",
+        "line": 449
+      },
+      "nextAction": "先审计当前折叠控件与8个字段身份；定位/读取异常必须保持证据缺口；分别核验折叠态和字段可见性"
+    }
+  ],
+  "businessCasesExecuted": 0,
+  "productDefectsDeclared": 0,
+  "passedCaseImpact": "既有8条指纹不变，不重跑；后续只接入独立实现"
+}

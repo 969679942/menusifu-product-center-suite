@@ -1,3 +1,4 @@
+import { readGroupRunnerSource } from '../helpers/group-runner-source';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -134,10 +135,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
         evidencePaths: item.evidencePaths,
       });
     }
-    const runnerSource = fs.readFileSync(
-      path.join(projectRoot, 'utils/product-center-group-runner.ts'),
-      'utf8',
-    );
+    const runnerSource = readGroupRunnerSource(projectRoot);
     expect(runnerSource).not.toContain('最多选择数量不能小于最少选择数量');
   });
 
@@ -420,7 +418,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
       ]));
     }
 
-    const runnerSource = fs.readFileSync(path.join(projectRoot, 'utils/product-center-group-runner.ts'), 'utf8');
+    const runnerSource = readGroupRunnerSource(projectRoot);
     expect(runnerSource).toContain('runGroupQueryResetCase(');
     expect(runnerSource).toContain('seedGroupRecord(entity, productCenterApi, cleanupRegistry)');
     expect(runnerSource).not.toContain('缺少可查询列表数据');
@@ -1432,10 +1430,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
   });
 
   test('加料组内商品终态必须重开详情页断言且套餐引用核验必须恢复页面语言合同', async () => {
-    const runnerSource = fs.readFileSync(
-      path.join(projectRoot, 'utils/product-center-group-runner.ts'),
-      'utf8',
-    );
+    const runnerSource = readGroupRunnerSource(projectRoot);
     expect(runnerSource).toContain('const capturedEditUrl = page.url();');
     expect(runnerSource).toContain('await groupPage.openCapturedEditSurface(capturedEditUrl);');
     expect(runnerSource).not.toContain('await groupPage.expectIdentityRowContainsAndExcludes(');
@@ -1498,7 +1493,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
       blockEvidencePaths: [],
     });
     expect(bindings.find((item) => item.caseId === 'TC-GRP-ADD-016')?.blockedReasons).toEqual([]);
-    const runnerSource = fs.readFileSync(path.join(projectRoot, 'utils/product-center-group-runner.ts'), 'utf8');
+    const runnerSource = readGroupRunnerSource(projectRoot);
     expect(runnerSource).toContain('加料组变更弹窗缺少影响范围或 ${selectedCount}/${selectedCount} 统计');
     expect(runnerSource).not.toContain('加料组变更弹窗缺少影响范围或 1/1 统计');
     const flowSource = fs.readFileSync(path.join(projectRoot, 'flows/product-center/item-216/standard-item-216.flow.ts'), 'utf8');
@@ -1596,7 +1591,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
   });
 
   test('组执行器禁止批量或聚合签发断言收据', () => {
-    const runnerSource = fs.readFileSync(path.join(projectRoot, 'utils/product-center-group-runner.ts'), 'utf8');
+    const runnerSource = readGroupRunnerSource(projectRoot);
     expect(runnerSource).not.toContain('assertionIds.push(...');
     expect(runnerSource).not.toContain('expectedAssertionReceipts');
     expect(runnerSource).not.toMatch(/assertionIds\.push\(\s*assertionReceipt\([^)]+\)\s*,\s*assertionReceipt/);
@@ -1686,10 +1681,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
   });
 
   test('TC-GRP-PKG-030 必须按 3/1 执行且语言切换不得被当前中文状态短路', async () => {
-    const runnerSource = fs.readFileSync(
-      path.join(projectRoot, 'utils/product-center-group-runner.ts'),
-      'utf8',
-    );
+    const runnerSource = readGroupRunnerSource(projectRoot);
     const boundary = runnerSource.slice(
       runnerSource.indexOf("binding.title.includes('最少选择数量大于最多选择数量')"),
       runnerSource.indexOf("binding.title.includes('最少和最多选择数量输入0')"),
@@ -1714,10 +1706,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
       path.join(projectRoot, 'pages/product-management/group-list.page.ts'),
       'utf8',
     );
-    const runnerSource = fs.readFileSync(
-      path.join(projectRoot, 'utils/product-center-group-runner.ts'),
-      'utf8',
-    );
+    const runnerSource = readGroupRunnerSource(projectRoot);
     const duplicateValidation = runnerSource.slice(
       runnerSource.indexOf('async function runProductBackedGroupDuplicateValidationCase('),
       runnerSource.indexOf('async function runAddonQuantityValidationCase('),
@@ -1776,10 +1765,7 @@ test.describe('商品中心组自动化防假通过合同', () => {
   });
 
   test('已登记产品偏差证据必须保持不可覆盖', async () => {
-    const source = fs.readFileSync(
-      path.join(projectRoot, 'utils/product-center-group-runner.ts'),
-      'utf8',
-    );
+    const source = readGroupRunnerSource(projectRoot);
     const writer = source.slice(
       source.indexOf('function writeProductCenterGroupEvidence('),
       source.indexOf('async function createComboV2UiPricedProductFixture('),

@@ -760,6 +760,17 @@
           "标准商品改名为已有套餐商品名称时失败，UI/API 均提示 `BITEM-7014`，标准商品原名称保持不变",
           "套餐商品改名为已有标准商品名称时失败，UI/API 均提示 `BITEM-7014`，套餐商品原名称保持不变"
         ]
+      },
+      {
+        "canonicalId": "TC-ITEM-ADD-014",
+        "priority": "P0",
+        "title": "同一商户同一商品类型内加料商品同名创建或编辑失败（真实错误码 BITEM-7010）",
+        "source": "产品确认明确 ← BR-ITEM-010；真实系统运行证据 ← output/product-center-item-source-governed-20260909T080337Z.json；用户裁决：ADD014 以真实返回 BITEM-7010 为准",
+        "expectedResults": [
+          "保存失败，UI 提示 `BITEM-7010：商品名称与其它类型商品名称重复`。",
+          "API 返回错误码 `BITEM-7010`，同名加料商品记录数不增加。",
+          "编辑同类型重复名称同样失败，UI/API 均返回 `BITEM-7010`，编辑目标原名称保持不变，列表仍展示原名称。"
+        ]
       }
     ],
     "revision": 4,

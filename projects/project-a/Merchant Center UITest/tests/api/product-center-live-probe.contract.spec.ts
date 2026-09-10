@@ -25,8 +25,46 @@ import {
   parseProductCenterLiveProbeRouteSelection,
   validateProductCenterLiveProbeAttemptArtifact,
 } from '../../utils/product-center-live-probe';
+import { expandAuthBlockedFailures } from '../../reporters/product-center-live-release-probe.reporter';
 
 test.describe('商品中心当前版本真实 Probe', () => {
+  test('Probe 运行阻断必须保留脱敏诊断、路由缺口和业务执行保护', async () => {
+    const blockedPath = path.join(process.cwd(), 'output/page-contract/product-center-current-release-probe.blocked.json');
+    if (!fs.existsSync(blockedPath)) return;
+    const blocked = readJson<Record<string, unknown>>('output/page-contract/product-center-current-release-probe.blocked.json');
+    expect(blocked).toMatchObject({
+      status: 'blocked',
+      scope: 'report-only',
+      businessExecutionStarted: false,
+      existingPassedCasesInvalidated: false,
+      secretsPersisted: false,
+    });
+    expect(Array.isArray(blocked.unresolvedRoutes)).toBe(true);
+    expect(JSON.stringify(blocked)).not.toMatch(/password|authorization|cookie|access.?token/i);
+  });
+
+  test('认证阻断必须展开到所有选中路由并保持 environment-auth 分类', async () => {
+    const failures = expandAuthBlockedFailures({
+      selectedRoutes: ['/route/a', '/route/b'],
+      entries: [],
+      failures: [{
+        route: '/unknown',
+        status: 'failed',
+        diagnosticFingerprint: 'a'.repeat(64),
+        category: 'environment-auth',
+        retryable: false,
+        durationMs: 12,
+        attempt: 0,
+      }],
+      attempt: 0,
+    });
+
+    expect(failures).toHaveLength(2);
+    expect(failures.filter((failure) => failure.category === 'environment-auth'))
+      .toHaveLength(2);
+    expect(failures.map((failure) => failure.route)).toEqual(['/route/a', '/route/b']);
+  });
+
   test('transient 失败应只重跑失败路由并保留已通过路由证据', async () => {
     const passedEntry = { route: '/route/a', marker: 'first-success', durationMs: 1_000 };
     const first = buildProductCenterLiveProbeRecoveryState({

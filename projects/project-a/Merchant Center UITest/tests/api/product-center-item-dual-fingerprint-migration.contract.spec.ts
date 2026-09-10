@@ -22,19 +22,19 @@ test.describe('商品用例双指纹过渡适配合同', () => {
     const caseData = source.match(/const allCases = (\[[\s\S]*?\]) as readonly GeneratedCase\[\];\r?\nconst supplementalCaseIds/)?.[1];
     expect(caseData).toBeTruthy();
     const cases = JSON.parse(caseData!) as Array<{ caseId: string; semanticCaseFingerprint?: string }>;
-    expect(cases).toHaveLength(211);
+    expect(cases).toHaveLength(213);
     expect(cases.every((item) => /^[a-f0-9]{64}$/.test(item.semanticCaseFingerprint ?? ''))).toBe(true);
     expect(new Set(cases.map((item) => item.semanticCaseFingerprint)).size).toBe(cases.length);
   });
 
-  test('当前裁决使用单一语义指纹且218条均已生成语义指纹', () => {
+  test('当前裁决使用单一语义指纹且220条均已生成语义指纹', () => {
     const landing = JSON.parse(fs.readFileSync(landingPath, 'utf8')) as {
       modules: Array<{ module: string; assessment: { cases: Array<{
         caseId: string; semanticCaseFingerprint?: string | null; fingerprintMatchMode?: string;
       }> } }>;
     };
     const cases = landing.modules.find((item) => item.module === '商品管理-商品')!.assessment.cases;
-    expect(cases).toHaveLength(218);
+    expect(cases).toHaveLength(220);
     expect(cases.every((item) => item.fingerprintMatchMode === 'semantic')).toBe(true);
     expect(cases.every((item) => /^[a-f0-9]{64}$/.test(item.semanticCaseFingerprint ?? ''))).toBe(true);
   });
@@ -58,14 +58,14 @@ test.describe('商品用例双指纹过渡适配合同', () => {
       existingPassedResultsInvalidated: false,
     });
     expect(report.summary).toMatchObject({
-      total: 218,
+      total: 220,
       requiredForCutover: 202,
       eligible: 202,
       'awaiting-dual-receipt': 0,
-      excluded: 16,
+      excluded: 18,
       cutoverReady: true,
     });
-    expect(report.cases).toHaveLength(218);
+    expect(report.cases).toHaveLength(220);
   });
 
   test('双指纹进度已进入静态证据闭环且不携带执行参数', () => {

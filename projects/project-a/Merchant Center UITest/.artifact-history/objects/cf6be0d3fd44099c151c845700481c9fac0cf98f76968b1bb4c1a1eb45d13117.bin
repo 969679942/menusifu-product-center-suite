@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-08T17:51:20.905Z",
+  "input": {
+    "unitId": "addon-empty-price-diagnosis-20260909-01",
+    "directionId": "ADD008-empty-price-field-diagnosis",
+    "phase": "before-start",
+    "tokenStart": 2387462,
+    "tokenCurrent": 2387462,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "price-field-feedback-signal"
+    ],
+    "afterQuestionIds": [
+      "price-field-feedback-signal"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-empty-price-diagnosis-intent.json",
+        "sha256": "7ec83443192890de469eec824e41ec6b41deb9de6a53a730d503b87b6ff1adad",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-empty-price-diagnosis-20260909-01",
+    "directionId": "ADD008-empty-price-field-diagnosis",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "7ec83443192890de469eec824e41ec6b41deb9de6a53a730d503b87b6ff1adad"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

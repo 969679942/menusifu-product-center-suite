@@ -1,0 +1,35 @@
+{
+  "caseId": "TC-ITEM-STD-003",
+  "role": "产品负责人裁定规则适用性；研发负责人实施产品修复；执行代理自动重验",
+  "target": "展示列设置中的规格、标准价选择及规格取消行为",
+  "authority": "正式用例 STD003；XMind 标准商品/展示/页面展示/商品展示列设置",
+  "actual": "两次当前运行均观察到：列设置中没有 Specification、Price($) 勾选项；表格本身显示这两列。缺少控件后停止依赖动作，原列配置已恢复。",
+  "gap": "正式步骤2、4无法按现有UI完成；固定列锁定位置仍缺完整行为证据，不使用横向滚动CSS样式自证。",
+  "options": [
+    "维持正式用例：产品提供规格、标准价的选择及规格取消能力；研发修复并给出目标版本。",
+    "确认当前固定展示符合新规则：产品提供正式规则变更，明确哪些列固定、哪些可选以及锁定位置含义。"
+  ],
+  "material": "caseId、选择的互斥方案、批准人和日期、适用版本、更新后的固定/可选列清单；方案一还需修复版本。",
+  "steps": [
+    "登录指定QA环境，选择 Brand 000407，从侧边栏进入商品列表。",
+    "点击表格右上方展示列设置（profile图标）。",
+    "核对 Category 存在，而 Specification 与 Price($) 不在勾选列表中。",
+    "通过正式来源与本轮原始报告裁定规则或安排产品修复；无需人工执行后续自动化验证。"
+  ],
+  "acceptance": "来源与适用性明确；依赖控件可操作或新规则正式生效；代理完成全部正式动作、固定列行为证据、断言和配置恢复，严格收据合格。",
+  "status": "product-behavior-difference",
+  "recordedAt": "2026-09-08T13:18:33.642Z",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "reportPath": "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json",
+  "decisionRecordLocation": "deliverables/system-test-platform/standard-list-business-decisions/TC-ITEM-STD-003-decision.json",
+  "minimumRecordSchema": {
+    "caseId": "TC-ITEM-STD-003",
+    "decision": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "applicableVersion": null,
+    "formalSourceReference": null
+  },
+  "afterDecision": "执行代理自动更新合同与实现，构造当前影响集和公共意图，仅定向重验受影响用例，保存收据、核对状态恢复，刷新索引与门禁。",
+  "passedCaseImpact": "当前8条合格用例的历史证据不撤销；只在真实来源/实现/上下文变化影响其资格时定向重验，不以报告更新触发重跑。"
+}

@@ -110,7 +110,9 @@ test.describe('商品中心 UI 性能架构合同', () => {
     expect(globalSetupSource).toContain('TEST_WAIT_TELEMETRY_PATH');
     expect(globalSetupSource).toContain('product-center-waits-');
     expect(globalSetupSource).toContain('{pid}.jsonl');
-    expect(globalSetupSource.indexOf('if (!apiOnly)')).toBeLessThan(globalSetupSource.indexOf('TEST_WAIT_TELEMETRY_PATH'));
+    const isolationGuard = globalSetupSource.indexOf('if (resolveMerchantCenterContractRunIsolation().isolated) return;');
+    expect(isolationGuard).toBeGreaterThan(-1);
+    expect(isolationGuard).toBeLessThan(globalSetupSource.indexOf('TEST_WAIT_TELEMETRY_PATH'));
   });
 
   test('耗时报告应对不同 Playwright 版本的 Fill 步骤统一脱敏', async () => {
@@ -222,5 +224,4 @@ test.describe('商品中心 UI 性能架构合同', () => {
     expect(contractCommand).toContain('tests/api/secret-source.contract.spec.ts');
   });
 });
-
 

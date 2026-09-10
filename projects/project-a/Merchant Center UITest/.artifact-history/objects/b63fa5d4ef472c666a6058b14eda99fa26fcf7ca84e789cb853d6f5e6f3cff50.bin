@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-09-08T15:22:44.024Z",
+  "input": {
+    "unitId": "standard-required-name-execution-01",
+    "directionId": "standard-required-name-runtime",
+    "phase": "after-unit",
+    "tokenStart": 1177858,
+    "tokenCurrent": 1183104,
+    "elapsedMs": 100000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "STD005-current-result"
+    ],
+    "afterQuestionIds": [
+      "STD005-navigation-precondition"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "output/checkpoints/item/source-governed-standard-required-name-20260908-01-source-governed/terminal-TC-ITEM-STD-005.json",
+        "sha256": "4d29a94f2501f1ba3078a685d06515775ba37dae76bef8d8ff82706ec0acd3bc",
+        "kind": "runtime-receipt"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-required-name-execution-01",
+    "directionId": "standard-required-name-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "UNRESOLVED_SCOPE_NOT_REDUCED"
+    ],
+    "tokensUsed": 5246,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD005-current-result"
+    ],
+    "newQuestionIds": [
+      "STD005-navigation-precondition"
+    ],
+    "newEvidenceHashes": [
+      "4d29a94f2501f1ba3078a685d06515775ba37dae76bef8d8ff82706ec0acd3bc"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

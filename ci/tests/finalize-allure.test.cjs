@@ -6,14 +6,21 @@ test('MC Allure adapter uses public selection gate and still archives a failing 
    const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(path.resolve(__dirname,'../..',rel),file);
   }
   const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
+  const raw=path.join(out,'allure-results');fs.mkdirSync(raw,{recursive:true});
   const write=(file,value)=>fs.writeFileSync(file,JSON.stringify(value));
   write(path.join(out,'pilot-envelope.json'),{runId:'sample',gitSha:'a'.repeat(40),selectedCaseIds:['C1'],receiptAudit:{cases:[{caseId:'C1',status:'complete'}]}});
   write(path.join(business,'evidence-ledger.json'),{cases:[{caseId:'C1',playwrightStatus:'passed',evidence:{status:'complete'}}]});
   write(path.join(allure,'one-result.json'),{labels:[{name:'tag',value:'case-C1'}],status:'passed'});
+  // The same UUID can be present in the root transport directory and in a
+  // business shard. Finalization must publish one case result, preferring the
+  // richer business copy instead of aborting on a duplicate filename.
+  write(path.join(raw,'one-result.json'),{labels:[{name:'tag',value:'case-C1'}],status:'passed',steps:[{name:'业务步骤',status:'passed'}]});
   const execute=()=>spawnSync(process.execPath,[path.join(root,'ci/finalize-allure.cjs')],{env:{...process.env,RUN_SCOPE:'pilot',BUILD_NUMBER:'1',REQUEST_ID:'fixture'},encoding:'utf8'});
   assert.equal(execute().status,0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out,'allure-audit.json'))).selection.status,'complete');
+  assert.equal(fs.readdirSync(path.join(out,'allure-results-business')).filter(name=>name.endsWith('-result.json')).length,1);
   write(path.join(allure,'one-result.json'),{labels:[{name:'caseId',value:'WRONG'}],status:'passed'});
+  write(path.join(raw,'one-result.json'),{labels:[{name:'caseId',value:'WRONG'}],status:'passed'});
   assert.equal(execute().status,2);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out,'bundle-manifest.json'))).reportStatus,'incomplete');
  } finally {assert.ok(root.startsWith(path.join(os.tmpdir(),'suite-allure-')));fs.rmSync(root,{recursive:true});}

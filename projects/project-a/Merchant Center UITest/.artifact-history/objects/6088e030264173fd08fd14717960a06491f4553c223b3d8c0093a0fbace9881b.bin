@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "addon-price-currency-20260909",
+  "applicationId": "merchant-center-product-center",
+  "defaultImpactType": "business-implementation",
+  "impactedCaseIds": [
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "caseImpactTypes": {
+    "TC-ITEM-ADD-009": "business-implementation",
+    "TC-ITEM-ADD-010": "business-implementation"
+  },
+  "classifiedExclusionCaseIds": [],
+  "reason": "必须：修复已证明的零金额展示比较误判，保留原始$0.00证据。只重验009/010，原16条不重跑、不失效。"
+}

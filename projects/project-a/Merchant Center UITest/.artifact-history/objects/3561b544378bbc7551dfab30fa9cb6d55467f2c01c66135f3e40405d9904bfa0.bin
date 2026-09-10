@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-09-08T15:00:04.108Z",
+  "unitId": "STD005-formal-source-contract",
+  "status": "source-contract-ready-implementation-pending",
+  "goalTurnClassification": "progress: formal six-step/three-assertion contract created; execution not claimed",
+  "sourcePath": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "caseId": "TC-ITEM-STD-005",
+  "operations": 6,
+  "assertions": 3,
+  "businessAttempts": 0,
+  "currentQualified": 9,
+  "remaining": 195,
+  "priorReviewDirectionRemainsPaused": true,
+  "nextUnit": "STD005-independent-implementation",
+  "reusableCapabilities": {
+    "entry": "StandardListAcceptancePage.enterFromSidebar",
+    "list": "ItemListPage.enterCreateTypePage",
+    "type": "ItemCreateTypePage.enterStandardCreate",
+    "form": [
+      "ItemCreateStandardPage.fillItemName",
+      "ItemCreateStandardPage.selectSingleSpec",
+      "ItemCreateStandardPage.fillStandardPrice",
+      "ItemCreateStandardPage.isSingleSpecSelected",
+      "ItemCreateStandardPage.readStandardPriceValue",
+      "ItemCreateStandardPage.clickSave"
+    ],
+    "fieldFeedback": "StandardNameFormatPage.readNameFeedback",
+    "listObservation": "StandardListAcceptancePage.readPagination",
+    "api": [
+      "ProductCenterApi.productCount",
+      "ProductCenterApi.productDetail",
+      "ProductCenterApi.deleteBomProduct"
+    ]
+  },
+  "remainingImplementationQuestions": [
+    "strict current mutation-response schema and exact ID capture",
+    "no-created-record proof using correlated request outcomes and UI/API observations; total count alone insufficient",
+    "unexpected creation cleanup with immutable server-ID capture and verified API/UI restoration"
+  ],
+  "existingQualifiedRerun": 0
+}

@@ -1,0 +1,230 @@
+# 首批准入与205条逐案去向对账
+
+待当前收据 205 条；整改范围 202 条；交集 202 条。
+待收据但不在整改范围：TC-ITEM-PKG-007、TC-ITEM-STD-102、TC-ITEM-STD-103。
+整改范围不在待收据集合：无。
+
+已恢复9份SHA匹配的历史波次证据，历史加载器校验通过；这不授权当前业务通过。
+ADD-002标准断言收据已修复，6项隔离合同通过；尚未进行业务执行。
+
+| 用例 | 实际方法 | 发现 | 后续动作 |
+|---|---|---|---|
+| TC-ITEM-ADD-001 | inspectCreateSurface | expectation-1 实际比较其他设置而非正式基础字段；存在 needs-prd 历史决策，须核对后续正式规则是否覆盖 | 保持未准入；核对规则版本后修复基础字段观察映射 |
+| TC-ITEM-ADD-002 | inspectOtherSettings | 已修复实际五项能力观察到正式 expectation-1 的标准断言收据；成功与五项缺失负向合同共6项通过 | 补独立执行上下文与操作映射，具备认证后验证真实页面 |
+| TC-ITEM-ADD-005 | createRequiredOnly | 实际按名称查询，缺正式启用状态及未过滤列表首位断言；派生稿差异本身不等于必须人工裁决 | 按正式正文追踪排序/状态读取能力；只有正式来源互相冲突时提交裁决 |
+| TC-ITEM-ADD-006 | requiredNameNegative → assertSaveBlocked | 有前后API记录检查和按服务器ID异常清理，但通用错误提示观察尚未证明正式名称错误提示，未返回标准断言收据；通过深链进入代替正式导航步骤 | 补导航路径与字段特定断言观察；不得将任意表单错误作为名称错误 |
+| TC-ITEM-ADD-007 | createWithoutCategory → createRequiredOnly | 有创建、列表、分类为空和服务端ID追踪；成功Toast仅在ADD-005分支监听，缺ADD-007正式Toast断言和标准断言收据 | 补本用例成功反馈及两条标准断言；恢复正式导航路径 |
+
+当前外部前置：UI账号/密码不可用；商户和品牌配置存在。不得在聊天、报告或检查点保存凭据。
+影响：正式用例不变；历史通过保留；实现指纹差异详见JSON，不因此自动扩大重跑。
+后续AI单点能力暂缓，待TAP成熟后讨论启动。
+
+## 205条逐案去向
+
+| 用例 | 在整改范围 | 来源比较 | 下一步 |
+|---|---|---|---|
+| TC-ITEM-STD-001 | 是 | canonical-structure-incomplete | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-002 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-003 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-004 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-005 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-006 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-007 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-008 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-093 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-009 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-094 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-010 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-011 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-012 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-013 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-014 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-015 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-016 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-017 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-018 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-019 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-020 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-021 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-022 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-023 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-024 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-028 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-029 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-030 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-031 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-032 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-033 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-035 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-036 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-037 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-038 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-039 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-041 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-042 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-043 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-044 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-045 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-046 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-047 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-048 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-049 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-050 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-051 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-052 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-053 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-054 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-055 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-056 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-057 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-058 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-059 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-061 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-063 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-064 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-065 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-066 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-068 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-069 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-071 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-072 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-073 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-074 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-075 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-076 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-078 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-079 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-001 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-002 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-003 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-004 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-005 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-006 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-007 | 否 | derived-content-differs | 核对正式用例与整改范围排除理由；未对齐不得加入执行选择集 |
+| TC-ITEM-PKG-008 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-009 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-010 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-011 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-012 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-013 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-014 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-015 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-016 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-017 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-018 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-019 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-020 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-021 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-076 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-022 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-023 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-024 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-025 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-026 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-027 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-028 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-029 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-030 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-031 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-032 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-033 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-034 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-035 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-036 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-037 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-038 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-040 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-041 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-042 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-043 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-044 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-045 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-046 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-047 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-048 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-049 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-050 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-051 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-052 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-053 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-054 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-055 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-056 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-057 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-058 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-059 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-061 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-062 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-063 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-064 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-065 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-067 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-068 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-001 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-002 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-005 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-006 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-007 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-008 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-009 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-010 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-011 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-012 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-047 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-013 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-014 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-015 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-016 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-017 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-018 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-019 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-020 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-021 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-022 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-023 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-024 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-025 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-026 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-027 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-028 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-029 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-030 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-031 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-032 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-033 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-034 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-035 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-036 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-037 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-038 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-039 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-040 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-041 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-042 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-043 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-044 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-081 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-082 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-069 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-084 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-085 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-086 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-087 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-088 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-089 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-071 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-072 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-073 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-090 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-091 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-092 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-096 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-STD-095 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-PKG-074 | 是 | derived-content-differs | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-ADD-045 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-075 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-ADD-046 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-078 | 是 | derived-content-differs | 逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决 |
+| TC-ITEM-PKG-079 | 是 | aligned | 从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验 |
+| TC-ITEM-STD-102 | 否 | derived-content-differs | 核对正式用例与整改范围排除理由；未对齐不得加入执行选择集 |
+| TC-ITEM-STD-103 | 否 | aligned | 核对正式用例与整改范围排除理由；未对齐不得加入执行选择集 |

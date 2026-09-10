@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T16:57:55.895Z",
+  "status": "source-input-DOM-and-cleanup-design-ready",
+  "caseIds": [
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "sourceOperations": [
+    5,
+    4,
+    3
+  ],
+  "sourceAssertions": [
+    3,
+    2,
+    1
+  ],
+  "contractPath": "contracts/product-center/test-cases/addon-price-acceptance.json",
+  "normalization": "negative input normalizes on blur before save; server normalization not claimed",
+  "emptyPriceRequiredFeedback": "must be observed after formal Save; absent on blur",
+  "cleanup": "existing registration identity/alias mechanism usable with strict current query parsing",
+  "formalCasesExecuted": 0,
+  "currentQualified": 16,
+  "notQualified": 188,
+  "restored": true,
+  "cost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-readonly-20260909-01",
+    "directionId": "ADD008-009-010-price-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 4391,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "addon-price-current-field-states"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "costScope": "readonly launch through first state interpretation; excludes preparation and final contract",
+  "next": "ADD008-009-010-independent-price-and-cleanup-implementation"
+}

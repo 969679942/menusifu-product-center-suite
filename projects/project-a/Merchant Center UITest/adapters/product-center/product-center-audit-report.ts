@@ -1,6 +1,6 @@
-import type { AuditAggregate, AuditEvent } from '../../../../Test Automation Platform/src/audit/event-log';
-import { aggregateAuditEvents } from '../../../../Test Automation Platform/src/audit/event-log';
-import { assessRuntimeAuditFreshness } from '../../../../Test Automation Platform/src/utils/runtime-audit-freshness';
+import type { AuditAggregate, AuditEvent } from '../../../Test Automation Platform/src/audit/event-log';
+import { aggregateAuditEvents } from '../../../Test Automation Platform/src/audit/event-log';
+import { assessRuntimeAuditFreshness } from '../../../Test Automation Platform/src/utils/runtime-audit-freshness';
 
 export type ProductCenterAuditExecutionContext = {
   environmentId: string | null;

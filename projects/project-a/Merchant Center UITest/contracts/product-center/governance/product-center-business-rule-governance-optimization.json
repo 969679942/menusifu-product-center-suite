@@ -23,7 +23,7 @@
       { "conditionId": "PRD_SYSTEM_CONNECTED", "description": "权威 PRD 系统连接器和稳定来源格式已配置。", "source": "integration.prd.sourceMode=system-event", "required": true },
       { "conditionId": "MIGRATION_ACCEPTED", "description": "迁移报告中的受管资产差异和历史引用均已逐项接受或处置，迁移审计重新通过。", "source": "migration.status=complete", "required": true },
       { "conditionId": "LEGACY_RULES_CONFIRMED", "description": "BR-ITEM-010 和 BR-ITEM-INDUSTRY-INHERITANCE 已完成产品确认并进入正式生命周期。", "source": "historicalMigration.summary.legacyAwaitingConfirmation=0", "required": true },
-      { "conditionId": "CROSS_SYSTEM_PILOT_COMPLETE", "description": "不同 applicationId 的真实目标系统已完成至少一个可逆试点并取得完整标准收据。", "source": "platformExternalDependency.status=complete", "required": true },
+      { "conditionId": "CROSS_SYSTEM_PILOT_COMPLETE", "description": "不同 applicationId 的真实目标系统已完成至少一个可逆试点并取得完整标准收据。", "source": "platformExternalDependency.status=resolved", "required": true },
       { "conditionId": "RULE_TIME_CONTEXT_CONFIRMED", "description": "当前全部正式规则均已由系统补齐权威时间证据与生效上下文，且严格校验通过。", "source": "timeContextReview.summary.evidenceCollectionRequired=0", "required": true },
       { "conditionId": "PRODUCT_BEHAVIOR_CONFIRMED", "description": "当前未定义商品行为均已取得来源或人工确认并完成影响评估。", "source": "confirmationQueue.summary.total=0", "required": true },
       { "conditionId": "BUSINESS_RULE_EVIDENCE_RECOVERED", "description": "规则关联用例的原始收据已恢复，或经明确批准重跑后取得当前完整收据。", "source": "observationLedger.summary.diagnostics=0", "required": true }

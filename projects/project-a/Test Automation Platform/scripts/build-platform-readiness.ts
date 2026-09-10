@@ -1,4 +1,6 @@
 import fs from 'node:fs';
+import { readRunEvidenceLedger } from '../src/governance/run-evidence-index';
+import { publishImmutableArtifact } from '../src/utils/immutable-artifact';
 import path from 'node:path';
 import {
   evaluateSystemTestPlatformReadiness,
@@ -281,7 +283,7 @@ export function discoverSystemTestPilotEvidence(input: {
   return result;
 }
 
-function discoverCurrentPilotRunCandidates(
+export function discoverCurrentPilotRunCandidates(
   outputDirectory: string,
   manifest: SystemTestManifest,
   currentContract: SystemTestRunContract,
@@ -317,7 +319,7 @@ function discoverCurrentPilotRunCandidates(
     if (![runReportPath, evidencePath, contractPath].every((filePath) => fs.existsSync(filePath))) continue;
     try {
       const runReport = readJson<RunReport>(runReportPath);
-      const evidence = readJson<EvidenceLedger>(evidencePath);
+      const evidence = readRunEvidenceLedger<EvidenceLedger>(evidencePath, path.basename(runDirectory), { requireFinal: true, runReport });
       const contract = readJson<SystemTestRunContract>(contractPath);
       validateCurrentPilotContract(manifest, currentContract, contract, evidence);
       candidates.push({
@@ -459,10 +461,8 @@ function readJson<T>(filePath: string): T {
 }
 
 function writeJson(filePath: string, value: unknown): void {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const temporaryPath = `${filePath}.tmp`;
-  fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-  fs.renameSync(temporaryPath, filePath);
+  publishImmutableArtifact({ outputRoot: path.dirname(path.resolve(filePath)), relativePath: path.basename(filePath),
+    content: `${JSON.stringify(value, null, 2)}\n`, reason: 'refresh-platform-readiness' });
 }
 
 if (require.main === module) {

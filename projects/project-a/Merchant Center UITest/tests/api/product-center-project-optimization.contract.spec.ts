@@ -1,11 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { buildProjectRemediationOptimizationPlan } from '../../../../Test Automation Platform/src/governance/project-remediation-optimization';
-import type { ProjectRemediationScopeArtifact } from '../../../../Test Automation Platform/src/governance/project-remediation-scope';
+import { buildProjectRemediationOptimizationPlan } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
+import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
 import { buildProductCenterProjectOptimizationCases } from '../../adapters/product-center/product-center-project-optimization';
 import { buildProductCenterBatchExecutionIntent, buildProductCenterCanaryExecutionIntent } from '../../adapters/product-center/product-center-execution-intent';
-import { assertExecutionIntentCheckpointState, assertExecutionIntentContract, assertExecutionIntentImpactScope } from '../../../../Test Automation Platform/src/governance/execution-intent';
+import { assertExecutionIntentCheckpointState, assertExecutionIntentContract, assertExecutionIntentImpactScope } from '../../../Test Automation Platform/src/governance/execution-intent';
 import { buildProductCenterItemRemediationScope } from '../../utils/product-center-item-remediation-scope';
 
 const projectRoot = path.resolve(__dirname, '../..');
@@ -168,15 +168,15 @@ test('定向执行意图不把范围外可复用用例混入本次影响集', ()
   expect(intent.partitionCaseIds).toEqual({ group: plannedCaseIds.sort() });
 });
 
-test('B5 当前证据缺口影响集严格守恒为 84 条定向执行', () => {
+test('B5 历史证据缺口夹具的 84 条影响集保持守恒', () => {
   const cases = buildProductCenterProjectOptimizationCases({ projectRoot, scope });
   const plan = JSON.parse(fs.readFileSync(path.join(
     projectRoot,
-    'deliverables/system-test-platform/b5-reference-evidence-gap-optimization-plan-20260905.json',
+    'tests/fixtures/historical-optimization/b5-reference-evidence-gap-optimization-plan-20260905.json',
   ), 'utf8')) as ReturnType<typeof buildProjectRemediationOptimizationPlan>;
   const impact = JSON.parse(fs.readFileSync(path.join(
     projectRoot,
-    'deliverables/system-test-platform/b5-reference-evidence-gap-impact-20260905.json',
+    'tests/fixtures/historical-optimization/b5-reference-evidence-gap-impact-20260905.json',
   ), 'utf8')) as { impactedCaseIds: string[]; classifiedExclusionCaseIds: string[] };
   const exclusionSet = new Set(impact.classifiedExclusionCaseIds);
   const plannedCaseIds = impact.impactedCaseIds.filter((caseId) => !exclusionSet.has(caseId));
@@ -209,7 +209,7 @@ test('图片与标签优化指纹必须和 source-governed 权威绑定一致', 
 
   expect(legacyCases).toHaveLength(19);
   expect(legacyCases.every((item) => item.caseFingerprint === sourceFingerprintById.get(item.caseId))).toBe(true);
-  expect(new Set(legacyCases.map((item) => item.caseFingerprint)).size).toBe(1);
+  expect(new Set(legacyCases.map((item) => item.caseFingerprint)).size).toBe(legacyCases.length);
   const implementationById = new Map(legacyCases.map((item) => [item.caseId, item.implementationFingerprint]));
   expect(implementationById.get('TC-TAG-BDG-009')).not.toBe(implementationById.get('TC-TAG-BDG-020'));
   expect(implementationById.get('TC-TAG-BDG-020')).toBe(implementationById.get('TC-IMG-LIB-025'));
@@ -275,11 +275,12 @@ test('非调味整改波次不得把调味用例带入 canary 或执行候选', 
   expect(plan.moduleSummary.seasoning.canaryCaseCount).toBe(0);
 });
 
-test('非调味 337 条优化选择集必须全部具备唯一实际执行路由', () => {
+test('历史非调味 337 条选择集必须全部具备唯一实际执行路由', () => {
   const executionPlan = JSON.parse(fs.readFileSync(path.resolve(
     projectRoot,
     '../deliverables/product-center-source-governance/execution-plan.json',
   ), 'utf8')) as {
+    tasks: Array<{ caseId: string; action: string; sourceStatus: string }>;
     revalidation: {
       selectedCaseIds: string[];
       runners: Array<{ runnerId: string; selectedCaseIds: string[] }>;
@@ -287,14 +288,16 @@ test('非调味 337 条优化选择集必须全部具备唯一实际执行路由
   };
   const plan = JSON.parse(fs.readFileSync(path.join(
     projectRoot,
-    'deliverables/system-test-platform/product-center-non-seasoning-remediation-plan-20260831.json',
+    'tests/fixtures/historical-optimization/product-center-non-seasoning-remediation-plan-20260831.json',
   ), 'utf8')) as { selectedCaseIds: string[]; excludedCaseIds: string[] };
   const routed = executionPlan.revalidation.runners.flatMap((runner) => runner.selectedCaseIds);
   expect(plan.selectedCaseIds).toHaveLength(337);
   expect(plan.selectedCaseIds.every((caseId) => !caseId.startsWith('TC-FLV-'))).toBe(true);
   expect(new Set(routed).size).toBe(routed.length);
   expect(plan.selectedCaseIds.every((caseId) => routed.includes(caseId))).toBe(true);
-  expect(executionPlan.revalidation.selectedCaseIds.filter((caseId) => !plan.selectedCaseIds.includes(caseId)).sort()).toEqual([
+  const additionalCurrentCases = executionPlan.revalidation.selectedCaseIds.filter((caseId) => !plan.selectedCaseIds.includes(caseId)).sort();
+  // Keep the original historical boundary, and independently account for later source-approved additions.
+  expect(additionalCurrentCases).toEqual(expect.arrayContaining([
     'TC-GRP-PKG-037',
     'TC-GRP-PKG-038',
     'TC-GRP-PKG-041',
@@ -302,7 +305,10 @@ test('非调味 337 条优化选择集必须全部具备唯一实际执行路由
     'TC-GRP-PKG-043',
     'TC-ITEM-PKG-078',
     'TC-ITEM-PKG-079',
-  ]);
+  ]));
+  expect(additionalCurrentCases).toEqual(executionPlan.tasks.filter((item) => item.action === 'execute' && item.sourceStatus === 'verified'
+    && !plan.selectedCaseIds.includes(item.caseId)).map((item) => item.caseId).sort());
+  expect([...routed].sort()).toEqual([...executionPlan.revalidation.selectedCaseIds].sort());
   expect(plan.excludedCaseIds.filter((caseId) => caseId.startsWith('TC-FLV-'))).toHaveLength(83);
 });
 

@@ -1,0 +1,635 @@
+{
+  "schemaVersion": "1.1.0",
+  "reportId": "product-center-lifecycle-efficiency-audit",
+  "generatedAt": "2026-09-08T03:22:26.922Z",
+  "scope": "report-only-static-efficiency-audit",
+  "source": {
+    "checklist": "deliverables/system-test-platform/product-center-complete-lifecycle-efficiency-checklist.json",
+    "artifactSpecs": [
+      {
+        "stageId": "source-intake",
+        "role": "来源与资产索引",
+        "relativePath": "output/product-center-item-213-conversion.json"
+      },
+      {
+        "stageId": "technical-binding",
+        "role": "技术绑定缺口",
+        "relativePath": "../deliverables/product-center-audit/remaining-scenarios/product-center-remaining-technical-binding-gap.json"
+      },
+      {
+        "stageId": "environment-readiness",
+        "role": "项目 readiness",
+        "relativePath": "deliverables/system-test-platform/readiness.json"
+      },
+      {
+        "stageId": "execution-intent",
+        "role": "执行意图/选择集",
+        "relativePath": "output/execution/product-center-execution-intent.json"
+      },
+      {
+        "stageId": "queue-and-lock",
+        "role": "治理执行队列",
+        "relativePath": "../deliverables/test-plan-governance/product-center-governance-execution-task-queue-v1.json"
+      },
+      {
+        "stageId": "receipt-evidence",
+        "role": "证据闭环预检",
+        "relativePath": "../deliverables/test-plan-governance/product-center-evidence-closure-preflight.json"
+      },
+      {
+        "stageId": "failure-analysis",
+        "role": "失败分析",
+        "relativePath": "output/governance/product-center-failure-analysis.json"
+      },
+      {
+        "stageId": "governance-queue",
+        "role": "治理队列摘要",
+        "relativePath": "output/governance/product-center-blocker-summary.json"
+      },
+      {
+        "stageId": "ci-jenkins-feedback",
+        "role": "Git/Jenkins 审计",
+        "relativePath": "output/governance/product-center-git-jenkins-integration-audit.json"
+      },
+      {
+        "stageId": "status-release-audit",
+        "role": "最终状态",
+        "relativePath": "output/product-center-item-final-status.json"
+      }
+    ]
+  },
+  "summary": {
+    "stageCount": 25,
+    "mappedStageCount": 10,
+    "artifactPresentCount": 6,
+    "telemetryCompleteStageCount": 0,
+    "artifactMissingStageCount": 4,
+    "artifactInvalidStageCount": 0,
+    "telemetryGapCount": 249,
+    "inputFindingCount": 4
+  },
+  "status": "incomplete",
+  "stages": [
+    {
+      "stageId": "change-discovery",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "source-intake",
+      "role": "来源与资产索引",
+      "artifactPath": "output/product-center-item-213-conversion.json",
+      "artifactExists": true,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "rule-review",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "risk-scoping",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "plan-compilation",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "case-generation",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "traceability",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "technical-binding",
+      "role": "技术绑定缺口",
+      "artifactPath": "../deliverables/product-center-audit/remaining-scenarios/product-center-remaining-technical-binding-gap.json",
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "artifact-missing"
+    },
+    {
+      "stageId": "capability-admission",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "environment-readiness",
+      "role": "项目 readiness",
+      "artifactPath": "deliverables/system-test-platform/readiness.json",
+      "artifactExists": true,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "execution-intent",
+      "role": "执行意图/选择集",
+      "artifactPath": "output/execution/product-center-execution-intent.json",
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "artifact-missing"
+    },
+    {
+      "stageId": "queue-and-lock",
+      "role": "治理执行队列",
+      "artifactPath": "../deliverables/test-plan-governance/product-center-governance-execution-task-queue-v1.json",
+      "artifactExists": true,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "authentication-context",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "data-lifecycle",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "business-execution",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "retry-recovery",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "cleanup-residue",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "receipt-evidence",
+      "role": "证据闭环预检",
+      "artifactPath": "../deliverables/test-plan-governance/product-center-evidence-closure-preflight.json",
+      "artifactExists": true,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "report-archive",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "failure-analysis",
+      "role": "失败分析",
+      "artifactPath": "output/governance/product-center-failure-analysis.json",
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "artifact-missing"
+    },
+    {
+      "stageId": "governance-queue",
+      "role": "治理队列摘要",
+      "artifactPath": "output/governance/product-center-blocker-summary.json",
+      "artifactExists": true,
+      "telemetryPresent": [
+        "businessExecutionStarted"
+      ],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "repair-rebinding",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "targeted-rerun",
+      "role": "未映射阶段",
+      "artifactPath": null,
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "unmapped"
+    },
+    {
+      "stageId": "ci-jenkins-feedback",
+      "role": "Git/Jenkins 审计",
+      "artifactPath": "output/governance/product-center-git-jenkins-integration-audit.json",
+      "artifactExists": true,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "telemetry-incomplete"
+    },
+    {
+      "stageId": "status-release-audit",
+      "role": "最终状态",
+      "artifactPath": "output/product-center-item-final-status.json",
+      "artifactExists": false,
+      "telemetryPresent": [],
+      "missingTelemetry": [
+        "startedAt",
+        "completedAt",
+        "durationMs",
+        "inputFingerprint",
+        "outputFingerprint",
+        "waitMs",
+        "retryCount",
+        "blockedReason",
+        "businessExecutionStarted",
+        "artifactPath"
+      ],
+      "invalidTelemetry": [],
+      "status": "artifact-missing"
+    }
+  ],
+  "inputFindings": [
+    {
+      "stageId": "technical-binding",
+      "status": "missing",
+      "reason": "not-found"
+    },
+    {
+      "stageId": "execution-intent",
+      "status": "missing",
+      "reason": "not-found"
+    },
+    {
+      "stageId": "failure-analysis",
+      "status": "missing",
+      "reason": "not-found"
+    },
+    {
+      "stageId": "status-release-audit",
+      "status": "missing",
+      "reason": "not-found"
+    }
+  ],
+  "sensitiveFindings": [],
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "liveBusinessWritesEnabled": false,
+    "existingPassedCasesInvalidated": false,
+    "secretsPersisted": false,
+    "missingTelemetryCannotAuthorizePass": true,
+    "structuralTelemetryCannotAuthorizeBusinessPass": true
+  },
+  "nextActions": [
+    "按阶段补齐或修复当前输入证据，未映射阶段仍保持未完成。",
+    "真实运行中采集耗时和指纹；本报告不以文件时间戳替代运行遥测，不授权业务通过。"
+  ]
+}

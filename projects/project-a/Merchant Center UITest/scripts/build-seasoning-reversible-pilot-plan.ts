@@ -4,15 +4,15 @@ import { createHash } from 'node:crypto';
 import {
   assertSystemTestOptimizationPlanMetadata,
   buildSystemTestOptimizationPlan,
-} from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+} from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 import {
   assertExecutionIntentCheckpointState,
   assertExecutionIntentContract,
   fingerprintExecutionIntent,
   fingerprintExecutionSelection,
   type ExecutionIntent,
-} from '../../../Test Automation Platform/src/governance/execution-intent';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
+} from '../../Test Automation Platform/src/governance/execution-intent';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 
 const projectRoot = path.resolve(__dirname, '..');

@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-09-08T17:13:02.248Z",
+  "input": {
+    "unitId": "addon-price-flow-20260909-01",
+    "directionId": "ADD008-009-010-price-flow",
+    "phase": "after-unit",
+    "tokenStart": 1861471,
+    "tokenCurrent": 1891409,
+    "elapsedMs": 609241,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "source5-4-3-operations",
+      "source3-2-1-assertions",
+      "field-specific-required-evidence",
+      "unexpected-creation-cleanup",
+      "architecture-boundary"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-flow-proof.json",
+        "sha256": "4c1812ed8512f71aaa75327478519edde24bd3a786f484b903797d76fd5dbe1c",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-flow-20260909-01",
+    "directionId": "ADD008-009-010-price-flow",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 29938,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "source5-4-3-operations",
+      "source3-2-1-assertions",
+      "field-specific-required-evidence",
+      "unexpected-creation-cleanup",
+      "architecture-boundary"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "4c1812ed8512f71aaa75327478519edde24bd3a786f484b903797d76fd5dbe1c"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

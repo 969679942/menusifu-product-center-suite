@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0.0",
+  "waveId": "W9",
+  "caseIds": [
+    "TC-ITEM-STD-080"
+  ],
+  "checkedAt": "2026-07-31T18:14:06+08:00",
+  "status": "blocked-until-terminal-access",
+  "accessScope": "external-terminal-required",
+  "safetyLevel": "L3-external-terminal-transaction",
+  "detection": {
+    "configuredTerminalTransactionEnvironment": false,
+    "openControllableTransactionSurface": false,
+    "connectedDeviceManagementSurface": true,
+    "deviceManagementEvidence": {
+      "deviceConnected": true,
+      "posReportedRunning": true,
+      "remoteControlEntryVisible": true,
+      "transactionControlsVisible": false
+    },
+    "repositoryTransactionAdapterAvailable": false,
+    "manifestReadinessBeforeDetection": "blocked-until-terminal-access"
+  },
+  "execution": {
+    "weightedProductCreated": false,
+    "terminalTransactionAttempted": false,
+    "orderCreated": false,
+    "mutationCount": 0,
+    "reason": "A connected POS device can be observed through device management, but no agent-controllable sales transaction surface or terminal transaction adapter is available."
+  },
+  "residue": {
+    "newMerchantCenterEntities": 0,
+    "newTerminalTransactions": 0,
+    "newOrders": 0,
+    "verificationBasis": "No mutation or transaction was started during the read-only gate detection."
+  },
+  "resumeRequirements": [
+    "Provide an agent-controllable POS sales transaction surface for the designated QA terminal.",
+    "Confirm the terminal is bound to the same QA merchant and menu context as Merchant Center.",
+    "Provide read-only order lookup evidence and a supported cancellation path.",
+    "Reconcile terminal and order state before replaying any interrupted non-idempotent action.",
+    "After execution, verify terminal, order API, Merchant Center API, and UI zero residue."
+  ],
+  "sensitiveDataPersisted": false
+}

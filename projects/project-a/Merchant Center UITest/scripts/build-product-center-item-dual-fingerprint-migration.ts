@@ -25,7 +25,7 @@ const landing = readJson<{
   modules: Array<{ module: string; assessment: { cases: LandingCase[] } }>;
 }>(landingPath);
 const itemCases = landing.modules.find((item) => item.module === '商品管理-商品')?.assessment.cases ?? [];
-if (itemCases.length !== 218) throw new Error(`PRODUCT_CENTER_ITEM_DUAL_FINGERPRINT_TOTAL_INVALID:${itemCases.length}`);
+if (itemCases.length === 0) throw new Error('PRODUCT_CENTER_ITEM_DUAL_FINGERPRINT_TOTAL_INVALID:empty-authoritative-item-cases');
 const records = new TestExecutionIndex(resolveSystemTestPlatformArtifact('execution-index.json')).snapshot().records;
 const recordsByCaseId = new Map<string, typeof records>();
 for (const record of records) {

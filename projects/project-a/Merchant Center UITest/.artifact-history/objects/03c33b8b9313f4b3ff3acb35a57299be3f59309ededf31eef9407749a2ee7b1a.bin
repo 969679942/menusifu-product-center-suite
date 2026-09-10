@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T15:30:34.973Z",
+  "input": {
+    "unitId": "standard-required-name-execution-02",
+    "directionId": "standard-required-name-runtime",
+    "phase": "after-unit",
+    "tokenStart": 1194675,
+    "tokenCurrent": 1201109,
+    "elapsedMs": 91000,
+    "attempts": 2,
+    "beforeQuestionIds": [
+      "STD005-navigation-precondition",
+      "STD005-current-result"
+    ],
+    "afterQuestionIds": [
+      "STD005-response-identity-mapping"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "output/checkpoints/item/source-governed-standard-required-name-20260908-02-source-governed/terminal-TC-ITEM-STD-005.json",
+        "sha256": "1b2bcadc419df5fc14bed94304b58a852dd09273eac0635c373d4fee638086bf",
+        "kind": "runtime-receipt"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-required-name-execution-02",
+    "directionId": "standard-required-name-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 6434,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD005-navigation-precondition",
+      "STD005-current-result"
+    ],
+    "newQuestionIds": [
+      "STD005-response-identity-mapping"
+    ],
+    "newEvidenceHashes": [
+      "1b2bcadc419df5fc14bed94304b58a852dd09273eac0635c373d4fee638086bf"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

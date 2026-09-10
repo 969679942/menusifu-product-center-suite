@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-011"
+  ],
+  "planFingerprint": "pending",
+  "selectionFingerprint": "pending",
+  "rootCause": "首次实现阶段仅有字段入口和详情键名观察，缺少本次创建后包装费及成本回读收据。",
+  "correctiveAction": "已增加ADD011独立合同：填写标准价、包装费、成本，保存后详情API读取skuList.packageFee/costPrice，按审计ID清理并验证API/UI零残留；21项原价格合同及类型检查通过。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/addon-011-fields-observation.json",
+    "deliverables/system-test-platform/addon-011-detail-api-observation.json",
+    "deliverables/system-test-platform/addon-011-contract-draft.json"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "blockedStart": {
+    "runId": "addon-011-detail-readback-20260909-01",
+    "selected": 1,
+    "terminal": 0,
+    "actualBusinessAttempts": 0,
+    "code": "DIAGNOSIS_REQUIRED",
+    "detail": "new-case-admission"
+  },
+  "nextAction": "执行一次ADD011并生成当前标准收据"
+}

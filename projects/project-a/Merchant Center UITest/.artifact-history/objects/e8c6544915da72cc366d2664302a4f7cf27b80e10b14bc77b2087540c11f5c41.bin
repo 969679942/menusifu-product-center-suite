@@ -1,0 +1,314 @@
+{
+  "intentFingerprint": "215074a13f959ae92a9389df89db0ebcce1f21ccae3b42987a290a4a91a3acf7",
+  "selectionFingerprint": "527fcbd44374134364ea25a17432ba6158d298845c0a35e1f05b84905b37c9c9",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-045",
+    "TC-ITEM-STD-048",
+    "TC-ITEM-STD-049"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-045"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-045",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+    "implementationFingerprint": "b7b67f1c64d3827a5cf88bb5e863a3f782dd4a596bb62f0b68fec813de834a06",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/standard"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T16:31:12.393Z"
+    },
+    "executionEpochId": "source-governed-standard-create-controls-20260909-01-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-045:action-1",
+        "title": "在商品描述输入 250 字符。",
+        "sequence": 14,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 55,
+        "startedAt": "2026-09-08T16:31:08.195Z",
+        "finishedAt": "2026-09-08T16:31:08.250Z",
+        "occurredAt": "2026-09-08T16:31:08.250Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-045:action-2",
+        "title": "继续输入第 251 个字符。",
+        "sequence": 15,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 78,
+        "startedAt": "2026-09-08T16:31:08.255Z",
+        "finishedAt": "2026-09-08T16:31:08.333Z",
+        "occurredAt": "2026-09-08T16:31:08.333Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-045:action-3",
+        "title": "读取输入框 maxlength、计数器和实际长度。",
+        "sequence": 16,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 75,
+        "startedAt": "2026-09-08T16:31:08.337Z",
+        "finishedAt": "2026-09-08T16:31:08.412Z",
+        "occurredAt": "2026-09-08T16:31:08.412Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+        "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+        "sequence": 1,
+        "method": "openFromSidebar",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 6479,
+        "startedAt": "2026-09-08T16:30:55.110Z",
+        "finishedAt": "2026-09-08T16:31:01.589Z",
+        "occurredAt": "2026-09-08T16:31:01.589Z"
+      },
+      {
+        "operationKey": "SidebarPage.expectProductManagementVisible",
+        "title": "等待商品管理入口链接可见",
+        "sequence": 2,
+        "method": "expectProductManagementVisible",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3861,
+        "startedAt": "2026-09-08T16:30:57.564Z",
+        "finishedAt": "2026-09-08T16:31:01.425Z",
+        "occurredAt": "2026-09-08T16:31:01.425Z"
+      },
+      {
+        "operationKey": "SidebarPage.openSubMenuByCandidates",
+        "title": "通过侧边栏候选链接进入目标模块",
+        "sequence": 3,
+        "method": "openSubMenuByCandidates",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 143,
+        "startedAt": "2026-09-08T16:31:01.433Z",
+        "finishedAt": "2026-09-08T16:31:01.576Z",
+        "occurredAt": "2026-09-08T16:31:01.576Z"
+      },
+      {
+        "operationKey": "SidebarPage.expandSubMenuForPath",
+        "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+        "sequence": 4,
+        "method": "expandSubMenuForPath",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 30,
+        "startedAt": "2026-09-08T16:31:01.437Z",
+        "finishedAt": "2026-09-08T16:31:01.467Z",
+        "occurredAt": "2026-09-08T16:31:01.467Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 5,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 326,
+        "startedAt": "2026-09-08T16:31:01.610Z",
+        "finishedAt": "2026-09-08T16:31:01.936Z",
+        "occurredAt": "2026-09-08T16:31:01.936Z"
+      },
+      {
+        "operationKey": "ItemCreateFlow.openStandardCreateFromCurrentList",
+        "title": "从当前商品列表进入标准商品创建页",
+        "sequence": 6,
+        "method": "openStandardCreateFromCurrentList",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1008,
+        "startedAt": "2026-09-08T16:31:07.153Z",
+        "finishedAt": "2026-09-08T16:31:08.161Z",
+        "occurredAt": "2026-09-08T16:31:08.161Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 7,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 51,
+        "startedAt": "2026-09-08T16:31:07.159Z",
+        "finishedAt": "2026-09-08T16:31:07.210Z",
+        "occurredAt": "2026-09-08T16:31:07.210Z"
+      },
+      {
+        "operationKey": "ItemListPage.enterCreateTypePage",
+        "title": "进入新增商品类型选择页",
+        "sequence": 8,
+        "method": "enterCreateTypePage",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 375,
+        "startedAt": "2026-09-08T16:31:07.217Z",
+        "finishedAt": "2026-09-08T16:31:07.592Z",
+        "occurredAt": "2026-09-08T16:31:07.592Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.expectLoaded",
+        "title": "等待选择商品类型页加载完成",
+        "sequence": 9,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 268,
+        "startedAt": "2026-09-08T16:31:07.314Z",
+        "finishedAt": "2026-09-08T16:31:07.582Z",
+        "occurredAt": "2026-09-08T16:31:07.582Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create",
+        "sequence": 10,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 25,
+        "startedAt": "2026-09-08T16:31:07.319Z",
+        "finishedAt": "2026-09-08T16:31:07.344Z",
+        "occurredAt": "2026-09-08T16:31:07.344Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.enterStandardCreate",
+        "title": "进入标准商品创建页",
+        "sequence": 11,
+        "method": "enterStandardCreate",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 513,
+        "startedAt": "2026-09-08T16:31:07.621Z",
+        "finishedAt": "2026-09-08T16:31:08.134Z",
+        "occurredAt": "2026-09-08T16:31:08.134Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.expectLoaded",
+        "title": "等待标准商品创建页进入可交互终态",
+        "sequence": 12,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 429,
+        "startedAt": "2026-09-08T16:31:07.697Z",
+        "finishedAt": "2026-09-08T16:31:08.126Z",
+        "occurredAt": "2026-09-08T16:31:08.126Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create/standard",
+        "sequence": 13,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 36,
+        "startedAt": "2026-09-08T16:31:07.702Z",
+        "finishedAt": "2026-09-08T16:31:07.738Z",
+        "occurredAt": "2026-09-08T16:31:07.738Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 17,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3895,
+        "startedAt": "2026-09-08T16:31:08.422Z",
+        "finishedAt": "2026-09-08T16:31:12.317Z",
+        "occurredAt": "2026-09-08T16:31:12.317Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 18,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3204,
+        "startedAt": "2026-09-08T16:31:09.105Z",
+        "finishedAt": "2026-09-08T16:31:12.309Z",
+        "occurredAt": "2026-09-08T16:31:12.309Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 19,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 19,
+        "startedAt": "2026-09-08T16:31:12.343Z",
+        "finishedAt": "2026-09-08T16:31:12.362Z",
+        "occurredAt": "2026-09-08T16:31:12.362Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-045:expectation-1",
+        "status": "verified",
+        "actualValue": {
+          "initialLength": 250,
+          "finalLength": 250,
+          "maxlength": "250",
+          "counterText": "250 / 250"
+        },
+        "expectedValue": {
+          "initialLength": 250,
+          "finalLength": 250,
+          "maxlength": "250",
+          "counterText": "250 / 250"
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-045:expectation-1"
+      ],
+      "observed": [
+        "TC-ITEM-STD-045:expectation-1"
+      ],
+      "verified": [
+        "TC-ITEM-STD-045:expectation-1"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+    },
+    "evidenceFingerprint": "9f69114682dcfbdfef0d2fb181b00e71b8ef65f5e404c2cc0eff4cbe60932d11"
+  }
+}

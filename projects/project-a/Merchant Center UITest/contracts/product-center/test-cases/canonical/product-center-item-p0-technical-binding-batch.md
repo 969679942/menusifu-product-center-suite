@@ -166,9 +166,9 @@
 | TC-ITEM-STD-038 标准价缺失时创建失败 | 必填校验 | page-observation | p0-item-binding:item-standard-required-fields | runtime-accepted |  |
 | TC-ITEM-PKG-010 套餐商品必填项缺失时创建失败 | 必填校验 | page-observation | p0-item-binding:item-combo-required-fields | runtime-accepted |  |
 | TC-ITEM-PKG-017 套餐商品标准价缺失时创建失败 | 必填校验 | page-observation | p0-item-binding:item-combo-required-fields | runtime-accepted |  |
-| TC-ITEM-STD-011 同一一级分类下新建同名商品创建失败 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
-| TC-ITEM-STD-013 同一二级分类下新建同名商品创建失败 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
-| TC-ITEM-STD-014 同一商户下不同一级分类仍不可创建同名商品 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
+| TC-ITEM-STD-011 同一商户同一商品类型内新建同名商品创建失败 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
+| TC-ITEM-STD-013 同一商品类型同一二级分类下新建同名商品创建失败 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
+| TC-ITEM-STD-014 同一商户同一商品类型下不同一级分类仍不可创建同名商品 | 创建 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
 | TC-ITEM-STD-047 多规格商品选择已有规格组后创建成功 | 价格规格 | page-observation | p0-item-binding:item-standard-spec-modes | runtime-accepted |  |
 | TC-ITEM-PKG-002 套餐商品可选择已有固定搭配套餐组 | 套餐规则 | page-observation | p0-item-binding:item-combo-fixed-group | runtime-accepted |  |
 | TC-ITEM-PKG-004 套餐商品可选择已有组合搭配套餐组 | 套餐规则 | page-observation | p0-item-binding:item-combo-optional-select | runtime-accepted |  |
@@ -195,6 +195,6 @@
 | TC-ITEM-STD-057 标准商品引用口味组整组后保存成功 | 创建 | page-observation | p0-item-binding:item-standard-attributes | runtime-accepted |  |
 | TC-ITEM-STD-058 标准商品引用做法组与加料组整组后保存成功 | 创建 | page-observation | p0-item-binding:item-standard-attributes | runtime-accepted |  |
 | TC-ITEM-STD-001 标准商品创建页展示商品类型入口与核心配置模块 | 展示与其他 | page-observation | p0-item-binding:item-create-type-selection | runtime-accepted |  |
+| TC-ITEM-STD-012 同一商品类型不同二级分类的标准商品同名提示 BITEM-7014 | 展示与其他 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
 | TC-ITEM-STD-007 一级分类存在二级分类时必须选择二级分类才能完成商品分类选择 | 展示与其他 | direct-recipe | p0-item-binding:recipe-drift-repair | runtime-accepted |  |
-| TC-ITEM-STD-012 同一一级分类不同二级分类的标准商品同名提示 BITEM-7010 | 展示与其他 | legacy-binding | p0-item-binding:legacy-sidebar-only | runtime-accepted |  |
 | TC-ITEM-PKG-006 套餐商品选择并引用已有固定搭配组 | 套餐规则 | page-observation | p0-item-binding:item-combo-fixed-group | runtime-accepted |  |

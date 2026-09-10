@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W4_20260731_09",
+  "waveId": "W4",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "completed-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-036",
+    "TC-ITEM-STD-037",
+    "TC-ITEM-STD-008",
+    "TC-ITEM-STD-016",
+    "TC-ITEM-STD-017",
+    "TC-ITEM-STD-018"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-STD-016",
+    "TC-ITEM-STD-017",
+    "TC-ITEM-STD-018",
+    "TC-ITEM-STD-036",
+    "TC-ITEM-STD-037"
+  ],
+  "conflictCaseIds": [
+    "TC-ITEM-STD-008"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-036": {
+      "verdict": "accepted",
+      "itemId": 260922,
+      "identity": "AUTO_AUDIT_W4_REQUIRED_1785479291929",
+      "expectedPrices": [
+        9.99
+      ],
+      "entered": {
+        "name": "AUTO_AUDIT_W4_REQUIRED_1785479291929",
+        "prices": [
+          "9.99"
+        ],
+        "route": "/pp/brand/create/standard"
+      },
+      "response": {
+        "method": "POST",
+        "path": "/item/v1/ops-brand/brand-items/standard",
+        "status": 200
+      },
+      "apiNamePresent": true,
+      "apiPricesPresent": true
+    },
+    "TC-ITEM-STD-037": {
+      "verdict": "accepted",
+      "itemId": 260923,
+      "identity": "AUTO_AUDIT_W4_NO_CATEGORY_1785479291929",
+      "expectedPrices": [
+        10
+      ],
+      "entered": {
+        "name": "AUTO_AUDIT_W4_NO_CATEGORY_1785479291929",
+        "prices": [
+          "10.00"
+        ],
+        "route": "/pp/brand/create/standard"
+      },
+      "response": {
+        "method": "POST",
+        "path": "/item/v1/ops-brand/brand-items/standard",
+        "status": 200
+      },
+      "apiNamePresent": true,
+      "apiPricesPresent": true
+    },
+    "TC-ITEM-STD-008": {
+      "verdict": "canonical-conflict",
+      "submittedName": "AUTO_AUDIT_W4_FORMAT_1785479291929_SPECIAL_商品名称  连  空格  Test01@#🙂_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "submittedLength": 167,
+      "enteredName": "AUTO_AUDIT_W4_FORMAT_1785479291929_SPECIAL_商品名称  连  空格  Test01@#🙂_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      "enteredLength": 100,
+      "mutationObserved": false,
+      "validationErrors": [
+        "字符之间只允许单空格"
+      ],
+      "messages": [],
+      "route": "/pp/brand/create/standard"
+    },
+    "TC-ITEM-STD-016": {
+      "verdict": "accepted",
+      "itemId": 260924,
+      "identity": "AUTO_AUDIT_W4_DEFAULT_SPEC_1785479291929",
+      "expectedPrices": [
+        12,
+        9.99
+      ],
+      "entered": {
+        "name": "AUTO_AUDIT_W4_DEFAULT_SPEC_1785479291929",
+        "prices": [
+          "12.00",
+          "9.99"
+        ],
+        "route": "/pp/brand/create/standard"
+      },
+      "response": {
+        "method": "POST",
+        "path": "/item/v1/ops-brand/brand-items/standard",
+        "status": 200
+      },
+      "apiNamePresent": true,
+      "apiPricesPresent": true,
+      "specId": 250177,
+      "optionNames": [
+        "AUTO_AUDIT_W4_SPEC_LARGE_1785479291929",
+        "AUTO_AUDIT_W4_SPEC_SMALL_1785479291929"
+      ],
+      "selectedDefault": "AUTO_AUDIT_W4_SPEC_LARGE_1785479291929"
+    },
+    "TC-ITEM-STD-017": {
+      "verdict": "accepted",
+      "itemId": 260925,
+      "identity": "AUTO_AUDIT_W4_NO_DEFAULT_SPEC_1785479291929",
+      "expectedPrices": [
+        8,
+        12
+      ],
+      "entered": {
+        "name": "AUTO_AUDIT_W4_NO_DEFAULT_SPEC_1785479291929",
+        "prices": [
+          "8.00",
+          "12.00"
+        ],
+        "route": "/pp/brand/create/standard"
+      },
+      "response": {
+        "method": "POST",
+        "path": "/item/v1/ops-brand/brand-items/standard",
+        "status": 200
+      },
+      "apiNamePresent": true,
+      "apiPricesPresent": true,
+      "specId": 250177,
+      "optionNames": [
+        "AUTO_AUDIT_W4_SPEC_LARGE_1785479291929",
+        "AUTO_AUDIT_W4_SPEC_SMALL_1785479291929"
+      ],
+      "selectedDefault": null
+    },
+    "TC-ITEM-STD-018": {
+      "verdict": "accepted",
+      "itemId": 260926,
+      "identity": "AUTO_AUDIT_W4_WEIGHTED_1785479291929",
+      "expectedPrices": [
+        10
+      ],
+      "entered": {
+        "name": "AUTO_AUDIT_W4_WEIGHTED_1785479291929",
+        "prices": [
+          "10.00"
+        ],
+        "route": "/pp/brand/create/standard"
+      },
+      "response": {
+        "method": "POST",
+        "path": "/item/v1/ops-brand/brand-items/standard",
+        "status": 200
+      },
+      "apiNamePresent": true,
+      "apiPricesPresent": true,
+      "editReadback": {
+        "unit": "g",
+        "weightBasedSelected": true,
+        "prices": [
+          "10.00"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total": 6,
+    "accepted": 5,
+    "canonicalConflict": 1,
+    "harnessError": 0
+  },
+  "cleanupEvidence": {
+    "apiItemResidue": {
+      "AUTO_AUDIT_W4_REQUIRED_1785479291929": 0,
+      "AUTO_AUDIT_W4_NO_CATEGORY_1785479291929": 0,
+      "AUTO_AUDIT_W4_DEFAULT_SPEC_1785479291929": 0,
+      "AUTO_AUDIT_W4_NO_DEFAULT_SPEC_1785479291929": 0,
+      "AUTO_AUDIT_W4_WEIGHTED_1785479291929": 0
+    },
+    "uiItemResidue": {
+      "AUTO_AUDIT_W4_REQUIRED_1785479291929": 0,
+      "AUTO_AUDIT_W4_NO_CATEGORY_1785479291929": 0,
+      "AUTO_AUDIT_W4_DEFAULT_SPEC_1785479291929": 0,
+      "AUTO_AUDIT_W4_NO_DEFAULT_SPEC_1785479291929": 0,
+      "AUTO_AUDIT_W4_WEIGHTED_1785479291929": 0
+    },
+    "apiSpecResidue": 0,
+    "uiSpecResidue": 0,
+    "ledgerEntries": 6,
+    "residueVerified": 6
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:remaining-w4:4d5ff9129069c79205172384",
+      "unitId": "audit-unit:remaining-w4:required-only",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260922,
+      "ledgerEntryId": "item-260922"
+    },
+    {
+      "intentId": "intent:remaining-w4:0f22ff76ae58534aa14a775e",
+      "unitId": "audit-unit:remaining-w4:no-category",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260923,
+      "ledgerEntryId": "item-260923"
+    },
+    {
+      "intentId": "intent:remaining-w4:bf97daad99d9d9a925541ab4",
+      "unitId": "audit-unit:remaining-w4:formatted-name",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w4:7963d0f6300470306a73452d",
+      "unitId": "audit-unit:remaining-w4:default-spec",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260924,
+      "ledgerEntryId": "item-260924"
+    },
+    {
+      "intentId": "intent:remaining-w4:db6c118553ec2bbb84e062dc",
+      "unitId": "audit-unit:remaining-w4:no-default-spec",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260925,
+      "ledgerEntryId": "item-260925"
+    },
+    {
+      "intentId": "intent:remaining-w4:58a1cfae64a1abb85475cd48",
+      "unitId": "audit-unit:remaining-w4:weighted",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260926,
+      "ledgerEntryId": "item-260926"
+    }
+  ],
+  "security": {
+    "credentialsPersisted": false,
+    "authorizationArtifactsPersisted": false,
+    "storageStatePersisted": false
+  }
+}

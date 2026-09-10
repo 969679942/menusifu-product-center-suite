@@ -1,7 +1,7 @@
 import {
   assessSystemTestSourceRecovery,
   type SystemTestSourceRecoveryAssessment,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-source-recovery';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-source-recovery';
 
 export type ProductCenterSourceRecoveryBinding = {
   caseId: string;

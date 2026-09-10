@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "planFingerprint": "35cf5b5554e0e0116b8b9a5aedbaf436b094d28439028c5c67b90d1af2ee8dc0",
+  "selectionFingerprint": "49bc18819ae479adc7b321f752494c0821628c505d772f36da70fbccf925beaf",
+  "rootCause": "ADD008空价格保存后外层ant-input-number-affix-wrapper出现ant-input-number-status-error；旧读取器仅检查内层控件。ADD009/010上一轮金额比较误读已修复。",
+  "correctiveAction": "价格页仅读取价格输入外层status-error，并保持金额展示白名单；21项合同通过，原18条不受影响。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/addon-empty-price-diagnosis.json",
+    "deliverables/system-test-platform/addon-price-currency-completion-checkpoint.json"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "blockedStart": {
+    "runId": "addon-price-field-feedback-20260909-01",
+    "selected": 3,
+    "terminal": 0,
+    "actualBusinessAttempts": 0,
+    "code": "DIAGNOSIS_REQUIRED",
+    "detail": "implementation-changed-after-diagnosis"
+  },
+  "nextAction": "同选择集执行一次，形成三条当前收据"
+}

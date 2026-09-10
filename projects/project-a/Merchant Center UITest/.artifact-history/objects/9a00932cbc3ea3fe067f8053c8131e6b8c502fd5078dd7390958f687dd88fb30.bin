@@ -1,0 +1,303 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W6_20260731_05",
+  "waveId": "W6",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "accepted-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-032",
+    "TC-ITEM-STD-087",
+    "TC-ITEM-STD-088",
+    "TC-ITEM-ADD-024",
+    "TC-ITEM-PKG-035",
+    "TC-ITEM-PKG-069",
+    "TC-ITEM-PKG-071",
+    "TC-ITEM-PKG-072"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-STD-032",
+    "TC-ITEM-STD-087",
+    "TC-ITEM-STD-088"
+  ],
+  "canonicalConflictCaseIds": [
+    "TC-ITEM-ADD-024",
+    "TC-ITEM-PKG-035",
+    "TC-ITEM-PKG-069",
+    "TC-ITEM-PKG-071",
+    "TC-ITEM-PKG-072"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-032": {
+      "disposition": "accepted",
+      "evidence": {
+        "groupId": 250726,
+        "groupName": "AUTO_AUDIT_W6_FLAVOR_GROUP_1785487689384101",
+        "expectedOption": "AUTO_AUDIT_W6_FLAVOR_OPTION_1785487689384101_B",
+        "override": {
+          "beforeSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_FLAVOR_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_FLAVOR_OPTION_1785487689384101_B",
+            "price": "2.00"
+          },
+          "afterSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_FLAVOR_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_FLAVOR_OPTION_1785487689384101_B",
+            "price": "2.00"
+          }
+        },
+        "overrideMatched": true,
+        "masterDataBefore": "5c7c7b8f1f540293755870608163efb95d134c8e7b530b935f21f17a8556a399",
+        "masterDataAfter": "5c7c7b8f1f540293755870608163efb95d134c8e7b530b935f21f17a8556a399",
+        "masterDataUnchanged": true
+      }
+    },
+    "TC-ITEM-STD-087": {
+      "disposition": "accepted",
+      "evidence": {
+        "groupId": 250727,
+        "groupName": "AUTO_AUDIT_W6_METHOD_GROUP_1785487689384101",
+        "expectedOption": "AUTO_AUDIT_W6_METHOD_OPTION_1785487689384101_B",
+        "override": {
+          "beforeSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_METHOD_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_METHOD_OPTION_1785487689384101_B",
+            "price": "2.00"
+          },
+          "afterSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_METHOD_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_METHOD_OPTION_1785487689384101_B",
+            "price": "2.00"
+          }
+        },
+        "overrideMatched": true,
+        "masterDataBefore": "c3668daa620b3b49895e1f4fc2ad1c6126d224c66dc78c9ccb300adce895439c",
+        "masterDataAfter": "c3668daa620b3b49895e1f4fc2ad1c6126d224c66dc78c9ccb300adce895439c",
+        "masterDataUnchanged": true
+      }
+    },
+    "TC-ITEM-STD-088": {
+      "disposition": "accepted",
+      "evidence": {
+        "groupId": 250319,
+        "groupName": "AUTO_AUDIT_W6_ADDON_GROUP_1785487689384101",
+        "expectedOption": "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B",
+        "override": {
+          "beforeSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B",
+            "price": "2.00"
+          },
+          "afterSave": {
+            "checkedNames": [
+              "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B"
+            ],
+            "checkedSwitches": 1,
+            "optionName": "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B",
+            "price": "2.00"
+          }
+        },
+        "overrideMatched": true,
+        "masterDataBefore": "895055695842181488090f502b7d9222e5ea3123da62d3d6f0e9b477b60267e7",
+        "masterDataAfter": "895055695842181488090f502b7d9222e5ea3123da62d3d6f0e9b477b60267e7",
+        "masterDataUnchanged": true
+      }
+    },
+    "TC-ITEM-ADD-024": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 261301,
+        "response": {
+          "method": "PUT",
+          "path": "/item/v1/ops-brand/brand-items/standard/261301",
+          "status": 200
+        },
+        "reconciled": {
+          "originalCount": 1,
+          "updatedCount": 0
+        },
+        "nameMatched": false,
+        "priceMatched": false,
+        "imageChanged": false,
+        "imageCardCount": 0,
+        "imageUploadDiagnostic": "Error: 商品主图上传后未展示新预览。 Last value: 0"
+      }
+    },
+    "TC-ITEM-PKG-035": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 261303,
+        "response": {
+          "method": "PUT",
+          "path": "/item/v1/ops-brand/brand-items/combo/261303",
+          "status": 200
+        },
+        "reconciled": {
+          "originalCount": 1,
+          "updatedCount": 0
+        },
+        "nameMatched": false,
+        "priceMatched": true,
+        "imageChanged": false,
+        "imageCardCount": 0,
+        "imageUploadDiagnostic": "Error: 商品主图上传后未展示新预览。 Last value: 0"
+      }
+    },
+    "TC-ITEM-PKG-069": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "groupName": "AUTO_AUDIT_W6_FLAVOR_GROUP_1785487689384101",
+        "canonicalExpected": "套餐商品内可编辑共享属性组加价和默认项，并且不修改主数据。",
+        "observed": "当前套餐商品编辑页不存在共享 Attribute 添加入口。"
+      }
+    },
+    "TC-ITEM-PKG-071": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "groupName": "AUTO_AUDIT_W6_METHOD_GROUP_1785487689384101",
+        "canonicalExpected": "套餐商品内可编辑共享属性组加价和默认项，并且不修改主数据。",
+        "observed": "当前套餐商品编辑页不存在共享 Attribute 添加入口。"
+      }
+    },
+    "TC-ITEM-PKG-072": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "capability": {
+          "route": "/pp/brand/edit/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd"
+        },
+        "groupName": "AUTO_AUDIT_W6_ADDON_GROUP_1785487689384101",
+        "canonicalExpected": "套餐商品内可编辑共享属性组加价和默认项，并且不修改主数据。",
+        "observed": "当前套餐商品编辑页不存在共享 Attribute 添加入口。"
+      }
+    }
+  },
+  "cleanupEvidence": {
+    "apiResidue": {
+      "items": {
+        "AUTO_AUDIT_W6_STANDARD_1785487689382": 0,
+        "AUTO_AUDIT_W6_SIDE_1785487689382": 0,
+        "AUTO_AUDIT_W6_SIDE_1785487689382_V2": 0,
+        "AUTO_AUDIT_W6_COMBO_1785487689382": 0,
+        "AUTO_AUDIT_W6_COMBO_1785487689382_V2": 0
+      },
+      "ruleGroups": {
+        "AUTO_AUDIT_W6_FLAVOR_GROUP_1785487689384101": 0,
+        "AUTO_AUDIT_W6_METHOD_GROUP_1785487689384101": 0,
+        "AUTO_AUDIT_W6_ADDON_GROUP_1785487689384101": 0
+      },
+      "dependencies": {
+        "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_A": 0,
+        "AUTO_AUDIT_W6_ADDON_OPTION_1785487689384101_B": 0
+      }
+    },
+    "uiResidue": {
+      "AUTO_AUDIT_W6_STANDARD_1785487689382": 0,
+      "AUTO_AUDIT_W6_SIDE_1785487689382": 0,
+      "AUTO_AUDIT_W6_SIDE_1785487689382_V2": 0,
+      "AUTO_AUDIT_W6_COMBO_1785487689382": 0,
+      "AUTO_AUDIT_W6_COMBO_1785487689382_V2": 0
+    },
+    "uiAndApiResidueFree": true,
+    "ledgerEntries": 10,
+    "residueVerified": 10,
+    "incompleteLedgerEntries": 0
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:w6-create-standard:ac7c870aa34e5ed5d9b73193",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 261300,
+      "ledgerEntryId": "item-261300"
+    },
+    {
+      "intentId": "intent:w6-create-side:2ceed99ebb9dc7501aaee2a6",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 261301,
+      "ledgerEntryId": "item-261301"
+    },
+    {
+      "intentId": "intent:w6-create-combo:ddca169f02f9408ffa1b73ab",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      },
+      "serverId": 261303,
+      "ledgerEntryId": "item-261303"
+    },
+    {
+      "intentId": "intent:w6-update-standard:bb1b9f51ed980baf44965ee8",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/standard/261300"
+      },
+      "serverId": 261300,
+      "ledgerEntryId": "item-261300"
+    },
+    {
+      "intentId": "intent:w6-update-side:d1711715586c901aa1796bd0",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/standard/261301"
+      },
+      "serverId": 261301,
+      "ledgerEntryId": "item-261301"
+    },
+    {
+      "intentId": "intent:w6-update-combo:6039eaf93bfa10603a66b6d8",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/combo/261303"
+      },
+      "serverId": 261303,
+      "ledgerEntryId": "item-261303"
+    }
+  ]
+}

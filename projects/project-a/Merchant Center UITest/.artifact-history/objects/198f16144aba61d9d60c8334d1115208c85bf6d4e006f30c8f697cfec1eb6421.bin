@@ -1,0 +1,894 @@
+{
+  "recordedAt": "2026-09-08T13:13:36.416Z",
+  "runId": "standard-list-20260908-02",
+  "status": "completed-with-findings",
+  "selected": 6,
+  "terminal": 6,
+  "rows": [
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "runtimeStatus": "passed",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-tenant",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "state-restore-failed",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-002:expectation-1",
+          "status": "verified",
+          "actualValue": {
+            "mainPresent": true,
+            "categoryTrees": 0
+          },
+          "expectedValue": {
+            "mainPresent": true,
+            "categoryTrees": 0
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-002:expectation-2",
+          "status": "verified",
+          "actualValue": {
+            "search": true,
+            "type": true,
+            "status": true,
+            "add": true
+          },
+          "expectedValue": {
+            "search": true,
+            "type": true,
+            "status": true,
+            "add": true
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-002:expectation-3",
+          "status": "verified",
+          "actualValue": {
+            "columns": [
+              "Item",
+              "Type",
+              "Specification",
+              "Price($)",
+              "Status",
+              "Action"
+            ],
+            "imagePresent": true
+          },
+          "expectedValue": {
+            "columns": [
+              "Item",
+              "Type",
+              "Specification",
+              "Price($)",
+              "Status",
+              "Action"
+            ],
+            "imagePresent": true
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-002:expectation-4",
+          "status": "verified",
+          "actualValue": {
+            "totalPresent": true,
+            "size": 50
+          },
+          "expectedValue": {
+            "totalPresent": true,
+            "size": 50
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-002:action-1",
+          "title": "通过侧边栏进入商品列表",
+          "sequence": 5,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 132,
+          "startedAt": "2026-09-08T13:12:18.276Z",
+          "finishedAt": "2026-09-08T13:12:18.408Z",
+          "occurredAt": "2026-09-08T13:12:18.408Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-002:action-2",
+          "title": "查看当前筛选区域",
+          "sequence": 7,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 122,
+          "startedAt": "2026-09-08T13:12:18.412Z",
+          "finishedAt": "2026-09-08T13:12:18.534Z",
+          "occurredAt": "2026-09-08T13:12:18.534Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-002:action-3",
+          "title": "查看商品表格字段和操作入口",
+          "sequence": 9,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 66,
+          "startedAt": "2026-09-08T13:12:18.547Z",
+          "finishedAt": "2026-09-08T13:12:18.613Z",
+          "occurredAt": "2026-09-08T13:12:18.613Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-002:action-4",
+          "title": "查看分页与总数信息",
+          "sequence": 11,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 56,
+          "startedAt": "2026-09-08T13:12:18.622Z",
+          "finishedAt": "2026-09-08T13:12:18.678Z",
+          "occurredAt": "2026-09-08T13:12:18.678Z"
+        }
+      ],
+      "stateRestored": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "runtimeStatus": "failed",
+      "qualification": {
+        "accepted": false,
+        "reasons": [
+          "ASSERTION_RECEIPT_MISSING",
+          "DECLARED_ASSERTION_SET_MISMATCH",
+          "OPERATION_EXECUTION_EVIDENCE_INCOMPLETE",
+          "OPERATION_RECEIPT_CARDINALITY_INVALID",
+          "OPERATION_RECEIPT_MISSING"
+        ]
+      },
+      "negativeChecks": [],
+      "assertions": [],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-003:action-1",
+          "title": "打开展示列设置",
+          "sequence": 7,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 49,
+          "startedAt": "2026-09-08T13:12:27.620Z",
+          "finishedAt": "2026-09-08T13:12:27.669Z",
+          "occurredAt": "2026-09-08T13:12:27.669Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-003:action-2",
+          "title": "勾选分类、规格、标准价",
+          "sequence": 11,
+          "method": "ui",
+          "observed": false,
+          "status": "failed",
+          "durationMs": 31,
+          "startedAt": "2026-09-08T13:12:27.748Z",
+          "finishedAt": "2026-09-08T13:12:27.779Z",
+          "occurredAt": "2026-09-08T13:12:27.779Z"
+        }
+      ],
+      "terminalFailure": {
+        "status": "failed",
+        "unreachedSourceOperations": [
+          "TC-ITEM-STD-003:action-3",
+          "TC-ITEM-STD-003:action-4",
+          "TC-ITEM-STD-003:action-5"
+        ],
+        "reason": "Error: BUSINESS_CONTROL_ABSENT:Specification,Price($)"
+      },
+      "stateRestored": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "runtimeStatus": "passed",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-tenant",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "state-restore-failed",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-063:expectation-1",
+          "status": "verified",
+          "actualValue": [
+            10,
+            20,
+            50,
+            100
+          ],
+          "expectedValue": [
+            10,
+            20,
+            50,
+            100
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-063:expectation-2",
+          "status": "verified",
+          "actualValue": [
+            {
+              "size": 10,
+              "rows": 10
+            },
+            {
+              "size": 20,
+              "rows": 20
+            },
+            {
+              "size": 50,
+              "rows": 50
+            },
+            {
+              "size": 100,
+              "rows": 100
+            }
+          ],
+          "expectedValue": [
+            {
+              "size": 10,
+              "rows": 10
+            },
+            {
+              "size": 20,
+              "rows": 20
+            },
+            {
+              "size": 50,
+              "rows": 50
+            },
+            {
+              "size": 100,
+              "rows": 100
+            }
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-063:action-1",
+          "title": "分页条数切换为10",
+          "sequence": 7,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 517,
+          "startedAt": "2026-09-08T13:12:38.294Z",
+          "finishedAt": "2026-09-08T13:12:38.811Z",
+          "occurredAt": "2026-09-08T13:12:38.811Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-063:action-2",
+          "title": "分页条数依次切换为20、50、100",
+          "sequence": 10,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 4930,
+          "startedAt": "2026-09-08T13:12:38.815Z",
+          "finishedAt": "2026-09-08T13:12:43.745Z",
+          "occurredAt": "2026-09-08T13:12:43.745Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-063:action-3",
+          "title": "观察每档实际展示条数",
+          "sequence": 30,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 38,
+          "startedAt": "2026-09-08T13:12:43.752Z",
+          "finishedAt": "2026-09-08T13:12:43.790Z",
+          "occurredAt": "2026-09-08T13:12:43.790Z"
+        }
+      ],
+      "stateRestored": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "runtimeStatus": "failed",
+      "qualification": {
+        "accepted": false,
+        "reasons": [
+          "ASSERTION_NOT_VERIFIED",
+          "DECLARED_ASSERTION_SET_MISMATCH"
+        ]
+      },
+      "negativeChecks": [],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-072:expectation-1",
+          "status": "verified",
+          "actualValue": [
+            "Item",
+            "Type",
+            "Specification",
+            "Price($)",
+            "Status"
+          ],
+          "expectedValue": [
+            "Item",
+            "Type",
+            "Specification",
+            "Price($)",
+            "Status"
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-072:expectation-2",
+          "status": "observed-mismatch",
+          "actualValue": [
+            "Item(Alt.Language)",
+            "Mnemonic Code",
+            "Category",
+            "Flavor",
+            "Preparation",
+            "Descriptions",
+            "Badges",
+            "Stats",
+            "Allergens",
+            "Action Time"
+          ],
+          "expectedValue": [
+            "Item(Alt.Language)",
+            "Mnemonic Code",
+            "Category",
+            "Unit",
+            "Flavor",
+            "Preparation",
+            "Descriptions",
+            "Badges",
+            "Stats",
+            "Allergens",
+            "Action Time"
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "mismatched"
+        }
+      ],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-072:action-1",
+          "title": "查看列表默认展示列",
+          "sequence": 12,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 65,
+          "startedAt": "2026-09-08T13:12:54.963Z",
+          "finishedAt": "2026-09-08T13:12:55.028Z",
+          "occurredAt": "2026-09-08T13:12:55.028Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-072:action-2",
+          "title": "打开列设置查看默认收起列",
+          "sequence": 14,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 165,
+          "startedAt": "2026-09-08T13:12:55.037Z",
+          "finishedAt": "2026-09-08T13:12:55.202Z",
+          "occurredAt": "2026-09-08T13:12:55.202Z"
+        }
+      ],
+      "terminalFailure": {
+        "status": "failed",
+        "unreachedSourceOperations": [],
+        "reason": "formal-assertion-mismatch"
+      },
+      "stateRestored": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "runtimeStatus": "passed",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-tenant",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "state-restore-failed",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-073:expectation-1",
+          "status": "verified",
+          "actualValue": [
+            {
+              "name": "All",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Item(Alt.Language)",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Mnemonic Code",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Category",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Flavor",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Preparation",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Descriptions",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Badges",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Stats",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Allergens",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Device Code",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Action Time",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Print stall",
+              "checked": false,
+              "disabled": false
+            }
+          ],
+          "expectedValue": [
+            {
+              "name": "All",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Item(Alt.Language)",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Mnemonic Code",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Category",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Flavor",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Preparation",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Descriptions",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Badges",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Stats",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Allergens",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Device Code",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Action Time",
+              "checked": false,
+              "disabled": false
+            },
+            {
+              "name": "Print stall",
+              "checked": false,
+              "disabled": false
+            }
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-073:expectation-2",
+          "status": "verified",
+          "actualValue": [
+            {
+              "name": "",
+              "fixedLeft": true,
+              "fixedRight": false
+            },
+            {
+              "name": "Item",
+              "fixedLeft": true,
+              "fixedRight": false
+            },
+            {
+              "name": "Type",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Specification",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Price($)",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Status",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Action",
+              "fixedLeft": false,
+              "fixedRight": true
+            }
+          ],
+          "expectedValue": [
+            {
+              "name": "",
+              "fixedLeft": true,
+              "fixedRight": false
+            },
+            {
+              "name": "Item",
+              "fixedLeft": true,
+              "fixedRight": false
+            },
+            {
+              "name": "Type",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Specification",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Price($)",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Status",
+              "fixedLeft": false,
+              "fixedRight": false
+            },
+            {
+              "name": "Action",
+              "fixedLeft": false,
+              "fixedRight": true
+            }
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-073:action-1",
+          "title": "打开列设置并修改分类勾选状态",
+          "sequence": 12,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 694,
+          "startedAt": "2026-09-08T13:13:09.008Z",
+          "finishedAt": "2026-09-08T13:13:09.702Z",
+          "occurredAt": "2026-09-08T13:13:09.702Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-073:action-2",
+          "title": "点击还原默认状态",
+          "sequence": 16,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 200,
+          "startedAt": "2026-09-08T13:13:09.708Z",
+          "finishedAt": "2026-09-08T13:13:09.908Z",
+          "occurredAt": "2026-09-08T13:13:09.908Z"
+        }
+      ],
+      "stateRestored": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "runtimeStatus": "passed",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-tenant",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "state-restore-failed",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-074:expectation-1",
+          "status": "verified",
+          "actualValue": true,
+          "expectedValue": true,
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-074:expectation-2",
+          "status": "verified",
+          "actualValue": [],
+          "expectedValue": [],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "sourceOperations": [
+        {
+          "operationKey": "TC-ITEM-STD-074:action-1",
+          "title": "查看列表统计信息区域",
+          "sequence": 5,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 90,
+          "startedAt": "2026-09-08T13:13:21.237Z",
+          "finishedAt": "2026-09-08T13:13:21.327Z",
+          "occurredAt": "2026-09-08T13:13:21.327Z"
+        }
+      ],
+      "stateRestored": true
+    }
+  ],
+  "qualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074"
+  ],
+  "sourceBlocked": [
+    "TC-ITEM-STD-004"
+  ],
+  "allCurrentQualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-STD-102"
+  ],
+  "reportPath": "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json",
+  "reportSha256": "ea6d5d44839e6abdcedd7845f1729961333c8969237c809a1e9eeeee3566cab3",
+  "independentObservation": {
+    "path": "deliverables/system-test-platform/readonly-list-contract-observation.json",
+    "sha256": "938d43b7b140f542e5c80ac57e4017db8cc52d62c7b3c52f07022fb99b6a41b6"
+  },
+  "businessDataCrudPerformed": false,
+  "releaseReuse": "run-only-derived-unstable",
+  "finalPlatformGoal": "incomplete",
+  "firstRun": "standard-list-20260908-01",
+  "rawAttemptsAcrossBothRuns": 12
+}

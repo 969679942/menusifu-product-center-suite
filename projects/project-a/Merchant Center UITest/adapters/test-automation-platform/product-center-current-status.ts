@@ -7,7 +7,7 @@ import {
   type SystemTestReportCandidate,
   type SystemTestReportCaseReceipt,
   type SystemTestReportFreshnessResult,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-report-freshness-arbiter';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-report-freshness-arbiter';
 
 type JsonObject = Record<string, unknown>;
 

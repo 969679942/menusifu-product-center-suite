@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/acceptance/redaction';
+export * from '../../../Test Automation Platform/src/acceptance/redaction';

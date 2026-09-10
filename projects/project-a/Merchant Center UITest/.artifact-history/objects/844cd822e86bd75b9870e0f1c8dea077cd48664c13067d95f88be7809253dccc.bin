@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T18:58:37.565Z",
+  "input": {
+    "unitId": "addon-price-v4-execution-01",
+    "directionId": "addon-price-v4-runtime",
+    "phase": "before-start",
+    "tokenStart": 2714153,
+    "tokenCurrent": 2714153,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "afterQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-v4-diagnosis.json",
+        "sha256": "aabefaf9d89b63866c946400a43c3da2987ad8abf348ca56c5db5cfb32942d30",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-v4-execution-01",
+    "directionId": "addon-price-v4-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "aabefaf9d89b63866c946400a43c3da2987ad8abf348ca56c5db5cfb32942d30"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

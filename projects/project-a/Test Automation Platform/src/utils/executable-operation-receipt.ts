@@ -125,7 +125,9 @@ function appendRealtimeAuditEvent(
     ?? process.env.SYSTEM_TEST_APPLICATION_ID ?? process.env.SYSTEM_TEST_SYSTEM_ID ?? 'unknown-application';
   const businessDomainId = operation.auditContext?.businessDomainId ?? process.env.SYSTEM_TEST_BUSINESS_DOMAIN_ID;
   const planId = operation.auditContext?.planId ?? process.env.SYSTEM_TEST_PLAN_ID;
-  const eventId = `realtime-operation:${runId ?? operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${receipt.occurredAt}`;
+  // Keep the run and execution identities distinct. A run may contain many
+  // Playwright executions, so using runId alone loses the case instance link.
+  const eventId = `realtime-operation:${runId ?? 'no-run'}:${operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${receipt.occurredAt}`;
   appendAuditEvent(filePath, {
     eventId,
     eventType: 'operation.called',
@@ -159,6 +161,8 @@ function appendRealtimeAuditEvent(
       changedFields: receipt.changedFields ?? [],
       structuredDiffProvided: Boolean(receipt.beforeFingerprint && receipt.afterFingerprint),
       realtime: true,
+      executionId: operation.executionId,
+      runId,
       logicalRunId: process.env.SYSTEM_TEST_LOGICAL_RUN_ID,
       phase: inferOperationPhase(receipt.title, receipt.method),
       stepName: receipt.title,
@@ -202,7 +206,7 @@ function appendRealtimeOperationStarted(operation: PendingOperation): void {
     ?? process.env.SYSTEM_TEST_APPLICATION_ID ?? process.env.SYSTEM_TEST_SYSTEM_ID ?? 'unknown-application';
   const startedAt = new Date(operation.startedAt).toISOString();
   appendAuditEvent(filePath, {
-    eventId: `realtime-operation-started:${runId ?? operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${startedAt}`,
+    eventId: `realtime-operation-started:${runId ?? 'no-run'}:${operation.executionId}:${caseId ?? 'unknown-case'}:${operation.operationKey}:${operation.sequence}:${startedAt}`,
     eventType: 'operation.started',
     occurredAt: startedAt,
     startedAt,
@@ -217,6 +221,8 @@ function appendRealtimeOperationStarted(operation: PendingOperation): void {
       sourceKind: 'realtime-executable-operation', operationKey: operation.operationKey, title: operation.title,
       sequence: operation.sequence, stepIndex: operation.sequence, method: operation.method,
       logicalRunId: process.env.SYSTEM_TEST_LOGICAL_RUN_ID,
+      executionId: operation.executionId,
+      runId,
       phase: inferOperationPhase(operation.title, operation.method), businessAction: operation.title, realtime: true,
     },
   });

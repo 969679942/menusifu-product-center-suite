@@ -1,0 +1,33 @@
+# 商品中心未闭环治理执行任务队列
+
+- 未闭环任务：17
+- 已执行但仍未闭环的安全静态任务：13
+- 等待外部运行态：2
+- 等待外部连接器：2
+- 明确启动门禁：1
+- 等待执行授权：2
+- 真实业务语义人工项：0
+
+| 任务 | 原状态 | 当前处置 | 可执行范围 | 原因 |
+|---|---|---|---|---|
+| PC-ITEM-RELEASE-RECEIPT | open | static-executed-awaiting-current-contract | static-only | 核对正式正文、重建稿和生成声明的来源差异；已批准派生稿不能直接授权改写正文。执行代理继续补齐当前逐案操作与上下文合同，并验收实际收据，不转交技术映射缺口或伪造合同。 |
+| BRG-OPT-004 | blocked | static-complete-awaiting-external-runtime | static-only | Git 固定版本和供应链门禁已静态检查；运行态仍取决于 CI 环境变量和只读凭据。 |
+| BRG-OPT-005 | blocked | awaiting-external-connector | external-only | PRD 系统连接器和稳定来源格式未配置，不能虚构来源或编译结果。 |
+| BRG-OPT-006 | blocked | awaiting-external-connector | external-only | 通知通道未配置；属于可选外部集成，不影响商品中心交付。 |
+| BRG-OPT-008 | blocked | deferred-explicit-start | none | 跨 applicationId 真实试点必须由用户明确启动，且需目标系统认证、可逆数据和标准收据。 |
+| BRG-OPT-011 | blocked | static-complete-awaiting-external-runtime | static-only | Jenkinsfile 与静态审计合同已验证；当前运行态为 not-connected，不因缺少连接信息重做本地静态任务。 |
+| BRG-OPT-016 | blocked | static-executed-awaiting-evidence | static-only | 仅扫描规则、绑定和标准收据补齐时间/上下文证据，不修改规则语义、不启动业务用例。 |
+| BRG-OPT-020 | not-started | static-executed-awaiting-evidence | static-only | 文档规则来源、结构和义务已生成标准化计划；22 条来源修复、69 条用例设计和 37 条收据关联仍需证据补齐，不自动晋级正式规则。 |
+| BRG-OPT-021 | not-started | static-executed-awaiting-downstream | static-only | 规则族、风险等级和冲突簇已静态分流；当前候选仍需按批前置条件和当前收据继续处理。 |
+| BRG-OPT-022 | not-started | static-executed-awaiting-formal-decision | static-only | 仅生成低风险代理晋级预审计划；正式规则写入仍需已有批准收据，禁止由报告臆造批准。 |
+| BRG-OPT-023 | not-started | static-executed-awaiting-evidence | static-only | 义务级覆盖已静态生成；151/151 必选义务结构覆盖通过，但当前执行验证仍为 0，不将结构覆盖当作运行通过。 |
+| BRG-OPT-024 | not-started | static-executed-awaiting-execution-grant | none | 已生成最小验证候选和完成门禁；真实 UI/API 执行必须有公共 execution grant、精确 caseId 和标准清理收据。 |
+| BRG-OPT-025 | not-started | closed-static | static-only | 业务确认队列已生成且当前待确认数量为 0；本轮无真实业务语义裁决项。未来新冲突仍按人工边界进入裁决，不转交技术缺口。 |
+| BRG-OPT-026 | not-started | static-executed-awaiting-execution-grant | none | 公共优化完成门禁已接入并生成当前 incomplete 结果；中风险最小验证仍需 execution grant，不能以静态结果放行。 |
+| PC-REV-READINESS | open | static-executed-awaiting-runtime-evidence | static-only | 逐场景证据队列已生成；缺真实项目适配器、标准操作/断言/清理收据和 execution grant。 |
+| PC-HIST-LINEAGE | open | static-executed-awaiting-precondition | static-only | 历史收据兼容性报告缺失时保持开放，禁止以协调报告或 blocked 诊断冒充正式兼容性结果。 当前正式证据未齐全。 |
+| PC-PAGE-CONTRACT | open | static-executed-awaiting-precondition | static-only | 页面合同正式 diff/impact 或当前评审队列缺失时保持开放，blocked 诊断不计为正式证据。 当前正式证据未齐全。 |
+| PC-MAINTAINABILITY | open | engineering-refactor-backlog | static-only | 5 个高优先级文件、128 个 direct identity templates、224 个公开接口；已完成 2 个纯职责抽离，职责计划、区域隔离快照和逐接口行为合同已完成，剩余区域仍需兼容 facade 评审后实施工程拆分。 |
+
+Jenkins 信息仅用于外部运行态触发和回执验证；本地静态任务不以 Jenkins 连通为前置条件。
+本队列不授权业务执行、不修改正式业务规则、不使现有通过用例失效。

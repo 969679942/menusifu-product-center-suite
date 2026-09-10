@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T06:44:38.228Z",
+  "status": "validated",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicContractsPassed": 52,
+    "projectContractsPassed": 9,
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "assets": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "migration": "complete",
+    "reviewedMigrationChanges": 11
+  },
+  "evidence": [
+    "../Test Automation Platform/docs/indexed-run-telemetry.md",
+    "../Test Automation Platform/tests/api/indexed-run-telemetry.contract.spec.ts",
+    "tests/api/product-center-lifecycle-efficiency.contract.spec.ts",
+    "../deliverables/system-test-platform/product-center-lifecycle-efficiency-audit.json"
+  ],
+  "realObservation": {
+    "status": "incomplete",
+    "stageCount": 25,
+    "telemetryGapCount": 249,
+    "artifactMissingStageCount": 4,
+    "fullyInstrumentedStages": 0,
+    "registeredSystemsWithoutLatestRunReference": 2,
+    "runCountsFabricated": false
+  },
+  "boundary": {
+    "telemetryAuthorizesBusinessPass": false,
+    "runnerWallMs": null,
+    "nonRunnerOverheadMs": null,
+    "legacyHistoryInvented": false,
+    "currentReceiptVsHistoricalIndexFailure": "pending-separate-status-audit"
+  },
+  "pending": [
+    "historical-telemetry-current-receipt-status-boundary",
+    "runner-wall-time-and-overhead",
+    "partial-batch-resume",
+    "platform-only-fingerprint-impact-audit",
+    "205-current-item-admissions",
+    "97-source-derivation-differences",
+    "remaining-report-writers"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "historicalPassedResultsPreserved": true,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

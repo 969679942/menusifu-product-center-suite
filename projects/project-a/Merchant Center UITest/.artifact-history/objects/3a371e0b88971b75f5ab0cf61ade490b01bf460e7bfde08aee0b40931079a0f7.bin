@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-STD-005"
+  ],
+  "planFingerprint": "80acecdbcda2fd1d65dc7863bb8cf06dda252a86877d2715536ab16d4e2cc980",
+  "selectionFingerprint": "acd868af3e72513d653dd7e708f31b70288fc6d44ddcbd283f5637b05c143a2e",
+  "rootCause": "前两次均在保存之前终止：首次遗漏应用初始化/侧栏展开；第二次误把列表商品ID读取为row.id，真实只读响应证明为row.itemBasic.id。",
+  "correctiveAction": "仅005独立fixture调用已有完整侧栏导航；严格解析当前itemBasic.id；已只读核验144个唯一ID，11项隔离合同及类型检查通过，9条合格指纹不变。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/required-name-navigation-diagnosis.json",
+    "deliverables/system-test-platform/required-name-mapping-diagnosis.json",
+    "deliverables/system-test-platform/required-name-list-response-shape.json",
+    "deliverables/system-test-platform/required-name-snapshot-readonly-proof.json",
+    "tests/api/product-center-required-name.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "previousActualBusinessAttempts": 2,
+  "previousSaveActions": 0,
+  "blockedStart": {
+    "runId": "standard-required-name-20260908-03",
+    "selected": 1,
+    "terminal": 0,
+    "businessExecuted": 0,
+    "code": "DIAGNOSIS_REQUIRED",
+    "detail": "deterministic-failures=2"
+  },
+  "nextAction": "同runId、同选择集、同当前实现恢复；附当前诊断与一次性新凭据，保留全部历史实际尝试与被阻断启动"
+}

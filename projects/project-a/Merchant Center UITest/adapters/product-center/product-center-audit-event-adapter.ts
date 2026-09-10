@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
-import type { AuditEventInput, AuditOutcome } from '../../../../Test Automation Platform/src/audit/event-log';
-import { createChangeSnapshot } from '../../../../Test Automation Platform/src/audit/change-snapshot';
+import type { AuditEventInput, AuditOutcome } from '../../../Test Automation Platform/src/audit/event-log';
+import { createChangeSnapshot } from '../../../Test Automation Platform/src/audit/change-snapshot';
 
 export const PRODUCT_CENTER_AUDIT_IDENTITY = {
   applicationId: 'merchant-center',

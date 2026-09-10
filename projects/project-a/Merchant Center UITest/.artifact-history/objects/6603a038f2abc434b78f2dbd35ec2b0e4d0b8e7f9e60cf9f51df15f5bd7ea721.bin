@@ -1,0 +1,415 @@
+{
+  "recordedAt": "2026-09-08T17:43:14.235Z",
+  "runId": "addon-price-currency-20260909-01",
+  "status": "completed",
+  "selected": 2,
+  "terminal": 2,
+  "actualCaseAttempts": 2,
+  "authSetups": 1,
+  "businessCrudPerformed": true,
+  "saveActions": 2,
+  "results": [
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "contract": {
+        "caseId": "TC-ITEM-ADD-009",
+        "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+        "semanticCaseFingerprint": "515ffe52f870f4ad38910c3bf4368e0a61567aac0269ab1e1b717b822e18828b",
+        "implementationFingerprint": "95ed98ebcfbf962ae7badd4a7a327caabea3deb3e3952e316795d93a75c747b9",
+        "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+        "requiredOperationKeys": [
+          "TC-ITEM-ADD-009:action-1",
+          "TC-ITEM-ADD-009:action-2",
+          "TC-ITEM-ADD-009:action-3",
+          "TC-ITEM-ADD-009:action-4"
+        ],
+        "requiredAssertionIds": [
+          "TC-ITEM-ADD-009:expectation-1",
+          "TC-ITEM-ADD-009:expectation-2"
+        ],
+        "cleanupRequired": true
+      },
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "api-residue-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-field-assertion",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-assertion-route",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "restore-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "observed-mismatch-cannot-pass",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_NOT_VERIFIED",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-ADD-009:expectation-1",
+          "status": "verified",
+          "actualValue": "Successfully Submitted",
+          "expectedValue": [
+            "提交成功",
+            "Successfully Submitted"
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-009:expectation-2",
+          "status": "verified",
+          "actualValue": {
+            "count": 1,
+            "price": "$0.00"
+          },
+          "expectedValue": {
+            "count": 1,
+            "amount": "0.00",
+            "allowedPricePresentations": [
+              "0.00",
+              "$0.00"
+            ]
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "operations": [
+        {
+          "operationKey": "TC-ITEM-ADD-009:action-1",
+          "title": "商品名称填写 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」。",
+          "sequence": 8,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 320,
+          "startedAt": "2026-09-08T17:38:48.851Z",
+          "finishedAt": "2026-09-08T17:38:49.171Z",
+          "occurredAt": "2026-09-08T17:38:49.171Z"
+        },
+        {
+          "operationKey": "TC-ITEM-ADD-009:action-2",
+          "title": "标准价填写 `0.00`。",
+          "sequence": 10,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 97,
+          "startedAt": "2026-09-08T17:38:49.175Z",
+          "finishedAt": "2026-09-08T17:38:49.272Z",
+          "occurredAt": "2026-09-08T17:38:49.272Z"
+        },
+        {
+          "operationKey": "TC-ITEM-ADD-009:action-3",
+          "title": "点击保存。",
+          "sequence": 12,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 1897,
+          "startedAt": "2026-09-08T17:38:49.276Z",
+          "finishedAt": "2026-09-08T17:38:51.173Z",
+          "occurredAt": "2026-09-08T17:38:51.173Z"
+        },
+        {
+          "operationKey": "TC-ITEM-ADD-009:action-4",
+          "title": "返回列表按商品名称搜索 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」。",
+          "sequence": 17,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 5361,
+          "startedAt": "2026-09-08T17:38:51.177Z",
+          "finishedAt": "2026-09-08T17:38:56.538Z",
+          "occurredAt": "2026-09-08T17:38:56.538Z"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {
+          "加料商品-标准价为 0 创建-1788889115327": 0
+        },
+        "uiIdentityCounts": {
+          "加料商品-标准价为 0 创建-1788889115327": 0
+        },
+        "uiVerificationObserved": true,
+        "required": true,
+        "objects": [
+          {
+            "entityType": "item",
+            "serverId": 35509,
+            "businessIdentity": "AUTO_AUDIT_TC_ITEM_ADD_009_1788889118824",
+            "cleanupAttempt": 1,
+            "apiResidueCount": 0,
+            "outcome": "verified-zero"
+          }
+        ],
+        "serverIds": [
+          35509
+        ],
+        "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+      },
+      "executionContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/side"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "contract": {
+        "caseId": "TC-ITEM-ADD-010",
+        "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+        "semanticCaseFingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+        "implementationFingerprint": "95ed98ebcfbf962ae7badd4a7a327caabea3deb3e3952e316795d93a75c747b9",
+        "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+        "requiredOperationKeys": [
+          "TC-ITEM-ADD-010:action-1",
+          "TC-ITEM-ADD-010:action-2",
+          "TC-ITEM-ADD-010:action-3"
+        ],
+        "requiredAssertionIds": [
+          "TC-ITEM-ADD-010:expectation-1"
+        ],
+        "cleanupRequired": true
+      },
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "api-residue-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-field-assertion",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-assertion-route",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "restore-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "observed-mismatch-cannot-pass",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_NOT_VERIFIED",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-ADD-010:expectation-1",
+          "status": "verified",
+          "actualValue": {
+            "negativeEntered": "-1.00",
+            "created": 1,
+            "list": {
+              "count": 1,
+              "price": "$0.00"
+            }
+          },
+          "expectedValue": {
+            "negativeEntered": "-1.00",
+            "created": 1,
+            "list": {
+              "count": 1,
+              "amount": "0.00",
+              "allowedPricePresentations": [
+                "0.00",
+                "$0.00"
+              ]
+            }
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "operations": [
+        {
+          "operationKey": "TC-ITEM-ADD-010:action-1",
+          "title": "进入加料商品创建页并填写唯一名称。",
+          "sequence": 8,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 4118,
+          "startedAt": "2026-09-08T17:39:18.631Z",
+          "finishedAt": "2026-09-08T17:39:22.749Z",
+          "occurredAt": "2026-09-08T17:39:22.749Z"
+        },
+        {
+          "operationKey": "TC-ITEM-ADD-010:action-2",
+          "title": "输入负数或非数字标准价并点击保存。",
+          "sequence": 13,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 1789,
+          "startedAt": "2026-09-08T17:39:22.756Z",
+          "finishedAt": "2026-09-08T17:39:24.545Z",
+          "occurredAt": "2026-09-08T17:39:24.545Z"
+        },
+        {
+          "operationKey": "TC-ITEM-ADD-010:action-3",
+          "title": "在商品列表搜索该商品并读取价格。",
+          "sequence": 19,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 5446,
+          "startedAt": "2026-09-08T17:39:24.549Z",
+          "finishedAt": "2026-09-08T17:39:29.995Z",
+          "occurredAt": "2026-09-08T17:39:29.995Z"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {
+          "加料商品-价格输入负数或非数字创建-1788889149399": 0
+        },
+        "uiIdentityCounts": {
+          "加料商品-价格输入负数或非数字创建-1788889149399": 0
+        },
+        "uiVerificationObserved": true,
+        "required": true,
+        "objects": [
+          {
+            "entityType": "item",
+            "serverId": 266185,
+            "businessIdentity": "AUTO_AUDIT_TC_ITEM_ADD_010_1788889149713",
+            "cleanupAttempt": 1,
+            "apiResidueCount": 0,
+            "outcome": "verified-zero"
+          }
+        ],
+        "serverIds": [
+          266185
+        ],
+        "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+      },
+      "executionContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/side"
+      }
+    }
+  ],
+  "uniqueNamePreconditions": [],
+  "reportPath": "output/product-center-item-source-governed-addon-price-currency-20260909-01-source-governed.json",
+  "reportSha256": "a1885cb0897d80cde93ad0cb763ffe731a9e8a3d257e242ce70804145e9b6d26",
+  "qualifiedCaseIds": [
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "allCurrentQualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-005",
+    "TC-ITEM-STD-019",
+    "TC-ITEM-STD-041",
+    "TC-ITEM-STD-042",
+    "TC-ITEM-STD-045",
+    "TC-ITEM-STD-048",
+    "TC-ITEM-STD-049",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074",
+    "TC-ITEM-ADD-002",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-STD-102"
+  ],
+  "currentQualified": 18,
+  "notQualified": 186,
+  "oldQualifiedRerun": 0,
+  "releaseReuse": "run-only-derived-unstable"
+}

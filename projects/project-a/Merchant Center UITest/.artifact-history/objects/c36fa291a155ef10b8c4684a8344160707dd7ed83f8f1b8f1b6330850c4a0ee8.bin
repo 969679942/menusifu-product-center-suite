@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "caseId": "TC-ITEM-STD-103",
+  "recordedAt": "2026-09-08T12:21:50.486Z",
+  "runId": "standard-name-20260908-02",
+  "formalDisposition": "product-defect",
+  "executionStatus": "failed",
+  "evidenceStatus": "diagnostic-reconciled-standard-failure-receipt-missing",
+  "applicabilityStatus": "applicable",
+  "verificationStatus": "business-rule-violation-observed",
+  "actionRequired": true,
+  "reuseStatus": "not-authorized",
+  "conclusion": "商品名称含 emoji 时服务端接受保存并返回商品列表，未出现字段格式校验，与已确认 BR-FMT-001 冲突。清理超时与业务偏差分别登记；对象已确认无残留。",
+  "expected": {
+    "fieldInvalid": true,
+    "route": "/pp/brand/create/standard",
+    "accepted": 0
+  },
+  "actual": {
+    "fieldInvalid": false,
+    "route": "/pp/brand/list",
+    "accepted": 1,
+    "serverId": 35504,
+    "persistedName": "not captured before cleanup; do not infer emoji retention"
+  },
+  "primaryAssertion": {
+    "name": "验证正式商品名称格式规则及保存终态：TC-ITEM-STD-103",
+    "message": "Error: TC-ITEM-STD-103:expectation-1\n\nexpect(received).toEqual(expected) // deep equality\n\n- Expected  - 3\n+ Received  + 3\n\n  Object {\n-   \"accepted\": 0,\n-   \"invalid\": true,\n-   \"route\": \"/pp/brand/create/standard\",\n+   \"accepted\": 1,\n+   \"invalid\": false,\n+   \"route\": \"/pp/brand/list\",\n    \"successCount\": 0,\n  }"
+  },
+  "cleanup": {
+    "status": "verified-zero-after-readonly-reconciliation",
+    "originalApiPhase": "residue-verified",
+    "identities": [
+      "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+      "AUTO_AUDIT_F3N19QLOQ_商品名称103"
+    ],
+    "serverId": 35504,
+    "observations": [
+      {
+        "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+        "apiCount": 0,
+        "observedAt": "2026-09-08T12:16:27.376Z",
+        "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+        "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+        "uiCount": 0,
+        "route": "/pp/brand/list"
+      },
+      {
+        "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称103",
+        "apiCount": 0,
+        "observedAt": "2026-09-08T12:16:27.748Z",
+        "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+        "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+        "uiCount": 0,
+        "route": "/pp/brand/list"
+      }
+    ],
+    "serverIdResponse": {
+      "httpStatus": 400,
+      "code": "BITEM-2002",
+      "message": "item id not exist with id: 35,504"
+    },
+    "businessWritesDuringReconciliation": 0
+  },
+  "sources": [
+    {
+      "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+    },
+    {
+      "path": "../Merchant Center Info/业务规则治理/02-待生命周期核验规则.md",
+      "sha256": "23d2ae197642fafd28b52de0c3a82a95f97ef254d23524ab230cdd1fd99bea3e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "deliverables/system-test-platform/readonly-standard-residue-observation.json",
+      "sha256": "01651bc05178dd2004784edb18f191d2c52bc609d23baaecbe8d714975860000"
+    },
+    {
+      "path": "deliverables/system-test-platform/readonly-standard-id-observation.json",
+      "sha256": "6bfeeb1c7305429cc99f2e469da5b57a9edd1d8836ba1d6403383d63a8c0f7b1"
+    },
+    {
+      "path": "output/checkpoints/AUTO_AUDIT_RUN_5e08020b134ffa3e.json",
+      "sha256": "96fef8c948a51c5559e275c1e7adca6482cd06a1969941f41c95fe657d4fb397"
+    },
+    {
+      "path": "allure-results/503589a7-8119-4db6-a99c-13fd28fba69c-result.json",
+      "sha256": "aed70b3ccd8739aa182ced99cc23bfc9aa992ddc7674251f44b29903db339b17"
+    },
+    {
+      "path": "output/product-center-item-handled-standard-name-20260908-02-handled-item-revalidation.json",
+      "sha256": "e30f0962d7e5e112d8c56da036c5ec59b74e32831b5e1a7a14f894ac503b8bd7"
+    }
+  ],
+  "technicalFindings": [
+    {
+      "id": "emoji-query-normalization",
+      "status": "diagnosed-residue-reconciled",
+      "actual": "UI 输入保留 emoji；pageQuery 请求实际删除 emoji，严格原名请求匹配超时",
+      "resolution": "同一对象唯一ASCII前缀返回空列表，双身份API计数为0，服务端ID不存在；未放宽公共matcher",
+      "futureAdapterAction": "若修复后需再次执行103，负向意外创建分支须声明独立清理查询身份并使用当前观察支持的规范化合同"
+    },
+    {
+      "id": "cleanup-masks-primary-error",
+      "status": "primary-evidence-recovered",
+      "actual": "finally UI清理抛错覆盖顶层业务断言，失败标准收据未附加",
+      "resolution": "从原始Allure最深失败步骤恢复，不改写原运行报告；分离业务发现与清理发现",
+      "remaining": "公共失败/清理双通道终态收据应接入生成入口；待影响分析，禁止为报告修复重跑业务"
+    }
+  ],
+  "ownerAction": {
+    "responsibleRole": "商品中心研发；已有业务规则无需重复产品裁决",
+    "target": "品牌000407，标准商品名称含emoji的保存校验",
+    "existingAuthority": "BR-FMT-001，2026-09-05人工确认；正式STD103预期1/2",
+    "conflict": "预期拦截，当前接受保存",
+    "exclusiveOptions": [
+      "按已批准规则修复名称校验（现行要求）",
+      "若产品决定改变规则，提交新的显式业务裁决后再由代理更新来源与定向验证；不得默认采用"
+    ],
+    "minimumMaterials": [
+      "修复发布/版本或构建标识",
+      "仅改变业务规则时提交新的规则文本和批准记录"
+    ],
+    "decisionRecord": "deliverables/system-test-platform/standard-name-103-finding.json",
+    "automaticAfterFix": [
+      "核对实际发布变化及当前来源/实现影响",
+      "构造仅受影响用例的公共意图",
+      "必要清理规范化/失败收据技术修复及隔离合同验证",
+      "执行STD103并核验标准操作/断言/双面清理收据",
+      "刷新索引与准入结论"
+    ],
+    "acceptance": "字段格式提示且保存拦截，无成功提示、无创建对象，原名及去emoji名UI/API均不存在",
+    "existingPassedCasesImpact": "STD102及ADD005/006/007不因此失效或重跑；仅真实相关实现/发布变化进入影响分析"
+  },
+  "finalGoalStatus": "incomplete",
+  "businessCaseReruns": 0,
+  "secretsPersisted": false
+}

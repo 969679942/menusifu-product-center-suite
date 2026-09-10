@@ -1,0 +1,520 @@
+{
+  "intentFingerprint": "319dc76cb490e392291c034c95708a117aa55abde0471bcb5fe04335e6e04101",
+  "selectionFingerprint": "242778edc67d57cf91fc927371c233e2d787380b014f865ee4c180508e8fc9db",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-003",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-072",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-063"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-063",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "91c3e8992a3bd1477d42b02292e6804fb9434b79ed87123341c189da907d50b7",
+    "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/list"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T13:12:44.811Z"
+    },
+    "executionEpochId": "source-governed-standard-list-20260908-02-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-063:action-1",
+        "title": "分页条数切换为10",
+        "sequence": 7,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 517,
+        "startedAt": "2026-09-08T13:12:38.294Z",
+        "finishedAt": "2026-09-08T13:12:38.811Z",
+        "occurredAt": "2026-09-08T13:12:38.811Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-063:action-2",
+        "title": "分页条数依次切换为20、50、100",
+        "sequence": 10,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 4930,
+        "startedAt": "2026-09-08T13:12:38.815Z",
+        "finishedAt": "2026-09-08T13:12:43.745Z",
+        "occurredAt": "2026-09-08T13:12:43.745Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-063:action-3",
+        "title": "观察每档实际展示条数",
+        "sequence": 30,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 38,
+        "startedAt": "2026-09-08T13:12:43.752Z",
+        "finishedAt": "2026-09-08T13:12:43.790Z",
+        "occurredAt": "2026-09-08T13:12:43.790Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardListAcceptanceFlow.execute",
+        "title": "按正式来源执行商品列表场景",
+        "sequence": 1,
+        "method": "execute",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 14623,
+        "startedAt": "2026-09-08T13:12:30.121Z",
+        "finishedAt": "2026-09-08T13:12:44.744Z",
+        "occurredAt": "2026-09-08T13:12:44.744Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 2,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7244,
+        "startedAt": "2026-09-08T13:12:30.434Z",
+        "finishedAt": "2026-09-08T13:12:37.678Z",
+        "occurredAt": "2026-09-08T13:12:37.678Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 3,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 27,
+        "startedAt": "2026-09-08T13:12:37.778Z",
+        "finishedAt": "2026-09-08T13:12:37.805Z",
+        "occurredAt": "2026-09-08T13:12:37.805Z"
+      },
+      {
+        "operationKey": "StandardListAcceptanceFlow.verifyPagination",
+        "title": "验证四档分页与实际商品行数",
+        "sequence": 4,
+        "method": "verifyPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 6622,
+        "startedAt": "2026-09-08T13:12:38.093Z",
+        "finishedAt": "2026-09-08T13:12:44.715Z",
+        "occurredAt": "2026-09-08T13:12:44.715Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 5,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 46,
+        "startedAt": "2026-09-08T13:12:38.097Z",
+        "finishedAt": "2026-09-08T13:12:38.143Z",
+        "occurredAt": "2026-09-08T13:12:38.143Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readSizeOptions",
+        "title": "读取完整分页选项",
+        "sequence": 6,
+        "method": "readSizeOptions",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 122,
+        "startedAt": "2026-09-08T13:12:38.157Z",
+        "finishedAt": "2026-09-08T13:12:38.280Z",
+        "occurredAt": "2026-09-08T13:12:38.280Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectSize",
+        "title": "切换每页条数并读取稳定列表：10",
+        "sequence": 8,
+        "method": "selectSize",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 485,
+        "startedAt": "2026-09-08T13:12:38.302Z",
+        "finishedAt": "2026-09-08T13:12:38.787Z",
+        "occurredAt": "2026-09-08T13:12:38.787Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 9,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 29,
+        "startedAt": "2026-09-08T13:12:38.747Z",
+        "finishedAt": "2026-09-08T13:12:38.776Z",
+        "occurredAt": "2026-09-08T13:12:38.776Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectSize",
+        "title": "切换每页条数并读取稳定列表：20",
+        "sequence": 11,
+        "method": "selectSize",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1253,
+        "startedAt": "2026-09-08T13:12:38.843Z",
+        "finishedAt": "2026-09-08T13:12:40.096Z",
+        "occurredAt": "2026-09-08T13:12:40.096Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 12,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 18,
+        "startedAt": "2026-09-08T13:12:39.608Z",
+        "finishedAt": "2026-09-08T13:12:39.626Z",
+        "occurredAt": "2026-09-08T13:12:39.626Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 13,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 25,
+        "startedAt": "2026-09-08T13:12:39.748Z",
+        "finishedAt": "2026-09-08T13:12:39.773Z",
+        "occurredAt": "2026-09-08T13:12:39.773Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 14,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 21,
+        "startedAt": "2026-09-08T13:12:39.887Z",
+        "finishedAt": "2026-09-08T13:12:39.908Z",
+        "occurredAt": "2026-09-08T13:12:39.908Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 15,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 56,
+        "startedAt": "2026-09-08T13:12:40.028Z",
+        "finishedAt": "2026-09-08T13:12:40.084Z",
+        "occurredAt": "2026-09-08T13:12:40.084Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectSize",
+        "title": "切换每页条数并读取稳定列表：50",
+        "sequence": 16,
+        "method": "selectSize",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1412,
+        "startedAt": "2026-09-08T13:12:40.121Z",
+        "finishedAt": "2026-09-08T13:12:41.533Z",
+        "occurredAt": "2026-09-08T13:12:41.533Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 17,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 25,
+        "startedAt": "2026-09-08T13:12:40.630Z",
+        "finishedAt": "2026-09-08T13:12:40.655Z",
+        "occurredAt": "2026-09-08T13:12:40.655Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 18,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 32,
+        "startedAt": "2026-09-08T13:12:40.771Z",
+        "finishedAt": "2026-09-08T13:12:40.803Z",
+        "occurredAt": "2026-09-08T13:12:40.803Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 19,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 21,
+        "startedAt": "2026-09-08T13:12:40.928Z",
+        "finishedAt": "2026-09-08T13:12:40.949Z",
+        "occurredAt": "2026-09-08T13:12:40.949Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 20,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 22,
+        "startedAt": "2026-09-08T13:12:41.068Z",
+        "finishedAt": "2026-09-08T13:12:41.090Z",
+        "occurredAt": "2026-09-08T13:12:41.090Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 21,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 316,
+        "startedAt": "2026-09-08T13:12:41.206Z",
+        "finishedAt": "2026-09-08T13:12:41.522Z",
+        "occurredAt": "2026-09-08T13:12:41.522Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectSize",
+        "title": "切换每页条数并读取稳定列表：100",
+        "sequence": 22,
+        "method": "selectSize",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 2160,
+        "startedAt": "2026-09-08T13:12:41.564Z",
+        "finishedAt": "2026-09-08T13:12:43.724Z",
+        "occurredAt": "2026-09-08T13:12:43.724Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 23,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 99,
+        "startedAt": "2026-09-08T13:12:42.158Z",
+        "finishedAt": "2026-09-08T13:12:42.257Z",
+        "occurredAt": "2026-09-08T13:12:42.257Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 24,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 32,
+        "startedAt": "2026-09-08T13:12:42.369Z",
+        "finishedAt": "2026-09-08T13:12:42.401Z",
+        "occurredAt": "2026-09-08T13:12:42.401Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 25,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 27,
+        "startedAt": "2026-09-08T13:12:42.524Z",
+        "finishedAt": "2026-09-08T13:12:42.551Z",
+        "occurredAt": "2026-09-08T13:12:42.551Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 26,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 21,
+        "startedAt": "2026-09-08T13:12:42.662Z",
+        "finishedAt": "2026-09-08T13:12:42.683Z",
+        "occurredAt": "2026-09-08T13:12:42.683Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 27,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 21,
+        "startedAt": "2026-09-08T13:12:42.802Z",
+        "finishedAt": "2026-09-08T13:12:42.823Z",
+        "occurredAt": "2026-09-08T13:12:42.823Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 28,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 18,
+        "startedAt": "2026-09-08T13:12:42.940Z",
+        "finishedAt": "2026-09-08T13:12:42.958Z",
+        "occurredAt": "2026-09-08T13:12:42.958Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 29,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 635,
+        "startedAt": "2026-09-08T13:12:43.079Z",
+        "finishedAt": "2026-09-08T13:12:43.714Z",
+        "occurredAt": "2026-09-08T13:12:43.714Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectSize",
+        "title": "切换每页条数并读取稳定列表：50",
+        "sequence": 31,
+        "method": "selectSize",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 866,
+        "startedAt": "2026-09-08T13:12:43.821Z",
+        "finishedAt": "2026-09-08T13:12:44.687Z",
+        "occurredAt": "2026-09-08T13:12:44.687Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 32,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 81,
+        "startedAt": "2026-09-08T13:12:44.592Z",
+        "finishedAt": "2026-09-08T13:12:44.673Z",
+        "occurredAt": "2026-09-08T13:12:44.673Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-063:expectation-1",
+        "status": "verified",
+        "actualValue": [
+          10,
+          20,
+          50,
+          100
+        ],
+        "expectedValue": [
+          10,
+          20,
+          50,
+          100
+        ],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-063:expectation-2",
+        "status": "verified",
+        "actualValue": [
+          {
+            "size": 10,
+            "rows": 10
+          },
+          {
+            "size": 20,
+            "rows": 20
+          },
+          {
+            "size": 50,
+            "rows": 50
+          },
+          {
+            "size": 100,
+            "rows": 100
+          }
+        ],
+        "expectedValue": [
+          {
+            "size": 10,
+            "rows": 10
+          },
+          {
+            "size": 20,
+            "rows": 20
+          },
+          {
+            "size": 50,
+            "rows": 50
+          },
+          {
+            "size": 100,
+            "rows": 100
+          }
+        ],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ],
+      "observed": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ],
+      "verified": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；列与分页恢复另有实际UI核验"
+    },
+    "evidenceFingerprint": "bf9bd2b909c345869c8ac5d78d7e4c55e817f9887546b6f677db33a8aa12df41"
+  }
+}

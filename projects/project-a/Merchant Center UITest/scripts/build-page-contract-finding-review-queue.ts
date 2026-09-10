@@ -4,8 +4,9 @@ import path from 'node:path';
 const projectRoot = path.resolve(__dirname, '..');
 const diffPath = path.join(projectRoot, 'output/page-contract/product-center-page-contract-diff.json');
 const impactPath = path.join(projectRoot, 'output/page-contract/product-center-page-contract-impact.json');
-const diff = JSON.parse(fs.readFileSync(diffPath, 'utf8')) as { findings?: Array<{ code: string; caseId: string; route: string; sourceIds?: string[]; detail: string; blocking?: boolean }> };
-const impact = JSON.parse(fs.readFileSync(impactPath, 'utf8')) as { contractMutationAllowed?: boolean; businessRuleMutationAllowed?: boolean; impactedCases?: Array<{ caseId: string }> };
+const probeBlockedPath = path.join(projectRoot, 'output/page-contract/product-center-current-release-probe.blocked.json');
+const diff = readRequiredJson<{ findings?: Array<{ code: string; caseId: string; route: string; sourceIds?: string[]; detail: string; blocking?: boolean }> }>(diffPath, 'PAGE_CONTRACT_DIFF_MISSING');
+const impact = readRequiredJson<{ contractMutationAllowed?: boolean; businessRuleMutationAllowed?: boolean; impactedCases?: Array<{ caseId: string }> }>(impactPath, 'PAGE_CONTRACT_IMPACT_MISSING');
 const technicalFindingCodes = new Set(['RELEASE_EVIDENCE_STALE', 'RELEASE_FINGERPRINT_MISMATCH', 'ROUTE_FINGERPRINT_MISMATCH']);
 const items = (diff.findings ?? []).map((finding, index) => ({
   reviewId: `PAGE-CONTRACT-REVIEW-${String(index + 1).padStart(3, '0')}`,
@@ -42,3 +43,44 @@ fs.writeFileSync(path.join(outputDir, 'product-center-page-contract-finding-revi
 const markdown = ['# 页面合同偏移技术自动复验队列', '', `状态：${report.status}`, `总 finding：${report.summary.total}；受影响用例：${report.summary.impactedCases}`, '', '| Review ID | Finding | Case | 路由 | 审批 | 下一步 |', '|---|---|---|---|---|---|', ...items.map((item) => `| ${item.reviewId} | ${item.findingCode} | ${item.caseId} | ${item.route} | ${item.approvalStatus} | ${item.nextAction} |`), '', '说明：本队列仅包含证据过期、发布指纹或路由指纹等技术性 finding，已自动转入当前版本证据补采/定向重验；不需要逐条人工审核。只有重验确认业务语义发生变化时，才升级人工异常处理；在获得标准运行收据前，不更新正式用例、业务规则或通过状态。', ''];
 fs.writeFileSync(path.join(outputDir, 'product-center-page-contract-finding-review-queue.md'), markdown.join('\n'));
 process.stdout.write(JSON.stringify({ status: report.status, total: report.summary.total, output: 'Merchant Center UITest/output/page-contract' }) + '\n');
+
+function readRequiredJson<T>(filePath: string, code: string): T {
+  if (!fs.existsSync(filePath)) {
+    const blockedPath = path.join(projectRoot, 'output/page-contract/product-center-page-contract-finding-review-queue.blocked.json');
+    fs.mkdirSync(path.dirname(blockedPath), { recursive: true });
+    const missingInput = path.relative(projectRoot, filePath).replaceAll(path.sep, '/');
+    const upstreamProbe = fs.existsSync(probeBlockedPath)
+      ? readOptionalJson<Record<string, unknown>>(probeBlockedPath)
+      : undefined;
+    fs.writeFileSync(blockedPath, `${JSON.stringify({
+      schemaVersion: '1.0.0',
+      reportId: 'product-center-page-contract-finding-review',
+      status: 'blocked',
+      code,
+      missingInput,
+      missingInputs: [missingInput],
+      upstreamBlocker: upstreamProbe
+        ? {
+          code: upstreamProbe.code,
+          runId: upstreamProbe.runId,
+          unresolvedRoutes: upstreamProbe.unresolvedRoutes,
+          evidenceRef: 'output/page-contract/product-center-current-release-probe.blocked.json',
+        }
+        : undefined,
+      scope: 'report-only',
+      businessExecutionStarted: false,
+      existingPassedCasesInvalidated: false,
+      generatedAt: new Date().toISOString(),
+    }, null, 2)}\n`);
+    throw new Error(`${code}:${filePath}`);
+  }
+  return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
+}
+
+function readOptionalJson<T>(filePath: string): T | undefined {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
+  } catch {
+    return undefined;
+  }
+}

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fingerprintSystemTestImplementationSource, fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { fingerprintSystemTestImplementationSource, fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
 
 const projectRoot = path.resolve(__dirname, '..');
 const adaptersPath = path.join(projectRoot, 'systems/merchant-center-product-center-seasoning/adapters.json');

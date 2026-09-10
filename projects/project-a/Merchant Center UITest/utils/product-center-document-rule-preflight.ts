@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { readPlaywrightExecutionReceipts } from './playwright-execution-receipt';
-import { buildBusinessRuleReviewPackages } from '../../../Test Automation Platform/src/automation/system-test/business-rule-promotion';
+import { buildBusinessRuleReviewPackages } from '../../Test Automation Platform/src/automation/system-test/business-rule-promotion';
 
 export type DocumentRulePreflightRule = {
   ruleId: string;

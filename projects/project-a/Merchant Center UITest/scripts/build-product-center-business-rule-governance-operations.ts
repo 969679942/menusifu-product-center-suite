@@ -5,7 +5,7 @@ import {
   projectBusinessRuleGovernance,
   queryBusinessRuleGovernance,
   type BusinessRuleGovernanceEvent,
-} from '../../../Test Automation Platform/src/automation/system-test/business-rule-governance';
+} from '../../Test Automation Platform/src/automation/system-test/business-rule-governance';
 import { loadCurrentProductCenterBusinessRuleLifecycleSnapshot } from './build-product-center-business-rule-lifecycle-snapshot';
 
 const projectRoot = path.resolve(__dirname, '..');

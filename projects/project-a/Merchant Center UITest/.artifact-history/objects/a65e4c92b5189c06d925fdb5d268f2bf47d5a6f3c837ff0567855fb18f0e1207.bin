@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalSourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "implementationFingerprint": "76d726b5ef61378669619400777644e6bd3a28b282f7dd06827458e0c1a6d97e",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-002:action-1"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "cleanupRequired": false,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-002:action-1"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-ADD-002:action-1",
+            "sourceStepId": "TC-ITEM-ADD-002:action-1",
+            "executableOperationKey": "ItemCreateSidePage.readOtherSettingsCapabilityEvidence",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.inspectOtherSettings",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.ensureOtherSettingsExpanded",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    }
+  ],
+  "reportPaths": [
+    "output/product-center-item-source-governed-addon-002-receipt-20260908-01-source-governed.json"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T05:25:44.210Z",
+  "status": "source-currentness-validated-runtime-incomplete",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicContractsPassed": 3,
+    "projectContractsPassed": 7,
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "migration": "complete"
+  },
+  "evidence": [
+    "../Test Automation Platform/src/governance/json-input-currentness.ts",
+    "../Test Automation Platform/tests/api/json-input-currentness.contract.spec.ts",
+    "scripts/build-product-center-reverse-scenario-readiness.ts",
+    "scripts/build-product-center-reverse-scenario-evidence-queue.ts",
+    "scripts/build-product-center-governance-execution-task-queue.ts",
+    "tests/api/product-center-reverse-scenario-readiness.contract.spec.ts",
+    "tests/api/product-center-reverse-scenario-evidence-queue.contract.spec.ts",
+    "tests/api/product-center-governance-queue-integrity.contract.spec.ts"
+  ],
+  "observation": {
+    "scenarios": 26,
+    "partial": 10,
+    "missing": 16,
+    "covered": 0,
+    "executionEligible": 0
+  },
+  "previousGap": {
+    "id": "upstream-input-fingerprint-currentness-at-consumption",
+    "status": "resolved"
+  },
+  "newAuditFinding": {
+    "source": "../Test Automation Platform/src/reporters/system-test-evidence.reporter.ts",
+    "observedImplementation": "summary.executed uses cases.length after every onTestEnd, including retries and skipped results",
+    "status": "remediation-pending",
+    "productFailure": false
+  },
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "existingPassedCasesInvalidated": false,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

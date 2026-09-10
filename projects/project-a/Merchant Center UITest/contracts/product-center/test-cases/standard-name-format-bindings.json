@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "rule": "BR-FMT-001",
+  "identityPolicy": "使用唯一 AUTO_AUDIT 身份保留用例的长度、单个中间空格或 emoji 条件；原名与移除 emoji 后的名称均检查并登记清理变体",
+  "cases": [
+    { "caseId": "TC-ITEM-STD-102", "title": "商品名称恰好100字符且包含单个中间空格时允许保存", "action": "name-format", "assertionCount": 3 },
+    { "caseId": "TC-ITEM-STD-103", "title": "商品名称包含 emoji 时保存失败", "action": "name-format", "assertionCount": 2 }
+  ]
+}

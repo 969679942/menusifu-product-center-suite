@@ -1,0 +1,121 @@
+{
+  "intentFingerprint": "93ef7e66b93e4f79b522132733cddc0017de04927854f08213d112f7dba3c4d1",
+  "selectionFingerprint": "f395e207d3d92dbc5199e0c9b5fdba2e4663755c6379db8d45fc67cb7989494d",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-005"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-005"
+  ],
+  "status": "failed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-005",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+    "implementationFingerprint": "1c62735112c7398461005e88f6b9284d9833f9611c57989d499b1aa61db24aa8",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/standard"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T15:19:00.684Z"
+    },
+    "executionEpochId": "source-governed-standard-required-name-20260908-01-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-005:action-1",
+        "title": "通过侧边栏进入商品列表",
+        "sequence": 2,
+        "method": "ui",
+        "observed": false,
+        "status": "failed",
+        "durationMs": 10104,
+        "startedAt": "2026-09-08T15:18:40.903Z",
+        "finishedAt": "2026-09-08T15:18:51.007Z",
+        "occurredAt": "2026-09-08T15:18:51.007Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardRequiredNameFlow.execute",
+        "title": "验证标准商品名称缺失时阻止创建并核验列表无新增",
+        "sequence": 1,
+        "method": "execute",
+        "observed": false,
+        "status": "failed",
+        "durationMs": 18636,
+        "startedAt": "2026-09-08T15:18:40.428Z",
+        "finishedAt": "2026-09-08T15:18:59.064Z",
+        "occurredAt": "2026-09-08T15:18:59.064Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.enterFromSidebar",
+        "title": "通过侧边栏进入商品列表",
+        "sequence": 3,
+        "method": "enterFromSidebar",
+        "observed": false,
+        "status": "failed",
+        "durationMs": 10043,
+        "startedAt": "2026-09-08T15:18:40.935Z",
+        "finishedAt": "2026-09-08T15:18:50.978Z",
+        "occurredAt": "2026-09-08T15:18:50.978Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 4,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 8032,
+        "startedAt": "2026-09-08T15:18:51.014Z",
+        "finishedAt": "2026-09-08T15:18:59.046Z",
+        "occurredAt": "2026-09-08T15:18:59.046Z"
+      }
+    ],
+    "assertionReceipts": [],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-005:expectation-1",
+        "TC-ITEM-STD-005:expectation-2",
+        "TC-ITEM-STD-005:expectation-3"
+      ],
+      "observed": [],
+      "verified": []
+    },
+    "cleanup": {
+      "apiZeroResidue": false,
+      "uiZeroResidue": false,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": true,
+      "reason": "负向保存后的请求归属、API完整ID集合与UI列表恢复已分别核验；未知不记零",
+      "serverIds": []
+    },
+    "terminalFailure": {
+      "status": "failed",
+      "unreachedSourceOperations": [
+        "TC-ITEM-STD-005:action-2",
+        "TC-ITEM-STD-005:action-3",
+        "TC-ITEM-STD-005:action-4",
+        "TC-ITEM-STD-005:action-5",
+        "TC-ITEM-STD-005:action-6"
+      ],
+      "reason": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('a[href=\"/pp/brand/list\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href=\"/pp/brand/list\"]')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n"
+    },
+    "evidenceFingerprint": "9879ce7146804c6bbceed0b62c90099224956998f410b9a41ee6ec6a4e0bbd13"
+  }
+}

@@ -70,7 +70,15 @@ export async function buildProductCenterBlockedSourceReport(options: {
     generatedAt: options.generatedAt ?? new Date().toISOString(),
     collectionId: 'product-center-blocked-source-cases',
     guardrails: decision.guardrails,
-    workstream: decision.generationWorkstream,
+    // 个案可以已有 executionDecision，但只要仍存在来源阻断项，
+    // 生成工作流就仍然阻断当前迁移目标；两者保持独立投影。
+    workstream: {
+      ...decision.generationWorkstream,
+      currentGoalBlocking: Boolean(
+        decision.generationWorkstream?.currentGoalBlocking
+        || (decision.cases ?? []).some((item: BlockedSourceDecision) => item.status === 'blocked'),
+      ),
+    },
     summary,
     cases,
   };

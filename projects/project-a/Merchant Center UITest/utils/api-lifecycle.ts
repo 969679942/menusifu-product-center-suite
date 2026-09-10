@@ -6,9 +6,9 @@ import {
   indexApiLifecycleRegistry,
   type ApiLifecycleEntry,
   type ApiLifecycleRegistry,
-} from '../../../Test Automation Platform/src/governance/api-lifecycle';
+} from '../../Test Automation Platform/src/governance/api-lifecycle';
 
-export type { ApiLifecycleEntry, ApiLifecycleRegistry, ApiLifecycleStatus } from '../../../Test Automation Platform/src/governance/api-lifecycle';
+export type { ApiLifecycleEntry, ApiLifecycleRegistry, ApiLifecycleStatus } from '../../Test Automation Platform/src/governance/api-lifecycle';
 
 const registryPath = path.resolve(process.cwd(), '..', 'Merchant Center API/api-lifecycle-registry.json');
 

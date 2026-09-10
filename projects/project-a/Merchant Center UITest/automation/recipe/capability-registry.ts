@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/recipe/capability-registry';
+export * from '../../../Test Automation Platform/src/automation/recipe/capability-registry';

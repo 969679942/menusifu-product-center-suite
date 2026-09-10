@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T06:23:07.446Z",
+  "status": "validated",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicContractsPassed": 102,
+    "projectContractsPassed": 3,
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "assets": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "migration": "complete",
+    "reviewedMigrationChanges": 8
+  },
+  "evidence": [
+    "../Test Automation Platform/docs/run-execution-lease.md",
+    "../Test Automation Platform/tests/api/run-execution-lease.contract.spec.ts",
+    "tests/api/product-center-run-startup.contract.spec.ts"
+  ],
+  "support": {
+    "implementedHosts": [
+      "win32",
+      "linux"
+    ],
+    "testedHost": "win32",
+    "otherHosts": "explicit-capability-block",
+    "firstSubprocessFixtureFailure": "Windows ESM loader path needed file URL; fixture corrected and rerun passed"
+  },
+  "pending": [
+    "cross-invocation-telemetry",
+    "partial-batch-resume",
+    "runner-wall-time-and-overhead",
+    "platform-only-fingerprint-impact-audit",
+    "205-current-item-admissions",
+    "97-source-derivation-differences",
+    "remaining-report-writers"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "historicalPassedResultsPreserved": true,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

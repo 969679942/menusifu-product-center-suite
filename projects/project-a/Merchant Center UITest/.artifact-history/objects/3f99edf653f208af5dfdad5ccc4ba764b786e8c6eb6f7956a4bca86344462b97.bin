@@ -1,0 +1,286 @@
+{
+  "intentFingerprint": "974cffa4519c7e394b10781b0aed8570878035af3b6f31f59ab0780f0876d581",
+  "selectionFingerprint": "e7984519a338c322b70af1ff77ab41a695470d3346a843afbd7bbc5b98ff57d3",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-019"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-019"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-019",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "757d8f92040465264685ce676dda4eb86a4666ed71c2ea49c33fdc0ce80a0a0a",
+    "implementationFingerprint": "9324ebc29913255c040c1dd3c4cbbdf9753716ffe2180c99c8cfbbc586197113",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/standard"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T14:26:17.315Z"
+    },
+    "executionEpochId": "source-governed-standard-weight-units-20260908-01-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-019:action-1",
+        "title": "将标准商品设置为称重商品",
+        "sequence": 13,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 944,
+        "startedAt": "2026-09-08T14:26:11.393Z",
+        "finishedAt": "2026-09-08T14:26:12.337Z",
+        "occurredAt": "2026-09-08T14:26:12.337Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-019:action-2",
+        "title": "打开销售单位下拉框并读取全部选项",
+        "sequence": 15,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 158,
+        "startedAt": "2026-09-08T14:26:12.341Z",
+        "finishedAt": "2026-09-08T14:26:12.499Z",
+        "occurredAt": "2026-09-08T14:26:12.499Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardWeightUnitsAcceptanceFlow.execute",
+        "title": "验证称重销售单位只包含正式规定的三个选项",
+        "sequence": 1,
+        "method": "execute",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 14011,
+        "startedAt": "2026-09-08T14:26:03.252Z",
+        "finishedAt": "2026-09-08T14:26:17.263Z",
+        "occurredAt": "2026-09-08T14:26:17.263Z"
+      },
+      {
+        "operationKey": "ItemCreateFlow.openStandardCreateFromList",
+        "title": "从商品列表进入标准商品创建页",
+        "sequence": 2,
+        "method": "openStandardCreateFromList",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7787,
+        "startedAt": "2026-09-08T14:26:03.574Z",
+        "finishedAt": "2026-09-08T14:26:11.361Z",
+        "occurredAt": "2026-09-08T14:26:11.361Z"
+      },
+      {
+        "operationKey": "ItemCreateFlow.openTypeSelectionFromList",
+        "title": "从商品列表进入新增商品类型选择页",
+        "sequence": 3,
+        "method": "openTypeSelectionFromList",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7211,
+        "startedAt": "2026-09-08T14:26:03.597Z",
+        "finishedAt": "2026-09-08T14:26:10.808Z",
+        "occurredAt": "2026-09-08T14:26:10.808Z"
+      },
+      {
+        "operationKey": "ItemListFlow.openList",
+        "title": "打开商品列表页",
+        "sequence": 4,
+        "method": "openList",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 6584,
+        "startedAt": "2026-09-08T14:26:03.609Z",
+        "finishedAt": "2026-09-08T14:26:10.193Z",
+        "occurredAt": "2026-09-08T14:26:10.193Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 5,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 6547,
+        "startedAt": "2026-09-08T14:26:03.626Z",
+        "finishedAt": "2026-09-08T14:26:10.173Z",
+        "occurredAt": "2026-09-08T14:26:10.173Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 6,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 4376,
+        "startedAt": "2026-09-08T14:26:05.788Z",
+        "finishedAt": "2026-09-08T14:26:10.164Z",
+        "occurredAt": "2026-09-08T14:26:10.164Z"
+      },
+      {
+        "operationKey": "ItemListPage.enterCreateTypePage",
+        "title": "进入新增商品类型选择页",
+        "sequence": 7,
+        "method": "enterCreateTypePage",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 320,
+        "startedAt": "2026-09-08T14:26:10.457Z",
+        "finishedAt": "2026-09-08T14:26:10.777Z",
+        "occurredAt": "2026-09-08T14:26:10.777Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.expectLoaded",
+        "title": "等待选择商品类型页加载完成",
+        "sequence": 8,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 221,
+        "startedAt": "2026-09-08T14:26:10.544Z",
+        "finishedAt": "2026-09-08T14:26:10.765Z",
+        "occurredAt": "2026-09-08T14:26:10.765Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create",
+        "sequence": 9,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 34,
+        "startedAt": "2026-09-08T14:26:10.656Z",
+        "finishedAt": "2026-09-08T14:26:10.690Z",
+        "occurredAt": "2026-09-08T14:26:10.690Z"
+      },
+      {
+        "operationKey": "ItemCreateTypePage.enterStandardCreate",
+        "title": "进入标准商品创建页",
+        "sequence": 10,
+        "method": "enterStandardCreate",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 494,
+        "startedAt": "2026-09-08T14:26:10.839Z",
+        "finishedAt": "2026-09-08T14:26:11.333Z",
+        "occurredAt": "2026-09-08T14:26:11.333Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.expectLoaded",
+        "title": "等待标准商品创建页进入可交互终态",
+        "sequence": 11,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 397,
+        "startedAt": "2026-09-08T14:26:10.926Z",
+        "finishedAt": "2026-09-08T14:26:11.323Z",
+        "occurredAt": "2026-09-08T14:26:11.323Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create/standard",
+        "sequence": 12,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 42,
+        "startedAt": "2026-09-08T14:26:10.931Z",
+        "finishedAt": "2026-09-08T14:26:10.973Z",
+        "occurredAt": "2026-09-08T14:26:10.973Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.enableWeightBasedItem",
+        "title": "启用称重商品",
+        "sequence": 14,
+        "method": "enableWeightBasedItem",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 905,
+        "startedAt": "2026-09-08T14:26:11.422Z",
+        "finishedAt": "2026-09-08T14:26:12.327Z",
+        "occurredAt": "2026-09-08T14:26:12.327Z"
+      },
+      {
+        "operationKey": "ItemCreateStandardPage.readWeightUnitOptions",
+        "title": "读取称重商品销售单位选项",
+        "sequence": 16,
+        "method": "readWeightUnitOptions",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 122,
+        "startedAt": "2026-09-08T14:26:12.368Z",
+        "finishedAt": "2026-09-08T14:26:12.490Z",
+        "occurredAt": "2026-09-08T14:26:12.490Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 17,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 4744,
+        "startedAt": "2026-09-08T14:26:12.512Z",
+        "finishedAt": "2026-09-08T14:26:17.256Z",
+        "occurredAt": "2026-09-08T14:26:17.256Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-019:expectation-1",
+        "status": "verified",
+        "actualValue": [
+          "g",
+          "kg",
+          "ml"
+        ],
+        "expectedValue": [
+          "g",
+          "kg",
+          "ml"
+        ],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-019:expectation-1"
+      ],
+      "observed": [
+        "TC-ITEM-STD-019:expectation-1"
+      ],
+      "verified": [
+        "TC-ITEM-STD-019:expectation-1"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+    },
+    "evidenceFingerprint": "8254a2106b5dfc662dc3df29256261b31b4d62bf037e7c3723d64b7673f4edc6"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T16:02:35.081Z",
+  "input": {
+    "unitId": "STD041-042-independent-implementation",
+    "directionId": "advanced-settings-independent-implementation",
+    "phase": "after-unit",
+    "tokenStart": 1302565,
+    "tokenCurrent": 1339103,
+    "elapsedMs": 387835.7744140625,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "advanced-independent-state-reader",
+      "advanced-current-identity-receipt",
+      "advanced-source-precondition",
+      "advanced-canonical-route-and-plan"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/advanced-settings-registration-proof.json",
+        "sha256": "10d1d20c90d41cd5f2e715eed27dcd51920c13c6074c644416e7275415d166f7",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD041-042-independent-implementation",
+    "directionId": "advanced-settings-independent-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 36538,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "advanced-independent-state-reader",
+      "advanced-current-identity-receipt",
+      "advanced-source-precondition",
+      "advanced-canonical-route-and-plan"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "10d1d20c90d41cd5f2e715eed27dcd51920c13c6074c644416e7275415d166f7"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

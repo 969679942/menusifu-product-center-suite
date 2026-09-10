@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T17:38:11.115Z",
+  "input": {
+    "unitId": "addon-price-currency-execution-01-resume",
+    "directionId": "addon-price-currency-runtime",
+    "phase": "before-start",
+    "tokenStart": 2302053,
+    "tokenCurrent": 2302053,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "afterQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-currency-diagnosis.json",
+        "sha256": "c90d927dbcceda11b7a181fbdf859fd35af1c417066502b9feea45f4327a0120",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-currency-execution-01-resume",
+    "directionId": "addon-price-currency-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "c90d927dbcceda11b7a181fbdf859fd35af1c417066502b9feea45f4327a0120"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

@@ -4,6 +4,7 @@ import type { ProductCenterApi } from '../../../api/product-center/product-cente
 import type { ProductCenterLedgerEntityKind } from '../../../api/product-center/execution-ledger';
 import type { ProductCenterCoreEntityKey } from '../../../sop/product-center/product-center-sop.types';
 import {
+  createAuditFieldValue,
   createAuditIdentity,
   nextAuditTimestamp,
   type AuditEntity,
@@ -197,8 +198,8 @@ export class ProductCenterSopDataFactory {
     timestamp: number,
     cleanupRegistry: CleanupRegistry,
   ): Promise<ProductCenterSopSeedRecord> {
-    const productIdentity = `AUTO_AUDIT_BOM_PRODUCT_${timestamp}`;
-    const materialIdentity = `AUTO_AUDIT_BOM_MATERIAL_${timestamp}`;
+    const productIdentity = createAuditFieldValue('ITEM', 60, timestamp);
+    const materialIdentity = createAuditFieldValue('MATERIAL', 60, timestamp + 1);
     const materialEditedIdentity = `${materialIdentity}_EDIT`;
     const category = requireMaterialCategory(await this.api.materialCategoryTree());
 

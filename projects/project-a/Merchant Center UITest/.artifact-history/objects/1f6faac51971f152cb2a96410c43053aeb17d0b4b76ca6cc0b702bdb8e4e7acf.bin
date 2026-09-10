@@ -1,0 +1,100 @@
+{
+  "recordedAt": "2026-09-08T14:47:10.017Z",
+  "caseId": "TC-ITEM-STD-030",
+  "runId": "standard-query-return-20260908-02",
+  "status": "completed-with-findings",
+  "runtimeStatus": "failed",
+  "qualification": {
+    "accepted": false,
+    "reasons": [
+      "ASSERTION_NOT_VERIFIED",
+      "DECLARED_ASSERTION_SET_MISMATCH",
+      "OPERATION_EXECUTION_EVIDENCE_INCOMPLETE",
+      "OPERATION_RECEIPT_MISSING"
+    ]
+  },
+  "assertions": [
+    {
+      "claimId": "TC-ITEM-STD-030:expectation-1",
+      "status": "observed-mismatch",
+      "actualValue": [
+        "Standard"
+      ],
+      "expectedValue": [],
+      "actualStatus": "observed",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "comparison": "mismatched"
+    }
+  ],
+  "operations": [
+    {
+      "operationKey": "TC-ITEM-STD-030:action-1",
+      "title": "进入商品列表并准备标准商品筛选",
+      "sequence": 2,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 9681,
+      "startedAt": "2026-09-08T14:44:15.840Z",
+      "finishedAt": "2026-09-08T14:44:25.521Z",
+      "occurredAt": "2026-09-08T14:44:25.521Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-030:action-2",
+      "title": "进入分类页面后通过侧边栏返回商品列表",
+      "sequence": 12,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 817,
+      "startedAt": "2026-09-08T14:44:25.526Z",
+      "finishedAt": "2026-09-08T14:44:26.343Z",
+      "occurredAt": "2026-09-08T14:44:26.343Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-030:action-3",
+      "title": "核对返回列表后的类型筛选为空",
+      "sequence": 14,
+      "method": "ui",
+      "observed": false,
+      "status": "failed",
+      "durationMs": 5165,
+      "startedAt": "2026-09-08T14:44:26.347Z",
+      "finishedAt": "2026-09-08T14:44:31.512Z",
+      "occurredAt": "2026-09-08T14:44:31.512Z"
+    }
+  ],
+  "stateRestored": true,
+  "reportPath": "output/product-center-item-source-governed-standard-query-return-20260908-02-source-governed.json",
+  "reportSha256": "f4a08facc81e214396a92c91cf6152af75b07b143e22dec2ccf3e36849e484dc",
+  "terminalPath": "output/checkpoints/item/source-governed-standard-query-return-20260908-02-source-governed/terminal-TC-ITEM-STD-030.json",
+  "terminalSha256": "9d6e2729653d4223d18d424de362be097ad5902d9ea30a40e3b2206ff445950b",
+  "timelinePath": "deliverables/system-test-platform/query-return-stable-timeline.json",
+  "businessCrudPerformed": false,
+  "productFailureConfirmed": true,
+  "classification": "product-behavior-difference",
+  "reason": "真实返回商品列表后，19次有效控件读取覆盖约5秒窗口，类型始终选中Standard；与金将军已确认的返回后清空规则不符。",
+  "nextAction": "研发按已确认BR-TC-ITEM-STD-030修复页面返回时的筛选清空行为；执行代理收到目标版本变化后，仅定向复核030并自动更新收据、恢复和索引。无需重复裁决规则。",
+  "passedCaseImpact": "当前9条合格结果不失效、不重跑",
+  "businessAttemptsAcrossRuns": 2,
+  "prebrowserBlockedStarts": 1,
+  "owner": "产品研发负责人修复；执行代理复核",
+  "ruleAuthority": {
+    "path": "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json",
+    "caseId": "TC-ITEM-STD-030",
+    "directive": "切换页面商品列表不保留查询条件",
+    "confirmedBy": "金将军"
+  },
+  "reproduction": [
+    "登录QA，选择Brand 000407，进入商品列表",
+    "记录初始类型筛选；只勾选Standard",
+    "通过侧边栏进入Category，再点击Item返回商品列表",
+    "打开Type下拉，观察约5秒：19次读取均为Standard，预期应为空",
+    "恢复最初筛选并确认"
+  ],
+  "minimalFixEvidence": "修复版本/构建标识及变更范围；不要求人工代跑测试",
+  "acceptance": "当前版本返回后类型筛选清空，完整来源动作及断言收据合格，初始状态恢复",
+  "humanBusinessDecisionRequired": false,
+  "technicalWorkTransferredToUser": false
+}

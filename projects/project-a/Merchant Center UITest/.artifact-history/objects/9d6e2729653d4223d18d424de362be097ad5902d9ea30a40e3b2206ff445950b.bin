@@ -1,0 +1,355 @@
+{
+  "intentFingerprint": "e9c7dbfee6f75c1ecaa1a1001467b236c1ecd8e02c2a578a9c9a749b0ea5d7b7",
+  "selectionFingerprint": "16029114399cc99c49a6ac4a72b523fc56a3bd53d52da00201cf3332218f1a10",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-030"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-030"
+  ],
+  "status": "failed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-030",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "c21baa9d5f1e461a6793ae1b76096d5382a8ea238c1edddbd8e9c91b3463ac8a",
+    "implementationFingerprint": "a239e593cae30753dd3153f1f0e10c29d5de2c19ff560b0ea89f69609c6af516",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/list"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T14:44:37.578Z"
+    },
+    "executionEpochId": "source-governed-standard-query-return-20260908-02-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-030:action-1",
+        "title": "进入商品列表并准备标准商品筛选",
+        "sequence": 2,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 9681,
+        "startedAt": "2026-09-08T14:44:15.840Z",
+        "finishedAt": "2026-09-08T14:44:25.521Z",
+        "occurredAt": "2026-09-08T14:44:25.521Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-030:action-2",
+        "title": "进入分类页面后通过侧边栏返回商品列表",
+        "sequence": 12,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 817,
+        "startedAt": "2026-09-08T14:44:25.526Z",
+        "finishedAt": "2026-09-08T14:44:26.343Z",
+        "occurredAt": "2026-09-08T14:44:26.343Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-030:action-3",
+        "title": "核对返回列表后的类型筛选为空",
+        "sequence": 14,
+        "method": "ui",
+        "observed": false,
+        "status": "failed",
+        "durationMs": 5165,
+        "startedAt": "2026-09-08T14:44:26.347Z",
+        "finishedAt": "2026-09-08T14:44:31.512Z",
+        "occurredAt": "2026-09-08T14:44:31.512Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardQueryReturnFlow.execute",
+        "title": "验证切换页面后类型筛选清空并恢复初始状态",
+        "sequence": 1,
+        "method": "execute",
+        "observed": false,
+        "status": "failed",
+        "durationMs": 24312,
+        "startedAt": "2026-09-08T14:44:12.879Z",
+        "finishedAt": "2026-09-08T14:44:37.191Z",
+        "occurredAt": "2026-09-08T14:44:37.191Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.open",
+        "title": "进入商品列表并等待筛选控件就绪",
+        "sequence": 3,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 8729,
+        "startedAt": "2026-09-08T14:44:15.869Z",
+        "finishedAt": "2026-09-08T14:44:24.598Z",
+        "occurredAt": "2026-09-08T14:44:24.598Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readTypes",
+        "title": "读取当前类型筛选勾选值",
+        "sequence": 4,
+        "method": "readTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 180,
+        "startedAt": "2026-09-08T14:44:24.617Z",
+        "finishedAt": "2026-09-08T14:44:24.797Z",
+        "occurredAt": "2026-09-08T14:44:24.797Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 5,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 143,
+        "startedAt": "2026-09-08T14:44:24.625Z",
+        "finishedAt": "2026-09-08T14:44:24.768Z",
+        "occurredAt": "2026-09-08T14:44:24.768Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.selectTypes",
+        "title": "设置类型筛选并核对勾选值",
+        "sequence": 6,
+        "method": "selectTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 593,
+        "startedAt": "2026-09-08T14:44:24.818Z",
+        "finishedAt": "2026-09-08T14:44:25.411Z",
+        "occurredAt": "2026-09-08T14:44:25.411Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 7,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 44,
+        "startedAt": "2026-09-08T14:44:24.824Z",
+        "finishedAt": "2026-09-08T14:44:24.868Z",
+        "occurredAt": "2026-09-08T14:44:24.868Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readTypes",
+        "title": "读取当前类型筛选勾选值",
+        "sequence": 8,
+        "method": "readTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 86,
+        "startedAt": "2026-09-08T14:44:25.314Z",
+        "finishedAt": "2026-09-08T14:44:25.400Z",
+        "occurredAt": "2026-09-08T14:44:25.400Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 9,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 57,
+        "startedAt": "2026-09-08T14:44:25.321Z",
+        "finishedAt": "2026-09-08T14:44:25.378Z",
+        "occurredAt": "2026-09-08T14:44:25.378Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readTypes",
+        "title": "读取当前类型筛选勾选值",
+        "sequence": 10,
+        "method": "readTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 73,
+        "startedAt": "2026-09-08T14:44:25.440Z",
+        "finishedAt": "2026-09-08T14:44:25.513Z",
+        "occurredAt": "2026-09-08T14:44:25.513Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 11,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 51,
+        "startedAt": "2026-09-08T14:44:25.446Z",
+        "finishedAt": "2026-09-08T14:44:25.497Z",
+        "occurredAt": "2026-09-08T14:44:25.497Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.navigateAwayAndReturn",
+        "title": "通过侧边栏离开商品列表并返回",
+        "sequence": 13,
+        "method": "navigateAwayAndReturn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 775,
+        "startedAt": "2026-09-08T14:44:25.556Z",
+        "finishedAt": "2026-09-08T14:44:26.331Z",
+        "occurredAt": "2026-09-08T14:44:26.331Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readSettledTypes",
+        "title": "有界观察返回后的类型勾选状态并保留时间序列",
+        "sequence": 15,
+        "method": "readSettledTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 5099,
+        "startedAt": "2026-09-08T14:44:26.376Z",
+        "finishedAt": "2026-09-08T14:44:31.475Z",
+        "occurredAt": "2026-09-08T14:44:31.475Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 16,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 116,
+        "startedAt": "2026-09-08T14:44:26.381Z",
+        "finishedAt": "2026-09-08T14:44:26.497Z",
+        "occurredAt": "2026-09-08T14:44:26.497Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.open",
+        "title": "进入商品列表并等待筛选控件就绪",
+        "sequence": 17,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 5022,
+        "startedAt": "2026-09-08T14:44:31.645Z",
+        "finishedAt": "2026-09-08T14:44:36.667Z",
+        "occurredAt": "2026-09-08T14:44:36.667Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.selectTypes",
+        "title": "设置类型筛选并核对勾选值",
+        "sequence": 18,
+        "method": "selectTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 322,
+        "startedAt": "2026-09-08T14:44:36.763Z",
+        "finishedAt": "2026-09-08T14:44:37.085Z",
+        "occurredAt": "2026-09-08T14:44:37.085Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 19,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 134,
+        "startedAt": "2026-09-08T14:44:36.768Z",
+        "finishedAt": "2026-09-08T14:44:36.902Z",
+        "occurredAt": "2026-09-08T14:44:36.902Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readTypes",
+        "title": "读取当前类型筛选勾选值",
+        "sequence": 20,
+        "method": "readTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 81,
+        "startedAt": "2026-09-08T14:44:36.996Z",
+        "finishedAt": "2026-09-08T14:44:37.077Z",
+        "occurredAt": "2026-09-08T14:44:37.077Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 21,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 48,
+        "startedAt": "2026-09-08T14:44:37.000Z",
+        "finishedAt": "2026-09-08T14:44:37.048Z",
+        "occurredAt": "2026-09-08T14:44:37.048Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.readTypes",
+        "title": "读取当前类型筛选勾选值",
+        "sequence": 22,
+        "method": "readTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 70,
+        "startedAt": "2026-09-08T14:44:37.112Z",
+        "finishedAt": "2026-09-08T14:44:37.182Z",
+        "occurredAt": "2026-09-08T14:44:37.182Z"
+      },
+      {
+        "operationKey": "StandardQueryReturnPage.openTypes",
+        "title": "打开类型筛选选项",
+        "sequence": 23,
+        "method": "openTypes",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 36,
+        "startedAt": "2026-09-08T14:44:37.119Z",
+        "finishedAt": "2026-09-08T14:44:37.155Z",
+        "occurredAt": "2026-09-08T14:44:37.155Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-030:expectation-1",
+        "status": "observed-mismatch",
+        "actualValue": [
+          "Standard"
+        ],
+        "expectedValue": [],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "mismatched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-030:expectation-1"
+      ],
+      "observed": [
+        "TC-ITEM-STD-030:expectation-1"
+      ],
+      "verified": []
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；初始类型筛选恢复另有实际UI核验"
+    },
+    "terminalFailure": {
+      "status": "failed",
+      "unreachedSourceOperations": [],
+      "reason": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Standard\",\u001b[39m\n\u001b[31m+ ]\u001b[39m"
+    },
+    "evidenceFingerprint": "3bbabf9f339f0c8405030c807c77ef3aea5adb776ca379e1700dc02008f1d466"
+  }
+}

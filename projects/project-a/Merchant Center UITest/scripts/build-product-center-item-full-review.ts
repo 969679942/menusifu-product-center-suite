@@ -29,6 +29,7 @@ export function buildProductCenterItemFullReviewArtifacts(options: {
   projectRoot?: string;
   outputRoot?: string;
   reviewedAt?: string;
+  plan?: ProductCenterItemXmindRebuildPlan;
 } = {}): {
   review: ProductCenterItemFullReviewDocument;
   jsonPath: string;
@@ -37,7 +38,7 @@ export function buildProductCenterItemFullReviewArtifacts(options: {
   const projectRoot = path.resolve(options.projectRoot ?? path.resolve(__dirname, '..'));
   const outputRoot = path.resolve(options.outputRoot ?? projectRoot);
   const canonicalRoot = path.join(projectRoot, 'contracts/product-center/test-cases/canonical');
-  const plan = readJson<ProductCenterItemXmindRebuildPlan>(path.join(
+  const plan = options.plan ?? readJson<ProductCenterItemXmindRebuildPlan>(path.join(
     canonicalRoot,
     'product-center-item-xmind-rebuild-pilot.json',
   ));

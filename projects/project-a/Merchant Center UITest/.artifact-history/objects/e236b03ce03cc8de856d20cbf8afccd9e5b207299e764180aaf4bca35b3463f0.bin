@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T18:12:55.398Z",
+  "classification": "static-source-and-dependency-audit",
+  "businessCasesExecuted": 0,
+  "saveActions": 0,
+  "sourcePath": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费与成本合法输入时保存成功",
+      "source": "BR-FMT-005",
+      "operations": [
+        "进入加料商品创建页",
+        "填写商品名称（唯一）",
+        "填写标准价10.00",
+        "填写包装费1.00",
+        "填写成本3.50",
+        "保存",
+        "按原名查询列表"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "详情或编辑页包装费=1.00且成本=3.50"
+      ],
+      "blockers": [
+        "当前无包装费/成本字段反馈与详情回读标准收据"
+      ],
+      "admission": "candidate-static-rule-sufficient-current-readback-missing"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "operations": [
+        "进入加料商品创建页",
+        "填写超过100字符且含连续空格和特殊字符的商品名称",
+        "填写标准价10.00",
+        "保存",
+        "进入详情记录SAVED_NAME",
+        "按SAVED_NAME查询"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "SAVED_NAME长度≤100、连续空格压缩、不支持字符过滤",
+        "列表按SAVED_NAME恰好1条且与详情一致"
+      ],
+      "blockers": [
+        "正式规则BR-FMT-001明确首尾空格保存失败、emoji不支持、未明确字段不得自动套用；用例要求保存后自动格式化，语义冲突"
+      ],
+      "admission": "source-conflict-blocked"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "加料商品POS名称和送厨名称超长及特殊字符保存后自动格式化",
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "operations": [
+        "展开高级设置",
+        "填写商品名称（唯一）",
+        "填写POS名称超过20字符",
+        "填写送厨名称超过20字符",
+        "填写标准价10.00",
+        "保存",
+        "按商品名查询并进入编辑页回读POS_SAVED/KITCHEN_SAVED"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "POS_SAVED、KITCHEN_SAVED按规则格式化且无首尾空格"
+      ],
+      "blockers": [
+        "正式规则BR-FMT-001明确未明确字段不得自动套用；用例要求POS/送厨名称自动格式化，BR-FMT-004字符规则也未证明适用于该字段"
+      ],
+      "admission": "source-conflict-blocked"
+    }
+  ],
+  "admission": "blocked-until-current-receipt-contract-and-format-rule-evidence",
+  "currentQualified": 19,
+  "notQualified": 185,
+  "next": "resolve-ADD011-current-fields-and-business-ruling-for-ADD012-013",
+  "formalRuleEvidence": [
+    {
+      "rule": "BR-FMT-001",
+      "path": "../Merchant Center Info/商品中心业务规则.md",
+      "lines": "1925,1960",
+      "statement": "商品名首尾含空格保存失败，禁止emoji；未明确列出的名称字段不得自动套用此规则"
+    },
+    {
+      "rule": "BR-FMT-004",
+      "path": "../Merchant Center Info/商品中心业务规则.md",
+      "lines": "1928",
+      "statement": "允许字符集合及emoji限制"
+    }
+  ]
+}

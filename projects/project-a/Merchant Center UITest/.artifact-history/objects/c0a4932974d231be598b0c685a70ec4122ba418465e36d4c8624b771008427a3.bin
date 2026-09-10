@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-09-08T14:27:46.987Z",
+  "input": {
+    "unitId": "standard-weight-units-execution-01",
+    "directionId": "standard-weight-units-runtime",
+    "phase": "after-unit",
+    "tokenStart": 626224,
+    "tokenCurrent": 632265,
+    "elapsedMs": 94000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "STD019-current-result",
+      "STD019-restoration"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "output/product-center-item-source-governed-standard-weight-units-20260908-01-source-governed.json",
+        "sha256": "c48723419a35c547bca5d2ac89419d6209175261cf0e7cc50debbfd5005766ef",
+        "kind": "runtime-receipt"
+      }
+    ],
+    "policy": {
+      "maxTokens": 6000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-weight-units-execution-01",
+    "directionId": "standard-weight-units-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 6041,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD019-current-result",
+      "STD019-restoration"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "c48723419a35c547bca5d2ac89419d6209175261cf0e7cc50debbfd5005766ef"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

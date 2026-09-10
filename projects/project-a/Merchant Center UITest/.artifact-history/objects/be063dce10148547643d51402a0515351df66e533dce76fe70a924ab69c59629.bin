@@ -1,0 +1,891 @@
+{
+  "config": {
+    "configFile": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\playwright.config.ts",
+    "rootDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.setup.ts",
+    "globalTeardown": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-02-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-02-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-02-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-02-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ephemeral-chrome",
+        "name": "ephemeral-chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-timing.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-recipe.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\system-test-audit-step.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "detail": false,
+          "suiteTitle": false,
+          "resultsDir": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\output\\allure\\source-governed\\addon-creation-20260908-02-source-governed\\item\\allure-results"
+        }
+      ],
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "generated\\product-center-item-216.generated.spec.ts",
+      "file": "generated/product-center-item-216.generated.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "商品管理-商品自动化入口",
+          "file": "generated/product-center-item-216.generated.spec.ts",
+          "line": 8439,
+          "column": 19,
+          "specs": [
+            {
+              "title": "加料商品仅填写必填项时创建成功",
+              "ok": true,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-005"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-005",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 31640,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-005",
+                          "duration": 22249,
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 13613,
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 6673,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 3930
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 247,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 6
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 304
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 438,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 259,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 520,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 415,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "填写加料必填信息并验证创建结果",
+                                  "duration": 5451,
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                                      "duration": 281
+                                    },
+                                    {
+                                      "title": "填写标准价：5.00",
+                                      "duration": 28
+                                    },
+                                    {
+                                      "title": "读取当前商品分类选择值",
+                                      "duration": 35
+                                    },
+                                    {
+                                      "title": "读取保存成功提示的实际文案",
+                                      "duration": 2012
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 271
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 13
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 201
+                                    },
+                                    {
+                                      "title": "等待商品列表页加载完成",
+                                      "duration": 22
+                                    },
+                                    {
+                                      "title": "读取新增商品返回列表后的首行及查询条件：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                                      "duration": 20
+                                    },
+                                    {
+                                      "title": "读取商品行类型：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                                      "duration": 7
+                                    },
+                                    {
+                                      "title": "读取商品价格列文案：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                                      "duration": 17
+                                    },
+                                    {
+                                      "title": "读取商品行状态：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                                      "duration": 8
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "验证加料商品用例 UI/API 零残留",
+                          "duration": 2870,
+                          "steps": [
+                            {
+                              "title": "为残留核对打开商品列表页",
+                              "duration": 58,
+                              "steps": [
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 19
+                                }
+                              ]
+                            },
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001",
+                              "duration": 2401
+                            },
+                            {
+                              "title": "等待搜索无结果",
+                              "duration": 43,
+                              "steps": [
+                                {
+                                  "title": "读取当前列表数据行数",
+                                  "duration": 8
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:17:01.966Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-005",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "创建成功提示实际观察",
+                          "contentType": "application/json",
+                          "body": "eyJjYXNlSWQiOiJUQy1JVEVNLUFERC0wMDUiLCJzdWNjZXNzVGV4dCI6IlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLCJzYXZlZCI6eyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9pdGVtL3YxL29wcy1icmFuZC9icmFuZC1pdGVtcy9zdGFuZGFyZCIsInN0YXR1cyI6MjAwLCJ0ZXJtaW5hbCI6InJlc3BvbnNlLW9ic2VydmVkIiwiYXBpQ291bnQiOjEsImJlZm9yZUFwaUNvdW50IjowLCJxdWVyeUlkZW50aXR5IjoiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiLCJzZXJ2ZXJJZCI6MjY2MTgyfX0="
+                        },
+                        {
+                          "name": "test-execution-receipt",
+                          "contentType": "application/json",
+                          "body": "ewogICJyZWNlaXB0VmVyc2lvbiI6ICI0LjAuMCIsCiAgImNhc2VJZCI6ICJUQy1JVEVNLUFERC0wMDUiLAogICJjYXNlRmluZ2VycHJpbnQiOiAiZmExMjZiMWY2ZGQwMzA0Y2UwOTBmNzA2ZGRhNGY4ZDg3ODE2ZmI2MTQ0YmQzNjkxMDY5NmFiNDQzYzBhNjA2YiIsCiAgInNlbWFudGljQ2FzZUZpbmdlcnByaW50IjogIjNhMDg5M2RkMTVlOTJhYTQxYWRiODA3NDY0MDQxMTlhOGEyNjA1MDBhZDkzZDlkZjYwNWY2NTY4YmU4OGRkZTEiLAogICJpbXBsZW1lbnRhdGlvbkZpbmdlcnByaW50IjogImRjMzdjMDRjZTBiNTYzMjNiM2NkYzg5MjM1OWYzNTkwOGZhODhhMjY5ZDgyNzgyYThlOTcwMjY0OTdiOWJhYTEiLAogICJleGVjdXRpb25Db250ZXh0IjogewogICAgImFwcGxpY2F0aW9uVmVyc2lvbkZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgImVudmlyb25tZW50SWQiOiAiYmFsYW14cWEiLAogICAgInRlbmFudFNjb3BlIjogIjAwMDQwNyIsCiAgICAibG9jYWxlIjogInVuZCIsCiAgICAicm9sZUlkIjogIm1lcmNoYW50LW9wZXJhdG9yIiwKICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvbGlzdCIKICB9LAogICJyZWxlYXNlT2JzZXJ2YXRpb24iOiB7CiAgICAic3RhdHVzIjogImRlcml2ZWQiLAogICAgImZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgInNvdXJjZSI6ICJicm93c2VyLXJ1bnRpbWUiLAogICAgInN0YWJsZSI6IGZhbHNlLAogICAgIm9ic2VydmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy44MDhaIgogIH0sCiAgImV4ZWN1dGlvbkVwb2NoSWQiOiAic291cmNlLWdvdmVybmVkLWFkZG9uLWNyZWF0aW9uLTIwMjYwOTA4LTAyLXNvdXJjZS1nb3Zlcm5lZCIsCiAgImNsYWltcyI6IHsKICAgICJyZXF1aXJlZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0yIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0zIgogICAgXSwKICAgICJvYnNlcnZlZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0yIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0zIgogICAgXSwKICAgICJ2ZXJpZmllZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0yIiwKICAgICAgIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0zIgogICAgXQogIH0sCiAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgewogICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLUFERC0wMDU6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAiZXhwZWN0ZWRWYWx1ZSI6IFsKICAgICAgICAi5o+Q5Lqk5oiQ5YqfIiwKICAgICAgICAiU3VjY2Vzc2Z1bGx5IFN1Ym1pdHRlZCIKICAgICAgXSwKICAgICAgImFjdHVhbFZhbHVlIjogIlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0sCiAgICB7CiAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0yIiwKICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICJpZGVudGl0eUNvdW50IjogMSwKICAgICAgICAidHlwZSI6ICJBZGQtT24iLAogICAgICAgICJwcmljZSI6IDUsCiAgICAgICAgInN0YXR1cyI6ICJFbmFibGVkIgogICAgICB9LAogICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgImlkZW50aXR5Q291bnQiOiAxLAogICAgICAgICJ0eXBlIjogIkFkZC1PbiIsCiAgICAgICAgInByaWNlIjogNSwKICAgICAgICAic3RhdHVzIjogIkVuYWJsZWQiCiAgICAgIH0sCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfSwKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA1OmV4cGVjdGF0aW9uLTMiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiB7CiAgICAgICAgImZpcnN0Um93SWRlbnRpdHlDb3VudCI6IDEsCiAgICAgICAgInNlYXJjaCI6ICIiLAogICAgICAgICJjdXJyZW50UGFnZSI6IDEKICAgICAgfSwKICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICJmaXJzdFJvd0lkZW50aXR5Q291bnQiOiAxLAogICAgICAgICJzZWFyY2giOiAiIiwKICAgICAgICAiY3VycmVudFBhZ2UiOiAxCiAgICAgIH0sCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfQogIF0sCiAgIm9wZXJhdGlvblJlY2VpcHRzIjogWwogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkFkZG9uSXRlbTIxNkZsb3cuZXhlY3V0ZSIsCiAgICAgICJ0aXRsZSI6ICLmiafooYzliqDmlpnllYblk4EgMjE2IOeUqOS+i++8mlRDLUlURU0tQURELTAwNSIsCiAgICAgICJzZXF1ZW5jZSI6IDEsCiAgICAgICJtZXRob2QiOiAiZXhlY3V0ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMjkzMCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjAzLjAzN1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1Ljk2N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1Ljk2N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkFkZG9uQ3JlYXRpb25BY2NlcHRhbmNlRmxvdy5leGVjdXRlIiwKICAgICAgInRpdGxlIjogIuaJp+ihjOWKoOaWmeWIm+W7uuS4juWQjeensOW/heWhq+ato+W8j+mqjOaUtiIsCiAgICAgICJzZXF1ZW5jZSI6IDIsCiAgICAgICJtZXRob2QiOiAiZXhlY3V0ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMzYxNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjEyLjMwM1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1LjkyMFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1LjkyMFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlByb2R1Y3RDZW50ZXJTaWRlYmFyTmF2aWdhdGlvblBhZ2Uub3BlbkZyb21TaWRlYmFyIiwKICAgICAgInRpdGxlIjogIuS7juWVhuWTgeS4reW/g+S+p+i+ueagj+i/m+WFpeebruagh+aooeWdl++8mi9wcC9icmFuZC9saXN0IiwKICAgICAgInNlcXVlbmNlIjogMywKICAgICAgIm1ldGhvZCI6ICJvcGVuRnJvbVNpZGViYXIiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNjcwMywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjEyLjMwN1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjAxMFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjAxMFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlNpZGViYXJQYWdlLmV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HnrqHnkIblhaXlj6Ppk77mjqXlj6/op4EiLAogICAgICAic2VxdWVuY2UiOiA0LAogICAgICAibWV0aG9kIjogImV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzOTM4LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTQuNzIyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTguNjYwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTguNjYwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU2lkZWJhclBhZ2Uub3BlblN1Yk1lbnVCeUNhbmRpZGF0ZXMiLAogICAgICAidGl0bGUiOiAi6YCa6L+H5L6n6L655qCP5YCZ6YCJ6ZO+5o6l6L+b5YWl55uu5qCH5qih5Z2XIiwKICAgICAgInNlcXVlbmNlIjogNSwKICAgICAgIm1ldGhvZCI6ICJvcGVuU3ViTWVudUJ5Q2FuZGlkYXRlcyIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyODUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC42ODBaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC45NjVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC45NjVaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJTaWRlYmFyUGFnZS5leHBhbmRTdWJNZW51Rm9yUGF0aCIsCiAgICAgICJ0aXRsZSI6ICLlsZXlvIDljIXlkKvnm67moIfot6/lvoTnmoTkvqfovrnmoI/lrZDoj5zljZXvvJovcHAvYnJhbmQvbGlzdCIsCiAgICAgICJzZXF1ZW5jZSI6IDYsCiAgICAgICJtZXRob2QiOiAiZXhwYW5kU3ViTWVudUZvclBhdGgiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTAsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43MTlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43MjlaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43MjlaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDcsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMwOSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjAzNVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjM0NFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjM0NFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5lbnRlckNyZWF0ZVR5cGVQYWdlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeaWsOWinuWVhuWTgeexu+Wei+mAieaLqemhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDgsCiAgICAgICJtZXRob2QiOiAiZW50ZXJDcmVhdGVUeXBlUGFnZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0NDUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS40MDFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS44NDZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS44NDZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+hemAieaLqeWVhuWTgeexu+Wei+mhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDksCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDI2NywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjU1OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjgyNVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjgyNVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5leHBlY3RQYXRobmFtZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXpobXpnaLot6/lvoTkuLrvvJovcHAvYnJhbmQvY3JlYXRlIiwKICAgICAgInNlcXVlbmNlIjogMTAsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0UGF0aG5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS41NjdaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS42MDNaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS42MDNaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZW50ZXJTaWRlQ3JlYXRlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeWKoOaWmS/phY3oj5zllYblk4HliJvlu7rpobUiLAogICAgICAic2VxdWVuY2UiOiAxMSwKICAgICAgIm1ldGhvZCI6ICJlbnRlclNpZGVDcmVhdGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNTI0LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuODc4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNDAyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNDAyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdExvYWRlZCIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HliJvlu7rooajljZXliqDovb3lrozmiJAiLAogICAgICAic2VxdWVuY2UiOiAxMiwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDIwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuOTcwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzkwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzkwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzZXF1ZW5jZSI6IDEzLAogICAgICAibWV0aG9kIjogImV4cGVjdFBhdGhuYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMxLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuOTc2WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMDA3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMDA3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiQWRkb25DcmVhdGlvbkFjY2VwdGFuY2VGbG93LmNyZWF0ZUFuZFZlcmlmeSIsCiAgICAgICJ0aXRsZSI6ICLloavlhpnliqDmlpnlv4Xloavkv6Hmga/lubbpqozor4HliJvlu7rnu5PmnpwiLAogICAgICAic2VxdWVuY2UiOiAxNCwKICAgICAgIm1ldGhvZCI6ICJjcmVhdGVBbmRWZXJpZnkiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNTQ1NCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjQyOFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1Ljg4MloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1Ljg4MloiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5maWxsSXRlbU5hbWUiLAogICAgICAidGl0bGUiOiAi5aGr5YaZ5ZWG5ZOB5ZCN56ew77yaQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiLAogICAgICAic2VxdWVuY2UiOiAxNSwKICAgICAgIm1ldGhvZCI6ICJmaWxsSXRlbU5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzE5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNDMyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNzUxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNzUxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmZpbGxTdGFuZGFyZFByaWNlIiwKICAgICAgInRpdGxlIjogIuWhq+WGmeagh+WHhuS7t++8mjUuMDAiLAogICAgICAic2VxdWVuY2UiOiAxNiwKICAgICAgIm1ldGhvZCI6ICJmaWxsU3RhbmRhcmRQcmljZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzMywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjc4M1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjgxNloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjgxNloiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5yZWFkQ2F0ZWdvcnlTZWxlY3Rpb24iLAogICAgICAidGl0bGUiOiAi6K+75Y+W5b2T5YmN5ZWG5ZOB5YiG57G76YCJ5oup5YC8IiwKICAgICAgInNlcXVlbmNlIjogMTcsCiAgICAgICJtZXRob2QiOiAicmVhZENhdGVnb3J5U2VsZWN0aW9uIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQyLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuODI1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuODY3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuODY3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLnJlYWRTYXZlU3VjY2Vzc1RleHQiLAogICAgICAidGl0bGUiOiAi6K+75Y+W5L+d5a2Y5oiQ5Yqf5o+Q56S655qE5a6e6ZmF5paH5qGIIiwKICAgICAgInNlcXVlbmNlIjogMTgsCiAgICAgICJtZXRob2QiOiAicmVhZFNhdmVTdWNjZXNzVGV4dCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNDIzLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuOTUyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMzc1WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMzc1WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmNsaWNrU2F2ZSIsCiAgICAgICJ0aXRsZSI6ICLngrnlh7vkv53lrZgiLAogICAgICAic2VxdWVuY2UiOiAxOSwKICAgICAgIm1ldGhvZCI6ICJjbGlja1NhdmUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDEzLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjEuNjY5WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuMDgyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuMDgyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLnJlYWRWaXNpYmxlVmFsaWRhdGlvbkVycm9ycyIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5blj6/op4HooajljZXmoKHpqozplJnor68iLAogICAgICAic2VxdWVuY2UiOiAyMCwKICAgICAgIm1ldGhvZCI6ICJyZWFkVmlzaWJsZVZhbGlkYXRpb25FcnJvcnMiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTgsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMi40MzdaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMi40NTVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMi40NTVaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlQWNjZXB0YW5jZVBhZ2UucmVhZFZpc2libGVWYWxpZGF0aW9uRXJyb3JzIiwKICAgICAgInRpdGxlIjogIuivu+WPluWPr+ingeihqOWNleagoemqjOmUmeivryIsCiAgICAgICJzZXF1ZW5jZSI6IDIxLAogICAgICAibWV0aG9kIjogInJlYWRWaXNpYmxlVmFsaWRhdGlvbkVycm9ycyIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMDYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy43OTlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNC4wMDVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNC4wMDVaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDIyLAogICAgICAibWV0aG9kIjogImV4cGVjdExvYWRlZCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjUxOFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU0NVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU0NVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0Q3JlYXRpb25FdmlkZW5jZVBhZ2UucmVhZEZpcnN0Um93SWRlbnRpdHkiLAogICAgICAidGl0bGUiOiAi6K+75Y+W5paw5aKe5ZWG5ZOB6L+U5Zue5YiX6KGo5ZCO55qE6aaW6KGM5Y+K5p+l6K+i5p2h5Lu277yaQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiLAogICAgICAic2VxdWVuY2UiOiAyMywKICAgICAgIm1ldGhvZCI6ICJyZWFkRmlyc3RSb3dJZGVudGl0eSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU2MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU4M1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU4M1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5yZWFkSXRlbVR5cGVUZXh0IiwKICAgICAgInRpdGxlIjogIuivu+WPluWVhuWTgeihjOexu+Wei++8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwNV8xNzg4ODY2MjIzNzE5MDAxIiwKICAgICAgInNlcXVlbmNlIjogMjQsCiAgICAgICJtZXRob2QiOiAicmVhZEl0ZW1UeXBlVGV4dCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU4N1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU5N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjU5N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5yZWFkSXRlbVByaWNlVGV4dCIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5bllYblk4Hku7fmoLzliJfmlofmoYjvvJpBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NjIyMzcxOTAwMSIsCiAgICAgICJzZXF1ZW5jZSI6IDI1LAogICAgICAibWV0aG9kIjogInJlYWRJdGVtUHJpY2VUZXh0IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDIwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjQuNjAxWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjQuNjIxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjQuNjIxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLnJlYWRJdGVtU3RhdHVzVGV4dCIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5bllYblk4HooYznirbmgIHvvJpBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NjIyMzcxOTAwMSIsCiAgICAgICJzZXF1ZW5jZSI6IDI2LAogICAgICAibWV0aG9kIjogInJlYWRJdGVtU3RhdHVzVGV4dCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1LjY5MloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1LjcwNFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI1LjcwNFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkFkZG9uSXRlbTIxNkZsb3cudmVyaWZ5WmVyb1Jlc2lkdWUiLAogICAgICAidGl0bGUiOiAi6aqM6K+B5Yqg5paZ5ZWG5ZOB55So5L6LIFVJL0FQSSDpm7bmrovnlZkiLAogICAgICAic2VxdWVuY2UiOiAyNywKICAgICAgIm1ldGhvZCI6ICJ2ZXJpZnlaZXJvUmVzaWR1ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyODc3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzAuNzk0WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNjcxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNjcxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLm9wZW5Gb3JSZXNpZHVlQ2hlY2siLAogICAgICAidGl0bGUiOiAi5Li65q6L55WZ5qC45a+55omT5byA5ZWG5ZOB5YiX6KGo6aG1IiwKICAgICAgInNlcXVlbmNlIjogMjgsCiAgICAgICJtZXRob2QiOiAib3BlbkZvclJlc2lkdWVDaGVjayIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA2NCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMxLjEwM1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMxLjE2OFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMxLjE2OFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5leHBlY3RMb2FkZWQiLAogICAgICAidGl0bGUiOiAi562J5b6F5ZWG5ZOB5YiX6KGo6aG15Yqg6L295a6M5oiQIiwKICAgICAgInNlcXVlbmNlIjogMjksCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQ5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzEuMTEwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzEuMTU5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzEuMTU5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmZpbGxTZWFyY2hGb3JSZXNpZHVlQ2hlY2siLAogICAgICAidGl0bGUiOiAi5oyJ5ZWG5ZOB5ZCN56ew5omn6KGM5q6L55WZ5pCc57Si77yaQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiLAogICAgICAic2VxdWVuY2UiOiAzMCwKICAgICAgIm1ldGhvZCI6ICJmaWxsU2VhcmNoRm9yUmVzaWR1ZUNoZWNrIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDI0MDUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMS4xODZaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy41OTFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy41OTFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0RW1wdHlTZWFyY2hSZXN1bHRzIiwKICAgICAgInRpdGxlIjogIuetieW+heaQnOe0ouaXoOe7k+aenCIsCiAgICAgICJzZXF1ZW5jZSI6IDMxLAogICAgICAibWV0aG9kIjogImV4cGVjdEVtcHR5U2VhcmNoUmVzdWx0cyIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0NywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMzLjYwMFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMzLjY0N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMzLjY0N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5yZWFkVmlzaWJsZVJvd0NvdW50IiwKICAgICAgInRpdGxlIjogIuivu+WPluW9k+WJjeWIl+ihqOaVsOaNruihjOaVsCIsCiAgICAgICJzZXF1ZW5jZSI6IDMyLAogICAgICAibWV0aG9kIjogInJlYWRWaXNpYmxlUm93Q291bnQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjcsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy42MDRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy42MzFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy42MzFaIgogICAgfQogIF0sCiAgImNsZWFudXAiOiB7CiAgICAiYXBpWmVyb1Jlc2lkdWUiOiB0cnVlLAogICAgInVpWmVyb1Jlc2lkdWUiOiB0cnVlLAogICAgInVpVmVyaWZpY2F0aW9uT2JzZXJ2ZWQiOiB0cnVlLAogICAgImFwaUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiOiAwCiAgICB9LAogICAgInVpSWRlbnRpdHlDb3VudHMiOiB7CiAgICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NjIyMzcxOTAwMSI6IDAKICAgIH0KICB9LAogICJoYW5kbGVySWQiOiAicHJvZHVjdC1jZW50ZXI6aXRlbS1wMC13YXZlLWM6VEMtSVRFTS1BREQtMDA1IiwKICAiZXZpZGVuY2VGaW5nZXJwcmludCI6ICJhYmZjMTIxNTUxZTk2NjVkMjFjYjhkOTIyMTc1YjVmMGRjNDg4YzI5MTFhMGRjMDk1Y2VjNzNiNDVmNDg2NDk1Igp9"
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-005-runtime-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJjYXNlSWQiOiAiVEMtSVRFTS1BREQtMDA1IiwKICAic3RhdHVzIjogImltcGxlbWVudGVkIiwKICAiZXZpZGVuY2UiOiB7CiAgICAic2F2ZWQiOiB7CiAgICAgICJtZXRob2QiOiAiUE9TVCIsCiAgICAgICJwYXRoIjogIi9pdGVtL3YxL29wcy1icmFuZC9icmFuZC1pdGVtcy9zdGFuZGFyZCIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJ0ZXJtaW5hbCI6ICJyZXNwb25zZS1vYnNlcnZlZCIsCiAgICAgICJhcGlDb3VudCI6IDEsCiAgICAgICJiZWZvcmVBcGlDb3VudCI6IDAsCiAgICAgICJxdWVyeUlkZW50aXR5IjogIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwNV8xNzg4ODY2MjIzNzE5MDAxIiwKICAgICAgInNlcnZlcklkIjogMjY2MTgyCiAgICB9LAogICAgInN1Y2Nlc3NUZXh0IjogIlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLAogICAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA1OmV4cGVjdGF0aW9uLTEiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogWwogICAgICAgICAgIuaPkOS6pOaIkOWKnyIsCiAgICAgICAgICAiU3VjY2Vzc2Z1bGx5IFN1Ym1pdHRlZCIKICAgICAgICBdLAogICAgICAgICJhY3R1YWxWYWx1ZSI6ICJTdWNjZXNzZnVsbHkgU3VibWl0dGVkIiwKICAgICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgICAiYXV0aG9yaXR5IjogInVzZXItdmlzaWJsZSIsCiAgICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgICAgfSwKICAgICAgewogICAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0yIiwKICAgICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgICAiZXhwZWN0ZWRWYWx1ZSI6IHsKICAgICAgICAgICJpZGVudGl0eUNvdW50IjogMSwKICAgICAgICAgICJ0eXBlIjogIkFkZC1PbiIsCiAgICAgICAgICAicHJpY2UiOiA1LAogICAgICAgICAgInN0YXR1cyI6ICJFbmFibGVkIgogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICAgImlkZW50aXR5Q291bnQiOiAxLAogICAgICAgICAgInR5cGUiOiAiQWRkLU9uIiwKICAgICAgICAgICJwcmljZSI6IDUsCiAgICAgICAgICAic3RhdHVzIjogIkVuYWJsZWQiCiAgICAgICAgfSwKICAgICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgICAiYXV0aG9yaXR5IjogInVzZXItdmlzaWJsZSIsCiAgICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgICAgfSwKICAgICAgewogICAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tQURELTAwNTpleHBlY3RhdGlvbi0zIiwKICAgICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgICAiZXhwZWN0ZWRWYWx1ZSI6IHsKICAgICAgICAgICJmaXJzdFJvd0lkZW50aXR5Q291bnQiOiAxLAogICAgICAgICAgInNlYXJjaCI6ICIiLAogICAgICAgICAgImN1cnJlbnRQYWdlIjogMQogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICAgImZpcnN0Um93SWRlbnRpdHlDb3VudCI6IDEsCiAgICAgICAgICAic2VhcmNoIjogIiIsCiAgICAgICAgICAiY3VycmVudFBhZ2UiOiAxCiAgICAgICAgfSwKICAgICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgICAiYXV0aG9yaXR5IjogInVzZXItdmlzaWJsZSIsCiAgICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgICAgfQogICAgXQogIH0sCiAgImlkZW50aXRpZXMiOiBbCiAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiCiAgXSwKICAiY2xlYW51cEV2aWRlbmNlIjogewogICAgImFwaUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiOiAwCiAgICB9LAogICAgImFwaUlkZW50aXR5S2luZHMiOiB7CiAgICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NjIyMzcxOTAwMSI6ICJpdGVtIgogICAgfSwKICAgICJzZXJ2ZXJJZHMiOiBbCiAgICAgIDI2NjE4MgogICAgXSwKICAgICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICAgIm9iamVjdHMiOiBbCiAgICAgIHsKICAgICAgICAiZW50aXR5VHlwZSI6ICJpdGVtIiwKICAgICAgICAic2VydmVySWQiOiAyNjYxODIsCiAgICAgICAgImJ1c2luZXNzSWRlbnRpdHkiOiAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiLAogICAgICAgICJjbGVhbnVwQXR0ZW1wdCI6IDEsCiAgICAgICAgImFwaVJlc2lkdWVDb3VudCI6IDAsCiAgICAgICAgIm91dGNvbWUiOiAidmVyaWZpZWQtemVybyIKICAgICAgfQogICAgXSwKICAgICJ1aUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjYyMjM3MTkwMDEiOiAwCiAgICB9CiAgfQp9"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d16020721d8463617199-56e55e1f9e0beeaee7ac",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            },
+            {
+              "title": "加料商品必填项缺失时创建失败",
+              "ok": true,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-006"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-006",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 22007,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-006",
+                          "duration": 19561,
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 10749,
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 7674,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 3971
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 1207,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 17
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 324
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 509,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 271,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 486,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 399,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "验证商品名称缺失时拦截保存及字段必填反馈",
+                                  "duration": 1530,
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：",
+                                      "duration": 256
+                                    },
+                                    {
+                                      "title": "填写标准价：5.00",
+                                      "duration": 19
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 256
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的必填反馈",
+                                      "duration": 43
+                                    },
+                                    {
+                                      "title": "等待仍停留在创建页",
+                                      "duration": 49,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "读取保存成功消息数量",
+                                      "duration": 6
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:17:01.961Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-006",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "名称必填写请求终态观察",
+                          "contentType": "application/json",
+                          "body": "eyJhdHRlbXB0ZWQiOjAsInJlc3BvbnNlcyI6MCwiZmFpbGVkIjowLCJwZW5kaW5nIjowLCJ1bnJlYWRhYmxlUmVzcG9uc2VzIjowfQ=="
+                        },
+                        {
+                          "name": "test-execution-receipt",
+                          "contentType": "application/json",
+                          "body": "ewogICJyZWNlaXB0VmVyc2lvbiI6ICI0LjAuMCIsCiAgImNhc2VJZCI6ICJUQy1JVEVNLUFERC0wMDYiLAogICJjYXNlRmluZ2VycHJpbnQiOiAiZmExMjZiMWY2ZGQwMzA0Y2UwOTBmNzA2ZGRhNGY4ZDg3ODE2ZmI2MTQ0YmQzNjkxMDY5NmFiNDQzYzBhNjA2YiIsCiAgInNlbWFudGljQ2FzZUZpbmdlcnByaW50IjogIjU3NjM0YzM5ZTQzMGMwNGJjNzdiMDFhNjg3M2MxNzRkMjg4ZWRlOTU1ZDUyNWNhOTE5NjEwNDRiNWJiZmIzNmQiLAogICJpbXBsZW1lbnRhdGlvbkZpbmdlcnByaW50IjogIjkyNDIyOTYzYTFhNmUwZjU0OWM1ZGJiOTBhNjMzOTc4NGQ4MWRlNmY1OWY2Y2JhZGVjMzExNDA0MGY4OTY4OTciLAogICJleGVjdXRpb25Db250ZXh0IjogewogICAgImFwcGxpY2F0aW9uVmVyc2lvbkZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgImVudmlyb25tZW50SWQiOiAiYmFsYW14cWEiLAogICAgInRlbmFudFNjb3BlIjogIjAwMDQwNyIsCiAgICAibG9jYWxlIjogInVuZCIsCiAgICAicm9sZUlkIjogIm1lcmNoYW50LW9wZXJhdG9yIiwKICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvY3JlYXRlL3NpZGUiCiAgfSwKICAicmVsZWFzZU9ic2VydmF0aW9uIjogewogICAgInN0YXR1cyI6ICJkZXJpdmVkIiwKICAgICJmaW5nZXJwcmludCI6ICIxYTc1Nzg3YzU4ZTYwMDE0MWUyNjMxNzQwYzQ0NmI5NGI0ZTgxNzhlODBmZjM5NGVmNTFkYzg4YTViYzU4NWE1IiwKICAgICJzb3VyY2UiOiAiYnJvd3Nlci1ydW50aW1lIiwKICAgICJzdGFibGUiOiBmYWxzZSwKICAgICJvYnNlcnZlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuNjkwWiIKICB9LAogICJleGVjdXRpb25FcG9jaElkIjogInNvdXJjZS1nb3Zlcm5lZC1hZGRvbi1jcmVhdGlvbi0yMDI2MDkwOC0wMi1zb3VyY2UtZ292ZXJuZWQiLAogICJjbGFpbXMiOiB7CiAgICAicmVxdWlyZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0sCiAgICAib2JzZXJ2ZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0sCiAgICAidmVyaWZpZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0KICB9LAogICJhc3NlcnRpb25SZWNlaXB0cyI6IFsKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTEiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiB7CiAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgInN1Y2Nlc3NDb3VudCI6IDAsCiAgICAgICAgInNlcnZlckFjY2VwdGVkIjogZmFsc2UsCiAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAiYWZ0ZXJBcGlDb3VudCI6IDAKICAgICAgfSwKICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvY3JlYXRlL3NpZGUiLAogICAgICAgICJzdWNjZXNzQ291bnQiOiAwLAogICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICJiZWZvcmVBcGlDb3VudCI6IDAsCiAgICAgICAgImFmdGVyQXBpQ291bnQiOiAwCiAgICAgIH0sCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfSwKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTIiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiAi5ZCN56ew5a2X5q616auY5Lqu5oiW5pi+56S65b+F5aGr5o+Q56S6IiwKICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICJ2YWx1ZSI6ICIiLAogICAgICAgICJpbnZhbGlkIjogdHJ1ZSwKICAgICAgICAiZXJyb3JzIjogWwogICAgICAgICAgIlBsZWFzZSBlbnRlciBwcm9kdWN0IG5hbWUiCiAgICAgICAgXQogICAgICB9LAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0KICBdLAogICJvcGVyYXRpb25SZWNlaXB0cyI6IFsKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkl0ZW0yMTZGbG93LmV4ZWN1dGUiLAogICAgICAidGl0bGUiOiAi5omn6KGM5Yqg5paZ5ZWG5ZOBIDIxNiDnlKjkvovvvJpUQy1JVEVNLUFERC0wMDYiLAogICAgICAic2VxdWVuY2UiOiAxLAogICAgICAibWV0aG9kIjogImV4ZWN1dGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjAwOTIsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzowMy4wNTlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4xNTFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4xNTFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkNyZWF0aW9uQWNjZXB0YW5jZUZsb3cuZXhlY3V0ZSIsCiAgICAgICJ0aXRsZSI6ICLmiafooYzliqDmlpnliJvlu7rkuI7lkI3np7Dlv4XloavmraPlvI/pqozmlLYiLAogICAgICAic2VxdWVuY2UiOiAyLAogICAgICAibWV0aG9kIjogImV4ZWN1dGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTA3NTMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxMi4zNzFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4xMjRaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4xMjRaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJQcm9kdWN0Q2VudGVyU2lkZWJhck5hdmlnYXRpb25QYWdlLm9wZW5Gcm9tU2lkZWJhciIsCiAgICAgICJ0aXRsZSI6ICLku47llYblk4HkuK3lv4PkvqfovrnmoI/ov5vlhaXnm67moIfmqKHlnZfvvJovcHAvYnJhbmQvbGlzdCIsCiAgICAgICJzZXF1ZW5jZSI6IDMsCiAgICAgICJtZXRob2QiOiAib3BlbkZyb21TaWRlYmFyIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDc3MTAsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxMi4zNzZaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMC4wODZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMC4wODZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJTaWRlYmFyUGFnZS5leHBlY3RQcm9kdWN0TWFuYWdlbWVudFZpc2libGUiLAogICAgICAidGl0bGUiOiAi562J5b6F5ZWG5ZOB566h55CG5YWl5Y+j6ZO+5o6l5Y+v6KeBIiwKICAgICAgInNlcXVlbmNlIjogNCwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RQcm9kdWN0TWFuYWdlbWVudFZpc2libGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzk3OSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE0Ljc3MVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4Ljc1MFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4Ljc1MFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlNpZGViYXJQYWdlLm9wZW5TdWJNZW51QnlDYW5kaWRhdGVzIiwKICAgICAgInRpdGxlIjogIumAmui/h+S+p+i+ueagj+WAmemAiemTvuaOpei/m+WFpeebruagh+aooeWdlyIsCiAgICAgICJzZXF1ZW5jZSI6IDUsCiAgICAgICJtZXRob2QiOiAib3BlblN1Yk1lbnVCeUNhbmRpZGF0ZXMiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTIzNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4Ljg0MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjA3NFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjA3NFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlNpZGViYXJQYWdlLmV4cGFuZFN1Yk1lbnVGb3JQYXRoIiwKICAgICAgInRpdGxlIjogIuWxleW8gOWMheWQq+ebruagh+i3r+W+hOeahOS+p+i+ueagj+WtkOiPnOWNle+8mi9wcC9icmFuZC9saXN0IiwKICAgICAgInNlcXVlbmNlIjogNiwKICAgICAgIm1ldGhvZCI6ICJleHBhbmRTdWJNZW51Rm9yUGF0aCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA2MCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4Ljg2OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4LjkyOFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE4LjkyOFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5leHBlY3RMb2FkZWQiLAogICAgICAidGl0bGUiOiAi562J5b6F5ZWG5ZOB5YiX6KGo6aG15Yqg6L295a6M5oiQIiwKICAgICAgInNlcXVlbmNlIjogNywKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzMyLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMTIyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNDU0WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNDU0WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmVudGVyQ3JlYXRlVHlwZVBhZ2UiLAogICAgICAidGl0bGUiOiAi6L+b5YWl5paw5aKe5ZWG5ZOB57G75Z6L6YCJ5oup6aG1IiwKICAgICAgInNlcXVlbmNlIjogOCwKICAgICAgIm1ldGhvZCI6ICJlbnRlckNyZWF0ZVR5cGVQYWdlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDUyMSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjQ5M1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjAxNFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjAxNFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5leHBlY3RMb2FkZWQiLAogICAgICAidGl0bGUiOiAi562J5b6F6YCJ5oup5ZWG5ZOB57G75Z6L6aG15Yqg6L295a6M5oiQIiwKICAgICAgInNlcXVlbmNlIjogOSwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjc4LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuNjgxWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuOTU5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuOTU5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVR5cGVQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUiLAogICAgICAic2VxdWVuY2UiOiAxMCwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RQYXRobmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjY4OVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjcyM1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjcyM1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5lbnRlclNpZGVDcmVhdGUiLAogICAgICAidGl0bGUiOiAi6L+b5YWl5Yqg5paZL+mFjeiPnOWVhuWTgeWIm+W7uumhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDExLAogICAgICAibWV0aG9kIjogImVudGVyU2lkZUNyZWF0ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA1MTYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS4wNDRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS41NjBaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS41NjBaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlU2lkZVBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIm+W7uuihqOWNleWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDEyLAogICAgICAibWV0aG9kIjogImV4cGVjdExvYWRlZCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0MDUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS4xNDVaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS41NTBaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS41NTBaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlU2lkZVBhZ2UuZXhwZWN0UGF0aG5hbWUiLAogICAgICAidGl0bGUiOiAi562J5b6F6aG16Z2i6Lev5b6E5Li677yaL3BwL2JyYW5kL2NyZWF0ZS9zaWRlIiwKICAgICAgInNlcXVlbmNlIjogMTMsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0UGF0aG5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzgsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS4xNTFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS4xODlaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMS4xODlaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkNyZWF0aW9uQWNjZXB0YW5jZUZsb3cudmVyaWZ5UmVxdWlyZWROYW1lIiwKICAgICAgInRpdGxlIjogIumqjOivgeWVhuWTgeWQjeensOe8uuWkseaXtuaLpuaIquS/neWtmOWPiuWtl+auteW/heWhq+WPjemmiCIsCiAgICAgICJzZXF1ZW5jZSI6IDE0LAogICAgICAibWV0aG9kIjogInZlcmlmeVJlcXVpcmVkTmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxNTM2LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjEuNTc1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMTExWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMTExWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmZpbGxJdGVtTmFtZSIsCiAgICAgICJ0aXRsZSI6ICLloavlhpnllYblk4HlkI3np7DvvJoiLAogICAgICAic2VxdWVuY2UiOiAxNSwKICAgICAgIm1ldGhvZCI6ICJmaWxsSXRlbU5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjc5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjEuNTgyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjEuODYxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjEuODYxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmZpbGxTdGFuZGFyZFByaWNlIiwKICAgICAgInRpdGxlIjogIuWhq+WGmeagh+WHhuS7t++8mjUuMDAiLAogICAgICAic2VxdWVuY2UiOiAxNiwKICAgICAgIm1ldGhvZCI6ICJmaWxsU3RhbmRhcmRQcmljZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjg3MloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjg5NVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjg5NVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5jbGlja1NhdmUiLAogICAgICAidGl0bGUiOiAi54K55Ye75L+d5a2YIiwKICAgICAgInNlcXVlbmNlIjogMTcsCiAgICAgICJtZXRob2QiOiAiY2xpY2tTYXZlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMyNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIyLjI2MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIyLjU4NFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIyLjU4NFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5yZWFkTmFtZVJlcXVpcmVkRmVlZGJhY2siLAogICAgICAidGl0bGUiOiAi6K+75Y+W5ZWG5ZOB5ZCN56ew5a2X5q616Ieq6Lqr55qE5b+F5aGr5Y+N6aaIIiwKICAgICAgInNlcXVlbmNlIjogMTgsCiAgICAgICJtZXRob2QiOiAicmVhZE5hbWVSZXF1aXJlZEZlZWRiYWNrIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQ4LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuNTk3WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuNjQ1WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuNjQ1WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmV4cGVjdFN0aWxsT25DcmVhdGVQYWdlIiwKICAgICAgInRpdGxlIjogIuetieW+heS7jeWBnOeVmeWcqOWIm+W7uumhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDE5LAogICAgICAibWV0aG9kIjogImV4cGVjdFN0aWxsT25DcmVhdGVQYWdlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDU3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuOTcwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMDI3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMDI3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzZXF1ZW5jZSI6IDIwLAogICAgICAibWV0aG9kIjogImV4cGVjdFBhdGhuYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDE5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuOTc4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuOTk3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuOTk3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLnJlYWRTdWNjZXNzTWVzc2FnZUNvdW50IiwKICAgICAgInRpdGxlIjogIuivu+WPluS/neWtmOaIkOWKn+a2iOaBr+aVsOmHjyIsCiAgICAgICJzZXF1ZW5jZSI6IDIxLAogICAgICAibWV0aG9kIjogInJlYWRTdWNjZXNzTWVzc2FnZUNvdW50IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDE3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMDU5WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMDc2WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjMuMDc2WiIKICAgIH0KICBdLAogICJjbGVhbnVwIjogewogICAgImFwaVplcm9SZXNpZHVlIjogdHJ1ZSwKICAgICJ1aVplcm9SZXNpZHVlIjogdHJ1ZSwKICAgICJ1aVZlcmlmaWNhdGlvbk9ic2VydmVkIjogdHJ1ZSwKICAgICJhcGlJZGVudGl0eUNvdW50cyI6IHt9LAogICAgInVpSWRlbnRpdHlDb3VudHMiOiB7fQogIH0sCiAgImhhbmRsZXJJZCI6ICJpdGVtLTIxNjpUQy1JVEVNLUFERC0wMDYiLAogICJldmlkZW5jZUZpbmdlcnByaW50IjogImYwMDVkZDE4ZjhjMmJlMjJmYmYwZWQ5YWVkMTVlZmE5MmEzMDMyNzgxNGM2NjY4ODFjNmU3OGYxZGIxYzBjNzgiCn0="
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-006-runtime-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJjYXNlSWQiOiAiVEMtSVRFTS1BREQtMDA2IiwKICAic3RhdHVzIjogImltcGxlbWVudGVkIiwKICAiZXZpZGVuY2UiOiB7CiAgICAiYmxvY2tlZCI6IHsKICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzdWNjZXNzQ291bnQiOiAwLAogICAgICAic2VydmVyQWNjZXB0ZWQiOiBmYWxzZSwKICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgImFmdGVyQXBpQ291bnQiOiAwCiAgICB9LAogICAgImZlZWRiYWNrIjogewogICAgICAidmFsdWUiOiAiIiwKICAgICAgImludmFsaWQiOiB0cnVlLAogICAgICAiZXJyb3JzIjogWwogICAgICAgICJQbGVhc2UgZW50ZXIgcHJvZHVjdCBuYW1lIgogICAgICBdCiAgICB9LAogICAgIm5ldHdvcmsiOiB7CiAgICAgICJhdHRlbXB0ZWQiOiAwLAogICAgICAicmVzcG9uc2VzIjogMCwKICAgICAgImZhaWxlZCI6IDAsCiAgICAgICJwZW5kaW5nIjogMCwKICAgICAgInVucmVhZGFibGVSZXNwb25zZXMiOiAwCiAgICB9LAogICAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTEiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgICAic3VjY2Vzc0NvdW50IjogMCwKICAgICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAgICJhZnRlckFwaUNvdW50IjogMAogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgICAic3VjY2Vzc0NvdW50IjogMCwKICAgICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAgICJhZnRlckFwaUNvdW50IjogMAogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFN0YXR1cyI6ICJvYnNlcnZlZCIsCiAgICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAgICJjb21wYXJpc29uIjogIm1hdGNoZWQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIsCiAgICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICAgImV4cGVjdGVkVmFsdWUiOiAi5ZCN56ew5a2X5q616auY5Lqu5oiW5pi+56S65b+F5aGr5o+Q56S6IiwKICAgICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgICAidmFsdWUiOiAiIiwKICAgICAgICAgICJpbnZhbGlkIjogdHJ1ZSwKICAgICAgICAgICJlcnJvcnMiOiBbCiAgICAgICAgICAgICJQbGVhc2UgZW50ZXIgcHJvZHVjdCBuYW1lIgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFN0YXR1cyI6ICJvYnNlcnZlZCIsCiAgICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAgICJjb21wYXJpc29uIjogIm1hdGNoZWQiCiAgICAgIH0KICAgIF0KICB9LAogICJpZGVudGl0aWVzIjogW10sCiAgImNsZWFudXBFdmlkZW5jZSI6IHsKICAgICJhcGlJZGVudGl0eUNvdW50cyI6IHt9LAogICAgImFwaUlkZW50aXR5S2luZHMiOiB7fSwKICAgICJzZXJ2ZXJJZHMiOiBbXSwKICAgICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICAgIm9iamVjdHMiOiBbXSwKICAgICJ1aUlkZW50aXR5Q291bnRzIjoge30KICB9Cn0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d16020721d8463617199-d360f84860f1d956d4a0",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            },
+            {
+              "title": "加料商品不选择分类时创建成功",
+              "ok": true,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-007"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-007",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 31624,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-007",
+                          "duration": 22468,
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 13651,
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 6636,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 3859
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 279,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 10
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 198
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 417,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 204,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 516,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 422,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "填写加料必填信息并验证创建结果",
+                                  "duration": 5684,
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                                      "duration": 297
+                                    },
+                                    {
+                                      "title": "填写标准价：10.00",
+                                      "duration": 22
+                                    },
+                                    {
+                                      "title": "读取当前商品分类选择值",
+                                      "duration": 28
+                                    },
+                                    {
+                                      "title": "读取保存成功提示的实际文案",
+                                      "duration": 2974
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 273
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 14
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 19
+                                    },
+                                    {
+                                      "title": "等待商品列表页加载完成",
+                                      "duration": 21
+                                    },
+                                    {
+                                      "title": "按商品名称搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                                      "duration": 1181
+                                    },
+                                    {
+                                      "title": "等待列表唯一展示商品：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                                      "duration": 9
+                                    },
+                                    {
+                                      "title": "读取商品身份当前可见数量：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                                      "duration": 5
+                                    },
+                                    {
+                                      "title": "读取商品分类列文案：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                                      "duration": 9
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "验证加料商品用例 UI/API 零残留",
+                          "duration": 3110,
+                          "steps": [
+                            {
+                              "title": "为残留核对打开商品列表页",
+                              "duration": 60,
+                              "steps": [
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 13
+                                }
+                              ]
+                            },
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201",
+                              "duration": 2524
+                            },
+                            {
+                              "title": "等待搜索无结果",
+                              "duration": 149,
+                              "steps": [
+                                {
+                                  "title": "读取当前列表数据行数",
+                                  "duration": 4
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:17:01.949Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-007",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "创建成功提示实际观察",
+                          "contentType": "application/json",
+                          "body": "eyJjYXNlSWQiOiJUQy1JVEVNLUFERC0wMDciLCJzdWNjZXNzVGV4dCI6IlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLCJzYXZlZCI6eyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9pdGVtL3YxL29wcy1icmFuZC9icmFuZC1pdGVtcy9zdGFuZGFyZCIsInN0YXR1cyI6MjAwLCJ0ZXJtaW5hbCI6InJlc3BvbnNlLW9ic2VydmVkIiwiYXBpQ291bnQiOjEsImJlZm9yZUFwaUNvdW50IjowLCJxdWVyeUlkZW50aXR5IjoiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA3XzE3ODg4NjYyMjM2NTQyMDEiLCJzZXJ2ZXJJZCI6MzU1MDJ9fQ=="
+                        },
+                        {
+                          "name": "test-execution-receipt",
+                          "contentType": "application/json",
+                          "body": "ewogICJyZWNlaXB0VmVyc2lvbiI6ICI0LjAuMCIsCiAgImNhc2VJZCI6ICJUQy1JVEVNLUFERC0wMDciLAogICJjYXNlRmluZ2VycHJpbnQiOiAiZmExMjZiMWY2ZGQwMzA0Y2UwOTBmNzA2ZGRhNGY4ZDg3ODE2ZmI2MTQ0YmQzNjkxMDY5NmFiNDQzYzBhNjA2YiIsCiAgInNlbWFudGljQ2FzZUZpbmdlcnByaW50IjogIjhkYjFiMmQwODg1ZDAwNTQ1ZmY4MGQ0OWI0ZDMzMGUwNTk4MjY3N2UxNzVjZTA3Mzc4MDE3OTY0N2E2MTU2ODEiLAogICJpbXBsZW1lbnRhdGlvbkZpbmdlcnByaW50IjogImRjMzdjMDRjZTBiNTYzMjNiM2NkYzg5MjM1OWYzNTkwOGZhODhhMjY5ZDgyNzgyYThlOTcwMjY0OTdiOWJhYTEiLAogICJleGVjdXRpb25Db250ZXh0IjogewogICAgImFwcGxpY2F0aW9uVmVyc2lvbkZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgImVudmlyb25tZW50SWQiOiAiYmFsYW14cWEiLAogICAgInRlbmFudFNjb3BlIjogIjAwMDQwNyIsCiAgICAibG9jYWxlIjogInVuZCIsCiAgICAicm9sZUlkIjogIm1lcmNoYW50LW9wZXJhdG9yIiwKICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvbGlzdCIKICB9LAogICJyZWxlYXNlT2JzZXJ2YXRpb24iOiB7CiAgICAic3RhdHVzIjogImRlcml2ZWQiLAogICAgImZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgInNvdXJjZSI6ICJicm93c2VyLXJ1bnRpbWUiLAogICAgInN0YWJsZSI6IGZhbHNlLAogICAgIm9ic2VydmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy43ODZaIgogIH0sCiAgImV4ZWN1dGlvbkVwb2NoSWQiOiAic291cmNlLWdvdmVybmVkLWFkZG9uLWNyZWF0aW9uLTIwMjYwOTA4LTAyLXNvdXJjZS1nb3Zlcm5lZCIsCiAgImNsYWltcyI6IHsKICAgICJyZXF1aXJlZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0yIgogICAgXSwKICAgICJvYnNlcnZlZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0yIgogICAgXSwKICAgICJ2ZXJpZmllZCI6IFsKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0xIiwKICAgICAgIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0yIgogICAgXQogIH0sCiAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgewogICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLUFERC0wMDc6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAiZXhwZWN0ZWRWYWx1ZSI6IFsKICAgICAgICAi5o+Q5Lqk5oiQ5YqfIiwKICAgICAgICAiU3VjY2Vzc2Z1bGx5IFN1Ym1pdHRlZCIKICAgICAgXSwKICAgICAgImFjdHVhbFZhbHVlIjogIlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0sCiAgICB7CiAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tQURELTAwNzpleHBlY3RhdGlvbi0yIiwKICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICJpZGVudGl0eUNvdW50IjogMSwKICAgICAgICAiY2F0ZWdvcnkiOiAiIgogICAgICB9LAogICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgImlkZW50aXR5Q291bnQiOiAxLAogICAgICAgICJjYXRlZ29yeSI6ICIiCiAgICAgIH0sCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfQogIF0sCiAgIm9wZXJhdGlvblJlY2VpcHRzIjogWwogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkFkZG9uSXRlbTIxNkZsb3cuZXhlY3V0ZSIsCiAgICAgICJ0aXRsZSI6ICLmiafooYzliqDmlpnllYblk4EgMjE2IOeUqOS+i++8mlRDLUlURU0tQURELTAwNyIsCiAgICAgICJzZXF1ZW5jZSI6IDEsCiAgICAgICJtZXRob2QiOiAiZXhlY3V0ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMzEwNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjAzLjAxN1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjEyMVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjEyMVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkFkZG9uQ3JlYXRpb25BY2NlcHRhbmNlRmxvdy5leGVjdXRlIiwKICAgICAgInRpdGxlIjogIuaJp+ihjOWKoOaWmeWIm+W7uuS4juWQjeensOW/heWhq+ato+W8j+mqjOaUtiIsCiAgICAgICJzZXF1ZW5jZSI6IDIsCiAgICAgICJtZXRob2QiOiAiZXhlY3V0ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMzY4MSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjEyLjQxMFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjA5MVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjA5MVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlByb2R1Y3RDZW50ZXJTaWRlYmFyTmF2aWdhdGlvblBhZ2Uub3BlbkZyb21TaWRlYmFyIiwKICAgICAgInRpdGxlIjogIuS7juWVhuWTgeS4reW/g+S+p+i+ueagj+i/m+WFpeebruagh+aooeWdl++8mi9wcC9icmFuZC9saXN0IiwKICAgICAgInNlcXVlbmNlIjogMywKICAgICAgIm1ldGhvZCI6ICJvcGVuRnJvbVNpZGViYXIiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNjY2OSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjEyLjQ0MVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjExMFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjExMFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlNpZGViYXJQYWdlLmV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HnrqHnkIblhaXlj6Ppk77mjqXlj6/op4EiLAogICAgICAic2VxdWVuY2UiOiA0LAogICAgICAibWV0aG9kIjogImV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzODkxLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTQuNzgzWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTguNjc0WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTguNjc0WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU2lkZWJhclBhZ2Uub3BlblN1Yk1lbnVCeUNhbmRpZGF0ZXMiLAogICAgICAidGl0bGUiOiAi6YCa6L+H5L6n6L655qCP5YCZ6YCJ6ZO+5o6l6L+b5YWl55uu5qCH5qih5Z2XIiwKICAgICAgInNlcXVlbmNlIjogNSwKICAgICAgIm1ldGhvZCI6ICJvcGVuU3ViTWVudUJ5Q2FuZGlkYXRlcyIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyODQsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC42OTlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC45ODNaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC45ODNaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJTaWRlYmFyUGFnZS5leHBhbmRTdWJNZW51Rm9yUGF0aCIsCiAgICAgICJ0aXRsZSI6ICLlsZXlvIDljIXlkKvnm67moIfot6/lvoTnmoTkvqfovrnmoI/lrZDoj5zljZXvvJovcHAvYnJhbmQvbGlzdCIsCiAgICAgICJzZXF1ZW5jZSI6IDYsCiAgICAgICJtZXRob2QiOiAiZXhwYW5kU3ViTWVudUZvclBhdGgiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzksCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43MDVaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43NDRaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOC43NDRaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDcsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDIwNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjE0MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjM0N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjM0N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5lbnRlckNyZWF0ZVR5cGVQYWdlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeaWsOWinuWVhuWTgeexu+Wei+mAieaLqemhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDgsCiAgICAgICJtZXRob2QiOiAiZW50ZXJDcmVhdGVUeXBlUGFnZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0MjUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS4zNzFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS43OTZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS43OTZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+hemAieaLqeWVhuWTgeexu+Wei+mhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDksCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDIxMywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5LjU3NVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5Ljc4OFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjE5Ljc4OFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5leHBlY3RQYXRobmFtZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXpobXpnaLot6/lvoTkuLrvvJovcHAvYnJhbmQvY3JlYXRlIiwKICAgICAgInNlcXVlbmNlIjogMTAsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0UGF0aG5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNjUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS41ODRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS42NDlaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoxOS42NDlaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZW50ZXJTaWRlQ3JlYXRlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeWKoOaWmS/phY3oj5zllYblk4HliJvlu7rpobUiLAogICAgICAic2VxdWVuY2UiOiAxMSwKICAgICAgIm1ldGhvZCI6ICJlbnRlclNpZGVDcmVhdGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNTIwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuODE2WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzM2WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzM2WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdExvYWRlZCIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HliJvlu7rooajljZXliqDovb3lrozmiJAiLAogICAgICAic2VxdWVuY2UiOiAxMiwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDI5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuODk1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzI0WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzI0WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzZXF1ZW5jZSI6IDEzLAogICAgICAibWV0aG9kIjogImV4cGVjdFBhdGhuYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuOTAzWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuOTMzWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MTkuOTMzWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiQWRkb25DcmVhdGlvbkFjY2VwdGFuY2VGbG93LmNyZWF0ZUFuZFZlcmlmeSIsCiAgICAgICJ0aXRsZSI6ICLloavlhpnliqDmlpnlv4Xloavkv6Hmga/lubbpqozor4HliJvlu7rnu5PmnpwiLAogICAgICAic2VxdWVuY2UiOiAxNCwKICAgICAgIm1ldGhvZCI6ICJjcmVhdGVBbmRWZXJpZnkiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNTY5MCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjM2OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjA1OFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI2LjA1OFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5maWxsSXRlbU5hbWUiLAogICAgICAidGl0bGUiOiAi5aGr5YaZ5ZWG5ZOB5ZCN56ew77yaQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA3XzE3ODg4NjYyMjM2NTQyMDEiLAogICAgICAic2VxdWVuY2UiOiAxNSwKICAgICAgIm1ldGhvZCI6ICJmaWxsSXRlbU5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNTA2LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuMzc1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuODgxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjAuODgxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLmZpbGxTdGFuZGFyZFByaWNlIiwKICAgICAgInRpdGxlIjogIuWhq+WGmeagh+WHhuS7t++8mjEwLjAwIiwKICAgICAgInNlcXVlbmNlIjogMTYsCiAgICAgICJtZXRob2QiOiAiZmlsbFN0YW5kYXJkUHJpY2UiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjcsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMC45MjFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMC45NDhaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMC45NDhaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlQWNjZXB0YW5jZVBhZ2UucmVhZENhdGVnb3J5U2VsZWN0aW9uIiwKICAgICAgInRpdGxlIjogIuivu+WPluW9k+WJjeWVhuWTgeWIhuexu+mAieaLqeWAvCIsCiAgICAgICJzZXF1ZW5jZSI6IDE3LAogICAgICAibWV0aG9kIjogInJlYWRDYXRlZ29yeVNlbGVjdGlvbiIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA2MywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIwLjk1N1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjAyMFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjAyMFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5yZWFkU2F2ZVN1Y2Nlc3NUZXh0IiwKICAgICAgInRpdGxlIjogIuivu+WPluS/neWtmOaIkOWKn+aPkOekuueahOWunumZheaWh+ahiCIsCiAgICAgICJzZXF1ZW5jZSI6IDE4LAogICAgICAibWV0aG9kIjogInJlYWRTYXZlU3VjY2Vzc1RleHQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjk4NywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjAzOVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjAyNloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjAyNloiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5jbGlja1NhdmUiLAogICAgICAidGl0bGUiOiAi54K55Ye75L+d5a2YIiwKICAgICAgInNlcXVlbmNlIjogMTksCiAgICAgICJtZXRob2QiOiAiY2xpY2tTYXZlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDI3OSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjQ1MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjcyOVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjIxLjcyOVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5yZWFkVmlzaWJsZVZhbGlkYXRpb25FcnJvcnMiLAogICAgICAidGl0bGUiOiAi6K+75Y+W5Y+v6KeB6KGo5Y2V5qCh6aqM6ZSZ6K+vIiwKICAgICAgInNlcXVlbmNlIjogMjAsCiAgICAgICJtZXRob2QiOiAicmVhZFZpc2libGVWYWxpZGF0aW9uRXJyb3JzIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDI0LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuMTY4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuMTkyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjIuMTkyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZUFjY2VwdGFuY2VQYWdlLnJlYWRWaXNpYmxlVmFsaWRhdGlvbkVycm9ycyIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5blj6/op4HooajljZXmoKHpqozplJnor68iLAogICAgICAic2VxdWVuY2UiOiAyMSwKICAgICAgIm1ldGhvZCI6ICJyZWFkVmlzaWJsZVZhbGlkYXRpb25FcnJvcnMiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjcsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4zMTNaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4zNDBaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyMy4zNDBaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDIyLAogICAgICAibWV0aG9kIjogImV4cGVjdExvYWRlZCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjQxNVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjQ0MVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjI0LjQ0MVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5maWxsU2VhcmNoIiwKICAgICAgInRpdGxlIjogIuaMieWVhuWTgeWQjeensOaQnOe0ou+8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcXVlbmNlIjogMjMsCiAgICAgICJtZXRob2QiOiAiZmlsbFNlYXJjaCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMTg1LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjQuNDQ0WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjUuNjI5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjUuNjI5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmV4cGVjdFVuaXF1ZUl0ZW1WaXNpYmxlIiwKICAgICAgInRpdGxlIjogIuetieW+heWIl+ihqOWUr+S4gOWxleekuuWVhuWTge+8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcXVlbmNlIjogMjQsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0VW5pcXVlSXRlbVZpc2libGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNS43NzhaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNS43OTVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNS43OTVaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UucmVhZFZpc2libGVJZGVudGl0eUNvdW50IiwKICAgICAgInRpdGxlIjogIuivu+WPluWVhuWTgei6q+S7veW9k+WJjeWPr+ingeaVsOmHj++8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcXVlbmNlIjogMjUsCiAgICAgICJtZXRob2QiOiAicmVhZFZpc2libGVJZGVudGl0eUNvdW50IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDExLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjUuOTgzWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjUuOTk0WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MjUuOTk0WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLnJlYWRJdGVtQ2F0ZWdvcnlUZXh0IiwKICAgICAgInRpdGxlIjogIuivu+WPluWVhuWTgeWIhuexu+WIl+aWh+ahiO+8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcXVlbmNlIjogMjYsCiAgICAgICJtZXRob2QiOiAicmVhZEl0ZW1DYXRlZ29yeVRleHQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTQsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNi4wMjdaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNi4wNDFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzoyNi4wNDFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkl0ZW0yMTZGbG93LnZlcmlmeVplcm9SZXNpZHVlIiwKICAgICAgInRpdGxlIjogIumqjOivgeWKoOaWmeWVhuWTgeeUqOS+iyBVSS9BUEkg6Zu25q6L55WZIiwKICAgICAgInNlcXVlbmNlIjogMjcsCiAgICAgICJtZXRob2QiOiAidmVyaWZ5WmVyb1Jlc2lkdWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzExNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMwLjYxN1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMzLjczMVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMzLjczMVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5vcGVuRm9yUmVzaWR1ZUNoZWNrIiwKICAgICAgInRpdGxlIjogIuS4uuaui+eVmeaguOWvueaJk+W8gOWVhuWTgeWIl+ihqOmhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDI4LAogICAgICAibWV0aG9kIjogIm9wZW5Gb3JSZXNpZHVlQ2hlY2siLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNjUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMC45NDZaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMS4wMTFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMS4wMTFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDI5LAogICAgICAibWV0aG9kIjogImV4cGVjdExvYWRlZCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0OCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMwLjk1MVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMwLjk5OVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjE3OjMwLjk5OVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5maWxsU2VhcmNoRm9yUmVzaWR1ZUNoZWNrIiwKICAgICAgInRpdGxlIjogIuaMieWVhuWTgeWQjeensOaJp+ihjOaui+eVmeaQnOe0ou+8mkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcXVlbmNlIjogMzAsCiAgICAgICJtZXRob2QiOiAiZmlsbFNlYXJjaEZvclJlc2lkdWVDaGVjayIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNTI5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzEuMDMxWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNTYwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNTYwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmV4cGVjdEVtcHR5U2VhcmNoUmVzdWx0cyIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXmkJzntKLml6Dnu5PmnpwiLAogICAgICAic2VxdWVuY2UiOiAzMSwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RFbXB0eVNlYXJjaFJlc3VsdHMiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTUzLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNTcwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNzIzWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MTc6MzMuNzIzWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLnJlYWRWaXNpYmxlUm93Q291bnQiLAogICAgICAidGl0bGUiOiAi6K+75Y+W5b2T5YmN5YiX6KGo5pWw5o2u6KGM5pWwIiwKICAgICAgInNlcXVlbmNlIjogMzIsCiAgICAgICJtZXRob2QiOiAicmVhZFZpc2libGVSb3dDb3VudCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMjEsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy41NzRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy42OTVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMToxNzozMy42OTVaIgogICAgfQogIF0sCiAgImNsZWFudXAiOiB7CiAgICAiYXBpWmVyb1Jlc2lkdWUiOiB0cnVlLAogICAgInVpWmVyb1Jlc2lkdWUiOiB0cnVlLAogICAgInVpVmVyaWZpY2F0aW9uT2JzZXJ2ZWQiOiB0cnVlLAogICAgImFwaUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA3XzE3ODg4NjYyMjM2NTQyMDEiOiAwCiAgICB9LAogICAgInVpSWRlbnRpdHlDb3VudHMiOiB7CiAgICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDdfMTc4ODg2NjIyMzY1NDIwMSI6IDAKICAgIH0KICB9LAogICJoYW5kbGVySWQiOiAicHJvZHVjdC1jZW50ZXI6eWVsbG93LXByb2JlOmF0MjU6dGMtaXRlbS1hZGQtMDA3IiwKICAiZXZpZGVuY2VGaW5nZXJwcmludCI6ICI2NWI1NTE4ZGY1ZDM3YjdmMzY4MjM5MTYzMDU2NzAzYWYzZGEwZmZhNTRhMTQ1MzFlMDdjNzY3NTNlMjI0MjhkIgp9"
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-007-runtime-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJjYXNlSWQiOiAiVEMtSVRFTS1BREQtMDA3IiwKICAic3RhdHVzIjogImltcGxlbWVudGVkIiwKICAiZXZpZGVuY2UiOiB7CiAgICAic2F2ZWQiOiB7CiAgICAgICJtZXRob2QiOiAiUE9TVCIsCiAgICAgICJwYXRoIjogIi9pdGVtL3YxL29wcy1icmFuZC9icmFuZC1pdGVtcy9zdGFuZGFyZCIsCiAgICAgICJzdGF0dXMiOiAyMDAsCiAgICAgICJ0ZXJtaW5hbCI6ICJyZXNwb25zZS1vYnNlcnZlZCIsCiAgICAgICJhcGlDb3VudCI6IDEsCiAgICAgICJiZWZvcmVBcGlDb3VudCI6IDAsCiAgICAgICJxdWVyeUlkZW50aXR5IjogIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgInNlcnZlcklkIjogMzU1MDIKICAgIH0sCiAgICAic3VjY2Vzc1RleHQiOiAiU3VjY2Vzc2Z1bGx5IFN1Ym1pdHRlZCIsCiAgICAiYXNzZXJ0aW9uUmVjZWlwdHMiOiBbCiAgICAgIHsKICAgICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLUFERC0wMDc6ZXhwZWN0YXRpb24tMSIsCiAgICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICAgImV4cGVjdGVkVmFsdWUiOiBbCiAgICAgICAgICAi5o+Q5Lqk5oiQ5YqfIiwKICAgICAgICAgICJTdWNjZXNzZnVsbHkgU3VibWl0dGVkIgogICAgICAgIF0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogIlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLAogICAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAgICJvYnNlcnZhdGlvbkNoYW5uZWwiOiAidWkiLAogICAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgICB9LAogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA3OmV4cGVjdGF0aW9uLTIiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICAgImlkZW50aXR5Q291bnQiOiAxLAogICAgICAgICAgImNhdGVnb3J5IjogIiIKICAgICAgICB9LAogICAgICAgICJhY3R1YWxWYWx1ZSI6IHsKICAgICAgICAgICJpZGVudGl0eUNvdW50IjogMSwKICAgICAgICAgICJjYXRlZ29yeSI6ICIiCiAgICAgICAgfSwKICAgICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgICAiYXV0aG9yaXR5IjogInVzZXItdmlzaWJsZSIsCiAgICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgICAgfQogICAgXQogIH0sCiAgImlkZW50aXRpZXMiOiBbCiAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA3XzE3ODg4NjYyMjM2NTQyMDEiCiAgXSwKICAiY2xlYW51cEV2aWRlbmNlIjogewogICAgImFwaUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA3XzE3ODg4NjYyMjM2NTQyMDEiOiAwCiAgICB9LAogICAgImFwaUlkZW50aXR5S2luZHMiOiB7CiAgICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDdfMTc4ODg2NjIyMzY1NDIwMSI6ICJpdGVtIgogICAgfSwKICAgICJzZXJ2ZXJJZHMiOiBbCiAgICAgIDM1NTAyCiAgICBdLAogICAgInZlcmlmaWVkWmVybyI6IHRydWUsCiAgICAib2JqZWN0cyI6IFsKICAgICAgewogICAgICAgICJlbnRpdHlUeXBlIjogIml0ZW0iLAogICAgICAgICJzZXJ2ZXJJZCI6IDM1NTAyLAogICAgICAgICJidXNpbmVzc0lkZW50aXR5IjogIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIiwKICAgICAgICAiY2xlYW51cEF0dGVtcHQiOiAxLAogICAgICAgICJhcGlSZXNpZHVlQ291bnQiOiAwLAogICAgICAgICJvdXRjb21lIjogInZlcmlmaWVkLXplcm8iCiAgICAgIH0KICAgIF0sCiAgICAidWlJZGVudGl0eUNvdW50cyI6IHsKICAgICAgIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY2MjIzNjU0MjAxIjogMAogICAgfQogIH0KfQ=="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d16020721d8463617199-abd43519adc2a8d6f05d",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:17:00.769Z",
+    "duration": 33590.308999999994,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

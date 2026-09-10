@@ -164,6 +164,11 @@ export type SystemTestCompiledCase = {
       mode: 'exact-message' | 'disabled-control' | 'confirmation-dialog';
       trigger: 'pre-submit' | 'submitted-operation';
       exactText?: string;
+      allowedMessages?: string[];
+      equivalenceKey?: string;
+      locale?: string;
+      evidencePaths?: string[];
+      semanticSignals?: { codes?: string[]; statuses?: string[]; states?: string[] };
       operationKey?: string;
     };
   }>;

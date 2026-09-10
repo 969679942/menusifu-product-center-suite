@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-09-08T14:47:10.237Z",
+  "input": {
+    "unitId": "standard-query-return-execution-02-resume",
+    "directionId": "standard-query-return-runtime",
+    "phase": "after-unit",
+    "tokenStart": 694887,
+    "tokenCurrent": 701781,
+    "elapsedMs": 150000,
+    "attempts": 2,
+    "beforeQuestionIds": [
+      "STD030-stability",
+      "STD030-current-rule-result",
+      "STD030-restoration"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "output/product-center-item-source-governed-standard-query-return-20260908-02-source-governed.json",
+        "sha256": "f4a08facc81e214396a92c91cf6152af75b07b143e22dec2ccf3e36849e484dc",
+        "kind": "runtime-receipt"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-execution-02-resume",
+    "directionId": "standard-query-return-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 6894,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD030-stability",
+      "STD030-current-rule-result",
+      "STD030-restoration"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "f4a08facc81e214396a92c91cf6152af75b07b143e22dec2ccf3e36849e484dc"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

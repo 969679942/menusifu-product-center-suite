@@ -1,4 +1,4 @@
-import type { SystemTestRecipeContext } from '../../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
+import type { SystemTestRecipeContext } from '../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
 
 /** Store the observation that the domain assertion actually compared; never infer values from a passed status. */
 export function recordSeasoningReadAssertion(

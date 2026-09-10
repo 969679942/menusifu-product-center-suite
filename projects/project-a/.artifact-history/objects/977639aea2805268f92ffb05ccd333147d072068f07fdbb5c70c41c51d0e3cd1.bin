@@ -1,0 +1,54 @@
+# 迁移闭环审计
+
+- 审计 ID：`merchant-center-platform-extraction-closure`
+- 应用 ID：`merchant-center`
+- 迁移闭环状态：`incomplete`
+- 输入指纹：`8c5b350bc98ad1ff84ad98b98a424a7b659b8e5c13fa4df745dc90d362af40fc`
+- 范围说明：本报告只判定迁移和文件治理闭环，不声明跨系统平台最终完成。
+
+## 文件归属
+
+| 分类 | 数量 |
+| --- | ---: |
+| 公共核心 | 280 |
+| 项目适配器 | 279 |
+| 领域资产 | 1410 |
+| 生成证据 | 9446 |
+| 历史资产 | 57 |
+| 瞬态文件 | 7 |
+| 扫描总数 | 11479 |
+
+## 闭环门禁
+
+| 门禁 | 问题数 |
+| --- | ---: |
+| 未归属文件 | 0 |
+| 公共桥接违规 | 0 |
+| 重复公共实现 | 0 |
+| 断裂引用 | 0 |
+| 文档与机器引用冲突 | 0 |
+| 错位瞬态文件 | 0 |
+| 公共目录项目内容 | 0 |
+| 禁止内容引用 | 0 |
+| 必需迁移资产缺失 | 0 |
+| 迁移基线缺失 | 0 |
+| 迁移后缺失文件 | 0 |
+| 迁移后变更文件 | 4 |
+| 迁移基线接受收据无效 | 0 |
+| 历史快照断裂引用（非阻断） | 0 |
+
+## 迁移完整性基线
+
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-item-report-aggregation.ts`：MIGRATION_ASSET_ADDED，新增受管资产 750d79805dabd66c8818adfe90feee4abb3dc0e1f48f81bcf484037c0b6d4079/1503 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-item-spec-routes.ts`：MIGRATION_ASSET_ADDED，新增受管资产 b5e0aeb61c6c112fe8f207897ec580506d987ffe76ac6838c40c1f6b967d8427/1237 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-item-implementation.ts`：MIGRATION_ASSET_CHANGED，基线 e2ba659ab97530f52ed9173613971bb9542998aa11b0279a6662eb45d7759814/7635，当前 c94f14a36bbf27c6ab65264f9986ab4334bb36b680ef22e5fdd2b282f26d00a2/8716
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-project-optimization.ts`：MIGRATION_ASSET_CHANGED，基线 d78d43b6f53db21042e0823337a26c4e3860f7782789b1594f970c08680eb899/16697，当前 f62517cb62330d3abd5153ba535d46b9e3355c34a1de7bc605a362c7503495f9/17171
+
+## 历史来源
+
+- `workspace:Merchant Center Info/99-待废弃/商品中心-商品管理-商品`：retained-with-active-references，引用文件 4 个，引用目标 7 个。
+
+## 验收结论
+
+- 迁移闭环未完成；必须清零全部门禁问题后才能声明本次迁移结束。
+

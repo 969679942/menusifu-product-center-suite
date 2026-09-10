@@ -1,0 +1,831 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W8_20260731_05",
+  "waveId": "W8",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "accepted-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-067",
+    "TC-ITEM-ADD-044",
+    "TC-ITEM-PKG-039"
+  ],
+  "acceptedCaseIds": [],
+  "canonicalConflictCaseIds": [
+    "TC-ITEM-ADD-044",
+    "TC-ITEM-PKG-039",
+    "TC-ITEM-STD-067"
+  ],
+  "publishSkippedDueToLifecycleConflict": true,
+  "caseEvidence": {
+    "TC-ITEM-STD-067": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 261340,
+        "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+        "blockedByMenuReference": true,
+        "menu": {
+          "id": 250399,
+          "identity": "AUTO_AUDIT_MENU_1785492539628101",
+          "blockId": 250979,
+          "relations": {
+            "AUTO_AUDIT_W8_STANDARD_1785492509389": true,
+            "AUTO_AUDIT_W8_SIDE_1785492509389": true,
+            "AUTO_AUDIT_W8_COMBO_1785492509389": true
+          }
+        },
+        "disableEvidence": {
+          "AUTO_AUDIT_W8_STANDARD_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261340,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261340,
+              "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261340,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_SIDE_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261341,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261341,
+              "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261341,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_COMBO_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261343,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261343,
+              "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261343,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          }
+        },
+        "lifecycleConflictItems": [
+          {
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389"
+          },
+          {
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389"
+          },
+          {
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389"
+          }
+        ],
+        "publishSkippedDueToLifecycleConflict": true,
+        "channelAbsentAfterDisable": {},
+        "restoreEvidence": {},
+        "channelPresentAfterRestore": {}
+      }
+    },
+    "TC-ITEM-ADD-044": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 261341,
+        "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+        "blockedByMenuReference": true,
+        "menu": {
+          "id": 250399,
+          "identity": "AUTO_AUDIT_MENU_1785492539628101",
+          "blockId": 250979,
+          "relations": {
+            "AUTO_AUDIT_W8_STANDARD_1785492509389": true,
+            "AUTO_AUDIT_W8_SIDE_1785492509389": true,
+            "AUTO_AUDIT_W8_COMBO_1785492509389": true
+          }
+        },
+        "disableEvidence": {
+          "AUTO_AUDIT_W8_STANDARD_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261340,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261340,
+              "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261340,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_SIDE_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261341,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261341,
+              "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261341,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_COMBO_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261343,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261343,
+              "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261343,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          }
+        },
+        "lifecycleConflictItems": [
+          {
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389"
+          },
+          {
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389"
+          },
+          {
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389"
+          }
+        ],
+        "publishSkippedDueToLifecycleConflict": true,
+        "channelAbsentAfterDisable": {},
+        "restoreEvidence": {},
+        "channelPresentAfterRestore": {}
+      }
+    },
+    "TC-ITEM-PKG-039": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 261343,
+        "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+        "blockedByMenuReference": true,
+        "menu": {
+          "id": 250399,
+          "identity": "AUTO_AUDIT_MENU_1785492539628101",
+          "blockId": 250979,
+          "relations": {
+            "AUTO_AUDIT_W8_STANDARD_1785492509389": true,
+            "AUTO_AUDIT_W8_SIDE_1785492509389": true,
+            "AUTO_AUDIT_W8_COMBO_1785492509389": true
+          }
+        },
+        "disableEvidence": {
+          "AUTO_AUDIT_W8_STANDARD_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261340,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261340,
+              "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261340,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_SIDE_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261341,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261341,
+              "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261341,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          },
+          "AUTO_AUDIT_W8_COMBO_1785492509389": {
+            "outcome": "blocked-by-menu-reference",
+            "conflictCode": "BITEM-2013",
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+            "action": "disable",
+            "status": "Enabled",
+            "response": {
+              "method": "PUT",
+              "path": "/item/v1/ops-brand/brand-items/updateStatus",
+              "status": 400,
+              "ok": false
+            },
+            "body": {
+              "code": "BITEM-2013",
+              "message": "item is been used in menu",
+              "errorData": {
+                "references": [
+                  {
+                    "id": 250399,
+                    "name": "AUTO_AUDIT_MENU_1785492539628101"
+                  }
+                ],
+                "totalCount": 1
+              },
+              "success": false
+            },
+            "requestLifecycleId": 261343,
+            "apiStatusAfterLifecycle": 1,
+            "apiPageStatusAfterLifecycle": 1,
+            "lifecycleBoundaryDiagnostic": {
+              "itemId": 261343,
+              "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+              "action": "disable",
+              "requestLifecycleId": 261343,
+              "response": {
+                "method": "PUT",
+                "path": "/item/v1/ops-brand/brand-items/updateStatus",
+                "status": 400,
+                "ok": false
+              },
+              "body": {
+                "code": "BITEM-2013",
+                "message": "item is been used in menu",
+                "errorData": {
+                  "references": [
+                    {
+                      "id": 250399,
+                      "name": "AUTO_AUDIT_MENU_1785492539628101"
+                    }
+                  ],
+                  "totalCount": 1
+                },
+                "success": false
+              },
+              "apiStatusAfterLifecycle": 1,
+              "apiPageStatusAfterLifecycle": 1,
+              "messages": []
+            },
+            "refreshLifecycleSearch": true,
+            "messages": []
+          }
+        },
+        "lifecycleConflictItems": [
+          {
+            "itemId": 261340,
+            "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389"
+          },
+          {
+            "itemId": 261341,
+            "identity": "AUTO_AUDIT_W8_SIDE_1785492509389"
+          },
+          {
+            "itemId": 261343,
+            "identity": "AUTO_AUDIT_W8_COMBO_1785492509389"
+          }
+        ],
+        "publishSkippedDueToLifecycleConflict": true,
+        "channelAbsentAfterDisable": {},
+        "restoreEvidence": {},
+        "channelPresentAfterRestore": {}
+      }
+    }
+  },
+  "cleanupEvidence": {
+    "merchantCenterResidue": {
+      "AUTO_AUDIT_W8_STANDARD_1785492509389": 0,
+      "AUTO_AUDIT_W8_SIDE_1785492509389": 0,
+      "AUTO_AUDIT_W8_COMBO_1785492509389": 0,
+      "AUTO_AUDIT_COMBO_PRODUCT_1785492509490": 0
+    },
+    "channelResidue": {
+      "AUTO_AUDIT_W8_STANDARD_1785492509389": 0,
+      "AUTO_AUDIT_W8_SIDE_1785492509389": 0,
+      "AUTO_AUDIT_W8_COMBO_1785492509389": 0
+    },
+    "uiResidue": {
+      "AUTO_AUDIT_W8_STANDARD_1785492509389": 0,
+      "AUTO_AUDIT_W8_SIDE_1785492509389": 0,
+      "AUTO_AUDIT_W8_COMBO_1785492509389": 0
+    },
+    "merchantCenterAndChannelResidueFree": true,
+    "ledgerEntries": 7,
+    "residueVerified": 7,
+    "incompleteLedgerEntries": 0
+  },
+  "retainedAuditRecords": {
+    "deletionSupported": false,
+    "classification": "immutable-operational-audit-record",
+    "records": []
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:w8-menu-bind:60018bc1982172c6b8dd41cd",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_STANDARD_1785492509389"
+      ],
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-block-item/batchCreate"
+      },
+      "requestFingerprint": "60018bc1982172c6b8dd41cd436f9ca990ac2d99ba188d97ffeacec9af40ccfd",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.609Z",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w8-menu-bind:7886b019b8ddeddd447eb24d",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_SIDE_1785492509389"
+      ],
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-block-item/batchCreate"
+      },
+      "requestFingerprint": "7886b019b8ddeddd447eb24d847b27085739901f146eba1e530a6e964c66b1d8",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.609Z",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w8-menu-bind:e4852d606270a3ccfc60b207",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_COMBO_1785492509389"
+      ],
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-block-item/batchCreate"
+      },
+      "requestFingerprint": "e4852d606270a3ccfc60b20777f2cce81689ebd55109d42ef88dfa94b946b613",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.610Z",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w8-lifecycle-disable:9cb37cb610dc5069153b77b6",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_STANDARD_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_STANDARD_1785492509389"
+      ],
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/updateStatus"
+      },
+      "requestFingerprint": "9cb37cb610dc5069153b77b60ddecdb73e3e2c7959510f673874cddac1af687b",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.611Z",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w8-lifecycle-disable:a21231e36c5bb7e37c2aef51",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_SIDE_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_SIDE_1785492509389"
+      ],
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/updateStatus"
+      },
+      "requestFingerprint": "a21231e36c5bb7e37c2aef51908cbe6e55b549ee074550ebbe8df1656e028f16",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.611Z",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w8-lifecycle-disable:eeab0910fcbbb96a45205106",
+      "unitId": "product-center-item-p0-remaining-w8",
+      "safetyLevel": "L3-crud",
+      "entity": "product-center-w8",
+      "identity": "AUTO_AUDIT_W8_COMBO_1785492509389",
+      "identityVariants": [
+        "AUTO_AUDIT_W8_COMBO_1785492509389"
+      ],
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/updateStatus"
+      },
+      "requestFingerprint": "eeab0910fcbbb96a452051065d5f570b1c887129c94b0dc8f767cf494111cfcd",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T10:11:13.612Z",
+      "reconciliation": "present"
+    }
+  ]
+}

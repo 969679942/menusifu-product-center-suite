@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-09-08T15:22:44.041Z",
+  "caseId": "TC-ITEM-STD-005",
+  "evidence": "output/checkpoints/item/source-governed-standard-required-name-20260908-01-source-governed/terminal-TC-ITEM-STD-005.json",
+  "observed": "Initial direct sidebar anchor count0; steps2-6 unreached; no Save",
+  "cause": "Independent flow called a sidebar-only reader without initializing the authenticated application shell and expanding the menu",
+  "repair": "Fixture injects existing ProductCenterSidebarNavigationPage.openFromSidebar and ItemListPage.expectLoaded; flow step1 records this executable preparation",
+  "validation": {
+    "contractsPassed": 10,
+    "typecheck": "passed",
+    "architecture": "passed",
+    "unchangedQualifiedFingerprints": 9
+  },
+  "businessDeviation": false,
+  "repeatMutationRisk": "none: prior Save not reached",
+  "nextRunId": "standard-required-name-20260908-02",
+  "attemptsAlreadyUsed": 1
+}

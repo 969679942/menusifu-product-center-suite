@@ -2,7 +2,7 @@ import type { CleanupRegistry } from '../../../api/product-center/cleanup-regist
 import { extractCreatedRecord } from '../../../api/product-center/created-record';
 import type { ProductCenterApi } from '../../../api/product-center/product-center-api';
 import type { ProductCenterCoreEntityKey } from '../../../sop/product-center/product-center-sop.types';
-import { createAuditIdentity, nextAuditTimestamp, type AuditEntity } from '../audit-identity';
+import { createAuditFieldValue, createAuditIdentity, nextAuditTimestamp, type AuditEntity } from '../audit-identity';
 import {
   ProductCenterSopDataFactory,
   type ProductCenterNamedRecord,
@@ -41,7 +41,7 @@ export class ProductCenterCreateDataFactory {
     }
     if (entityKey === 'method') {
       return createContext(entityKey, identity.marker, identity.editedMarker, {
-        optionName: `AUTO_AUDIT_OPTION_${timestamp}`,
+        optionName: createAuditFieldValue('METHOD', 40, timestamp),
       });
     }
     if (entityKey === 'material') {
@@ -55,7 +55,7 @@ export class ProductCenterCreateDataFactory {
     }
     if (entityKey === 'seasoning') {
       return createContext(entityKey, identity.marker, identity.editedMarker, {
-        optionName: `AUTO_AUDIT_SEASONING_OPTION_${timestamp}`,
+        optionName: createAuditFieldValue('SEASONING', 40, timestamp),
       });
     }
     return this.prepareBom(identity.marker, identity.editedMarker, timestamp, cleanupRegistry);

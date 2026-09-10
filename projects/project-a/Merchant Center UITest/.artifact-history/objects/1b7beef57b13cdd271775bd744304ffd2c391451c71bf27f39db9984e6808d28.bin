@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T16:38:41.503Z",
+  "input": {
+    "unitId": "ADD002-current-dependency-audit-20260909-01",
+    "directionId": "ADD002-current-dependency-audit",
+    "phase": "after-unit",
+    "tokenStart": 1735476,
+    "tokenCurrent": 1741531,
+    "elapsedMs": 29000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "formal-source-surface",
+      "current-call-tree-gap"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon002-current-dependency-audit.json",
+        "sha256": "4575f738b123e9ab86469e4483b839bd967666d650aecce8079ca337cdfe1e13",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "ADD002-current-dependency-audit-20260909-01",
+    "directionId": "ADD002-current-dependency-audit",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 6055,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "formal-source-surface",
+      "current-call-tree-gap"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "4575f738b123e9ab86469e4483b839bd967666d650aecce8079ca337cdfe1e13"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

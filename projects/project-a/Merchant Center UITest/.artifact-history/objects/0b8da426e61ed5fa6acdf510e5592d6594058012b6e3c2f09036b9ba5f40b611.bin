@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T16:40:42.104Z",
+  "input": {
+    "unitId": "addon002-controls-readonly-20260909-01",
+    "directionId": "ADD002-five-controls-DOM-observation",
+    "phase": "after-unit",
+    "tokenStart": 1755255,
+    "tokenCurrent": 1759210,
+    "elapsedMs": 49000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "ADD002-five-current-control-identities"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+        "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7",
+        "kind": "ui-observation"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon002-controls-readonly-20260909-01",
+    "directionId": "ADD002-five-controls-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 3955,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "ADD002-five-current-control-identities"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

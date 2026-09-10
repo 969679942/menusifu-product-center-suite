@@ -1,0 +1,73 @@
+{
+  "intentFingerprint": "0ca652306f8ebf897002e33d6edcc4de4ffdf4a979009a8a46fe4f1d11f61c63",
+  "selectionFingerprint": "417d01c1747b3ea2407320a1cf18ba2e4de42b473504f6abd7dfcddf8f98bad4",
+  "selectedCaseIds": [
+    "TC-ITEM-ADD-011"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-ADD-011"
+  ],
+  "status": "failed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-ADD-011",
+    "semanticCaseFingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+    "implementationFingerprint": "55e0150aa5fff3548a833fa994324dc8af66c9589c461837ad051fda23e6c11f",
+    "executionContext": {
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/side"
+    },
+    "releaseObservation": {
+      "fingerprint": null,
+      "signals": [],
+      "status": "unavailable",
+      "source": "unavailable",
+      "stable": false,
+      "observedAt": "2026-09-08T18:44:22.524Z"
+    },
+    "executionEpochId": "source-governed-addon-011-detail-readback-20260909-01-source-governed",
+    "operationReceipts": [],
+    "supportingOperationReceipts": [],
+    "assertionReceipts": [],
+    "claims": {
+      "required": [
+        "TC-ITEM-ADD-011:expectation-1",
+        "TC-ITEM-ADD-011:expectation-2"
+      ],
+      "observed": [],
+      "verified": []
+    },
+    "cleanup": {
+      "apiZeroResidue": false,
+      "uiZeroResidue": false,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": false,
+      "required": true,
+      "objects": [],
+      "serverIds": [],
+      "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+    },
+    "businessObservation": {
+      "saveActions": 0,
+      "name": "",
+      "observations": {}
+    },
+    "terminalFailure": {
+      "status": "failed",
+      "unreachedSourceOperations": [
+        "TC-ITEM-ADD-011:action-1",
+        "TC-ITEM-ADD-011:action-2",
+        "TC-ITEM-ADD-011:action-3",
+        "TC-ITEM-ADD-011:action-4",
+        "TC-ITEM-ADD-011:action-5",
+        "TC-ITEM-ADD-011:action-6"
+      ],
+      "reason": "Error: ADDON_PRICE_SOURCE_IDENTITY_INVALID"
+    },
+    "evidenceFingerprint": "bdd2e4e5741c2c751131edfcd0c360f5d58bad5b507d7a6faa5f9462bb8534d2"
+  }
+}

@@ -8,7 +8,7 @@ import {
 import type {
   AllureBusinessReportResult,
   AllureReportStep,
-} from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
 
 type NormalizedResult = AllureBusinessReportResult & {
   statusDetails?: { message?: string };

@@ -1,0 +1,57 @@
+# 迁移闭环审计
+
+- 审计 ID：`merchant-center-platform-extraction-closure`
+- 应用 ID：`merchant-center`
+- 迁移闭环状态：`incomplete`
+- 输入指纹：`8f15190423dccf618e5f0e77366e4bfe2af98b39b2504d62c45a1864fbc5138c`
+- 范围说明：本报告只判定迁移和文件治理闭环，不声明跨系统平台最终完成。
+
+## 文件归属
+
+| 分类 | 数量 |
+| --- | ---: |
+| 公共核心 | 283 |
+| 项目适配器 | 281 |
+| 领域资产 | 1419 |
+| 生成证据 | 9602 |
+| 历史资产 | 57 |
+| 瞬态文件 | 5 |
+| 扫描总数 | 11647 |
+
+## 闭环门禁
+
+| 门禁 | 问题数 |
+| --- | ---: |
+| 未归属文件 | 0 |
+| 公共桥接违规 | 0 |
+| 重复公共实现 | 0 |
+| 断裂引用 | 0 |
+| 文档与机器引用冲突 | 0 |
+| 错位瞬态文件 | 0 |
+| 公共目录项目内容 | 0 |
+| 禁止内容引用 | 0 |
+| 必需迁移资产缺失 | 0 |
+| 迁移基线缺失 | 0 |
+| 迁移后缺失文件 | 0 |
+| 迁移后变更文件 | 7 |
+| 迁移基线接受收据无效 | 0 |
+| 历史快照断裂引用（非阻断） | 0 |
+
+## 迁移完整性基线
+
+- `platform:docs/work-unit-stop-loss.md`：MIGRATION_ASSET_ADDED，新增受管资产 12ae08cb69ae0ca326631fd7a302c4103940124a7ec60185520b0e459125f25d/1731 尚未接受
+- `platform:src/governance/work-unit-stop-loss.ts`：MIGRATION_ASSET_ADDED，新增受管资产 e2802e10137c59fa018a704f019e34860ec11d2fea2e6904d0b8f1ae314fd2cc/2928 尚未接受
+- `platform:tests/api/work-unit-stop-loss.contract.spec.ts`：MIGRATION_ASSET_ADDED，新增受管资产 bae18ecde252c5b6ade24fcdec0f66d400fb74d2834400af8c87ae5313d42e84/2134 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-item-spec-dispatch.ts`：MIGRATION_ASSET_ADDED，新增受管资产 329222afe67cbeec0fa7ffcb31aea5413e85cbdb111b018405667a98d37cb542/1002 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-work-unit-stop-loss.ts`：MIGRATION_ASSET_ADDED，新增受管资产 00808964a8eebae38be9b9e581391bfcf695762971ab3ccc6049d83c6339ac6a/2717 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-item-implementation.ts`：MIGRATION_ASSET_CHANGED，基线 c94f14a36bbf27c6ab65264f9986ab4334bb36b680ef22e5fdd2b282f26d00a2/8716，当前 5323ba89e0a740ce5a0c9c33568e9df04713ff1f881fd9a45b70b684bfc10645/9780
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-project-optimization.ts`：MIGRATION_ASSET_CHANGED，基线 f62517cb62330d3abd5153ba535d46b9e3355c34a1de7bc605a362c7503495f9/17171，当前 21ae6a2a6bea3fc1f8b2eb354e4e2d593e59df9863a5457ccce51bcce2273d32/17468
+
+## 历史来源
+
+- `workspace:Merchant Center Info/99-待废弃/商品中心-商品管理-商品`：retained-with-active-references，引用文件 4 个，引用目标 7 个。
+
+## 验收结论
+
+- 迁移闭环未完成；必须清零全部门禁问题后才能声明本次迁移结束。
+

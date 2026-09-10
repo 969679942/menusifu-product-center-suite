@@ -1,0 +1,55 @@
+{
+  "recordedAt": "2026-09-08T16:23:07.861Z",
+  "input": {
+    "unitId": "standard-next-readonly-observation-20260909-01",
+    "directionId": "STD045-048-049-DOM-observation",
+    "phase": "after-unit",
+    "tokenStart": 1657043,
+    "tokenCurrent": 1669116,
+    "elapsedMs": 55000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "description-current-boundary",
+      "weight-disabled-identity",
+      "spec-create-target-identity"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+        "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7",
+        "kind": "ui-observation"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-next-readonly-observation-20260909-01",
+    "directionId": "STD045-048-049-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT",
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 12073,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "description-current-boundary",
+      "weight-disabled-identity",
+      "spec-create-target-identity"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

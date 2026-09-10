@@ -17,6 +17,8 @@ import { buildProductCenterLegacy116Resolution } from '../../scripts/build-produ
 import { loadProductCenterSourceGovernance } from '../../utils/product-center-source-governance';
 import { loadProductCenterExecutionDecisions } from '../../utils/product-center-execution-decisions';
 import { auditSemanticDuplicateCandidates } from '../../utils/product-center-semantic-duplicate-gate';
+import { buildProductCenterFullRegressionExecutionIntent } from '../../adapters/product-center/product-center-execution-intent';
+import { reconcileRunnerReport } from '../../scripts/run-product-center-source-governed';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
@@ -71,6 +73,18 @@ test.describe('商品中心来源治理执行门禁', () => {
     });
     const executionDecisions = [...loadProductCenterExecutionDecisions(projectRoot).values()];
     expect(report.summary.total).toBeGreaterThanOrEqual(governance.decisions.size);
+    const formalIndex = JSON.parse(fs.readFileSync(path.join(
+      projectRoot,
+      '../Merchant Center Info/00-待转换测试方案/已完成/index.json',
+    ), 'utf8')) as { cases: Array<{ caseId: string; module: string }> };
+    const taskCaseIds = new Set(report.tasks.map((item) => item.caseId));
+    expect(formalIndex.cases
+      .filter((item) => item.module !== 'seasoning' && !taskCaseIds.has(item.caseId)))
+      .toEqual([]);
+    expect(report.revalidation.selectedCaseIds).toEqual(expect.arrayContaining([
+      'TC-ITEM-STD-102',
+      'TC-ITEM-STD-103',
+    ]));
     expect(new Set(report.tasks.map((item) => item.caseId)).size).toBe(report.summary.total);
     expect(report.summary.execute
       + report.summary.sourceRecovery
@@ -203,6 +217,40 @@ test.describe('商品中心来源治理执行门禁', () => {
       .toEqual(expect.arrayContaining(['TC-ITEM-ADD-027', 'TC-ITEM-ADD-034']));
     expect(new Set(report.revalidation.runners.flatMap((item) => item.selectedCaseIds)).size)
       .toBe(report.revalidation.selectedCaseIds.length);
+  });
+
+  test('全量适配器拒绝把未路由且未正式分类的用例静默排除', () => {
+    const base = {
+      runId: 'full-contract',
+      scopeFingerprint: 'scope',
+      formalCases: [{ caseId: 'CASE-A', module: 'item' }, { caseId: 'CASE-B', module: 'item' }],
+      sourcePlan: {
+        revalidation: { selectedCaseIds: ['CASE-A'], runners: [{ runnerId: 'item', selectedCaseIds: ['CASE-A'] }] },
+        tasks: [{ caseId: 'CASE-A', module: 'item', action: 'execute', reason: 'ready' }],
+      },
+      seasoningCaseIds: [] as string[],
+    };
+    expect(() => buildProductCenterFullRegressionExecutionIntent(base))
+      .toThrow('PRODUCT_CENTER_FULL_REGRESSION_UNCLASSIFIED_CASE:CASE-B');
+    const classified = buildProductCenterFullRegressionExecutionIntent({
+      ...base,
+      sourcePlan: {
+        ...base.sourcePlan,
+        tasks: [...base.sourcePlan.tasks, {
+          caseId: 'CASE-B', module: 'item', action: 'blocked-technical', reason: '缺少运行依赖', blockCode: 'DEPENDENCY_MISSING',
+        }],
+      },
+    });
+    expect(classified.selectedCaseIds).toEqual(['CASE-A']);
+    expect(classified.classifiedExclusionCaseIds).toEqual(['CASE-B']);
+    expect(classified.exclusionReasons['CASE-B']).toContain('DEPENDENCY_MISSING');
+  });
+
+  test('runner 缺少报告时必须阻断并保留结构化中文诊断', () => {
+    const result = reconcileRunnerReport(['output/contract-report-does-not-exist.json'], ['CASE-A'], 0);
+    expect(result).toMatchObject({ status: 'blocked', terminalCaseIds: [], missingCaseIds: ['CASE-A'] });
+    expect(result.diagnostic).toContain('RUNNER_REPORT_MISSING');
+    expect(result.diagnostic).toContain('失败诊断');
   });
 
   test('实现指纹变化后旧产品偏差不得重新阻断当前用例', async () => {
@@ -419,16 +467,17 @@ test.describe('商品中心来源治理执行门禁', () => {
     });
     expect(report.summary.total).toBe(report.executionCases.length + report.nonExecutionTasks.length);
     expect(report.summary.executed).toBe(
-      report.summary.passed + report.summary.failed + report.summary.skipped + report.summary.notRun,
+      report.summary.passed + report.summary.failed + report.summary.skipped,
     );
-    expect(report.summary.executed).toBe(report.executionCases.length);
+    expect(report.summary.selected).toBe(report.executionCases.length);
+    expect(report.summary.selected).toBe(report.summary.executed + report.summary.notRun);
     expect(report.summary.blockedSource
       + report.summary.deferred
       + report.summary.blockedTechnical
       + report.summary.productDefect
       + report.summary.handled
       + report.summary.notApplicable
-      + report.executionCases.length).toBe(report.summary.total);
+      + report.summary.selected).toBe(report.summary.total);
     expect(report.cleanup.status).not.toBe('residue-detected');
     expect(report.cleanup.residueVerifiedEntries).toBe(report.cleanup.entries);
     expect(report.executionCases.some((item) => [
@@ -445,10 +494,10 @@ test.describe('商品中心来源治理执行门禁', () => {
         ].includes(item.caseId))
         .map((item) => [item.caseId, item.status]),
     )).toEqual({
-      'TC-IMG-ITEM-029': 'failed',
-      'TC-IMG-ITEM-030': 'passed',
-      'TC-IMG-LIB-025': 'passed',
-      'TC-IMG-LIB-026': 'passed',
+      'TC-IMG-ITEM-029': 'not-run',
+      'TC-IMG-ITEM-030': 'not-run',
+      'TC-IMG-LIB-025': 'not-run',
+      'TC-IMG-LIB-026': 'not-run',
     });
   });
 

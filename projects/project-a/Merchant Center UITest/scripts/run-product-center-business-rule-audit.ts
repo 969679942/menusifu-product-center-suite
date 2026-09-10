@@ -11,8 +11,36 @@ const checkpointPath = path.join(governanceRoot, 'product-center-business-rule-a
 const executionIndexPath = resolveSystemTestPlatformArtifact('execution-index.json');
 const tsxCommand = process.execPath;
 const tsxCli = path.join(projectRoot, 'node_modules/tsx/dist/cli.mjs');
+const preflightRequiredInputs = [
+  { relativePath: 'output/product-center-item-final-status.json', stageId: 'business-rule-evaluation-events', reason: '当前商品最终状态和业务规则运行证据来源' },
+  { relativePath: '../deliverables/test-plan-governance/product-center-item-group-landing-audit.json', stageId: 'landing-audit', reason: '商品/组落地和逐案状态审计来源' },
+  { relativePath: 'deliverables/system-test-platform/execution-index.json', stageId: 'business-rule-evaluation-events', reason: '当前逐案执行索引和标准收据来源' },
+];
 
 export function runProductCenterBusinessRuleAudit(): number {
+  const missingInputs = preflightRequiredInputs.filter((item) => !fs.existsSync(path.resolve(projectRoot, item.relativePath)));
+  if (missingInputs.length > 0) {
+    const blockedPath = path.join(governanceRoot, 'product-center-business-rule-audit.blocked.json');
+    const blocked = {
+      schemaVersion: '1.0.0',
+      reportId: 'product-center-business-rule-audit',
+      generatedAt: new Date().toISOString(),
+      status: 'blocked',
+      code: 'BUSINESS_RULE_AUDIT_PREFLIGHT_INPUTS_MISSING',
+      scope: 'report-only',
+      missingInputs: missingInputs.map((item) => ({ ...item, path: item.relativePath })),
+      guardrails: {
+        businessExecutionStarted: false,
+        existingPassedCasesInvalidated: false,
+        formalRulesModified: false,
+        secretsPersisted: false,
+      },
+    };
+    fs.mkdirSync(path.dirname(blockedPath), { recursive: true });
+    fs.writeFileSync(blockedPath, `${JSON.stringify(blocked, null, 2)}\n`, 'utf8');
+    process.stdout.write(`${JSON.stringify(blocked)}\n`);
+    return 1;
+  }
   const historicalReconciliationPath = '../deliverables/test-plan-governance/product-center-historical-evidence-reconciliation.json';
   return runIdempotentPipeline({
     pipelineId: 'product-center-business-rule-audit',

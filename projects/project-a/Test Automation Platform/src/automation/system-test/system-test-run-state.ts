@@ -5,7 +5,7 @@ export type SystemTestRunState = {
   schemaVersion: '1.0.0';
   runId: string;
   systemId: string;
-  status: 'running' | 'passed' | 'blocked' | 'failed' | 'circuit-broken' | 'interrupted';
+  status: 'running' | 'passed' | 'blocked' | 'failed' | 'completed-with-findings' | 'circuit-broken' | 'interrupted';
   phase: 'compiling' | 'setup' | 'preflight' | 'business' | 'recovery' | 'reporting' | 'completed';
   startedAt: string;
   updatedAt: string;
@@ -33,6 +33,8 @@ export function reconcileSystemTestRunState(filePath: string, nowMs: number = Da
   if (state.status !== 'running') return state;
   const runnerPid = Number(state.runnerPid);
   if (Number.isSafeInteger(runnerPid) && runnerPid > 0 && isProcessAlive(runnerPid)) return state;
+  const childPid = Number(state.childPid);
+  if (Number.isSafeInteger(childPid) && childPid > 0 && isProcessAlive(childPid)) return state;
   const interrupted: SystemTestRunState = {
     ...state,
     status: 'interrupted',

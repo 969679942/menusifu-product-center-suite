@@ -1,4 +1,5 @@
 import type { SystemTestObservationAuthority, SystemTestObservationChannel, SystemTestSourceRegistry } from './system-test-governance';
+import { validateBusinessFeedbackContract } from '../../utils/business-feedback-contract';
 
 export type SystemTestSemanticContract = {
   businessObjectId: string;
@@ -22,6 +23,11 @@ export type SystemTestFeedbackContract = {
   mode: 'exact-message' | 'disabled-control' | 'confirmation-dialog';
   trigger: 'pre-submit' | 'submitted-operation';
   exactText?: string;
+  allowedMessages?: string[];
+  equivalenceKey?: string;
+  locale?: string;
+  evidencePaths?: string[];
+  semanticSignals?: { codes?: string[]; statuses?: string[]; states?: string[] };
   operationKey?: string;
 };
 
@@ -205,6 +211,15 @@ function validateFeedback(
     if (feedback.exactText && !expectation.expected.includes(feedback.exactText)) {
       errors.push(`${claimId}:EXACT_FEEDBACK_EXPECTATION_MISMATCH`);
     }
+    const feedbackContractErrors = validateBusinessFeedbackContract({
+      exactMessage: feedback.exactText ?? '',
+      allowedMessages: feedback.allowedMessages,
+      equivalenceKey: feedback.equivalenceKey,
+      locale: feedback.locale,
+      ...(feedback.evidencePaths === undefined ? {} : { evidencePaths: feedback.evidencePaths }),
+      semanticSignals: feedback.semanticSignals,
+    });
+    errors.push(...feedbackContractErrors.map((error) => `${claimId}:${error}`));
     const sources = new Map(sourceRegistry?.sources.map((item) => [item.sourceId, item]) ?? []);
     const hasRuntimeSource = expectation.sourceIds.some((sourceId) => {
       const kind = sources.get(sourceId)?.kind;

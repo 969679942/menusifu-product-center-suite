@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "addon-creation-source-assertions-20260908",
+  "applicationId": "merchant-center-product-center",
+  "defaultImpactType": "business-implementation",
+  "impactedCaseIds": [
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007"
+  ],
+  "caseImpactTypes": {
+    "TC-ITEM-ADD-005": "business-implementation",
+    "TC-ITEM-ADD-006": "business-implementation",
+    "TC-ITEM-ADD-007": "business-implementation"
+  },
+  "classifiedExclusionCaseIds": [],
+  "reason": "补齐三条正式用例的侧边栏导航、首行状态/排序、名称字段反馈、成功提示及逐项断言收据；共享文件传播不授权其他加料用例重跑",
+  "scope": "project-adapter",
+  "implementation": "flows/product-center/item-216/addon-creation-acceptance.flow.ts",
+  "validation": "tests/api/product-center-addon-creation-acceptance.contract.spec.ts"
+}

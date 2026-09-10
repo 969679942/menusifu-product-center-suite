@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-final-goal-gate';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-final-goal-gate';

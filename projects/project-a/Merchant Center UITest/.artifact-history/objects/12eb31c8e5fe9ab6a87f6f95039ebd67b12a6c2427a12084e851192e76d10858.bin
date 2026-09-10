@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalSourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "implementationFingerprint": "76d726b5ef61378669619400777644e6bd3a28b282f7dd06827458e0c1a6d97e",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-002:action-1"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "cleanupRequired": false,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-002:action-1"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-ADD-002:action-1",
+            "sourceStepId": "TC-ITEM-ADD-002:action-1",
+            "executableOperationKey": "ItemCreateSidePage.readOtherSettingsCapabilityEvidence",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.inspectOtherSettings",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.ensureOtherSettingsExpanded",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    }
+  ],
+  "reportPaths": [
+    "output/product-center-item-source-governed-addon-002-receipt-20260908-01-source-governed.json"
+  ],
+  "implementationFormatBaselines": {
+    "TC-ITEM-ADD-002": {
+      "schemaVersion": "1.0.0",
+      "sources": [
+        {
+          "category": "data-factory",
+          "path": "test-data/product-center/item-216/addon-item-216.factory.ts",
+          "sha256": "8b50f198d6caa53db9dbc0e80d10d4131ecf59ef73a885422ae9296132b074db"
+        },
+        {
+          "category": "data-factory",
+          "path": "test-data/product-center/product-center-item-create-data.factory.ts",
+          "sha256": "004dee3ac93229fe010131860fb9dda5155afc23414532f5a4abef5ad697fc42"
+        },
+        {
+          "category": "flow",
+          "path": "api/product-center/recovery-service.ts",
+          "sha256": "b68d17a588089323c265911091a184f68e8532b62ac9ea1898afdd87b5f44b75"
+        },
+        {
+          "category": "flow",
+          "path": "flows/item-create.flow.ts",
+          "sha256": "ef0032c1c6ddb755568eb99dd3ff3be63c95291a2356e5c08a5aa4e3cc9f33b2"
+        },
+        {
+          "category": "flow",
+          "path": "flows/product-center/item-216/addon-item-216.flow.ts",
+          "sha256": "3af79698f7f33677c2b6448c9cf83072cc602d21ffb0952df8e296d24038e480",
+          "snapshotPath": ".artifact-history/objects/3af79698f7f33677c2b6448c9cf83072cc602d21ffb0952df8e296d24038e480.bin"
+        },
+        {
+          "category": "flow",
+          "path": "playwright.config.ts",
+          "sha256": "9393bb77d82c48ba9d8098baf18767bc2497221bcd62712b1f37ae2a97550b78"
+        },
+        {
+          "category": "flow",
+          "path": "scripts/generate-product-center-item-216-spec.ts",
+          "sha256": "71a0bde6eeddbae75b5a66f2cb9b6d0a4bc83f20bdff591d7c6f9b9bfc74f745"
+        },
+        {
+          "category": "locator",
+          "path": "pages/product-management/item/item-create-form-locators.ts",
+          "sha256": "e1cbd20ca543135091eb40aa2c08bc8fe3eb9b92a87b2eff035d26bbef59b0d2"
+        },
+        {
+          "category": "locator",
+          "path": "pages/product-management/item/item-create-side-locators.ts",
+          "sha256": "1fd7ea450ea0e5e826823ca37885c060488b914c9674cee31e669671bbda5c43"
+        },
+        {
+          "category": "page-object",
+          "path": "pages/product-management/item/item-create-side.page.ts",
+          "sha256": "34336455cff3c0afb0022c5f7312f5b90d2e480fd7fb62f2e34748f9d77bc2cb"
+        },
+        {
+          "category": "page-object",
+          "path": "pages/product-management/item/item-list.page.ts",
+          "sha256": "48d17ed9b42bb693d974650abc33396d1335c91ec758c950a73d24e42d49a5e5"
+        }
+      ]
+    }
+  }
+}

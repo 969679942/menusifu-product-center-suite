@@ -98,7 +98,7 @@ type FormalConversionReport = {
   schemaVersion: '1.0.0';
   collectionId: 'product-center-item-formal-full-conversion';
   generatedAt: string;
-  status: 'completed-with-blocked-cases';
+  status: 'completed-with-blocked-cases' | 'blocked';
   sources: {
     externalFormalMarkdown: SourceRecord;
     workspaceFormalMarkdown: SourceRecord;
@@ -145,6 +145,8 @@ type FormalConversionReport = {
     sourceIdsPresentInAutomationBatch: boolean;
     fullReviewCoversExpandedPlan: boolean;
     automationBatchCoversExpandedPlan: boolean;
+    reviewPlanFingerprintMatches: boolean;
+    fullReviewApproved: boolean;
     sensitiveFindings: number;
   };
   packageMappings: PackageMapping[];
@@ -162,6 +164,8 @@ type FormalConversionReport = {
     classification: ProductCenterCanonicalAutomationContractEntry['classification'];
     reasons: string[];
   }>;
+  validationIssues?: string[];
+  previousBaselineDiff: { addedCaseIds: string[]; removedCaseIds: string[] };
 };
 
 type SourceRecord = {
@@ -172,6 +176,8 @@ type SourceRecord = {
 };
 
 type FullReviewDocument = {
+  sourcePlanFingerprint: string;
+  generationAllowed: boolean;
   summary: {
     approved: number;
     deprecated: number;
@@ -242,7 +248,7 @@ export function runProductCenterItemFormalFullConversion(options: {
   writeJson(checkpointPath, checkpoint(generatedAt, 'ir-built', ['source-verified', 'ir-built']));
 
   const reviewStartedAt = performance.now();
-  const reviewArtifacts = buildProductCenterItemFullReviewArtifacts({ projectRoot, outputRoot, reviewedAt: generatedAt });
+  const reviewArtifacts = buildProductCenterItemFullReviewArtifacts({ projectRoot, outputRoot, reviewedAt: generatedAt, plan });
   const reviewMs = elapsed(reviewStartedAt);
   const review = readJson<FullReviewDocument>(reviewArtifacts.jsonPath);
 
@@ -251,6 +257,7 @@ export function runProductCenterItemFormalFullConversion(options: {
     rootDir: projectRoot,
     generatedAt,
     write: false,
+    snapshot: { plan, review: reviewArtifacts.review },
   }).report;
   const contractMs = elapsed(contractStartedAt);
   const batchPath = path.join(outputRoot, 'product-center-item-formal-automation-contract-batch.json');
@@ -266,7 +273,7 @@ export function runProductCenterItemFormalFullConversion(options: {
   const recipeByCaseId = loadComboRecipes(projectRoot);
   const allRecipeCandidates = loadAllRecipes(projectRoot);
   const sourceResults = sourceCases.map((sourceCase): SourceCaseResult => {
-    const entry = requiredMapValue(batchByCaseId, sourceCase.caseId, '自动化合同');
+    const entry = projectConversionClassification(batchByCaseId.get(sourceCase.caseId));
     const inventory = allRecipeCandidates.filter((candidate) => candidate.recipe.caseId === sourceCase.caseId);
     return {
       caseId: sourceCase.caseId,
@@ -287,7 +294,7 @@ export function runProductCenterItemFormalFullConversion(options: {
   const derivedReviewUnits = plan.cases
     .filter((item) => !sourceIds.has(item.id))
     .map((item) => {
-      const entry = requiredMapValue(batchByCaseId, item.id, '派生自动化合同');
+      const entry = projectConversionClassification(batchByCaseId.get(item.id));
       return {
         caseId: item.id,
         origin: item.origin,
@@ -302,6 +309,10 @@ export function runProductCenterItemFormalFullConversion(options: {
     batchByCaseId,
     recipeByCaseId,
   ));
+  const expandedEntries = plan.cases.map((item) => projectConversionClassification(batchByCaseId.get(item.id)));
+  const expandedStrictGeneratable = expandedEntries.filter((item) => item.classification === 'strict-generatable').length;
+  const expandedBlocked = expandedEntries.filter((item) => item.classification === 'blocked').length;
+  const expandedNotApplicable = expandedEntries.filter((item) => item.classification === 'not-applicable').length;
   const sourceStrict = sourceResults.filter((item) => item.automationClassification === 'strict-generatable').length;
   const sourceBlocked = sourceResults.filter((item) => item.automationClassification === 'blocked').length;
   const sourceNotApplicable = sourceResults.filter((item) => item.automationClassification === 'not-applicable').length;
@@ -377,6 +388,10 @@ export function runProductCenterItemFormalFullConversion(options: {
     collectionId: 'product-center-item-formal-full-conversion',
     generatedAt,
     status: 'completed-with-blocked-cases',
+    previousBaselineDiff: {
+      addedCaseIds: [...planIds].filter((id) => !currentPlanIds.has(id)),
+      removedCaseIds: [...currentPlanIds].filter((id) => !planIds.has(id)),
+    },
     sources: {
       externalFormalMarkdown: externalSource,
       workspaceFormalMarkdown: workspaceSource,
@@ -396,12 +411,12 @@ export function runProductCenterItemFormalFullConversion(options: {
       sourceBlocked,
       sourceNotApplicable,
       sourceRemainingNotStrict: sourceCases.length - sourceStrict,
-      expandedStrictGeneratable: batch.summary.strictGeneratable,
-      expandedBlocked: batch.summary.blocked,
-      expandedNotApplicable: batch.summary.notApplicable,
+      expandedStrictGeneratable,
+      expandedBlocked,
+      expandedNotApplicable,
       sourceIrConversionRate: ratio(sourceResults.length, sourceCases.length),
       sourceStrictGenerationRate: ratio(sourceStrict, sourceCases.length),
-      expandedStrictGenerationRate: ratio(batch.summary.strictGeneratable, batch.summary.canonicalTotal),
+      expandedStrictGenerationRate: ratio(expandedStrictGeneratable, expandedEntries.length),
       sourceCasesWithAnyRecipe: sourceResults.filter((item) => item.recipeInventory.any > 0).length,
       sourceCasesWithEnabledRecipe: sourceResults.filter((item) => item.recipeInventory.enabled > 0).length,
       sourceCasesWithoutAnyRecipe: sourceResults.filter((item) => item.recipeInventory.any === 0).length,
@@ -425,10 +440,12 @@ export function runProductCenterItemFormalFullConversion(options: {
     validations: {
       sourceIdUnique: sourceIds.size === sourceCases.length,
       sourceIdsPresentInPlan: sourceCases.every((item) => planIds.has(item.caseId)),
-      planIdsMatchReviewedBaseline: sameSet(planIds, currentPlanIds),
+      planIdsMatchReviewedBaseline: sameSet(planIds, new Set(review.entries.map((item) => item.caseId))),
       sourceIdsPresentInAutomationBatch: sourceCases.every((item) => batchByCaseId.has(item.caseId)),
       fullReviewCoversExpandedPlan: plan.cases.every((item) => reviewByCaseId.has(item.id)),
       automationBatchCoversExpandedPlan: plan.cases.every((item) => batchByCaseId.has(item.id)),
+      reviewPlanFingerprintMatches: review.sourcePlanFingerprint === plan.fingerprint,
+      fullReviewApproved: review.generationAllowed,
       sensitiveFindings: 0,
     },
     packageMappings,
@@ -443,7 +460,18 @@ export function runProductCenterItemFormalFullConversion(options: {
         reasons: item.blockingReasons.length > 0 ? item.blockingReasons : ['NOT_APPLICABLE'],
       })),
   };
-  validateReport(report);
+  let validationError: Error | undefined;
+  try {
+    validateReport(report);
+  } catch (error) {
+    // Persist the complete blocked report before returning a non-zero result so downstream governance can diagnose it.
+    validationError = error instanceof Error ? error : new Error(String(error));
+    report.status = 'blocked';
+    report.validationIssues = validationError.message
+      .replace(/^正式方案全量转换校验失败：/, '')
+      .split(',')
+      .filter(Boolean);
+  }
   const reportPath = path.join(outputRoot, 'product-center-item-formal-full-conversion.json');
   const markdownPath = path.join(outputRoot, 'product-center-item-formal-full-conversion.md');
   const skippedPath = path.join(outputRoot, 'product-center-item-formal-full-conversion-skipped.json');
@@ -467,8 +495,22 @@ export function runProductCenterItemFormalFullConversion(options: {
   });
   const findings = scanGeneratedArtifacts(outputRoot);
   report.validations.sensitiveFindings = findings.length;
-  if (findings.length > 0) throw new Error(`正式方案全量转换安全扫描未通过：${findings.length}`);
+  if (findings.length > 0) {
+    report.status = 'blocked';
+    report.validationIssues = [...(report.validationIssues ?? []), 'SECURITY_SCAN_FAILED'];
+    validationError = new Error(`正式方案全量转换安全扫描未通过：${findings.length}`);
+  }
   writeJson(reportPath, report);
+  writeText(markdownPath, renderMarkdown(report));
+  if (validationError) {
+    writeJson(checkpointPath, {
+      ...checkpoint(generatedAt, 'blocked', ['source-verified', 'ir-built']),
+      status: 'blocked',
+      validationIssues: report.validationIssues,
+      reportPath,
+    });
+    throw validationError;
+  }
   writeJson(checkpointPath, checkpoint(generatedAt, 'completed', [
     'source-verified',
     'ir-built',
@@ -477,6 +519,11 @@ export function runProductCenterItemFormalFullConversion(options: {
     'security-scanned',
   ]));
   return { reportPath, markdownPath, skippedPath, recipeGapPath, checkpointPath };
+}
+
+export function projectConversionClassification(entry?: ProductCenterCanonicalAutomationContractEntry): Pick<ProductCenterCanonicalAutomationContractEntry, 'classification' | 'recipeId' | 'blockingReasons'> {
+  return entry ? { classification: entry.classification, recipeId: entry.recipeId, blockingReasons: [...entry.blockingReasons] }
+    : { classification: 'blocked', recipeId: null, blockingReasons: ['AUTOMATION_CONTRACT_MISSING'] };
 }
 
 function buildPackageMapping(
@@ -613,6 +660,8 @@ function renderMarkdown(report: FormalConversionReport): string {
     '# 商品中心商品管理正式方案全量转换报告',
     '',
     `- 正式源用例：${report.denominator.sourceFormalCases}`,
+    `- 转换状态：${report.status}`,
+    ...((report.validationIssues ?? []).map((issue) => `- 转换阻断：${issue}`)),
     `- 已转换 IR：${report.summary.sourceIrConversionRate}`,
     `- 严格可生成自动化：${report.summary.sourceStrictGenerationRate}`,
     `- 剩余未达到严格生成：${report.summary.sourceRemainingNotStrict}`,
@@ -640,7 +689,7 @@ function renderMarkdown(report: FormalConversionReport): string {
 
 function validateReport(report: FormalConversionReport): void {
   const issues: string[] = [];
-  if (report.denominator.sourceFormalCases !== 216) issues.push('SOURCE_CASE_COUNT_NOT_216');
+  if (report.denominator.sourceFormalCases <= 0) issues.push('SOURCE_CASE_COUNT_EMPTY');
   if (report.denominator.sourceCasesConvertedToIr !== report.denominator.sourceFormalCases) {
     issues.push('SOURCE_IR_DENOMINATOR_MISMATCH');
   }

@@ -1,8 +1,8 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { buildSystemTestArtifacts } from '../../../../Test Automation Platform/scripts/build-system-test-contract';
-import { compileSystemTestRunContract, fingerprintSystemTestValue } from '../../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import { recipeCollectionFingerprint } from '../../../../Test Automation Platform/src/automation/recipe/recipe-validator';
+import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
+import { compileSystemTestRunContract, fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { recipeCollectionFingerprint } from '../../../Test Automation Platform/src/automation/recipe/recipe-validator';
 
 const projectRoot = path.resolve(__dirname, '../..');
 const manifestPath = path.join(

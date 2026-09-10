@@ -132,6 +132,15 @@ export function buildProductCenterLegacy116Resolution(options: {
   if (report.summary.total !== 116) throw new Error(`原来源阻断基线数量异常：${report.summary.total}`);
   const humanRequiredCaseIds = cases.filter((item) => item.humanRequired).map((item) => item.caseId);
   if (JSON.stringify(humanRequiredCaseIds) !== JSON.stringify(['TC-GRP-PKG-040'])) {
+    if (write) {
+      const blockedPath = path.join(workspaceRoot, 'deliverables/product-center-source-governance/legacy-116-resolution.blocked.json');
+      writeJson(blockedPath, {
+        schemaVersion: '1.0.0', collectionId: report.collectionId, generatedAt,
+        status: 'blocked', code: 'HUMAN_PRODUCT_DECISION_SET_INVALID',
+        expectedCaseIds: ['TC-GRP-PKG-040'], actualCaseIds: humanRequiredCaseIds,
+        businessExecutionStarted: false,
+      });
+    }
     throw new Error(`人工产品决策集合异常：${humanRequiredCaseIds.join(',')}`);
   }
   if (report.summary.confirmedProductDefects !== 0) {

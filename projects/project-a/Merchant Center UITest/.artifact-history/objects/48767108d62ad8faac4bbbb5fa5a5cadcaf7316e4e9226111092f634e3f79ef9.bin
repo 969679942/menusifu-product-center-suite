@@ -1,0 +1,35 @@
+{
+  "caseId": "TC-ITEM-STD-004",
+  "role": "产品/设计负责人提供文案权威与核对范围；执行代理实现并验证",
+  "target": "中文/英文模式下“页面文本正确”的完整期望",
+  "authority": "正式用例 STD004；XMind“中英文切换”，仅有笼统正确性描述；现有商品正式来源与reviews检索未发现具体文案对照。",
+  "actual": "只读审计观察到 translation 图标及 English、简体中文选项；没有把菜单存在或当前展示文案当作正式文案正确性证据。本轮未执行业务用例004。",
+  "gap": "核对控件范围、确切中英文文本及其适用版本未定义。",
+  "options": [
+    "验收文案正确性：提供要核对的控件清单和批准的中英文文本对照。",
+    "仅验收语言切换行为：正式修订范围和具体可观测预期，明确不对未提供的全部文案作正确性判定。"
+  ],
+  "material": "选择的方案、产品/设计批准记录、适用页面和版本；方案一需控件标识/中文/英文对照表，方案二需新的明确预期。",
+  "steps": [
+    "查看正式用例STD004的两个笼统预期，以及本轮语言菜单审计截图。",
+    "指定商品列表或标准创建页中需要纳入验收的控件范围。",
+    "提交批准的具体双语期望，或正式修订为可观测的切换行为预期。",
+    "代理随后自动更新来源绑定、实现、定向执行、恢复原语言并严格核验收据。"
+  ],
+  "acceptance": "期望来源清楚且无歧义；中英两组独立断言具备期望/实际/通道/上下文；语言恢复已验证。",
+  "status": "blocked-source",
+  "recordedAt": "2026-09-08T13:18:33.658Z",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "reportPath": "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json",
+  "decisionRecordLocation": "deliverables/system-test-platform/standard-list-business-decisions/TC-ITEM-STD-004-decision.json",
+  "minimumRecordSchema": {
+    "caseId": "TC-ITEM-STD-004",
+    "decision": null,
+    "approvedBy": null,
+    "approvedAt": null,
+    "applicableVersion": null,
+    "formalSourceReference": null
+  },
+  "afterDecision": "执行代理自动更新合同与实现，构造当前影响集和公共意图，仅定向重验受影响用例，保存收据、核对状态恢复，刷新索引与门禁。",
+  "passedCaseImpact": "当前8条合格用例的历史证据不撤销；只在真实来源/实现/上下文变化影响其资格时定向重验，不以报告更新触发重跑。"
+}

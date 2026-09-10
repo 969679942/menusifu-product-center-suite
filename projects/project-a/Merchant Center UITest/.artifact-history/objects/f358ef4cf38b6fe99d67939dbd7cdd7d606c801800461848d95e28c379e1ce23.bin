@@ -1,0 +1,2771 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalSourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "3a0893dd15e92aa41adb80746404119a8a260500ad93d9df605f6568be88dde1",
+      "implementationFingerprint": "dc37c04ce0b56323b3cdc892359f35908fa88a269d82782a8e97026497b9baa1",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-005:action-1",
+        "TC-ITEM-ADD-005:action-2",
+        "TC-ITEM-ADD-005:action-3",
+        "TC-ITEM-ADD-005:action-4",
+        "TC-ITEM-ADD-005:action-5",
+        "TC-ITEM-ADD-005:action-6"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-005:expectation-1",
+        "TC-ITEM-ADD-005:expectation-2",
+        "TC-ITEM-ADD-005:expectation-3"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-005:action-1",
+          "TC-ITEM-ADD-005:action-2",
+          "TC-ITEM-ADD-005:action-3",
+          "TC-ITEM-ADD-005:action-4",
+          "TC-ITEM-ADD-005:action-5",
+          "TC-ITEM-ADD-005:action-6"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-1",
+            "sourceStepId": "TC-ITEM-ADD-005:action-1",
+            "executableOperationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-2",
+            "sourceStepId": "TC-ITEM-ADD-005:action-2",
+            "executableOperationKey": "ItemListPage.enterCreateTypePage",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-3",
+            "sourceStepId": "TC-ITEM-ADD-005:action-3",
+            "executableOperationKey": "ItemCreateTypePage.enterSideCreate",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-4",
+            "sourceStepId": "TC-ITEM-ADD-005:action-4",
+            "executableOperationKey": "ItemCreateAcceptancePage.fillItemName",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-5",
+            "sourceStepId": "TC-ITEM-ADD-005:action-5",
+            "executableOperationKey": "ItemCreateAcceptancePage.clickSave",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-005:action-6",
+            "sourceStepId": "TC-ITEM-ADD-005:action-6",
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 2
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expectProductManagementVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.openSubMenuByCandidates",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expandSubMenuForPath",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.createAndVerify",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readSaveSuccessText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.verifyZeroResidue",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.openForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectEmptySearchResults",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 3,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 19,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 20,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 21,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 22,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 23,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 24,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 25,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 26,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 27,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 28,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 29,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 30,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 31,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 32,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 33,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 34,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 35,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 36,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 37,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 38,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 39,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 40,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 41,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 42,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 43,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 44,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 45,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 46,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 47,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 48,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 49,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 50,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 51,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readCategorySelection",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListCreationEvidencePage.readFirstRowIdentity",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemTypeText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemPriceText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemStatusText",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "57634c39e430c04bc77b01a6873c174d288ede955d525ca91961044b5bbfb36d",
+      "implementationFingerprint": "92422963a1a6e0f549c5dbb90a6339784d81de6f59f6cbadec3114040f896897",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-006:action-1",
+        "TC-ITEM-ADD-006:action-2",
+        "TC-ITEM-ADD-006:action-3",
+        "TC-ITEM-ADD-006:action-4",
+        "TC-ITEM-ADD-006:action-5",
+        "TC-ITEM-ADD-006:action-6"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-006:expectation-1",
+        "TC-ITEM-ADD-006:expectation-2"
+      ],
+      "cleanupRequired": false,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-006:action-1",
+          "TC-ITEM-ADD-006:action-2",
+          "TC-ITEM-ADD-006:action-3",
+          "TC-ITEM-ADD-006:action-4",
+          "TC-ITEM-ADD-006:action-5",
+          "TC-ITEM-ADD-006:action-6"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-1",
+            "sourceStepId": "TC-ITEM-ADD-006:action-1",
+            "executableOperationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-2",
+            "sourceStepId": "TC-ITEM-ADD-006:action-2",
+            "executableOperationKey": "ItemListPage.enterCreateTypePage",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-3",
+            "sourceStepId": "TC-ITEM-ADD-006:action-3",
+            "executableOperationKey": "ItemCreateTypePage.enterSideCreate",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-4",
+            "sourceStepId": "TC-ITEM-ADD-006:action-4",
+            "executableOperationKey": "ItemCreateAcceptancePage.fillItemName",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-5",
+            "sourceStepId": "TC-ITEM-ADD-006:action-5",
+            "executableOperationKey": "ItemCreateAcceptancePage.fillStandardPrice",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-006:action-6",
+            "sourceStepId": "TC-ITEM-ADD-006:action-6",
+            "executableOperationKey": "ItemCreateAcceptancePage.clickSave",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expectProductManagementVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.openSubMenuByCandidates",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expandSubMenuForPath",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.verifyRequiredName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.expectStillOnCreatePage",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readSuccessMessageCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 19,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 20,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 21,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 22,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 23,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 24,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 25,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 26,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 27,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 28,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 29,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 30,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 31,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 32,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 33,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 34,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 35,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 36,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 37,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 38,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 39,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 40,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 41,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 42,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 43,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 44,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 45,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 46,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 47,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 48,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 49,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 50,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 51,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 52,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 53,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 54,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 55,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 56,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 57,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 58,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 59,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 60,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 61,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 62,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 63,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 64,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 65,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 66,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 67,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 68,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 69,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 70,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 71,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 72,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 73,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 74,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 75,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 76,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 77,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 78,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 79,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 80,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readNameRequiredFeedback",
+            "occurrence": 81,
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "8db1b2d0885d00545ff80d49b4d330e05982677e175ce073780179647a615681",
+      "implementationFingerprint": "dc37c04ce0b56323b3cdc892359f35908fa88a269d82782a8e97026497b9baa1",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-007:action-1",
+        "TC-ITEM-ADD-007:action-2",
+        "TC-ITEM-ADD-007:action-3",
+        "TC-ITEM-ADD-007:action-4",
+        "TC-ITEM-ADD-007:action-5",
+        "TC-ITEM-ADD-007:action-6"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-007:expectation-1",
+        "TC-ITEM-ADD-007:expectation-2"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-007:action-1",
+          "TC-ITEM-ADD-007:action-2",
+          "TC-ITEM-ADD-007:action-3",
+          "TC-ITEM-ADD-007:action-4",
+          "TC-ITEM-ADD-007:action-5",
+          "TC-ITEM-ADD-007:action-6"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-1",
+            "sourceStepId": "TC-ITEM-ADD-007:action-1",
+            "executableOperationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-2",
+            "sourceStepId": "TC-ITEM-ADD-007:action-2",
+            "executableOperationKey": "ItemListPage.enterCreateTypePage",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-3",
+            "sourceStepId": "TC-ITEM-ADD-007:action-3",
+            "executableOperationKey": "ItemCreateTypePage.enterSideCreate",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-4",
+            "sourceStepId": "TC-ITEM-ADD-007:action-4",
+            "executableOperationKey": "ItemCreateAcceptancePage.fillItemName",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-5",
+            "sourceStepId": "TC-ITEM-ADD-007:action-5",
+            "executableOperationKey": "ItemCreateAcceptancePage.readCategorySelection",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-ADD-007:action-6",
+            "sourceStepId": "TC-ITEM-ADD-007:action-6",
+            "executableOperationKey": "ItemCreateAcceptancePage.clickSave",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expectProductManagementVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.openSubMenuByCandidates",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "SidebarPage.expandSubMenuForPath",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonCreationAcceptanceFlow.createAndVerify",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readSaveSuccessText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.verifyZeroResidue",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.openForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectEmptySearchResults",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 3,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemCreateAcceptancePage.readVisibleValidationErrors",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 19,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 20,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 21,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 22,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 23,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 24,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 25,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 26,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 27,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 28,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 29,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 30,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 31,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 32,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 33,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 34,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 35,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 36,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 37,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 38,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 39,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 40,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 41,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 42,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 43,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 44,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 45,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 46,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 47,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 48,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 49,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 50,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 51,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearch",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectUniqueItemVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleIdentityCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemCategoryText",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-102",
+      "caseFingerprint": "cf2e5d12417519b4b04358b022842c4633cef794b37fe5f4a8b51374e4eaa4a2",
+      "semanticCaseFingerprint": "e2a1f17731a02b2107421ee9542a6f9f7745bfa5a9c3f86d2bd0b9fe5ec16a61",
+      "implementationFingerprint": "08846e2c32f2b7eb601e8608ad6d182eef01a682a224179fe6075a4f140bf85f",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-102:action-1",
+        "TC-ITEM-STD-102:action-2",
+        "TC-ITEM-STD-102:action-3",
+        "TC-ITEM-STD-102:action-4"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-102:expectation-1",
+        "TC-ITEM-STD-102:expectation-2",
+        "TC-ITEM-STD-102:expectation-3"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-STD-102:action-1",
+          "TC-ITEM-STD-102:action-2",
+          "TC-ITEM-STD-102:action-3",
+          "TC-ITEM-STD-102:action-4"
+        ],
+        "business": [
+          {
+            "operationKey": "TC-ITEM-STD-102:action-1",
+            "sourceStepId": "TC-ITEM-STD-102:action-1",
+            "executableOperationKey": "ItemCreateStandardPage.fillItemName",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-STD-102:action-2",
+            "sourceStepId": "TC-ITEM-STD-102:action-2",
+            "executableOperationKey": "ItemCreateStandardPage.fillMinimumOrderQuantity",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-STD-102:action-3",
+            "sourceStepId": "TC-ITEM-STD-102:action-3",
+            "executableOperationKey": "ItemCreateStandardPage.clickSave",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "TC-ITEM-STD-102:action-4",
+            "sourceStepId": "TC-ITEM-STD-102:action-4",
+            "executableOperationKey": "ItemListPage.fillSearchAndWait",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "StandardItem216CaseRunner.execute",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardItem216Flow.verifyNameNormalization",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardItem216Flow.verifyFormalNameFormat",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateFlow.openStandardCreateFromList",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateFlow.openTypeSelectionFromList",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListFlow.openList",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.open",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.enterCreateTypePage",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.enterStandardCreate",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.ensureAdvancedSettingsExpanded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readSaveSuccessText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectUniqueItemVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readExactName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardItem216Flow.verifyZeroResidue",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectEmptySearchResults",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.clickAdvancedSettings",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "AuthFlow.establishSession",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "AuthFlow.enterWithMerchantContext",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "MerchantSelectionPage.isCurrentMerchant",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "MerchantSelectionPage.waitForAppReady",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "SidebarPage.expectProductManagementVisible",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "MerchantSelectionPage.isVisible",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "MerchantSelectionPage.isVisible",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "MerchantSelectionPage.isMerchantTextVisible",
+            "occurrence": 1,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 19,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 20,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 21,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 22,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 23,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 24,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 25,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 26,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 27,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 28,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 29,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 30,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 31,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 32,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 33,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 34,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 35,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 36,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 37,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 38,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 39,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 40,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 41,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 42,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 43,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 44,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 45,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 46,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 47,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 48,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 49,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 50,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 51,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 52,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 53,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 54,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 55,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 56,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 57,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 58,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 59,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 60,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 61,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 62,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 63,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 64,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 65,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 66,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 67,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 68,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 69,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 70,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 71,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 72,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 73,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 74,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 75,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 76,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 77,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 78,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 79,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 80,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 81,
+            "required": false
+          },
+          {
+            "executableOperationKey": "StandardNameFormatPage.readNameFeedback",
+            "occurrence": 82,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 2,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 3,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 4,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 5,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 6,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 7,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 8,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 9,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 10,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 11,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 12,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 13,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 14,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 15,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 16,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 17,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 18,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 19,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 20,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 21,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 22,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 23,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 24,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 25,
+            "required": false
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 26,
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "af177a42e15f0c5dddc8ba441e1ce9e59077a782427453d09f89cbed5c7be2f5",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-002:action-1",
+        "TC-ITEM-STD-002:action-2",
+        "TC-ITEM-STD-002:action-3",
+        "TC-ITEM-STD-002:action-4"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "ecde543d7a8b695e8a3f305389e19d26b9c2f0b8864a1926dbd47677ecd74fdc",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-003:action-1",
+        "TC-ITEM-STD-003:action-2",
+        "TC-ITEM-STD-003:action-3",
+        "TC-ITEM-STD-003:action-4",
+        "TC-ITEM-STD-003:action-5"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-003:expectation-1",
+        "TC-ITEM-STD-003:expectation-2",
+        "TC-ITEM-STD-003:expectation-3"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "91c3e8992a3bd1477d42b02292e6804fb9434b79ed87123341c189da907d50b7",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-063:action-1",
+        "TC-ITEM-STD-063:action-2",
+        "TC-ITEM-STD-063:action-3"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "705f5df3f2bd09988cc760281e50690454a00953f14fd5fd5ce9e0d4e159a7f8",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-072:action-1",
+        "TC-ITEM-STD-072:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-072:expectation-1",
+        "TC-ITEM-STD-072:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "9ceb618472fc1f7f7f3ce0e988ed8679986e78ffa7106c0bfc3bd445e77c5a7e",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-073:action-1",
+        "TC-ITEM-STD-073:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-073:expectation-1",
+        "TC-ITEM-STD-073:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "b4e8136779d6404ad9df34c3930b18757256cf0b942a9b530104ec32db5cb127",
+      "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-074:action-1"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "c21baa9d5f1e461a6793ae1b76096d5382a8ea238c1edddbd8e9c91b3463ac8a",
+      "implementationFingerprint": "a239e593cae30753dd3153f1f0e10c29d5de2c19ff560b0ea89f69609c6af516",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-030:action-1",
+        "TC-ITEM-STD-030:action-2",
+        "TC-ITEM-STD-030:action-3"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-030:expectation-1"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "757d8f92040465264685ce676dda4eb86a4666ed71c2ea49c33fdc0ce80a0a0a",
+      "implementationFingerprint": "9324ebc29913255c040c1dd3c4cbbdf9753716ffe2180c99c8cfbbc586197113",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-019:action-1",
+        "TC-ITEM-STD-019:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-019:expectation-1"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+      "implementationFingerprint": "1f7ea7b2cc78b831d72aa2298c83654e9684a595555ebcdf35099d7eeb011c3f",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-005:action-1",
+        "TC-ITEM-STD-005:action-2",
+        "TC-ITEM-STD-005:action-3",
+        "TC-ITEM-STD-005:action-4",
+        "TC-ITEM-STD-005:action-5",
+        "TC-ITEM-STD-005:action-6"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-005:expectation-1",
+        "TC-ITEM-STD-005:expectation-2",
+        "TC-ITEM-STD-005:expectation-3"
+      ],
+      "cleanupRequired": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "466d3d560e5f28d5b34a697c65469a29a86ceec038fb547a68d46c032a98a03f",
+      "implementationFingerprint": "d86f8855dd7d3a2f3309495a8a3569bb6be07a1d63082f6ea4863a2e3bc8b690",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-041:action-1"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-041:expectation-1",
+        "TC-ITEM-STD-041:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "8fbf38f9e35ec87a7babb291e70535c09428be643553a3328a79a1f3735e3b2b",
+      "implementationFingerprint": "d86f8855dd7d3a2f3309495a8a3569bb6be07a1d63082f6ea4863a2e3bc8b690",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-042:action-1",
+        "TC-ITEM-STD-042:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-042:expectation-1",
+        "TC-ITEM-STD-042:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+      "implementationFingerprint": "b7b67f1c64d3827a5cf88bb5e863a3f782dd4a596bb62f0b68fec813de834a06",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-045:action-1",
+        "TC-ITEM-STD-045:action-2",
+        "TC-ITEM-STD-045:action-3"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-045:expectation-1"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "28196ae289a223891b530c9ab819ed9b0c50fb59f44b28dc91146e85fa237f4e",
+      "implementationFingerprint": "b7b67f1c64d3827a5cf88bb5e863a3f782dd4a596bb62f0b68fec813de834a06",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-048:action-1",
+        "TC-ITEM-STD-048:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-048:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "949a4acbc277634f666c6845f1b202fa474854d5e608ecd6dd84cfb20078dff5",
+      "implementationFingerprint": "b7b67f1c64d3827a5cf88bb5e863a3f782dd4a596bb62f0b68fec813de834a06",
+      "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+      "requiredOperationKeys": [
+        "TC-ITEM-STD-049:action-1",
+        "TC-ITEM-STD-049:action-2"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-049:expectation-2"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "implementationFingerprint": "a9a4cbce2ed702806376c1b0a5f4085188187df4beb484c6b677fa35a6d85202",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-002:action-1"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "cleanupRequired": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "2d2413e6b69c3a294dc20314cb51e066e9cd59fb0315c3b1107f0780fb830908",
+      "implementationFingerprint": "c69949e2279f69be0179ae7d2e3599aa360e36c63e093cac170235dcfa8ce0e3",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-008:action-1",
+        "TC-ITEM-ADD-008:action-2",
+        "TC-ITEM-ADD-008:action-3",
+        "TC-ITEM-ADD-008:action-4",
+        "TC-ITEM-ADD-008:action-5"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-008:expectation-1",
+        "TC-ITEM-ADD-008:expectation-2",
+        "TC-ITEM-ADD-008:expectation-3"
+      ],
+      "cleanupRequired": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "515ffe52f870f4ad38910c3bf4368e0a61567aac0269ab1e1b717b822e18828b",
+      "implementationFingerprint": "c69949e2279f69be0179ae7d2e3599aa360e36c63e093cac170235dcfa8ce0e3",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-009:action-1",
+        "TC-ITEM-ADD-009:action-2",
+        "TC-ITEM-ADD-009:action-3",
+        "TC-ITEM-ADD-009:action-4"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-009:expectation-1",
+        "TC-ITEM-ADD-009:expectation-2"
+      ],
+      "cleanupRequired": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+      "implementationFingerprint": "c69949e2279f69be0179ae7d2e3599aa360e36c63e093cac170235dcfa8ce0e3",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-010:action-1",
+        "TC-ITEM-ADD-010:action-2",
+        "TC-ITEM-ADD-010:action-3"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ],
+      "cleanupRequired": true
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "caseFingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+      "semanticCaseFingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+      "implementationFingerprint": "c69949e2279f69be0179ae7d2e3599aa360e36c63e093cac170235dcfa8ce0e3",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "TC-ITEM-ADD-011:action-1",
+        "TC-ITEM-ADD-011:action-2",
+        "TC-ITEM-ADD-011:action-3",
+        "TC-ITEM-ADD-011:action-4",
+        "TC-ITEM-ADD-011:action-5",
+        "TC-ITEM-ADD-011:action-6"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-011:expectation-1",
+        "TC-ITEM-ADD-011:expectation-2"
+      ],
+      "cleanupRequired": true
+    }
+  ],
+  "reportPaths": [
+    "output/product-center-item-source-governed-addon-002-receipt-20260908-01-source-governed.json",
+    "output/product-center-item-source-governed-addon-creation-20260908-02-source-governed.json",
+    "output/product-center-item-handled-standard-name-20260908-02-handled-item-revalidation.json",
+    "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json",
+    "output/product-center-item-source-governed-standard-query-return-20260908-01-source-governed.json",
+    "output/product-center-item-source-governed-standard-weight-units-20260908-01-source-governed.json",
+    "output/product-center-item-source-governed-standard-query-return-20260908-02-source-governed.json",
+    "output/product-center-item-source-governed-standard-required-name-20260908-03-source-governed.json",
+    "output/product-center-item-source-governed-standard-advanced-settings-20260909-01-source-governed.json",
+    "output/product-center-item-source-governed-standard-create-controls-20260909-01-source-governed.json",
+    "output/product-center-item-source-governed-addon-other-settings-20260909-01-source-governed.json",
+    "output/product-center-item-source-governed-addon-price-currency-20260909-01-source-governed.json",
+    "output/product-center-item-source-governed-addon-price-field-feedback-20260909-01-source-governed.json",
+    "output/product-center-item-source-governed-addon-price-v5-20260909-01-source-governed.json"
+  ],
+  "implementationFormatBaselines": {
+    "TC-ITEM-ADD-002": {
+      "schemaVersion": "1.0.0",
+      "sources": [
+        {
+          "category": "data-factory",
+          "path": "test-data/product-center/item-216/addon-item-216.factory.ts",
+          "sha256": "8b50f198d6caa53db9dbc0e80d10d4131ecf59ef73a885422ae9296132b074db"
+        },
+        {
+          "category": "data-factory",
+          "path": "test-data/product-center/product-center-item-create-data.factory.ts",
+          "sha256": "004dee3ac93229fe010131860fb9dda5155afc23414532f5a4abef5ad697fc42"
+        },
+        {
+          "category": "flow",
+          "path": "api/product-center/recovery-service.ts",
+          "sha256": "b68d17a588089323c265911091a184f68e8532b62ac9ea1898afdd87b5f44b75"
+        },
+        {
+          "category": "flow",
+          "path": "flows/item-create.flow.ts",
+          "sha256": "ef0032c1c6ddb755568eb99dd3ff3be63c95291a2356e5c08a5aa4e3cc9f33b2"
+        },
+        {
+          "category": "flow",
+          "path": "flows/product-center/item-216/addon-item-216.flow.ts",
+          "sha256": "3af79698f7f33677c2b6448c9cf83072cc602d21ffb0952df8e296d24038e480",
+          "snapshotPath": ".artifact-history/objects/3af79698f7f33677c2b6448c9cf83072cc602d21ffb0952df8e296d24038e480.bin"
+        },
+        {
+          "category": "flow",
+          "path": "playwright.config.ts",
+          "sha256": "9393bb77d82c48ba9d8098baf18767bc2497221bcd62712b1f37ae2a97550b78"
+        },
+        {
+          "category": "flow",
+          "path": "scripts/generate-product-center-item-216-spec.ts",
+          "sha256": "71a0bde6eeddbae75b5a66f2cb9b6d0a4bc83f20bdff591d7c6f9b9bfc74f745"
+        },
+        {
+          "category": "locator",
+          "path": "pages/product-management/item/item-create-form-locators.ts",
+          "sha256": "e1cbd20ca543135091eb40aa2c08bc8fe3eb9b92a87b2eff035d26bbef59b0d2"
+        },
+        {
+          "category": "locator",
+          "path": "pages/product-management/item/item-create-side-locators.ts",
+          "sha256": "1fd7ea450ea0e5e826823ca37885c060488b914c9674cee31e669671bbda5c43"
+        },
+        {
+          "category": "page-object",
+          "path": "pages/product-management/item/item-create-side.page.ts",
+          "sha256": "34336455cff3c0afb0022c5f7312f5b90d2e480fd7fb62f2e34748f9d77bc2cb"
+        },
+        {
+          "category": "page-object",
+          "path": "pages/product-management/item/item-list.page.ts",
+          "sha256": "48d17ed9b42bb693d974650abc33396d1335c91ec758c950a73d24e42d49a5e5"
+        }
+      ]
+    }
+  }
+}

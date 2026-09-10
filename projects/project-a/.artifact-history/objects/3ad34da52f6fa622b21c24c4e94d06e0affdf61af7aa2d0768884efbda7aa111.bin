@@ -1,0 +1,942 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportId": "product-center-reverse-scenario-readiness-v1",
+  "generatedAt": "2026-09-08T05:24:31.562Z",
+  "projectId": "merchant-center-product-center",
+  "executionScope": "static-and-contract-only",
+  "inputFingerprints": [
+    {
+      "path": "deliverables\\test-plan-governance\\process-reverse-scenario-catalog-v1.json",
+      "fingerprint": "79207edaf113039c86ebb010a7a539b80ed6691bff1c3dbddf7b6c2b0a7b24b1"
+    },
+    {
+      "path": "Merchant Center UITest\\adapters\\test-automation-platform\\product-center-reverse-scenario-map-v1.json",
+      "fingerprint": "e7791ce92a048fe2177dfb94fa23ff0017178e91a9a74fd44d082405809a7e06"
+    },
+    {
+      "path": "deliverables\\product-center-group\\runtime-audit-v2.json",
+      "fingerprint": "953053d9661df3902f1882494fd601985932251d334f67c5a3cd6a5de11053bc"
+    }
+  ],
+  "summary": {
+    "scenarioCount": 26,
+    "mappedScenarioCount": 10,
+    "partial": 10,
+    "missing": 16,
+    "covered": 0,
+    "linkedCaseCount": 5
+  },
+  "scenarios": [
+    {
+      "scenarioId": "RS-FR-001",
+      "requirementIds": [
+        "FR-001"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-002",
+      "requirementIds": [
+        "FR-002"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-003",
+      "requirementIds": [
+        "FR-003"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-004",
+      "requirementIds": [
+        "FR-004"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-005",
+      "requirementIds": [
+        "FR-005"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-006",
+      "requirementIds": [
+        "FR-006"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-007",
+      "requirementIds": [
+        "FR-007"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-008",
+      "requirementIds": [
+        "FR-008"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-009",
+      "requirementIds": [
+        "FR-009"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-010",
+      "requirementIds": [
+        "FR-010"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-011",
+      "requirementIds": [
+        "FR-011"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-012",
+      "requirementIds": [
+        "FR-012"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-013",
+      "requirementIds": [
+        "FR-013"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 1,
+      "declaredEvidenceCount": 2,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-014",
+      "requirementIds": [
+        "FR-014"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-015",
+      "requirementIds": [
+        "FR-015"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 4,
+      "declaredEvidenceCount": 5,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-016",
+      "requirementIds": [
+        "FR-016"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-017",
+      "requirementIds": [
+        "FR-017"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-018",
+      "requirementIds": [
+        "FR-018"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-019",
+      "requirementIds": [
+        "FR-019"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-020",
+      "requirementIds": [
+        "FR-020"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-empty-submit",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-empty-submit-audit.json",
+          "sha256": "f9e051a14c5a6e12dd7087ab75dd1cb1c8562e2a410eeee02e636ebf3236b78c",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-review",
+          "path": "deliverables/product-center-group/combo-v2-audit-review.md",
+          "sha256": "15d8213e3e5d1d6ae54c91c185a791db7d12e513a3ea5dcaab74e5be7dbc1988",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-form",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-audit.json",
+          "sha256": "d2e159e518080031cf17960f09ea0a03433b236aa34a49f98a04ffc435a8f60e",
+          "disposition": "consumed"
+        },
+        {
+          "evidenceId": "audit:combo-v2-detail",
+          "path": "Merchant Center UITest/output/audit/product-center-group-combo-v2-detail-audit.json",
+          "sha256": "7d0493ea74951e324f1b2047f72f395a561b5fae81ff4b0fd0b1f1fcb12478c6",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-021",
+      "requirementIds": [
+        "FR-021"
+      ],
+      "status": "partial",
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003"
+      ],
+      "evidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "evidenceItems": [
+        {
+          "evidenceId": "audit:addon-empty-items",
+          "path": "Merchant Center UITest/output/product-center-group-empty-items-audit-v1.json",
+          "sha256": "233fab94c9a1f75635a4296946ca25b6522683006af432a409d244ca021f9277",
+          "disposition": "consumed"
+        }
+      ],
+      "consumedEvidenceCount": 1,
+      "declaredEvidenceCount": 2,
+      "declaredAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "unconsumedEvidenceRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "reason": "已登记场景证据引用；共享汇总文件不作为逐项消费证据，当前只能计为 partial",
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-022",
+      "requirementIds": [
+        "FR-022"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-023",
+      "requirementIds": [
+        "FR-023"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-024",
+      "requirementIds": [
+        "FR-024"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-025",
+      "requirementIds": [
+        "FR-025"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    },
+    {
+      "scenarioId": "RS-FR-026",
+      "requirementIds": [
+        "FR-026"
+      ],
+      "status": "missing",
+      "linkedCaseIds": [],
+      "evidenceRefs": [],
+      "evidenceItems": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "declaredAggregateRefs": [],
+      "unconsumedEvidenceRefs": [],
+      "reason": "商品中心尚未提供该流程场景的项目适配器映射或证据",
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据"
+      ]
+    }
+  ],
+  "resolvedInThisRun": [
+    "商品中心映射 caseId 存在性和证据引用校验",
+    "流程场景到商品中心证据的 partial/missing 分层",
+    "候选用例、完整收据和业务执行的状态隔离"
+  ],
+  "deferredOrBlocked": [
+    "真实页面/API 写入、清理和 execution grant",
+    "跨 applicationId 试点",
+    "业务规则冲突和未知上下文的人工裁决"
+  ],
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "existingPassedCasesInvalidated": false,
+    "crossSystemPilot": "deferred",
+    "candidateCasesExecutionEligible": false
+  }
+}

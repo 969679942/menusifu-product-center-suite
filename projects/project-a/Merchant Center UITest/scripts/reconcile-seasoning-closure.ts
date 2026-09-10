@@ -1,16 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { buildSystemTestArtifacts } from '../../Test Automation Platform/scripts/build-system-test-contract';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
 import {
   buildSystemTestCaseImplementationFingerprint,
   collectSystemTestRecipeAdapterIds,
-} from '../../../Test Automation Platform/scripts/run-system-test';
-import { arbitrateCaseState } from '../../../Test Automation Platform/src/automation/system-test/system-test-case-state-arbiter';
+} from '../../Test Automation Platform/scripts/run-system-test';
+import { arbitrateCaseState } from '../../Test Automation Platform/src/automation/system-test/system-test-case-state-arbiter';
 import {
   assertDeliveryCompletion,
   evaluateDeliveryCompletion,
-} from '../../../Test Automation Platform/src/utils/test-plan-landing-gate';
+} from '../../Test Automation Platform/src/utils/test-plan-landing-gate';
 
 type Disposition = 'deferred' | 'not-applicable' | 'blocked-source' | 'blocked-technical' | 'product-defect';
 type EvidenceCase = {

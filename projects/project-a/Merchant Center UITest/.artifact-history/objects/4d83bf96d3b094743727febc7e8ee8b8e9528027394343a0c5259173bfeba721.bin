@@ -1,0 +1,60 @@
+{
+  "recordedAt": "2026-09-08T14:15:20.235Z",
+  "input": {
+    "unitId": "remaining-admission-static-01",
+    "directionId": "remaining-admission-static-review",
+    "phase": "after-unit",
+    "tokenStart": 567359,
+    "tokenCurrent": 584866,
+    "elapsedMs": 149000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "189-current-contract-presence",
+      "189-embedded-fingerprint-currentness",
+      "standard-action-dispatch",
+      "STD005-coverage",
+      "STD019-coverage",
+      "STD041-coverage"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/remaining-admission-static-review.json",
+        "sha256": "ab61e18ef0f470b31557a0668c81425a20d29fc98bef956f34f91a82dd3818c3",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "remaining-admission-static-01",
+    "directionId": "remaining-admission-static-review",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 17507,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "189-current-contract-presence",
+      "189-embedded-fingerprint-currentness",
+      "standard-action-dispatch",
+      "STD005-coverage",
+      "STD019-coverage",
+      "STD041-coverage"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ab61e18ef0f470b31557a0668c81425a20d29fc98bef956f34f91a82dd3818c3"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

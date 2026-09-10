@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 import { readPlaywrightExecutionReceipts } from '../utils/playwright-execution-receipt';
-import type { SystemTestOptimizationReceipt } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import type { SystemTestOptimizationReceipt } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 
 type Attachment = { name?: string; body?: string; contentType?: string };
 type Result = { status?: string; errors?: Array<{ message?: string }>; attachments?: Attachment[] };

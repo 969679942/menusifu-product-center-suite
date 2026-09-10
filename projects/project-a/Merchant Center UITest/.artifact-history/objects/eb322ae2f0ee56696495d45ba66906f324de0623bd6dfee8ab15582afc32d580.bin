@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T19:12:47.689Z",
+  "classification": "static-source-and-dependency-audit",
+  "businessCasesExecuted": 0,
+  "saveActions": 0,
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "source": "BR-ITEM-010",
+      "status": "candidate-rule-clear-current-data-and-edit-receipt-missing",
+      "operations": 8,
+      "assertions": 3,
+      "blockers": [
+        "需准备并验证ADD_DUP_001、ADD_EDIT_TARGET_001归属；创建和编辑各自需要API/UI错误码及原名保持收据",
+        "清理需覆盖创建尝试与既有测试数据边界"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "source": "BR-ITEM-010;人工确认failure-pack#tc-item-add-015",
+      "status": "candidate-cross-type-scope-expensive",
+      "operations": 7,
+      "assertions": 3,
+      "blockers": [
+        "包含标准商品创建、加料商品创建及标准商品改名三条业务生命周期",
+        "需跨类型列表计数、创建/编辑API成功及旧名称消失收据"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "source": "BR-ITEM-010、BR-ITEM-021、BR-CAT-005",
+      "status": "candidate-page-methods-present-current-receipt-missing",
+      "operations": 4,
+      "assertions": 3,
+      "blockers": [
+        "商品第二名称重复规则需当前字段错误信号、接口失败和零残留收据"
+      ]
+    }
+  ],
+  "currentQualified": 20,
+  "notQualified": 184,
+  "next": "prioritize-ADD016-or-resolve-ADD014-fixture-ownership"
+}

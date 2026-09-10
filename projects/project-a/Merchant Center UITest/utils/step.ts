@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { renderBusinessStepTitle } from '../../../Test Automation Platform/src/reporters/allure-step-policy';
+import { renderBusinessStepTitle } from '../../Test Automation Platform/src/reporters/allure-step-policy';
 import {
   finishExecutableOperation,
   startExecutableOperation,

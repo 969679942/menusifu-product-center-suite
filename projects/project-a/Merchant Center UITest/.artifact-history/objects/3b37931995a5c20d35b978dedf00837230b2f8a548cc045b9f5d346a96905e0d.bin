@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-09-08T14:56:59.351Z",
+  "status": "diagnosed-enforcement-gap",
+  "unitId": "work-unit-token-accounting-diagnosis",
+  "observedSample": {
+    "start": 712638,
+    "end": 991049,
+    "delta": 278411,
+    "source": "get_goal.tokensUsed",
+    "billingEquivalent": null,
+    "endpoint": "sample before diagnosis; excludes subsequent work"
+  },
+  "findings": [
+    {
+      "evidence": "Test Automation Platform/src/governance/work-unit-stop-loss.ts",
+      "fact": "Pure evaluator checks supplied samples; cannot interrupt provider calls."
+    },
+    {
+      "evidence": "Merchant Center UITest/adapters/product-center/product-center-work-unit-stop-loss.ts",
+      "fact": "Runtime startup consumes fresh sample and single-use claim; model reading/diagnosis has no tool-enforced limit."
+    },
+    {
+      "evidence": "std005-review-cost-stop-20260908.json",
+      "fact": "Multiple dependent reads occurred between samples; broad output was truncated; policy was breached before business execution."
+    }
+  ],
+  "unknown": [
+    "Whether cumulative goal usage includes cached context and its billing weights; no supported accounting/compaction control found in current tool catalog"
+  ],
+  "decision": {
+    "std005": "remain-paused-before-business",
+    "sameDirectionRestart": "prohibited-by-existing-policy-without-new-bounded-evidence",
+    "goal4": "incomplete",
+    "budgetReset": false,
+    "raiseBudget": false
+  },
+  "businessImpact": {
+    "attempts": 0,
+    "qualifiedAdded": 0,
+    "existingQualified": 9,
+    "incomplete": 195,
+    "existingPassesRerun": 0
+  },
+  "nextRequired": "Establish a usable bounded accounting/enforcement path; do not repeat diagnosis or restart STD005 by resetting counters.",
+  "isBusinessProgress": false
+}

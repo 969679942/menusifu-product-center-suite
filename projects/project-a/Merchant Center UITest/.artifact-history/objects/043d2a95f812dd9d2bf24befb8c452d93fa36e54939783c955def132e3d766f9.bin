@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T14:39:06.742Z",
+  "input": {
+    "unitId": "STD030-stability-repair-01",
+    "directionId": "STD030-stable-observation-repair",
+    "phase": "after-unit",
+    "tokenStart": 648770,
+    "tokenCurrent": 671150,
+    "elapsedMs": 372000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "delayed-initialization-exclusion",
+      "changing-state-misclassification",
+      "swallowed-probe-error",
+      "prior9-impact"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/query-stability-repair-proof.json",
+        "sha256": "2bd0b32528fa336d59e142a795dfba953137918c014e53ddaa866e2a7f2e2fd7",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD030-stability-repair-01",
+    "directionId": "STD030-stable-observation-repair",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 22380,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "delayed-initialization-exclusion",
+      "changing-state-misclassification",
+      "swallowed-probe-error",
+      "prior9-impact"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "2bd0b32528fa336d59e142a795dfba953137918c014e53ddaa866e2a7f2e2fd7"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

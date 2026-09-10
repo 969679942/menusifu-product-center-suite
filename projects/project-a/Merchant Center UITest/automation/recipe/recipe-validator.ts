@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/recipe/recipe-validator';
+export * from '../../../Test Automation Platform/src/automation/recipe/recipe-validator';

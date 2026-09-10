@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test';
 import {
   assertDeliveryCompletion,
   evaluateDeliveryCompletion,
-} from '../../../../Test Automation Platform/src/utils/test-plan-landing-gate';
+} from '../../../Test Automation Platform/src/utils/test-plan-landing-gate';
 
 const projectRoot = path.resolve(__dirname, '../..');
 const closurePath = path.join(projectRoot, 'deliverables/system-test-platform/seasoning-module-closure.json');

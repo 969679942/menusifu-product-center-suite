@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionId": "product-center-test-plan-additional-automation-bindings",
+  "contract": {
+    "purpose": "新增商品中心测试方案完成来源审计后，通过配置复用现有增量执行通道",
+    "requiredFields": [
+      "caseId",
+      "title",
+      "module",
+      "handlerId",
+      "bindingFingerprint",
+      "scriptPath",
+      "runnerId",
+      "runtimeReadiness",
+      "status"
+    ],
+    "supportedRunnerIds": [
+      "group",
+      "item",
+      "remaining",
+      "system-test"
+    ]
+  },
+  "bindings": [
+    {
+      "caseId": "TC-FLV-SEA-015",
+      "title": "调味价格为0~999999.99且最多2位小数时保存成功",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-015",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-FLV-SEA-016",
+      "title": "调味价格为负数时保存失败并提示输入数字异常",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-016",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-FLV-SEA-018",
+      "title": "新增调味组仅填必填项保存成功",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-018",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-FLV-SEA-030",
+      "title": "调味组下无调味项时可删除调味组成功",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-030",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-FLV-SEA-032",
+      "title": "编辑调味组信息保存成功",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-032",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-FLV-SEA-046",
+      "title": "调味价格输入超过两位小数保存时四舍五入为两位",
+      "module": "seasoning",
+      "handlerId": "merchant-center-product-center-seasoning:TC-FLV-SEA-046",
+      "bindingFingerprint": "system-plan:merchant-center-product-center-seasoning",
+      "scriptPath": "Merchant Center UITest/systems/merchant-center-product-center-seasoning/tests/system.spec.ts",
+      "runnerId": "system-test",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-078",
+      "title": "套餐商品与加料商品允许同名并同时保留",
+      "module": "brand-item",
+      "handlerId": "item-216:TC-ITEM-PKG-078",
+      "bindingFingerprint": "sha256:0e1b49ed142ed8655b04fe062318ca86aefaf14bf68f5667e3685ef2871eb38a",
+      "scriptPath": "tests/generated/product-center-item-216.generated.spec.ts",
+      "runnerId": "item",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-079",
+      "title": "标准商品与套餐商品跨类型同名创建或编辑失败",
+      "module": "brand-item",
+      "handlerId": "item-216:TC-ITEM-PKG-079",
+      "bindingFingerprint": "sha256:6d56bac65543a2154343f66d1eb9eafe77b605a890ce63e81f3ae7ad4de4d0e1",
+      "scriptPath": "tests/generated/product-center-item-216.generated.spec.ts",
+      "runnerId": "item",
+      "runtimeReadiness": "ready",
+      "status": "landed"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+# 迁移闭环审计
+
+- 审计 ID：`merchant-center-platform-extraction-closure`
+- 应用 ID：`merchant-center`
+- 迁移闭环状态：`incomplete`
+- 输入指纹：`3bd36c1740d6f98d12c93a8fbee41ae3709bb71f10eb4ae56a51b37addc225da`
+- 范围说明：本报告只判定迁移和文件治理闭环，不声明跨系统平台最终完成。
+
+## 文件归属
+
+| 分类 | 数量 |
+| --- | ---: |
+| 公共核心 | 276 |
+| 项目适配器 | 276 |
+| 领域资产 | 1388 |
+| 生成证据 | 8653 |
+| 历史资产 | 57 |
+| 瞬态文件 | 2 |
+| 扫描总数 | 10652 |
+
+## 闭环门禁
+
+| 门禁 | 问题数 |
+| --- | ---: |
+| 未归属文件 | 0 |
+| 公共桥接违规 | 0 |
+| 重复公共实现 | 0 |
+| 断裂引用 | 0 |
+| 文档与机器引用冲突 | 0 |
+| 错位瞬态文件 | 0 |
+| 公共目录项目内容 | 0 |
+| 禁止内容引用 | 0 |
+| 必需迁移资产缺失 | 0 |
+| 迁移基线缺失 | 0 |
+| 迁移后缺失文件 | 0 |
+| 迁移后变更文件 | 11 |
+| 迁移基线接受收据无效 | 0 |
+| 历史快照断裂引用（非阻断） | 0 |
+
+## 迁移完整性基线
+
+- `platform:docs/indexed-run-telemetry.md`：MIGRATION_ASSET_ADDED，新增受管资产 d53e57af06d4675f77b757452864a094c59671a1e111b745680b3e57f2cee4e2/2806 尚未接受
+- `platform:src/governance/indexed-run-telemetry.ts`：MIGRATION_ASSET_ADDED，新增受管资产 19eab6744441ed7c6aff3b6e3270a809de8871b3c6006dc68f94d79cbd5fedb1/5324 尚未接受
+- `platform:tests/api/indexed-run-telemetry.contract.spec.ts`：MIGRATION_ASSET_ADDED，新增受管资产 93b8d339903cd8ee7566654e03b17049b8ea354047a2ed974b9f2143532370a3/8037 尚未接受
+- `platform:tests/helpers/indexed-run-fixture.ts`：MIGRATION_ASSET_ADDED，新增受管资产 ad5e7111dfb7012bd6f7e29ac1c87b859cdb57254ae47e110bfb1fe4eeceffc6/2060 尚未接受
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-run-telemetry.ts`：MIGRATION_ASSET_ADDED，新增受管资产 6e49682bef2c845911b48aea2096f90cbdd7d609a9f5de9f997e9485ba762a5a/3430 尚未接受
+- `platform:docs/execution-attempt-accounting.md`：MIGRATION_ASSET_CHANGED，基线 a1be4240509d0636738223ea7d90502984be592d0e1f647952414bb8f375a87a/1870，当前 2b71b9818b84b4f4e197201b2a748a0ad917442119e13b8dc68888531e6f71ba/1929
+- `platform:docs/repair-telemetry-metrics.md`：MIGRATION_ASSET_CHANGED，基线 b3c157d493de5ba8bcdbcc484354e2007b400574e0a8a68773faf8bb52d538fe/1068，当前 8ace4babbab74cbf5501c8858ae3aa7c38d2844f0c0f21b04b74ee136a4dfc8c/1294
+- `platform:docs/run-evidence-index.md`：MIGRATION_ASSET_CHANGED，基线 a712fff013fd8b186c4ae4ff709db8a71b5d4612d8ec0bca5b6d6a473a7f4101/2983，当前 86e171662f26e8aaf3649cd4511a41376420cf636e7665420118ab2b29dfa061/3166
+- `platform:scripts/run-system-test.ts`：MIGRATION_ASSET_CHANGED，基线 80d5f3881eff8f6078fa91134b0eb333d23d63f8707b796f26669d4942dfa23b/59979，当前 b15f124cc406ef5a33731d5636864e5b0f93df0be59a24aef5ccaaa9cbf6f948/60135
+- `platform:src/governance/run-evidence-index.ts`：MIGRATION_ASSET_CHANGED，基线 b0a53e0e7c763320f399bda3b26333b36ab857698a31d2209e1ad4f29b88fc58/13080，当前 35e4b23a985c083ed77c25138824d66e320f6d59483feb0eca62d915689aab74/15414
+- `platform:src/index.ts`：MIGRATION_ASSET_CHANGED，基线 2eae65cde6f5573c372736219e049daae24eaf9a00418c9d4269d2afae25d452/5656，当前 191d1a7bd4a2572557fc357a8b3c4935a108ae41f0f87f24013a72f0c165e8ca/5708
+
+## 历史来源
+
+- `workspace:Merchant Center Info/99-待废弃/商品中心-商品管理-商品`：retained-with-active-references，引用文件 4 个，引用目标 7 个。
+
+## 验收结论
+
+- 迁移闭环未完成；必须清零全部门禁问题后才能声明本次迁移结束。
+

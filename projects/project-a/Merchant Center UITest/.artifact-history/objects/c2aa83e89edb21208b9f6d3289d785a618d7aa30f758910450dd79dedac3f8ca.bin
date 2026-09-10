@@ -1,0 +1,149 @@
+{
+  "createdAt": "2026-09-08T14:05:52.592Z",
+  "scheduleBasis": "dependency-gated slots, not automatic clock scheduling",
+  "tracks": [
+    {
+      "id": "jenkins",
+      "priority": "必须",
+      "purpose": "核验远程执行与收据归档链路，区分历史试点成功和最新全量未完成",
+      "status": "historical-pilot-verified-current-full-regression-incomplete",
+      "completed": [
+        "当前GET认证200，服务与作业可用",
+        "历史55构建SUCCESS；本地严格收据审计10/10 complete",
+        "当前56构建已结束FAILURE；SHA/request/intent与本地提交记录一致；归档423条选择、203条reported received，未完整通过"
+      ],
+      "prerequisites": [
+        "当前改动通过本地定向合同和迁移门禁",
+        "需要验证当前实现时，先准备准确可审查的提交与目标选择；只有实际获得发布授权后提交远程执行",
+        "不使用当前商品8条合格用例做报告或Jenkins演示"
+      ],
+      "schedule": [
+        {
+          "slot": "J0 已执行",
+          "work": "只读远程状态及归档身份核对",
+          "boundMinutes": 5
+        },
+        {
+          "slot": "J1 商品首批交付后独立运行窗口",
+          "work": "先消费56原始收据与完整性缺口；只修阻断当前增量计划的问题",
+          "boundMinutes": 20
+        },
+        {
+          "slot": "J2 当前代码有可追踪远程SHA且明确选择集后",
+          "work": "优先contracts/reports验证；真实业务仅执行已有授权且确受影响的精确范围",
+          "boundMinutes": 20
+        }
+      ],
+      "acceptance": [
+        "远程GIT_SHA、intentId、requestId、实际选择和归档一致",
+        "每条业务终态有标准收据；无法完整收据者保留incomplete",
+        "执行成功与产品结果分离，禁止以历史10条替代当前全量"
+      ],
+      "passedCaseImpact": "当前8条不重跑、不失效；历史Jenkins155条accepted不导入当前商品资格"
+    },
+    {
+      "id": "cross-domain",
+      "priority": "必须",
+      "purpose": "验证相同应用中不同业务域的公共流程复用",
+      "status": "scheduled-candidate-source-and-startup-gated",
+      "candidate": {
+        "applicationId": "merchant-center",
+        "businessDomainId": "store-operations",
+        "manifest": "systems/merchant-center-store-operations-tax/manifest.json",
+        "caseId": "CASE-TAX-EDIT-001"
+      },
+      "prerequisites": [
+        "税种规则当前provisional、formalPromotionAllowed=false；先核对真实正式来源，不把候选执行当正式验收",
+        "公共试点启动按既定策略独立安排；现阶段只静态审计",
+        "需要独立上下文、可逆数据、API/UI零残留"
+      ],
+      "schedule": [
+        {
+          "slot": "D0 已执行",
+          "work": "确认已有适配器与规则身份，记录provisional限制",
+          "boundMinutes": 5
+        },
+        {
+          "slot": "D1 来源准入与独立启动条件满足后",
+          "work": "只读认证与上下文预检，失败诊断不得记产品失败",
+          "boundMinutes": 10
+        },
+        {
+          "slot": "D2 D1通过后",
+          "work": "一条可逆税种编辑的真实执行、恢复、逐面收据及公共资格裁决",
+          "boundMinutes": 20
+        }
+      ],
+      "acceptance": [
+        "业务域不同但applicationId相同，只证明跨域复用",
+        "每个操作、断言、上下文及清理对应真实收据",
+        "provisional规则不自动晋升正式"
+      ],
+      "passedCaseImpact": "与商品中心收据和状态分离，不重跑8条商品用例"
+    },
+    {
+      "id": "cross-application",
+      "priority": "必须",
+      "purpose": "验证不同applicationId的真实通用性",
+      "status": "deferred-until-explicit-start-and-target-selection",
+      "discovery": {
+        "savedProjectsInspected": true,
+        "localCandidates": [
+          "D:/Menusifu/POS2.0",
+          "D:/Menusifu/TestOps",
+          "D:/Menusifu/menusifu-pos-2.0-automation-test"
+        ],
+        "candidateTapManifestsFound": 0,
+        "applicationStartupPerformed": false,
+        "targetChosen": false
+      },
+      "prerequisites": [
+        "金将军明确启动并确定目标系统；本地有项目目录不等于有目标系统执行授权",
+        "先读取目标正式来源、接入合同与安全配置，自动发现可用信息",
+        "明确目标后穷尽认证/租户安全发现仍缺外部权限才登记external-authorization-blocked"
+      ],
+      "schedule": [
+        {
+          "slot": "A0 已执行",
+          "work": "检查可用项目及TAP适配器候选，未启动外部系统",
+          "boundMinutes": 5
+        },
+        {
+          "slot": "A1 明确启动与目标确定后",
+          "work": "编译一个独立applicationId的最小来源合同、精确动作/断言和清理",
+          "boundMinutes": 20
+        },
+        {
+          "slot": "A2 A1准入后",
+          "work": "真实只读场景及一条获授权可逆场景；按每单元20分钟/2次上限推进",
+          "boundMinutes": 20
+        },
+        {
+          "slot": "A3 收据通过后",
+          "work": "公共最终门禁重新裁决，保留模块交付独立结论",
+          "boundMinutes": 10
+        }
+      ],
+      "acceptance": [
+        "applicationId确实不同，不能将项目别名当跨系统",
+        "当前指纹、上下文、执行授权、逐条收据和零残留合格",
+        "公共最终门禁无缺失条件后才能标记平台完成"
+      ],
+      "passedCaseImpact": "不影响商品已有通过，不通过新增业务失败降级已交付模块"
+    }
+  ],
+  "ai": {
+    "priority": "可选",
+    "status": "deferred-by-user-decision",
+    "purpose": "核心稳定后降低来源整理、影响分析和失败初筛人工成本",
+    "expectedOutcome": "只输出附来源、指纹和影响范围的候选/草稿",
+    "prerequisites": [
+      "首批闭环已达标，但扩大执行、来源与收据完整性仍未成熟",
+      "先与用户恢复已记录讨论再启动具体单点实现"
+    ],
+    "authority": "不得批准执行、判通过或认定产品缺陷",
+    "passedCaseImpact": "当前不启用、不变更状态机、不触发业务重跑"
+  },
+  "platformCompletion": "incomplete",
+  "businessRunsStarted": 0
+}

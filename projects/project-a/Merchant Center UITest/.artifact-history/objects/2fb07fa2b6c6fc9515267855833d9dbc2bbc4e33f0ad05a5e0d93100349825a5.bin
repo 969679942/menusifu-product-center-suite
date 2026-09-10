@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "addon-creation-feedback-write-settlement-20260908",
+  "applicationId": "merchant-center-product-center",
+  "defaultImpactType": "business-implementation",
+  "impactedCaseIds": [
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007"
+  ],
+  "caseImpactTypes": {
+    "TC-ITEM-ADD-005": "business-implementation",
+    "TC-ITEM-ADD-006": "business-implementation",
+    "TC-ITEM-ADD-007": "business-implementation"
+  },
+  "classifiedExclusionCaseIds": [],
+  "reason": "ADD005/007登记当前证据支持的成功反馈等价集合；ADD006修复字段报错时未完成写请求可能误判通过的问题。三条各有实际实现影响，其他用例不执行。",
+  "scope": "project-adapter",
+  "implementation": "flows/product-center/item-216/addon-creation-acceptance.flow.ts",
+  "validation": "tests/api/product-center-addon-creation-acceptance.contract.spec.ts"
+}

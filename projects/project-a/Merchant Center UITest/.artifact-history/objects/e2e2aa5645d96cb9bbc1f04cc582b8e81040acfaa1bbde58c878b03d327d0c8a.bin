@@ -1,0 +1,227 @@
+{
+  "status": "active",
+  "goalAuthority": "current Codex goal created at user explicit request",
+  "updatedAt": "2026-09-08T14:19:09.001Z",
+  "goals": [
+    {
+      "id": 1,
+      "title": "205条逐案去向清单",
+      "status": "per-case-disposition-complete-semantic-expansion-pending",
+      "evidence": "seven-goal-case-ledger.json",
+      "completed": "205逐案去向已对账；189条明确缺当前动作/断言验收合同，内嵌实现指纹189/189匹配；49个标准动作入口已定位；005/019/041具体实现差异已登记",
+      "remaining": "全量业务语义覆盖与正式执行由第5项继续；清单完成不表示189条准入通过"
+    },
+    {
+      "id": 2,
+      "title": "首批3～5条正式用例真实闭环",
+      "status": "phase-target-met",
+      "evidence": "standard-list-unit-result.json",
+      "completed": "8条经当前既有严格资格合同合格；保留产品失败及证据缺口",
+      "remaining": "平台FINAL-GOAL更广的通用化要求仍独立未完成"
+    },
+    {
+      "id": 3,
+      "title": "只修直接阻断闭环的问题",
+      "status": "active-constraint",
+      "completed": "当前改动对应清单不同步及工作单元止损；没有修改已合格业务实现",
+      "remaining": "后续每个改动必须绑定具体用例或当前七项目标的准入缺口"
+    },
+    {
+      "id": 4,
+      "title": "每轮可见产出及token止损",
+      "status": "runtime-guard-adopted-agent-cost-enforcement-incomplete",
+      "evidence": "work-unit-stop-loss-proof.json",
+      "completed": "公共4/项目3负向合同通过；已有证据校验、旧样本/重复启动/选择漂移阻断；本单元实际触发token上限后冻结该方向；首个实际增量运行已消费单次启动凭据并保存超限止损",
+      "remaining": "公共启动凭据已生效，但实现单元358154→483666超出12000，未在实现中提前止损；不能声称成本控制已解决。后续每个有界单元在依赖工具前实际检查，超限不再启动同方向；供应方计费不由此工具中断。",
+      "latestEvidence": "019在6695 token达到6000软阈值后实际阻止登记和业务启动；草稿保存，未把单元草稿当通过"
+    },
+    {
+      "id": 5,
+      "title": "按依赖扩大执行",
+      "status": "in-progress",
+      "nextCaseIds": [
+        "TC-ITEM-STD-019"
+      ],
+      "remaining": "019草稿已实现精确集合断言，合同有效；未登记、未运行；其余189条缺当前合同，005/041具体缺口已登记",
+      "latestResult": "STD030真实执行1条，未新增合格；发现返回后筛选仍保留，原状态恢复；稳定性证据待补"
+    },
+    {
+      "id": 6,
+      "title": "Jenkins、跨应用、跨域独立排期",
+      "status": "separate-schedules-recorded-real-validation-incomplete",
+      "remaining": "Jenkins56全量不完整；跨域候选规则provisional；跨应用仍需明确启动与目标选择，公共验收未完成",
+      "evidence": "external-pilots-separate-schedule.json",
+      "completed": "真实Jenkins可用性和已有55/56证据已核对；三条独立路径已列前置、时间上限、验收及影响"
+    },
+    {
+      "id": 7,
+      "title": "可选轻量AI能力",
+      "status": "deferred-by-user-policy",
+      "remaining": "核心成熟后讨论；不自动启用、不代替证据或通过裁决",
+      "evidence": "external-pilots-separate-schedule.json"
+    }
+  ],
+  "stopLossResult": {
+    "schemaVersion": "1.0.0",
+    "unitId": "seven-goal-stop-loss-contract-01",
+    "directionId": "work-unit-stop-loss-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 19270,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "public-stop-loss-contract",
+      "evidence-file-verification",
+      "prestart-replay-gate"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "2d0669ce16132c94e69ea36657f49b43192e37a55ed82a0d68723660a79d03be"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "nextUnit": "STD019-registration-and-static-admission",
+  "currentQualified": 8,
+  "required": 204,
+  "notQualified": 196,
+  "automaticContinuationAuthorized": true,
+  "crossApplicationStartupAuthorized": false,
+  "queryDiagnosticStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-audit-01",
+    "directionId": "query-api-preconditions-diagnosis",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT",
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 26768,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "type-dom",
+      "status-dom"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "8b486b9c6cae46794acdd306d76b67c2e1170734e9fa4b25d7758ac788005756"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "queryDiagnostic": {
+    "attempts": 2,
+    "formalCasesExecuted": 0,
+    "status": "diagnostic-blocked",
+    "lastError": "TypeError",
+    "phase": "query-response-observation",
+    "hypothesis": "OPTIONS preflight may have matched; unconfirmed",
+    "next": "freeze API data precondition direction; independent confirmed navigation case 030"
+  },
+  "queryReturnStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-execution-01",
+    "directionId": "standard-query-return-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 13059,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD030-current-result",
+      "STD030-state-restoration"
+    ],
+    "newQuestionIds": [
+      "STD030-stable-postnavigation-observation"
+    ],
+    "newEvidenceHashes": [
+      "d8f4e59b5c48a0e882a1d2ff86a8c260277e69e60912294b3c5bb21fe21c0e97"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "validation": {
+    "typecheckPublic": "passed",
+    "typecheckProject": "passed",
+    "architectureDebt": 571,
+    "queryAndGoalAdapterContractsPassed": 6,
+    "capabilities": "passed",
+    "formalIndex": {
+      "total": 628,
+      "landed": 434,
+      "unlanded": 194,
+      "check": "passed"
+    },
+    "migration": "complete",
+    "finalPublicGate": {
+      "status": "incomplete",
+      "reasons": [
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED",
+        "REFERENCE_BASELINE_NOT_READY"
+      ]
+    }
+  },
+  "implementationCost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-implementation-01",
+    "directionId": "standard-query-return-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 125512,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "confirmed-source-contract",
+      "independent-executable-implementation",
+      "prior-receipt-impact",
+      "static-admission"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "fb966be1b30a90d815ed39b9df6ba86d6e0ccf059457dcbb17ca6684617297b3"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "staticReviewStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "remaining-admission-static-01",
+    "directionId": "remaining-admission-static-review",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 17507,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "189-current-contract-presence",
+      "189-embedded-fingerprint-currentness",
+      "standard-action-dispatch",
+      "STD005-coverage",
+      "STD019-coverage",
+      "STD041-coverage"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ab61e18ef0f470b31557a0668c81425a20d29fc98bef956f34f91a82dd3818c3"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "agentExecutionPolicy": {
+    "sampleBeforeEachDependentTool": true,
+    "softStopTokens": 6000,
+    "hardPolicyTokens": 12000,
+    "reason": "前次采样间隔超过阈值；预留半预算缓冲，达到softStop即保存检查点，不再扩展本方向；不能承诺供应方硬计费中断"
+  }
+}

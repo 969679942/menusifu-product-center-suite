@@ -1,0 +1,540 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: generated\product-center-item-216.generated.spec.ts >> 商品管理-商品自动化入口 >> 商品名称恰好100字符且包含单个中间空格时允许保存
+- Location: tests\generated\product-center-item-216.generated.spec.ts:8468:22
+
+# Error details
+
+```
+TimeoutError: locator.fill: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('#section-base').locator('.ant-form-item').filter({ hasText: /^Minimum Order Quantity/ }).getByRole('spinbutton').first()
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e9] [cursor=pointer]:
+          - img "logo" [ref=e10]
+          - generic [ref=e11]: MenuSifu
+        - menu [ref=e13]:
+          - menuitem "shopping Product up" [expanded] [ref=e14] [cursor=pointer]:
+            - generic [ref=e16]:
+              - img "shopping" [ref=e18]:
+                - img [ref=e19]
+              - generic [ref=e21]: Product
+            - img "up" [ref=e22]:
+              - img [ref=e23]
+          - menu [ref=e25]:
+            - menuitem "Item" [ref=e26] [cursor=pointer]:
+              - link "Item" [ref=e28]:
+                - /url: /pp/brand/list
+                - generic [ref=e30]: Item
+            - menuitem "Category" [ref=e31] [cursor=pointer]:
+              - link "Category" [ref=e33]:
+                - /url: /pp/brand/category
+                - generic [ref=e35]: Category
+            - menuitem "Dish Sequence" [ref=e36] [cursor=pointer]:
+              - link "Dish Sequence" [ref=e38]:
+                - /url: /pp/brand/dish-sequence
+                - generic [ref=e40]: Dish Sequence
+            - menuitem "Specifications" [ref=e41] [cursor=pointer]:
+              - link "Specifications" [ref=e43]:
+                - /url: /pp/brand/spec
+                - generic [ref=e45]: Specifications
+            - menuitem "Property Management down" [ref=e46] [cursor=pointer]:
+              - generic [ref=e49]: Property Management
+              - img "down" [ref=e50]:
+                - img [ref=e51]
+            - menuitem "Combos" [ref=e53] [cursor=pointer]:
+              - link "Combos" [ref=e55]:
+                - /url: /pp/brand/combo
+                - generic [ref=e57]: Combos
+            - menuitem "Seasoning down" [ref=e58] [cursor=pointer]:
+              - generic [ref=e61]: Seasoning
+              - img "down" [ref=e62]:
+                - img [ref=e63]
+            - menuitem "Labels down" [ref=e65] [cursor=pointer]:
+              - generic [ref=e68]: Labels
+              - img "down" [ref=e69]:
+                - img [ref=e70]
+            - menuitem "Ingredients" [ref=e72] [cursor=pointer]:
+              - link "Ingredients" [ref=e74]:
+                - /url: /pp/brandMaterial
+                - generic [ref=e76]: Ingredients
+            - menuitem "Ingredients Categories" [ref=e77] [cursor=pointer]:
+              - link "Ingredients Categories" [ref=e79]:
+                - /url: /pp/brandMaterialCategory
+                - generic [ref=e81]: Ingredients Categories
+            - menuitem "Images" [ref=e82] [cursor=pointer]:
+              - link "Images" [ref=e84]:
+                - /url: /pp/brandpictrue
+                - generic [ref=e86]: Images
+            - menuitem "Recipe Manager down" [ref=e87] [cursor=pointer]:
+              - generic [ref=e90]: Recipe Manager
+              - img "down" [ref=e91]:
+                - img [ref=e92]
+            - menuitem "Printer Stall down" [ref=e94] [cursor=pointer]:
+              - generic [ref=e97]: Printer Stall
+              - img "down" [ref=e98]:
+                - img [ref=e99]
+          - menuitem "global Language Management down" [ref=e101] [cursor=pointer]:
+            - generic [ref=e103]:
+              - img "global" [ref=e105]:
+                - img [ref=e106]
+              - generic [ref=e108]: Language Management
+            - img "down" [ref=e109]:
+              - img [ref=e110]
+          - menuitem "menu Menu down" [ref=e112] [cursor=pointer]:
+            - generic [ref=e114]:
+              - img "menu" [ref=e116]:
+                - img [ref=e117]
+              - generic [ref=e119]: Menu
+            - img "down" [ref=e120]:
+              - img [ref=e121]
+          - menuitem "shop Store Products down" [ref=e123] [cursor=pointer]:
+            - generic [ref=e125]:
+              - img "shop" [ref=e127]:
+                - img [ref=e128]
+              - generic [ref=e130]: Store Products
+            - img "down" [ref=e131]:
+              - img [ref=e132]
+        - generic [ref=e135]:
+          - generic [ref=e137]:
+            - button "translation" [ref=e138] [cursor=pointer]:
+              - img "translation" [ref=e141]:
+                - img [ref=e142]
+            - button "user" [ref=e146] [cursor=pointer]:
+              - img "user" [ref=e147]:
+                - img [ref=e148]
+          - button "shop Menusifu SCH Restaurant right" [ref=e151] [cursor=pointer]:
+            - generic [ref=e152]:
+              - img "shop" [ref=e153]:
+                - img [ref=e154]
+              - generic [ref=e156]: Menusifu SCH Restaurant
+            - img "right" [ref=e158]:
+              - img [ref=e159]
+        - img [ref=e162]
+    - main [ref=e165]:
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - button "close" [ref=e168] [cursor=pointer]:
+            - img "close" [ref=e170]:
+              - img [ref=e171]
+          - paragraph [ref=e174]: Create Standard Product
+          - generic [ref=e175]:
+            - button "Save & New" [ref=e176] [cursor=pointer]:
+              - generic [ref=e177]: Save & New
+            - button "Save" [ref=e178] [cursor=pointer]:
+              - generic [ref=e179]: Save
+        - generic [ref=e180]:
+          - generic [ref=e183]:
+            - link "Basic Info" [ref=e186] [cursor=pointer]:
+              - /url: "#section-base"
+            - link "Price" [ref=e188] [cursor=pointer]:
+              - /url: "#section-price-specs"
+            - link "Print Settings" [ref=e190] [cursor=pointer]:
+              - /url: "#section-print-settings"
+            - link "Attribute" [ref=e192] [cursor=pointer]:
+              - /url: "#section-attributes"
+            - link "More Settings" [ref=e194] [cursor=pointer]:
+              - /url: "#section-others"
+          - generic [ref=e196]:
+            - generic [ref=e198]:
+              - heading "Basic Info" [level=2] [ref=e200]
+              - generic [ref=e201]:
+                - generic [ref=e202]:
+                  - generic [ref=e203]:
+                    - generic [ref=e204]:
+                      - generic [ref=e211]:
+                        - textbox [ref=e213]: AUTO_AUDIT_F3MUH0SWPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+                        - generic:
+                          - generic:
+                            - generic: Item Name *
+                      - generic [ref=e220]:
+                        - generic [ref=e221]:
+                          - textbox [active] [ref=e222]
+                          - img "question-circle" [ref=e224]:
+                            - img [ref=e225]
+                        - generic:
+                          - generic:
+                            - generic: Item Name(Alt.Language)
+                    - generic [ref=e230] [cursor=pointer]:
+                      - img "picture" [ref=e231]:
+                        - img [ref=e232]
+                      - generic [ref=e234]: Upload Image
+                  - generic [ref=e235]:
+                    - generic [ref=e242] [cursor=pointer]:
+                      - img "down" [ref=e245]:
+                        - img [ref=e246]
+                      - generic:
+                        - generic:
+                          - generic: Category
+                      - img "question-circle" [ref=e249]:
+                        - img [ref=e250]
+                    - generic [ref=e259]:
+                      - generic [ref=e261]:
+                        - textbox [ref=e262]
+                        - generic:
+                          - generic: 0 / 250
+                      - img "question-circle" [ref=e264]:
+                        - img [ref=e265]
+                      - generic:
+                        - generic:
+                          - generic: Description
+                - button "down Advanced Settings" [ref=e268] [cursor=pointer]:
+                  - img "down" [ref=e270]:
+                    - img [ref=e271]
+                  - generic [ref=e273]: Advanced Settings
+            - generic [ref=e275]:
+              - heading "Price" [level=2] [ref=e277]
+              - generic [ref=e278]:
+                - generic [ref=e279]:
+                  - generic [ref=e280]: Weight-based Item
+                  - img "question-circle" [ref=e281]:
+                    - img [ref=e282]
+                - generic [ref=e286]:
+                  - generic [ref=e287] [cursor=pointer]:
+                    - radio "No" [checked] [ref=e289]
+                    - generic [ref=e291]: "No"
+                  - generic [ref=e292] [cursor=pointer]:
+                    - radio "Yes" [ref=e294]
+                    - generic [ref=e296]: "Yes"
+              - separator [ref=e297]
+              - generic [ref=e298]:
+                - generic [ref=e300]: Specification
+                - generic [ref=e302]:
+                  - generic [ref=e304] [cursor=pointer]:
+                    - radio "Single Recommended for single item" [checked] [ref=e306]
+                    - generic [ref=e309]:
+                      - generic [ref=e310]: Single
+                      - generic [ref=e311]: Recommended for single item
+                  - generic [ref=e313] [cursor=pointer]:
+                    - radio "Multiple Recommended for variable item" [ref=e315]
+                    - generic [ref=e318]:
+                      - generic [ref=e319]: Multiple
+                      - generic [ref=e320]: Recommended for variable item
+                - table [ref=e328]:
+                  - rowgroup [ref=e329]:
+                    - row "Price($) * question-circle Packaging Fee($) question-circle Cost($) question-circle" [ref=e330]:
+                      - columnheader "Price($) * question-circle" [ref=e331]:
+                        - generic [ref=e332]:
+                          - text: Price($)
+                          - generic [ref=e333]: "*"
+                          - img "question-circle" [ref=e334]:
+                            - img [ref=e335]
+                      - columnheader "Packaging Fee($) question-circle" [ref=e338]:
+                        - generic [ref=e339]:
+                          - text: Packaging Fee($)
+                          - img "question-circle" [ref=e340]:
+                            - img [ref=e341]
+                      - columnheader "Cost($) question-circle" [ref=e344]:
+                        - generic [ref=e345]:
+                          - text: Cost($)
+                          - img "question-circle" [ref=e346]:
+                            - img [ref=e347]
+                  - rowgroup [ref=e350]:
+                    - generic:
+                      - text: Price($)
+                      - generic: "*"
+                      - img:
+                        - img
+                    - generic:
+                      - text: Packaging Fee($)
+                      - img:
+                        - img
+                    - generic:
+                      - text: Cost($)
+                      - img:
+                        - img
+                    - row "$ $ $" [ref=e351]:
+                      - cell "$" [ref=e352]:
+                        - generic [ref=e353]:
+                          - generic:
+                            - generic: $
+                          - spinbutton "Price(Required)" [ref=e356]
+                      - cell "$" [ref=e357]:
+                        - generic [ref=e358]:
+                          - generic:
+                            - generic: $
+                          - spinbutton "Packaging Fee" [ref=e361]
+                      - cell "$" [ref=e362]:
+                        - generic [ref=e363]:
+                          - generic:
+                            - generic: $
+                          - spinbutton "Cost" [ref=e366]
+            - generic [ref=e367]:
+              - generic [ref=e368]:
+                - heading "Print Settings" [level=2] [ref=e369]
+                - generic [ref=e370]: "Selected stalls: 0"
+              - generic [ref=e371]:
+                - generic [ref=e372]:
+                  - img "search" [ref=e374]:
+                    - img [ref=e375]
+                  - textbox "Stall name" [ref=e377]
+                - generic [ref=e381]:
+                  - generic [ref=e383] [cursor=pointer]:
+                    - checkbox "kitchens-M000024451" [ref=e385]
+                    - generic [ref=e388]: kitchens-M000024451
+                  - generic [ref=e390] [cursor=pointer]:
+                    - checkbox "runners-M000024451" [ref=e392]
+                    - generic [ref=e395]: runners-M000024451
+                  - generic [ref=e397] [cursor=pointer]:
+                    - checkbox "packers-M000024451" [ref=e399]
+                    - generic [ref=e402]: packers-M000024451
+                  - generic [ref=e404] [cursor=pointer]:
+                    - checkbox "receipts-M000024451" [ref=e406]
+                    - generic [ref=e409]: receipts-M000024451
+                  - generic [ref=e411] [cursor=pointer]:
+                    - checkbox "Label1-M000024451" [ref=e413]
+                    - generic [ref=e416]: Label1-M000024451
+                  - generic [ref=e418] [cursor=pointer]:
+                    - checkbox "KDS-M000024451" [ref=e420]
+                    - generic [ref=e423]: KDS-M000024451
+                  - generic [ref=e425] [cursor=pointer]:
+                    - checkbox "厨房" [ref=e427]
+                    - generic [ref=e430]: 厨房
+            - generic [ref=e432]:
+              - heading "Attribute" [level=2] [ref=e434]
+              - generic [ref=e435]:
+                - generic [ref=e437]:
+                  - generic [ref=e439]: Attribute
+                  - button "down Add" [ref=e441] [cursor=pointer]:
+                    - img "down" [ref=e443]:
+                      - img [ref=e444]
+                    - generic [ref=e446]: Add
+                - generic [ref=e449]:
+                  - generic [ref=e450]:
+                    - generic [ref=e451]: Mutually Exclusive Attribute Rules
+                    - img "question-circle" [ref=e452]:
+                      - img [ref=e453]
+                  - button "down Expand" [ref=e456] [cursor=pointer]:
+                    - img "down" [ref=e458]:
+                      - img [ref=e459]
+                    - generic [ref=e461]: Expand
+            - generic [ref=e464]:
+              - heading "More Settings" [level=2] [ref=e465]
+              - button "down Expand" [ref=e466] [cursor=pointer]:
+                - img "down" [ref=e468]:
+                  - img [ref=e469]
+                - generic [ref=e471]: Expand
+  - generic [ref=e477]: Select from Industry Products
+```
+
+# Test source
+
+```ts
+  433 |           : 'missing-preview',
+  434 |       requestObserved: Boolean(response),
+  435 |       responseStatus: response?.status() ?? null,
+  436 |       responseReferences,
+  437 |       responseSummary: response
+  438 |         ? await this.summarizeStandardMainImageResponse(responseBody)
+  439 |         : {
+  440 |             message: '标准商品主图上传未观察到响应',
+  441 |             dataPresent: false,
+  442 |             imageReferenceCount: 0,
+  443 |             visibleDialogTexts: [],
+  444 |           },
+  445 |     };
+  446 |   }
+  447 | 
+  448 |   @step('读取高级设置默认收起状态')
+  449 |   async readAdvancedSettingsCollapsedEvidence(): Promise<{
+  450 |     expanded: boolean;
+  451 |     fieldVisibility: Record<string, boolean>;
+  452 |   }> {
+  453 |     const fields = {
+  454 |       posName: this.locators.posNameInput,
+  455 |       kitchenName: this.locators.kitchenNameInput,
+  456 |       mnemonicCode: this.locators.mnemonicCodeInput,
+  457 |       industryGoods: this.locators.industryGoodsInput,
+  458 |       itemCode: this.locators.itemCodeInput,
+  459 |       unit: this.locators.unitInput,
+  460 |       deviceCode: this.locators.deviceCodeInput,
+  461 |       minimumOrderQuantity: this.locators.minimumOrderQuantityInput,
+  462 |     };
+  463 |     const fieldVisibility = Object.fromEntries(await Promise.all(
+  464 |       Object.entries(fields).map(async ([name, locator]) => (
+  465 |         [name, await locator.isVisible().catch(() => false)] as const
+  466 |       )),
+  467 |     ));
+  468 |     return {
+  469 |       expanded: Object.values(fieldVisibility).some(Boolean),
+  470 |       fieldVisibility,
+  471 |     };
+  472 |   }
+  473 | 
+  474 |   @step('读取标准商品属性添加菜单项')
+  475 |   async readAttributeAddMenuItems(): Promise<string[]> {
+  476 |     await this.openAddAttributeMenu();
+  477 |     const items = await this.page.locator('.ant-dropdown-menu:visible [role="menuitem"]').allInnerTexts();
+  478 |     await this.closeAddAttributeMenu();
+  479 |     return items.map((value) => value.trim()).filter(Boolean);
+  480 |   }
+  481 | 
+  482 |   @step('填写 POS 名称：{posName}')
+  483 |   async fillPosName(posName: string): Promise<void> {
+  484 |     await this.locators.posNameInput.fill(posName);
+  485 |   }
+  486 | 
+  487 |   @step('填写送厨名称：{kitchenName}')
+  488 |   async fillKitchenName(kitchenName: string): Promise<void> {
+  489 |     await this.locators.kitchenNameInput.fill(kitchenName);
+  490 |   }
+  491 | 
+  492 |   @step('读取 POS 名称与送厨名称')
+  493 |   async readPosAndKitchenNames(): Promise<{ posName: string; kitchenName: string }> {
+  494 |     await this.ensureAdvancedSettingsExpanded();
+  495 |     return {
+  496 |       posName: await this.locators.posNameInput.inputValue(),
+  497 |       kitchenName: await this.locators.kitchenNameInput.inputValue(),
+  498 |     };
+  499 |   }
+  500 | 
+  501 |   @step('填写助记码：{mnemonicCode}')
+  502 |   async fillMnemonicCode(mnemonicCode: string): Promise<void> {
+  503 |     await this.locators.mnemonicCodeInput.fill(mnemonicCode);
+  504 |   }
+  505 | 
+  506 |   @step('填写行业商品：{industryGoods}')
+  507 |   async fillIndustryGoods(industryGoods: string): Promise<void> {
+  508 |     await this.locators.industryGoodsInput.fill(industryGoods);
+  509 |   }
+  510 | 
+  511 |   @step('读取行业商品输入值')
+  512 |   async readIndustryGoodsValue(): Promise<string> {
+  513 |     return this.locators.industryGoodsInput.inputValue({ timeout: 5_000 });
+  514 |   }
+  515 | 
+  516 |   @step('填写商品编码：{itemCode}')
+  517 |   async fillItemCode(itemCode: string): Promise<void> {
+  518 |     await this.locators.itemCodeInput.fill(itemCode, { timeout: 10_000 });
+  519 |   }
+  520 | 
+  521 |   @step('填写单位：{unit}')
+  522 |   async fillUnit(unit: string): Promise<void> {
+  523 |     await this.locators.unitInput.fill(unit, { timeout: 10_000 });
+  524 |   }
+  525 | 
+  526 |   @step('填写设备编码：{deviceCode}')
+  527 |   async fillDeviceCode(deviceCode: string): Promise<void> {
+  528 |     await this.locators.deviceCodeInput.fill(deviceCode);
+  529 |   }
+  530 | 
+  531 |   @step('填写起售数量：{quantity}')
+  532 |   async fillMinimumOrderQuantity(quantity: string): Promise<void> {
+> 533 |     await this.locators.minimumOrderQuantityInput.fill(quantity, { timeout: 10_000 });
+      |                                                   ^ TimeoutError: locator.fill: Timeout 10000ms exceeded.
+  534 |   }
+  535 | 
+  536 |   @step('通过键盘输入起售数量原始值：{quantity}')
+  537 |   async typeMinimumOrderQuantityRaw(quantity: string): Promise<void> {
+  538 |     const timeout = 10_000;
+  539 |     await this.locators.minimumOrderQuantityInput.waitFor({ state: 'visible', timeout });
+  540 |     await this.locators.minimumOrderQuantityInput.press('ControlOrMeta+A', { timeout });
+  541 |     await this.locators.minimumOrderQuantityInput.type(quantity, { timeout });
+  542 |   }
+  543 | 
+  544 |   @step('清空起售数量')
+  545 |   async clearMinimumOrderQuantity(): Promise<void> {
+  546 |     await this.locators.minimumOrderQuantityInput.fill('');
+  547 |   }
+  548 | 
+  549 |   @step('失焦标准价输入框')
+  550 |   async blurStandardPrice(): Promise<void> {
+  551 |     await this.locators.standardPriceInput.press('Tab');
+  552 |   }
+  553 | 
+  554 |   @step('读取标准商品起售数量输入值')
+  555 |   async readMinimumOrderQuantityValue(timeout = 5_000): Promise<string> {
+  556 |     return this.locators.minimumOrderQuantityInput.inputValue({ timeout });
+  557 |   }
+  558 | 
+  559 |   @step('选择单规格')
+  560 |   async selectSingleSpec(): Promise<void> {
+  561 |     await this.locators.singleSpecRadio.click();
+  562 |     await waitUntil(
+  563 |       () => this.locators.singleSpecRadio.isChecked(),
+  564 |       (checked) => checked,
+  565 |       { timeout: 10_000, interval: 100, message: '单规格单选项点击后未进入选中态。' },
+  566 |     );
+  567 |   }
+  568 | 
+  569 |   @step('选择多规格')
+  570 |   async selectMultiSpec(): Promise<void> {
+  571 |     await this.locators.multiSpecRadio.click();
+  572 |     await waitUntil(
+  573 |       () => this.locators.multiSpecRadio.isChecked(),
+  574 |       (checked) => checked,
+  575 |       { timeout: 10_000, interval: 100, message: '多规格单选项点击后未进入选中态。' },
+  576 |     );
+  577 |     await this.locators.addSpecGroupButton.waitFor({ state: 'visible', timeout: 10_000 });
+  578 |   }
+  579 | 
+  580 |   @step('启用称重商品')
+  581 |   async enableWeightBasedItem(): Promise<void> {
+  582 |     await this.locators.weightBasedYesRadio.click();
+  583 |   }
+  584 | 
+  585 |   @step('读取称重商品是否选中')
+  586 |   async isWeightBasedItemSelected(): Promise<boolean> {
+  587 |     return this.locators.weightBasedYesRadio.isChecked();
+  588 |   }
+  589 | 
+  590 |   @step('读取称重商品选项禁用状态')
+  591 |   async readWeightBasedDisabledEvidence(): Promise<{
+  592 |     disabled: boolean;
+  593 |     ariaDisabled: string | null;
+  594 |     checked: boolean;
+  595 |   }> {
+  596 |     return {
+  597 |       disabled: await this.locators.weightBasedYesRadio.isDisabled(),
+  598 |       ariaDisabled: await this.locators.weightBasedYesRadio.getAttribute('aria-disabled'),
+  599 |       checked: await this.locators.weightBasedYesRadio.isChecked(),
+  600 |     };
+  601 |   }
+  602 | 
+  603 |   @step('读取标准商品字段校验证据：{field}')
+  604 |   async readFieldValidationEvidence(
+  605 |     field: 'mnemonicCode' | 'posName' | 'deviceCode' | 'standardPrice',
+  606 |   ): Promise<{
+  607 |     value: string;
+  608 |     maxLengthAttribute: number | null;
+  609 |     ariaInvalid: string | null;
+  610 |     errors: string[];
+  611 |   }> {
+  612 |     const input = field === 'mnemonicCode'
+  613 |       ? this.locators.mnemonicCodeInput
+  614 |       : field === 'posName'
+  615 |         ? this.locators.posNameInput
+  616 |         : field === 'deviceCode'
+  617 |           ? this.locators.deviceCodeInput
+  618 |           : this.locators.standardPriceInput;
+  619 |     const maxLength = await input.getAttribute('maxlength');
+  620 |     const formItem = input.locator('xpath=ancestor::*[contains(@class,"ant-form-item")][1]');
+  621 |     return {
+  622 |       value: await input.inputValue(),
+  623 |       maxLengthAttribute: maxLength === null ? null : Number(maxLength),
+  624 |       ariaInvalid: await input.getAttribute('aria-invalid'),
+  625 |       errors: await formItem.locator('.ant-form-item-explain-error:visible').allInnerTexts(),
+  626 |     };
+  627 |   }
+  628 | 
+  629 |   @step('读取单位')
+  630 |   async readUnitValue(timeout = 5_000): Promise<string> {
+  631 |     const selectedItem = this.locators.unitSelect.locator('.ant-select-selection-item');
+  632 |     await selectedItem.waitFor({ state: 'visible', timeout });
+  633 |     return (await selectedItem.innerText()).trim();
+```

@@ -1,0 +1,270 @@
+{
+  "intentFingerprint": "fc46313dd463a93c4cb2aa474cd189d4a562747ac5ed3000218af673f5c888ef",
+  "selectionFingerprint": "328cbc9bd785d401a7c986be03e55aecf8defae05416cfe6577078d35ab8bc5b",
+  "selectedCaseIds": [
+    "TC-ITEM-ADD-002"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-ADD-002"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-ADD-002",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+    "implementationFingerprint": "a9a4cbce2ed702806376c1b0a5f4085188187df4beb484c6b677fa35a6d85202",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/side"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T16:47:12.478Z"
+    },
+    "executionEpochId": "source-governed-addon-other-settings-20260909-01-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-ADD-002:action-1",
+        "title": "查看其他设置信息区域。",
+        "sequence": 8,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1014,
+        "startedAt": "2026-09-08T16:47:07.417Z",
+        "finishedAt": "2026-09-08T16:47:08.431Z",
+        "occurredAt": "2026-09-08T16:47:08.431Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+        "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+        "sequence": 1,
+        "method": "openFromSidebar",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 6407,
+        "startedAt": "2026-09-08T16:46:56.946Z",
+        "finishedAt": "2026-09-08T16:47:03.353Z",
+        "occurredAt": "2026-09-08T16:47:03.353Z"
+      },
+      {
+        "operationKey": "SidebarPage.expectProductManagementVisible",
+        "title": "等待商品管理入口链接可见",
+        "sequence": 2,
+        "method": "expectProductManagementVisible",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3753,
+        "startedAt": "2026-09-08T16:46:59.452Z",
+        "finishedAt": "2026-09-08T16:47:03.205Z",
+        "occurredAt": "2026-09-08T16:47:03.205Z"
+      },
+      {
+        "operationKey": "SidebarPage.openSubMenuByCandidates",
+        "title": "通过侧边栏候选链接进入目标模块",
+        "sequence": 3,
+        "method": "openSubMenuByCandidates",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 129,
+        "startedAt": "2026-09-08T16:47:03.215Z",
+        "finishedAt": "2026-09-08T16:47:03.344Z",
+        "occurredAt": "2026-09-08T16:47:03.344Z"
+      },
+      {
+        "operationKey": "SidebarPage.expandSubMenuForPath",
+        "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+        "sequence": 4,
+        "method": "expandSubMenuForPath",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 32,
+        "startedAt": "2026-09-08T16:47:03.220Z",
+        "finishedAt": "2026-09-08T16:47:03.252Z",
+        "occurredAt": "2026-09-08T16:47:03.252Z"
+      },
+      {
+        "operationKey": "ItemCreateSidePage.open",
+        "title": "打开加料/配菜商品创建页",
+        "sequence": 5,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 4011,
+        "startedAt": "2026-09-08T16:47:03.371Z",
+        "finishedAt": "2026-09-08T16:47:07.382Z",
+        "occurredAt": "2026-09-08T16:47:07.382Z"
+      },
+      {
+        "operationKey": "ItemCreateSidePage.expectLoaded",
+        "title": "等待商品创建表单加载完成",
+        "sequence": 6,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3342,
+        "startedAt": "2026-09-08T16:47:04.030Z",
+        "finishedAt": "2026-09-08T16:47:07.372Z",
+        "occurredAt": "2026-09-08T16:47:07.372Z"
+      },
+      {
+        "operationKey": "ItemCreateSidePage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create/side",
+        "sequence": 7,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 40,
+        "startedAt": "2026-09-08T16:47:04.036Z",
+        "finishedAt": "2026-09-08T16:47:04.076Z",
+        "occurredAt": "2026-09-08T16:47:04.076Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 9,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3966,
+        "startedAt": "2026-09-08T16:47:08.436Z",
+        "finishedAt": "2026-09-08T16:47:12.402Z",
+        "occurredAt": "2026-09-08T16:47:12.402Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 10,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3357,
+        "startedAt": "2026-09-08T16:47:09.035Z",
+        "finishedAt": "2026-09-08T16:47:12.392Z",
+        "occurredAt": "2026-09-08T16:47:12.392Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 11,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 18,
+        "startedAt": "2026-09-08T16:47:12.431Z",
+        "finishedAt": "2026-09-08T16:47:12.449Z",
+        "occurredAt": "2026-09-08T16:47:12.449Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-ADD-002:expectation-1",
+        "status": "verified",
+        "actualValue": {
+          "controls": {
+            "detailImageUpload": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "descriptionLabels": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "badges": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "stats": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "ingredientInfo": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            }
+          },
+          "uploadInput": {
+            "count": 1,
+            "enabled": true
+          }
+        },
+        "expectedValue": {
+          "controls": {
+            "detailImageUpload": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "descriptionLabels": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "badges": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "stats": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            },
+            "ingredientInfo": {
+              "count": 1,
+              "visible": true,
+              "enabled": true
+            }
+          },
+          "uploadInput": {
+            "count": 1,
+            "enabled": true
+          }
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "observed": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "verified": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+    },
+    "evidenceFingerprint": "654b7c76214090d4f5fa83a170b41550ef78d6e5697c1888032daa965cd410ba"
+  }
+}

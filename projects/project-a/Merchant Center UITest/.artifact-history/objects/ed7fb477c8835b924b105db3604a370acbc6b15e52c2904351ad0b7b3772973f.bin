@@ -1,0 +1,1408 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T20:10:50.048Z",
+  "status": "evidence-incomplete",
+  "previousTurnAssessment": "changed-authoritative-state-but-qualified-two-cases-with-unsupported-semantic-mapping",
+  "businessExecuted": 0,
+  "businessResultsModified": false,
+  "unrelatedQualifiedCasesInvalidated": false,
+  "inputs": [
+    {
+      "path": "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+      "sha256": "2dec8aa65d6386765e8a6ebdbb7fced6be4bcbddb839ea7ade161cdc5ffdc1a7"
+    },
+    {
+      "path": "output/product-center-item-source-governed-addon-014-016-20260909-04.json",
+      "sha256": "90ea8c407d1e991ead3903623258e9bfa4f0b999b4d07cb62230da1b984d1438"
+    },
+    {
+      "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+    },
+    {
+      "path": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "sha256": "35e4839308a2c950c355b1d1027365c093db0607cbbf80b6ede251abf77851c5"
+    }
+  ],
+  "withdrawnContracts": [
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "af0488cafc60432adb66969fe7f90db1b79e55f4697f9d16e1f451d7869a1780",
+      "implementationFingerprint": "87e2bf252cf4a9f918e6520e80e358dc826ef52aa01416f8d1a1f736fcc0380a",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "AddonItem216Flow.execute",
+        "AddonItem216Flow.duplicateSideNameNegative",
+        "AddonItem216Flow.createRequiredOnly",
+        "ItemCreateSidePage.open",
+        "ItemCreateSidePage.expectLoaded",
+        "ItemCreateSidePage.expectPathname",
+        "ItemCreateSidePage.fillItemName",
+        "ItemCreateSidePage.fillStandardPrice"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-014:expectation-1",
+        "TC-ITEM-ADD-014:expectation-2",
+        "TC-ITEM-ADD-014:expectation-3"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-014:action-1",
+          "TC-ITEM-ADD-014:action-2",
+          "TC-ITEM-ADD-014:action-3",
+          "TC-ITEM-ADD-014:action-4",
+          "TC-ITEM-ADD-014:action-5",
+          "TC-ITEM-ADD-014:action-6",
+          "TC-ITEM-ADD-014:action-7",
+          "TC-ITEM-ADD-014:action-8"
+        ],
+        "business": [
+          {
+            "operationKey": "AddonItem216Flow.execute",
+            "sourceStepId": "TC-ITEM-ADD-014:action-1",
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "AddonItem216Flow.duplicateSideNameNegative",
+            "sourceStepId": "TC-ITEM-ADD-014:action-2",
+            "executableOperationKey": "AddonItem216Flow.duplicateSideNameNegative",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "AddonItem216Flow.createRequiredOnly",
+            "sourceStepId": "TC-ITEM-ADD-014:action-3",
+            "executableOperationKey": "AddonItem216Flow.createRequiredOnly",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.open",
+            "sourceStepId": "TC-ITEM-ADD-014:action-4",
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.expectLoaded",
+            "sourceStepId": "TC-ITEM-ADD-014:action-5",
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.expectPathname",
+            "sourceStepId": "TC-ITEM-ADD-014:action-6",
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.fillItemName",
+            "sourceStepId": "TC-ITEM-ADD-014:action-7",
+            "executableOperationKey": "ItemCreateSidePage.fillItemName",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.fillStandardPrice",
+            "sourceStepId": "TC-ITEM-ADD-014:action-8",
+            "executableOperationKey": "ItemCreateSidePage.fillStandardPrice",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "ItemCreateSidePage.clickSave",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearch",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectUniqueItemVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemPriceText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemTypeText",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readItemServerIds",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillItemName",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillStandardPrice",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.clickSave",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectStillOnCreatePage",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 3,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 3,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readSuccessMessageCount",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.verifyZeroResidue",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.openForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectEmptySearchResults",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "30b0847cbcd8c0570d7bb8fa3f68778b86487a4184ae0d8739dcb4c3b42b7971",
+      "implementationFingerprint": "87e2bf252cf4a9f918e6520e80e358dc826ef52aa01416f8d1a1f736fcc0380a",
+      "executionContextFingerprint": "e36afe5576ebb7560e0ad29713287e9965a7f6c2b9c69edc33864bd74f2d8213",
+      "requiredOperationKeys": [
+        "AddonItem216Flow.execute",
+        "AddonItem216Flow.crossTypeDuplicateNegative",
+        "ItemCreateFlow.openStandardCreateFromList",
+        "ItemCreateFlow.openTypeSelectionFromList",
+        "ItemListFlow.openList",
+        "ItemListPage.open",
+        "ItemListPage.expectLoaded"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-015:expectation-1",
+        "TC-ITEM-ADD-015:expectation-2",
+        "TC-ITEM-ADD-015:expectation-3"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-015:action-1",
+          "TC-ITEM-ADD-015:action-2",
+          "TC-ITEM-ADD-015:action-3",
+          "TC-ITEM-ADD-015:action-4",
+          "TC-ITEM-ADD-015:action-5",
+          "TC-ITEM-ADD-015:action-6",
+          "TC-ITEM-ADD-015:action-7"
+        ],
+        "business": [
+          {
+            "operationKey": "AddonItem216Flow.execute",
+            "sourceStepId": "TC-ITEM-ADD-015:action-1",
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "AddonItem216Flow.crossTypeDuplicateNegative",
+            "sourceStepId": "TC-ITEM-ADD-015:action-2",
+            "executableOperationKey": "AddonItem216Flow.crossTypeDuplicateNegative",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateFlow.openStandardCreateFromList",
+            "sourceStepId": "TC-ITEM-ADD-015:action-3",
+            "executableOperationKey": "ItemCreateFlow.openStandardCreateFromList",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateFlow.openTypeSelectionFromList",
+            "sourceStepId": "TC-ITEM-ADD-015:action-4",
+            "executableOperationKey": "ItemCreateFlow.openTypeSelectionFromList",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemListFlow.openList",
+            "sourceStepId": "TC-ITEM-ADD-015:action-5",
+            "executableOperationKey": "ItemListFlow.openList",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemListPage.open",
+            "sourceStepId": "TC-ITEM-ADD-015:action-6",
+            "executableOperationKey": "ItemListPage.open",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemListPage.expectLoaded",
+            "sourceStepId": "TC-ITEM-ADD-015:action-7",
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "ItemListPage.enterCreateTypePage",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateTypePage.enterStandardCreate",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.fillItemName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.selectSingleSpec",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateStandardPage.clickSave",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.open",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectUniqueItemVisible",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillItemName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.clickSave",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "AddonItem216Flow.verifyZeroResidue",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.openForResidueCheck",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectLoaded",
+            "occurrence": 3,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.fillSearchForResidueCheck",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.expectEmptySearchResults",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemListPage.readVisibleRowCount",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "f8e179f01f673e38b64394f636aa2f1baeea3905297721d117478831a06f2f08",
+      "implementationFingerprint": "87e2bf252cf4a9f918e6520e80e358dc826ef52aa01416f8d1a1f736fcc0380a",
+      "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+      "requiredOperationKeys": [
+        "AddonItem216Flow.execute",
+        "AddonItem216Flow.sameAltNameNegative",
+        "ItemCreateSidePage.open",
+        "ItemCreateSidePage.expectLoaded"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-016:expectation-1",
+        "TC-ITEM-ADD-016:expectation-2",
+        "TC-ITEM-ADD-016:expectation-3"
+      ],
+      "cleanupRequired": true,
+      "operationMapping": {
+        "schemaVersion": "1.0.0",
+        "sourceStepIds": [
+          "TC-ITEM-ADD-016:action-1",
+          "TC-ITEM-ADD-016:action-2",
+          "TC-ITEM-ADD-016:action-3",
+          "TC-ITEM-ADD-016:action-4"
+        ],
+        "business": [
+          {
+            "operationKey": "AddonItem216Flow.execute",
+            "sourceStepId": "TC-ITEM-ADD-016:action-1",
+            "executableOperationKey": "AddonItem216Flow.execute",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "AddonItem216Flow.sameAltNameNegative",
+            "sourceStepId": "TC-ITEM-ADD-016:action-2",
+            "executableOperationKey": "AddonItem216Flow.sameAltNameNegative",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.open",
+            "sourceStepId": "TC-ITEM-ADD-016:action-3",
+            "executableOperationKey": "ItemCreateSidePage.open",
+            "occurrence": 1
+          },
+          {
+            "operationKey": "ItemCreateSidePage.expectLoaded",
+            "sourceStepId": "TC-ITEM-ADD-016:action-4",
+            "executableOperationKey": "ItemCreateSidePage.expectLoaded",
+            "occurrence": 1
+          }
+        ],
+        "supporting": [
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillItemName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillCommonItemAltName",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.fillStandardPrice",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.clickSave",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectStillOnCreatePage",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.expectPathname",
+            "occurrence": 2,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readVisibleValidationErrors",
+            "occurrence": 1,
+            "required": true
+          },
+          {
+            "executableOperationKey": "ItemCreateSidePage.readSuccessMessageCount",
+            "occurrence": 1,
+            "required": true
+          }
+        ]
+      },
+      "cleanupObservation": {
+        "api": {
+          "status": "verified",
+          "observed": true,
+          "count": 0
+        },
+        "ui": {
+          "status": "verified",
+          "observed": true,
+          "count": 0
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "source": {
+        "caseId": "TC-ITEM-ADD-014",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-同一一级分类下同名创建-{当前时间戳毫秒}」）",
+          "当前品牌下已存在名称为 `ADD_DUP_001` 的加料商品。",
+          "当前品牌下另有名称为 `ADD_EDIT_TARGET_001` 的加料商品，用于编辑判重。",
+          "已打开加料商品创建页。"
+        ],
+        "steps": [
+          "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+          "填写与已有加料商品同名的商品名称、同一一级分类、标准价 `5.00`",
+          "点击右上角【保存】按钮",
+          "读取接口响应错误码并按商品名称查询列表记录数",
+          "返回列表打开 `ADD_EDIT_TARGET_001` 编辑页，将名称改为 `ADD_DUP_001` 并保存",
+          "读取编辑接口响应错误码，重新进入编辑页并按名称查询列表"
+        ],
+        "expectedResults": [
+          "保存失败，UI 提示 `BITEM-7014：商品名称与其它类型商品名称重复`。",
+          "API 返回错误码 `BITEM-7014`，同名加料商品记录数不增加。",
+          "编辑同类型重复名称同样失败，UI/API 均返回 `BITEM-7014`，编辑目标原名称保持不变，列表仍展示原名称。"
+        ],
+        "sources": [
+          "产品确认明确 ← BR-ITEM-010"
+        ],
+        "title": "同一商户同一商品类型内加料商品同名创建或编辑失败",
+        "fingerprint": "af0488cafc60432adb66969fe7f90db1b79e55f4697f9d16e1f451d7869a1780"
+      },
+      "reasons": [
+        "SOURCE_ACTIONS_7_8_EDIT_SCENARIO_NOT_EXECUTED",
+        "SOURCE_ASSERTION_3_REPLACED_WITH_CREATE_COUNT",
+        "EXPECTED_BITEM_7014_OBSERVED_BITEM_7010",
+        "SOURCE_NAVIGATION_1_3_NOT_PROVEN_BY_DIRECT_OPEN"
+      ],
+      "nextAction": "补正式导航和独立编辑目标；创建与编辑分别核对 BITEM-7014、名称与列表。7010 只登记实际观察，不能归为语言等价；实现缺口自动修复，正式规则与稳定行为冲突另行取证。",
+      "formalPassQualified": false,
+      "receiptAssertions": [
+        {
+          "claimId": "TC-ITEM-ADD-014:expectation-1",
+          "status": "verified",
+          "expectedValue": "创建同名加料商品失败",
+          "actualValue": {
+            "field": "duplicate-side",
+            "errors": [
+              "BITEM-7010 : Name is duplicated with existing item"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7010",
+            "rejectedByServer": true,
+            "beforeApiCount": 1,
+            "apiCount": 1
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-014:expectation-2",
+          "status": "verified",
+          "expectedValue": "API/UI 返回名称重复错误",
+          "actualValue": {
+            "field": "duplicate-side",
+            "errors": [
+              "BITEM-7010 : Name is duplicated with existing item"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7010",
+            "rejectedByServer": true,
+            "beforeApiCount": 1,
+            "apiCount": 1
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-014:expectation-3",
+          "status": "verified",
+          "expectedValue": "同名记录数不增加",
+          "actualValue": {
+            "field": "duplicate-side",
+            "errors": [
+              "BITEM-7010 : Name is duplicated with existing item"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7010",
+            "rejectedByServer": true,
+            "beforeApiCount": 1,
+            "apiCount": 1
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002": 0
+        },
+        "uiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002": 0
+        }
+      },
+      "operationTrace": [
+        {
+          "sequence": 1,
+          "key": "AddonItem216Flow.execute",
+          "title": "执行加料商品 216 用例：TC-ITEM-ADD-014",
+          "status": "passed"
+        },
+        {
+          "sequence": 2,
+          "key": "AddonItem216Flow.duplicateSideNameNegative",
+          "title": "验证同类商品重名阻断",
+          "status": "passed"
+        },
+        {
+          "sequence": 3,
+          "key": "AddonItem216Flow.createRequiredOnly",
+          "title": "创建必填加料商品并校验列表与 API",
+          "status": "passed"
+        },
+        {
+          "sequence": 4,
+          "key": "ItemCreateSidePage.open",
+          "title": "打开加料/配菜商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 5,
+          "key": "ItemCreateSidePage.expectLoaded",
+          "title": "等待商品创建表单加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 6,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 7,
+          "key": "ItemCreateSidePage.fillItemName",
+          "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 8,
+          "key": "ItemCreateSidePage.fillStandardPrice",
+          "title": "填写标准价：5.00",
+          "status": "passed"
+        },
+        {
+          "sequence": 9,
+          "key": "ItemCreateSidePage.clickSave",
+          "title": "点击保存",
+          "status": "passed"
+        },
+        {
+          "sequence": 10,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 11,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 12,
+          "key": "ItemListPage.fillSearch",
+          "title": "按商品名称搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 13,
+          "key": "ItemListPage.expectUniqueItemVisible",
+          "title": "等待列表唯一展示商品：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 14,
+          "key": "ItemListPage.readItemPriceText",
+          "title": "读取商品价格列文案：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 15,
+          "key": "ItemListPage.readItemTypeText",
+          "title": "读取商品行类型：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 16,
+          "key": "ItemListPage.readItemServerIds",
+          "title": "读取商品行服务端 ID：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 17,
+          "key": "ItemCreateSidePage.open",
+          "title": "打开加料/配菜商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 18,
+          "key": "ItemCreateSidePage.expectLoaded",
+          "title": "等待商品创建表单加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 19,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 20,
+          "key": "ItemCreateSidePage.fillItemName",
+          "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 21,
+          "key": "ItemCreateSidePage.fillStandardPrice",
+          "title": "填写标准价：5.00",
+          "status": "passed"
+        },
+        {
+          "sequence": 22,
+          "key": "ItemCreateSidePage.clickSave",
+          "title": "点击保存",
+          "status": "passed"
+        },
+        {
+          "sequence": 23,
+          "key": "ItemCreateSidePage.expectStillOnCreatePage",
+          "title": "等待仍停留在创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 24,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 25,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 26,
+          "key": "ItemCreateSidePage.readSuccessMessageCount",
+          "title": "读取保存成功消息数量",
+          "status": "passed"
+        },
+        {
+          "sequence": 27,
+          "key": "AddonItem216Flow.verifyZeroResidue",
+          "title": "验证加料商品用例 UI/API 零残留",
+          "status": "passed"
+        },
+        {
+          "sequence": 28,
+          "key": "ItemListPage.openForResidueCheck",
+          "title": "为残留核对打开商品列表页",
+          "status": "passed"
+        },
+        {
+          "sequence": 29,
+          "key": "ItemListPage.expectLoaded",
+          "title": "等待商品列表页加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 30,
+          "key": "ItemListPage.fillSearchForResidueCheck",
+          "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-014-BASE_1788896820164002",
+          "status": "passed"
+        },
+        {
+          "sequence": 31,
+          "key": "ItemListPage.expectEmptySearchResults",
+          "title": "等待搜索无结果",
+          "status": "passed"
+        },
+        {
+          "sequence": 32,
+          "key": "ItemListPage.readVisibleRowCount",
+          "title": "读取当前列表数据行数",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "source": {
+        "caseId": "TC-ITEM-ADD-015",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "当前品牌下不存在名称为 `CROSS_DUP_002` 或 `STD_RENAME_SOURCE_001` 的商品。",
+          "当前商户下已存在名称为 `ADD_RENAME_TARGET_001` 的加料商品。",
+          "已打开加料商品创建页。"
+        ],
+        "steps": [
+          "创建名称为 `CROSS_DUP_002` 的标准商品。",
+          "进入加料商品创建页并填写相同商品名称 `CROSS_DUP_002`。",
+          "点击保存。",
+          "核对同名标准商品和加料商品均存在。",
+          "创建名称为 `STD_RENAME_SOURCE_001` 的标准商品并进入其编辑页。",
+          "将标准商品名称修改为已有加料商品名称 `ADD_RENAME_TARGET_001`，点击保存。",
+          "分别读取创建/编辑接口响应并按名称和商品类型查询列表。"
+        ],
+        "expectedResults": [
+          "加料商品允许与其他商品类型使用相同商品名称；保存成功后同名标准商品和加料商品均保留。",
+          "UI 无重复拦截，API 创建响应成功，列表按名称查询到两条不同商品类型记录。",
+          "标准商品改名为已存在的加料商品名称时允许保存；UI 无重复拦截，API 编辑响应成功，列表展示新名称且原标准商品名称不再存在。"
+        ],
+        "sources": [
+          "产品确认明确 ← BR-ITEM-010；金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-add-015"
+        ],
+        "title": "加料商品允许与其他商品类型同名",
+        "fingerprint": "30b0847cbcd8c0570d7bb8fa3f68778b86487a4184ae0d8739dcb4c3b42b7971"
+      },
+      "reasons": [
+        "SOURCE_ACTIONS_5_7_STANDARD_RENAME_NOT_EXECUTED",
+        "SOURCE_ASSERTION_3_REPLACED_WITH_CREATE_COUNT",
+        "UI_LIST_TYPE_AND_NAME_OBSERVATIONS_INCOMPLETE"
+      ],
+      "nextAction": "补标准商品编辑成已有加料名称的场景；独立核对创建与编辑 API 响应、UI 列表商品类型、新旧名称以及所有身份清理。",
+      "formalPassQualified": false,
+      "receiptAssertions": [
+        {
+          "claimId": "TC-ITEM-ADD-015:expectation-1",
+          "status": "verified",
+          "expectedValue": "跨商品类型同名允许保存",
+          "actualValue": {
+            "standardId": 266193,
+            "addonId": 266194,
+            "apiCount": 2
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-015:expectation-2",
+          "status": "verified",
+          "expectedValue": "标准商品与加料商品均存在",
+          "actualValue": {
+            "standardId": 266193,
+            "addonId": 266194,
+            "apiCount": 2
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-015:expectation-3",
+          "status": "verified",
+          "expectedValue": "跨类型列表计数为2",
+          "actualValue": {
+            "standardId": 266193,
+            "addonId": 266194,
+            "apiCount": 2
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE": 0
+        },
+        "uiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE": 0
+        }
+      },
+      "operationTrace": [
+        {
+          "sequence": 1,
+          "key": "AddonItem216Flow.execute",
+          "title": "执行加料商品 216 用例：TC-ITEM-ADD-015",
+          "status": "passed"
+        },
+        {
+          "sequence": 2,
+          "key": "AddonItem216Flow.crossTypeDuplicateNegative",
+          "title": "验证加料商品允许与其他商品类型同名",
+          "status": "passed"
+        },
+        {
+          "sequence": 3,
+          "key": "ItemCreateFlow.openStandardCreateFromList",
+          "title": "从商品列表进入标准商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 4,
+          "key": "ItemCreateFlow.openTypeSelectionFromList",
+          "title": "从商品列表进入新增商品类型选择页",
+          "status": "passed"
+        },
+        {
+          "sequence": 5,
+          "key": "ItemListFlow.openList",
+          "title": "打开商品列表页",
+          "status": "passed"
+        },
+        {
+          "sequence": 6,
+          "key": "ItemListPage.open",
+          "title": "打开商品列表页",
+          "status": "passed"
+        },
+        {
+          "sequence": 7,
+          "key": "ItemListPage.expectLoaded",
+          "title": "等待商品列表页加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 8,
+          "key": "ItemListPage.enterCreateTypePage",
+          "title": "进入新增商品类型选择页",
+          "status": "passed"
+        },
+        {
+          "sequence": 9,
+          "key": "ItemCreateTypePage.expectLoaded",
+          "title": "等待选择商品类型页加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 10,
+          "key": "ItemCreateTypePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create",
+          "status": "passed"
+        },
+        {
+          "sequence": 11,
+          "key": "ItemCreateTypePage.enterStandardCreate",
+          "title": "进入标准商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 12,
+          "key": "ItemCreateStandardPage.expectLoaded",
+          "title": "等待标准商品创建页进入可交互终态",
+          "status": "passed"
+        },
+        {
+          "sequence": 13,
+          "key": "ItemCreateStandardPage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/standard",
+          "status": "passed"
+        },
+        {
+          "sequence": 14,
+          "key": "ItemCreateStandardPage.fillItemName",
+          "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE",
+          "status": "passed"
+        },
+        {
+          "sequence": 15,
+          "key": "ItemCreateStandardPage.selectSingleSpec",
+          "title": "选择单规格",
+          "status": "passed"
+        },
+        {
+          "sequence": 16,
+          "key": "ItemCreateStandardPage.fillStandardPrice",
+          "title": "填写标准价：10.00",
+          "status": "passed"
+        },
+        {
+          "sequence": 17,
+          "key": "ItemCreateStandardPage.clickSave",
+          "title": "点击保存",
+          "status": "passed"
+        },
+        {
+          "sequence": 18,
+          "key": "ItemListPage.open",
+          "title": "打开商品列表页",
+          "status": "passed"
+        },
+        {
+          "sequence": 19,
+          "key": "ItemListPage.expectLoaded",
+          "title": "等待商品列表页加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 20,
+          "key": "ItemListPage.fillSearchForResidueCheck",
+          "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE",
+          "status": "passed"
+        },
+        {
+          "sequence": 21,
+          "key": "ItemListPage.expectUniqueItemVisible",
+          "title": "等待列表唯一展示商品：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE",
+          "status": "passed"
+        },
+        {
+          "sequence": 22,
+          "key": "ItemCreateSidePage.open",
+          "title": "打开加料/配菜商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 23,
+          "key": "ItemCreateSidePage.expectLoaded",
+          "title": "等待商品创建表单加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 24,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 25,
+          "key": "ItemCreateSidePage.fillItemName",
+          "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE",
+          "status": "passed"
+        },
+        {
+          "sequence": 26,
+          "key": "ItemCreateSidePage.fillStandardPrice",
+          "title": "填写标准价：10.00",
+          "status": "passed"
+        },
+        {
+          "sequence": 27,
+          "key": "ItemCreateSidePage.clickSave",
+          "title": "点击保存",
+          "status": "passed"
+        },
+        {
+          "sequence": 28,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 29,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 30,
+          "key": "AddonItem216Flow.verifyZeroResidue",
+          "title": "验证加料商品用例 UI/API 零残留",
+          "status": "passed"
+        },
+        {
+          "sequence": 31,
+          "key": "ItemListPage.openForResidueCheck",
+          "title": "为残留核对打开商品列表页",
+          "status": "passed"
+        },
+        {
+          "sequence": 32,
+          "key": "ItemListPage.expectLoaded",
+          "title": "等待商品列表页加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 33,
+          "key": "ItemListPage.fillSearchForResidueCheck",
+          "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-015_1788896813850101_STANDARD_BASE",
+          "status": "passed"
+        },
+        {
+          "sequence": 34,
+          "key": "ItemListPage.expectEmptySearchResults",
+          "title": "等待搜索无结果",
+          "status": "passed"
+        },
+        {
+          "sequence": 35,
+          "key": "ItemListPage.readVisibleRowCount",
+          "title": "读取当前列表数据行数",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "source": {
+        "caseId": "TC-ITEM-ADD-016",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "已进入 商品管理 → 商品 列表页。",
+          "已打开加料商品创建页。",
+          "当前品牌下不存在同名测试商品（本用例使用名称「加料商品-商品第二名称与商品名称互相不可重复-{当前时间戳毫秒}」）"
+        ],
+        "steps": [
+          "商品名称填写 「加料商品-商品第二名称与商品名称互相不可重复-{当前时间戳毫秒}」。",
+          "商品第二名称填写 「加料商品-商品第二名称与商品名称互相不可重复-{当前时间戳毫秒}」。",
+          "标准价填写 `10.00`。",
+          "点击「保存」。"
+        ],
+        "expectedResults": [
+          "页面仍停留在当前页，未出现保存/操作成功提示。",
+          "商品名称字段或页面提示存在名称重复。",
+          "未产生不符合预期的数据变更。"
+        ],
+        "sources": [
+          "BR-ITEM-010、BR-ITEM-021、BR-CAT-005"
+        ],
+        "title": "加料商品商品第二名称与商品名称互相不可重复",
+        "fingerprint": "f8e179f01f673e38b64394f636aa2f1baeea3905297721d117478831a06f2f08"
+      },
+      "reasons": [
+        "POSITIONAL_MAPPING_BINDS_WRAPPER_AND_NAVIGATION_TO_FIELD_ACTIONS",
+        "EMPTY_CLEANUP_IDENTITY_OBSERVATIONS",
+        "SOURCE_ASSERTION_3_UI_LIST_QUERY_NOT_EXECUTED",
+        "SOURCE_ASSERTION_1_UI_OBSERVATION_LABELLED_API"
+      ],
+      "nextAction": "将四个正式动作明确映射到填写名称、填写第二名称、填写价格、保存；保留负向尝试身份，补列表查询和 API/UI 零残留；按 UI 及 API 实际通道分别生成断言。",
+      "formalPassQualified": false,
+      "receiptAssertions": [
+        {
+          "claimId": "TC-ITEM-ADD-016:expectation-1",
+          "status": "verified",
+          "expectedValue": "保存失败且页面停留创建页",
+          "actualValue": {
+            "field": "duplicate-alt",
+            "errors": [
+              "BITEM-7001 : name is same with secondName"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7001",
+            "rejectedByServer": true,
+            "beforeApiCount": 0,
+            "apiCount": 0
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-016:expectation-2",
+          "status": "verified",
+          "expectedValue": "显示名称重复错误",
+          "actualValue": {
+            "field": "duplicate-alt",
+            "errors": [
+              "BITEM-7001 : name is same with secondName"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7001",
+            "rejectedByServer": true,
+            "beforeApiCount": 0,
+            "apiCount": 0
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-016:expectation-3",
+          "status": "verified",
+          "expectedValue": "未产生新增记录",
+          "actualValue": {
+            "field": "duplicate-alt",
+            "errors": [
+              "BITEM-7001 : name is same with secondName"
+            ],
+            "priceValidationBefore": null,
+            "priceValidation": null,
+            "priceVisualStateChanged": false,
+            "mutationCount": 1,
+            "route": "/pp/brand/create/side",
+            "responseStatus": 400,
+            "responseCode": "BITEM-7001",
+            "rejectedByServer": true,
+            "beforeApiCount": 0,
+            "apiCount": 0
+          },
+          "actualStatus": "observed",
+          "observationChannel": "api",
+          "authority": "persistence",
+          "comparison": "matched"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {},
+        "uiIdentityCounts": {}
+      },
+      "operationTrace": [
+        {
+          "sequence": 1,
+          "key": "AddonItem216Flow.execute",
+          "title": "执行加料商品 216 用例：TC-ITEM-ADD-016",
+          "status": "passed"
+        },
+        {
+          "sequence": 2,
+          "key": "AddonItem216Flow.sameAltNameNegative",
+          "title": "验证商品名称与第二名称不可重复",
+          "status": "passed"
+        },
+        {
+          "sequence": 3,
+          "key": "ItemCreateSidePage.open",
+          "title": "打开加料/配菜商品创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 4,
+          "key": "ItemCreateSidePage.expectLoaded",
+          "title": "等待商品创建表单加载完成",
+          "status": "passed"
+        },
+        {
+          "sequence": 5,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 6,
+          "key": "ItemCreateSidePage.fillItemName",
+          "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-016_1788896813484201",
+          "status": "passed"
+        },
+        {
+          "sequence": 7,
+          "key": "ItemCreateSidePage.fillCommonItemAltName",
+          "title": "填写商品第二名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-016_1788896813484201",
+          "status": "passed"
+        },
+        {
+          "sequence": 8,
+          "key": "ItemCreateSidePage.fillStandardPrice",
+          "title": "填写标准价：10.00",
+          "status": "passed"
+        },
+        {
+          "sequence": 9,
+          "key": "ItemCreateSidePage.clickSave",
+          "title": "点击保存",
+          "status": "passed"
+        },
+        {
+          "sequence": 10,
+          "key": "ItemCreateSidePage.expectStillOnCreatePage",
+          "title": "等待仍停留在创建页",
+          "status": "passed"
+        },
+        {
+          "sequence": 11,
+          "key": "ItemCreateSidePage.expectPathname",
+          "title": "等待页面路径为：/pp/brand/create/side",
+          "status": "passed"
+        },
+        {
+          "sequence": 12,
+          "key": "ItemCreateSidePage.readVisibleValidationErrors",
+          "title": "读取可见表单校验错误",
+          "status": "passed"
+        },
+        {
+          "sequence": 13,
+          "key": "ItemCreateSidePage.readSuccessMessageCount",
+          "title": "读取保存成功消息数量",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "cost": {
+    "startGoalTokens": 3761484,
+    "observedGoalTokens": 3871707,
+    "observedDelta": 110223,
+    "source": "get_goal.tokensUsed",
+    "interpretation": "goal-counter-delta-not-provider-billing-or-isolated-business-cost",
+    "decision": "finish-safe-correction-checkpoint-then-freeze-this-audit-direction"
+  }
+}

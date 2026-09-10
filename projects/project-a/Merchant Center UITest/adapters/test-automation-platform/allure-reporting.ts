@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import AdmZip from 'adm-zip';
 import { AllureReporter } from 'allure-playwright';
-import { createBusinessStepAllureOptions } from '../../../../Test Automation Platform/src/reporters/allure-step-policy';
+import { createBusinessStepAllureOptions } from '../../../Test Automation Platform/src/reporters/allure-step-policy';
 import {
   bindDetachedAllureAttachments,
   createBusinessOperationReceiptDetail,
@@ -11,7 +11,7 @@ import {
   sanitizePlaywrightTraceText,
   type AllureBusinessReportResult,
   type AllureReportStep,
-} from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import {
   buildSeasoningOperationTechnicalDetails,
   describeSeasoningOperation,
@@ -55,11 +55,17 @@ export class MerchantCenterAllureReporter extends AllureReporter {
   override async onEnd(): Promise<void> {
     await super.onEnd();
     const resultsDir = this.options.resultsDir;
-    if (resultsDir) normalizeMerchantCenterAllureResults(resultsDir);
+    if (resultsDir) normalizeMerchantCenterAllureResults(resultsDir, {
+      playwrightOutputDir: process.env.SYSTEM_TEST_PLAYWRIGHT_OUTPUT_DIR
+        ?? process.env.PC_PLAYWRIGHT_OUTPUT_DIR,
+    });
   }
 }
 
-export function normalizeMerchantCenterAllureResults(resultsDir: string): number {
+export function normalizeMerchantCenterAllureResults(
+  resultsDir: string,
+  options: { playwrightOutputDir?: string } = {},
+): number {
   if (!fs.existsSync(resultsDir)) return 0;
   let changedFiles = 0;
   for (const entry of fs.readdirSync(resultsDir, { withFileTypes: true })) {
@@ -72,7 +78,92 @@ export function normalizeMerchantCenterAllureResults(resultsDir: string): number
     fs.writeFileSync(filePath, `${JSON.stringify(document, null, 2)}\n`, 'utf8');
     changedFiles += 1;
   }
+  if (options.playwrightOutputDir) changedFiles += bindPlaywrightFailureArtifacts(resultsDir, options.playwrightOutputDir);
   return changedFiles;
+}
+
+/** Link Playwright failure files to the failed Allure business step. */
+export function bindPlaywrightFailureArtifacts(resultsDir: string, playwrightOutputDir: string): number {
+  const root = path.resolve(resultsDir), outputRoot = path.resolve(playwrightOutputDir);
+  if (!fs.existsSync(root) || !fs.existsSync(outputRoot)) return 0;
+  const artifacts = collectFailureArtifactFiles(outputRoot);
+  let changed = 0;
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith('-result.json')) continue;
+    const filePath = path.join(root, entry.name);
+    const document = JSON.parse(fs.readFileSync(filePath, 'utf8')) as AllureBusinessReportResult & Record<string, unknown>;
+    const caseId = findCaseId(document);
+    if (!caseId || document.status === 'passed') continue;
+    const titleKey = normalizeArtifactKey(String(document.name ?? ''));
+    const caseKey = normalizeArtifactKey(caseId);
+    const candidates = artifacts.filter((item) => {
+      const key = normalizeArtifactKey(item.directory);
+      return key.includes(titleKey) || key.includes(caseKey);
+    });
+    if (candidates.length === 0) continue;
+    const target = findDeepestFailedStepForBinding(document.steps ?? []) ?? ensureFailureDiagnosticStep(document);
+    let resultChanged = false;
+    for (const artifact of candidates) {
+      if (hasAttachmentSource(document, artifact.file, root)) continue;
+      const ext = path.extname(artifact.file);
+      const destination = `${path.parse(entry.name).name}-${artifact.kind}${ext}`;
+      const destinationPath = path.join(root, destination);
+      if (!fs.existsSync(destinationPath)) fs.copyFileSync(artifact.file, destinationPath);
+      target.attachments = [...(target.attachments ?? []), {
+        name: artifact.kind === 'screenshot' ? '失败截图附件' : artifact.kind === 'trace' ? '执行追踪附件' : '失败上下文附件',
+        source: destination,
+        type: artifact.kind === 'screenshot' ? 'image/png' : artifact.kind === 'trace' ? 'application/zip' : 'text/markdown',
+      }];
+      resultChanged = true;
+    }
+    if (resultChanged) {
+      fs.writeFileSync(filePath, `${JSON.stringify(document, null, 2)}\n`, 'utf8');
+      changed += 1;
+    }
+  }
+  return changed;
+}
+
+function collectFailureArtifactFiles(root: string): Array<{ file: string; directory: string; kind: 'screenshot' | 'trace' | 'context' }> {
+  const found: Array<{ file: string; directory: string; kind: 'screenshot' | 'trace' | 'context' }> = [];
+  const visit = (directory: string): void => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) { visit(file); continue; }
+      const lower = entry.name.toLowerCase();
+      const kind = /^test-failed(?:-\d+)?\.(?:png|webp|jpg|jpeg)$/.test(lower) ? 'screenshot'
+        : lower === 'trace.zip' ? 'trace' : lower === 'error-context.md' ? 'context' : undefined;
+      if (kind) found.push({ file, directory: path.basename(path.dirname(file)), kind });
+    }
+  };
+  visit(root);
+  return found;
+}
+
+function normalizeArtifactKey(value: string): string {
+  return value.toLocaleLowerCase().replace(/system-test-case-id|用例标识/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
+}
+
+function hasAttachmentSource(document: unknown, file: string, resultsRoot: string): boolean {
+  const basename = path.basename(file);
+  return collectAttachments(document).some((attachment) => typeof attachment.source === 'string'
+    && path.basename(attachment.source) === basename
+    && fs.existsSync(path.resolve(resultsRoot, attachment.source)));
+}
+
+function findDeepestFailedStepForBinding(steps: readonly AllureReportStep[]): AllureReportStep | undefined {
+  for (let index = steps.length - 1; index >= 0; index -= 1) {
+    const child = findDeepestFailedStepForBinding(steps[index].steps ?? []);
+    if (child) return child;
+    if (steps[index].status === 'failed') return steps[index];
+  }
+  return undefined;
+}
+
+function ensureFailureDiagnosticStep(document: AllureBusinessReportResult): AllureReportStep {
+  const step: AllureReportStep = { name: '[失败诊断] 保留失败截图、上下文和执行追踪', status: 'failed', stage: 'finished', steps: [], attachments: [], parameters: [], statusDetails: {} };
+  document.steps = [...(document.steps ?? []), step];
+  return step;
 }
 
 export function assertAllureAttachmentSourcesExist(resultsDir: string): void {

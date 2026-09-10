@@ -1,0 +1,232 @@
+{
+  "recordedAt": "2026-09-08T15:35:13.986Z",
+  "runId": "standard-required-name-20260908-03",
+  "caseId": "TC-ITEM-STD-005",
+  "status": "completed",
+  "selected": 1,
+  "terminal": 1,
+  "runtimeStatus": "passed",
+  "qualification": {
+    "accepted": true,
+    "reasons": []
+  },
+  "negativeChecks": [
+    {
+      "name": "api-cleanup-unverified",
+      "accepted": false,
+      "reasons": [
+        "CLEANUP_INCOMPLETE",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "missing-source-operation",
+      "accepted": false,
+      "reasons": [
+        "OPERATION_RECEIPT_CARDINALITY_INVALID",
+        "OPERATION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "missing-assertion",
+      "accepted": false,
+      "reasons": [
+        "ASSERTION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "cleanup-url-cannot-impersonate-assertion-surface",
+      "accepted": false,
+      "reasons": [
+        "EXECUTION_CONTEXT_MISMATCH",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "restoration-unverified",
+      "accepted": false,
+      "reasons": [
+        "CLEANUP_INCOMPLETE",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "claimId": "TC-ITEM-STD-005:expectation-1",
+      "status": "verified",
+      "actualValue": {
+        "route": "/pp/brand/create/standard",
+        "successObserved": false
+      },
+      "expectedValue": {
+        "route": "/pp/brand/create/standard",
+        "successObserved": false
+      },
+      "actualStatus": "observed",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "comparison": "matched"
+    },
+    {
+      "claimId": "TC-ITEM-STD-005:expectation-2",
+      "status": "verified",
+      "actualValue": true,
+      "expectedValue": true,
+      "actualStatus": "observed",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "comparison": "matched"
+    },
+    {
+      "claimId": "TC-ITEM-STD-005:expectation-3",
+      "status": "verified",
+      "actualValue": {
+        "correlatedCreatedIds": [],
+        "newIds": [],
+        "uiTotal": 144
+      },
+      "expectedValue": {
+        "correlatedCreatedIds": [],
+        "newIds": [],
+        "uiTotal": 144
+      },
+      "actualStatus": "observed",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "comparison": "matched"
+    }
+  ],
+  "operations": [
+    {
+      "operationKey": "TC-ITEM-STD-005:action-1",
+      "title": "通过侧边栏进入商品列表",
+      "sequence": 2,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 7380,
+      "startedAt": "2026-09-08T15:33:18.899Z",
+      "finishedAt": "2026-09-08T15:33:26.279Z",
+      "occurredAt": "2026-09-08T15:33:26.279Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-005:action-2",
+      "title": "点击新增商品进入商品类型选择页",
+      "sequence": 9,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 433,
+      "startedAt": "2026-09-08T15:33:30.383Z",
+      "finishedAt": "2026-09-08T15:33:30.816Z",
+      "occurredAt": "2026-09-08T15:33:30.816Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-005:action-3",
+      "title": "选择标准商品并进入创建页",
+      "sequence": 13,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 518,
+      "startedAt": "2026-09-08T15:33:30.819Z",
+      "finishedAt": "2026-09-08T15:33:31.337Z",
+      "occurredAt": "2026-09-08T15:33:31.337Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-005:action-4",
+      "title": "保持商品名称为空",
+      "sequence": 17,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 355,
+      "startedAt": "2026-09-08T15:33:31.342Z",
+      "finishedAt": "2026-09-08T15:33:31.697Z",
+      "occurredAt": "2026-09-08T15:33:31.697Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-005:action-5",
+      "title": "选择单规格并输入标准价10.00",
+      "sequence": 20,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 967,
+      "startedAt": "2026-09-08T15:33:31.700Z",
+      "finishedAt": "2026-09-08T15:33:32.667Z",
+      "occurredAt": "2026-09-08T15:33:32.667Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-005:action-6",
+      "title": "点击保存并观察名称校验和创建请求终态",
+      "sequence": 25,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 5392,
+      "startedAt": "2026-09-08T15:33:32.673Z",
+      "finishedAt": "2026-09-08T15:33:38.065Z",
+      "occurredAt": "2026-09-08T15:33:38.065Z"
+    }
+  ],
+  "stateRestored": true,
+  "actualFirstAssertion": {
+    "route": "/pp/brand/create/standard",
+    "successObserved": false
+  },
+  "assertionContext": {
+    "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+    "environmentId": "balamxqa",
+    "tenantScope": "000407",
+    "locale": "und",
+    "roleId": "merchant-operator",
+    "route": "/pp/brand/create/standard"
+  },
+  "reportPath": "output/product-center-item-source-governed-standard-required-name-20260908-03-source-governed.json",
+  "reportSha256": "cff716d91bdaed15c35cab042fbbfdab3c2159b9192c364747892990092f5b12",
+  "businessCrudPerformed": false,
+  "saveActionsExecuted": 1,
+  "actualCaseAttempts": 3,
+  "prebrowserBlockedStarts": 1,
+  "qualifiedCaseIds": [
+    "TC-ITEM-STD-005"
+  ],
+  "allCurrentQualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-005",
+    "TC-ITEM-STD-019",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-STD-102"
+  ],
+  "releaseReuse": "run-only-derived-unstable",
+  "currentContract": {
+    "caseId": "TC-ITEM-STD-005",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+    "implementationFingerprint": "1f7ea7b2cc78b831d72aa2298c83654e9684a595555ebcdf35099d7eeb011c3f",
+    "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+    "requiredOperationKeys": [
+      "TC-ITEM-STD-005:action-1",
+      "TC-ITEM-STD-005:action-2",
+      "TC-ITEM-STD-005:action-3",
+      "TC-ITEM-STD-005:action-4",
+      "TC-ITEM-STD-005:action-5",
+      "TC-ITEM-STD-005:action-6"
+    ],
+    "requiredAssertionIds": [
+      "TC-ITEM-STD-005:expectation-1",
+      "TC-ITEM-STD-005:expectation-2",
+      "TC-ITEM-STD-005:expectation-3"
+    ],
+    "cleanupRequired": true
+  }
+}

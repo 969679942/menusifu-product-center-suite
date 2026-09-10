@@ -43,6 +43,17 @@ type RuntimeReceiptPayload = {
   releaseObservation?: Partial<ReleaseObservation>;
   executionEpochId?: string;
   claims?: { required?: string[]; observed?: string[]; verified?: string[] };
+  assertionReceipts?: Array<{
+    claimId?: string;
+    status?: 'verified' | 'observed-mismatch';
+    expectedValue?: unknown;
+    actualValue?: unknown;
+    actualStatus?: 'observed' | 'unobserved';
+    unobservedReason?: string;
+    observationChannel?: 'ui' | 'api' | 'downstream' | 'cleanup';
+    authority?: 'user-visible' | 'persistence' | 'integration-terminal' | 'residue';
+    comparison?: 'matched' | 'mismatched';
+  }>;
   operationReceipts?: Array<{ operationKey?: string; observed?: boolean; method?: string }>;
   cleanup?: {
     apiZeroResidue?: boolean;
@@ -57,6 +68,25 @@ type RuntimeReceiptPayload = {
   observedAssertionIds?: string[];
   evidenceFingerprint?: string;
 };
+
+/** Raw latest attempts for strict release qualification; this function never authorizes a pass. */
+export function readPlaywrightRuntimeReceiptCandidates(reportPath: string, caseId?: string): Array<{
+  caseId: string; status: string; startedAt: string; receipt: unknown; reportFingerprint: string;
+}> {
+  const bytes = fs.readFileSync(reportPath);
+  const report = JSON.parse(bytes.toString('utf8')) as PlaywrightReport;
+  const reportFingerprint = createHash('sha256').update(bytes).digest('hex');
+  return flattenSpecs(report.suites ?? []).flatMap((spec) => (spec.tests ?? []).flatMap((testItem) => {
+    const identity = resolveCaseId(spec, testItem);
+    if (!identity || (caseId !== undefined && identity !== caseId)) return [];
+    const attempts = testItem.results ?? [];
+    const result = attempts.find((attempt) => !Number.isFinite(Date.parse(attempt.startTime ?? '')))
+      ?? [...attempts].sort((a, b) => Date.parse(a.startTime!) - Date.parse(b.startTime!)).at(-1);
+    const attachments = (result?.attachments ?? []).filter((item) => item.name === 'test-execution-receipt');
+    return result ? [{ caseId: identity, status: result.status ?? 'unknown', startedAt: result.startTime ?? '', reportFingerprint,
+      receipt: attachments.length === 1 ? readReceiptPayload(attachments, identity, []) : null }] : [];
+  }));
+}
 
 export function readPlaywrightExecutionReceipts(input: {
   reportPath: string;
@@ -118,6 +148,9 @@ export function readPlaywrightExecutionReceipts(input: {
         diagnostics.push(`${caseId}:RUNTIME_RECEIPT_CONTEXT_INCOMPLETE`);
       }
       if (!hasCompleteClaims(payload.claims)) diagnostics.push(`${caseId}:RUNTIME_RECEIPT_CLAIMS_INCOMPLETE`);
+      if (payload.receiptVersion === '4.0.0' && !hasCompleteAssertionReceipts(payload.assertionReceipts, payload.claims)) {
+        diagnostics.push(`${caseId}:RUNTIME_RECEIPT_ASSERTIONS_INCOMPLETE`);
+      }
       if (!hasCompleteCleanup(payload.cleanup)) diagnostics.push(`${caseId}:RUNTIME_RECEIPT_CLEANUP_INCOMPLETE`);
       const expectedEvidenceFingerprint = fingerprintReceiptEvidence(payload);
       if (payload.evidenceFingerprint !== expectedEvidenceFingerprint) {
@@ -132,6 +165,7 @@ export function readPlaywrightExecutionReceipts(input: {
         || ((payload.receiptVersion === '3.2.0' || payload.receiptVersion === '4.0.0') && !normalizeSha256(payload.semanticCaseFingerprint))
         || !context.environmentId || !context.locale || !context.roleId || !context.route
         || !hasCompleteClaims(payload.claims)
+        || (payload.receiptVersion === '4.0.0' && !hasCompleteAssertionReceipts(payload.assertionReceipts, payload.claims))
         || !hasCompleteCleanup(payload.cleanup)
         || payload.evidenceFingerprint !== expectedEvidenceFingerprint) continue;
       const evidenceStatus = 'complete' as const;
@@ -182,6 +216,7 @@ export function fingerprintReceiptEvidence(payload: RuntimeReceiptPayload): stri
     releaseObservation: payload.releaseObservation,
     executionEpochId: payload.executionEpochId,
     claims: payload.claims,
+    ...(payload.receiptVersion === '4.0.0' ? { assertionReceipts: payload.assertionReceipts ?? [] } : {}),
     operationReceipts: payload.operationReceipts ?? [],
     cleanup: payload.cleanup,
   };
@@ -194,6 +229,28 @@ function hasCompleteClaims(claims: RuntimeReceiptPayload['claims']): boolean {
   const observed = new Set(claims.observed);
   const verified = new Set(claims.verified);
   return required.length > 0 && required.every((claimId) => observed.has(claimId) && verified.has(claimId));
+}
+
+function hasCompleteAssertionReceipts(
+  receipts: RuntimeReceiptPayload['assertionReceipts'],
+  claims: RuntimeReceiptPayload['claims'],
+): boolean {
+  if (!Array.isArray(receipts) || !claims?.required?.length) return false;
+  const required = [...new Set(claims.required)];
+  const matching = receipts.filter((receipt) => receipt.claimId && required.includes(receipt.claimId));
+  if (matching.length !== required.length || new Set(matching.map((receipt) => receipt.claimId)).size !== required.length) return false;
+  return required.every((claimId) => {
+    const receipt = matching.find((item) => item.claimId === claimId);
+    return receipt?.status === 'verified'
+      && receipt.expectedValue !== undefined
+      && receipt.actualStatus === 'observed'
+      && receipt.actualValue !== undefined
+      && ((receipt.observationChannel === 'ui' && receipt.authority === 'user-visible')
+        || (receipt.observationChannel === 'api' && receipt.authority === 'persistence')
+        || (receipt.observationChannel === 'downstream' && receipt.authority === 'integration-terminal')
+        || (receipt.observationChannel === 'cleanup' && receipt.authority === 'residue'))
+      && receipt.comparison === 'matched';
+  });
 }
 
 function hasCompleteCleanup(cleanup: RuntimeReceiptPayload['cleanup']): boolean {

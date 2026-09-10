@@ -1,24 +1,16 @@
 import type { Locator, Page, Response } from '@playwright/test';
 import { executeReadOnlyUiWithTransientRetry } from '../../api/transient-retry';
-
-const listResponseByPath: Record<string, RegExp> = {
-  '/pp/brand/spec': /brand-specs\/page/,
-  '/pp/brand/option-group/taste': /brand-modifiers\/page/,
-  '/pp/brand/option-group/method': /brand-modifiers\/page/,
-  '/pp/brand/option-group/additional': /brand-addon-group\/list/,
-  '/pp/brand/combo': /brand-sections\/list/,
-};
-const localizedListLabels: Record<string, { search: RegExp; table: RegExp }> = {
-  '/pp/brand/spec': { search: /Specification Group Name|规格组名称/i, table: /Specification Group Name|规格组名称/i },
-  '/pp/brand/option-group/taste': { search: /Flavor Group Name|口味组名称/i, table: /Flavor Group Name|口味组名称/i },
-  '/pp/brand/option-group/method': { search: /Preparation Group Name|做法组名称/i, table: /Preparation Group Name|做法组名称/i },
-  '/pp/brand/option-group/additional': { search: /Add-On Group Name|加料组名称/i, table: /Add-On Group Name|加料组名称/i },
-};
 import type { ProductManagementMenuItem } from '../../test-data/product-management';
-import { step } from '../../utils/step';
-import { settleInput } from '../../utils/input-settle';
-import { updateCurrentProductCenterGroupProgressPhase } from '../../utils/product-center-group-progress';
-import { waitUntil } from '../../utils/wait';
+import {
+  escapeCssAttribute,
+  escapeRegex,
+  listResponseByPath,
+  localizedListLabels,
+  settleInput,
+  step,
+  updateCurrentProductCenterGroupProgressPhase,
+  waitUntil,
+} from '../../utils/product-center-group-list-helpers';
 import { MerchantShellPage } from '../sidebar.page';
 
 export class GroupListAccessError extends Error {
@@ -2336,12 +2328,4 @@ export class GroupListPage extends MerchantShellPage {
       { timeout: 10_000, interval: 100, message: `${description}未出现` },
     ).then((state) => state.errorText.find((text) => message.test(text.trim()))?.trim() || state.validationMessage.trim());
   }
-}
-
-function escapeRegex(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function escapeCssAttribute(value: string): string {
-  return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }

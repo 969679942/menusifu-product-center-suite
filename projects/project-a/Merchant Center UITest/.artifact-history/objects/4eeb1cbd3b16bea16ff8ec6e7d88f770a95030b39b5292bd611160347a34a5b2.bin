@@ -1,0 +1,60 @@
+{
+  "runId": "addon-price-20260909-01",
+  "status": "completed-with-findings",
+  "selected": 3,
+  "terminal": 3,
+  "executed": 3,
+  "passed": 0,
+  "currentQualified": 16,
+  "notQualified": 188,
+  "productFailureProven": false,
+  "issues": {
+    "TC-ITEM-ADD-008": "price-field-feedback-evidence-missing",
+    "TC-ITEM-ADD-009": "adapter-cleanup-registration-error",
+    "TC-ITEM-ADD-010": "adapter-cleanup-registration-error"
+  },
+  "recovery": {
+    "recordedAt": "2026-09-08T17:24:27.382Z",
+    "status": "completed-zero-residue",
+    "originalRunId": "addon-price-20260909-01",
+    "intentPath": "deliverables/system-test-platform/addon-price-execution-intent.json",
+    "formalCasesExecuted": 0,
+    "saveActions": 0,
+    "intended": [
+      {
+        "caseId": "TC-ITEM-ADD-009",
+        "name": "加料商品-标准价为 0 创建-1788887817650",
+        "serverIds": [
+          35507
+        ],
+        "apiCount": 0,
+        "uiCount": 0
+      },
+      {
+        "caseId": "TC-ITEM-ADD-010",
+        "name": "加料商品-价格输入负数或非数字创建-1788887843778",
+        "serverIds": [
+          266183
+        ],
+        "apiCount": 0,
+        "uiCount": 0
+      }
+    ]
+  },
+  "qualifiedCasesRerun": 0,
+  "cost": {
+    "failedRuntime": {
+      "tokenStart": 1912088,
+      "tokenEnd": 1917648,
+      "delta": 5560
+    },
+    "recoveryAndInvestigation": {
+      "tokenStart": 1926335,
+      "tokenEnd": 2221716,
+      "delta": 295381,
+      "scope": "tool-reported cumulative goal counter delta; includes resumed-context and investigation; not attributable to recovery execution alone"
+    },
+    "hardBillingLimitEnforced": false
+  },
+  "next": "price-ownership-journal-and-real-ledger-contract"
+}

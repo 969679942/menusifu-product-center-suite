@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-08T16:46:31.335Z",
+  "input": {
+    "unitId": "addon-other-settings-execution-01",
+    "directionId": "addon-other-settings-runtime",
+    "phase": "before-start",
+    "tokenStart": 1786215,
+    "tokenCurrent": 1786215,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "ADD002-current-result"
+    ],
+    "afterQuestionIds": [
+      "ADD002-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "contracts/product-center/test-cases/addon-other-settings-acceptance.json",
+        "sha256": "8037c0d03bbcb0de90b66c6d561d3162b712377bcb22dd1543945894d49e18d0",
+        "kind": "formal-source"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-other-settings-execution-01",
+    "directionId": "addon-other-settings-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "8037c0d03bbcb0de90b66c6d561d3162b712377bcb22dd1543945894d49e18d0"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-09-08T14:19:08.995Z",
+  "caseId": "TC-ITEM-STD-019",
+  "status": "draft-static-validation-before-registration",
+  "sourceContract": "contracts/product-center/test-cases/standard-weight-units-acceptance.json",
+  "files": [
+    "flows/product-center/item-216/standard-weight-units-acceptance.flow.ts",
+    "fixtures/product-center-weight-units.fixture.ts",
+    "tests/generated/product-center-item-weight-units.spec.ts"
+  ],
+  "sourceContractValidated": true,
+  "operations": 2,
+  "assertions": 1,
+  "expectedUnits": [
+    "g",
+    "kg",
+    "ml"
+  ],
+  "implementation": "精确集合相等，拒绝额外或重复选项；复用既有页面方法；不保存商品",
+  "registered": false,
+  "businessExecuted": false,
+  "currentQualified": 8,
+  "softStop": {
+    "threshold": 6000,
+    "observedTokens": 6695,
+    "nextBusinessLaunchPrevented": true,
+    "measurement": "get_goal sample before registration",
+    "hardBillingLimitPromised": false
+  },
+  "remaining": [
+    "为019增加独立依赖指纹及当前路由，保留8条已合格依赖不变",
+    "来源合同已验证；正式登记前重新生成草稿spec并同步唯一绑定",
+    "隔离合同证明额外选项拒绝、失败恢复与路由无遗漏",
+    "构造019精确影响计划与新鲜运行成本凭据，登记通过后执行一次",
+    "按创建页实际断言路由限定当前收据合同，清理后列表URL不得冒充断言面",
+    "保存真实收据、恢复、终态和严格资格；成本不足不启动重复运行"
+  ],
+  "validation": {
+    "recordedAt": "2026-09-08T14:19:51.665Z",
+    "typecheck": "passed",
+    "architectureDebt": 571,
+    "architecture": "passed-no-increase",
+    "capabilityIndex": "generated-and-check-passed",
+    "businessExecuted": false
+  }
+}

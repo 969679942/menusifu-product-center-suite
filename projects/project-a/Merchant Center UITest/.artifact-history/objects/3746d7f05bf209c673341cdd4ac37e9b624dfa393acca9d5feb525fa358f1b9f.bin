@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T17:15:33.262Z",
+  "input": {
+    "unitId": "addon-price-integration-20260909-01",
+    "directionId": "ADD008-009-010-formal-integration",
+    "phase": "after-unit",
+    "tokenStart": 1891409,
+    "tokenCurrent": 1908979,
+    "elapsedMs": 209000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "source-bound-receipt-spec",
+      "cleanup-required-contract",
+      "complete-exact-routing",
+      "prior16-currentness"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-registration-proof.json",
+        "sha256": "9ff4a889d1ff3fb6795541890e8356d490d0b28161e997b406abcfb58d606725",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-integration-20260909-01",
+    "directionId": "ADD008-009-010-formal-integration",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 17570,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "source-bound-receipt-spec",
+      "cleanup-required-contract",
+      "complete-exact-routing",
+      "prior16-currentness"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "9ff4a889d1ff3fb6795541890e8356d490d0b28161e997b406abcfb58d606725"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

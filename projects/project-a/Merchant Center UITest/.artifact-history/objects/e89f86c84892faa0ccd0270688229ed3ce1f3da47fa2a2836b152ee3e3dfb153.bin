@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-09-08T17:02:14.998Z",
+  "input": {
+    "unitId": "addon-price-persistence-20260909-01",
+    "directionId": "ADD008-009-010-price-persistence",
+    "phase": "after-unit",
+    "tokenStart": 1840820,
+    "tokenCurrent": 1857188,
+    "elapsedMs": 147000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "strict-absence-query",
+      "immediate-created-id-registration",
+      "query-before-delete-retry",
+      "identity-drift-refusal",
+      "prior16-fingerprint-preservation"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-persistence-proof.json",
+        "sha256": "d6549ad625b44a2620c76c9cc634f44b35b78378018dd81c98686686ef25734f",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-persistence-20260909-01",
+    "directionId": "ADD008-009-010-price-persistence",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 16368,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "strict-absence-query",
+      "immediate-created-id-registration",
+      "query-before-delete-retry",
+      "identity-drift-refusal",
+      "prior16-fingerprint-preservation"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "d6549ad625b44a2620c76c9cc634f44b35b78378018dd81c98686686ef25734f"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

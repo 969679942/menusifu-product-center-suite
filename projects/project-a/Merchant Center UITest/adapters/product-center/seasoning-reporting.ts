@@ -2,18 +2,18 @@ import { test } from '@playwright/test';
 import type {
   SystemTestReportStep,
   SystemTestStepReporter,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
 import type {
   BusinessStepAttachment,
   BusinessStepReportEvidence,
-} from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
-import { renderBusinessStepDetails } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
-import { createStepBoundAttachmentName } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
-import { formatContinuousBusinessStepTitle } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { renderBusinessStepDetails } from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { createStepBoundAttachmentName } from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { formatContinuousBusinessStepTitle } from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import {
   finishExecutableOperation,
   startExecutableOperation,
-} from '../../../../Test Automation Platform/src/utils/executable-operation-receipt';
+} from '../../../Test Automation Platform/src/utils/executable-operation-receipt';
 
 const routeTitles: Record<string, string> = {
   '/pp/brand/seasoning/list': '品牌调味列表页',
@@ -275,7 +275,7 @@ export function createSeasoningSystemTestStepReporter(): SystemTestStepReporter 
     const testInfo = test.info();
     const operation = startExecutableOperation({
       // testId alone is shared by repeated recipe invocations in some
-      // Playwright contexts. Carry the business case explicitly so parallel
+      // Playwright contexts.  Carry the business case explicitly so parallel
       // guards cannot collide in the append-only audit ledger.
       executionId: `${testInfo.testId}:${step.recipe.caseId}`,
       operationKey: operationKeyForReportStep(step),

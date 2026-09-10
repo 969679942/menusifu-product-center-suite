@@ -6,18 +6,18 @@ import {
   fingerprintSystemTestImplementationSource,
   fingerprintSystemTestValue,
   type SystemTestDataProfile,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import { fingerprintSystemTestSemanticSource } from '../../../../Test Automation Platform/src/automation/system-test/system-test-governance';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { fingerprintSystemTestSemanticSource } from '../../../Test Automation Platform/src/automation/system-test/system-test-governance';
 import {
   compileSystemTestPlan,
   type SystemTestPlan,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-plan-compiler';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-plan-compiler';
 import {
   assertBlockedSourceClassification,
   classifySystemTestSourceStatus,
   type SystemTestApiCatalog,
   type SystemTestSourceStatus,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-source-status';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-source-status';
 import { contextForCase } from '../../test-data/seasoning-context';
 
 type FormalCase = {

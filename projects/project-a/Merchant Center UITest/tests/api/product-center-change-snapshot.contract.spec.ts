@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { FileAuditEventStore } from '../../../../Test Automation Platform/src/audit/event-log';
+import { FileAuditEventStore } from '../../../Test Automation Platform/src/audit/event-log';
 import { adaptProductCenterOperationReceipts } from '../../adapters/product-center/product-center-audit-event-adapter';
 import { buildProductCenterAuditReport, renderProductCenterAuditHtml } from '../../adapters/product-center/product-center-audit-report';
 

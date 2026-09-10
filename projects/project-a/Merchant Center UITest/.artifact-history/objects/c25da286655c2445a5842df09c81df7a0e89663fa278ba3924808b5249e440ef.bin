@@ -1,0 +1,4819 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T11:59:49.119Z",
+  "denominator": {
+    "formal": 220,
+    "notApplicable": 7,
+    "executable": 213
+  },
+  "summary": {
+    "standard": 91,
+    "package": 77,
+    "addon": 45,
+    "flowBound": 213,
+    "contractUnresolved": 0,
+    "runtimeReady": 210,
+    "environmentBlocked": 3,
+    "humanConfirmationRequired": 0,
+    "runtimePassed": 0,
+    "deferred": 0,
+    "runtimeFailed": 0,
+    "runtimeUnresolved": 0,
+    "runtimeNotRun": 213
+  },
+  "runtimeProjection": null,
+  "notApplicable": [
+    "TC-ITEM-PKG-066",
+    "TC-ITEM-STD-025",
+    "TC-ITEM-STD-026",
+    "TC-ITEM-STD-027",
+    "TC-ITEM-STD-034",
+    "TC-ITEM-STD-040",
+    "TC-ITEM-STD-060"
+  ],
+  "formalCases": [
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "title": "标准商品创建页展示商品类型入口与核心配置模块",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "title": "商品列表展示当前筛选、核心字段和分页入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "title": "商品展示列设置后列表仅展示所选列",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "title": "切换中英文后商品页面文案随系统语言切换",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "title": "标准商品必填项缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-006",
+      "title": "一级分类下无二级分类，可新增商品成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "title": "商品名称最多 100 字符且连续空格不可保存",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-093",
+      "title": "商品名称首尾含空格时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-009",
+      "title": "POS名称和送厨名称超长及特殊字符保存后自动格式化",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "title": "商品名称超过100字符时失焦拦截",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-010",
+      "title": "商品编码重复时创建失败并提示 BITEM-7003",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "title": "同一商户同一商品类型内新建同名商品创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "title": "同一商品类型同一二级分类下新建同名商品创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "title": "同一商户同一商品类型下不同一级分类仍不可创建同名商品",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-015",
+      "title": "单规格商品标准价为0时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-016",
+      "title": "多规格商品选择默认规格后创建成功且列表展示所有规格价格",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-017",
+      "title": "多规格商品未选择默认规格时列表仍展示所有规格价格",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-018",
+      "title": "称重商品创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "title": "称重商品销售单位下拉展示 g、kg、ml",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "title": "单规格商品标准价为1.99时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "title": "标准价输入负数时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-022",
+      "title": "起售数量输入0时保存失败并提示 SYSTEM-0001",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "title": "标准商品非法起售数量保存时归一化为 1",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-024",
+      "title": "起售数量大于1时创建成功且C端默认点单数量为起售数量",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-025",
+      "title": "【已废弃】从行业商品库选择单规格商品时可继承行业商品信息",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-026",
+      "title": "【已废弃】从行业商品库选择多规格商品时可继承多规格及图库信息",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-027",
+      "title": "【已废弃】从行业商品库选择多规格商品时仅勾选部分规格可成功继承所选规格",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "title": "商品列表支持按名称、类型、分类、状态组合查询",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "title": "重置查询后页面恢复初始状态",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "title": "切换页面返回标准商品列表时不保留查询条件",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "title": "标准商品编辑基础信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-032",
+      "title": "标准商品内编辑口味组加价和默认选中仅对当前商品生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-033",
+      "title": "标准商品编辑其他信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-034",
+      "title": "【已废弃】继承到商品中的口味组基础信息变更后可同步到已关联商品",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-035",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-036",
+      "title": "标准商品仅填写必填项时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-037",
+      "title": "不选择商品分类时标准商品创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "title": "标准价缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "title": "起售数量为空时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-040",
+      "title": "【已废弃 v3.3】起售数量为 0 时保存失败并提示 SYSTEM-0001（与 TC-ITEM-STD-022 重复）",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "title": "标准商品创建页高级设置区域默认不展开",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "title": "点击展开高级设置后展示 POS 名称等 8 个字段",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-043",
+      "title": "商品第二名称与商品名称互相不可重复",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-044",
+      "title": "同一商户同一商品类型内商品名称重复时创建或编辑失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "title": "助记码超过 20 字符时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "title": "多规格商品选择已有规格组后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "title": "选择多规格后是否称重商品置灰不可选",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "title": "单规格商品包装费合法输入时保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "title": "超限价格保存成功并按 999999.99 展示",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "title": "从图片库选择主图后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-053",
+      "title": "本地上传主图后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-054",
+      "title": "详情图超过 10 张时不可继续添加",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-055",
+      "title": "标准商品选择多个描述标签后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "title": "原料过敏原营养成分保存后编辑回显",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "title": "标准商品引用口味组整组后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "title": "标准商品引用做法组与加料组整组后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-059",
+      "title": "商品内不可单独添加组子项仅可移除已引用子项",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-060",
+      "title": "【已废弃 v3.2】商品内不可修改已引用口味组加价与默认选中",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-061",
+      "title": "配置互斥规则后冲突项在编辑页置灰不可同时选中",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "title": "商品列表分页支持切换 10/20/50/100 条",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-064",
+      "title": "商品列表按商品名称第二语言模糊查询成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-065",
+      "title": "列表启用商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "title": "列表停用未被菜单引用的商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-067",
+      "title": "菜单引用中的标准商品不可停用",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "title": "无引用关系的标准商品删除成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "title": "被套餐组引用的标准商品不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-070",
+      "title": "被菜单引用的标准商品不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "title": "标准商品列表主图不支持点击查看大图",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "title": "商品列表默认展示字段与默认收起字段正确",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "title": "商品列表支持还原默认展示列",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "title": "商品列表展示总商品数量且不展示总金额",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "title": "商品列表删除操作展示确认文案",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-076",
+      "title": "商品列表空值字段展示空而非“-”",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-077",
+      "title": "商品状态变更后需下发到门店终端才生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "title": "标准商品主图上传后不提供第二次本地上传入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-079",
+      "title": "标准商品创建页不支持添加套餐组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "title": "套餐商品基础字段与标准商品保持一致",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "title": "套餐商品可选择已有固定搭配套餐组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-003",
+      "title": "套餐商品可按名称搜索固定搭配套餐组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "title": "套餐商品可选择已有组合搭配套餐组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-005",
+      "title": "套餐商品其他设置与标准商品一致",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "title": "套餐商品选择并引用已有固定搭配组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "title": "套餐商品可新增可选搭配套餐组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "title": "套餐商品创建页展示基础信息与套餐组配置入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-009",
+      "title": "套餐商品仅填写必填项时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "title": "套餐商品必填项缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-011",
+      "title": "套餐商品不选择分类时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-012",
+      "title": "一级分类下无二级分类时套餐可直接创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "title": "存在二级分类时未选二级分类不影响套餐商品提交",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-014",
+      "title": "套餐商品起售数量默认值为 1",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-015",
+      "title": "套餐商品起售数量为 0 时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "title": "套餐商品起售数量大于 1 时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "title": "套餐商品标准价缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-018",
+      "title": "套餐商品标准价为 0 时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "title": "套餐商品标准价输入负数时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "title": "套餐商品包装费合法输入时保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "title": "套餐商品名称首尾空格校验及 100 字符上限",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-076",
+      "title": "套餐商品名称首尾含空格时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "title": "套餐商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "title": "套餐商品助记码超过 20 字符时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-024",
+      "title": "同一商户同一商品类型内套餐商品同名创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-025",
+      "title": "套餐商品同商户同类型同名创建或编辑失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-026",
+      "title": "套餐商品商品第二名称与商品名称互相不可重复",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-027",
+      "title": "套餐商品描述达到500字符后输入框不可继续录入",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "title": "套餐商品最多保存 10 张有效详情图片",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-029",
+      "title": "套餐商品描述标签多选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-030",
+      "title": "套餐商品商品角标单选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "title": "套餐商品统计标签多选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "title": "套餐商品配置材料信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "title": "套餐商品从图片库选择主图后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-034",
+      "title": "套餐商品列表按名称类型分类状态组合查询成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "title": "套餐编辑基础信息并删除主图后允许无图",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "title": "套餐商品编辑其他信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-037",
+      "title": "套餐商品无引用时删除成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "title": "套餐商品被菜单引用时不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-039",
+      "title": "菜单引用中的套餐商品不可停用",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "title": "未选择套餐组时确认按钮不可点击",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "title": "选择套餐组后确认按钮可点击并返回创建页",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "title": "已选固定搭配套餐组可从右侧移除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "title": "已选组合搭配套餐组可从右侧移除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-044",
+      "title": "组合搭配套餐组按名称模糊搜索成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-045",
+      "title": "组合搭配套餐组清空搜索条件后恢复默认列表",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-046",
+      "title": "套餐商品未添加套餐分组时保存与保存并新建均失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "title": "套餐商品重置查询后页面恢复初始状态",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "title": "切换页面返回套餐商品列表时不保留查询条件",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-049",
+      "title": "套餐商品同时引用已有固定搭配与可选搭配组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "title": "删除全部套餐分组后因分组必填无法保存",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-051",
+      "title": "套餐商品创建页不展示多规格与称重相关入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "title": "套餐商品不支持引用口味做法加料组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "title": "套餐和加料商品不支持互斥规则",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "title": "商品列表主图不支持点击查看大图",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-055",
+      "title": "套餐商品列表删除操作展示确认文案",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-056",
+      "title": "组合搭配套餐组按名称精确搜索成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-057",
+      "title": "套餐商品通过选择入口引用已有可选搭配组",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-058",
+      "title": "套餐商品回显已有可选搭配组规则摘要",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-059",
+      "title": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-060",
+      "title": "套餐商品状态变更后需下发到门店终端才生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-061",
+      "title": "套餐商品列表启用商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-062",
+      "title": "套餐商品列表停用未被菜单引用的商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "title": "套餐商品创建页不提供做法组引用入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "title": "套餐商品创建页不提供加料组引用入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "title": "套餐商品创建页没有加料组子项编辑能力",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-066",
+      "title": "【已废弃 v3.2】套餐商品内不可修改已引用口味组加价与默认选中",
+      "conversionScope": "not-applicable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "title": "套餐商品本地上传主图回显后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "title": "套餐商品先删原图再上传第二张主图替换成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "title": "加料商品基础字段与标准商品一致且无起售数量",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "title": "加料商品其他设置与标准商品一致",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "title": "加料商品仅填写必填项时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "title": "加料商品必填项缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "title": "加料商品不选择分类时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "title": "加料商品标准价缺失时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "title": "加料商品标准价为 0 时创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "title": "加料商品标准价输入负数时创建失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费合法输入时保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-047",
+      "title": "加料商品名称首尾含空格时保存失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "加料商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "title": "同一商户同一商品类型内加料商品同名创建或编辑失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "title": "加料商品允许与其他商品类型同名",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "title": "加料商品商品第二名称与商品名称互相不可重复",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "title": "加料商品添加详情图片不超过 10 张",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "title": "加料商品描述标签多选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "title": "加料商品商品角标单选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "title": "加料商品统计标签多选保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "title": "加料商品配置材料信息中原料、过敏原和营养成分后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "title": "加料商品本地上传主图后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-023",
+      "title": "加料商品列表按名称类型分类状态组合查询成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-024",
+      "title": "加料商品编辑基础信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "title": "加料商品编辑其他信息后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-026",
+      "title": "加料商品无引用时删除成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "title": "加料商品被加料组引用且组被商品引用时不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-028",
+      "title": "加料商品被菜单引用时不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-029",
+      "title": "加料商品创建页不展示多规格入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-030",
+      "title": "加料商品创建页不展示是否称重商品选项",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-031",
+      "title": "加料商品创建页不展示套餐组入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-032",
+      "title": "加料商品创建页不展示商品属性编辑区",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "title": "加料组新增时可搜索并选择该加料商品",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "title": "标准商品引用含该加料的加料组后加料商品不可删除",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "title": "加料商品列表主图不支持点击查看大图",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-036",
+      "title": "加料商品列表删除操作展示确认文案",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "title": "加料商品状态变更后需下发到门店终端才生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "title": "加料商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "title": "加料商品从图片库选择主图后创建成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-040",
+      "title": "加料商品重置查询后页面恢复初始状态",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "title": "切换页面返回加料商品列表时不保留查询条件",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-042",
+      "title": "加料商品列表启用商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-043",
+      "title": "加料商品列表停用商品操作成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-044",
+      "title": "菜单已引用的加料商品二次确认后停用成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-080",
+      "title": "称重商品购买重量小于皮重时终端价格为 0",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-081",
+      "title": "详情图重复引用同一张图片保存失败并提示 BITEM-3006",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "title": "标准商品绑定多个打印档口保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "title": "套餐商品内不提供口味组加价和默认选中编辑",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-083",
+      "title": "多规格商品默认规格下发后终端点餐默认选中该规格",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-070",
+      "title": "套餐必选子项停用后终端不可正常点单",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "title": "称重商品销售单位切换 g、kg、ml 后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "title": "多规格商品拖动调整规格顺序后保存成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "title": "移除已引用口味组子项后详情不再展示该子项",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-087",
+      "title": "标准商品内编辑做法组加价和默认选中仅对当前商品生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-088",
+      "title": "标准商品内编辑加料组单次加价和默认选中仅对当前商品生效",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-089",
+      "title": "标准商品内同一选项组仅允许一个默认选中子项",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "title": "套餐商品内不提供做法组加价和默认选中编辑",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "title": "套餐商品内不提供加料组加价和默认选中编辑",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "title": "套餐商品内没有选项组默认选中子项配置入口",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-090",
+      "title": "标准商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-091",
+      "title": "标准商品商品角标切换选择后仅保留最新一个角标",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "title": "点击商品名称进入编辑标准商品页加载成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "title": "编辑标准商品本地上传主图成功",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-095",
+      "title": "商品标准价输入超过两位小数保存时四舍五入为两位",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-074",
+      "title": "套餐商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "title": "加料商品角标切换选择后仅保留最新一个角标",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-075",
+      "title": "套餐商品角标切换选择后仅保留最新一个角标",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-046",
+      "title": "加料商品不能同时保留超过 5 个描述标签",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-078",
+      "title": "套餐商品与加料商品允许同名并同时保留",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-PKG-079",
+      "title": "标准商品与套餐商品跨类型同名创建或编辑失败",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-102",
+      "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+      "conversionScope": "executable"
+    },
+    {
+      "caseId": "TC-ITEM-STD-103",
+      "title": "商品名称包含 emoji 时保存失败",
+      "conversionScope": "executable"
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "title": "标准商品创建页展示商品类型入口与核心配置模块",
+      "family": "standard",
+      "action": "create-page",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-001",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-001:expectation-1",
+        "TC-ITEM-STD-001:expectation-2",
+        "TC-ITEM-STD-001:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "title": "商品列表展示当前筛选、核心字段和分页入口",
+      "family": "standard",
+      "action": "list-page",
+      "handlerId": "item-216:TC-ITEM-STD-002",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "title": "商品展示列设置后列表仅展示所选列",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-003",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-003:expectation-1",
+        "TC-ITEM-STD-003:expectation-2",
+        "TC-ITEM-STD-003:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "title": "切换中英文后商品页面文案随系统语言切换",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-004",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-004:expectation-1",
+        "TC-ITEM-STD-004:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "title": "标准商品必填项缺失时创建失败",
+      "family": "standard",
+      "action": "required",
+      "handlerId": "product-center:item-required-name:negative",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-005:expectation-1",
+        "TC-ITEM-STD-005:expectation-2",
+        "TC-ITEM-STD-005:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-006",
+      "title": "一级分类下无二级分类，可新增商品成功",
+      "family": "standard",
+      "action": "leaf-category-create",
+      "handlerId": "product-center:green-draft:at05:tc-item-std-006",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-006:expectation-1",
+        "TC-ITEM-STD-006:expectation-2",
+        "TC-ITEM-STD-006:expectation-3",
+        "TC-ITEM-STD-006:expectation-4",
+        "TC-ITEM-STD-006:expectation-5"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "family": "standard",
+      "action": "category-leaf",
+      "handlerId": "product-center:item-category-leaf:TC-ITEM-STD-007",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-007:expectation-1",
+        "TC-ITEM-STD-007:expectation-2",
+        "TC-ITEM-STD-007:expectation-3",
+        "TC-ITEM-STD-007:expectation-4",
+        "TC-ITEM-STD-007:expectation-5",
+        "TC-ITEM-STD-007:expectation-6"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "title": "商品名称最多 100 字符且连续空格不可保存",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-008",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-008:expectation-1",
+        "TC-ITEM-STD-008:expectation-2",
+        "TC-ITEM-STD-008:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-093",
+      "title": "商品名称首尾含空格时保存失败",
+      "family": "standard",
+      "action": "name-whitespace",
+      "handlerId": "item-216:TC-ITEM-STD-093",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-093:expectation-1",
+        "TC-ITEM-STD-093:expectation-2",
+        "TC-ITEM-STD-093:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-009",
+      "title": "POS名称和送厨名称超长及特殊字符保存后自动格式化",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:green-draft:at08:tc-item-std-009",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-009:expectation-1",
+        "TC-ITEM-STD-009:expectation-2",
+        "TC-ITEM-STD-009:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "title": "商品名称超过100字符时失焦拦截",
+      "family": "standard",
+      "action": "pos-whitespace",
+      "handlerId": "product-center:green-draft:at06:tc-item-std-094",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-094:expectation-1",
+        "TC-ITEM-STD-094:expectation-2",
+        "TC-ITEM-STD-094:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-010",
+      "title": "商品编码重复时创建失败并提示 BITEM-7003",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-010",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-010:expectation-1",
+        "TC-ITEM-STD-010:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "title": "同一商户同一商品类型内新建同名商品创建失败",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-011",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-011:expectation-1",
+        "TC-ITEM-STD-011:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-012",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-012:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "title": "同一商品类型同一二级分类下新建同名商品创建失败",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-013",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-013:expectation-1",
+        "TC-ITEM-STD-013:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "title": "同一商户同一商品类型下不同一级分类仍不可创建同名商品",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-014",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-014:expectation-1",
+        "TC-ITEM-STD-014:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-015",
+      "title": "单规格商品标准价为0时创建成功",
+      "family": "standard",
+      "action": "create-zero",
+      "handlerId": "item-216:TC-ITEM-STD-015",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-015:expectation-1",
+        "TC-ITEM-STD-015:expectation-2",
+        "TC-ITEM-STD-015:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-016",
+      "title": "多规格商品选择默认规格后创建成功且列表展示所有规格价格",
+      "family": "standard",
+      "action": "create-multi-default",
+      "handlerId": "item-216:TC-ITEM-STD-016",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-016:expectation-1",
+        "TC-ITEM-STD-016:expectation-2",
+        "TC-ITEM-STD-016:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-017",
+      "title": "多规格商品未选择默认规格时列表仍展示所有规格价格",
+      "family": "standard",
+      "action": "create-multi-no-default",
+      "handlerId": "item-216:TC-ITEM-STD-017",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-017:expectation-1",
+        "TC-ITEM-STD-017:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-018",
+      "title": "称重商品创建成功",
+      "family": "standard",
+      "action": "create-weight",
+      "handlerId": "item-216:TC-ITEM-STD-018",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-018:expectation-1",
+        "TC-ITEM-STD-018:expectation-2",
+        "TC-ITEM-STD-018:expectation-3",
+        "TC-ITEM-STD-018:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "title": "称重商品销售单位下拉展示 g、kg、ml",
+      "family": "standard",
+      "action": "weight-units",
+      "handlerId": "product-center:yellow-probe:at13:tc-item-std-019",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-019:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "title": "单规格商品标准价为1.99时创建成功",
+      "family": "standard",
+      "action": "create-price",
+      "handlerId": "product-center:green-draft:at09:tc-item-std-020",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-020:expectation-1",
+        "TC-ITEM-STD-020:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "title": "标准价输入负数时创建失败",
+      "family": "standard",
+      "action": "price-negative",
+      "handlerId": "item-216:TC-ITEM-STD-021",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-021:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-022",
+      "title": "起售数量输入0时保存失败并提示 SYSTEM-0001",
+      "family": "standard",
+      "action": "minimum-zero",
+      "handlerId": "item-216:TC-ITEM-STD-022",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-022:expectation-1",
+        "TC-ITEM-STD-022:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "title": "标准商品非法起售数量保存时归一化为 1",
+      "family": "standard",
+      "action": "minimum-invalid",
+      "handlerId": "item-216:TC-ITEM-STD-023",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-023:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-024",
+      "title": "起售数量大于1时创建成功且C端默认点单数量为起售数量",
+      "family": "standard",
+      "action": "minimum-replay",
+      "handlerId": "product-center:yellow-probe:at11:tc-item-std-024",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-024:expectation-1",
+        "TC-ITEM-STD-024:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "title": "商品列表支持按名称、类型、分类、状态组合查询",
+      "family": "standard",
+      "action": "type-filter",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-028",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-028:expectation-1",
+        "TC-ITEM-STD-028:expectation-2",
+        "TC-ITEM-STD-028:expectation-3",
+        "TC-ITEM-STD-028:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "title": "重置查询后页面恢复初始状态",
+      "family": "standard",
+      "action": "filter-reset",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-029",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-029:expectation-1",
+        "TC-ITEM-STD-029:expectation-2",
+        "TC-ITEM-STD-029:expectation-3",
+        "TC-ITEM-STD-029:expectation-4",
+        "TC-ITEM-STD-029:expectation-5"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "title": "切换页面返回标准商品列表时不保留查询条件",
+      "family": "standard",
+      "action": "filter-memory",
+      "handlerId": "product-center:yellow-probe:at04:tc-item-std-030",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-030:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "title": "标准商品编辑基础信息后保存成功",
+      "family": "standard",
+      "action": "edit-basic",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-031",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-031:expectation-1",
+        "TC-ITEM-STD-031:expectation-2",
+        "TC-ITEM-STD-031:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-032",
+      "title": "标准商品内编辑口味组加价和默认选中仅对当前商品生效",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-032",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-032:expectation-1",
+        "TC-ITEM-STD-032:expectation-2",
+        "TC-ITEM-STD-032:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-033",
+      "title": "标准商品编辑其他信息后保存成功",
+      "family": "standard",
+      "action": "edit-other",
+      "handlerId": "product-center:green-draft:at01:tc-item-std-033",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-033:expectation-1",
+        "TC-ITEM-STD-033:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-035",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "family": "standard",
+      "action": "category-with-product",
+      "handlerId": "product-center:green-draft:at06:tc-item-std-035",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-035:expectation-1",
+        "TC-ITEM-STD-035:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-036",
+      "title": "标准商品仅填写必填项时创建成功",
+      "family": "standard",
+      "action": "create-required",
+      "handlerId": "item-216:TC-ITEM-STD-036",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-036:expectation-1",
+        "TC-ITEM-STD-036:expectation-2",
+        "TC-ITEM-STD-036:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-037",
+      "title": "不选择商品分类时标准商品创建成功",
+      "family": "standard",
+      "action": "create-no-category",
+      "handlerId": "item-216:TC-ITEM-STD-037",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-037:expectation-1",
+        "TC-ITEM-STD-037:expectation-2",
+        "TC-ITEM-STD-037:expectation-3",
+        "TC-ITEM-STD-037:expectation-4",
+        "TC-ITEM-STD-037:expectation-5",
+        "TC-ITEM-STD-037:expectation-6"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "title": "标准价缺失时创建失败",
+      "family": "standard",
+      "action": "price-missing",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-038",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-038:expectation-1",
+        "TC-ITEM-STD-038:expectation-2",
+        "TC-ITEM-STD-038:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "title": "起售数量为空时保存失败",
+      "family": "standard",
+      "action": "minimum-missing",
+      "handlerId": "item-216:TC-ITEM-STD-039",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-039:expectation-1",
+        "TC-ITEM-STD-039:expectation-2",
+        "TC-ITEM-STD-039:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "title": "标准商品创建页高级设置区域默认不展开",
+      "family": "standard",
+      "action": "advanced-collapsed",
+      "handlerId": "product-center:yellow-probe:at07:tc-item-std-041",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-041:expectation-1",
+        "TC-ITEM-STD-041:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "title": "点击展开高级设置后展示 POS 名称等 8 个字段",
+      "family": "standard",
+      "action": "advanced-fields",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-042",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-042:expectation-1",
+        "TC-ITEM-STD-042:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-043",
+      "title": "商品第二名称与商品名称互相不可重复",
+      "family": "standard",
+      "action": "duplicate-alt-name",
+      "handlerId": "item-216:TC-ITEM-STD-043",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-043:expectation-1",
+        "TC-ITEM-STD-043:expectation-2",
+        "TC-ITEM-STD-043:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-044",
+      "title": "同一商户同一商品类型内商品名称重复时创建或编辑失败",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-044",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-044:expectation-1",
+        "TC-ITEM-STD-044:expectation-2",
+        "TC-ITEM-STD-044:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "family": "standard",
+      "action": "description-capacity",
+      "handlerId": "product-center:green-draft:at17:tc-item-std-045",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-045:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "title": "助记码超过 20 字符时保存失败",
+      "family": "standard",
+      "action": "field-overflow",
+      "handlerId": "product-center:green-draft:at06:tc-item-std-046",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-046:expectation-1",
+        "TC-ITEM-STD-046:expectation-2",
+        "TC-ITEM-STD-046:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "title": "多规格商品选择已有规格组后创建成功",
+      "family": "standard",
+      "action": "existing-spec-group",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-047",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-047:expectation-1",
+        "TC-ITEM-STD-047:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "family": "standard",
+      "action": "spec-group-navigation",
+      "handlerId": "product-center:green-draft:at09:tc-item-std-048",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-048:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "title": "选择多规格后是否称重商品置灰不可选",
+      "family": "standard",
+      "action": "multi-weight-disabled",
+      "handlerId": "product-center:green-draft:at10:tc-item-std-049",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-049:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "title": "单规格商品包装费合法输入时保存成功",
+      "family": "standard",
+      "action": "packaging-cost",
+      "handlerId": "product-center:green-draft:at09:tc-item-std-050",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-050:expectation-1",
+        "TC-ITEM-STD-050:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "title": "超限价格保存成功并按 999999.99 展示",
+      "family": "standard",
+      "action": "price-over-max",
+      "handlerId": "product-center:green-draft:at10:tc-item-std-051",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-051:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "title": "从图片库选择主图后创建成功",
+      "family": "standard",
+      "action": "library-image",
+      "handlerId": "product-center:green-draft:at05:tc-item-std-052",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-052:expectation-1",
+        "TC-ITEM-STD-052:expectation-2",
+        "TC-ITEM-STD-052:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-053",
+      "title": "本地上传主图后创建成功",
+      "family": "standard",
+      "action": "local-image",
+      "handlerId": "product-center:green-draft:at05:tc-item-std-053",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-053:expectation-1",
+        "TC-ITEM-STD-053:expectation-2",
+        "TC-ITEM-STD-053:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-054",
+      "title": "详情图超过 10 张时不可继续添加",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:green-draft:at17:tc-item-std-054",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-054:expectation-1",
+        "TC-ITEM-STD-054:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-055",
+      "title": "标准商品选择多个描述标签后保存成功",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:green-draft:at08:tc-item-std-055",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-055:expectation-1",
+        "TC-ITEM-STD-055:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "title": "原料过敏原营养成分保存后编辑回显",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:green-draft:at08:tc-item-std-056",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-056:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "title": "标准商品引用口味组整组后保存成功",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-057",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-057:expectation-1",
+        "TC-ITEM-STD-057:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "title": "标准商品引用做法组与加料组整组后保存成功",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-058",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-058:expectation-1",
+        "TC-ITEM-STD-058:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-059",
+      "title": "商品内不可单独添加组子项仅可移除已引用子项",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:green-draft:at17:tc-item-std-059",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-059:expectation-1",
+        "TC-ITEM-STD-059:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-061",
+      "title": "配置互斥规则后冲突项在编辑页置灰不可同时选中",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:yellow-probe:at02:tc-item-std-061",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-061:expectation-1",
+        "TC-ITEM-STD-061:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "title": "商品列表分页支持切换 10/20/50/100 条",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-063",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-064",
+      "title": "商品列表按商品名称第二语言模糊查询成功",
+      "family": "standard",
+      "action": "second-language-search",
+      "handlerId": "product-center:green-draft:at03:tc-item-std-064",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-064:expectation-1",
+        "TC-ITEM-STD-064:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-065",
+      "title": "列表启用商品操作成功",
+      "family": "standard",
+      "action": "lifecycle",
+      "handlerId": "product-center:green-draft:at21:tc-item-std-065",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-065:expectation-1",
+        "TC-ITEM-STD-065:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "title": "列表停用未被菜单引用的商品操作成功",
+      "family": "standard",
+      "action": "lifecycle",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-066",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-066:expectation-1",
+        "TC-ITEM-STD-066:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-067",
+      "title": "菜单引用中的标准商品不可停用",
+      "family": "standard",
+      "action": "lifecycle",
+      "handlerId": "item-216:TC-ITEM-STD-067",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-067:expectation-1",
+        "TC-ITEM-STD-067:expectation-2",
+        "TC-ITEM-STD-067:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "title": "无引用关系的标准商品删除成功",
+      "family": "standard",
+      "action": "delete-lifecycle",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-068",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-068:expectation-1",
+        "TC-ITEM-STD-068:expectation-2",
+        "TC-ITEM-STD-068:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "title": "被套餐组引用的标准商品不可删除",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-069",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-069:expectation-1",
+        "TC-ITEM-STD-069:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-070",
+      "title": "被菜单引用的标准商品不可删除",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-070",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-070:expectation-1",
+        "TC-ITEM-STD-070:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "environment-blocked",
+      "runtimeStatus": "not-run",
+      "blockingReasons": [
+        "缺少审计菜单到商品列表加入菜单目标树的稳定适配器"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "title": "标准商品列表主图不支持点击查看大图",
+      "family": "standard",
+      "action": "image-preview",
+      "handlerId": "product-center:yellow-probe:at18:tc-item-std-071",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-071:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "title": "商品列表默认展示字段与默认收起字段正确",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-072",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-072:expectation-1",
+        "TC-ITEM-STD-072:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "title": "商品列表支持还原默认展示列",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:green-draft:at19:tc-item-std-073",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-073:expectation-1",
+        "TC-ITEM-STD-073:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "title": "商品列表展示总商品数量且不展示总金额",
+      "family": "standard",
+      "action": "list-evidence",
+      "handlerId": "product-center:yellow-probe:at18:tc-item-std-074",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "title": "商品列表删除操作展示确认文案",
+      "family": "standard",
+      "action": "delete-confirmation",
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-STD-075",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-075:expectation-1",
+        "TC-ITEM-STD-075:expectation-2",
+        "TC-ITEM-STD-075:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-076",
+      "title": "商品列表空值字段展示空而非“-”",
+      "family": "standard",
+      "action": "empty-category-cell",
+      "handlerId": "product-center:yellow-probe:at18:tc-item-std-076",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-076:expectation-1",
+        "TC-ITEM-STD-076:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-077",
+      "title": "商品状态变更后需下发到门店终端才生效",
+      "family": "standard",
+      "action": "lifecycle",
+      "handlerId": "product-center:yellow-probe:at20:tc-item-std-077",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-077:expectation-1",
+        "TC-ITEM-STD-077:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "title": "标准商品主图上传后不提供第二次本地上传入口",
+      "family": "standard",
+      "action": "replace-main-image",
+      "handlerId": "product-center:green-draft:at15:tc-item-std-078",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-078:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-079",
+      "title": "标准商品创建页不支持添加套餐组",
+      "family": "standard",
+      "action": "no-combo-group",
+      "handlerId": "product-center:yellow-probe:at14:tc-item-std-079",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-079:expectation-1",
+        "TC-ITEM-STD-079:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "title": "套餐商品基础字段与标准商品保持一致",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-001",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-001:expectation-1",
+        "TC-ITEM-PKG-001:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "title": "套餐商品可选择已有固定搭配套餐组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-002",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-002:expectation-1",
+        "TC-ITEM-PKG-002:expectation-2",
+        "TC-ITEM-PKG-002:expectation-3",
+        "TC-ITEM-PKG-002:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-003",
+      "title": "套餐商品可按名称搜索固定搭配套餐组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at37:tc-item-pkg-003",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-003:expectation-1",
+        "TC-ITEM-PKG-003:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "title": "套餐商品可选择已有组合搭配套餐组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-004",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-004:expectation-1",
+        "TC-ITEM-PKG-004:expectation-2",
+        "TC-ITEM-PKG-004:expectation-3",
+        "TC-ITEM-PKG-004:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-005",
+      "title": "套餐商品其他设置与标准商品一致",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-005",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-005:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "title": "套餐商品选择并引用已有固定搭配组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-006",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-006:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "title": "套餐商品可新增可选搭配套餐组",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-007",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-007:expectation-1",
+        "TC-ITEM-PKG-007:expectation-2",
+        "TC-ITEM-PKG-007:expectation-3",
+        "TC-ITEM-PKG-007:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "title": "套餐商品创建页展示基础信息与套餐组配置入口",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-PKG-008",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-008:expectation-1",
+        "TC-ITEM-PKG-008:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-009",
+      "title": "套餐商品仅填写必填项时创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-009",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-009:expectation-1",
+        "TC-ITEM-PKG-009:expectation-2",
+        "TC-ITEM-PKG-009:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "title": "套餐商品必填项缺失时创建失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-010",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-010:expectation-1",
+        "TC-ITEM-PKG-010:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-011",
+      "title": "套餐商品不选择分类时创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-011",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-011:expectation-1",
+        "TC-ITEM-PKG-011:expectation-2",
+        "TC-ITEM-PKG-011:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-012",
+      "title": "一级分类下无二级分类时套餐可直接创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-012",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-012:expectation-1",
+        "TC-ITEM-PKG-012:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "title": "存在二级分类时未选二级分类不影响套餐商品提交",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-013",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-013:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-014",
+      "title": "套餐商品起售数量默认值为 1",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at40:tc-item-pkg-014",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-014:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-015",
+      "title": "套餐商品起售数量为 0 时保存失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-015",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-015:expectation-1",
+        "TC-ITEM-PKG-015:expectation-2",
+        "TC-ITEM-PKG-015:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "title": "套餐商品起售数量大于 1 时创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at39:tc-item-pkg-016",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-016:expectation-1",
+        "TC-ITEM-PKG-016:expectation-2",
+        "TC-ITEM-PKG-016:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "title": "套餐商品标准价缺失时创建失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-017",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-017:expectation-1",
+        "TC-ITEM-PKG-017:expectation-2",
+        "TC-ITEM-PKG-017:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-018",
+      "title": "套餐商品标准价为 0 时创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-018",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-018:expectation-1",
+        "TC-ITEM-PKG-018:expectation-2",
+        "TC-ITEM-PKG-018:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "title": "套餐商品标准价输入负数时创建失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-019",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-019:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "title": "套餐商品包装费合法输入时保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at41:tc-item-pkg-020",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-020:expectation-1",
+        "TC-ITEM-PKG-020:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "title": "套餐商品名称首尾空格校验及 100 字符上限",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-021",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-021:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-076",
+      "title": "套餐商品名称首尾含空格时保存失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-076",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-076:expectation-1",
+        "TC-ITEM-PKG-076:expectation-2",
+        "TC-ITEM-PKG-076:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "title": "套餐商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-022",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-022:expectation-1",
+        "TC-ITEM-PKG-022:expectation-2",
+        "TC-ITEM-PKG-022:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "title": "套餐商品助记码超过 20 字符时保存失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at45:tc-item-pkg-023",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-023:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-024",
+      "title": "同一商户同一商品类型内套餐商品同名创建失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-024",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-024:expectation-1",
+        "TC-ITEM-PKG-024:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-025",
+      "title": "套餐商品同商户同类型同名创建或编辑失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-025",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-025:expectation-1",
+        "TC-ITEM-PKG-025:expectation-2",
+        "TC-ITEM-PKG-025:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-026",
+      "title": "套餐商品商品第二名称与商品名称互相不可重复",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-026",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-026:expectation-1",
+        "TC-ITEM-PKG-026:expectation-2",
+        "TC-ITEM-PKG-026:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-027",
+      "title": "套餐商品描述达到500字符后输入框不可继续录入",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at45:tc-item-pkg-027",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-027:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "title": "套餐商品最多保存 10 张有效详情图片",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at45:tc-item-pkg-028",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-028:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-029",
+      "title": "套餐商品描述标签多选保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-029",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-029:expectation-1",
+        "TC-ITEM-PKG-029:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-030",
+      "title": "套餐商品商品角标单选保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-030",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-030:expectation-1",
+        "TC-ITEM-PKG-030:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "title": "套餐商品统计标签多选保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-031",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-031:expectation-1",
+        "TC-ITEM-PKG-031:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "title": "套餐商品配置材料信息后保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-032",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-032:expectation-1",
+        "TC-ITEM-PKG-032:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "title": "套餐商品从图片库选择主图后创建成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-033",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-033:expectation-1",
+        "TC-ITEM-PKG-033:expectation-2",
+        "TC-ITEM-PKG-033:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-034",
+      "title": "套餐商品列表按名称类型分类状态组合查询成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at50:tc-item-pkg-034",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-034:expectation-1",
+        "TC-ITEM-PKG-034:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "title": "套餐编辑基础信息并删除主图后允许无图",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-035",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-035:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "title": "套餐商品编辑其他信息后保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at35:tc-item-pkg-036",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-036:expectation-1",
+        "TC-ITEM-PKG-036:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-037",
+      "title": "套餐商品无引用时删除成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-037",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-037:expectation-1",
+        "TC-ITEM-PKG-037:expectation-2",
+        "TC-ITEM-PKG-037:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "title": "套餐商品被菜单引用时不可删除",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-038",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-038:expectation-1",
+        "TC-ITEM-PKG-038:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-039",
+      "title": "菜单引用中的套餐商品不可停用",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-039",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-039:expectation-1",
+        "TC-ITEM-PKG-039:expectation-2",
+        "TC-ITEM-PKG-039:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "title": "未选择套餐组时确认按钮不可点击",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-040",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-040:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "title": "选择套餐组后确认按钮可点击并返回创建页",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-api-closure:TC-ITEM-PKG-041",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-041:expectation-1",
+        "TC-ITEM-PKG-041:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "title": "已选固定搭配套餐组可从右侧移除",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at44:tc-item-pkg-042",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-042:expectation-1",
+        "TC-ITEM-PKG-042:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "title": "已选组合搭配套餐组可从右侧移除",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at44:tc-item-pkg-043",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-043:expectation-1",
+        "TC-ITEM-PKG-043:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-044",
+      "title": "组合搭配套餐组按名称模糊搜索成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at36:tc-item-pkg-044",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-044:expectation-1",
+        "TC-ITEM-PKG-044:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-045",
+      "title": "组合搭配套餐组清空搜索条件后恢复默认列表",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at37:tc-item-pkg-045",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-045:expectation-1",
+        "TC-ITEM-PKG-045:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-046",
+      "title": "套餐商品未添加套餐分组时保存与保存并新建均失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-audit:TC-ITEM-PKG-046",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-046:expectation-1",
+        "TC-ITEM-PKG-046:expectation-2",
+        "TC-ITEM-PKG-046:expectation-3",
+        "TC-ITEM-PKG-046:expectation-4",
+        "TC-ITEM-PKG-046:expectation-5"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "title": "套餐商品重置查询后页面恢复初始状态",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-PKG-047",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-047:expectation-1",
+        "TC-ITEM-PKG-047:expectation-2",
+        "TC-ITEM-PKG-047:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "title": "切换页面返回套餐商品列表时不保留查询条件",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at38:tc-item-pkg-048",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-048:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-049",
+      "title": "套餐商品同时引用已有固定搭配与可选搭配组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-049",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-049:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "title": "删除全部套餐分组后因分组必填无法保存",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at42:tc-item-pkg-050",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-050:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-051",
+      "title": "套餐商品创建页不展示多规格与称重相关入口",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at40:tc-item-pkg-051",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-051:expectation-1",
+        "TC-ITEM-PKG-051:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "title": "套餐商品不支持引用口味做法加料组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-052",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-052:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "title": "套餐和加料商品不支持互斥规则",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-053",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-053:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "title": "商品列表主图不支持点击查看大图",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at46:tc-item-pkg-054",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-054:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-055",
+      "title": "套餐商品列表删除操作展示确认文案",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at42:tc-item-pkg-055",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-055:expectation-1",
+        "TC-ITEM-PKG-055:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-056",
+      "title": "组合搭配套餐组按名称精确搜索成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at36:tc-item-pkg-056",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-056:expectation-1",
+        "TC-ITEM-PKG-056:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-057",
+      "title": "套餐商品通过选择入口引用已有可选搭配组",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at34:tc-item-pkg-057",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-057:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-058",
+      "title": "套餐商品回显已有可选搭配组规则摘要",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-058",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-058:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-059",
+      "title": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:item-combo-audit:TC-ITEM-PKG-059",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-059:expectation-1",
+        "TC-ITEM-PKG-059:expectation-2",
+        "TC-ITEM-PKG-059:expectation-3",
+        "TC-ITEM-PKG-059:expectation-4",
+        "TC-ITEM-PKG-059:expectation-5",
+        "TC-ITEM-PKG-059:expectation-6",
+        "TC-ITEM-PKG-059:expectation-7",
+        "TC-ITEM-PKG-059:expectation-8",
+        "TC-ITEM-PKG-059:expectation-9",
+        "TC-ITEM-PKG-059:expectation-10",
+        "TC-ITEM-PKG-059:expectation-11",
+        "TC-ITEM-PKG-059:expectation-12",
+        "TC-ITEM-PKG-059:expectation-13",
+        "TC-ITEM-PKG-059:expectation-14"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-060",
+      "title": "套餐商品状态变更后需下发到门店终端才生效",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at49:tc-item-pkg-060",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-060:expectation-1",
+        "TC-ITEM-PKG-060:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-061",
+      "title": "套餐商品列表启用商品操作成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at50:tc-item-pkg-061",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-061:expectation-1",
+        "TC-ITEM-PKG-061:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-062",
+      "title": "套餐商品列表停用未被菜单引用的商品操作成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at50:tc-item-pkg-062",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-062:expectation-1",
+        "TC-ITEM-PKG-062:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "title": "套餐商品创建页不提供做法组引用入口",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-063",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-063:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "title": "套餐商品创建页不提供加料组引用入口",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at47:tc-item-pkg-064",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-064:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "title": "套餐商品创建页没有加料组子项编辑能力",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at45:tc-item-pkg-065",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-065:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "title": "套餐商品本地上传主图回显后保存成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-067",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-067:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "title": "套餐商品先删原图再上传第二张主图替换成功",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:green-draft:at43:tc-item-pkg-068",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-068:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "title": "加料商品基础字段与标准商品一致且无起售数量",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-001",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-001:expectation-1",
+        "TC-ITEM-ADD-001:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "title": "加料商品其他设置与标准商品一致",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at32:tc-item-add-002",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "title": "加料商品仅填写必填项时创建成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-ADD-005",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "dc37c04ce0b56323b3cdc892359f35908fa88a269d82782a8e97026497b9baa1",
+      "assertionIds": [
+        "TC-ITEM-ADD-005:expectation-1",
+        "TC-ITEM-ADD-005:expectation-2",
+        "TC-ITEM-ADD-005:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "title": "加料商品必填项缺失时创建失败",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-006",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "92422963a1a6e0f549c5dbb90a6339784d81de6f59f6cbadec3114040f896897",
+      "assertionIds": [
+        "TC-ITEM-ADD-006:expectation-1",
+        "TC-ITEM-ADD-006:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "title": "加料商品不选择分类时创建成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at25:tc-item-add-007",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "dc37c04ce0b56323b3cdc892359f35908fa88a269d82782a8e97026497b9baa1",
+      "assertionIds": [
+        "TC-ITEM-ADD-007:expectation-1",
+        "TC-ITEM-ADD-007:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "title": "加料商品标准价缺失时创建失败",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-008",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-008:expectation-1",
+        "TC-ITEM-ADD-008:expectation-2",
+        "TC-ITEM-ADD-008:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "title": "加料商品标准价为 0 时创建成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at25:tc-item-add-009",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-009:expectation-1",
+        "TC-ITEM-ADD-009:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "title": "加料商品标准价输入负数时创建失败",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-010",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费合法输入时保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at27:tc-item-add-011",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-011:expectation-1",
+        "TC-ITEM-ADD-011:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-012",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-012:expectation-1",
+        "TC-ITEM-ADD-012:expectation-2",
+        "TC-ITEM-ADD-012:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-047",
+      "title": "加料商品名称首尾含空格时保存失败",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-047",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-047:expectation-1",
+        "TC-ITEM-ADD-047:expectation-2",
+        "TC-ITEM-ADD-047:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "加料商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-013",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-013:expectation-1",
+        "TC-ITEM-ADD-013:expectation-2",
+        "TC-ITEM-ADD-013:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "title": "同一商户同一商品类型内加料商品同名创建或编辑失败",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-014",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-014:expectation-1",
+        "TC-ITEM-ADD-014:expectation-2",
+        "TC-ITEM-ADD-014:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "title": "加料商品允许与其他商品类型同名",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-015",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-015:expectation-1",
+        "TC-ITEM-ADD-015:expectation-2",
+        "TC-ITEM-ADD-015:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "title": "加料商品商品第二名称与商品名称互相不可重复",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-016",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-016:expectation-1",
+        "TC-ITEM-ADD-016:expectation-2",
+        "TC-ITEM-ADD-016:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "title": "加料商品添加详情图片不超过 10 张",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:green-draft:at28:tc-item-add-017",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-017:expectation-1",
+        "TC-ITEM-ADD-017:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "title": "加料商品描述标签多选保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-018",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-018:expectation-1",
+        "TC-ITEM-ADD-018:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "title": "加料商品商品角标单选保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-019",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-019:expectation-1",
+        "TC-ITEM-ADD-019:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "title": "加料商品统计标签多选保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-020",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-020:expectation-1",
+        "TC-ITEM-ADD-020:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "title": "加料商品配置材料信息中原料、过敏原和营养成分后保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at26:tc-item-add-021",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-021:expectation-1",
+        "TC-ITEM-ADD-021:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "title": "加料商品本地上传主图后创建成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at25:tc-item-add-022",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-022:expectation-1",
+        "TC-ITEM-ADD-022:expectation-2",
+        "TC-ITEM-ADD-022:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-023",
+      "title": "加料商品列表按名称类型分类状态组合查询成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-ADD-023",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-023:expectation-1",
+        "TC-ITEM-ADD-023:expectation-2",
+        "TC-ITEM-ADD-023:expectation-3",
+        "TC-ITEM-ADD-023:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-024",
+      "title": "加料商品编辑基础信息后保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-024",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-024:expectation-1",
+        "TC-ITEM-ADD-024:expectation-2",
+        "TC-ITEM-ADD-024:expectation-3",
+        "TC-ITEM-ADD-024:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "title": "加料商品编辑其他信息后保存成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at22:tc-item-add-025",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-025:expectation-1",
+        "TC-ITEM-ADD-025:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-026",
+      "title": "加料商品无引用时删除成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-026",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-026:expectation-1",
+        "TC-ITEM-ADD-026:expectation-2",
+        "TC-ITEM-ADD-026:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "title": "加料商品被加料组引用且组被商品引用时不可删除",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-027",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-027:expectation-1",
+        "TC-ITEM-ADD-027:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-028",
+      "title": "加料商品被菜单引用时不可删除",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-028",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-028:expectation-1",
+        "TC-ITEM-ADD-028:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-029",
+      "title": "加料商品创建页不展示多规格入口",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-029",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-029:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-030",
+      "title": "加料商品创建页不展示是否称重商品选项",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-030",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-030:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-031",
+      "title": "加料商品创建页不展示套餐组入口",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-031",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-031:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-032",
+      "title": "加料商品创建页不展示商品属性编辑区",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-032",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-032:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "title": "加料组新增时可搜索并选择该加料商品",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at23:tc-item-add-033",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-033:expectation-1",
+        "TC-ITEM-ADD-033:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "title": "标准商品引用含该加料的加料组后加料商品不可删除",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-034",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-034:expectation-1",
+        "TC-ITEM-ADD-034:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "title": "加料商品列表主图不支持点击查看大图",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at31:tc-item-add-035",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "c8c839c901324d81c38a256ed1cb7a8886f1c43ba5c72ff5c45423e2ace9345f",
+      "assertionIds": [
+        "TC-ITEM-ADD-035:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-036",
+      "title": "加料商品列表删除操作展示确认文案",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-036",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-036:expectation-1",
+        "TC-ITEM-ADD-036:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "title": "加料商品状态变更后需下发到门店终端才生效",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at33:tc-item-add-037",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-037:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "title": "加料商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at30:tc-item-add-038",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-038:expectation-1",
+        "TC-ITEM-ADD-038:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "title": "加料商品从图片库选择主图后创建成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at25:tc-item-add-039",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-039:expectation-1",
+        "TC-ITEM-ADD-039:expectation-2",
+        "TC-ITEM-ADD-039:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-040",
+      "title": "加料商品重置查询后页面恢复初始状态",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-ADD-040",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-040:expectation-1",
+        "TC-ITEM-ADD-040:expectation-2",
+        "TC-ITEM-ADD-040:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "title": "切换页面返回加料商品列表时不保留查询条件",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at24:tc-item-add-041",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-041:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-042",
+      "title": "加料商品列表启用商品操作成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-ADD-042",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-042:expectation-1",
+        "TC-ITEM-ADD-042:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-043",
+      "title": "加料商品列表停用商品操作成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:item-p0-wave-b:TC-ITEM-ADD-043",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-043:expectation-1",
+        "TC-ITEM-ADD-043:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-044",
+      "title": "菜单已引用的加料商品二次确认后停用成功",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-044",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-044:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-080",
+      "title": "称重商品购买重量小于皮重时终端价格为 0",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-080",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-080:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "environment-blocked",
+      "runtimeStatus": "not-run",
+      "blockingReasons": [
+        "缺少可控 POS 称重、皮重和价格终态驱动"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-STD-081",
+      "title": "详情图重复引用同一张图片保存失败并提示 BITEM-3006",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-081",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-081:expectation-1",
+        "TC-ITEM-STD-081:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "title": "标准商品绑定多个打印档口保存成功",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-c:TC-ITEM-STD-082",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-082:expectation-1",
+        "TC-ITEM-STD-082:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "title": "套餐商品内不提供口味组加价和默认选中编辑",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-069",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-069:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-083",
+      "title": "多规格商品默认规格下发后终端点餐默认选中该规格",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:yellow-probe:at12:tc-item-std-083",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-083:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "environment-blocked",
+      "runtimeStatus": "not-run",
+      "blockingReasons": [
+        "缺少可控 POS 点餐默认规格终态驱动"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-PKG-070",
+      "title": "套餐必选子项停用后终端不可正常点单",
+      "family": "package",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at48:tc-item-pkg-070",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-070:expectation-1",
+        "TC-ITEM-PKG-070:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "title": "称重商品销售单位切换 g、kg、ml 后保存成功",
+      "family": "standard",
+      "action": "weight-unit-edit",
+      "handlerId": "product-center:yellow-probe:at13:tc-item-std-084",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-084:expectation-1",
+        "TC-ITEM-STD-084:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "title": "多规格商品拖动调整规格顺序后保存成功",
+      "family": "standard",
+      "action": "multi-reorder",
+      "handlerId": "product-center:yellow-probe:at13:tc-item-std-085",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-085:expectation-1",
+        "TC-ITEM-STD-085:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "title": "移除已引用口味组子项后详情不再展示该子项",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:yellow-probe:at16:tc-item-std-086",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-086:expectation-1",
+        "TC-ITEM-STD-086:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-087",
+      "title": "标准商品内编辑做法组加价和默认选中仅对当前商品生效",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-087",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-087:expectation-1",
+        "TC-ITEM-STD-087:expectation-2",
+        "TC-ITEM-STD-087:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-088",
+      "title": "标准商品内编辑加料组单次加价和默认选中仅对当前商品生效",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-088",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-088:expectation-1",
+        "TC-ITEM-STD-088:expectation-2",
+        "TC-ITEM-STD-088:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-089",
+      "title": "标准商品内同一选项组仅允许一个默认选中子项",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-089",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-089:expectation-1",
+        "TC-ITEM-STD-089:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "title": "套餐商品内不提供做法组加价和默认选中编辑",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-071",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-071:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "title": "套餐商品内不提供加料组加价和默认选中编辑",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-072",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-072:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "title": "套餐商品内没有选项组默认选中子项配置入口",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-073",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-073:expectation-1"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-090",
+      "title": "标准商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-090",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-090:expectation-1",
+        "TC-ITEM-STD-090:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-091",
+      "title": "标准商品商品角标切换选择后仅保留最新一个角标",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "item-216:TC-ITEM-STD-091",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-091:expectation-1",
+        "TC-ITEM-STD-091:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "title": "点击商品名称进入编辑标准商品页加载成功",
+      "family": "standard",
+      "action": "edit-loaded",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-092",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-092:expectation-1",
+        "TC-ITEM-STD-092:expectation-2",
+        "TC-ITEM-STD-092:expectation-3",
+        "TC-ITEM-STD-092:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "title": "编辑标准商品本地上传主图成功",
+      "family": "standard",
+      "action": "contract-resolution",
+      "handlerId": "product-center:item-p0-wave-d:TC-ITEM-STD-096",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-096:expectation-1",
+        "TC-ITEM-STD-096:expectation-2",
+        "TC-ITEM-STD-096:expectation-3",
+        "TC-ITEM-STD-096:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-095",
+      "title": "商品标准价输入超过两位小数保存时四舍五入为两位",
+      "family": "standard",
+      "action": "price-rounding",
+      "handlerId": "product-center:green-draft:at06:tc-item-std-095",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "467edccd704c7c7679bacf2e73a6878fd08a4f9d46725eb0aa7b8685b6a4064b",
+      "assertionIds": [
+        "TC-ITEM-STD-095:expectation-1",
+        "TC-ITEM-STD-095:expectation-2",
+        "TC-ITEM-STD-095:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-074",
+      "title": "套餐商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-074",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-074:expectation-1",
+        "TC-ITEM-PKG-074:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "title": "加料商品角标切换选择后仅保留最新一个角标",
+      "family": "addon",
+      "action": null,
+      "handlerId": "product-center:yellow-probe:at29:tc-item-add-045",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-045:expectation-1",
+        "TC-ITEM-ADD-045:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-075",
+      "title": "套餐商品角标切换选择后仅保留最新一个角标",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-075",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-075:expectation-1",
+        "TC-ITEM-PKG-075:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-ADD-046",
+      "title": "加料商品不能同时保留超过 5 个描述标签",
+      "family": "addon",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-ADD-046",
+      "bindingFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "implementationFingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+      "assertionIds": [
+        "TC-ITEM-ADD-046:expectation-1",
+        "TC-ITEM-ADD-046:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-078",
+      "title": "套餐商品与加料商品允许同名并同时保留",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-078",
+      "bindingFingerprint": "sha256:0e1b49ed142ed8655b04fe062318ca86aefaf14bf68f5667e3685ef2871eb38a",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-078:expectation-1",
+        "TC-ITEM-PKG-078:expectation-2",
+        "TC-ITEM-PKG-078:expectation-3",
+        "TC-ITEM-PKG-078:expectation-4"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-PKG-079",
+      "title": "标准商品与套餐商品跨类型同名创建或编辑失败",
+      "family": "package",
+      "action": null,
+      "handlerId": "item-216:TC-ITEM-PKG-079",
+      "bindingFingerprint": "sha256:6d56bac65543a2154343f66d1eb9eafe77b605a890ce63e81f3ae7ad4de4d0e1",
+      "implementationFingerprint": "de8f0a90de33a392e4281dd46d9ca1b5a06a2562e7267fd6bf88f1c91fd11a2b",
+      "assertionIds": [
+        "TC-ITEM-PKG-079:expectation-1",
+        "TC-ITEM-PKG-079:expectation-2",
+        "TC-ITEM-PKG-079:expectation-3",
+        "TC-ITEM-PKG-079:expectation-4",
+        "TC-ITEM-PKG-079:expectation-5"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-102",
+      "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+      "family": "standard",
+      "action": "name-format",
+      "handlerId": "item-216:name-format:TC-ITEM-STD-102",
+      "bindingFingerprint": "cf2e5d12417519b4b04358b022842c4633cef794b37fe5f4a8b51374e4eaa4a2",
+      "implementationFingerprint": "08846e2c32f2b7eb601e8608ad6d182eef01a682a224179fe6075a4f140bf85f",
+      "assertionIds": [
+        "TC-ITEM-STD-102:expectation-1",
+        "TC-ITEM-STD-102:expectation-2",
+        "TC-ITEM-STD-102:expectation-3"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    },
+    {
+      "caseId": "TC-ITEM-STD-103",
+      "title": "商品名称包含 emoji 时保存失败",
+      "family": "standard",
+      "action": "name-format",
+      "handlerId": "item-216:name-format:TC-ITEM-STD-103",
+      "bindingFingerprint": "7e250531c8113379daebb3679d8810ac9ebf2f7ed8df6acb2182ff1b7b3fdc44",
+      "implementationFingerprint": "08846e2c32f2b7eb601e8608ad6d182eef01a682a224179fe6075a4f140bf85f",
+      "assertionIds": [
+        "TC-ITEM-STD-103:expectation-1",
+        "TC-ITEM-STD-103:expectation-2"
+      ],
+      "scriptStatus": "flow-bound",
+      "runtimeReadiness": "ready",
+      "runtimeStatus": "not-run",
+      "blockingReasons": []
+    }
+  ]
+}

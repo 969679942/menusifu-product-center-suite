@@ -270,7 +270,13 @@ export async function buildProductCenterUnsupportedSourceDecisions(options: {
           ? 'verified' as const
           : 'blocked' as const;
       const executionDecision = executionDecisions.get(caseId);
-      const currentGoalBlocking = status === 'blocked' && !executionDecision;
+      // A per-case decision records how the case is handled; it does not erase
+      // an unresolved source gap from the current-goal gate. Deferred cases
+      // therefore remain goal-blocking until their source evidence is resolved.
+      // An explicit not-applicable decision is the only terminal disposition
+      // that removes the goal block for a source-incomplete case.
+      const currentGoalBlocking = status === 'blocked'
+        && executionDecision?.status !== 'not-applicable';
       decisions.push({
         caseId,
         module: definition.module,
@@ -1060,8 +1066,24 @@ async function main(): Promise<void> {
 }
 
 if (require.main === module) {
-  main().catch((error: unknown) => {
-    process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+  main().catch(async (error: unknown) => {
+    const message = error instanceof Error ? error.message : String(error);
+    if (message.includes('ENOENT') && message.includes('product-center-item-final-status.json')) {
+      const blockedPath = path.resolve(process.cwd(), 'output/governance/product-center-unsupported-sources.blocked.json');
+      const diagnostic = {
+        schemaVersion: '1.0.0', status: 'blocked', code: 'PRODUCT_CENTER_AUTHORITATIVE_RELEASE_MISSING',
+        missingSource: 'output/product-center-item-final-status.json', businessExecutionStarted: false,
+        generatedAt: new Date().toISOString(),
+      } as const;
+      try {
+        await writeFile(blockedPath, `${JSON.stringify(diagnostic, null, 2)}\n`);
+        process.stderr.write(`${JSON.stringify(diagnostic)}\n`);
+      } catch (writeError) {
+        process.stderr.write(`${message}; blocked diagnostic write failed: ${writeError instanceof Error ? writeError.message : String(writeError)}\n`);
+      }
+    } else {
+      process.stderr.write(`${message}\n`);
+    }
     process.exitCode = 1;
   });
 }

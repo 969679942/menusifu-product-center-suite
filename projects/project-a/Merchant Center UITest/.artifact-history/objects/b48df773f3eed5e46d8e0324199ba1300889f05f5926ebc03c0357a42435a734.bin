@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-STD-030"
+  ],
+  "planFingerprint": "8def96b08f6ee7a1b0ca62078510c8ffb2ed85eca3524f62c5e6b34fe38a7d94",
+  "selectionFingerprint": "700eb4d06c9cb667a4f7e599f24e1bf2d36c0e17c9c90b9da71aa549787256c1",
+  "rootCause": "首次执行在页面返回后241ms立即读取筛选，不足以排除异步初始化；旧整改周期15分钟预算已过期，新实现启动前必须提供诊断。",
+  "correctiveAction": "只改030独立观察：公共waitUntil在5秒窗口内记录类型序列；连续两次空值才满足，完整窗口持续同值才支持稳定不符；控件/探针错误不吞成空值；9项隔离合同、类型/架构/能力检查通过，9条合格依赖不变。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/query-return-unit-result.json",
+    "deliverables/system-test-platform/query-stability-repair-proof.json",
+    "tests/api/product-center-query-return.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "previousActualBusinessAttempts": 1,
+  "previousRunOutcome": "observed-mismatch-stability-evidence-incomplete",
+  "blockedStart": {
+    "runId": "standard-query-return-20260908-02",
+    "selected": 1,
+    "terminal": 0,
+    "businessExecuted": 0,
+    "code": "DIAGNOSIS_REQUIRED",
+    "detail": "cycle-time-budget-exhausted"
+  },
+  "nextAction": "保持相同runId和精确选择，附诊断及新鲜成本/单次凭据恢复；不删除、失效或重置历史实际尝试"
+}

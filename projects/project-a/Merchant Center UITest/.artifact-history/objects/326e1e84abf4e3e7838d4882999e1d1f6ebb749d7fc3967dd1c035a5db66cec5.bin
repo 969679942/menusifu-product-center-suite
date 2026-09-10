@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "2.0.0",
+  "reportId": "product-center-jenkins-auth-preflight",
+  "generatedAt": "2026-09-08T04:17:55.988Z",
+  "mode": "api",
+  "status": "external-authorization-blocked",
+  "assessment": {
+    "mode": "api",
+    "credentialsConfigured": false,
+    "missingContext": [],
+    "status": "external-authorization-blocked",
+    "authenticationVerified": false,
+    "executionAuthorized": false,
+    "capabilities": [
+      {
+        "id": "username",
+        "configured": false
+      },
+      {
+        "id": "password",
+        "configured": false
+      },
+      {
+        "id": "access-token",
+        "configured": false
+      },
+      {
+        "id": "merchant",
+        "configured": true
+      },
+      {
+        "id": "brand",
+        "configured": true
+      }
+    ],
+    "configurationSources": [
+      "process-environment",
+      "configured-or-default-secret-file",
+      "runner-context-defaults"
+    ]
+  },
+  "credentials": [
+    {
+      "name": "username",
+      "configured": false
+    },
+    {
+      "name": "password",
+      "configured": false
+    },
+    {
+      "name": "access-token",
+      "configured": false
+    },
+    {
+      "name": "merchant",
+      "configured": true
+    },
+    {
+      "name": "brand",
+      "configured": true
+    }
+  ],
+  "policy": {
+    "secretsPersisted": false,
+    "loginAttempted": false,
+    "businessExecutionStarted": false,
+    "executionAuthorized": false
+  },
+  "nextAction": "从运行器支持的配置来源补齐 api 模式缺失凭据或上下文后重新预检。"
+}

@@ -1,0 +1,1012 @@
+{
+  "config": {
+    "configFile": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\playwright.config.ts",
+    "rootDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.setup.ts",
+    "globalTeardown": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-01-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-01-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-01-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/source-governed/addon-creation-20260908-01-source-governed/item",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "ephemeral-chrome",
+        "name": "ephemeral-chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-timing.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-recipe.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\system-test-audit-step.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "detail": false,
+          "suiteTitle": false,
+          "resultsDir": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\output\\allure\\source-governed\\addon-creation-20260908-01-source-governed\\item\\allure-results"
+        }
+      ],
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "generated\\product-center-item-216.generated.spec.ts",
+      "file": "generated/product-center-item-216.generated.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "商品管理-商品自动化入口",
+          "file": "generated/product-center-item-216.generated.spec.ts",
+          "line": 8439,
+          "column": 19,
+          "specs": [
+            {
+              "title": "加料商品仅填写必填项时创建成功",
+              "ok": false,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-005"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-005",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28279,
+                      "error": {
+                        "message": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                        "location": {
+                          "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                          "column": 132,
+                          "line": 64
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                            "column": 132,
+                            "line": 64
+                          },
+                          "message": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at ..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-005",
+                          "duration": 18616,
+                          "error": {
+                            "message": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                            "stack": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                            "location": {
+                              "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                              "column": 132,
+                              "line": 64
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                          },
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 11499,
+                              "error": {
+                                "message": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                                "stack": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                                "location": {
+                                  "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                                  "column": 132,
+                                  "line": 64
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                              },
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 6292,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 3769
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 173,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 4
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 359
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 452,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 266,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 485,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 403,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "填写加料必填信息并验证创建结果",
+                                  "duration": 3668,
+                                  "error": {
+                                    "message": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                                    "stack": "Error: TC-ITEM-ADD-005:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                                    "location": {
+                                      "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                                      "column": 132,
+                                      "line": 64
+                                    },
+                                    "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                                  },
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                                      "duration": 278
+                                    },
+                                    {
+                                      "title": "填写标准价：5.00",
+                                      "duration": 72
+                                    },
+                                    {
+                                      "title": "读取当前商品分类选择值",
+                                      "duration": 32
+                                    },
+                                    {
+                                      "title": "读取保存成功提示的实际文案",
+                                      "duration": 1909
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 292
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 26
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 25
+                                    },
+                                    {
+                                      "title": "等待商品列表页加载完成",
+                                      "duration": 482
+                                    },
+                                    {
+                                      "title": "读取新增商品返回列表后的首行及查询条件：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                                      "duration": 102
+                                    },
+                                    {
+                                      "title": "读取商品行类型：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                                      "duration": 13
+                                    },
+                                    {
+                                      "title": "读取商品价格列文案：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                                      "duration": 23
+                                    },
+                                    {
+                                      "title": "读取商品行状态：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                                      "duration": 15
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "读取加料商品用例已登记的清理身份",
+                          "duration": 0
+                        },
+                        {
+                          "title": "验证加料商品用例 UI/API 零残留",
+                          "duration": 2998,
+                          "steps": [
+                            {
+                              "title": "为残留核对打开商品列表页",
+                              "duration": 57,
+                              "steps": [
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 30
+                                }
+                              ]
+                            },
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788865514499001",
+                              "duration": 2529
+                            },
+                            {
+                              "title": "等待搜索无结果",
+                              "duration": 62,
+                              "steps": [
+                                {
+                                  "title": "读取当前列表数据行数",
+                                  "duration": 4
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:05:12.116Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-005",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "创建成功提示实际观察",
+                          "contentType": "application/json",
+                          "body": "eyJjYXNlSWQiOiJUQy1JVEVNLUFERC0wMDUiLCJzdWNjZXNzVGV4dCI6IlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLCJzYXZlZCI6eyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9pdGVtL3YxL29wcy1icmFuZC9icmFuZC1pdGVtcy9zdGFuZGFyZCIsInN0YXR1cyI6MjAwLCJ0ZXJtaW5hbCI6InJlc3BvbnNlLW9ic2VydmVkIiwiYXBpQ291bnQiOjEsImJlZm9yZUFwaUNvdW50IjowLCJxdWVyeUlkZW50aXR5IjoiQVVUT19BVURJVF9BRERPTl8yMTZfVEMtSVRFTS1BREQtMDA1XzE3ODg4NjU1MTQ0OTkwMDEiLCJzZXJ2ZXJJZCI6MzU1MDB9fQ=="
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-005-cleanup-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJhcGlJZGVudGl0eUNvdW50cyI6IHsKICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NTUxNDQ5OTAwMSI6IDAKICB9LAogICJhcGlJZGVudGl0eUtpbmRzIjogewogICAgIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwNV8xNzg4ODY1NTE0NDk5MDAxIjogIml0ZW0iCiAgfSwKICAic2VydmVySWRzIjogWwogICAgMzU1MDAKICBdLAogICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICJvYmplY3RzIjogWwogICAgewogICAgICAiZW50aXR5VHlwZSI6ICJpdGVtIiwKICAgICAgInNlcnZlcklkIjogMzU1MDAsCiAgICAgICJidXNpbmVzc0lkZW50aXR5IjogIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwNV8xNzg4ODY1NTE0NDk5MDAxIiwKICAgICAgImNsZWFudXBBdHRlbXB0IjogMSwKICAgICAgImFwaVJlc2lkdWVDb3VudCI6IDAsCiAgICAgICJvdXRjb21lIjogInZlcmlmaWVkLXplcm8iCiAgICB9CiAgXSwKICAidWlJZGVudGl0eUNvdW50cyI6IHsKICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDVfMTc4ODg2NTUxNDQ5OTAwMSI6IDAKICB9Cn0="
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\source-governed\\addon-creation-20260908-01-source-governed\\item\\generated-product-center-i-c3767-品管理-商品自动化入口-加料商品仅填写必填项时创建成功-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\source-governed\\addon-creation-20260908-01-source-governed\\item\\generated-product-center-i-c3767-品管理-商品自动化入口-加料商品仅填写必填项时创建成功-chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                        "column": 132,
+                        "line": 64
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d16020721d8463617199-56e55e1f9e0beeaee7ac",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            },
+            {
+              "title": "加料商品必填项缺失时创建失败",
+              "ok": true,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-006"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-006",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 20032,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-006",
+                          "duration": 17322,
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 9857,
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 6611,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 4198
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 168,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 4
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 323
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 484,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 299,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 471,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 380,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "验证商品名称缺失时拦截保存及字段必填反馈",
+                                  "duration": 1779,
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：",
+                                      "duration": 304
+                                    },
+                                    {
+                                      "title": "填写标准价：5.00",
+                                      "duration": 23
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 279
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的必填反馈",
+                                      "duration": 92
+                                    },
+                                    {
+                                      "title": "等待仍停留在创建页",
+                                      "duration": 51,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "读取保存成功消息数量",
+                                      "duration": 20
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:05:12.120Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-006",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "test-execution-receipt",
+                          "contentType": "application/json",
+                          "body": "ewogICJyZWNlaXB0VmVyc2lvbiI6ICI0LjAuMCIsCiAgImNhc2VJZCI6ICJUQy1JVEVNLUFERC0wMDYiLAogICJjYXNlRmluZ2VycHJpbnQiOiAiZmExMjZiMWY2ZGQwMzA0Y2UwOTBmNzA2ZGRhNGY4ZDg3ODE2ZmI2MTQ0YmQzNjkxMDY5NmFiNDQzYzBhNjA2YiIsCiAgInNlbWFudGljQ2FzZUZpbmdlcnByaW50IjogIjU3NjM0YzM5ZTQzMGMwNGJjNzdiMDFhNjg3M2MxNzRkMjg4ZWRlOTU1ZDUyNWNhOTE5NjEwNDRiNWJiZmIzNmQiLAogICJpbXBsZW1lbnRhdGlvbkZpbmdlcnByaW50IjogIjllNzQzOThmODlkNTM1ZGE1Y2VhZGVhMzI1ZGRhOTk1NmI0NzFhNGUwOWZhMTIwODQ0ZjIzNDQwOGFhZWJjYTgiLAogICJleGVjdXRpb25Db250ZXh0IjogewogICAgImFwcGxpY2F0aW9uVmVyc2lvbkZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgImVudmlyb25tZW50SWQiOiAiYmFsYW14cWEiLAogICAgInRlbmFudFNjb3BlIjogIjAwMDQwNyIsCiAgICAibG9jYWxlIjogInVuZCIsCiAgICAicm9sZUlkIjogIm1lcmNoYW50LW9wZXJhdG9yIiwKICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvY3JlYXRlL3NpZGUiCiAgfSwKICAicmVsZWFzZU9ic2VydmF0aW9uIjogewogICAgInN0YXR1cyI6ICJkZXJpdmVkIiwKICAgICJmaW5nZXJwcmludCI6ICIxYTc1Nzg3YzU4ZTYwMDE0MWUyNjMxNzQwYzQ0NmI5NGI0ZTgxNzhlODBmZjM5NGVmNTFkYzg4YTViYzU4NWE1IiwKICAgICJzb3VyY2UiOiAiYnJvd3Nlci1ydW50aW1lIiwKICAgICJzdGFibGUiOiBmYWxzZSwKICAgICJvYnNlcnZlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MzEuNzczWiIKICB9LAogICJleGVjdXRpb25FcG9jaElkIjogInNvdXJjZS1nb3Zlcm5lZC1hZGRvbi1jcmVhdGlvbi0yMDI2MDkwOC0wMS1zb3VyY2UtZ292ZXJuZWQiLAogICJjbGFpbXMiOiB7CiAgICAicmVxdWlyZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0sCiAgICAib2JzZXJ2ZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0sCiAgICAidmVyaWZpZWQiOiBbCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMSIsCiAgICAgICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIKICAgIF0KICB9LAogICJhc3NlcnRpb25SZWNlaXB0cyI6IFsKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTEiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiB7CiAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgInN1Y2Nlc3NDb3VudCI6IDAsCiAgICAgICAgInNlcnZlckFjY2VwdGVkIjogZmFsc2UsCiAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAiYWZ0ZXJBcGlDb3VudCI6IDAKICAgICAgfSwKICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvY3JlYXRlL3NpZGUiLAogICAgICAgICJzdWNjZXNzQ291bnQiOiAwLAogICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICJiZWZvcmVBcGlDb3VudCI6IDAsCiAgICAgICAgImFmdGVyQXBpQ291bnQiOiAwCiAgICAgIH0sCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfSwKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTIiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiAi5ZCN56ew5a2X5q616auY5Lqu5oiW5pi+56S65b+F5aGr5o+Q56S6IiwKICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICJ2YWx1ZSI6ICIiLAogICAgICAgICJpbnZhbGlkIjogdHJ1ZSwKICAgICAgICAiZXJyb3JzIjogWwogICAgICAgICAgIlBsZWFzZSBlbnRlciBwcm9kdWN0IG5hbWUiCiAgICAgICAgXQogICAgICB9LAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0KICBdLAogICJvcGVyYXRpb25SZWNlaXB0cyI6IFsKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkl0ZW0yMTZGbG93LmV4ZWN1dGUiLAogICAgICAidGl0bGUiOiAi5omn6KGM5Yqg5paZ5ZWG5ZOBIDIxNiDnlKjkvovvvJpUQy1JVEVNLUFERC0wMDYiLAogICAgICAic2VxdWVuY2UiOiAxLAogICAgICAibWV0aG9kIjogImV4ZWN1dGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTg0ODYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToxMy4wNzVaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMS41NjFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMS41NjFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBZGRvbkNyZWF0aW9uQWNjZXB0YW5jZUZsb3cuZXhlY3V0ZSIsCiAgICAgICJ0aXRsZSI6ICLmiafooYzliqDmlpnliJvlu7rkuI7lkI3np7Dlv4XloavmraPlvI/pqozmlLYiLAogICAgICAic2VxdWVuY2UiOiAyLAogICAgICAibWV0aG9kIjogImV4ZWN1dGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogOTk3NiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjIxLjU0OVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjUyNVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjUyNVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlByb2R1Y3RDZW50ZXJTaWRlYmFyTmF2aWdhdGlvblBhZ2Uub3BlbkZyb21TaWRlYmFyIiwKICAgICAgInRpdGxlIjogIuS7juWVhuWTgeS4reW/g+S+p+i+ueagj+i/m+WFpeebruagh+aooeWdl++8mi9wcC9icmFuZC9saXN0IiwKICAgICAgInNlcXVlbmNlIjogMywKICAgICAgIm1ldGhvZCI6ICJvcGVuRnJvbVNpZGViYXIiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNjY0NCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjIxLjY2OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4LjMxMloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4LjMxMloiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlNpZGViYXJQYWdlLmV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HnrqHnkIblhaXlj6Ppk77mjqXlj6/op4EiLAogICAgICAic2VxdWVuY2UiOiA0LAogICAgICAibWV0aG9kIjogImV4cGVjdFByb2R1Y3RNYW5hZ2VtZW50VmlzaWJsZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0MjA0LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjMuOTA2WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjguMTEwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjguMTEwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU2lkZWJhclBhZ2Uub3BlblN1Yk1lbnVCeUNhbmRpZGF0ZXMiLAogICAgICAidGl0bGUiOiAi6YCa6L+H5L6n6L655qCP5YCZ6YCJ6ZO+5o6l6L+b5YWl55uu5qCH5qih5Z2XIiwKICAgICAgInNlcXVlbmNlIjogNSwKICAgICAgIm1ldGhvZCI6ICJvcGVuU3ViTWVudUJ5Q2FuZGlkYXRlcyIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxNzMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4xMjNaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4yOTZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4yOTZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJTaWRlYmFyUGFnZS5leHBhbmRTdWJNZW51Rm9yUGF0aCIsCiAgICAgICJ0aXRsZSI6ICLlsZXlvIDljIXlkKvnm67moIfot6/lvoTnmoTkvqfovrnmoI/lrZDoj5zljZXvvJovcHAvYnJhbmQvbGlzdCIsCiAgICAgICJzZXF1ZW5jZSI6IDYsCiAgICAgICJtZXRob2QiOiAiZXhwYW5kU3ViTWVudUZvclBhdGgiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4xMjlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4xNjJaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC4xNjJaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDcsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMzMiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4LjM0NloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4LjY3OFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4LjY3OFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5lbnRlckNyZWF0ZVR5cGVQYWdlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeaWsOWinuWVhuWTgeexu+Wei+mAieaLqemhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDgsCiAgICAgICJtZXRob2QiOiAiZW50ZXJDcmVhdGVUeXBlUGFnZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA0ODksCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC42ODlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOS4xNzhaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOS4xNzhaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+hemAieaLqeWVhuWTgeexu+Wei+mhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDksCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMwNSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI4Ljg2MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI5LjE2NVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI5LjE2NVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5leHBlY3RQYXRobmFtZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXpobXpnaLot6/lvoTkuLrvvJovcHAvYnJhbmQvY3JlYXRlIiwKICAgICAgInNlcXVlbmNlIjogMTAsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0UGF0aG5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC44NjZaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC44OTlaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNToyOC44OTlaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlVHlwZVBhZ2UuZW50ZXJTaWRlQ3JlYXRlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeWKoOaWmS/phY3oj5zllYblk4HliJvlu7rpobUiLAogICAgICAic2VxdWVuY2UiOiAxMSwKICAgICAgIm1ldGhvZCI6ICJlbnRlclNpZGVDcmVhdGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDc1LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuMjA0WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuNjc5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuNjc5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdExvYWRlZCIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HliJvlu7rooajljZXliqDovb3lrozmiJAiLAogICAgICAic2VxdWVuY2UiOiAxMiwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzg2LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuMjg1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuNjcxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuNjcxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVNpZGVQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzZXF1ZW5jZSI6IDEzLAogICAgICAibWV0aG9kIjogImV4cGVjdFBhdGhuYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuMjkyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuMzIyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTE6MDU6MjkuMzIyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiQWRkb25DcmVhdGlvbkFjY2VwdGFuY2VGbG93LnZlcmlmeVJlcXVpcmVkTmFtZSIsCiAgICAgICJ0aXRsZSI6ICLpqozor4HllYblk4HlkI3np7DnvLrlpLHml7bmi6bmiKrkv53lrZjlj4rlrZfmrrXlv4Xloavlj43ppogiLAogICAgICAic2VxdWVuY2UiOiAxNCwKICAgICAgIm1ldGhvZCI6ICJ2ZXJpZnlSZXF1aXJlZE5hbWUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTc4NiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI5LjcxMloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQ5OFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQ5OFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5maWxsSXRlbU5hbWUiLAogICAgICAidGl0bGUiOiAi5aGr5YaZ5ZWG5ZOB5ZCN56ew77yaIiwKICAgICAgInNlcXVlbmNlIjogMTUsCiAgICAgICJtZXRob2QiOiAiZmlsbEl0ZW1OYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDMyOCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjI5LjcxOVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMwLjA0N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMwLjA0N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5maWxsU3RhbmRhcmRQcmljZSIsCiAgICAgICJ0aXRsZSI6ICLloavlhpnmoIflh4bku7fvvJo1LjAwIiwKICAgICAgInNlcXVlbmNlIjogMTYsCiAgICAgICJtZXRob2QiOiAiZmlsbFN0YW5kYXJkUHJpY2UiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjYsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC4wNTlaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC4wODVaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC4wODVaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlQWNjZXB0YW5jZVBhZ2UuY2xpY2tTYXZlIiwKICAgICAgInRpdGxlIjogIueCueWHu+S/neWtmCIsCiAgICAgICJzZXF1ZW5jZSI6IDE3LAogICAgICAibWV0aG9kIjogImNsaWNrU2F2ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyODQsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC40MjhaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC43MTJaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMTowNTozMC43MTJaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlQWNjZXB0YW5jZVBhZ2UucmVhZE5hbWVSZXF1aXJlZEZlZWRiYWNrIiwKICAgICAgInRpdGxlIjogIuivu+WPluWVhuWTgeWQjeensOWtl+auteiHqui6q+eahOW/heWhq+WPjemmiCIsCiAgICAgICJzZXF1ZW5jZSI6IDE4LAogICAgICAibWV0aG9kIjogInJlYWROYW1lUmVxdWlyZWRGZWVkYmFjayIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA5OSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMwLjcyOFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMwLjgyN1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMwLjgyN1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5leHBlY3RTdGlsbE9uQ3JlYXRlUGFnZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXku43lgZznlZnlnKjliJvlu7rpobUiLAogICAgICAic2VxdWVuY2UiOiAxOSwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RTdGlsbE9uQ3JlYXRlUGFnZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA1NywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjM1MVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQwOFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQwOFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5leHBlY3RQYXRobmFtZSIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXpobXpnaLot6/lvoTkuLrvvJovcHAvYnJhbmQvY3JlYXRlL3NpZGUiLAogICAgICAic2VxdWVuY2UiOiAyMCwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RQYXRobmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjM1OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjM3OVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjM3OVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVBY2NlcHRhbmNlUGFnZS5yZWFkU3VjY2Vzc01lc3NhZ2VDb3VudCIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5bkv53lrZjmiJDlip/mtojmga/mlbDph48iLAogICAgICAic2VxdWVuY2UiOiAyMSwKICAgICAgIm1ldGhvZCI6ICJyZWFkU3VjY2Vzc01lc3NhZ2VDb3VudCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQ0MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQ2NFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDExOjA1OjMxLjQ2NFoiCiAgICB9CiAgXSwKICAiY2xlYW51cCI6IHsKICAgICJhcGlaZXJvUmVzaWR1ZSI6IHRydWUsCiAgICAidWlaZXJvUmVzaWR1ZSI6IHRydWUsCiAgICAidWlWZXJpZmljYXRpb25PYnNlcnZlZCI6IHRydWUsCiAgICAiYXBpSWRlbnRpdHlDb3VudHMiOiB7fSwKICAgICJ1aUlkZW50aXR5Q291bnRzIjoge30KICB9LAogICJoYW5kbGVySWQiOiAiaXRlbS0yMTY6VEMtSVRFTS1BREQtMDA2IiwKICAiZXZpZGVuY2VGaW5nZXJwcmludCI6ICI2OGJjZDUwYmMzYmM3OWZjOGE2YzAyODI4MWU5NjE5Y2ZjMDliMTg0MDJkOGQ5NjJmZGUyOWE4OGU1M2E4OTM1Igp9"
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-006-runtime-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJjYXNlSWQiOiAiVEMtSVRFTS1BREQtMDA2IiwKICAic3RhdHVzIjogImltcGxlbWVudGVkIiwKICAiZXZpZGVuY2UiOiB7CiAgICAiYmxvY2tlZCI6IHsKICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICJzdWNjZXNzQ291bnQiOiAwLAogICAgICAic2VydmVyQWNjZXB0ZWQiOiBmYWxzZSwKICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgImFmdGVyQXBpQ291bnQiOiAwCiAgICB9LAogICAgImZlZWRiYWNrIjogewogICAgICAidmFsdWUiOiAiIiwKICAgICAgImludmFsaWQiOiB0cnVlLAogICAgICAiZXJyb3JzIjogWwogICAgICAgICJQbGVhc2UgZW50ZXIgcHJvZHVjdCBuYW1lIgogICAgICBdCiAgICB9LAogICAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1BREQtMDA2OmV4cGVjdGF0aW9uLTEiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgICAic3VjY2Vzc0NvdW50IjogMCwKICAgICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAgICJhZnRlckFwaUNvdW50IjogMAogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICAgInJvdXRlIjogIi9wcC9icmFuZC9jcmVhdGUvc2lkZSIsCiAgICAgICAgICAic3VjY2Vzc0NvdW50IjogMCwKICAgICAgICAgICJzZXJ2ZXJBY2NlcHRlZCI6IGZhbHNlLAogICAgICAgICAgImJlZm9yZUFwaUNvdW50IjogMCwKICAgICAgICAgICJhZnRlckFwaUNvdW50IjogMAogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFN0YXR1cyI6ICJvYnNlcnZlZCIsCiAgICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAgICJjb21wYXJpc29uIjogIm1hdGNoZWQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLUFERC0wMDY6ZXhwZWN0YXRpb24tMiIsCiAgICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICAgImV4cGVjdGVkVmFsdWUiOiAi5ZCN56ew5a2X5q616auY5Lqu5oiW5pi+56S65b+F5aGr5o+Q56S6IiwKICAgICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgICAidmFsdWUiOiAiIiwKICAgICAgICAgICJpbnZhbGlkIjogdHJ1ZSwKICAgICAgICAgICJlcnJvcnMiOiBbCiAgICAgICAgICAgICJQbGVhc2UgZW50ZXIgcHJvZHVjdCBuYW1lIgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFN0YXR1cyI6ICJvYnNlcnZlZCIsCiAgICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAgICJjb21wYXJpc29uIjogIm1hdGNoZWQiCiAgICAgIH0KICAgIF0KICB9LAogICJpZGVudGl0aWVzIjogW10sCiAgImNsZWFudXBFdmlkZW5jZSI6IHsKICAgICJhcGlJZGVudGl0eUNvdW50cyI6IHt9LAogICAgImFwaUlkZW50aXR5S2luZHMiOiB7fSwKICAgICJzZXJ2ZXJJZHMiOiBbXSwKICAgICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICAgIm9iamVjdHMiOiBbXSwKICAgICJ1aUlkZW50aXR5Q291bnRzIjoge30KICB9Cn0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d16020721d8463617199-d360f84860f1d956d4a0",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            },
+            {
+              "title": "加料商品不选择分类时创建成功",
+              "ok": false,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-ADD-007"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-ADD-007",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "contract-unresolved",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 31330,
+                      "error": {
+                        "message": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                        "location": {
+                          "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                          "column": 132,
+                          "line": 64
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                            "column": 132,
+                            "line": 64
+                          },
+                          "message": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at ..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行加料商品 216 用例：TC-ITEM-ADD-007",
+                          "duration": 21648,
+                          "error": {
+                            "message": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                            "stack": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                            "location": {
+                              "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                              "column": 132,
+                              "line": 64
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                          },
+                          "steps": [
+                            {
+                              "title": "执行加料创建与名称必填正式验收",
+                              "duration": 14311,
+                              "error": {
+                                "message": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                                "stack": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                                "location": {
+                                  "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                                  "column": 132,
+                                  "line": 64
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                              },
+                              "steps": [
+                                {
+                                  "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+                                  "duration": 8072,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品管理入口链接可见",
+                                      "duration": 3821
+                                    },
+                                    {
+                                      "title": "通过侧边栏候选链接进入目标模块",
+                                      "duration": 1838,
+                                      "steps": [
+                                        {
+                                          "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+                                          "duration": 7
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 323
+                                },
+                                {
+                                  "title": "进入新增商品类型选择页",
+                                  "duration": 344,
+                                  "steps": [
+                                    {
+                                      "title": "等待选择商品类型页加载完成",
+                                      "duration": 219,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create",
+                                          "duration": 1
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "进入加料/配菜商品创建页",
+                                  "duration": 563,
+                                  "steps": [
+                                    {
+                                      "title": "等待商品创建表单加载完成",
+                                      "duration": 458,
+                                      "steps": [
+                                        {
+                                          "title": "等待页面路径为：/pp/brand/create/side",
+                                          "duration": 3
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "title": "填写加料必填信息并验证创建结果",
+                                  "duration": 4736,
+                                  "error": {
+                                    "message": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                                    "stack": "Error: TC-ITEM-ADD-007:expectation-1 未登记的成功提示：Successfully Submitted\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at AddonCreationAcceptanceFlow.createAndVerify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64:132)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonCreationAcceptanceFlow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at AddonItem216Flow.execute (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-item-216.flow.ts:71:22)\n    at AddonItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8564:18",
+                                    "location": {
+                                      "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                                      "column": 132,
+                                      "line": 64
+                                    },
+                                    "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts:64\n\n  62 |     }\n  63 |     await test.info().attach('创建成功提示实际观察', { body: JSON.stringify({ caseId: context.caseId, successText, saved }), contentType: 'application/json' });\n> 64 |     expect(matchesBusinessFeedbackMessage(successText, submitFeedback), `${context.caseId}:expectation-1 未登记的成功提示：${successText}`).toBe(true);\n     |                                                                                                                                    ^\n  65 |     assertions.unshift({ claimId: `${context.caseId}:expectation-1`, status: 'verified', expectedValue: submitFeedback.allowedMessages,\n  66 |       actualValue: successText, actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' });\n  67 |     return { saved, successText, assertionReceipts: assertions };"
+                                  },
+                                  "steps": [
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                                      "duration": 273
+                                    },
+                                    {
+                                      "title": "填写标准价：10.00",
+                                      "duration": 53
+                                    },
+                                    {
+                                      "title": "读取当前商品分类选择值",
+                                      "duration": 30
+                                    },
+                                    {
+                                      "title": "读取保存成功提示的实际文案",
+                                      "duration": 1906
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 315
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 10
+                                    },
+                                    {
+                                      "title": "读取可见表单校验错误",
+                                      "duration": 19
+                                    },
+                                    {
+                                      "title": "等待商品列表页加载完成",
+                                      "duration": 19
+                                    },
+                                    {
+                                      "title": "按商品名称搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                                      "duration": 1024
+                                    },
+                                    {
+                                      "title": "等待列表唯一展示商品：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                                      "duration": 42
+                                    },
+                                    {
+                                      "title": "读取商品身份当前可见数量：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                                      "duration": 5
+                                    },
+                                    {
+                                      "title": "读取商品分类列文案：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                                      "duration": 13
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "读取加料商品用例已登记的清理身份",
+                          "duration": 0
+                        },
+                        {
+                          "title": "验证加料商品用例 UI/API 零残留",
+                          "duration": 3163,
+                          "steps": [
+                            {
+                              "title": "为残留核对打开商品列表页",
+                              "duration": 40,
+                              "steps": [
+                                {
+                                  "title": "等待商品列表页加载完成",
+                                  "duration": 10
+                                }
+                              ]
+                            },
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788865514318201",
+                              "duration": 2553
+                            },
+                            {
+                              "title": "等待搜索无结果",
+                              "duration": 63,
+                              "steps": [
+                                {
+                                  "title": "读取当前列表数据行数",
+                                  "duration": 5
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T11:05:12.110Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-ADD-007",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "contract-unresolved",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "创建成功提示实际观察",
+                          "contentType": "application/json",
+                          "body": "eyJjYXNlSWQiOiJUQy1JVEVNLUFERC0wMDciLCJzdWNjZXNzVGV4dCI6IlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLCJzYXZlZCI6eyJtZXRob2QiOiJBUElfUkVDT05DSUxFRCIsInBhdGgiOiIvb3BzLWJyYW5kL2JyYW5kLWl0ZW1zL3BhZ2VRdWVyeSIsInN0YXR1cyI6bnVsbCwidGVybWluYWwiOiJhcGktcmVjb25jaWxlZCIsImFwaUNvdW50IjoxLCJiZWZvcmVBcGlDb3VudCI6MCwicXVlcnlJZGVudGl0eSI6IkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY1NTE0MzE4MjAxIiwic2VydmVySWQiOjM1NTAxfX0="
+                        },
+                        {
+                          "name": "TC-ITEM-ADD-007-cleanup-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJhcGlJZGVudGl0eUNvdW50cyI6IHsKICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDdfMTc4ODg2NTUxNDMxODIwMSI6IDAKICB9LAogICJhcGlJZGVudGl0eUtpbmRzIjogewogICAgIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY1NTE0MzE4MjAxIjogIml0ZW0iCiAgfSwKICAic2VydmVySWRzIjogWwogICAgMzU1MDEKICBdLAogICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICJvYmplY3RzIjogWwogICAgewogICAgICAiZW50aXR5VHlwZSI6ICJpdGVtIiwKICAgICAgInNlcnZlcklkIjogMzU1MDEsCiAgICAgICJidXNpbmVzc0lkZW50aXR5IjogIkFVVE9fQVVESVRfQURET05fMjE2X1RDLUlURU0tQURELTAwN18xNzg4ODY1NTE0MzE4MjAxIiwKICAgICAgImNsZWFudXBBdHRlbXB0IjogMSwKICAgICAgImFwaVJlc2lkdWVDb3VudCI6IDAsCiAgICAgICJvdXRjb21lIjogInZlcmlmaWVkLXplcm8iCiAgICB9CiAgXSwKICAidWlJZGVudGl0eUNvdW50cyI6IHsKICAgICJBVVRPX0FVRElUX0FERE9OXzIxNl9UQy1JVEVNLUFERC0wMDdfMTc4ODg2NTUxNDMxODIwMSI6IDAKICB9Cn0="
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\source-governed\\addon-creation-20260908-01-source-governed\\item\\generated-product-center-i-4d36c-商品管理-商品自动化入口-加料商品不选择分类时创建成功-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\source-governed\\addon-creation-20260908-01-source-governed\\item\\generated-product-center-i-4d36c-商品管理-商品自动化入口-加料商品不选择分类时创建成功-chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\addon-creation-acceptance.flow.ts",
+                        "column": 132,
+                        "line": 64
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d16020721d8463617199-abd43519adc2a8d6f05d",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:05:10.574Z",
+    "duration": 33534.812,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

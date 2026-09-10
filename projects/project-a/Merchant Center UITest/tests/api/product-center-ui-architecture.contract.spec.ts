@@ -6,7 +6,7 @@ import {
   inspectUiArchitecture,
   type UiArchitectureBaseline,
   type UiArchitectureConfig,
-} from '../../../../Test Automation Platform/src/governance/ui-architecture';
+} from '../../../Test Automation Platform/src/governance/ui-architecture';
 
 const projectRoot = path.resolve(__dirname, '../..');
 

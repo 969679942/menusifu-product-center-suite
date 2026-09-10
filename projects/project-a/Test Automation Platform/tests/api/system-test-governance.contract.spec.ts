@@ -10,8 +10,56 @@ import {
   type SystemTestSourceRegistry,
 } from '../../src/automation/system-test/system-test-governance';
 import { fingerprintReceiptEvidence, readPlaywrightExecutionReceipts } from '../../src/utils/playwright-execution-receipt';
+import {
+  matchesBusinessFeedbackMessage,
+  matchesBusinessFeedbackObservation,
+  validateBusinessFeedbackContract,
+} from '../../src/utils/business-feedback-contract';
 
 test.describe('通用测试治理门禁', () => {
+  test('反馈语义合同允许已登记的语言变体但拒绝未登记文案', () => {
+    const contract = {
+      equivalenceKey: 'item.name.required',
+      exactMessage: '请输入商品名称',
+      allowedMessages: ['请输入商品名称', 'Please enter item name'],
+      evidencePaths: ['runtime/ui-audit.json'],
+      semanticSignals: { statuses: ['validation-error'] },
+    };
+    expect(validateBusinessFeedbackContract(contract)).toEqual([]);
+    expect(matchesBusinessFeedbackMessage('Please enter item name', contract)).toBe(true);
+    expect(matchesBusinessFeedbackMessage('Enter a valid item', contract)).toBe(false);
+    expect(matchesBusinessFeedbackObservation({
+      uiMessage: 'Please enter item name', status: 'validation-error',
+    }, contract)).toBe(true);
+    expect(matchesBusinessFeedbackObservation({
+      uiMessage: 'Please enter item name', status: 'success',
+    }, contract)).toBe(false);
+  });
+
+  test('多语言或多渠道变体必须共享等价键且精确提示必须在允许集合中', () => {
+    expect(validateBusinessFeedbackContract({
+      exactMessage: '中文提示', allowedMessages: ['中文提示', 'English message'], evidencePaths: ['evidence.json'],
+    })).toContain('EQUIVALENCE_KEY_REQUIRED_FOR_VARIANTS');
+    expect(validateBusinessFeedbackContract({
+      equivalenceKey: 'rule-1', exactMessage: '中文提示', allowedMessages: ['English message'], evidencePaths: ['evidence.json'],
+    })).toContain('EXACT_MESSAGE_MUST_BE_ALLOWED');
+  });
+
+  test('基础来源合同校验同样阻止单语言硬编码变体漂移', () => {
+    const errors = validateSystemTestSourceRegistry({
+      registry: sourceRegistry(), caseId: 'CASE-FEEDBACK-001', route: '/items',
+      sourceIds: ['formal:items'], contractIds: ['ui:items'], expectations: [{
+        expected: '页面显示中文提示', assertionAdapterId: 'assert.ui', observationChannel: 'ui',
+        authority: 'user-visible', terminalCondition: '提示可见', sourceIds: ['formal:items'], contractIds: ['ui:items'],
+        feedback: {
+          mode: 'exact-message', trigger: 'pre-submit', exactText: '中文提示',
+          allowedMessages: ['中文提示', 'English message'], evidencePaths: ['runtime/ui.json'],
+        },
+      }],
+    });
+    expect(errors).toContain('CASE-FEEDBACK-001:expectation-1:EQUIVALENCE_KEY_REQUIRED_FOR_VARIANTS');
+  });
+
   test('来源 ID 不可解析时必须在生成阶段阻断', () => {
     const registry = sourceRegistry();
     const errors = validateSystemTestSourceRegistry({
@@ -123,12 +171,13 @@ test.describe('通用测试治理门禁', () => {
     try {
       const reportPath = path.join(root, 'report.json');
       const receipt = {
-        receiptVersion: '4.0.0', caseId: 'CASE-RECEIPT-V4-001', caseFingerprint: 'a'.repeat(64),
+        receiptVersion: '4.0.0' as const, caseId: 'CASE-RECEIPT-V4-001', caseFingerprint: 'a'.repeat(64),
         semanticCaseFingerprint: 'b'.repeat(64), implementationFingerprint: 'c'.repeat(64),
         executionEpochId: 'epoch-v4-001',
         executionContext: { applicationVersionFingerprint: 'd'.repeat(64), environmentId: 'qa', tenantScope: 'merchant', locale: 'zh-CN', roleId: 'operator', route: '/items' },
         releaseObservation: { status: 'derived' as const, fingerprint: 'd'.repeat(64), source: 'browser-runtime', stable: false },
-        claims: { required: ['claim:1'], observed: ['claim:1'], verified: ['claim:1'] },
+        claims: { required: ['claim:1'] as string[], observed: ['claim:1'] as string[], verified: ['claim:1'] as string[] },
+        assertionReceipts: [{ claimId: 'claim:1', status: 'verified', expectedValue: '可见', actualValue: '可见', actualStatus: 'observed', observationChannel: 'ui', authority: 'user-visible', comparison: 'matched' } as const],
         operationReceipts: [{ operationKey: 'items.create', observed: true, method: 'POST' }],
         cleanup: { apiZeroResidue: true, uiZeroResidue: true },
       };
@@ -144,6 +193,33 @@ test.describe('通用测试治理门禁', () => {
       expect(result.records[0].implementationFingerprint).toBe('c'.repeat(64));
       expect(result.records[0].executionContextFingerprint).toMatch(/^[a-f0-9]{64}$/);
       expect(result.diagnostics).not.toContain('CASE-RECEIPT-V4-001:RUNTIME_RECEIPT_VERSION_UNSUPPORTED');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  test('4.0.0 缺少逐断言结构收据时不得导入通过账本', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'receipt-v4-assertion-gate-'));
+    try {
+      const reportPath = path.join(root, 'report.json');
+      const receipt = {
+        receiptVersion: '4.0.0', caseId: 'CASE-RECEIPT-V4-002', caseFingerprint: 'a'.repeat(64),
+        semanticCaseFingerprint: 'b'.repeat(64), implementationFingerprint: 'c'.repeat(64),
+        executionContext: { environmentId: 'qa', tenantScope: 'merchant', locale: 'zh-CN', roleId: 'operator', route: '/items' },
+        claims: { required: ['claim:1'], observed: ['claim:1'], verified: ['claim:1'] },
+        operationReceipts: [{ operationKey: 'items.create', observed: true, method: 'POST' }],
+        cleanup: { apiZeroResidue: true, uiZeroResidue: true },
+      };
+      const payload = { ...receipt, evidenceFingerprint: fingerprintReceiptEvidence(receipt) };
+      const report = { suites: [{ specs: [{ title: '缺断言收据', tags: ['@case-CASE-RECEIPT-V4-002'], tests: [{ results: [{
+        status: 'passed', startTime: '2026-09-03T00:00:00.000Z', duration: 1, attachments: [{
+          name: 'test-execution-receipt', contentType: 'application/json', body: Buffer.from(JSON.stringify(payload)).toString('base64'),
+        }],
+      }] }] }] }] };
+      fs.writeFileSync(reportPath, JSON.stringify(report));
+      const result = readPlaywrightExecutionReceipts({ reportPath, workspaceRoot: root });
+      expect(result.records).toEqual([]);
+      expect(result.diagnostics).toContain('CASE-RECEIPT-V4-002:RUNTIME_RECEIPT_ASSERTIONS_INCOMPLETE');
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }

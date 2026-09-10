@@ -6,7 +6,7 @@ import { expect, test } from '@playwright/test';
 import {
   BUSINESS_RULE_CHANGE_EVENT_TYPES,
   validateBusinessRuleDecisionEvent,
-} from '../../../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
+} from '../../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
 import type { BusinessRuleSemanticBaseline, BusinessRuleChangeTriggerResult } from '../../automation/system-test/business-rule-change-trigger';
 import {
   buildProductCenterCurrentRuleEvaluationEvents,

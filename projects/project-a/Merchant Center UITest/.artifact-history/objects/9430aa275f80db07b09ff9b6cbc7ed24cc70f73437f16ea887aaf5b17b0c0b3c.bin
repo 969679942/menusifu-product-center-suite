@@ -1,0 +1,70 @@
+{
+  "recordedAt": "2026-09-08T11:25:26.224Z",
+  "unit": "addon-creation-formal-acceptance",
+  "unitStatus": "complete",
+  "finalGoalStatus": "incomplete",
+  "business": {
+    "runId": "addon-creation-20260908-02",
+    "selected": 3,
+    "terminal": 3,
+    "executed": 3,
+    "passed": 3,
+    "failed": 0,
+    "qualifiedCaseIds": [
+      "TC-ITEM-ADD-005",
+      "TC-ITEM-ADD-006",
+      "TC-ITEM-ADD-007"
+    ],
+    "proof": "deliverables/system-test-platform/addon-creation-current-receipt-proof.json",
+    "cleanup": {
+      "serverIds": [
+        266182,
+        35502
+      ],
+      "apiResidue": 0,
+      "uiResidue": 0
+    },
+    "nameNegativeWrites": 0
+  },
+  "validation": {
+    "acceptanceContractsPassed": 14,
+    "receiptContractsPassed": 11,
+    "typecheck": "passed",
+    "architecture": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "caseIndex": "passed",
+    "migrationClosure": "complete",
+    "publicFinalGate": {
+      "status": "incomplete",
+      "exitCode": 1,
+      "reasons": [
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED",
+        "REFERENCE_BASELINE_NOT_READY"
+      ]
+    }
+  },
+  "currentReadiness": {
+    "formal": 220,
+    "notApplicable": 8,
+    "executable": 212,
+    "classifiedDeferred": 8,
+    "receiptContractRequired": 204,
+    "currentQualified": 3,
+    "incomplete": 201
+  },
+  "history": {
+    "firstRunPreserved": true,
+    "firstRunFeedbackGaps": [
+      "TC-ITEM-ADD-005",
+      "TC-ITEM-ADD-007"
+    ],
+    "firstRunProductFailureAsserted": false,
+    "addon002HistoricalPassPreserved": true,
+    "addon002CurrentQualification": "CURRENT_IMPLEMENTATION_MISMATCH / FORMAT_SYNTAX_CHANGED"
+  },
+  "nextUnit": "deliverables/system-test-platform/standard-name-format-next-unit.json",
+  "businessRerunsForReportValidation": 0,
+  "secretValuesStored": false
+}

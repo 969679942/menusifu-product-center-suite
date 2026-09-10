@@ -109,7 +109,22 @@ export function buildProductCenterHistoricalReceiptCompatibility(input: {
 }
 
 export function runProductCenterHistoricalReceiptCompatibility() {
-  if (!fs.existsSync(closurePath)) throw new Error(`缺少前置闭环审计：${closurePath}`);
+  if (!fs.existsSync(closurePath)) {
+    const blockedPath = path.join(governanceRoot, 'product-center-historical-receipt-compatibility.blocked.json');
+    writeText(blockedPath, `${JSON.stringify({
+      schemaVersion: '1.0.0',
+      reportId: 'product-center-historical-receipt-compatibility',
+      status: 'blocked',
+      code: 'PRE_CLOSURE_AUDIT_MISSING',
+      missingInput: path.relative(workspaceRoot, closurePath).replaceAll(path.sep, '/'),
+      missingInputs: [path.relative(workspaceRoot, closurePath).replaceAll(path.sep, '/')],
+      scope: 'report-only',
+      businessExecutionStarted: false,
+      existingPassedCasesInvalidated: false,
+      generatedAt: new Date().toISOString(),
+    }, null, 2)}\n`);
+    throw new Error(`PRE_CLOSURE_AUDIT_MISSING:${closurePath}`);
+  }
   const report = buildProductCenterHistoricalReceiptCompatibility({
     closureAudit: JSON.parse(fs.readFileSync(closurePath, 'utf8')) as ClosureAudit,
   });

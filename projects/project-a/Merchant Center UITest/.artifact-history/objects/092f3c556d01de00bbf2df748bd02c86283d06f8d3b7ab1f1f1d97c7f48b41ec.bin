@@ -1,0 +1,122 @@
+{
+  "status": "active",
+  "goalAuthority": "current Codex goal created at user explicit request",
+  "updatedAt": "2026-09-08T13:52:11.706Z",
+  "goals": [
+    {
+      "id": 1,
+      "title": "205条逐案去向清单",
+      "status": "inventory-reconciled-detail-review-in-progress",
+      "evidence": "seven-goal-case-ledger.json",
+      "completed": "205行无遗漏/重复；PKG007既有不适用解释205→204；发布就绪刷新至8",
+      "remaining": "190条已逐案登记来源问题、实现依赖和下一步，但尚未逐方法深查，不能算真实准入完成"
+    },
+    {
+      "id": 2,
+      "title": "首批3～5条正式用例真实闭环",
+      "status": "phase-target-met",
+      "evidence": "standard-list-unit-result.json",
+      "completed": "8条经当前既有严格资格合同合格；保留产品失败及证据缺口",
+      "remaining": "平台FINAL-GOAL更广的通用化要求仍独立未完成"
+    },
+    {
+      "id": 3,
+      "title": "只修直接阻断闭环的问题",
+      "status": "active-constraint",
+      "completed": "当前改动对应清单不同步及工作单元止损；没有修改已合格业务实现",
+      "remaining": "后续每个改动必须绑定具体用例或当前七项目标的准入缺口"
+    },
+    {
+      "id": 4,
+      "title": "每轮可见产出及token止损",
+      "status": "contract-verified-runtime-adoption-in-progress",
+      "evidence": "work-unit-stop-loss-proof.json",
+      "completed": "公共4/项目3负向合同通过；已有证据校验、旧样本/重复启动/选择漂移阻断；本单元实际触发token上限后冻结该方向",
+      "remaining": "下一真实执行必须带新鲜成本样本和已登记单元凭据；不声称供应方硬计费中断"
+    },
+    {
+      "id": 5,
+      "title": "按依赖扩大执行",
+      "status": "in-progress",
+      "nextCaseIds": [
+        "TC-ITEM-STD-028",
+        "TC-ITEM-STD-029",
+        "TC-ITEM-STD-030"
+      ],
+      "remaining": "先核对真实控件与来源、数据前置及独立依赖，再执行准入范围"
+    },
+    {
+      "id": 6,
+      "title": "Jenkins、跨应用、跨域独立排期",
+      "status": "schedule-and-authorization-review-pending",
+      "remaining": "外部授权与排期独立准备；跨应用按既定明确启动边界保持暂缓，不能伪造真实验证"
+    },
+    {
+      "id": 7,
+      "title": "可选轻量AI能力",
+      "status": "deferred-by-user-policy",
+      "remaining": "核心成熟后讨论；不自动启用、不代替证据或通过裁决"
+    }
+  ],
+  "stopLossResult": {
+    "schemaVersion": "1.0.0",
+    "unitId": "seven-goal-stop-loss-contract-01",
+    "directionId": "work-unit-stop-loss-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 19270,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "public-stop-loss-contract",
+      "evidence-file-verification",
+      "prestart-replay-gate"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "2d0669ce16132c94e69ea36657f49b43192e37a55ed82a0d68723660a79d03be"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "nextUnit": "standard-query-return-030",
+  "currentQualified": 8,
+  "required": 204,
+  "notQualified": 196,
+  "automaticContinuationAuthorized": true,
+  "crossApplicationStartupAuthorized": false,
+  "queryDiagnosticStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-audit-01",
+    "directionId": "query-api-preconditions-diagnosis",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT",
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 26768,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "type-dom",
+      "status-dom"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "8b486b9c6cae46794acdd306d76b67c2e1170734e9fa4b25d7758ac788005756"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "queryDiagnostic": {
+    "attempts": 2,
+    "formalCasesExecuted": 0,
+    "status": "diagnostic-blocked",
+    "lastError": "TypeError",
+    "phase": "query-response-observation",
+    "hypothesis": "OPTIONS preflight may have matched; unconfirmed",
+    "next": "freeze API data precondition direction; independent confirmed navigation case 030"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-09-08T09:58:16.885Z",
+  "caseId": "TC-ITEM-ADD-002",
+  "status": "current-receipt-qualified",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "contract": "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+  "contractSha256": "a65e4c92b5189c06d925fdb5d268f2bf47d5a6f3c837ff0567855fb18f0e1207",
+  "independentContextObservation": "deliverables/system-test-platform/readonly-auth-addon-observation.json",
+  "independentContextObservationSha256": "cea98439e4f6867a1e5d779604ee7772883cf898f455b72206e655901e501819",
+  "reportPath": "output/product-center-item-source-governed-addon-002-receipt-20260908-01-source-governed.json",
+  "reportSha256": "a3f65c8f33cfaec8569cb64dc944bc690d684972834bb894d18ff771d1e74e22",
+  "qualification": {
+    "accepted": true,
+    "reasons": []
+  },
+  "negativeChecks": [
+    {
+      "name": "missing-assertions",
+      "accepted": false,
+      "reasons": [
+        "ASSERTION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "missing-business-operation",
+      "accepted": false,
+      "reasons": [
+        "BUSINESS_OPERATION_OCCURRENCE_MISSING",
+        "OPERATION_RECEIPT_CARDINALITY_INVALID",
+        "OPERATION_RECEIPT_MISSING",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    },
+    {
+      "name": "different-tenant",
+      "accepted": false,
+      "reasons": [
+        "EXECUTION_CONTEXT_MISMATCH",
+        "RECEIPT_FINGERPRINT_MISMATCH"
+      ]
+    }
+  ],
+  "operationDeclarationAuthority": "正式步骤及AddonItem216Flow/ItemCreateSidePage源码调用树",
+  "cleanupAuthority": "本用例仅观察表单，运行清理器无创建对象；不以空清理集合授权写操作用例",
+  "scope": "one-formal-readonly-case",
+  "reuseStatus": "run-only",
+  "releaseStability": false,
+  "contextLimitations": "角色来自运行器配置；页面未声明HTML语言，按现有运行器合同记录und；不得解释为已验证多语言行为",
+  "historicalResultsPreserved": true,
+  "secretsPersisted": false
+}

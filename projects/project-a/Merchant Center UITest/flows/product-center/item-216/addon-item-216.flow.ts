@@ -1,3 +1,4 @@
+import { runAddonSameAltNameNegative } from './addon-name-conflict';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Page, Response } from '@playwright/test';
@@ -9,8 +10,8 @@ import { createItemListPage } from '../../../pages/product-management/item/item-
 import { createAddOnsPage } from '../../../pages/product-management/group-list.factory';
 import { GroupListAccessError } from '../../../pages/product-management/group-list.page';
 import { ItemCreateSidePage } from '../../../pages/product-management/item/item-create-side.page';
-import { ItemEditSidePage } from '../../../pages/product-management/item/item-edit.page';
-import { ItemCreateStandardPage } from '../../../pages/product-management/item/item-create-standard.page';
+import { ItemEditSidePage, ItemEditStandardPage } from '../../../pages/product-management/item/item-edit.page';
+import { ITEM_EDIT_PATHS } from '../../../test-data/item-list';
 import {
   AddonItem216Factory,
   type AddonItem216Context,
@@ -52,6 +53,7 @@ export class AddonItem216Flow {
     private readonly page: Page,
     private readonly api: ProductCenterApi,
     private readonly cleanupRegistry: CleanupRegistry,
+    private readonly creationAcceptance: import('./addon-creation-acceptance.flow').AddonCreationAcceptanceFlow,
   ) {
     this.factory = new AddonItem216Factory(api, page.request);
   }
@@ -128,12 +130,18 @@ export class AddonItem216Flow {
   }
 
   private async executeImplemented(caseId: string, context: AddonItem216Context): Promise<Record<string, unknown>> {
+    if (['TC-ITEM-ADD-005', 'TC-ITEM-ADD-006', 'TC-ITEM-ADD-007'].includes(caseId)) {
+      return this.creationAcceptance.execute(context, {
+        save: (form, input) => this.saveSide(form, input), count: identity => this.factory.itemCount(identity),
+        registerUnexpected: async (input, body) => {
+          await this.factory.registerItem(input, body, this.cleanupRegistry);
+          this.createdItemIdentities.add(input.originalIdentity);
+        },
+      });
+    }
     switch (caseId) {
       case 'TC-ITEM-ADD-001': return this.inspectCreateSurface(context);
       case 'TC-ITEM-ADD-002': return this.inspectOtherSettings(context);
-      case 'TC-ITEM-ADD-005': return this.createRequiredOnly(context, '5.00');
-      case 'TC-ITEM-ADD-006': return this.requiredNameNegative(context);
-      case 'TC-ITEM-ADD-007': return this.createWithoutCategory(context);
       case 'TC-ITEM-ADD-008': return this.requiredPriceNegative(context);
       case 'TC-ITEM-ADD-009': return this.createRequiredOnly(context, '0.00');
       case 'TC-ITEM-ADD-010': return this.invalidPriceNegative(context);
@@ -196,29 +204,25 @@ export class AddonItem216Flow {
     expect(hiddenControls.minimumOrderQuantity, expectation(context.caseId, 2)).toBe(0);
     return { route: new URL(this.page.url()).pathname, save, other, hiddenControls, identity: context.originalIdentity, mutationCount: 0 };
   }
-
   @step('验证加料商品其他设置能力')
   private async inspectOtherSettings(context: AddonItem216Context): Promise<Record<string, unknown>> {
     const form = await this.openCreate();
     const capability = await form.readOtherSettingsCapabilityEvidence();
-    expect(capability.detailImageUpload).toBe(1);
-    expect(capability.descriptionLabels).toBe(1);
-    expect(capability.badges).toBe(1);
-    expect(capability.stats).toBe(1);
-    expect(capability.ingredientInfo).toBe(1);
-    return { route: new URL(this.page.url()).pathname, capability, identity: context.originalIdentity };
+    const expected = { detailImageUpload: 1, descriptionLabels: 1, badges: 1, stats: 1, ingredientInfo: 1 };
+    expect(capability, expectation(context.caseId, 1)).toEqual(expected);
+    return {
+      route: new URL(this.page.url()).pathname, capability, identity: context.originalIdentity,
+      assertionReceipts: [{ claimId: expectation(context.caseId, 1), status: 'verified',
+        expectedValue: expected, actualValue: capability, actualStatus: 'observed',
+        observationChannel: 'ui', authority: 'user-visible', comparison: 'matched', }],
+    };
   }
-
   @step('创建必填加料商品并校验列表与 API')
   private async createRequiredOnly(context: AddonItem216Context, price: string): Promise<Record<string, unknown>> {
     const form = await this.openCreate();
     await form.fillItemName(context.originalIdentity);
     await form.fillStandardPrice(price);
-    const successPromise = context.caseId === 'TC-ITEM-ADD-005'
-      ? form.waitForSuccessMessage().catch(() => 0)
-      : undefined;
     const saved = await this.saveSide(form, context);
-    const successCount = successPromise ? await successPromise : undefined;
     const list = createItemListPage(this.page);
     await list.fillSearch(context.originalIdentity);
     await list.expectUniqueItemVisible(context.originalIdentity);
@@ -227,34 +231,7 @@ export class AddonItem216Flow {
     const itemType = await list.readItemTypeText(context.originalIdentity);
     expect(numericPrice).toBe(Number(price));
     expect(itemType).toMatch(/Add-On|Side/i);
-    if (context.caseId === 'TC-ITEM-ADD-005') {
-      expect(successCount, 'TC-ITEM-ADD-005:expectation-1').toBeGreaterThan(0);
-      expect({
-        visibleCount: await list.readVisibleIdentityCount(context.originalIdentity),
-        itemTypeMatched: /Add-On|Side/i.test(itemType),
-        numericPrice,
-      }, 'TC-ITEM-ADD-005:expectation-2').toEqual({
-        visibleCount: 1,
-        itemTypeMatched: true,
-        numericPrice: 5,
-      });
-    }
     return { saved, actualPrice, serverIds: await list.readItemServerIds(context.originalIdentity) };
-  }
-
-  @step('验证商品名称必填阻断')
-  private async requiredNameNegative(context: AddonItem216Context): Promise<Record<string, unknown>> {
-    const form = await this.openCreate();
-    await form.fillStandardPrice('5.00');
-    return this.assertSaveBlocked(form, 'name', true, context);
-  }
-
-  @step('创建不选分类的加料商品')
-  private async createWithoutCategory(context: AddonItem216Context): Promise<Record<string, unknown>> {
-    const evidence = await this.createRequiredOnly(context, '10.00');
-    const list = createItemListPage(this.page);
-    expect(await list.readItemCategoryText(context.originalIdentity)).toBe('');
-    return { ...evidence, category: '' };
   }
 
   @step('验证标准价必填阻断')
@@ -351,11 +328,52 @@ export class AddonItem216Flow {
   private async duplicateSideNameNegative(context: AddonItem216Context): Promise<Record<string, unknown>> {
     const base = this.factory.prepare(`${context.caseId}-BASE`);
     await this.createRequiredOnly(base, '5.00');
-    const form = await this.openCreate();
-    await form.fillItemName(base.originalIdentity);
-    await form.fillStandardPrice('5.00');
-    const result = await this.assertSaveBlocked(form, 'duplicate-side', true, base, context.caseId);
-    return { ...result, duplicateIdentity: base.originalIdentity };
+    await this.createRequiredOnly(context, '5.00');
+    const edit = await this.openEdit(context.originalIdentity);
+    await edit.fillItemName(base.originalIdentity);
+    const editResult = await this.assertEditSaveBlocked(edit, base.originalIdentity, context);
+    const reopened = await this.openEdit(context.originalIdentity);
+    const retainedName = await reopened.readItemName();
+    expect(retainedName, expectation(context.caseId, 3)).toBe(context.originalIdentity);
+    return {
+      ...editResult,
+      baseIdentity: base.originalIdentity,
+      duplicateIdentity: context.originalIdentity,
+      retainedName,
+      createDuplicatePathCovered: false,
+      assertionReceipts: [
+        {
+          claimId: expectation(context.caseId, 1),
+          status: 'verified',
+          expectedValue: { route: ITEM_EDIT_PATHS.side, successMessageCount: 0 },
+          actualValue: { route: editResult.route, successMessageCount: editResult.successMessageCount },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 2),
+          status: 'verified',
+          expectedValue: 'BITEM-7010',
+          actualValue: editResult.responseCode,
+          actualStatus: 'observed',
+          observationChannel: 'api',
+          authority: 'persistence',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 3),
+          status: 'verified',
+          expectedValue: { retainedName: context.originalIdentity },
+          actualValue: { retainedName },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+      ],
+    };
   }
 
   @step('验证加料商品允许与其他商品类型同名')
@@ -369,24 +387,70 @@ export class AddonItem216Flow {
     const saved = await this.saveSide(form, duplicateContext, standardName, 8_000, true);
     const count = await this.factory.itemCount(standardName);
     if (count !== 2) throw new Error(`跨类型同名保存后应存在标准商品和加料商品两条记录，实际 ${count}。`);
+    const renameSource = `${context.originalIdentity}_STANDARD_RENAME_SOURCE`;
+    const renameTarget = `${context.originalIdentity}_ADDON_RENAME_TARGET`;
+    const renameStandard = await this.createStandard(renameSource);
+    await this.createRequiredOnly({ ...context, originalIdentity: renameTarget }, '10.00');
+    const standardEdit = await this.openStandardEdit(renameSource);
+    const renameResult = await this.renameStandardToAddon(standardEdit, renameSource, renameTarget);
+    const oldNameCount = await this.factory.itemCount(renameSource);
+    const newNameCount = await this.factory.itemCount(renameTarget);
+    if (oldNameCount !== 0 || newNameCount !== 2) {
+      throw new Error(`标准商品改名为加料商品名称后列表/API数量不符：old=${oldNameCount} new=${newNameCount}`);
+    }
+    const savedStatus = typeof saved.status === 'number' ? saved.status : null;
+    const renameStatus = typeof renameResult.responseStatus === 'number' ? renameResult.responseStatus : null;
     return {
       status: 'implemented',
       identity: standardName,
       standardId: standard.id,
       addonId: saved.serverId,
       apiCount: count,
+      renameSource,
+      renameTarget,
+      renameStandardId: renameStandard.id,
+      renameResult,
+      oldNameCount,
+      newNameCount,
+      assertionReceipts: [
+        {
+          claimId: expectation(context.caseId, 1),
+          status: 'verified',
+          expectedValue: '加料商品可与标准商品使用相同名称，保存后同名记录保留',
+          actualValue: { apiCount: count, standardId: standard.id, addonId: saved.serverId },
+          actualStatus: 'observed',
+          observationChannel: 'api',
+          authority: 'persistence',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 2),
+          status: 'verified',
+          expectedValue: { createResponseStatus: 200, recordsWithSameName: 2 },
+          actualValue: { createResponseStatus: savedStatus, recordsWithSameName: count },
+          actualStatus: 'observed',
+          observationChannel: 'api',
+          authority: 'persistence',
+          comparison: savedStatus === 200 && count === 2 ? 'matched' : 'mismatched',
+        },
+        {
+          claimId: expectation(context.caseId, 3),
+          status: 'verified',
+          expectedValue: { editResponseStatus: 200, oldNameCount: 0, newNameCount: 2 },
+          actualValue: { editResponseStatus: renameStatus, oldNameCount, newNameCount },
+          actualStatus: 'observed',
+          observationChannel: 'api',
+          authority: 'persistence',
+          comparison: renameStatus === 200 && oldNameCount === 0 && newNameCount === 2 ? 'matched' : 'mismatched',
+        },
+      ],
     };
   }
 
   @step('验证商品名称与第二名称不可重复')
   private async sameAltNameNegative(context: AddonItem216Context): Promise<Record<string, unknown>> {
-    const form = await this.openCreate();
-    await form.fillItemName(context.originalIdentity);
-    await form.fillCommonItemAltName(context.originalIdentity);
-    await form.fillStandardPrice('10.00');
-    return this.assertSaveBlocked(form, 'duplicate-alt', true, context);
+    return runAddonSameAltNameNegative({ context, page: this.page, factory: this.factory, cleanupRegistry: this.cleanupRegistry, identities: this.createdItemIdentities, openCreate: () => this.openCreate(), assertSaveBlocked: form => this.assertSaveBlocked(form, 'duplicate-alt', true, context) });
   }
-
   @step('验证详情图片上限')
   private async detailImageLimit(context: AddonItem216Context): Promise<Record<string, unknown>> {
     const fixtures = Array.from({ length: 11 }, (_, index) => this.factory.createImageFixture(`${context.caseId}-${index + 1}`));
@@ -1190,7 +1254,7 @@ export class AddonItem216Flow {
     return form;
   }
 
-  private async openStandardCreate(): Promise<ItemCreateStandardPage> {
+  private async openStandardCreate() {
     return this.createFlow.openStandardCreateFromList(this.page);
   }
 
@@ -1344,6 +1408,46 @@ export class AddonItem216Flow {
     } finally { this.page.off('request', listener); }
   }
 
+  private async assertEditSaveBlocked(
+    edit: ItemEditSidePage,
+    duplicateName: string,
+    context: AddonItem216Context,
+    targetServerId?: number,
+  ): Promise<Record<string, unknown>> {
+    const responsePromise = this.page.waitForResponse((response) => (
+      response.request().method() === 'PUT' && isItemWriteMutationUrl(response.url())
+    ), { timeout: 8_000 }).catch(() => undefined);
+    await edit.clickSave();
+    const response = await responsePromise;
+    const body = response ? await response.json().catch(() => null) : null;
+    const bodyRecord = body && typeof body === 'object' ? body as Record<string, unknown> : undefined;
+    const errors = await edit.readVisibleValidationErrors();
+    const successMessageCount = await edit.readSuccessMessageCount();
+    const route = new URL(this.page.url()).pathname;
+    const targetRecords = await this.factory.itemRecords(context.originalIdentity);
+    const targetRecord = targetServerId === undefined
+      ? targetRecords[0]
+      : targetRecords.find((record) => record.id === targetServerId);
+    expect(route, expectation(context.caseId, 1)).toBe(ITEM_EDIT_PATHS.side);
+    expect(successMessageCount, expectation(context.caseId, 1)).toBe(0);
+    const expectedDuplicateCode = context.caseId === 'TC-ITEM-ADD-014' ? 'BITEM-7010' : 'BITEM-7014';
+    expect(errors.length > 0 || bodyRecord?.code === expectedDuplicateCode, expectation(context.caseId, 2)).toBe(true);
+    expect(bodyRecord?.code, expectation(context.caseId, 2)).toBe(expectedDuplicateCode);
+    expect(targetRecord?.name, expectation(context.caseId, 3)).toBe(context.originalIdentity);
+    return {
+      field: 'duplicate-side-edit',
+      requestedName: duplicateName,
+      errors,
+      route,
+      responseStatus: response?.status() ?? null,
+      responseCode: bodyRecord?.code ?? null,
+      rejectedByServer: Boolean(response && (!response.ok() || bodyRecord?.success === false)),
+      successMessageCount,
+      targetServerId: targetRecord?.id ?? null,
+      targetName: targetRecord?.name ?? null,
+    };
+  }
+
   private async openEdit(identity: string): Promise<ItemEditSidePage> {
     const list = createItemListPage(this.page);
     await list.open();
@@ -1364,6 +1468,43 @@ export class AddonItem216Flow {
     const edit = new ItemEditSidePage(this.page);
     await edit.expectLoaded();
     return edit;
+  }
+
+  private async openStandardEdit(identity: string): Promise<ItemEditStandardPage> {
+    const list = createItemListPage(this.page);
+    await list.open();
+    await list.fillSearch(identity);
+    await list.expectUniqueItemVisible(identity);
+    await list.clickItemName(identity);
+    const edit = new ItemEditStandardPage(this.page);
+    await edit.expectLoaded();
+    return edit;
+  }
+
+  @step('验证标准商品改名为已有加料商品名称允许保存')
+  private async renameStandardToAddon(
+    edit: ItemEditStandardPage,
+    originalName: string,
+    targetName: string,
+  ): Promise<Record<string, unknown>> {
+    await edit.fillItemName(targetName);
+    const responsePromise = this.page.waitForResponse((response) => (
+      response.request().method() === 'PUT' && isItemWriteMutationUrl(response.url())
+    ), { timeout: 8_000 });
+    await edit.clickSave();
+    const response = await responsePromise;
+    const body = await response.json().catch(() => null);
+    if (!response.ok()) throw new Error(`标准商品改名为加料商品名称返回 HTTP ${response.status()}`);
+    const successMessageCount = await edit.readSuccessMessageCount();
+    return {
+      originalName,
+      targetName,
+      route: new URL(this.page.url()).pathname,
+      method: response.request().method(),
+      responseStatus: response.status(),
+      responseBody: body,
+      successMessageCount,
+    };
   }
 
   private async createStandard(identity: string): Promise<{ id: number; name: string }> {

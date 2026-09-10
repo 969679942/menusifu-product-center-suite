@@ -9,6 +9,8 @@ import {
 } from './product-center-source-governance';
 
 export type ProductCenterCanonicalAutomationBlockReason =
+  | 'AUTOMATION_CONTRACT_MISSING'
+  | 'REVIEW_NOT_APPROVED'
   | 'RECIPE_REQUIRED'
   | 'RECIPE_GENERATION_DISABLED'
   | 'CAPABILITY_CONTRACT_REQUIRED'
@@ -30,6 +32,8 @@ export type ProductCenterCanonicalAutomationBlockReason =
   | 'SOURCE_EVIDENCE_BLOCKED';
 
 const allBlockingReasons: ProductCenterCanonicalAutomationBlockReason[] = [
+  'AUTOMATION_CONTRACT_MISSING',
+  'REVIEW_NOT_APPROVED',
   'RECIPE_REQUIRED',
   'RECIPE_GENERATION_DISABLED',
   'CAPABILITY_CONTRACT_REQUIRED',
@@ -55,7 +59,7 @@ export type ProductCenterCanonicalReviewEntry = {
   caseId: string;
   title: string;
   priority: string;
-  decision: 'approved' | 'deprecated';
+  decision: 'approved' | 'deprecated' | 'revision-required' | 'source-confirmation-required';
   automationDisposition: string;
 };
 
@@ -192,6 +196,7 @@ function buildEntry(input: {
   const { review, recipe } = input;
   if (review.decision === 'deprecated') return emptyEntry(review, 'not-applicable', input.sourceDecision);
   const reasons: ProductCenterCanonicalAutomationBlockReason[] = [];
+  if (review.decision !== 'approved') reasons.push('REVIEW_NOT_APPROVED');
   if (sourceDecisionBlocksExecution(input.sourceDecision)) reasons.push('SOURCE_EVIDENCE_BLOCKED');
   if (!recipe) reasons.push('RECIPE_REQUIRED');
   if (recipe && !recipe.generationAllowed) reasons.push('RECIPE_GENERATION_DISABLED');

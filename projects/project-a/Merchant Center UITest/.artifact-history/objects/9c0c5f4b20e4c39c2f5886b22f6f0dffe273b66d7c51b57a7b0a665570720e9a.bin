@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-09-08T15:50:57.858Z",
+  "input": {
+    "unitId": "standard-advanced-readonly-observation-20260908-01",
+    "directionId": "advanced-settings-DOM-observation",
+    "phase": "after-unit",
+    "tokenStart": 1276429,
+    "tokenCurrent": 1286034,
+    "elapsedMs": 39000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "advanced-toggle-independent-state",
+      "advanced-eight-current-field-identities"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/advanced-settings-dom-observation.json",
+        "sha256": "59a1252d7b40a64e084a5e8f286bc0dcbcb5fb2bd0300707a240d3d9936ef62b",
+        "kind": "ui-observation"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-advanced-readonly-observation-20260908-01",
+    "directionId": "advanced-settings-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 9605,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "advanced-toggle-independent-state",
+      "advanced-eight-current-field-identities"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "59a1252d7b40a64e084a5e8f286bc0dcbcb5fb2bd0300707a240d3d9936ef62b"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

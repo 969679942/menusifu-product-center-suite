@@ -25,6 +25,13 @@ test('用例级指纹必须覆盖 handler 实际调用的 flow 页面和工厂�
   ]));
   expect(detached?.dependencySymbols.some((item) => item.includes('StandardItem216Flow.detachReferencedAttributeGroup'))).toBe(true);
   expect(detached?.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+  const combo = manifest.cases.find((item) => item.handlerId === 'combo-v2-create-contract');
+  expect(combo, '套餐场景必须有当前依赖闭包').toBeDefined();
+  expect(combo?.dependencyFiles).toEqual(expect.arrayContaining([
+    'adapters/product-center/product-center-group-combo-v2-cases.ts',
+    'adapters/product-center/product-center-group-combo-v2-support.ts',
+  ]));
+  expect(combo?.dependencySymbols.some((symbol) => symbol.includes('submitComboV2FormAndRegister'))).toBe(true);
 });
 
 test('同一 handler 的不同 case 必须因 caseId 与绑定合同得到独立指纹', () => {

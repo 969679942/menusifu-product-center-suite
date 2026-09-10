@@ -1,0 +1,429 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W7_20260731_03",
+  "waveId": "W7",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "accepted",
+  "caseIds": [
+    "TC-ITEM-ADD-026",
+    "TC-ITEM-ADD-027",
+    "TC-ITEM-ADD-028",
+    "TC-ITEM-ADD-034",
+    "TC-ITEM-ADD-036",
+    "TC-ITEM-PKG-037",
+    "TC-ITEM-PKG-038"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-ADD-026",
+    "TC-ITEM-ADD-027",
+    "TC-ITEM-ADD-028",
+    "TC-ITEM-ADD-034",
+    "TC-ITEM-ADD-036",
+    "TC-ITEM-PKG-037",
+    "TC-ITEM-PKG-038"
+  ],
+  "canonicalConflictCaseIds": [],
+  "caseEvidence": {
+    "TC-ITEM-ADD-036": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 261316,
+        "identity": "AUTO_AUDIT_W7_SIDE_FREE_1785489732147",
+        "firstDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_FREE_1785489732147\"?\nCancel\nDelete",
+        "secondDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_FREE_1785489732147\"?\nCancel\nDelete",
+        "cancelledTwice": true,
+        "apiCount": 1
+      }
+    },
+    "TC-ITEM-ADD-026": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 261316,
+        "identity": "AUTO_AUDIT_W7_SIDE_FREE_1785489732147",
+        "expectedOutcome": "deleted",
+        "outcome": "deleted",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_FREE_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 200,
+          "ok": true
+        },
+        "requestDeleteId": 261316,
+        "body": {
+          "code": "0",
+          "message": "success",
+          "success": true
+        },
+        "messages": [
+          "Successfully Deleted"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 0,
+        "afterUiCount": 0
+      }
+    },
+    "TC-ITEM-ADD-027": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 30962,
+        "identity": "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147",
+        "expectedOutcome": "reference-blocked",
+        "outcome": "reference-blocked",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 400,
+          "ok": false
+        },
+        "requestDeleteId": 30962,
+        "body": {
+          "code": "BITEM-2014",
+          "message": "addon is been used in addon group",
+          "errorData": {
+            "references": [
+              {
+                "id": 439,
+                "name": "AUTO_AUDIT_W7_ADDON_GROUP_1785489732147"
+              }
+            ],
+            "totalCount": 1
+          },
+          "success": false
+        },
+        "messages": [
+          "BITEM-2014 : addon is been used in addon group"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 1,
+        "afterUiCount": 1,
+        "addonGroupId": 439,
+        "standardProductId": 261317,
+        "addonGroupRelationPresent": true,
+        "standardProductRelationPresent": true
+      }
+    },
+    "TC-ITEM-ADD-034": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 30962,
+        "identity": "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147",
+        "expectedOutcome": "reference-blocked",
+        "outcome": "reference-blocked",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 400,
+          "ok": false
+        },
+        "requestDeleteId": 30962,
+        "body": {
+          "code": "BITEM-2014",
+          "message": "addon is been used in addon group",
+          "errorData": {
+            "references": [
+              {
+                "id": 439,
+                "name": "AUTO_AUDIT_W7_ADDON_GROUP_1785489732147"
+              }
+            ],
+            "totalCount": 1
+          },
+          "success": false
+        },
+        "messages": [
+          "BITEM-2014 : addon is been used in addon group"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 1,
+        "afterUiCount": 1,
+        "addonGroupId": 439,
+        "standardProductId": 261317,
+        "addonGroupRelationPresent": true,
+        "standardProductRelationPresent": true
+      }
+    },
+    "TC-ITEM-ADD-028": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 30963,
+        "identity": "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147",
+        "expectedOutcome": "reference-blocked",
+        "outcome": "reference-blocked",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 400,
+          "ok": false
+        },
+        "requestDeleteId": 30963,
+        "body": {
+          "code": "BITEM-2013",
+          "message": "item is been used in menu",
+          "errorData": {
+            "references": [
+              {
+                "id": 365,
+                "name": "AUTO_AUDIT_MENU_1785489786942101"
+              }
+            ],
+            "totalCount": 1
+          },
+          "success": false
+        },
+        "messages": [
+          "BITEM-2013 : item is been used in menu"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 1,
+        "afterUiCount": 1,
+        "menuRelationPresent": true
+      }
+    },
+    "TC-ITEM-PKG-037": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 261318,
+        "identity": "AUTO_AUDIT_W7_COMBO_FREE_1785489732147",
+        "expectedOutcome": "deleted",
+        "outcome": "deleted",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_COMBO_FREE_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 200,
+          "ok": true
+        },
+        "requestDeleteId": 261318,
+        "body": {
+          "code": "0",
+          "message": "success",
+          "success": true
+        },
+        "messages": [
+          "Successfully Deleted"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 0,
+        "afterUiCount": 0
+      }
+    },
+    "TC-ITEM-PKG-038": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 261319,
+        "identity": "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147",
+        "expectedOutcome": "reference-blocked",
+        "outcome": "reference-blocked",
+        "deleteDialogText": "Delete Confirmation\nAre you sure you want to delete item \"AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147\"?\nCancel\nDelete",
+        "response": {
+          "method": "DELETE",
+          "path": "/item/v1/ops-brand/brand-items/delete",
+          "status": 400,
+          "ok": false
+        },
+        "requestDeleteId": 261319,
+        "body": {
+          "code": "BITEM-2013",
+          "message": "item is been used in menu",
+          "errorData": {
+            "references": [
+              {
+                "id": 365,
+                "name": "AUTO_AUDIT_MENU_1785489786942101"
+              }
+            ],
+            "totalCount": 1
+          },
+          "success": false
+        },
+        "messages": [
+          "BITEM-2013 : item is been used in menu"
+        ],
+        "beforeApiCount": 1,
+        "afterApiCount": 1,
+        "afterUiCount": 1,
+        "menuRelationPresent": true
+      }
+    }
+  },
+  "cleanupEvidence": {
+    "apiResidue": {
+      "items": {
+        "AUTO_AUDIT_W7_SIDE_FREE_1785489732147": 0,
+        "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147": 0,
+        "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147": 0,
+        "AUTO_AUDIT_W7_STANDARD_ADDON_REF_1785489732147": 0,
+        "AUTO_AUDIT_W7_COMBO_FREE_1785489732147": 0,
+        "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147": 0,
+        "AUTO_AUDIT_COMBO_PRODUCT_1785489732248": 0,
+        "AUTO_AUDIT_COMBO_PRODUCT_1785489732249": 0
+      },
+      "resources": {
+        "AUTO_AUDIT_W7_ADDON_GROUP_1785489732147": 0,
+        "AUTO_AUDIT_MENU_1785489786942101": 0,
+        "AUTO_AUDIT_MENU_1785489786942101_SECTION_1": 0
+      }
+    },
+    "uiResidue": {
+      "AUTO_AUDIT_W7_SIDE_FREE_1785489732147": 0,
+      "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147": 0,
+      "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147": 0,
+      "AUTO_AUDIT_W7_STANDARD_ADDON_REF_1785489732147": 0,
+      "AUTO_AUDIT_W7_COMBO_FREE_1785489732147": 0,
+      "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147": 0,
+      "AUTO_AUDIT_COMBO_PRODUCT_1785489732248": 0,
+      "AUTO_AUDIT_COMBO_PRODUCT_1785489732249": 0
+    },
+    "uiAndApiResidueFree": true,
+    "ledgerEntries": 13,
+    "residueVerified": 13,
+    "incompleteLedgerEntries": 0
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:w7-menu-bind:38d2704fdc5ee4feb6386432",
+      "unitId": "audit-unit:w7-menu-bind",
+      "safetyLevel": "L3-crud",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147"
+      ],
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-block-item/batchCreate"
+      },
+      "requestFingerprint": "38d2704fdc5ee4feb63864324c125f8710b979a4144be03232561fb29f9f1ec9",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.112Z",
+      "serverId": 30963,
+      "ledgerEntryId": "item-30963",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w7-menu-bind:f3edb5254f8441ba5f6f3b0a",
+      "unitId": "audit-unit:w7-menu-bind",
+      "safetyLevel": "L3-crud",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147"
+      ],
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-block-item/batchCreate"
+      },
+      "requestFingerprint": "f3edb5254f8441ba5f6f3b0afdd63857792d90b58238db49026a6455f5659fdb",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.112Z",
+      "serverId": 261319,
+      "ledgerEntryId": "item-261319",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w7-delete-deleted:fe03f82ef73a0b8ba740a186",
+      "unitId": "audit-unit:w7-delete-deleted",
+      "safetyLevel": "L3-crud",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_SIDE_FREE_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_SIDE_FREE_1785489732147"
+      ],
+      "operation": {
+        "method": "DELETE",
+        "path": "/ops-brand/brand-items/delete"
+      },
+      "requestFingerprint": "fe03f82ef73a0b8ba740a186378b03aafaf54f6eaad128ce15c2bed6d1b34868",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.113Z",
+      "serverId": 261316,
+      "ledgerEntryId": "item-261316",
+      "reconciliation": "absent"
+    },
+    {
+      "intentId": "intent:w7-delete-reference-blocked:fa7b7243a0eafcd2abac9437",
+      "unitId": "audit-unit:w7-delete-reference-blocked",
+      "safetyLevel": "L2-controlled-negative",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_SIDE_ADDON_REF_1785489732147"
+      ],
+      "operation": {
+        "method": "DELETE",
+        "path": "/ops-brand/brand-items/delete"
+      },
+      "requestFingerprint": "fa7b7243a0eafcd2abac9437723b863123118972d8ff9b6cfabf42cec8dcc10a",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.114Z",
+      "serverId": 30962,
+      "ledgerEntryId": "item-30962",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w7-delete-reference-blocked:3ef4d92dad0fd522a123fd3c",
+      "unitId": "audit-unit:w7-delete-reference-blocked",
+      "safetyLevel": "L2-controlled-negative",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_SIDE_MENU_REF_1785489732147"
+      ],
+      "operation": {
+        "method": "DELETE",
+        "path": "/ops-brand/brand-items/delete"
+      },
+      "requestFingerprint": "3ef4d92dad0fd522a123fd3c48564c0bb06ac22204445d4f2f60a9595ce4d94c",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.114Z",
+      "serverId": 30963,
+      "ledgerEntryId": "item-30963",
+      "reconciliation": "present"
+    },
+    {
+      "intentId": "intent:w7-delete-deleted:d4e94491bec9dab06fd6a37c",
+      "unitId": "audit-unit:w7-delete-deleted",
+      "safetyLevel": "L3-crud",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_COMBO_FREE_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_COMBO_FREE_1785489732147"
+      ],
+      "operation": {
+        "method": "DELETE",
+        "path": "/ops-brand/brand-items/delete"
+      },
+      "requestFingerprint": "d4e94491bec9dab06fd6a37cf01e35f6805ed4be05b1577fbeb8188d0569a473",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.115Z",
+      "serverId": 261318,
+      "ledgerEntryId": "item-261318",
+      "reconciliation": "absent"
+    },
+    {
+      "intentId": "intent:w7-delete-reference-blocked:307ec9652fb61c558b984a6a",
+      "unitId": "audit-unit:w7-delete-reference-blocked",
+      "safetyLevel": "L2-controlled-negative",
+      "entity": "item",
+      "identity": "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147",
+      "identityVariants": [
+        "AUTO_AUDIT_W7_COMBO_MENU_REF_1785489732147"
+      ],
+      "operation": {
+        "method": "DELETE",
+        "path": "/ops-brand/brand-items/delete"
+      },
+      "requestFingerprint": "307ec9652fb61c558b984a6a87a6e918b66381b3b61d485bdb281825a5aa7939",
+      "phase": "cleanup-complete",
+      "updatedAt": "2026-07-31T09:26:27.115Z",
+      "serverId": 261319,
+      "ledgerEntryId": "item-261319",
+      "reconciliation": "present"
+    }
+  ]
+}

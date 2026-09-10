@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T07:00:15.216Z",
+  "status": "validated",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicMainContractsPassed": 108,
+    "publicTargetedRaceSuitePassed": 3,
+    "publicTargetedRaceSuiteContainsEarlierTests": true,
+    "projectContractsPassed": 10,
+    "projectFinalTerminalSuitePassed": 3,
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "capabilities": "passed",
+    "assets": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "migration": "complete",
+    "reviewedMigrationChanges": 8
+  },
+  "evidence": [
+    "../Test Automation Platform/docs/current-run-observation.md",
+    "../Test Automation Platform/tests/api/current-run-observation.contract.spec.ts",
+    "tests/api/product-center-attempt-accounting.contract.spec.ts"
+  ],
+  "boundary": {
+    "currentObservationAuthorizesBusinessPass": false,
+    "strictReceiptImportStillRejectsHistoricalIndexFailure": true,
+    "currentIdentityAndSnapshotFailureStillBlocks": true,
+    "historicalEvidenceFindingAutoRerunsBusiness": false,
+    "runLevelEvidenceReconciliationQueue": "runItems",
+    "fabricatedBusinessCaseId": false
+  },
+  "pending": [
+    "full-runner-lifecycle-timing",
+    "non-runner-overhead",
+    "partial-batch-resume",
+    "platform-only-fingerprint-impact-audit",
+    "205-current-item-admissions",
+    "97-source-derivation-differences",
+    "remaining-report-writers"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "historicalPassedResultsPreserved": true,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

@@ -1,0 +1,427 @@
+{
+  "recordedAt": "2026-09-08T16:08:41.103Z",
+  "runId": "standard-advanced-settings-20260909-01",
+  "status": "completed",
+  "selected": 2,
+  "terminal": 2,
+  "actualCaseAttempts": 2,
+  "authSetups": 1,
+  "businessCrudPerformed": false,
+  "saveActions": 0,
+  "results": [
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "contract": {
+        "caseId": "TC-ITEM-STD-041",
+        "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+        "semanticCaseFingerprint": "466d3d560e5f28d5b34a697c65469a29a86ceec038fb547a68d46c032a98a03f",
+        "implementationFingerprint": "d86f8855dd7d3a2f3309495a8a3569bb6be07a1d63082f6ea4863a2e3bc8b690",
+        "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+        "requiredOperationKeys": [
+          "TC-ITEM-STD-041:action-1"
+        ],
+        "requiredAssertionIds": [
+          "TC-ITEM-STD-041:expectation-1",
+          "TC-ITEM-STD-041:expectation-2"
+        ],
+        "cleanupRequired": false
+      },
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-field-assertion",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-assertion-route",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "restore-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "observed-mismatch-cannot-pass",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_NOT_VERIFIED",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-041:expectation-1",
+          "status": "verified",
+          "actualValue": "collapsed",
+          "expectedValue": "collapsed",
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-041:expectation-2",
+          "status": "verified",
+          "actualValue": {
+            "posName": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "kitchenName": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "mnemonicCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "industryGoods": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "itemCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "unit": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "deviceCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "minimumOrderQuantity": {
+              "visible": false,
+              "currentIdentityCount": 1
+            }
+          },
+          "expectedValue": {
+            "posName": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "kitchenName": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "mnemonicCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "industryGoods": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "itemCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "unit": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "deviceCode": {
+              "visible": false,
+              "currentIdentityCount": 1
+            },
+            "minimumOrderQuantity": {
+              "visible": false,
+              "currentIdentityCount": 1
+            }
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "operations": [
+        {
+          "operationKey": "TC-ITEM-STD-041:action-1",
+          "title": "查看基础信息下方的默认高级设置状态",
+          "sequence": 15,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 99,
+          "startedAt": "2026-09-08T16:03:42.421Z",
+          "finishedAt": "2026-09-08T16:03:42.520Z",
+          "occurredAt": "2026-09-08T16:03:42.520Z"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {},
+        "uiIdentityCounts": {},
+        "uiVerificationObserved": true,
+        "required": false,
+        "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+      },
+      "executionContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/standard"
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "contract": {
+        "caseId": "TC-ITEM-STD-042",
+        "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+        "semanticCaseFingerprint": "8fbf38f9e35ec87a7babb291e70535c09428be643553a3328a79a1f3735e3b2b",
+        "implementationFingerprint": "d86f8855dd7d3a2f3309495a8a3569bb6be07a1d63082f6ea4863a2e3bc8b690",
+        "executionContextFingerprint": "6652b7ddcd0323784698b88d6df3567c2e377c24a74e14ea503922fd557a547d",
+        "requiredOperationKeys": [
+          "TC-ITEM-STD-042:action-1",
+          "TC-ITEM-STD-042:action-2"
+        ],
+        "requiredAssertionIds": [
+          "TC-ITEM-STD-042:expectation-1",
+          "TC-ITEM-STD-042:expectation-2"
+        ],
+        "cleanupRequired": false
+      },
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-field-assertion",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-assertion-route",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "restore-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "observed-mismatch-cannot-pass",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_NOT_VERIFIED",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-STD-042:expectation-1",
+          "status": "verified",
+          "actualValue": "expanded",
+          "expectedValue": "expanded",
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-STD-042:expectation-2",
+          "status": "verified",
+          "actualValue": {
+            "posName": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "kitchenName": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "mnemonicCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "industryGoods": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "itemCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "unit": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "deviceCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "minimumOrderQuantity": {
+              "visible": true,
+              "currentIdentityCount": 1
+            }
+          },
+          "expectedValue": {
+            "posName": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "kitchenName": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "mnemonicCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "industryGoods": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "itemCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "unit": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "deviceCode": {
+              "visible": true,
+              "currentIdentityCount": 1
+            },
+            "minimumOrderQuantity": {
+              "visible": true,
+              "currentIdentityCount": 1
+            }
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "operations": [
+        {
+          "operationKey": "TC-ITEM-STD-042:action-1",
+          "title": "点击高级设置展开入口",
+          "sequence": 15,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 1008,
+          "startedAt": "2026-09-08T16:03:54.806Z",
+          "finishedAt": "2026-09-08T16:03:55.814Z",
+          "occurredAt": "2026-09-08T16:03:55.814Z"
+        },
+        {
+          "operationKey": "TC-ITEM-STD-042:action-2",
+          "title": "查看展开后的八个字段",
+          "sequence": 17,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 85,
+          "startedAt": "2026-09-08T16:03:55.818Z",
+          "finishedAt": "2026-09-08T16:03:55.903Z",
+          "occurredAt": "2026-09-08T16:03:55.903Z"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {},
+        "uiIdentityCounts": {},
+        "uiVerificationObserved": true,
+        "required": false,
+        "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+      },
+      "executionContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/standard"
+      }
+    }
+  ],
+  "uniqueNamePrecondition": {
+    "uniqueName": {
+      "name": "标准商品-创建页高级设置区域默认不展开-1788883417895",
+      "exactCount": 0,
+      "observationChannel": "api",
+      "requestKind": "read-only-name-query"
+    },
+    "route": "/pp/brand/create/standard"
+  },
+  "reportPath": "output/product-center-item-source-governed-standard-advanced-settings-20260909-01-source-governed.json",
+  "reportSha256": "da91523862e6fab0d0de1e7a8c50f77bad46b42ce3fae01808d6fe066ebb7d54",
+  "qualifiedCaseIds": [
+    "TC-ITEM-STD-041",
+    "TC-ITEM-STD-042"
+  ],
+  "allCurrentQualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-005",
+    "TC-ITEM-STD-019",
+    "TC-ITEM-STD-041",
+    "TC-ITEM-STD-042",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-STD-102"
+  ],
+  "currentQualified": 12,
+  "notQualified": 192,
+  "oldQualifiedRerun": 0,
+  "releaseReuse": "run-only-derived-unstable"
+}

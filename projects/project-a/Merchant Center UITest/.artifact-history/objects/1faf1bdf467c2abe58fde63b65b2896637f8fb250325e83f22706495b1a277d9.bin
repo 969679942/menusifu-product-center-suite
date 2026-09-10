@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T16:57:55.892Z",
+  "input": {
+    "unitId": "addon-price-readonly-20260909-01",
+    "directionId": "ADD008-009-010-price-DOM-observation",
+    "phase": "after-unit",
+    "tokenStart": 1830905,
+    "tokenCurrent": 1835296,
+    "elapsedMs": 52000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "addon-price-current-field-states"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-price-dom-observation.json",
+        "sha256": "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1",
+        "kind": "ui-observation"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-readonly-20260909-01",
+    "directionId": "ADD008-009-010-price-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 4391,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "addon-price-current-field-states"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

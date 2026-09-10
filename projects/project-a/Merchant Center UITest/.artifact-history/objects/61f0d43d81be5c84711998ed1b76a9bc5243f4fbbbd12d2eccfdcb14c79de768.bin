@@ -1,0 +1,57 @@
+{
+  "runId": "readonly-standard-residue-1788869645506",
+  "caseId": "TC-ITEM-STD-103",
+  "originalRunId": "standard-name-20260908-02",
+  "serverId": 35504,
+  "identities": [
+    "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+    "AUTO_AUDIT_F3N19QLOQ_商品名称103"
+  ],
+  "intentFingerprint": "0df918115457085afcdc19385578222a6dd085ee240b3fe30f9c5ed53519bc92",
+  "selectionFingerprint": "636b1f5e9778f89b9b1d0cc0b76f69e77a650c77caa58263cb9874c8a458c905",
+  "startedAt": "2026-09-08T12:14:05.582Z",
+  "observations": [
+    {
+      "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+      "apiCount": 0,
+      "observedAt": "2026-09-08T12:14:25.100Z",
+      "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+      "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+      "uiCount": 0,
+      "route": "/pp/brand/list"
+    },
+    {
+      "identity": "AUTO_AUDIT_F3N19QLOQ_商品名称103",
+      "apiCount": 0,
+      "observedAt": "2026-09-08T12:14:25.427Z",
+      "uiSearchIdentity": "AUTO_AUDIT_F3N19QLOQ",
+      "uiAbsenceScope": "unique owned prefix includes original and emoji-stripped variants",
+      "searchDiagnostic": {
+        "input": "AUTO_AUDIT_F3N19QLOQ",
+        "emptyVisible": true,
+        "errorType": "TimeoutError"
+      }
+    }
+  ],
+  "businessWrites": 0,
+  "formalCasesReexecuted": 0,
+  "secretsPersisted": false,
+  "authenticationVerified": true,
+  "brandContextVerified": true,
+  "queryDiagnostics": [
+    {
+      "status": 200,
+      "identityValues": []
+    },
+    {
+      "status": 200,
+      "identityValues": [
+        "AUTO_AUDIT_F3N19QLOQ"
+      ]
+    }
+  ],
+  "status": "diagnostic-incomplete",
+  "failurePhase": "residue-api-ui",
+  "errorType": "TimeoutError",
+  "completedAt": "2026-09-08T12:14:35.600Z"
+}

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { runIdempotentPipeline } from '../utils/idempotent-pipeline';
+import { resolvePipelineStageInputs, runIdempotentPipeline, type IdempotentPipelineStage } from '../utils/idempotent-pipeline';
 import { resolveSystemTestPlatformArtifact } from '../utils/system-test-platform-paths';
 
 const projectRoot = path.resolve(__dirname, '..');
@@ -14,6 +14,72 @@ type EvidenceRegistry = {
   records?: Array<{ evidencePath?: string | null }>;
   decisions?: Array<{ evidenceRefs?: string[] }>;
 };
+
+export type ProductCenterEvidenceClosurePreflight = {
+  schemaVersion: '1.0.0';
+  reportId: 'product-center-evidence-closure-preflight';
+  generatedAt: string;
+  status: 'ready' | 'blocked';
+  code: 'EVIDENCE_CLOSURE_PREFLIGHT_READY' | 'EVIDENCE_CLOSURE_PREFLIGHT_INPUTS_MISSING';
+  scope: 'report-only-static-preflight';
+  stageCount: number;
+  missingInputs: Array<{ path: string; stages: string[] }>;
+  guardrails: {
+    businessExecutionStarted: false;
+    liveBusinessWritesEnabled: false;
+    existingPassedCasesInvalidated: false;
+    secretsPersisted: false;
+  };
+};
+
+/**
+ * Resolve every stage input before the long evidence pipeline starts. This
+ * turns repeated first-failure discovery into one deterministic diagnostic.
+ */
+export function buildProductCenterEvidenceClosurePreflight(
+  rootDir: string,
+  stages: readonly Pick<IdempotentPipelineStage, 'id' | 'inputs' | 'outputs'>[],
+  generatedAt = new Date().toISOString(),
+): ProductCenterEvidenceClosurePreflight {
+  const generatedOutputs = new Set(stages.flatMap((stage) => stage.outputs.map((output) =>
+    path.resolve(rootDir, output),
+  )));
+  const missingByPath = new Map<string, Set<string>>();
+  for (const stage of stages) {
+    for (const input of resolvePipelineStageInputs(stage)) {
+      const absolutePath = path.resolve(rootDir, input);
+      // Inputs produced by an earlier stage are internal pipeline edges. They
+      // must be validated by stage ordering/checkpoints, not reported as
+      // external missing prerequisites before the pipeline has started.
+      if (generatedOutputs.has(absolutePath)) continue;
+      if (fs.existsSync(absolutePath)) continue;
+      const relativePath = path.relative(rootDir, absolutePath).replaceAll('\\', '/');
+      const stagesForInput = missingByPath.get(relativePath) ?? new Set<string>();
+      stagesForInput.add(stage.id);
+      missingByPath.set(relativePath, stagesForInput);
+    }
+  }
+  const missingInputs = [...missingByPath.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([inputPath, stageIds]) => ({ path: inputPath, stages: [...stageIds].sort() }));
+  const blocked = missingInputs.length > 0;
+  return {
+    schemaVersion: '1.0.0',
+    reportId: 'product-center-evidence-closure-preflight',
+    generatedAt,
+    status: blocked ? 'blocked' : 'ready',
+    code: blocked ? 'EVIDENCE_CLOSURE_PREFLIGHT_INPUTS_MISSING' : 'EVIDENCE_CLOSURE_PREFLIGHT_READY',
+    scope: 'report-only-static-preflight',
+    stageCount: stages.length,
+    missingInputs,
+    guardrails: {
+      businessExecutionStarted: false,
+      liveBusinessWritesEnabled: false,
+      existingPassedCasesInvalidated: false,
+      secretsPersisted: false,
+    },
+  };
+}
 
 function resolveRegisteredEvidenceInputs(): string[] {
   const itemPlanPath = path.join(projectRoot, '../deliverables/product-center-item/test-cases.json');
@@ -54,11 +120,7 @@ function readJsonIfExists<T>(filePath: string): T | null {
 }
 
 export function runProductCenterEvidenceClosureFlow(): number {
-  return runIdempotentPipeline({
-    pipelineId: 'product-center-evidence-closure-flow',
-    rootDir: projectRoot,
-    checkpointPath: path.join(governanceRoot, 'product-center-evidence-closure-flow.checkpoint.json'),
-    stages: [
+  const stages: IdempotentPipelineStage[] = [
       {
         id: 'business-rule-audit',
         command: [tsxCommand, tsxCli, 'scripts/run-product-center-business-rule-audit.ts'],
@@ -238,7 +300,18 @@ export function runProductCenterEvidenceClosureFlow(): number {
         ],
         outputs: ['../deliverables/test-plan-governance/product-center-incremental-selection.json'],
       },
-    ],
+  ];
+  const preflight = buildProductCenterEvidenceClosurePreflight(projectRoot, stages);
+  const preflightPath = path.join(governanceRoot, 'product-center-evidence-closure-preflight.json');
+  fs.mkdirSync(path.dirname(preflightPath), { recursive: true });
+  fs.writeFileSync(preflightPath, `${JSON.stringify(preflight, null, 2)}\n`, 'utf8');
+  process.stdout.write(`${JSON.stringify(preflight)}\n`);
+  if (preflight.status === 'blocked') return 1;
+  return runIdempotentPipeline({
+    pipelineId: 'product-center-evidence-closure-flow',
+    rootDir: projectRoot,
+    checkpointPath: path.join(governanceRoot, 'product-center-evidence-closure-flow.checkpoint.json'),
+    stages,
   });
 }
 

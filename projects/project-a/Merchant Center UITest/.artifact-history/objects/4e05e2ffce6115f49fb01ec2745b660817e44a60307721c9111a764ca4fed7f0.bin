@@ -1,0 +1,66 @@
+{
+  "caseId": "TC-ITEM-ADD-001",
+  "status": "business-source-behavior-review-pending",
+  "formalExecutionStatus": "not-executed",
+  "technicalMappingStatus": "incomplete",
+  "recordedAt": "2026-09-08T10:26:59.661Z",
+  "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+  "currentEvidence": "deliverables/system-test-platform/readonly-addon-fields-observation.json",
+  "currentEvidenceSha256": "01c97f5cdf5d7796c0d4e6674ec559360214c4ac11be08ccdc0aac7fdd3dda24",
+  "actual": {
+    "route": "/pp/brand/create/side",
+    "context": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/side"
+    },
+    "observedLabels": [
+      "Item Name(Alt.Language)",
+      "Category",
+      "Description",
+      "POS Name",
+      "Kitchen Name",
+      "Item Code",
+      "Unit",
+      "Device Code"
+    ],
+    "observationStable": true,
+    "mutationCount": 0
+  },
+  "conclusion": "当前基础及高级区观察到Device Code，未发现助记码标签；不得自行把Device Code解释为助记码。此为只读来源协调材料，不是正式失败收据。",
+  "decisionRequest": {
+    "责任角色": "商品业务产品负责人；执行代理提供证据并实施后续技术处理",
+    "待确认对象": "当前加料商品的助记码与Device Code是否为同一业务字段，以及正式基础字段预期是否仍适用",
+    "现有正式来源": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "contracts/product-center/reviews/product-center-item-canonical-conflict-decisions.json（ADD-001历史needs-prd）"
+    ],
+    "当前实际行为": "进入加料创建页并展开高级设置；两次结构读取一致，出现Device Code，未出现Mnemonic/助记码标签",
+    "冲突或缺口": "正式ADD-001明确包含助记码；现有界面标签与之无法直接等同，历史决策尚未找到覆盖该用例的新结论",
+    "互斥决策选项": [
+      "Device Code即当前助记码：提供正式字段映射来源后修订适配合同",
+      "助记码已取消：提供正式取消及适用范围后修订用例",
+      "助记码仍应独立存在：保留正式预期，按修复后页面重验"
+    ],
+    "需要提交的最小材料": "一条有责任人、日期和适用范围的正式规则说明；字段等同须包含明确映射，不能只提供历史通过结论",
+    "裁决记录位置": "contracts/product-center/reviews/product-center-item-rule-confirmations.json（沿用现有正式规则载体）",
+    "裁决后的自动动作": "代理更新正式来源/适配映射及影响集，修复handler，定向执行并生成操作、断言和清理收据，刷新索引",
+    "验收标准": "所有正式基础字段逐项有当前UI观察映射，助记码处置与正式裁决一致，正式用例通过公共完整收据校验",
+    "对已有通过用例的影响": "历史通过保留；不因该来源协调重跑ADD-002或其他已通过用例"
+  },
+  "technicalNextAction": "ADD-001现handler把其他设置比较当作基础字段断言，须代理修复，不能由产品人员代做技术处理",
+  "humanResponseRequested": false,
+  "independentWorkContinues": [
+    "ADD-005",
+    "ADD-006",
+    "ADD-007",
+    "STD-102",
+    "STD-103"
+  ],
+  "businessPassAuthorized": false,
+  "secretsPersisted": false
+}

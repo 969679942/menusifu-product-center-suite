@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatedAt": "2026-09-08T04:17:58.278Z",
+  "status": "incomplete",
+  "scope": "product-center-blocker-summary",
+  "businessExecutionStarted": false,
+  "blockerCount": 8,
+  "blockers": [
+    {
+      "id": "MC_AUTHORIZATION",
+      "status": "external-authorization-blocked",
+      "problem": "最近配置预检显示认证前置条件未满足；此结果不代表当前登录探针结论",
+      "owner": "执行代理",
+      "minimumMaterials": "受保护凭据来源、租户上下文和当前只读探针证据",
+      "nextAction": "刷新配置可用性检查，满足条件后执行只读认证探针；通过后按执行意图恢复",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "CROSS_APPLICATION_PILOT",
+      "status": "incomplete",
+      "problem": "缺不同 applicationId 的合格真实试点",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "保持登记；收到明确启动指令后执行授权范围内的隔离试点",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "CROSS_DOMAIN_PILOT",
+      "status": "incomplete",
+      "problem": "缺合格跨域真实试点",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "保持登记；收到明确启动指令后执行授权范围内的隔离试点",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "REFERENCE_BASELINE",
+      "status": "incomplete",
+      "problem": "参考基线尚未满足当前完整收据要求",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "按当前 readiness 缺口和公共执行意图恢复；不复用历史汇总通过数",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "MAINTAINABILITY",
+      "status": "open",
+      "problem": "维护性门禁未通过：高优先级文件 5，基线上限 3",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "按当前维护性报告修复；保留兼容接口并验证明确影响集",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "ITEM_FINAL_RELEASE_CONTRACT_EVIDENCE",
+      "status": "evidence-incomplete",
+      "problem": "输入证据不可用：missing/not-found",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "修复或生成该输入证据后重新构建摘要",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "EFFICIENCY_TELEMETRY",
+      "status": "open",
+      "problem": "全生命周期阶段遥测不完整（249 项缺口，4 个产物缺失）",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "补齐当前阶段产物和统一遥测；真实运行耗时仅从授权执行采集",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    },
+    {
+      "id": "ITEM_STRICT_REVALIDATION",
+      "status": "blocked",
+      "problem": "最近严格重验证尚未取得完整通过结果",
+      "owner": "执行代理",
+      "minimumMaterials": "当前有效证据",
+      "nextAction": "读取调度检查点和失败证据后分类恢复；不得仅凭 blocked 推断认证失败",
+      "impact": "仅更新治理摘要；不启动业务执行，不改变已有通过用例；证据缺口不判为产品失败"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "MC_AUTHORIZATION",
+      "status": "available"
+    },
+    {
+      "id": "PLATFORM_VERDICT",
+      "status": "available"
+    },
+    {
+      "id": "MAINTAINABILITY",
+      "status": "available"
+    },
+    {
+      "id": "ITEM_FINAL_RELEASE_CONTRACT",
+      "status": "missing",
+      "reason": "not-found"
+    },
+    {
+      "id": "EFFICIENCY_TELEMETRY",
+      "status": "available"
+    },
+    {
+      "id": "ITEM_STRICT_REVALIDATION",
+      "status": "available"
+    }
+  ]
+}

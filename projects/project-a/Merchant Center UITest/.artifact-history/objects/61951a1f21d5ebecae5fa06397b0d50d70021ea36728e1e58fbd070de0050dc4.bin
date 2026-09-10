@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T16:27:38.476Z",
+  "input": {
+    "unitId": "create-controls-core-20260909-01",
+    "directionId": "STD045-048-049-independent-core",
+    "phase": "after-unit",
+    "tokenStart": 1676152,
+    "tokenCurrent": 1694915,
+    "elapsedMs": 271474,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "exact-source-operations",
+      "mismatch-and-read-error-rejection",
+      "restoration-on-error",
+      "prior-qualified-fingerprints"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/standard-create-controls-core-proof.json",
+        "sha256": "b862d50ceaa2d1966a7a098e1ae25d8a2f13aa659a1ee891bcce7266aae7b1a4",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 1
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "create-controls-core-20260909-01",
+    "directionId": "STD045-048-049-independent-core",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 18763,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "exact-source-operations",
+      "mismatch-and-read-error-rejection",
+      "restoration-on-error",
+      "prior-qualified-fingerprints"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "b862d50ceaa2d1966a7a098e1ae25d8a2f13aa659a1ee891bcce7266aae7b1a4"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

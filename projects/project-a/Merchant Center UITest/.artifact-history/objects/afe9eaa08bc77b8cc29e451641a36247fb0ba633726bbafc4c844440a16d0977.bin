@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "addon-price-field-feedback-20260909",
+  "applicationId": "merchant-center-product-center",
+  "defaultImpactType": "business-implementation",
+  "impactedCaseIds": [
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "caseImpactTypes": {
+    "TC-ITEM-ADD-008": "business-implementation",
+    "TC-ITEM-ADD-009": "business-implementation",
+    "TC-ITEM-ADD-010": "business-implementation"
+  },
+  "classifiedExclusionCaseIds": [],
+  "reason": "必须：采用已诊断的价格外层status-error作为字段自身反馈；复核三条价格用例，原18条其他合格不重跑。"
+}

@@ -1,0 +1,40 @@
+# 商品中心全生命周期效率审计
+
+状态：incomplete
+阶段：25；已找到产物：6；完整遥测阶段：0；遥测缺口：249；输入问题：4
+
+| 阶段 | 产物 | 状态 | 缺失遥测 | 无效遥测 |
+| --- | --- | --- | --- | --- |
+| change-discovery | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| source-intake | output/product-center-item-213-conversion.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| rule-review | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| risk-scoping | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| plan-compilation | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| case-generation | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| traceability | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| technical-binding | ../deliverables/product-center-audit/remaining-scenarios/product-center-remaining-technical-binding-gap.json | artifact-missing | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| capability-admission | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| environment-readiness | deliverables/system-test-platform/readiness.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| execution-intent | output/execution/product-center-execution-intent.json | artifact-missing | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| queue-and-lock | ../deliverables/test-plan-governance/product-center-governance-execution-task-queue-v1.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| authentication-context | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| data-lifecycle | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| business-execution | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| retry-recovery | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| cleanup-residue | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| receipt-evidence | ../deliverables/test-plan-governance/product-center-evidence-closure-preflight.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| report-archive | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| failure-analysis | output/governance/product-center-failure-analysis.json | artifact-missing | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| governance-queue | output/governance/product-center-blocker-summary.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, artifactPath | 无 |
+| repair-rebinding | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| targeted-rerun | 缺失 | unmapped | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| ci-jenkins-feedback | output/governance/product-center-git-jenkins-integration-audit.json | telemetry-incomplete | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+| status-release-audit | output/product-center-item-final-status.json | artifact-missing | startedAt, completedAt, durationMs, inputFingerprint, outputFingerprint, waitMs, retryCount, blockedReason, businessExecutionStarted, artifactPath | 无 |
+
+输入问题：technical-binding / missing / not-found
+输入问题：execution-intent / missing / not-found
+输入问题：failure-analysis / missing / not-found
+输入问题：status-release-audit / missing / not-found
+
+运行尝试索引观察：incomplete；该状态不证明业务通过或发布适用性。
+本报告为 report-only 静态审计，不启动业务执行，不用文件时间戳替代真实运行遥测。

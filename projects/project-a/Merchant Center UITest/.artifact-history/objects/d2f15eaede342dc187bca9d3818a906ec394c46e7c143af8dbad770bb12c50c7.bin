@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T04:30:06.300Z",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "status": "technical-units-verified-goal-incomplete",
+  "changes": [
+    "effective-ui-api-authentication-preflight",
+    "immutable-report-lifecycle-release-and-migration-baseline-publication",
+    "unavailable-metrics-remain-null"
+  ],
+  "evidence": {
+    "uiAuthentication": {
+      "schemaVersion": "2.0.0",
+      "reportId": "product-center-jenkins-auth-preflight",
+      "generatedAt": "2026-09-08T04:17:55.343Z",
+      "mode": "ui",
+      "status": "external-authorization-blocked",
+      "assessment": {
+        "mode": "ui",
+        "credentialsConfigured": false,
+        "missingContext": [],
+        "status": "external-authorization-blocked",
+        "authenticationVerified": false,
+        "executionAuthorized": false,
+        "capabilities": [
+          {
+            "id": "username",
+            "configured": false
+          },
+          {
+            "id": "password",
+            "configured": false
+          },
+          {
+            "id": "access-token",
+            "configured": false
+          },
+          {
+            "id": "merchant",
+            "configured": true
+          },
+          {
+            "id": "brand",
+            "configured": true
+          }
+        ],
+        "configurationSources": [
+          "process-environment",
+          "configured-or-default-secret-file",
+          "runner-context-defaults"
+        ]
+      },
+      "credentials": [
+        {
+          "name": "username",
+          "configured": false
+        },
+        {
+          "name": "password",
+          "configured": false
+        },
+        {
+          "name": "access-token",
+          "configured": false
+        },
+        {
+          "name": "merchant",
+          "configured": true
+        },
+        {
+          "name": "brand",
+          "configured": true
+        }
+      ],
+      "policy": {
+        "secretsPersisted": false,
+        "loginAttempted": false,
+        "businessExecutionStarted": false,
+        "executionAuthorized": false
+      },
+      "nextAction": "从运行器支持的配置来源补齐 ui 模式缺失凭据或上下文后重新预检。"
+    },
+    "apiAuthentication": {
+      "schemaVersion": "2.0.0",
+      "reportId": "product-center-jenkins-auth-preflight",
+      "generatedAt": "2026-09-08T04:17:55.988Z",
+      "mode": "api",
+      "status": "external-authorization-blocked",
+      "assessment": {
+        "mode": "api",
+        "credentialsConfigured": false,
+        "missingContext": [],
+        "status": "external-authorization-blocked",
+        "authenticationVerified": false,
+        "executionAuthorized": false,
+        "capabilities": [
+          {
+            "id": "username",
+            "configured": false
+          },
+          {
+            "id": "password",
+            "configured": false
+          },
+          {
+            "id": "access-token",
+            "configured": false
+          },
+          {
+            "id": "merchant",
+            "configured": true
+          },
+          {
+            "id": "brand",
+            "configured": true
+          }
+        ],
+        "configurationSources": [
+          "process-environment",
+          "configured-or-default-secret-file",
+          "runner-context-defaults"
+        ]
+      },
+      "credentials": [
+        {
+          "name": "username",
+          "configured": false
+        },
+        {
+          "name": "password",
+          "configured": false
+        },
+        {
+          "name": "access-token",
+          "configured": false
+        },
+        {
+          "name": "merchant",
+          "configured": true
+        },
+        {
+          "name": "brand",
+          "configured": true
+        }
+      ],
+      "policy": {
+        "secretsPersisted": false,
+        "loginAttempted": false,
+        "businessExecutionStarted": false,
+        "executionAuthorized": false
+      },
+      "nextAction": "从运行器支持的配置来源补齐 api 模式缺失凭据或上下文后重新预检。"
+    },
+    "itemReadiness": {
+      "formal": 220,
+      "notApplicable": 7,
+      "executable": 213,
+      "classifiedDeferred": 8,
+      "receiptContractRequired": 205,
+      "currentQualified": 0,
+      "incomplete": 205
+    },
+    "efficiency": {
+      "stageCount": 25,
+      "mappedStageCount": 10,
+      "artifactPresentCount": 6,
+      "telemetryCompleteStageCount": 0,
+      "artifactMissingStageCount": 4,
+      "artifactInvalidStageCount": 0,
+      "telemetryGapCount": 249,
+      "inputFindingCount": 4
+    },
+    "repairTelemetry": {
+      "artifactPath": "output/system-test-repair/product-center/repair-execution-ledger.jsonl",
+      "scope": "telemetry-ledger-events",
+      "eventCount": null,
+      "byType": {},
+      "avoidableDurationMs": null,
+      "browserStarts": null,
+      "avoidableBrowserStarts": null,
+      "selectionDriftCount": null,
+      "metricScope": "unavailable",
+      "currentRunCountsAvailable": false,
+      "evidenceStatus": "missing"
+    },
+    "migration": {
+      "status": "complete",
+      "summary": {
+        "scannedFiles": 10272,
+        "excludedDirectories": 6,
+        "publicCore": 257,
+        "projectAdapter": 275,
+        "domainAsset": 1374,
+        "generatedEvidence": 8307,
+        "history": 57,
+        "transient": 2,
+        "unowned": 0,
+        "bridgeViolations": 0,
+        "duplicateImplementations": 0,
+        "brokenReferences": 0,
+        "documentationContradictions": 0,
+        "misplacedTransients": 0,
+        "publicBoundaryViolations": 0,
+        "contentPolicyViolations": 0,
+        "requiredAssetMissing": 0,
+        "inventoryBaselineMissing": 0,
+        "inventoryMissing": 0,
+        "inventoryChanged": 0,
+        "inventoryAcceptanceInvalid": 0,
+        "historicalReferenceGaps": 0
+      }
+    },
+    "finalGoal": {
+      "status": "incomplete",
+      "blockers": [
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED",
+        "REFERENCE_BASELINE_NOT_READY"
+      ],
+      "scope": "platform-universal-completion",
+      "moduleDeliveryBlocked": false
+    }
+  },
+  "validation": [
+    {
+      "scope": "public immutable and authentication",
+      "passed": 6
+    },
+    {
+      "scope": "public immutable, migration and lifecycle",
+      "passed": 23
+    },
+    {
+      "scope": "public migration baseline extension and lifecycle after fixture update",
+      "passed": 19
+    },
+    {
+      "scope": "public unavailable metrics and revalidation policy",
+      "passed": 10
+    },
+    {
+      "scope": "project authentication, blocker and bridge",
+      "passed": 12
+    },
+    {
+      "scope": "project release and governance queue",
+      "passed": 5
+    },
+    {
+      "scope": "project lifecycle efficiency including unavailable metrics",
+      "passed": 5
+    }
+  ],
+  "validationNote": "合同批次存在重叠，禁止把各批通过数相加冒充唯一用例数或业务执行量。两工程类型检查通过，架构571项存量未增加，正式资产索引628/432/196通过。",
+  "correctedTestFailures": [
+    {
+      "kind": "test-harness",
+      "reason": "Windows child process ESM loader requires file URL",
+      "resolved": true
+    },
+    {
+      "kind": "synthetic-adapter",
+      "reason": "migration fixture must declare immutable generated observations",
+      "resolved": true
+    }
+  ],
+  "remaining": [
+    "205 current item operation/context contracts and actual detailed receipts remain incomplete",
+    "nested and repeated decorated operations require explicit business/supporting occurrence mapping",
+    "old wave-shared-chain recipes have empty assertions and cannot authorize case-level admission",
+    "remaining latest writers and run-indexed telemetry coverage are incomplete",
+    "maintainability hotspots and reverse-scenario evidence queue remain open",
+    "external credentials/Jenkins runtime authorization missing; pilot startup remains explicitly deferred"
+  ],
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "historicalPassedResultsInvalidated": false,
+    "historicalReceiptRewritten": false,
+    "credentialValuesPersisted": false,
+    "pilotStarted": false,
+    "goalCompleted": false
+  }
+}

@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/requirements-change-event';
+export * from '../../../Test Automation Platform/src/automation/system-test/requirements-change-event';

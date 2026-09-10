@@ -127,7 +127,7 @@ function buildInitialMigrationManifest(input: {
       { id: 'platform-generated', rootId: 'platform', category: 'generated-evidence', patterns: ['deliverables/**', 'output/**'], rationale: '公共平台生成物' },
       { id: 'platform-transient', rootId: 'platform', category: 'transient', patterns: ['test-results/**'], rationale: '公共平台瞬态文件' },
       { id: 'platform-core', rootId: 'platform', category: 'public-core', patterns: ['src/**', 'scripts/**', 'tests/**', 'docs/**', 'config/**', 'FINAL-GOAL.md', 'AGENTS.md', 'README.md', 'ownership.json', 'package.json', 'package-lock.json', 'playwright.config.ts', 'tsconfig.json', '.gitignore'], rationale: '公共平台实现和治理契约' },
-      { id: 'project-generated', rootId: 'project', category: 'generated-evidence', patterns: ['deliverables/**', 'output/**', 'allure-results/**', 'allure-report/**'], rationale: '项目生成物' },
+      { id: 'project-generated', rootId: 'project', category: 'generated-evidence', patterns: ['.artifact-history/**', '**/.artifact-history/**', 'deliverables/**', 'output/**', 'allure-results/**', 'allure-report/**'], rationale: '项目生成物与不可变观察快照' },
       { id: 'project-transient', rootId: 'project', category: 'transient', patterns: ['test-results/**'], rationale: '项目瞬态文件' },
       { id: 'project-adapter', rootId: 'project', category: 'project-adapter', patterns: ['adapters/**', 'systems/**', 'package.json', 'package-lock.json', 'playwright.config.ts', 'tsconfig.json', '.gitignore', 'AGENTS.md'], rationale: '项目适配器和执行配置' },
       { id: 'project-domain', rootId: 'project', category: 'domain-asset', patterns: ['src/**', 'tests/**', 'pages/**', 'flows/**', 'fixtures/**', 'test-data/**', 'api/**', 'contracts/**', 'docs/**'], rationale: '项目领域资产；其他目录必须显式登记' },

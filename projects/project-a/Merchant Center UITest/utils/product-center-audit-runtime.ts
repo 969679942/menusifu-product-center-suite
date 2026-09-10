@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { appendAuditEvent } from '../../../Test Automation Platform/src/audit/event-log';
+import { appendAuditEvent } from '../../Test Automation Platform/src/audit/event-log';
 
 const projectRoot = path.resolve(__dirname, '..');
 

@@ -1,0 +1,535 @@
+{
+  "intentFingerprint": "81078bfaee1da9fe0f037e73bd55c05a47a59239fd9604b42d1592c8fea6efc7",
+  "selectionFingerprint": "5a1c5fee198a7e605110f449d6e1bb266130ccc1efd415ae85096e21cb20cd73",
+  "selectedCaseIds": [
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-ADD-010"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-ADD-010",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+    "implementationFingerprint": "95ed98ebcfbf962ae7badd4a7a327caabea3deb3e3952e316795d93a75c747b9",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/create/side"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T17:39:41.377Z"
+    },
+    "executionEpochId": "source-governed-addon-price-currency-20260909-01-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-ADD-010:action-1",
+        "title": "进入加料商品创建页并填写唯一名称。",
+        "sequence": 8,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 4118,
+        "startedAt": "2026-09-08T17:39:18.631Z",
+        "finishedAt": "2026-09-08T17:39:22.749Z",
+        "occurredAt": "2026-09-08T17:39:22.749Z"
+      },
+      {
+        "operationKey": "TC-ITEM-ADD-010:action-2",
+        "title": "输入负数或非数字标准价并点击保存。",
+        "sequence": 13,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1789,
+        "startedAt": "2026-09-08T17:39:22.756Z",
+        "finishedAt": "2026-09-08T17:39:24.545Z",
+        "occurredAt": "2026-09-08T17:39:24.545Z"
+      },
+      {
+        "operationKey": "TC-ITEM-ADD-010:action-3",
+        "title": "在商品列表搜索该商品并读取价格。",
+        "sequence": 19,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 5446,
+        "startedAt": "2026-09-08T17:39:24.549Z",
+        "finishedAt": "2026-09-08T17:39:29.995Z",
+        "occurredAt": "2026-09-08T17:39:29.995Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "ProductCenterSidebarNavigationPage.openFromSidebar",
+        "title": "从商品中心侧边栏进入目标模块：/pp/brand/list",
+        "sequence": 1,
+        "method": "openFromSidebar",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 5488,
+        "startedAt": "2026-09-08T17:39:09.716Z",
+        "finishedAt": "2026-09-08T17:39:15.204Z",
+        "occurredAt": "2026-09-08T17:39:15.204Z"
+      },
+      {
+        "operationKey": "SidebarPage.expectProductManagementVisible",
+        "title": "等待商品管理入口链接可见",
+        "sequence": 2,
+        "method": "expectProductManagementVisible",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3557,
+        "startedAt": "2026-09-08T17:39:11.505Z",
+        "finishedAt": "2026-09-08T17:39:15.062Z",
+        "occurredAt": "2026-09-08T17:39:15.062Z"
+      },
+      {
+        "operationKey": "SidebarPage.openSubMenuByCandidates",
+        "title": "通过侧边栏候选链接进入目标模块",
+        "sequence": 3,
+        "method": "openSubMenuByCandidates",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 125,
+        "startedAt": "2026-09-08T17:39:15.069Z",
+        "finishedAt": "2026-09-08T17:39:15.194Z",
+        "occurredAt": "2026-09-08T17:39:15.194Z"
+      },
+      {
+        "operationKey": "SidebarPage.expandSubMenuForPath",
+        "title": "展开包含目标路径的侧边栏子菜单：/pp/brand/list",
+        "sequence": 4,
+        "method": "expandSubMenuForPath",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 22,
+        "startedAt": "2026-09-08T17:39:15.074Z",
+        "finishedAt": "2026-09-08T17:39:15.096Z",
+        "occurredAt": "2026-09-08T17:39:15.096Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.open",
+        "title": "打开加料/配菜商品创建页",
+        "sequence": 5,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3365,
+        "startedAt": "2026-09-08T17:39:15.233Z",
+        "finishedAt": "2026-09-08T17:39:18.598Z",
+        "occurredAt": "2026-09-08T17:39:18.598Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.expectLoaded",
+        "title": "等待商品创建表单加载完成",
+        "sequence": 6,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 2703,
+        "startedAt": "2026-09-08T17:39:15.887Z",
+        "finishedAt": "2026-09-08T17:39:18.590Z",
+        "occurredAt": "2026-09-08T17:39:18.590Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create/side",
+        "sequence": 7,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 19,
+        "startedAt": "2026-09-08T17:39:15.892Z",
+        "finishedAt": "2026-09-08T17:39:15.911Z",
+        "occurredAt": "2026-09-08T17:39:15.911Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.open",
+        "title": "打开加料/配菜商品创建页",
+        "sequence": 9,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3765,
+        "startedAt": "2026-09-08T17:39:18.658Z",
+        "finishedAt": "2026-09-08T17:39:22.423Z",
+        "occurredAt": "2026-09-08T17:39:22.423Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.expectLoaded",
+        "title": "等待商品创建表单加载完成",
+        "sequence": 10,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3177,
+        "startedAt": "2026-09-08T17:39:19.239Z",
+        "finishedAt": "2026-09-08T17:39:22.416Z",
+        "occurredAt": "2026-09-08T17:39:22.416Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.expectPathname",
+        "title": "等待页面路径为：/pp/brand/create/side",
+        "sequence": 11,
+        "method": "expectPathname",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 19,
+        "startedAt": "2026-09-08T17:39:19.243Z",
+        "finishedAt": "2026-09-08T17:39:19.262Z",
+        "occurredAt": "2026-09-08T17:39:19.262Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.fillItemName",
+        "title": "填写商品名称：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 12,
+        "method": "fillItemName",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 299,
+        "startedAt": "2026-09-08T17:39:22.439Z",
+        "finishedAt": "2026-09-08T17:39:22.738Z",
+        "occurredAt": "2026-09-08T17:39:22.738Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.readStandardPriceValue",
+        "title": "读取标准价输入值",
+        "sequence": 14,
+        "method": "readStandardPriceValue",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 30,
+        "startedAt": "2026-09-08T17:39:22.818Z",
+        "finishedAt": "2026-09-08T17:39:22.848Z",
+        "occurredAt": "2026-09-08T17:39:22.848Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.readSaveSuccessText",
+        "title": "读取保存成功提示的实际文案",
+        "sequence": 15,
+        "method": "readSaveSuccessText",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1368,
+        "startedAt": "2026-09-08T17:39:22.858Z",
+        "finishedAt": "2026-09-08T17:39:24.226Z",
+        "occurredAt": "2026-09-08T17:39:24.226Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.clickSave",
+        "title": "点击保存",
+        "sequence": 16,
+        "method": "clickSave",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 339,
+        "startedAt": "2026-09-08T17:39:22.861Z",
+        "finishedAt": "2026-09-08T17:39:23.200Z",
+        "occurredAt": "2026-09-08T17:39:23.200Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.readStandardPriceValidationState",
+        "title": "读取标准价字段必填校验状态",
+        "sequence": 17,
+        "method": "readStandardPriceValidationState",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 30,
+        "startedAt": "2026-09-08T17:39:23.209Z",
+        "finishedAt": "2026-09-08T17:39:23.239Z",
+        "occurredAt": "2026-09-08T17:39:23.239Z"
+      },
+      {
+        "operationKey": "AddonPriceAcceptancePage.readStandardPriceValue",
+        "title": "读取标准价输入值",
+        "sequence": 18,
+        "method": "readStandardPriceValue",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7,
+        "startedAt": "2026-09-08T17:39:23.249Z",
+        "finishedAt": "2026-09-08T17:39:23.256Z",
+        "occurredAt": "2026-09-08T17:39:23.256Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 20,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3691,
+        "startedAt": "2026-09-08T17:39:24.582Z",
+        "finishedAt": "2026-09-08T17:39:28.273Z",
+        "occurredAt": "2026-09-08T17:39:28.273Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 21,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3030,
+        "startedAt": "2026-09-08T17:39:25.233Z",
+        "finishedAt": "2026-09-08T17:39:28.263Z",
+        "occurredAt": "2026-09-08T17:39:28.263Z"
+      },
+      {
+        "operationKey": "ItemListPage.fillSearchAndWait",
+        "title": "按商品名称搜索并等待接口完成：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 22,
+        "method": "fillSearchAndWait",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1570,
+        "startedAt": "2026-09-08T17:39:28.290Z",
+        "finishedAt": "2026-09-08T17:39:29.860Z",
+        "occurredAt": "2026-09-08T17:39:29.860Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectUniqueItemVisible",
+        "title": "等待列表唯一展示商品：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 23,
+        "method": "expectUniqueItemVisible",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 50,
+        "startedAt": "2026-09-08T17:39:29.876Z",
+        "finishedAt": "2026-09-08T17:39:29.926Z",
+        "occurredAt": "2026-09-08T17:39:29.926Z"
+      },
+      {
+        "operationKey": "ItemListPage.readVisibleIdentityCount",
+        "title": "读取商品身份当前可见数量：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 24,
+        "method": "readVisibleIdentityCount",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7,
+        "startedAt": "2026-09-08T17:39:29.935Z",
+        "finishedAt": "2026-09-08T17:39:29.942Z",
+        "occurredAt": "2026-09-08T17:39:29.942Z"
+      },
+      {
+        "operationKey": "ItemListPage.readItemPriceText",
+        "title": "读取商品价格列文案：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 25,
+        "method": "readItemPriceText",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 15,
+        "startedAt": "2026-09-08T17:39:29.968Z",
+        "finishedAt": "2026-09-08T17:39:29.983Z",
+        "occurredAt": "2026-09-08T17:39:29.983Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 26,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3435,
+        "startedAt": "2026-09-08T17:39:33.482Z",
+        "finishedAt": "2026-09-08T17:39:36.917Z",
+        "occurredAt": "2026-09-08T17:39:36.917Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 27,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 2861,
+        "startedAt": "2026-09-08T17:39:34.049Z",
+        "finishedAt": "2026-09-08T17:39:36.910Z",
+        "occurredAt": "2026-09-08T17:39:36.910Z"
+      },
+      {
+        "operationKey": "ItemListPage.fillSearchAndWait",
+        "title": "按商品名称搜索并等待接口完成：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 28,
+        "method": "fillSearchAndWait",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1043,
+        "startedAt": "2026-09-08T17:39:36.941Z",
+        "finishedAt": "2026-09-08T17:39:37.984Z",
+        "occurredAt": "2026-09-08T17:39:37.984Z"
+      },
+      {
+        "operationKey": "ItemListPage.readVisibleIdentityCount",
+        "title": "读取商品身份当前可见数量：加料商品-价格输入负数或非数字创建-1788889149399",
+        "sequence": 29,
+        "method": "readVisibleIdentityCount",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 35,
+        "startedAt": "2026-09-08T17:39:37.992Z",
+        "finishedAt": "2026-09-08T17:39:38.027Z",
+        "occurredAt": "2026-09-08T17:39:38.027Z"
+      },
+      {
+        "operationKey": "ItemListPage.open",
+        "title": "打开商品列表页",
+        "sequence": 30,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 3250,
+        "startedAt": "2026-09-08T17:39:38.038Z",
+        "finishedAt": "2026-09-08T17:39:41.288Z",
+        "occurredAt": "2026-09-08T17:39:41.288Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 31,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 2598,
+        "startedAt": "2026-09-08T17:39:38.679Z",
+        "finishedAt": "2026-09-08T17:39:41.277Z",
+        "occurredAt": "2026-09-08T17:39:41.277Z"
+      },
+      {
+        "operationKey": "ItemListPage.expectLoaded",
+        "title": "等待商品列表页加载完成",
+        "sequence": 32,
+        "method": "expectLoaded",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 20,
+        "startedAt": "2026-09-08T17:39:41.323Z",
+        "finishedAt": "2026-09-08T17:39:41.343Z",
+        "occurredAt": "2026-09-08T17:39:41.343Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-ADD-010:expectation-1",
+        "status": "verified",
+        "actualValue": {
+          "negativeEntered": "-1.00",
+          "created": 1,
+          "list": {
+            "count": 1,
+            "price": "$0.00"
+          }
+        },
+        "expectedValue": {
+          "negativeEntered": "-1.00",
+          "created": 1,
+          "list": {
+            "count": 1,
+            "amount": "0.00",
+            "allowedPricePresentations": [
+              "0.00",
+              "$0.00"
+            ]
+          }
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ],
+      "observed": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ],
+      "verified": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {
+        "加料商品-价格输入负数或非数字创建-1788889149399": 0
+      },
+      "uiIdentityCounts": {
+        "加料商品-价格输入负数或非数字创建-1788889149399": 0
+      },
+      "uiVerificationObserved": true,
+      "required": true,
+      "objects": [
+        {
+          "entityType": "item",
+          "serverId": 266185,
+          "businessIdentity": "AUTO_AUDIT_TC_ITEM_ADD_010_1788889149713",
+          "cleanupAttempt": 1,
+          "apiResidueCount": 0,
+          "outcome": "verified-zero"
+        }
+      ],
+      "serverIds": [
+        266185
+      ],
+      "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+    },
+    "businessObservation": {
+      "saveActions": 1,
+      "name": "加料商品-价格输入负数或非数字创建-1788889149399",
+      "observations": {
+        "preconditions": {
+          "uniqueName": {
+            "name": "加料商品-价格输入负数或非数字创建-1788889149399",
+            "exactCount": 0,
+            "observationChannel": "api",
+            "requestKind": "read-only-name-query"
+          },
+          "route": "/pp/brand/create/side"
+        },
+        "input": "-1.00",
+        "writeSettlement": {
+          "attempted": 1,
+          "pending": 0,
+          "registrationFailed": false
+        },
+        "save": {
+          "successText": "Successfully Submitted",
+          "route": "/pp/brand/list",
+          "records": [
+            {
+              "id": 266185,
+              "name": "加料商品-价格输入负数或非数字创建-1788889149399"
+            }
+          ],
+          "network": {
+            "attempted": 1,
+            "responses": 1,
+            "failed": 0,
+            "pending": 0,
+            "registrationFailed": false
+          },
+          "registeredServerIds": [
+            266185
+          ]
+        }
+      }
+    },
+    "evidenceFingerprint": "e44d57515fa23590e15e9f8908aa1708584e62a05c8eb9dcb3548f48ba13b624"
+  }
+}

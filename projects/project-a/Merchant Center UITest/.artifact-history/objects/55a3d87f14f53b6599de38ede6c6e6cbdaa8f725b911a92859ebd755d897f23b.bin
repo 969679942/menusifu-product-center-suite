@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T05:15:56.301Z",
+  "status": "static-observation-chain-validated-runtime-incomplete",
+  "scope": [
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "reusedPublicContracts": [
+    "readJsonEvidence",
+    "publishImmutableArtifact",
+    "validateReverseScenarioCatalog"
+  ],
+  "validation": {
+    "contractsPassed": 7,
+    "typecheck": "passed",
+    "architectureDebt": 571,
+    "capabilityIndex": "passed",
+    "assetIndex": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "migration": "complete",
+    "initialTechnicalFailure": {
+      "category": "typescript-narrowing",
+      "status": "fixed-and-revalidated",
+      "productFailure": false
+    }
+  },
+  "evidence": [
+    "scripts/build-product-center-reverse-scenario-readiness.ts",
+    "scripts/build-product-center-reverse-scenario-evidence-queue.ts",
+    "scripts/build-product-center-governance-execution-task-queue.ts",
+    "tests/api/product-center-reverse-scenario-readiness.contract.spec.ts",
+    "tests/api/product-center-reverse-scenario-evidence-queue.contract.spec.ts",
+    "tests/api/product-center-governance-queue-integrity.contract.spec.ts",
+    "../deliverables/test-plan-governance/product-center-reverse-scenario-readiness-v1.json",
+    "../deliverables/test-plan-governance/product-center-reverse-scenario-evidence-queue-v1.json"
+  ],
+  "observation": {
+    "readiness": {
+      "scenarioCount": 26,
+      "mappedScenarioCount": 10,
+      "partial": 10,
+      "missing": 16,
+      "covered": 0,
+      "linkedCaseCount": 5
+    },
+    "queue": {
+      "scenarioCount": 26,
+      "awaitingEvidenceAndRuntime": 26,
+      "awaitingRuntimeReceipt": 0,
+      "executionEligible": 0,
+      "consumedEvidence": 41
+    }
+  },
+  "pending": [
+    "upstream-input-fingerprint-currentness-at-consumption",
+    "real-operation-assertion-cleanup-receipts",
+    "remaining-immutable-writers",
+    "run-indexed-telemetry",
+    "maintainability"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "existingPassedCasesInvalidated": false,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

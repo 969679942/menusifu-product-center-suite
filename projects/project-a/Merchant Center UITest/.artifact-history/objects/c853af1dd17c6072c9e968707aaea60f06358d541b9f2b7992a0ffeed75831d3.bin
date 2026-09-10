@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "changeId": "standard-required-name-response-mapping-20260908",
+  "applicationId": "merchant-center-product-center",
+  "defaultImpactType": "business-implementation",
+  "impactedCaseIds": [
+    "TC-ITEM-STD-005"
+  ],
+  "caseImpactTypes": {
+    "TC-ITEM-STD-005": "business-implementation"
+  },
+  "classifiedExclusionCaseIds": [],
+  "scope": "project-adapter/domain-asset",
+  "reason": "必须：使用只读真实响应证明的itemBasic.id修复STD005列表映射；预期对单条正式用例再验证；保留前2次尝试记录，仅追加1次，9条合格不重跑。"
+}

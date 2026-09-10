@@ -1,6 +1,6 @@
 import { test,expect } from '@playwright/test';
 import { recordSeasoningReadAssertion } from '../../adapters/product-center/seasoning-read-assertions';
-import { verifyCiBusinessReceipts } from '../../../../Test Automation Platform/scripts/verify-ci-business-receipts';
+import { verifyCiBusinessReceipts } from '../../../Test Automation Platform/scripts/verify-ci-business-receipts';
 const call={adapterId:'read-list',claimIds:['claim-1']};
 const contract={cases:[{caseId:'reference-read',requiredOperationKeys:[],expectationClaims:[{claimId:'claim-1'}]}]};
 function fixture(){return {recipe:{caseId:'reference-read',assertionContracts:[{claimId:'claim-1',adapterId:'read-list',observationChannel:'ui',authority:'user-visible'}]},assertionReceipts:[],results:{}} as any;}

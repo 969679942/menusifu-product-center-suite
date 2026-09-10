@@ -1,0 +1,212 @@
+{
+  "recordedAt": "2026-09-08T16:47:50.535Z",
+  "runId": "addon-other-settings-20260909-01",
+  "status": "completed",
+  "selected": 1,
+  "terminal": 1,
+  "actualCaseAttempts": 1,
+  "authSetups": 1,
+  "businessCrudPerformed": false,
+  "saveActions": 0,
+  "results": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "contract": {
+        "caseId": "TC-ITEM-ADD-002",
+        "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+        "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+        "implementationFingerprint": "a9a4cbce2ed702806376c1b0a5f4085188187df4beb484c6b677fa35a6d85202",
+        "executionContextFingerprint": "eb3417e18d393a42da3fe726ed84e1832b3cb39c8ec986eb8259532d4b509e82",
+        "requiredOperationKeys": [
+          "TC-ITEM-ADD-002:action-1"
+        ],
+        "requiredAssertionIds": [
+          "TC-ITEM-ADD-002:expectation-1"
+        ],
+        "cleanupRequired": false
+      },
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-source-operation",
+          "accepted": false,
+          "reasons": [
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-field-assertion",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "wrong-assertion-route",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "restore-unverified",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_INCOMPLETE",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "observed-mismatch-cannot-pass",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_NOT_VERIFIED",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-ADD-002:expectation-1",
+          "status": "verified",
+          "actualValue": {
+            "controls": {
+              "detailImageUpload": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "descriptionLabels": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "badges": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "stats": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "ingredientInfo": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              }
+            },
+            "uploadInput": {
+              "count": 1,
+              "enabled": true
+            }
+          },
+          "expectedValue": {
+            "controls": {
+              "detailImageUpload": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "descriptionLabels": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "badges": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "stats": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              },
+              "ingredientInfo": {
+                "count": 1,
+                "visible": true,
+                "enabled": true
+              }
+            },
+            "uploadInput": {
+              "count": 1,
+              "enabled": true
+            }
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        }
+      ],
+      "operations": [
+        {
+          "operationKey": "TC-ITEM-ADD-002:action-1",
+          "title": "查看其他设置信息区域。",
+          "sequence": 8,
+          "method": "ui",
+          "observed": true,
+          "status": "passed",
+          "durationMs": 1014,
+          "startedAt": "2026-09-08T16:47:07.417Z",
+          "finishedAt": "2026-09-08T16:47:08.431Z",
+          "occurredAt": "2026-09-08T16:47:08.431Z"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {},
+        "uiIdentityCounts": {},
+        "uiVerificationObserved": true,
+        "required": false,
+        "reason": "无业务数据写入；未提交创建表单，返回列表已核验"
+      },
+      "executionContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/side"
+      }
+    }
+  ],
+  "uniqueNamePreconditions": [],
+  "reportPath": "output/product-center-item-source-governed-addon-other-settings-20260909-01-source-governed.json",
+  "reportSha256": "79478636e43ca1477066923740adae4dafd75a0d090bada2400cce4bc9bdc3e3",
+  "qualifiedCaseIds": [
+    "TC-ITEM-ADD-002"
+  ],
+  "allCurrentQualifiedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-005",
+    "TC-ITEM-STD-019",
+    "TC-ITEM-STD-041",
+    "TC-ITEM-STD-042",
+    "TC-ITEM-STD-045",
+    "TC-ITEM-STD-048",
+    "TC-ITEM-STD-049",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074",
+    "TC-ITEM-ADD-002",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-STD-102"
+  ],
+  "currentQualified": 16,
+  "notQualified": 188,
+  "oldQualifiedRerun": 0,
+  "releaseReuse": "run-only-derived-unstable"
+}

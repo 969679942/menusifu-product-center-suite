@@ -1,0 +1,257 @@
+{
+  "recordedAt": "2026-09-08T11:19:57.231Z",
+  "status": "three-current-receipts-qualified",
+  "runId": "addon-creation-20260908-02",
+  "selectedCaseIds": [
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007"
+  ],
+  "executed": 3,
+  "passed": 3,
+  "failed": 0,
+  "reportPath": "output/product-center-item-source-governed-addon-creation-20260908-02-source-governed.json",
+  "reportSha256": "be063dce10148547643d51402a0515351df66e533dce76fe70a924ab69c59629",
+  "contractPath": "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+  "contractSha256": "77e73604c837dcb5fdd4878d211f6f21e61c6c246598076cb828c980319f7566",
+  "independentContextObservation": "deliverables/system-test-platform/readonly-auth-addon-observation.json",
+  "independentContextSha256": "cea98439e4f6867a1e5d779604ee7772883cf898f455b72206e655901e501819",
+  "proofs": [
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-business-save",
+          "accepted": false,
+          "reasons": [
+            "BUSINESS_OPERATION_OCCURRENCE_MISSING",
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "different-brand",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-cleanup-observations",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_OBSERVATION_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "expectedContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/list"
+      },
+      "assertions": [
+        "TC-ITEM-ADD-005:expectation-1",
+        "TC-ITEM-ADD-005:expectation-2",
+        "TC-ITEM-ADD-005:expectation-3"
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001": 0
+        },
+        "uiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-005_1788866223719001": 0
+        }
+      },
+      "sourceSteps": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+        "填写商品信息：\n商品名称：加料商品-{当前时间戳毫秒}\n标准价：输入 5.00",
+        "点击右上角【保存】按钮",
+        "页面自动返回到商品中心页面，等待列表数据刷新"
+      ],
+      "sourceMappingAuthority": "formal source plus inspected acceptance/form/type/sidebar/list and cleanup call tree",
+      "cleanupAuthority": "registered server ID and same-identity API/UI zero-residue observations"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-business-save",
+          "accepted": false,
+          "reasons": [
+            "BUSINESS_OPERATION_OCCURRENCE_MISSING",
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "different-brand",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "expectedContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/create/side"
+      },
+      "assertions": [
+        "TC-ITEM-ADD-006:expectation-1",
+        "TC-ITEM-ADD-006:expectation-2"
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {},
+        "uiIdentityCounts": {}
+      },
+      "sourceSteps": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+        "保持「商品名称」为空",
+        "「标准价」填写 `5.00`",
+        "点击右上角【保存】按钮"
+      ],
+      "sourceMappingAuthority": "formal source plus inspected acceptance/form/type/sidebar/list and cleanup call tree",
+      "cleanupAuthority": "current name-field validation; attempted writes=0, created server IDs=0, pre/post identity count=0"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "qualification": {
+        "accepted": true,
+        "reasons": []
+      },
+      "negativeChecks": [
+        {
+          "name": "missing-business-save",
+          "accepted": false,
+          "reasons": [
+            "BUSINESS_OPERATION_OCCURRENCE_MISSING",
+            "OPERATION_RECEIPT_CARDINALITY_INVALID",
+            "OPERATION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-assertions",
+          "accepted": false,
+          "reasons": [
+            "ASSERTION_RECEIPT_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "different-brand",
+          "accepted": false,
+          "reasons": [
+            "EXECUTION_CONTEXT_MISMATCH",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        },
+        {
+          "name": "missing-cleanup-observations",
+          "accepted": false,
+          "reasons": [
+            "CLEANUP_OBSERVATION_MISSING",
+            "RECEIPT_FINGERPRINT_MISMATCH"
+          ]
+        }
+      ],
+      "expectedContext": {
+        "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+        "environmentId": "balamxqa",
+        "tenantScope": "000407",
+        "locale": "und",
+        "roleId": "merchant-operator",
+        "route": "/pp/brand/list"
+      },
+      "assertions": [
+        "TC-ITEM-ADD-007:expectation-1",
+        "TC-ITEM-ADD-007:expectation-2"
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "uiVerificationObserved": true,
+        "apiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201": 0
+        },
+        "uiIdentityCounts": {
+          "AUTO_AUDIT_ADDON_216_TC-ITEM-ADD-007_1788866223654201": 0
+        }
+      },
+      "sourceSteps": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+        "填写商品信息：\n商品名称：加料商品-不选择分类创建-{当前时间戳毫秒}\n「标准价」填写 `10.00`",
+        "不选择商品分类",
+        "点击右上角【保存】按钮"
+      ],
+      "sourceMappingAuthority": "formal source plus inspected acceptance/form/type/sidebar/list and cleanup call tree",
+      "cleanupAuthority": "registered server ID and same-identity API/UI zero-residue observations"
+    }
+  ],
+  "priorCaseCurrentFindings": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "reasons": [
+        "CURRENT_IMPLEMENTATION_MISMATCH",
+        "FORMAT_SYNTAX_CHANGED"
+      ]
+    }
+  ],
+  "priorCaseHistoricalPassPreserved": true,
+  "reuseStatus": "run-only",
+  "releaseStability": "derived-unstable",
+  "contextLimitations": "HTML locale undeclared (und); configured operator role; no cross-release reuse authorized",
+  "secretsPersisted": false
+}

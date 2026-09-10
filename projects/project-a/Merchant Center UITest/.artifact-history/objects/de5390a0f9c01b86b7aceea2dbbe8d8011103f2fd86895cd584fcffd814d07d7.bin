@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-08T05:45:10.648Z",
+  "status": "single-reporter-contracts-validated-run-index-incomplete",
+  "scope": [
+    "public-core",
+    "project-adapter",
+    "generated-evidence"
+  ],
+  "validation": {
+    "publicContractsPassed": 48,
+    "projectInitialRun": {
+      "total": 23,
+      "passed": 20,
+      "failed": 3
+    },
+    "projectTargetedRecovery": {
+      "resolved": 3,
+      "firstRerunPassed": 2,
+      "finalRerunPassed": 1,
+      "remaining": 0
+    },
+    "publicTypecheck": "passed",
+    "projectTypecheck": "passed",
+    "architectureDebt": 571,
+    "index": {
+      "total": 628,
+      "landed": 432,
+      "unlanded": 196
+    },
+    "capabilities": "passed",
+    "migration": "complete"
+  },
+  "evidence": [
+    "../Test Automation Platform/src/governance/execution-attempt-accounting.ts",
+    "../Test Automation Platform/src/reporters/system-test-evidence.reporter.ts",
+    "../Test Automation Platform/scripts/run-system-test.ts",
+    "../Test Automation Platform/src/utils/system-test-evidence-ledger-receipt.ts",
+    "../Test Automation Platform/tests/api/execution-attempt-accounting.contract.spec.ts",
+    "../Test Automation Platform/tests/api/system-test-evidence-reporter-checkpoint.contract.spec.ts",
+    "adapters/product-center/product-center-seasoning-terminal-receipts.ts",
+    "tests/api/product-center-attempt-accounting.contract.spec.ts",
+    "tests/api/product-center-project-optimization.contract.spec.ts",
+    "tests/fixtures/historical-optimization/provenance.json"
+  ],
+  "historicalFixtureRecovery": {
+    "source": "D:/Menusifu/Merchant Center/Merchant Center UITest/deliverables/system-test-platform",
+    "files": 3,
+    "originalBytesAndHashesPreserved": true,
+    "historicalPlansUsedForBusinessExecution": false,
+    "boundary": "B5 84 and non-seasoning 337 remain historical fixture scopes; six newer additions independently match verified source tasks"
+  },
+  "pending": [
+    "immutable-per-run-and-reporter-invocation-index",
+    "cross-process-attempt-history",
+    "original-report-hash-and-selection-binding",
+    "runner-wall-time-and-overhead",
+    "platform-only-fingerprint-impact-audit",
+    "205-current-item-admissions",
+    "97-source-derivation-differences"
+  ],
+  "finalGate": {
+    "status": "incomplete",
+    "blockers": [
+      "CROSS_APPLICATION_PILOT_REQUIRED",
+      "CROSS_DOMAIN_PILOT_REQUIRED",
+      "REFERENCE_BASELINE_NOT_READY"
+    ]
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "passedCasesRerun": false,
+    "historicalPassedResultsPreserved": true,
+    "secretsPersisted": false
+  },
+  "goalComplete": false
+}

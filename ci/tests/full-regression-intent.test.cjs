@@ -22,12 +22,18 @@ test('full regression freezes its selection before execution without a fixed exc
     const seasoning=JSON.parse(fs.readFileSync(path.join(project,'systems/merchant-center-product-center-seasoning/manifest.json'),'utf8'));
     assert.equal(intent.intentId,'123e4567-e89b-12d3-a456-426614174000');
     assert.equal(intent.runScope,'full-regression');
-    assert.deepEqual(unique([...intent.selectedCaseIds,...intent.classifiedExclusions]),unique(intent.plannedCaseIds));
+    assert.equal(intent.mode,'full-regression');
+    assert.deepEqual(intent.selectedCaseIds,intent.executionEligibleCaseIds);
+    assert.deepEqual(unique([...intent.selectedCaseIds,...intent.classifiedExclusions]),unique(intent.formalScopeCaseIds));
     assert.equal(intent.selectedCaseIds.filter(id=>intent.classifiedExclusions.includes(id)).length,0);
-    assert.deepEqual(intent.selectedCaseIds,unique([...source.execution.selectedCaseIds,...seasoning.cases.map(item=>item.caseId)]));
+    assert.deepEqual(intent.selectedCaseIds,unique([...source.revalidation.selectedCaseIds,...seasoning.cases.map(item=>item.caseId)]));
+    assert.ok(intent.selectedCaseIds.includes('TC-ITEM-STD-102'));
+    assert.ok(intent.selectedCaseIds.includes('TC-ITEM-STD-103'));
+    assert.ok(intent.routes['source-governed'].some(id=>id.startsWith('TC-ITEM-')));
+    assert.deepEqual(Object.keys(intent.exclusionReasons).sort(),intent.classifiedExclusions);
     const implementation=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
     assert.doesNotMatch(implementation,/classifiedExclusions\.length\s*===\s*\d+/);
     assert.match(implementation,/PC_CI_OUTPUT_DIR/);
-    assert.match(implementation,/const selectedCaseIds = selectedIntentCaseIds;/);
+    assert.match(implementation,/buildProductCenterFullRegressionExecutionIntent/);
   } finally { fs.rmSync(isolatedOut,{recursive:true,force:true}); }
 });

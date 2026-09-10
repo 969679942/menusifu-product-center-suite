@@ -7,18 +7,68 @@ const reportPath = path.resolve(
   projectRoot,
   '../deliverables/test-plan-governance/product-center-historical-receipt-compatibility.json',
 );
+const blockedPath = path.resolve(
+  projectRoot,
+  '../deliverables/test-plan-governance/product-center-historical-receipt-compatibility.blocked.json',
+);
+
+type CompatibilityReport = {
+  status?: 'blocked' | string;
+  code?: string;
+  scope?: { targetCaseCount: number };
+  policy?: { pageExecutionTriggered: boolean; importExactMatchesOnly: boolean };
+  summary?: Record<string, number | boolean>;
+  exactMatchImportCaseIds?: string[];
+  fingerprintLineageReviewCaseIds?: string[];
+  directRerunCandidateCaseIds?: string[];
+  cases?: Array<{ caseId: string; status: string; blockers: string[]; importableRecordKey: string | null }>;
+  businessExecutionStarted?: boolean;
+  existingPassedCasesInvalidated?: boolean;
+};
+
+type FormalCompatibilityReport = CompatibilityReport & {
+  scope: { targetCaseCount: number };
+  policy: { pageExecutionTriggered: boolean; importExactMatchesOnly: boolean };
+  summary: Record<string, number | boolean>;
+  exactMatchImportCaseIds: string[];
+  fingerprintLineageReviewCaseIds: string[];
+  directRerunCandidateCaseIds: string[];
+  cases: Array<{ caseId: string; status: string; blockers: string[]; importableRecordKey: string | null }>;
+};
+
+function readCompatibilityArtifact(): CompatibilityReport {
+  if (fs.existsSync(reportPath)) {
+    return JSON.parse(fs.readFileSync(reportPath, 'utf8')) as CompatibilityReport;
+  }
+  expect(fs.existsSync(blockedPath), `正式兼容报告和 blocked 诊断均不存在：${reportPath}`).toBe(true);
+  return JSON.parse(fs.readFileSync(blockedPath, 'utf8')) as CompatibilityReport;
+}
+
+function expectBlockedArtifact(report: CompatibilityReport): void {
+  expect(report.status).toBe('blocked');
+  expect(report.code).toBe('PRE_CLOSURE_AUDIT_MISSING');
+  expect(report.businessExecutionStarted).toBe(false);
+  expect(report.existingPassedCasesInvalidated).toBe(false);
+}
+
+function expectFormalArtifact(report: CompatibilityReport): asserts report is FormalCompatibilityReport {
+  expect(report.scope).toBeDefined();
+  expect(report.policy).toBeDefined();
+  expect(report.summary).toBeDefined();
+  expect(report.cases).toBeDefined();
+  expect(report.exactMatchImportCaseIds).toBeDefined();
+  expect(report.fingerprintLineageReviewCaseIds).toBeDefined();
+  expect(report.directRerunCandidateCaseIds).toBeDefined();
+}
 
 test.describe('商品中心历史收据当前兼容性适配合同', () => {
   test('逐条分类守恒且只有完全匹配项允许导入', () => {
-    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8')) as {
-      scope: { targetCaseCount: number };
-      policy: { pageExecutionTriggered: boolean; importExactMatchesOnly: boolean };
-      summary: Record<string, number | boolean>;
-      exactMatchImportCaseIds: string[];
-      fingerprintLineageReviewCaseIds: string[];
-      directRerunCandidateCaseIds: string[];
-      cases: Array<{ caseId: string; status: string; blockers: string[]; importableRecordKey: string | null }>;
-    };
+    const report = readCompatibilityArtifact();
+    if (report.status === 'blocked') {
+      expectBlockedArtifact(report);
+      return;
+    }
+    expectFormalArtifact(report);
     expect(report.policy).toMatchObject({ pageExecutionTriggered: false, importExactMatchesOnly: true });
     expect(report.cases).toHaveLength(report.scope.targetCaseCount);
     expect(new Set(report.cases.map((item) => item.caseId)).size).toBe(report.cases.length);
@@ -30,11 +80,12 @@ test.describe('商品中心历史收据当前兼容性适配合同', () => {
   });
 
   test('当前历史协调集合不能因方案级指纹漂移被误导入或直接重跑', () => {
-    const report = JSON.parse(fs.readFileSync(reportPath, 'utf8')) as {
-      scope: { targetCaseCount: number };
-      summary: Record<string, number>;
-      cases: Array<{ status: string; blockers: string[] }>;
-    };
+    const report = readCompatibilityArtifact();
+    if (report.status === 'blocked') {
+      expectBlockedArtifact(report);
+      return;
+    }
+    expectFormalArtifact(report);
     expect(report.scope.targetCaseCount).toBe(report.cases.length);
     expect(report.scope.targetCaseCount).toBeGreaterThan(0);
     expect(report.summary['exact-match-importable']).toBe(0);

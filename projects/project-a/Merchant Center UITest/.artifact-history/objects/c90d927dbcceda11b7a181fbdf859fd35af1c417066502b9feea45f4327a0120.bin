@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "rootCause": "当前列表标准价显示$0.00，原脚本与裸文本0.00比较，造成金额展示误判。创建请求均成功，归属落盘且API/UI清理均为零。",
+  "correctiveAction": "按正式来源零金额及本次观察仅接受0.00与$0.00，保留原始文本；拒绝非零及未知格式，21项隔离合同含非零反例通过。",
+  "evidenceRefs": [
+    "output/product-center-item-source-governed-addon-price-owned-repair-20260909-01-source-governed.json",
+    "tests/api/product-center-addon-price-flow.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "rows": [
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "terminalPath": "output/checkpoints/item/source-governed-addon-price-owned-repair-20260909-01-source-governed/terminal-TC-ITEM-ADD-009.json",
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-ADD-009:expectation-1",
+          "status": "verified",
+          "actualValue": "Successfully Submitted",
+          "expectedValue": [
+            "提交成功",
+            "Successfully Submitted"
+          ],
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "matched"
+        },
+        {
+          "claimId": "TC-ITEM-ADD-009:expectation-2",
+          "status": "observed-mismatch",
+          "actualValue": {
+            "count": 1,
+            "price": "$0.00"
+          },
+          "expectedValue": {
+            "count": 1,
+            "price": "0.00"
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "mismatched"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {
+          "加料商品-标准价为 0 创建-1788888813984": 0
+        },
+        "uiIdentityCounts": {
+          "加料商品-标准价为 0 创建-1788888813984": 0
+        },
+        "uiVerificationObserved": true,
+        "required": true,
+        "objects": [
+          {
+            "entityType": "item",
+            "serverId": 35508,
+            "businessIdentity": "AUTO_AUDIT_TC_ITEM_ADD_009_1788888818972",
+            "cleanupAttempt": 1,
+            "apiResidueCount": 0,
+            "outcome": "verified-zero"
+          }
+        ],
+        "serverIds": [
+          35508
+        ],
+        "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+      },
+      "saveActions": 1
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "terminalPath": "output/checkpoints/item/source-governed-addon-price-owned-repair-20260909-01-source-governed/terminal-TC-ITEM-ADD-010.json",
+      "assertions": [
+        {
+          "claimId": "TC-ITEM-ADD-010:expectation-1",
+          "status": "observed-mismatch",
+          "actualValue": {
+            "negativeEntered": "-1.00",
+            "created": 1,
+            "list": {
+              "count": 1,
+              "price": "$0.00"
+            }
+          },
+          "expectedValue": {
+            "negativeEntered": "-1.00",
+            "created": 1,
+            "list": {
+              "count": 1,
+              "price": "0.00"
+            }
+          },
+          "actualStatus": "observed",
+          "observationChannel": "ui",
+          "authority": "user-visible",
+          "comparison": "mismatched"
+        }
+      ],
+      "cleanup": {
+        "apiZeroResidue": true,
+        "uiZeroResidue": true,
+        "apiIdentityCounts": {
+          "加料商品-价格输入负数或非数字创建-1788888849600": 0
+        },
+        "uiIdentityCounts": {
+          "加料商品-价格输入负数或非数字创建-1788888849600": 0
+        },
+        "uiVerificationObserved": true,
+        "required": true,
+        "objects": [
+          {
+            "entityType": "item",
+            "serverId": 266184,
+            "businessIdentity": "AUTO_AUDIT_TC_ITEM_ADD_010_1788888853026",
+            "cleanupAttempt": 1,
+            "apiResidueCount": 0,
+            "outcome": "verified-zero"
+          }
+        ],
+        "serverIds": [
+          266184
+        ],
+        "reason": "已按登记ID清理并用精确业务名称核验API/UI残留"
+      },
+      "saveActions": 1
+    }
+  ],
+  "priorRunId": "addon-price-owned-repair-20260909-01",
+  "currentQualified": 16,
+  "notQualified": 188
+}

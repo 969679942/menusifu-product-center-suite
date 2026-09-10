@@ -1,0 +1,275 @@
+{
+  "status": "active",
+  "goalAuthority": "current Codex goal created at user explicit request",
+  "updatedAt": "2026-09-08T20:28:14.294Z",
+  "goals": [
+    {
+      "id": 1,
+      "title": "205条逐案去向清单",
+      "status": "scope-reconciled-semantic-review-incomplete",
+      "evidence": "seven-goal-case-ledger.json",
+      "completed": "205 条集合对账无漏案或重复；现有资格合同合格 16，未合格 188。深层语义覆盖尚未全审。",
+      "remaining": "操作/断言合同缺口、来源歧义和产品偏差仍待处理"
+    },
+    {
+      "id": 2,
+      "title": "首批3～5条正式用例真实闭环",
+      "status": "phase-target-met",
+      "evidence": "addon-price-v5-checkpoint.json",
+      "completed": "保留此前首批真实闭环证据；撤销 ADD014/015 新增资格，ADD016 清理仍不完整，三条均不计入新增正式闭环。",
+      "remaining": "平台FINAL-GOAL更广的通用化要求仍独立未完成"
+    },
+    {
+      "id": 3,
+      "title": "只修直接阻断闭环的问题",
+      "status": "active-constraint",
+      "completed": "价格登记、金额展示与字段自身反馈直接阻断均已修复并验证；原16条未重跑",
+      "remaining": "后续每个改动必须绑定具体用例或当前七项目标的准入缺口"
+    },
+    {
+      "id": 4,
+      "title": "每轮可见产出及token止损",
+      "status": "enforcement-incomplete",
+      "evidence": "work-unit-cost-enforcement-diagnosis-20260908.json",
+      "completed": "公共4/项目3负向合同通过；已有证据校验、旧样本/重复启动/选择漂移阻断；本单元实际触发token上限后冻结该方向；首个实际增量运行已消费单次启动凭据并保存超限止损",
+      "remaining": "公共启动凭据已生效，但实现单元358154→483666超出12000，未在实现中提前止损；不能声称成本控制已解决。后续每个有界单元在依赖工具前实际检查，超限不再启动同方向；供应方计费不由此工具中断。",
+      "latestEvidence": "goal 计数 3881820→3911449，采样增量29629超过12000；保存原值，不作为供应方账单或业务成本。"
+    },
+    {
+      "id": 5,
+      "title": "按依赖扩大执行",
+      "status": "in-progress",
+      "nextCaseIds": [
+        "TC-ITEM-ADD-016",
+        "TC-ITEM-ADD-014",
+        "TC-ITEM-ADD-015"
+      ],
+      "remaining": "188 条未合格；ADD014–016 具体语义及清理缺口见 addon-014-016-semantic-correction.json",
+      "latestResult": "3 条运行报告均存在，但不足以证明当前完整正式场景；保留原始报告，只撤销不成立的资格合同。",
+      "currentQualified": 16
+    },
+    {
+      "id": 6,
+      "title": "Jenkins、跨应用、跨域独立排期",
+      "status": "separate-schedules-recorded-real-validation-incomplete",
+      "remaining": "Jenkins56全量不完整；跨域候选规则provisional；跨应用仍需明确启动与目标选择，公共验收未完成",
+      "evidence": "external-pilots-separate-schedule.json; governance queue refreshed 2026-09-09",
+      "completed": "真实Jenkins可用性和已有55/56证据已核对；三条独立路径已列前置、时间上限、验收及影响"
+    },
+    {
+      "id": 7,
+      "title": "可选轻量AI能力",
+      "status": "deferred-by-user-policy",
+      "remaining": "核心成熟后讨论；不自动启用、不代替证据或通过裁决",
+      "evidence": "external-pilots-separate-schedule.json"
+    }
+  ],
+  "stopLossResult": {
+    "schemaVersion": "1.0.0",
+    "unitId": "seven-goal-stop-loss-contract-01",
+    "directionId": "work-unit-stop-loss-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 19270,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "public-stop-loss-contract",
+      "evidence-file-verification",
+      "prestart-replay-gate"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "2d0669ce16132c94e69ea36657f49b43192e37a55ed82a0d68723660a79d03be"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "nextUnit": "ADD016-name-conflict-flow-extraction-and-directed-validation",
+  "currentQualified": 16,
+  "required": 204,
+  "notQualified": 188,
+  "automaticContinuationAuthorized": true,
+  "crossApplicationStartupAuthorized": false,
+  "queryDiagnosticStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-audit-01",
+    "directionId": "query-api-preconditions-diagnosis",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT",
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 26768,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "type-dom",
+      "status-dom"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "8b486b9c6cae46794acdd306d76b67c2e1170734e9fa4b25d7758ac788005756"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "queryDiagnostic": {
+    "attempts": 2,
+    "formalCasesExecuted": 0,
+    "status": "diagnostic-blocked",
+    "lastError": "TypeError",
+    "phase": "query-response-observation",
+    "hypothesis": "OPTIONS preflight may have matched; unconfirmed",
+    "next": "freeze API data precondition direction; independent confirmed navigation case 030"
+  },
+  "queryReturnStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-execution-01",
+    "directionId": "standard-query-return-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 13059,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD030-current-result",
+      "STD030-state-restoration"
+    ],
+    "newQuestionIds": [
+      "STD030-stable-postnavigation-observation"
+    ],
+    "newEvidenceHashes": [
+      "d8f4e59b5c48a0e882a1d2ff86a8c260277e69e60912294b3c5bb21fe21c0e97"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "validation": {
+    "typecheckPublic": "passed",
+    "typecheckProject": "passed",
+    "architectureDebt": 571,
+    "queryAndGoalAdapterContractsPassed": 6,
+    "capabilities": "passed",
+    "formalIndex": {
+      "total": 628,
+      "landed": 434,
+      "unlanded": 194,
+      "check": "passed"
+    },
+    "migration": "incomplete:inventoryChanged=1",
+    "finalPublicGate": {
+      "status": "incomplete",
+      "reasons": [
+        "PROJECT_MIGRATION_NOT_COMPLETE",
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED"
+      ]
+    },
+    "weightUnits": {
+      "contractsPassed": 4,
+      "receiptNegativeChecksRejected": 4,
+      "actualSelected": 1,
+      "actualTerminal": 1,
+      "actualPassed": 1,
+      "qualified": 1,
+      "oldQualifiedRerun": 0
+    },
+    "queryStability": {
+      "contractsPassed": 9,
+      "selected": 1,
+      "terminal": 1,
+      "status": "completed-with-findings",
+      "productFailureConfirmed": true,
+      "restorationVerified": true,
+      "samples": 19,
+      "businessAttemptsTotal": 2,
+      "prebrowserBlockedStarts": 1
+    }
+  },
+  "implementationCost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-implementation-01",
+    "directionId": "standard-query-return-implementation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 125512,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "confirmed-source-contract",
+      "independent-executable-implementation",
+      "prior-receipt-impact",
+      "static-admission"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "fb966be1b30a90d815ed39b9df6ba86d6e0ccf059457dcbb17ca6684617297b3"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "staticReviewStopLoss": {
+    "schemaVersion": "1.0.0",
+    "unitId": "remaining-admission-static-01",
+    "directionId": "remaining-admission-static-review",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 17507,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "189-current-contract-presence",
+      "189-embedded-fingerprint-currentness",
+      "standard-action-dispatch",
+      "STD005-coverage",
+      "STD019-coverage",
+      "STD041-coverage"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ab61e18ef0f470b31557a0668c81425a20d29fc98bef956f34f91a82dd3818c3"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "agentExecutionPolicy": {
+    "sampleBeforeEachDependentTool": true,
+    "softStopTokens": 6000,
+    "hardPolicyTokens": 12000,
+    "reason": "前次采样间隔超过阈值；预留半预算缓冲，达到softStop即保存检查点，不再扩展本方向；不能承诺供应方硬计费中断"
+  },
+  "latestUnitCost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-return-execution-02-resume",
+    "directionId": "standard-query-return-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 6894,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD030-stability",
+      "STD030-current-rule-result",
+      "STD030-restoration"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "f4a08facc81e214396a92c91cf6152af75b07b143e22dec2ccf3e36849e484dc"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "semanticCorrection": "deliverables/system-test-platform/addon-014-016-semantic-correction.json",
+  "latestImplementationCheckpoint": "deliverables/system-test-platform/addon016-implementation-checkpoint.json"
+}

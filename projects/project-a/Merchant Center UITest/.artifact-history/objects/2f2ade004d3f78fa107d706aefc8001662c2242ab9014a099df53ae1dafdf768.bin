@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-09-08T16:03:03.078Z",
+  "input": {
+    "unitId": "standard-advanced-settings-execution-01",
+    "directionId": "standard-advanced-settings-runtime",
+    "phase": "before-start",
+    "tokenStart": 1343779,
+    "tokenCurrent": 1343779,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "STD041-current-result",
+      "STD042-current-result"
+    ],
+    "afterQuestionIds": [
+      "STD041-current-result",
+      "STD042-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "contracts/product-center/test-cases/standard-advanced-settings-acceptance.json",
+        "sha256": "c0534f8373f4fcf2f5332f8bd565121ad2e6ee7379c5d33d3f55ea9e70720948",
+        "kind": "formal-source"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-advanced-settings-execution-01",
+    "directionId": "standard-advanced-settings-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "c0534f8373f4fcf2f5332f8bd565121ad2e6ee7379c5d33d3f55ea9e70720948"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

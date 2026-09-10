@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T18:09:37.407Z",
+  "classification": "static-source-and-dependency-audit",
+  "businessCasesExecuted": 0,
+  "saveActions": 0,
+  "sourcePath": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费与成本合法输入时保存成功",
+      "source": "BR-FMT-005",
+      "operations": [
+        "进入加料商品创建页",
+        "填写商品名称（唯一）",
+        "填写标准价10.00",
+        "填写包装费1.00",
+        "填写成本3.50",
+        "保存",
+        "按原名查询列表"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "详情或编辑页包装费=1.00且成本=3.50"
+      ],
+      "blockers": [
+        "当前无包装费/成本字段反馈与详情回读标准收据"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "operations": [
+        "进入加料商品创建页",
+        "填写超过100字符且含连续空格和特殊字符的商品名称",
+        "填写标准价10.00",
+        "保存",
+        "进入详情记录SAVED_NAME",
+        "按SAVED_NAME查询"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "SAVED_NAME长度≤100、连续空格压缩、不支持字符过滤",
+        "列表按SAVED_NAME恰好1条且与详情一致"
+      ],
+      "blockers": [
+        "BR-FMT-004具体不支持字符集合未在本段来源给出；缺当前格式化回读收据"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "加料商品POS名称和送厨名称超长及特殊字符保存后自动格式化",
+      "source": "BR-FMT-001、BR-ITEM-010",
+      "operations": [
+        "展开高级设置",
+        "填写商品名称（唯一）",
+        "填写POS名称超过20字符",
+        "填写送厨名称超过20字符",
+        "填写标准价10.00",
+        "保存",
+        "按商品名查询并进入编辑页回读POS_SAVED/KITCHEN_SAVED"
+      ],
+      "assertions": [
+        "提交成功Toast",
+        "POS_SAVED、KITCHEN_SAVED按规则格式化且无首尾空格"
+      ],
+      "blockers": [
+        "格式化规则和不支持字符集合未在本段来源完整定义；缺当前回读收据"
+      ]
+    }
+  ],
+  "admission": "blocked-until-current-receipt-contract-and-format-rule-evidence",
+  "currentQualified": 19,
+  "notQualified": 185,
+  "next": "resolve-format-rule-sources-before-formal-admission"
+}

@@ -1,0 +1,176 @@
+{
+  "intentFingerprint": "319dc76cb490e392291c034c95708a117aa55abde0471bcb5fe04335e6e04101",
+  "selectionFingerprint": "242778edc67d57cf91fc927371c233e2d787380b014f865ee4c180508e8fc9db",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-003",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-072",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-074"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-074",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "b4e8136779d6404ad9df34c3930b18757256cf0b942a9b530104ec32db5cb127",
+    "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/list"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T13:13:21.425Z"
+    },
+    "executionEpochId": "source-governed-standard-list-20260908-02-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-074:action-1",
+        "title": "查看列表统计信息区域",
+        "sequence": 5,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 90,
+        "startedAt": "2026-09-08T13:13:21.237Z",
+        "finishedAt": "2026-09-08T13:13:21.327Z",
+        "occurredAt": "2026-09-08T13:13:21.327Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardListAcceptanceFlow.execute",
+        "title": "按正式来源执行商品列表场景",
+        "sequence": 1,
+        "method": "execute",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7958,
+        "startedAt": "2026-09-08T13:13:13.429Z",
+        "finishedAt": "2026-09-08T13:13:21.387Z",
+        "occurredAt": "2026-09-08T13:13:21.387Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 2,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7231,
+        "startedAt": "2026-09-08T13:13:13.436Z",
+        "finishedAt": "2026-09-08T13:13:20.667Z",
+        "occurredAt": "2026-09-08T13:13:20.667Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 3,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 27,
+        "startedAt": "2026-09-08T13:13:20.783Z",
+        "finishedAt": "2026-09-08T13:13:20.810Z",
+        "occurredAt": "2026-09-08T13:13:20.810Z"
+      },
+      {
+        "operationKey": "StandardListAcceptanceFlow.verifyStatistics",
+        "title": "验证商品总数量与总金额统计边界",
+        "sequence": 4,
+        "method": "verifyStatistics",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 124,
+        "startedAt": "2026-09-08T13:13:21.232Z",
+        "finishedAt": "2026-09-08T13:13:21.356Z",
+        "occurredAt": "2026-09-08T13:13:21.356Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 6,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 15,
+        "startedAt": "2026-09-08T13:13:21.263Z",
+        "finishedAt": "2026-09-08T13:13:21.278Z",
+        "occurredAt": "2026-09-08T13:13:21.278Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readAmountSummary",
+        "title": "读取商品页面总金额统计",
+        "sequence": 7,
+        "method": "readAmountSummary",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 25,
+        "startedAt": "2026-09-08T13:13:21.287Z",
+        "finishedAt": "2026-09-08T13:13:21.312Z",
+        "occurredAt": "2026-09-08T13:13:21.312Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-074:expectation-1",
+        "status": "verified",
+        "actualValue": true,
+        "expectedValue": true,
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-074:expectation-2",
+        "status": "verified",
+        "actualValue": [],
+        "expectedValue": [],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ],
+      "observed": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ],
+      "verified": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；列与分页恢复另有实际UI核验"
+    },
+    "evidenceFingerprint": "0b02967f368d62e32e3d603de5608ef4a90860497558d343bb38ad6e3d81b795"
+  }
+}

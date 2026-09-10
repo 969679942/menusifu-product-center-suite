@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-09-08T15:11:14.278Z",
+  "caseId": "TC-ITEM-STD-005",
+  "status": "core-implemented-contract-validated-integration-pending",
+  "hashes": {
+    "api/product-center/required-name-persistence.ts": "13c20d4b73a261521008fbc438bcc1d01784abfef8315214538770316c7ccc8f",
+    "pages/product-management/item/standard-required-name.page.ts": "3fcb8e885c21829b3ae163b7b44e43bff222dca6685f5a589846e08c1c1cc8e2",
+    "flows/product-center/item-216/standard-required-name.flow.ts": "7028dabf6285c37794ed2314ad4c84bb4da58ee37b6f2ed747c004b4edacd956",
+    "tests/api/product-center-required-name.contract.spec.ts": "fbba8d75977a3b5accdd133dac212f1c783f99821d7c1c7df813cba381d9ec8f"
+  },
+  "validation": {
+    "isolatedContracts": 8,
+    "contractsExitCode": 0,
+    "typecheckExitCode": 0,
+    "architectureExitCode": 0,
+    "architectureDebt": 571,
+    "capabilityCheckExitCode": 0,
+    "qualifiedFingerprintsUnchanged": 9
+  },
+  "businessAttempts": 0,
+  "passedAdded": 0,
+  "currentQualified": 9,
+  "remaining": 195,
+  "changes": [
+    "六动作按正式来源执行，保存前核验名称空、单规格、价格10",
+    "创建请求按响应分为拒绝/创建/不完整；限流认证失败不计产品失败",
+    "API分页ID快照完整核对；无归属列表变动只记证据缺口",
+    "异常创建ID在断言前不可变保存；finally按精确ID清理并生成恢复证明",
+    "实际UI字段反馈与5秒窗口；3项断言分开收据"
+  ],
+  "nextRequired": [
+    "fixture组合Root",
+    "独立canonical spec及最终标准收据/失败诊断",
+    "新增组合路由层，不改STD019依赖的execution-specs文件",
+    "005独立指纹和优化适配器接入",
+    "计划/影响集/意图/单次cost grant",
+    "仅005真实执行、严格收据资格核验和去向清单更新"
+  ],
+  "budgetObservation": {
+    "tokensStart": 1104507,
+    "tokensEnd": 1139318,
+    "delta": 34811,
+    "source": "get_goal cumulative; billing unavailable",
+    "timeWindow": {
+      "fromGoalTimeUsedSeconds": 5379,
+      "toGoalTimeUsedSeconds": 5949,
+      "upperBoundMs": 570000,
+      "note": "conservative bound includes previous source-unit checkpoint closure"
+    },
+    "excludes": "closing checkpoint/tool work after sample"
+  }
+}

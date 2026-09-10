@@ -1,0 +1,377 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W3_20260731_03",
+  "waveId": "W3",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "completed-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-010",
+    "TC-ITEM-STD-044",
+    "TC-ITEM-ADD-014",
+    "TC-ITEM-ADD-015",
+    "TC-ITEM-PKG-024",
+    "TC-ITEM-PKG-025"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-ADD-014",
+    "TC-ITEM-PKG-024",
+    "TC-ITEM-PKG-025",
+    "TC-ITEM-STD-010",
+    "TC-ITEM-STD-044"
+  ],
+  "conflictCaseIds": [
+    "TC-ITEM-ADD-015"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-010": {
+      "caseId": "TC-ITEM-STD-010",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W3_CODE_ATTEMPT_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_CODE_ATTEMPT_1785474432192",
+        "standardPrice": "10.00",
+        "itemCode": "W374432192"
+      },
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "messages": [
+        "BITEM-7003 : code already exist in database"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 400
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "BITEM-7003",
+          "message": "商品编码不能重复"
+        }
+      ]
+    },
+    "TC-ITEM-STD-044": {
+      "caseId": "TC-ITEM-STD-044",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W3_STANDARD_DUPLICATE_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_STANDARD_DUPLICATE_1785474432192",
+        "standardPrice": "10.00"
+      },
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 1,
+      "afterCount": 1,
+      "messages": [
+        "BITEM-7010 : Name is duplicated with existing item"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 400
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "BITEM-7010",
+          "message": " 属性项名称与已有属性项重复"
+        }
+      ]
+    },
+    "TC-ITEM-ADD-014": {
+      "caseId": "TC-ITEM-ADD-014",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W3_SIDE_CATEGORY_DUPLICATE_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_SIDE_CATEGORY_DUPLICATE_1785474432192",
+        "standardPrice": "10.00"
+      },
+      "route": "/pp/brand/create/side",
+      "beforeCount": 1,
+      "afterCount": 1,
+      "messages": [
+        "BITEM-7010 : Name is duplicated with existing item"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 400
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "BITEM-7010",
+          "message": " 属性项名称与已有属性项重复"
+        }
+      ]
+    },
+    "TC-ITEM-ADD-015": {
+      "caseId": "TC-ITEM-ADD-015",
+      "verdict": "canonical-conflict",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W3_SIDE_CROSS_TYPE_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_SIDE_CROSS_TYPE_1785474432192",
+        "standardPrice": "10.00"
+      },
+      "route": "/pp/brand/list",
+      "beforeCount": 1,
+      "afterCount": 2,
+      "accidentalRecordId": 260914,
+      "messages": [
+        "Successfully Submitted"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "0",
+          "message": "success"
+        }
+      ]
+    },
+    "TC-ITEM-PKG-024": {
+      "caseId": "TC-ITEM-PKG-024",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W3_COMBO_CATEGORY_DUPLICATE_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_COMBO_CATEGORY_DUPLICATE_1785474432192",
+        "standardPrice": "10.00"
+      },
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 1,
+      "afterCount": 1,
+      "messages": [
+        "BITEM-7010 : Name is duplicated with existing item"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 400
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "BITEM-7010",
+          "message": " 属性项名称与已有属性项重复"
+        }
+      ]
+    },
+    "TC-ITEM-PKG-025": {
+      "caseId": "TC-ITEM-PKG-025",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W3_COMBO_CROSS_TYPE_1785474432192",
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W3_COMBO_CROSS_TYPE_1785474432192",
+        "standardPrice": "10.00"
+      },
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 1,
+      "afterCount": 1,
+      "messages": [
+        "BITEM-7014 : Name is duplicated with other type item"
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 400
+        }
+      ],
+      "responseErrors": [
+        {
+          "code": "BITEM-7014",
+          "message": "名称与系统其它类型商品名称重复，不符合创建规则"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total": 6,
+    "accepted": 5,
+    "canonicalConflict": 1,
+    "harnessError": 0
+  },
+  "sharedSeeds": {
+    "categoryIdentityCount": 5,
+    "comboGroupName": "AUTO_AUDIT_COMBO_1785474432192"
+  },
+  "cleanupEvidence": {
+    "apiResidue": {
+      "AUTO_AUDIT_W3_CODE_SEED_1785474432192": 0,
+      "AUTO_AUDIT_W3_CODE_ATTEMPT_1785474432192": 0,
+      "AUTO_AUDIT_W3_STANDARD_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_SIDE_CATEGORY_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_SIDE_CROSS_TYPE_1785474432192": 0,
+      "AUTO_AUDIT_W3_COMBO_CATEGORY_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_COMBO_CROSS_TYPE_1785474432192": 0
+    },
+    "uiResidue": {
+      "AUTO_AUDIT_W3_CODE_SEED_1785474432192": 0,
+      "AUTO_AUDIT_W3_CODE_ATTEMPT_1785474432192": 0,
+      "AUTO_AUDIT_W3_STANDARD_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_SIDE_CATEGORY_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_SIDE_CROSS_TYPE_1785474432192": 0,
+      "AUTO_AUDIT_W3_COMBO_CATEGORY_DUPLICATE_1785474432192": 0,
+      "AUTO_AUDIT_W3_COMBO_CROSS_TYPE_1785474432192": 0
+    },
+    "ledgerEntries": 14,
+    "residueVerified": 14
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:remaining-w3:add24d6b9fcfe6d352aa23d0",
+      "unitId": "audit-unit:remaining-w3:seed-code-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260908,
+      "ledgerEntryId": "item-260908"
+    },
+    {
+      "intentId": "intent:remaining-w3:8433fee9c290df4fd65f1824",
+      "unitId": "audit-unit:remaining-w3:seed-standard-duplicate-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260909,
+      "ledgerEntryId": "item-260909"
+    },
+    {
+      "intentId": "intent:remaining-w3:a8eb898f5868a07ab1a14af0",
+      "unitId": "audit-unit:remaining-w3:seed-side-category-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260910,
+      "ledgerEntryId": "item-260910"
+    },
+    {
+      "intentId": "intent:remaining-w3:ab5927852bcfc2d0a5bc030c",
+      "unitId": "audit-unit:remaining-w3:seed-side-cross-type-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260911,
+      "ledgerEntryId": "item-260911"
+    },
+    {
+      "intentId": "intent:remaining-w3:de8a538e9ef6f6a88cfef7fc",
+      "unitId": "audit-unit:remaining-w3:seed-combo-category-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      },
+      "serverId": 260912,
+      "ledgerEntryId": "item-260912"
+    },
+    {
+      "intentId": "intent:remaining-w3:50bc480beafa45f3814415ba",
+      "unitId": "audit-unit:remaining-w3:seed-combo-cross-type-seed",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260913,
+      "ledgerEntryId": "item-260913"
+    },
+    {
+      "intentId": "intent:remaining-w3:1f64b9a3094c1ffb6714670d",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-STD-010",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w3:932eca5e16ed9b220ffbd53d",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-STD-044",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w3:07e1b6dd5bac93fd22c3c894",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-ADD-014",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w3:36ccdc917f48f0ee720672dd",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-ADD-015",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260914,
+      "ledgerEntryId": "item-260914"
+    },
+    {
+      "intentId": "intent:remaining-w3:980e0a9bd11ccd7d4557ac83",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-PKG-024",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w3:610a4ae334c9d4a4f450ddb9",
+      "unitId": "audit-unit:remaining-w3:TC-ITEM-PKG-025",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    }
+  ],
+  "security": {
+    "credentialsPersisted": false,
+    "authorizationArtifactsPersisted": false,
+    "storageStatePersisted": false
+  }
+}

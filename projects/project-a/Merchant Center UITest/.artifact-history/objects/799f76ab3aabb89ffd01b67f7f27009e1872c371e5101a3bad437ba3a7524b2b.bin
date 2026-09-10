@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "2.0.0",
+  "reportId": "product-center-jenkins-auth-preflight",
+  "generatedAt": "2026-09-09T07:44:16.754Z",
+  "mode": "api",
+  "status": "ready-for-readonly-probe",
+  "assessment": {
+    "mode": "api",
+    "credentialsConfigured": true,
+    "missingContext": [],
+    "status": "ready-for-readonly-probe",
+    "authenticationVerified": false,
+    "executionAuthorized": false,
+    "capabilities": [
+      {
+        "id": "username",
+        "configured": true
+      },
+      {
+        "id": "password",
+        "configured": true
+      },
+      {
+        "id": "access-token",
+        "configured": false
+      },
+      {
+        "id": "merchant",
+        "configured": true
+      },
+      {
+        "id": "brand",
+        "configured": true
+      }
+    ],
+    "configurationSources": [
+      "process-environment",
+      "configured-or-default-secret-file",
+      "runner-context-defaults"
+    ]
+  },
+  "credentials": [
+    {
+      "name": "username",
+      "configured": true
+    },
+    {
+      "name": "password",
+      "configured": true
+    },
+    {
+      "name": "access-token",
+      "configured": false
+    },
+    {
+      "name": "merchant",
+      "configured": true
+    },
+    {
+      "name": "brand",
+      "configured": true
+    }
+  ],
+  "policy": {
+    "secretsPersisted": false,
+    "loginAttempted": false,
+    "businessExecutionStarted": false,
+    "executionAuthorized": false
+  },
+  "nextAction": "配置具备只读认证探针前置条件；仍须独立执行意图和授权，不能据配置状态启动业务。"
+}

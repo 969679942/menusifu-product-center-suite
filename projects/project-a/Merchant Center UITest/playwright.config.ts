@@ -20,6 +20,13 @@ const chromeExecutablePath = resolveChromeExecutablePath();
 const productCenterLeanReporting = process.env.PC_ITEM_LEAN_REPORTING === '1';
 const sourceGovernedReporting = Boolean(process.env.PC_SOURCE_GOVERNED_ALLURE_DIR);
 const sourceGovernedJsonReporter = sourceGovernedReporting ? [['json'] as const] : [];
+// All business suites use the project adapter so result normalization, labels,
+// failure diagnostics and screenshot binding are identical for seasoning,
+// group, item and tag cases.
+const merchantCenterAllureReporter = [
+  require.resolve('./reporters/product-center-system-allure.reporter.ts'),
+  createMerchantCenterAllurePlaywrightV3Options(),
+] as const;
 const localConcurrency = resolveMerchantCenterPlaywrightConcurrency({
   maxWorkers: 3,
   requestedWorkers: Number(process.env.PW_WORKERS || 3),
@@ -48,8 +55,7 @@ export default defineConfig({
         ['./reporters/product-center-recipe.reporter.ts'],
         [require.resolve('./reporters/system-test-audit-step.reporter')],
         [
-          'allure-playwright',
-          createMerchantCenterAllurePlaywrightV3Options(),
+          ...merchantCenterAllureReporter,
         ],
         ...sourceGovernedJsonReporter,
       ],

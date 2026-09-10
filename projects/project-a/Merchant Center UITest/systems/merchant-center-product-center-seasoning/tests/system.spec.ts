@@ -16,25 +16,25 @@ import {
   executeSystemTestRecipe,
   type SystemTestRecipeContext,
   type SystemTestReportStep,
-} from '../../../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
+} from '../../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
 import type {
   BusinessStepAttachment,
   BusinessStepDetail,
   BusinessStepReportEvidence,
-} from '../../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import {
   buildSeasoningOperationTechnicalDetails,
   createSeasoningSystemTestStepReporter,
   describeSeasoningOperation,
   navigationPathForRoute,
 } from '../../../adapters/product-center/seasoning-reporting';
-import { resolveSystemTestMutationObserved } from '../../../../../Test Automation Platform/src/automation/system-test/system-test-evidence';
-import { matchesSystemTestRequest } from '../../../../../Test Automation Platform/src/automation/system-test/system-test-request-correlation';
-import { classifySystemTestFailure } from '../../../../../Test Automation Platform/src/automation/system-test/system-test-failure';
-import type { AutomationRecipe } from '../../../../../Test Automation Platform/src/automation/recipe/automation-recipe';
-import { attachBusinessEvidenceStep } from '../../../../../Test Automation Platform/src/reporters/allure-report-integrity';
-import { createBusinessOperationReceiptDetail } from '../../../../../Test Automation Platform/src/reporters/allure-report-integrity';
-import { formatBusinessExecutionConclusionTitle } from '../../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { resolveSystemTestMutationObserved } from '../../../../Test Automation Platform/src/automation/system-test/system-test-evidence';
+import { matchesSystemTestRequest } from '../../../../Test Automation Platform/src/automation/system-test/system-test-request-correlation';
+import { classifySystemTestFailure } from '../../../../Test Automation Platform/src/automation/system-test/system-test-failure';
+import type { AutomationRecipe } from '../../../../Test Automation Platform/src/automation/recipe/automation-recipe';
+import { attachBusinessEvidenceStep } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { createBusinessOperationReceiptDetail } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { formatBusinessExecutionConclusionTitle } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import { settleInput } from '../../../utils/input-settle';
 import { executeReadOnlyUiWithTransientRetry } from '../../../api/transient-retry';
 import { withProductCenterRecipeResourceLocks } from '../../../utils/product-center-resource-lock';

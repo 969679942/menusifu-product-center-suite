@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-08T14:25:36.362Z",
+  "input": {
+    "unitId": "standard-weight-units-execution-01",
+    "directionId": "standard-weight-units-runtime",
+    "phase": "before-start",
+    "tokenStart": 626224,
+    "tokenCurrent": 630298,
+    "elapsedMs": 43000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "STD019-current-result"
+    ],
+    "afterQuestionIds": [
+      "STD019-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "contracts/product-center/test-cases/standard-weight-units-acceptance.json",
+        "sha256": "027e0b5ab1c12c6fa57983e67c39b6f88c91f7f0cf1b559849403cf620c5406d",
+        "kind": "formal-source"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-weight-units-execution-01",
+    "directionId": "standard-weight-units-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 4074,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "027e0b5ab1c12c6fa57983e67c39b6f88c91f7f0cf1b559849403cf620c5406d"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

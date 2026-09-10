@@ -1,0 +1,714 @@
+{
+  "config": {
+    "configFile": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\playwright.config.ts",
+    "rootDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.setup.ts",
+    "globalTeardown": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\setup\\global.teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/standard-name-20260908-02-handled-item-revalidation",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/tests\\/api\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/standard-name-20260908-02-handled-item-revalidation",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/standard-name-20260908-02-handled-item-revalidation",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/test-results/standard-name-20260908-02-handled-item-revalidation",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "ephemeral-chrome",
+        "name": "ephemeral-chrome",
+        "testDir": "D:/Menusifu/product-center-suite/projects/project-a/Merchant Center UITest/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-timing.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\product-center-recipe.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\reporters\\system-test-audit-step.reporter.ts",
+        null
+      ],
+      [
+        "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "detail": false,
+          "suiteTitle": false,
+          "resultsDir": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\allure-results"
+        }
+      ],
+      [
+        "json",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "generated\\product-center-item-216.generated.spec.ts",
+      "file": "generated/product-center-item-216.generated.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "商品管理-商品自动化入口",
+          "file": "generated/product-center-item-216.generated.spec.ts",
+          "line": 8439,
+          "column": 19,
+          "specs": [
+            {
+              "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+              "ok": true,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-STD-102"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-STD-102",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "flow-bound",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 27105,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行标准商品 216 用例动作：TC-ITEM-STD-102",
+                          "duration": 13202,
+                          "steps": [
+                            {
+                              "title": "验证标准商品名称保存后的格式化终态：TC-ITEM-STD-102",
+                              "duration": 13150,
+                              "steps": [
+                                {
+                                  "title": "验证正式商品名称格式规则及保存终态：TC-ITEM-STD-102",
+                                  "duration": 13089,
+                                  "steps": [
+                                    {
+                                      "title": "从商品列表进入标准商品创建页",
+                                      "duration": 4942,
+                                      "steps": [
+                                        {
+                                          "title": "从商品列表进入新增商品类型选择页",
+                                          "duration": 4357,
+                                          "steps": [
+                                            {
+                                              "title": "打开商品列表页",
+                                              "duration": 3757,
+                                              "steps": [
+                                                {
+                                                  "title": "打开商品列表页",
+                                                  "duration": 3699,
+                                                  "steps": [
+                                                    {
+                                                      "title": "等待商品列表页加载完成",
+                                                      "duration": 3031
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "title": "进入新增商品类型选择页",
+                                              "duration": 419,
+                                              "steps": [
+                                                {
+                                                  "title": "等待选择商品类型页加载完成",
+                                                  "duration": 269,
+                                                  "steps": [
+                                                    {
+                                                      "title": "等待页面路径为：/pp/brand/create",
+                                                      "duration": 1
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "title": "进入标准商品创建页",
+                                          "duration": 490,
+                                          "steps": [
+                                            {
+                                              "title": "等待标准商品创建页进入可交互终态",
+                                              "duration": 416,
+                                              "steps": [
+                                                {
+                                                  "title": "等待页面路径为：/pp/brand/create/standard",
+                                                  "duration": 1
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+                                      "duration": 296
+                                    },
+                                    {
+                                      "title": "确保高级设置已展开",
+                                      "duration": 955,
+                                      "steps": [
+                                        {
+                                          "title": "点击高级设置",
+                                          "duration": 916
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "填写起售数量：1",
+                                      "duration": 15
+                                    },
+                                    {
+                                      "title": "填写标准价：10.00",
+                                      "duration": 26
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的格式校验反馈",
+                                      "duration": 33
+                                    },
+                                    {
+                                      "title": "读取标准商品创建成功提示",
+                                      "duration": 1844
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 260
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的格式校验反馈",
+                                      "duration": 8
+                                    },
+                                    {
+                                      "title": "等待商品列表页加载完成",
+                                      "duration": 17
+                                    },
+                                    {
+                                      "title": "按商品名称搜索并等待接口完成：AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+                                      "duration": 945
+                                    },
+                                    {
+                                      "title": "等待列表唯一展示商品：AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+                                      "duration": 33
+                                    },
+                                    {
+                                      "title": "读取列表中完整商品名称的精确匹配：AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+                                      "duration": 11
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "验证标准商品用例 UI/API 零残留",
+                          "duration": 2600,
+                          "steps": [
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_F3N0TQ7OPNNNNNNNNNNNNNNNNNNNNNNNNNNNNN NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN",
+                              "duration": 2496
+                            },
+                            {
+                              "title": "等待搜索无结果",
+                              "duration": 66,
+                              "steps": [
+                                {
+                                  "title": "读取当前列表数据行数",
+                                  "duration": 3
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T12:01:22.402Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-STD-102",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "flow-bound",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "test-execution-receipt",
+                          "contentType": "application/json",
+                          "body": "ewogICJyZWNlaXB0VmVyc2lvbiI6ICI0LjAuMCIsCiAgImNhc2VJZCI6ICJUQy1JVEVNLVNURC0xMDIiLAogICJjYXNlRmluZ2VycHJpbnQiOiAiY2YyZTVkMTI0MTc1MTliNGIwNDM1OGIwMjI4NDJjNDYzM2NlZjc5NGIzN2ZlNWY0YThiNTEzNzRlNGVhYTRhMiIsCiAgInNlbWFudGljQ2FzZUZpbmdlcnByaW50IjogImUyYTFmMTc3MzFhMDJiMjEwNzQyMWVlOTU0MmE2ZjlmNzc0NWJmYTVhOWMzZjg2ZDJiZDBiOWZlNWVjMTZhNjEiLAogICJpbXBsZW1lbnRhdGlvbkZpbmdlcnByaW50IjogIjA4ODQ2ZTJjMzJmMmI3ZWI2MDFlODYwOGFkNmQxODJlZWYwMWE2ODJhMjI0MTc5ZmU2MDc1YTRmMTQwYmY4NWYiLAogICJleGVjdXRpb25Db250ZXh0IjogewogICAgImFwcGxpY2F0aW9uVmVyc2lvbkZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgImVudmlyb25tZW50SWQiOiAiYmFsYW14cWEiLAogICAgInRlbmFudFNjb3BlIjogIjAwMDQwNyIsCiAgICAibG9jYWxlIjogInVuZCIsCiAgICAicm9sZUlkIjogIm1lcmNoYW50LW9wZXJhdG9yIiwKICAgICJyb3V0ZSI6ICIvcHAvYnJhbmQvbGlzdCIKICB9LAogICJyZWxlYXNlT2JzZXJ2YXRpb24iOiB7CiAgICAic3RhdHVzIjogImRlcml2ZWQiLAogICAgImZpbmdlcnByaW50IjogIjFhNzU3ODdjNThlNjAwMTQxZTI2MzE3NDBjNDQ2Yjk0YjRlODE3OGU4MGZmMzk0ZWY1MWRjODhhNWJjNTg1YTUiLAogICAgInNvdXJjZSI6ICJicm93c2VyLXJ1bnRpbWUiLAogICAgInN0YWJsZSI6IGZhbHNlLAogICAgIm9ic2VydmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0OS43MTlaIgogIH0sCiAgImV4ZWN1dGlvbkVwb2NoSWQiOiAic3RhbmRhcmQtbmFtZS0yMDI2MDkwOC0wMi1oYW5kbGVkLWl0ZW0tcmV2YWxpZGF0aW9uIiwKICAiY2xhaW1zIjogewogICAgInJlcXVpcmVkIjogWwogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTEiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTIiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTMiCiAgICBdLAogICAgIm9ic2VydmVkIjogWwogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTEiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTIiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTMiCiAgICBdLAogICAgInZlcmlmaWVkIjogWwogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTEiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTIiLAogICAgICAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTMiCiAgICBdCiAgfSwKICAiYXNzZXJ0aW9uUmVjZWlwdHMiOiBbCiAgICB7CiAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tU1RELTEwMjpleHBlY3RhdGlvbi0xIiwKICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICJpbnZhbGlkIjogZmFsc2UsCiAgICAgICAgImVycm9ycyI6IFtdCiAgICAgIH0sCiAgICAgICJhY3R1YWxWYWx1ZSI6IHsKICAgICAgICAiaW52YWxpZCI6IGZhbHNlLAogICAgICAgICJlcnJvcnMiOiBbXQogICAgICB9LAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0sCiAgICB7CiAgICAgICJjbGFpbUlkIjogIlRDLUlURU0tU1RELTEwMjpleHBlY3RhdGlvbi0yIiwKICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICJleHBlY3RlZFZhbHVlIjogWwogICAgICAgICLmj5DkuqTmiJDlip8iLAogICAgICAgICJTdWNjZXNzZnVsbHkgU3VibWl0dGVkIgogICAgICBdLAogICAgICAiYWN0dWFsVmFsdWUiOiAiU3VjY2Vzc2Z1bGx5IFN1Ym1pdHRlZCIsCiAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAib2JzZXJ2YXRpb25DaGFubmVsIjogInVpIiwKICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgfSwKICAgIHsKICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTMiLAogICAgICAic3RhdHVzIjogInZlcmlmaWVkIiwKICAgICAgImV4cGVjdGVkVmFsdWUiOiB7CiAgICAgICAgImNvdW50IjogMSwKICAgICAgICAiYWN0dWFsTmFtZSI6ICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIgogICAgICB9LAogICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgImNvdW50IjogMSwKICAgICAgICAiYWN0dWFsTmFtZSI6ICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIgogICAgICB9LAogICAgICAiYWN0dWFsU3RhdHVzIjogIm9ic2VydmVkIiwKICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgImNvbXBhcmlzb24iOiAibWF0Y2hlZCIKICAgIH0KICBdLAogICJvcGVyYXRpb25SZWNlaXB0cyI6IFsKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJBdXRoRmxvdy5lc3RhYmxpc2hTZXNzaW9uIiwKICAgICAgInRpdGxlIjogIuW7uueri+WVhuaIt+S4reW/g+eZu+W9leaAgSIsCiAgICAgICJzZXF1ZW5jZSI6IDEsCiAgICAgICJtZXRob2QiOiAiZXN0YWJsaXNoU2Vzc2lvbiIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA2NjU0LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjIuOTY1WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjE5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjE5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiQXV0aEZsb3cuZW50ZXJXaXRoTWVyY2hhbnRDb250ZXh0IiwKICAgICAgInRpdGxlIjogIui/m+WFpeebruagh+mhtemdouW5tuWujOaIkCBPQXV0aCDnmbvlvZXkuI7llYbmiLfpgInmi6kiLAogICAgICAic2VxdWVuY2UiOiAyLAogICAgICAibWV0aG9kIjogImVudGVyV2l0aE1lcmNoYW50Q29udGV4dCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiA2MzAyLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjMuMjc3WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTc5WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTc5WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiTWVyY2hhbnRTZWxlY3Rpb25QYWdlLmlzQ3VycmVudE1lcmNoYW50IiwKICAgICAgInRpdGxlIjogIuWIpOaWreW9k+WJjeWVhuaIt+aYr+WQpuS4uu+8mk1lbnVzaWZ1IFNDSCBSZXN0YXVyYW50IiwKICAgICAgInNlcXVlbmNlIjogMywKICAgICAgIm1ldGhvZCI6ICJpc0N1cnJlbnRNZXJjaGFudCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjI5LjQ3NloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjI5LjUwM1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjI5LjUwM1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIk1lcmNoYW50U2VsZWN0aW9uUGFnZS5pc1Zpc2libGUiLAogICAgICAidGl0bGUiOiAi5Yik5pat5ZWG5oi36YCJ5oup5by556qX5piv5ZCm5Y+v6KeBIiwKICAgICAgInNlcXVlbmNlIjogNCwKICAgICAgIm1ldGhvZCI6ICJpc1Zpc2libGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMToyOS41MTNaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMToyOS41MjZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMToyOS41MjZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJNZXJjaGFudFNlbGVjdGlvblBhZ2Uud2FpdEZvckFwcFJlYWR5IiwKICAgICAgInRpdGxlIjogIuetieW+heW6lOeUqOS4u+eVjOmdouWwsee7qiIsCiAgICAgICJzZXF1ZW5jZSI6IDUsCiAgICAgICJtZXRob2QiOiAid2FpdEZvckFwcFJlYWR5IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDE3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTQwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTU3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTU3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU2lkZWJhclBhZ2UuZXhwZWN0UHJvZHVjdE1hbmFnZW1lbnRWaXNpYmxlIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeeuoeeQhuWFpeWPo+mTvuaOpeWPr+ingSIsCiAgICAgICJzZXF1ZW5jZSI6IDYsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0UHJvZHVjdE1hbmFnZW1lbnRWaXNpYmxlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDEzLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNTg5WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjAyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjAyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU3RhbmRhcmRJdGVtMjE2Q2FzZVJ1bm5lci5leGVjdXRlIiwKICAgICAgInRpdGxlIjogIuaJp+ihjOagh+WHhuWVhuWTgSAyMTYg55So5L6L5Yqo5L2c77yaVEMtSVRFTS1TVEQtMTAyIiwKICAgICAgInNlcXVlbmNlIjogNywKICAgICAgIm1ldGhvZCI6ICJleGVjdXRlIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDEzMjE5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjczWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuODkyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuODkyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU3RhbmRhcmRJdGVtMjE2Rmxvdy52ZXJpZnlOYW1lTm9ybWFsaXphdGlvbiIsCiAgICAgICJ0aXRsZSI6ICLpqozor4HmoIflh4bllYblk4HlkI3np7Dkv53lrZjlkI7nmoTmoLzlvI/ljJbnu4jmgIHvvJpUQy1JVEVNLVNURC0xMDIiLAogICAgICAic2VxdWVuY2UiOiA4LAogICAgICAibWV0aG9kIjogInZlcmlmeU5hbWVOb3JtYWxpemF0aW9uIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDEzMTcyLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MjkuNjkwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuODYyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuODYyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU3RhbmRhcmRJdGVtMjE2Rmxvdy52ZXJpZnlGb3JtYWxOYW1lRm9ybWF0IiwKICAgICAgInRpdGxlIjogIumqjOivgeato+W8j+WVhuWTgeWQjeensOagvOW8j+inhOWImeWPiuS/neWtmOe7iOaAge+8mlRDLUlURU0tU1RELTEwMiIsCiAgICAgICJzZXF1ZW5jZSI6IDksCiAgICAgICJtZXRob2QiOiAidmVyaWZ5Rm9ybWFsTmFtZUZvcm1hdCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxMzEyMSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjI5LjcxMloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjgzM1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjgzM1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVGbG93Lm9wZW5TdGFuZGFyZENyZWF0ZUZyb21MaXN0IiwKICAgICAgInRpdGxlIjogIuS7juWVhuWTgeWIl+ihqOi/m+WFpeagh+WHhuWVhuWTgeWIm+W7uumhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDEwLAogICAgICAibWV0aG9kIjogIm9wZW5TdGFuZGFyZENyZWF0ZUZyb21MaXN0IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQ5NDcsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozMy40OTRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOC40NDFaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOC40NDFaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlRmxvdy5vcGVuVHlwZVNlbGVjdGlvbkZyb21MaXN0IiwKICAgICAgInRpdGxlIjogIuS7juWVhuWTgeWIl+ihqOi/m+WFpeaWsOWinuWVhuWTgeexu+Wei+mAieaLqemhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDExLAogICAgICAibWV0aG9kIjogIm9wZW5UeXBlU2VsZWN0aW9uRnJvbUxpc3QiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDM4NywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjMzLjQ5OVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3Ljg4NloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3Ljg4NloiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0Rmxvdy5vcGVuTGlzdCIsCiAgICAgICJ0aXRsZSI6ICLmiZPlvIDllYblk4HliJfooajpobUiLAogICAgICAic2VxdWVuY2UiOiAxMiwKICAgICAgIm1ldGhvZCI6ICJvcGVuTGlzdCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzNzg1LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzMuNTI5WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuMzE0WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuMzE0WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLm9wZW4iLAogICAgICAidGl0bGUiOiAi5omT5byA5ZWG5ZOB5YiX6KGo6aG1IiwKICAgICAgInNlcXVlbmNlIjogMTMsCiAgICAgICJtZXRob2QiOiAib3BlbiIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzNzMwLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzMuNTU4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuMjg4WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuMjg4WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmV4cGVjdExvYWRlZCIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXllYblk4HliJfooajpobXliqDovb3lrozmiJAiLAogICAgICAic2VxdWVuY2UiOiAxNCwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzAzOCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM0LjI0MVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3LjI3OVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3LjI3OVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5lbnRlckNyZWF0ZVR5cGVQYWdlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeaWsOWinuWVhuWTgeexu+Wei+mAieaLqemhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDE1LAogICAgICAibWV0aG9kIjogImVudGVyQ3JlYXRlVHlwZVBhZ2UiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDIyLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuNDQ4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuODcwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuODcwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVR5cGVQYWdlLmV4cGVjdExvYWRlZCIsCiAgICAgICJ0aXRsZSI6ICLnrYnlvoXpgInmi6nllYblk4HnsbvlnovpobXliqDovb3lrozmiJAiLAogICAgICAic2VxdWVuY2UiOiAxNiwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RMb2FkZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjc2LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuNTg2WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuODYyWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuODYyWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVR5cGVQYWdlLmV4cGVjdFBhdGhuYW1lIiwKICAgICAgInRpdGxlIjogIuetieW+hemhtemdoui3r+W+hOS4uu+8mi9wcC9icmFuZC9jcmVhdGUiLAogICAgICAic2VxdWVuY2UiOiAxNywKICAgICAgIm1ldGhvZCI6ICJleHBlY3RQYXRobmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzMiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3LjU5MloiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3LjYyNFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3LjYyNFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVUeXBlUGFnZS5lbnRlclN0YW5kYXJkQ3JlYXRlIiwKICAgICAgInRpdGxlIjogIui/m+WFpeagh+WHhuWVhuWTgeWIm+W7uumhtSIsCiAgICAgICJzZXF1ZW5jZSI6IDE4LAogICAgICAibWV0aG9kIjogImVudGVyU3RhbmRhcmRDcmVhdGUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogNDk2LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuOTE3WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzguNDEzWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzguNDEzWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVN0YW5kYXJkUGFnZS5leHBlY3RMb2FkZWQiLAogICAgICAidGl0bGUiOiAi562J5b6F5qCH5YeG5ZWG5ZOB5Yib5bu66aG16L+b5YWl5Y+v5Lqk5LqS57uI5oCBIiwKICAgICAgInNlcXVlbmNlIjogMTksCiAgICAgICJtZXRob2QiOiAiZXhwZWN0TG9hZGVkIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQyMSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM3Ljk4M1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM4LjQwNFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM4LjQwNFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVTdGFuZGFyZFBhZ2UuZXhwZWN0UGF0aG5hbWUiLAogICAgICAidGl0bGUiOiAi562J5b6F6aG16Z2i6Lev5b6E5Li677yaL3BwL2JyYW5kL2NyZWF0ZS9zdGFuZGFyZCIsCiAgICAgICJzZXF1ZW5jZSI6IDIwLAogICAgICAibWV0aG9kIjogImV4cGVjdFBhdGhuYW1lIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDQ3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzcuOTg4WiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzguMDM1WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzguMDM1WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVN0YW5kYXJkUGFnZS5maWxsSXRlbU5hbWUiLAogICAgICAidGl0bGUiOiAi5aGr5YaZ5ZWG5ZOB5ZCN56ew77yaQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiIsCiAgICAgICJzZXF1ZW5jZSI6IDIxLAogICAgICAibWV0aG9kIjogImZpbGxJdGVtTmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzMDIsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOC40NzFaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOC43NzNaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOC43NzNaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlU3RhbmRhcmRQYWdlLmVuc3VyZUFkdmFuY2VkU2V0dGluZ3NFeHBhbmRlZCIsCiAgICAgICJ0aXRsZSI6ICLnoa7kv53pq5jnuqforr7nva7lt7LlsZXlvIAiLAogICAgICAic2VxdWVuY2UiOiAyMiwKICAgICAgIm1ldGhvZCI6ICJlbnN1cmVBZHZhbmNlZFNldHRpbmdzRXhwYW5kZWQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogOTYzLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzguNzgyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzkuNzQ1WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzkuNzQ1WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUNyZWF0ZVN0YW5kYXJkUGFnZS5jbGlja0FkdmFuY2VkU2V0dGluZ3MiLAogICAgICAidGl0bGUiOiAi54K55Ye76auY57qn6K6+572uIiwKICAgICAgInNlcXVlbmNlIjogMjMsCiAgICAgICJtZXRob2QiOiAiY2xpY2tBZHZhbmNlZFNldHRpbmdzIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDkyNCwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM4LjgwM1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM5LjcyN1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM5LjcyN1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1DcmVhdGVTdGFuZGFyZFBhZ2UuZmlsbE1pbmltdW1PcmRlclF1YW50aXR5IiwKICAgICAgInRpdGxlIjogIuWhq+WGmei1t+WUruaVsOmHj++8mjEiLAogICAgICAic2VxdWVuY2UiOiAyNCwKICAgICAgIm1ldGhvZCI6ICJmaWxsTWluaW11bU9yZGVyUXVhbnRpdHkiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjIsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS43NTRaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS43NzZaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS43NzZaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlU3RhbmRhcmRQYWdlLmZpbGxTdGFuZGFyZFByaWNlIiwKICAgICAgInRpdGxlIjogIuWhq+WGmeagh+WHhuS7t++8mjEwLjAwIiwKICAgICAgInNlcXVlbmNlIjogMjUsCiAgICAgICJtZXRob2QiOiAiZmlsbFN0YW5kYXJkUHJpY2UiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMzMsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS43ODZaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS44MTlaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS44MTlaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJTdGFuZGFyZE5hbWVGb3JtYXRQYWdlLnJlYWROYW1lRmVlZGJhY2siLAogICAgICAidGl0bGUiOiAi6K+75Y+W5ZWG5ZOB5ZCN56ew5a2X5q616Ieq6Lqr55qE5qC85byP5qCh6aqM5Y+N6aaIIiwKICAgICAgInNlcXVlbmNlIjogMjYsCiAgICAgICJtZXRob2QiOiAicmVhZE5hbWVGZWVkYmFjayIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzOSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM5LjgzMFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM5Ljg2OVoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjM5Ljg2OVoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlN0YW5kYXJkTmFtZUZvcm1hdFBhZ2UucmVhZFNhdmVTdWNjZXNzVGV4dCIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5bmoIflh4bllYblk4HliJvlu7rmiJDlip/mj5DnpLoiLAogICAgICAic2VxdWVuY2UiOiAyNywKICAgICAgIm1ldGhvZCI6ICJyZWFkU2F2ZVN1Y2Nlc3NUZXh0IiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDE4NTUsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTozOS44ODVaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0MS43NDBaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0MS43NDBaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtQ3JlYXRlU3RhbmRhcmRQYWdlLmNsaWNrU2F2ZSIsCiAgICAgICJ0aXRsZSI6ICLngrnlh7vkv53lrZgiLAogICAgICAic2VxdWVuY2UiOiAyOCwKICAgICAgIm1ldGhvZCI6ICJjbGlja1NhdmUiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjY3LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6MzkuODkwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDAuMTU3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDAuMTU3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiU3RhbmRhcmROYW1lRm9ybWF0UGFnZS5yZWFkTmFtZUZlZWRiYWNrIiwKICAgICAgInRpdGxlIjogIuivu+WPluWVhuWTgeWQjeensOWtl+auteiHqui6q+eahOagvOW8j+agoemqjOWPjemmiCIsCiAgICAgICJzZXF1ZW5jZSI6IDI5LAogICAgICAibWV0aG9kIjogInJlYWROYW1lRmVlZGJhY2siLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMTIsCiAgICAgICJzdGFydGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0MC4xNjhaIiwKICAgICAgImZpbmlzaGVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0MC4xODBaIiwKICAgICAgIm9jY3VycmVkQXQiOiAiMjAyNi0wOS0wOFQxMjowMTo0MC4xODBaIgogICAgfSwKICAgIHsKICAgICAgIm9wZXJhdGlvbktleSI6ICJJdGVtTGlzdFBhZ2UuZXhwZWN0TG9hZGVkIiwKICAgICAgInRpdGxlIjogIuetieW+heWVhuWTgeWIl+ihqOmhteWKoOi9veWujOaIkCIsCiAgICAgICJzZXF1ZW5jZSI6IDMwLAogICAgICAibWV0aG9kIjogImV4cGVjdExvYWRlZCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyMiwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQxLjc1OFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQxLjc4MFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQxLjc4MFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5maWxsU2VhcmNoQW5kV2FpdCIsCiAgICAgICJ0aXRsZSI6ICLmjInllYblk4HlkI3np7DmkJzntKLlubbnrYnlvoXmjqXlj6PlrozmiJDvvJpBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIiwKICAgICAgInNlcXVlbmNlIjogMzEsCiAgICAgICJtZXRob2QiOiAiZmlsbFNlYXJjaEFuZFdhaXQiLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogOTUxLAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDEuNzkwWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuNzQxWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDIuNzQxWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmV4cGVjdFVuaXF1ZUl0ZW1WaXNpYmxlIiwKICAgICAgInRpdGxlIjogIuetieW+heWIl+ihqOWUr+S4gOWxleekuuWVhuWTge+8mkFVVE9fQVVESVRfRjNOMFRRN09QTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4gTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4iLAogICAgICAic2VxdWVuY2UiOiAzMiwKICAgICAgIm1ldGhvZCI6ICJleHBlY3RVbmlxdWVJdGVtVmlzaWJsZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjc1MFoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjc4N1oiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjc4N1oiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlN0YW5kYXJkTmFtZUZvcm1hdFBhZ2UucmVhZEV4YWN0TmFtZSIsCiAgICAgICJ0aXRsZSI6ICLor7vlj5bliJfooajkuK3lrozmlbTllYblk4HlkI3np7DnmoTnsr7noa7ljLnphY3vvJpBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIiwKICAgICAgInNlcXVlbmNlIjogMzMsCiAgICAgICJtZXRob2QiOiAicmVhZEV4YWN0TmFtZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAxNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjc5N1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjgxNFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQyLjgxNFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIlN0YW5kYXJkSXRlbTIxNkZsb3cudmVyaWZ5WmVyb1Jlc2lkdWUiLAogICAgICAidGl0bGUiOiAi6aqM6K+B5qCH5YeG5ZWG5ZOB55So5L6LIFVJL0FQSSDpm7bmrovnlZkiLAogICAgICAic2VxdWVuY2UiOiAzNCwKICAgICAgIm1ldGhvZCI6ICJ2ZXJpZnlaZXJvUmVzaWR1ZSIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAyNjA1LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDcuMDQyWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDkuNjQ3WiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDkuNjQ3WiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLmZpbGxTZWFyY2hGb3JSZXNpZHVlQ2hlY2siLAogICAgICAidGl0bGUiOiAi5oyJ5ZWG5ZOB5ZCN56ew5omn6KGM5q6L55WZ5pCc57Si77yaQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiIsCiAgICAgICJzZXF1ZW5jZSI6IDM1LAogICAgICAibWV0aG9kIjogImZpbGxTZWFyY2hGb3JSZXNpZHVlQ2hlY2siLAogICAgICAib2JzZXJ2ZWQiOiB0cnVlLAogICAgICAic3RhdHVzIjogInBhc3NlZCIsCiAgICAgICJkdXJhdGlvbk1zIjogMjUxNywKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ3LjA0N1oiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ5LjU2NFoiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ5LjU2NFoiCiAgICB9LAogICAgewogICAgICAib3BlcmF0aW9uS2V5IjogIkl0ZW1MaXN0UGFnZS5leHBlY3RFbXB0eVNlYXJjaFJlc3VsdHMiLAogICAgICAidGl0bGUiOiAi562J5b6F5pCc57Si5peg57uT5p6cIiwKICAgICAgInNlcXVlbmNlIjogMzYsCiAgICAgICJtZXRob2QiOiAiZXhwZWN0RW1wdHlTZWFyY2hSZXN1bHRzIiwKICAgICAgIm9ic2VydmVkIjogdHJ1ZSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiZHVyYXRpb25NcyI6IDY5LAogICAgICAic3RhcnRlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDkuNTcxWiIsCiAgICAgICJmaW5pc2hlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDkuNjQwWiIsCiAgICAgICJvY2N1cnJlZEF0IjogIjIwMjYtMDktMDhUMTI6MDE6NDkuNjQwWiIKICAgIH0sCiAgICB7CiAgICAgICJvcGVyYXRpb25LZXkiOiAiSXRlbUxpc3RQYWdlLnJlYWRWaXNpYmxlUm93Q291bnQiLAogICAgICAidGl0bGUiOiAi6K+75Y+W5b2T5YmN5YiX6KGo5pWw5o2u6KGM5pWwIiwKICAgICAgInNlcXVlbmNlIjogMzcsCiAgICAgICJtZXRob2QiOiAicmVhZFZpc2libGVSb3dDb3VudCIsCiAgICAgICJvYnNlcnZlZCI6IHRydWUsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgImR1cmF0aW9uTXMiOiAzMSwKICAgICAgInN0YXJ0ZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ5LjU3NVoiLAogICAgICAiZmluaXNoZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ5LjYwNloiLAogICAgICAib2NjdXJyZWRBdCI6ICIyMDI2LTA5LTA4VDEyOjAxOjQ5LjYwNloiCiAgICB9CiAgXSwKICAiY2xlYW51cCI6IHsKICAgICJhcGlaZXJvUmVzaWR1ZSI6IHRydWUsCiAgICAidWlaZXJvUmVzaWR1ZSI6IHRydWUsCiAgICAidWlWZXJpZmljYXRpb25PYnNlcnZlZCI6IHRydWUsCiAgICAiYXBpSWRlbnRpdHlDb3VudHMiOiB7CiAgICAgICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIjogMAogICAgfSwKICAgICJ1aUlkZW50aXR5Q291bnRzIjogewogICAgICAiQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiI6IDAKICAgIH0KICB9LAogICJoYW5kbGVySWQiOiAiaXRlbS0yMTY6bmFtZS1mb3JtYXQ6VEMtSVRFTS1TVEQtMTAyIiwKICAiZXZpZGVuY2VGaW5nZXJwcmludCI6ICJlMGRjZWYzZDU4YzAzNmQ5MDQ0OGRmMjVmMzE0OWY2MmFjZWQwMmYxNDQyZDgxYmJjNGQyZjZkOTFlM2EyNTIyIgp9"
+                        },
+                        {
+                          "name": "TC-ITEM-STD-102-runtime-evidence",
+                          "contentType": "application/json",
+                          "body": "ewogICJjYXNlSWQiOiAiVEMtSVRFTS1TVEQtMTAyIiwKICAic3RhdHVzIjogImltcGxlbWVudGVkIiwKICAiZXZpZGVuY2UiOiB7CiAgICAicm91dGUiOiAiL3BwL2JyYW5kL2xpc3QiLAogICAgImlkZW50aXR5IjogIkFVVE9fQVVESVRfRjNOMFRRN09QTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4gTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4iLAogICAgImlkZW50aXRpZXMiOiBbCiAgICAgICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIgogICAgXSwKICAgICJzZXJ2ZXJJZCI6IDM1NTAzLAogICAgIm5ldHdvcmsiOiB7CiAgICAgICJhdHRlbXB0ZWQiOiAxLAogICAgICAiYWNjZXB0ZWQiOiAxLAogICAgICAicGVuZGluZyI6IDAsCiAgICAgICJmYWlsZWQiOiAwLAogICAgICAidW5yZWFkYWJsZSI6IDAKICAgIH0sCiAgICAiZmllbGQiOiB7CiAgICAgICJ2YWx1ZSI6ICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIiwKICAgICAgImludmFsaWQiOiBmYWxzZSwKICAgICAgImVycm9ycyI6IFtdCiAgICB9LAogICAgImFzc2VydGlvblJlY2VpcHRzIjogWwogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTEiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICAgImludmFsaWQiOiBmYWxzZSwKICAgICAgICAgICJlcnJvcnMiOiBbXQogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogewogICAgICAgICAgImludmFsaWQiOiBmYWxzZSwKICAgICAgICAgICJlcnJvcnMiOiBbXQogICAgICAgIH0sCiAgICAgICAgImFjdHVhbFN0YXR1cyI6ICJvYnNlcnZlZCIsCiAgICAgICAgIm9ic2VydmF0aW9uQ2hhbm5lbCI6ICJ1aSIsCiAgICAgICAgImF1dGhvcml0eSI6ICJ1c2VyLXZpc2libGUiLAogICAgICAgICJjb21wYXJpc29uIjogIm1hdGNoZWQiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiY2xhaW1JZCI6ICJUQy1JVEVNLVNURC0xMDI6ZXhwZWN0YXRpb24tMiIsCiAgICAgICAgInN0YXR1cyI6ICJ2ZXJpZmllZCIsCiAgICAgICAgImV4cGVjdGVkVmFsdWUiOiBbCiAgICAgICAgICAi5o+Q5Lqk5oiQ5YqfIiwKICAgICAgICAgICJTdWNjZXNzZnVsbHkgU3VibWl0dGVkIgogICAgICAgIF0sCiAgICAgICAgImFjdHVhbFZhbHVlIjogIlN1Y2Nlc3NmdWxseSBTdWJtaXR0ZWQiLAogICAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAgICJvYnNlcnZhdGlvbkNoYW5uZWwiOiAidWkiLAogICAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgICB9LAogICAgICB7CiAgICAgICAgImNsYWltSWQiOiAiVEMtSVRFTS1TVEQtMTAyOmV4cGVjdGF0aW9uLTMiLAogICAgICAgICJzdGF0dXMiOiAidmVyaWZpZWQiLAogICAgICAgICJleHBlY3RlZFZhbHVlIjogewogICAgICAgICAgImNvdW50IjogMSwKICAgICAgICAgICJhY3R1YWxOYW1lIjogIkFVVE9fQVVESVRfRjNOMFRRN09QTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4gTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4iCiAgICAgICAgfSwKICAgICAgICAiYWN0dWFsVmFsdWUiOiB7CiAgICAgICAgICAiY291bnQiOiAxLAogICAgICAgICAgImFjdHVhbE5hbWUiOiAiQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiIKICAgICAgICB9LAogICAgICAgICJhY3R1YWxTdGF0dXMiOiAib2JzZXJ2ZWQiLAogICAgICAgICJvYnNlcnZhdGlvbkNoYW5uZWwiOiAidWkiLAogICAgICAgICJhdXRob3JpdHkiOiAidXNlci12aXNpYmxlIiwKICAgICAgICAiY29tcGFyaXNvbiI6ICJtYXRjaGVkIgogICAgICB9CiAgICBdLAogICAgImNsZWFudXBFdmlkZW5jZSI6IHsKICAgICAgImFwaUlkZW50aXR5Q291bnRzIjogewogICAgICAgICJBVVRPX0FVRElUX0YzTjBUUTdPUE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIE5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OIjogMAogICAgICB9LAogICAgICAiYXBpSWRlbnRpdHlLaW5kcyI6IHsKICAgICAgICAiQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiI6ICJpdGVtIgogICAgICB9LAogICAgICAic2VydmVySWRzIjogWwogICAgICAgIDM1NTAzCiAgICAgIF0sCiAgICAgICJ2ZXJpZmllZFplcm8iOiB0cnVlLAogICAgICAib2JqZWN0cyI6IFsKICAgICAgICB7CiAgICAgICAgICAiZW50aXR5VHlwZSI6ICJpdGVtIiwKICAgICAgICAgICJzZXJ2ZXJJZCI6IDM1NTAzLAogICAgICAgICAgImJ1c2luZXNzSWRlbnRpdHkiOiAiQVVUT19BVURJVF9GM04wVFE3T1BOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiBOTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTiIsCiAgICAgICAgICAiY2xlYW51cEF0dGVtcHQiOiAxLAogICAgICAgICAgImFwaVJlc2lkdWVDb3VudCI6IDAsCiAgICAgICAgICAib3V0Y29tZSI6ICJ2ZXJpZmllZC16ZXJvIgogICAgICAgIH0KICAgICAgXSwKICAgICAgInVpSWRlbnRpdHlDb3VudHMiOiB7CiAgICAgICAgIkFVVE9fQVVESVRfRjNOMFRRN09QTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4gTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk4iOiAwCiAgICAgIH0KICAgIH0KICB9Cn0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d16020721d8463617199-e4ea12d144d8ba9179ad",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            },
+            {
+              "title": "商品名称包含 emoji 时保存失败",
+              "ok": false,
+              "tags": [
+                "product-center-item",
+                "case-TC-ITEM-STD-103"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "canonical-case-id",
+                      "description": "TC-ITEM-STD-103",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "conversion-status",
+                      "description": "flow-bound",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    },
+                    {
+                      "type": "runtime-readiness",
+                      "description": "ready",
+                      "location": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                        "line": 8468,
+                        "column": 22
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 66463,
+                      "error": {
+                        "message": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.",
+                        "stack": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.\n    at Timeout.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts:179:45)",
+                        "location": {
+                          "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts",
+                          "column": 45,
+                          "line": 179
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\..\\Test Automation Platform\\src\\utils\\wait.ts:179\n\n  177 |       Promise.resolve().then(probe),\n  178 |       new Promise<never>((_, reject) => {\n> 179 |         timeoutId = setTimeout(() => reject(new WaitUntilError(\n      |                                             ^\n  180 |           message,\n  181 |           { kind: 'probe-timeout', timeoutMs: timeout, observation },\n  182 |         )), timeout);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts",
+                            "column": 45,
+                            "line": 179
+                          },
+                          "message": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.\n\n   at ..\\..\\Test Automation Platform\\src\\utils\\wait.ts:179\n\n  177 |       Promise.resolve().then(probe),\n  178 |       new Promise<never>((_, reject) => {\n> 179 |         timeoutId = setTimeout(() => reject(new WaitUntilError(\n      |                                             ^\n  180 |           message,\n  181 |           { kind: 'probe-timeout', timeoutMs: timeout, observation },\n  182 |         )), timeout);\n    at Timeout.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts:179:45)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "执行标准商品 216 用例动作：TC-ITEM-STD-103",
+                          "duration": 8776,
+                          "error": {
+                            "message": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                            "stack": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at verify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228:62)\n    at StandardItem216Flow.verifyFormalNameFormat (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1276:9)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216CaseRunner.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8493:26",
+                            "location": {
+                              "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts",
+                              "column": 62,
+                              "line": 1228
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228\n\n  1226 |     const assertions: Array<Record<string, unknown>> = [];\n  1227 |     const verify = (number: number, actualValue: unknown, expectedValue: unknown) => {\n> 1228 |       expect(actualValue, `${caseId}:expectation-${number}`).toEqual(expectedValue);\n       |                                                              ^\n  1229 |       assertions.push({claimId:`${caseId}:expectation-${number}`,status:'verified',expectedValue,actualValue,\n  1230 |         actualStatus:'observed',observationChannel:'ui',authority:'user-visible',comparison:'matched'});\n  1231 |     };"
+                          },
+                          "steps": [
+                            {
+                              "title": "验证标准商品名称保存后的格式化终态：TC-ITEM-STD-103",
+                              "duration": 8741,
+                              "error": {
+                                "message": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                                "stack": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at verify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228:62)\n    at StandardItem216Flow.verifyFormalNameFormat (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1276:9)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216CaseRunner.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8493:26",
+                                "location": {
+                                  "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts",
+                                  "column": 62,
+                                  "line": 1228
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228\n\n  1226 |     const assertions: Array<Record<string, unknown>> = [];\n  1227 |     const verify = (number: number, actualValue: unknown, expectedValue: unknown) => {\n> 1228 |       expect(actualValue, `${caseId}:expectation-${number}`).toEqual(expectedValue);\n       |                                                              ^\n  1229 |       assertions.push({claimId:`${caseId}:expectation-${number}`,status:'verified',expectedValue,actualValue,\n  1230 |         actualStatus:'observed',observationChannel:'ui',authority:'user-visible',comparison:'matched'});\n  1231 |     };"
+                              },
+                              "steps": [
+                                {
+                                  "title": "验证正式商品名称格式规则及保存终态：TC-ITEM-STD-103",
+                                  "duration": 8706,
+                                  "error": {
+                                    "message": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m",
+                                    "stack": "Error: TC-ITEM-STD-103:expectation-1\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"accepted\": 0,\u001b[39m\n\u001b[32m-   \"invalid\": true,\u001b[39m\n\u001b[32m-   \"route\": \"/pp/brand/create/standard\",\u001b[39m\n\u001b[31m+   \"accepted\": 1,\u001b[39m\n\u001b[31m+   \"invalid\": false,\u001b[39m\n\u001b[31m+   \"route\": \"/pp/brand/list\",\u001b[39m\n\u001b[2m    \"successCount\": 0,\u001b[22m\n\u001b[2m  }\u001b[22m\n    at verify (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228:62)\n    at StandardItem216Flow.verifyFormalNameFormat (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1276:9)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216Flow.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at StandardItem216CaseRunner.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\utils\\step.ts:34:24)\n    at D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts:8493:26",
+                                    "location": {
+                                      "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\flows\\product-center\\item-216\\standard-item-216.flow.ts",
+                                      "column": 62,
+                                      "line": 1228
+                                    },
+                                    "snippet": "\u001b[90m   at \u001b[39m..\\flows\\product-center\\item-216\\standard-item-216.flow.ts:1228\n\n  1226 |     const assertions: Array<Record<string, unknown>> = [];\n  1227 |     const verify = (number: number, actualValue: unknown, expectedValue: unknown) => {\n> 1228 |       expect(actualValue, `${caseId}:expectation-${number}`).toEqual(expectedValue);\n       |                                                              ^\n  1229 |       assertions.push({claimId:`${caseId}:expectation-${number}`,status:'verified',expectedValue,actualValue,\n  1230 |         actualStatus:'observed',observationChannel:'ui',authority:'user-visible',comparison:'matched'});\n  1231 |     };"
+                                  },
+                                  "steps": [
+                                    {
+                                      "title": "从商品列表进入标准商品创建页",
+                                      "duration": 4942,
+                                      "steps": [
+                                        {
+                                          "title": "从商品列表进入新增商品类型选择页",
+                                          "duration": 4348,
+                                          "steps": [
+                                            {
+                                              "title": "打开商品列表页",
+                                              "duration": 3763,
+                                              "steps": [
+                                                {
+                                                  "title": "打开商品列表页",
+                                                  "duration": 3704,
+                                                  "steps": [
+                                                    {
+                                                      "title": "等待商品列表页加载完成",
+                                                      "duration": 2871
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "title": "进入新增商品类型选择页",
+                                              "duration": 379,
+                                              "steps": [
+                                                {
+                                                  "title": "等待选择商品类型页加载完成",
+                                                  "duration": 267,
+                                                  "steps": [
+                                                    {
+                                                      "title": "等待页面路径为：/pp/brand/create",
+                                                      "duration": 0
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "title": "进入标准商品创建页",
+                                          "duration": 508,
+                                          "steps": [
+                                            {
+                                              "title": "等待标准商品创建页进入可交互终态",
+                                              "duration": 416,
+                                              "steps": [
+                                                {
+                                                  "title": "等待页面路径为：/pp/brand/create/standard",
+                                                  "duration": 0
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "填写商品名称：AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+                                      "duration": 264
+                                    },
+                                    {
+                                      "title": "确保高级设置已展开",
+                                      "duration": 908,
+                                      "steps": [
+                                        {
+                                          "title": "点击高级设置",
+                                          "duration": 861
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "title": "填写起售数量：1",
+                                      "duration": 18
+                                    },
+                                    {
+                                      "title": "填写标准价：10.00",
+                                      "duration": 42
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的格式校验反馈",
+                                      "duration": 41
+                                    },
+                                    {
+                                      "title": "点击保存",
+                                      "duration": 282
+                                    },
+                                    {
+                                      "title": "读取商品名称字段自身的格式校验反馈",
+                                      "duration": 10
+                                    },
+                                    {
+                                      "title": "读取保存成功消息数量",
+                                      "duration": 39
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "title": "验证标准商品用例 UI/API 零残留",
+                          "duration": 45051,
+                          "error": {
+                            "message": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.",
+                            "stack": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.\n    at Timeout.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts:179:45)",
+                            "location": {
+                              "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts",
+                              "column": 45,
+                              "line": 179
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\..\\Test Automation Platform\\src\\utils\\wait.ts:179\n\n  177 |       Promise.resolve().then(probe),\n  178 |       new Promise<never>((_, reject) => {\n> 179 |         timeoutId = setTimeout(() => reject(new WaitUntilError(\n      |                                             ^\n  180 |           message,\n  181 |           { kind: 'probe-timeout', timeoutMs: timeout, observation },\n  182 |         )), timeout);"
+                          },
+                          "steps": [
+                            {
+                              "title": "按商品名称执行残留搜索：AUTO_AUDIT_F3N19QLOQ_商品名称😀103",
+                              "duration": 45009,
+                              "error": {
+                                "message": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.",
+                                "stack": "WaitUntilError: [WAIT_UNTIL_PROBE_TIMEOUT] 商品残留搜索未稳定收敛：AUTO_AUDIT_F3N19QLOQ_商品名称😀103 Probe did not settle within 2801ms.\n    at Timeout.<anonymous> (D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts:179:45)",
+                                "location": {
+                                  "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts",
+                                  "column": 45,
+                                  "line": 179
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\..\\Test Automation Platform\\src\\utils\\wait.ts:179\n\n  177 |       Promise.resolve().then(probe),\n  178 |       new Promise<never>((_, reject) => {\n> 179 |         timeoutId = setTimeout(() => reject(new WaitUntilError(\n      |                                             ^\n  180 |           message,\n  181 |           { kind: 'probe-timeout', timeoutMs: timeout, observation },\n  182 |         )), timeout);"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "startTime": "2026-09-08T12:01:49.856Z",
+                      "annotations": [
+                        {
+                          "type": "canonical-case-id",
+                          "description": "TC-ITEM-STD-103",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "conversion-status",
+                          "description": "flow-bound",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        },
+                        {
+                          "type": "runtime-readiness",
+                          "description": "ready",
+                          "location": {
+                            "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\tests\\generated\\product-center-item-216.generated.spec.ts",
+                            "line": 8468,
+                            "column": 22
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\standard-name-20260908-02-handled-item-revalidation\\generated-product-center-i-a41bf--商品自动化入口-商品名称包含-emoji-时保存失败-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Merchant Center UITest\\test-results\\standard-name-20260908-02-handled-item-revalidation\\generated-product-center-i-a41bf--商品自动化入口-商品名称包含-emoji-时保存失败-chrome\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\Menusifu\\product-center-suite\\projects\\project-a\\Test Automation Platform\\src\\utils\\wait.ts",
+                        "column": 45,
+                        "line": 179
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d16020721d8463617199-2e294604378b263a8915",
+              "file": "generated/product-center-item-216.generated.spec.ts",
+              "line": 8468,
+              "column": 22
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T12:01:21.289Z",
+    "duration": 95423.328,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

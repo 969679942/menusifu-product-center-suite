@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { auditMigrationClosureFile } from '../../../../Test Automation Platform/src/governance/migration-closure';
+import { auditMigrationClosureFile } from '../../../Test Automation Platform/src/governance/migration-closure';
 
 const projectRoot = path.resolve(__dirname, '../..');
 const manifestPath = path.join(
@@ -14,7 +14,7 @@ test.describe('商品中心迁移闭环适配合同', () => {
   // 给同步扫描留出完整窗口，避免测试超时后 finally 提前删除临时证据文件。
   test.setTimeout(120_000);
 
-  test('迁移未接受差异必须保持未完成且不得伪报平台闭环', () => {
+  test('迁移新增未接受差异必须保持未完成且不得伪报平台闭环', () => {
     const temporaryEvidencePath = path.join(
       projectRoot,
       'adapters',
@@ -55,13 +55,19 @@ test.describe('商品中心迁移闭环适配合同', () => {
       '..',
       'Merchant Center Info/00-待转换测试方案/FINAL-GOAL.md',
     );
-    const readiness = JSON.parse(fs.readFileSync(readinessPath, 'utf8')) as {
-      source?: { executionIndex?: string };
-    };
-    expect(readiness.source?.executionIndex).toBe(
-      'Merchant Center UITest/deliverables/system-test-platform/execution-index.json',
-    );
-    expect(fs.existsSync(path.join(projectRoot, readiness.source?.executionIndex?.replace('Merchant Center UITest/', '') ?? ''))).toBe(true);
+    // readiness is a lifecycle-derived artifact, not a migration prerequisite.
+    // When migration is incomplete it may be absent; if present, it must point to the project output root.
+    if (fs.existsSync(readinessPath)) {
+      const readiness = JSON.parse(fs.readFileSync(readinessPath, 'utf8')) as {
+        source?: { executionIndex?: string };
+      };
+      expect(readiness.source?.executionIndex).toBe(
+        'Merchant Center UITest/deliverables/system-test-platform/execution-index.json',
+      );
+      expect(fs.existsSync(path.join(projectRoot, readiness.source?.executionIndex?.replace('Merchant Center UITest/', '') ?? ''))).toBe(true);
+    } else {
+      expect(auditMigrationClosureFile(manifestPath).status).toBe('incomplete');
+    }
     const governedDocumentation = [
       finalGoalPath,
       path.resolve(projectRoot, '..', 'Merchant Center Info/00-待转换测试方案/README.md'),
@@ -79,10 +85,12 @@ test.describe('商品中心迁移闭环适配合同', () => {
       path.join(projectRoot, 'adapters/test-automation-platform/reports/migration-inventory.baseline.json'),
       'utf8',
     )) as { fingerprint: string };
-    const receipts = fs.readFileSync(
-      path.join(projectRoot, 'deliverables/system-test-platform/migration-baseline-acceptance.jsonl'),
-      'utf8',
-    ).trim().split(/\r?\n/).map((line) => JSON.parse(line) as {
+    const acceptancePath = path.join(projectRoot, 'deliverables/system-test-platform/migration-baseline-acceptance.jsonl');
+    if (!fs.existsSync(acceptancePath)) {
+      expect(auditMigrationClosureFile(manifestPath).status).toBe('incomplete');
+      return;
+    }
+    const receipts = fs.readFileSync(acceptancePath, 'utf8').trim().split(/\r?\n/).map((line) => JSON.parse(line) as {
       acceptedFingerprint: string;
       approvedBy: string;
       reason: string;

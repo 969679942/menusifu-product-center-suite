@@ -1,0 +1,77 @@
+{
+  "recordedAt": "2026-09-08T13:59:29.776Z",
+  "caseId": "TC-ITEM-STD-030",
+  "runId": "standard-query-return-20260908-01",
+  "status": "completed-with-findings",
+  "runtimeStatus": "failed",
+  "qualification": {
+    "accepted": false,
+    "reasons": [
+      "ASSERTION_NOT_VERIFIED",
+      "DECLARED_ASSERTION_SET_MISMATCH",
+      "OPERATION_EXECUTION_EVIDENCE_INCOMPLETE",
+      "OPERATION_RECEIPT_MISSING"
+    ]
+  },
+  "assertions": [
+    {
+      "claimId": "TC-ITEM-STD-030:expectation-1",
+      "status": "observed-mismatch",
+      "actualValue": [
+        "Standard"
+      ],
+      "expectedValue": [],
+      "actualStatus": "observed",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "comparison": "mismatched"
+    }
+  ],
+  "operations": [
+    {
+      "operationKey": "TC-ITEM-STD-030:action-1",
+      "title": "进入商品列表并准备标准商品筛选",
+      "sequence": 2,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 8868,
+      "startedAt": "2026-09-08T13:57:44.410Z",
+      "finishedAt": "2026-09-08T13:57:53.278Z",
+      "occurredAt": "2026-09-08T13:57:53.278Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-030:action-2",
+      "title": "进入分类页面后通过侧边栏返回商品列表",
+      "sequence": 12,
+      "method": "ui",
+      "observed": true,
+      "status": "passed",
+      "durationMs": 851,
+      "startedAt": "2026-09-08T13:57:53.283Z",
+      "finishedAt": "2026-09-08T13:57:54.134Z",
+      "occurredAt": "2026-09-08T13:57:54.134Z"
+    },
+    {
+      "operationKey": "TC-ITEM-STD-030:action-3",
+      "title": "核对返回列表后的类型筛选为空",
+      "sequence": 14,
+      "method": "ui",
+      "observed": false,
+      "status": "failed",
+      "durationMs": 241,
+      "startedAt": "2026-09-08T13:57:54.143Z",
+      "finishedAt": "2026-09-08T13:57:54.384Z",
+      "occurredAt": "2026-09-08T13:57:54.384Z"
+    }
+  ],
+  "stateRestored": true,
+  "reportPath": "output/product-center-item-source-governed-standard-query-return-20260908-01-source-governed.json",
+  "reportSha256": "d8f4e59b5c48a0e882a1d2ff86a8c260277e69e60912294b3c5bb21fe21c0e97",
+  "businessCrudPerformed": false,
+  "productFailureConfirmed": false,
+  "classification": "observed-mismatch-stability-evidence-incomplete",
+  "reason": "返回页面后241ms内读取仍选中Standard；尚未通过有界状态稳定观察排除初始化时序，不能直接认定稳定产品失败",
+  "nextAction": "仅补当前状态稳定观察：复用真实定位，在有界条件等待后保留完整期望/实际轨迹；下一获准执行机会按既有用户规则定向验证，不重复询问业务裁决",
+  "passedCaseImpact": "8条已合格用例实现指纹不变，未重跑"
+}

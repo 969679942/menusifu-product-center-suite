@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-09-08T18:43:55.835Z",
+  "input": {
+    "unitId": "addon-011-detail-readback-execution-01-resume",
+    "directionId": "addon-011-detail-readback-runtime",
+    "phase": "before-start",
+    "tokenStart": 2623783,
+    "tokenCurrent": 2623783,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "ADD011-current-result"
+    ],
+    "afterQuestionIds": [
+      "ADD011-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/addon-011-detail-readback-diagnosis.json",
+        "sha256": "84ee7ff936eff5b6de11d9a5c090cc837c8740bc0040522e224f37292e03e259",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-011-detail-readback-execution-01-resume",
+    "directionId": "addon-011-detail-readback-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "84ee7ff936eff5b6de11d9a5c090cc837c8740bc0040522e224f37292e03e259"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

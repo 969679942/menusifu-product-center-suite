@@ -2,8 +2,8 @@ import { createHash } from 'node:crypto';
 import {
   buildBusinessRuleEvaluationEvents,
   type BusinessRuleDecisionDetails,
-} from '../../../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
-import type { AuditEventInput } from '../../../../Test Automation Platform/src/audit/event-log';
+} from '../../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
+import type { AuditEventInput } from '../../../Test Automation Platform/src/audit/event-log';
 import type { BusinessRuleSemanticBaseline, BusinessRuleChangeTriggerResult } from '../../automation/system-test/business-rule-change-trigger';
 import type { ProductCenterBusinessRuleLifecycleSnapshot } from './product-center-business-rule-lifecycle-adapter';
 

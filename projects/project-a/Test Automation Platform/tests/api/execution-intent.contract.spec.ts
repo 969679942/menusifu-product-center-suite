@@ -168,6 +168,17 @@ test.describe('公共执行意图兜底合同', () => {
     })).not.toThrow();
   });
 
+  test('全量回归拒绝缩减可执行全集，并拒绝未进入正式范围守恒的用例', () => {
+    const full = intent({ mode: 'full-regression', stage: 'full' });
+    expect(() => assertExecutionIntentContract({
+      intent: { ...full, selectedCaseIds: ['CASE-A'], routes: { routeA: ['CASE-A'] } },
+    })).toThrow('EXECUTION_INTENT_FULL_REGRESSION_NOT_COMPLETE_SCOPE');
+    expect(() => assertExecutionIntentImpactScope({
+      intent: full,
+      impactedCaseIds: ['CASE-A', 'CASE-B', 'CASE-C'],
+    })).toThrow('EXECUTION_INTENT_IMPACT_SCOPE_MISMATCH:missing=CASE-C;unexpected=');
+  });
+
   test('拒绝 checkpoint 中伪造或错配的终态集合', () => {
     expect(() => assertExecutionIntentCheckpointState({
       intent: intent(), terminalCaseIds: ['CASE-A'], incompleteCaseIds: [],

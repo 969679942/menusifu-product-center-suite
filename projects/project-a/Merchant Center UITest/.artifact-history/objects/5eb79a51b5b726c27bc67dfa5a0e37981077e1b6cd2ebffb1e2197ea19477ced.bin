@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-09-08T15:50:57.861Z",
+  "status": "source-and-DOM-contract-ready",
+  "caseIds": [
+    "TC-ITEM-STD-041",
+    "TC-ITEM-STD-042"
+  ],
+  "sourceOperations": [
+    1,
+    2
+  ],
+  "sourceAssertions": [
+    2,
+    2
+  ],
+  "independentCollapsedSignal": "down",
+  "independentExpandedSignal": "up",
+  "ariaExpanded": null,
+  "verifiedFieldIdentities": 8,
+  "defaultFieldsMounted": 0,
+  "expandedFieldsVisible": 8,
+  "restored": true,
+  "formalCasesExecuted": 0,
+  "currentQualified": 10,
+  "notQualified": 194,
+  "observations": "deliverables/system-test-platform/advanced-settings-dom-observation.json",
+  "contractPath": "contracts/product-center/test-cases/standard-advanced-settings-acceptance.json",
+  "nextUnit": "STD041-042-independent-readonly-implementation",
+  "implementationRequirements": [
+    "独立Page/flow/fixture/spec，不改10条合格依赖",
+    "折叠态只读当前按钮单一down/up图标，缺失或未知图标维持证据不全",
+    "字段读取异常向上传播；041初始不可见需支持性的展开身份核验再恢复",
+    "041保留正式来源中的唯一名称前置，使用精确只读查询核验；不因为本案无保存而省略",
+    "041/042分别按正式1/2操作与各2断言生成当前标准收据",
+    "正式runner追加组合路由层，005已合格所依赖的required-name-specs不得修改",
+    "两条均不保存商品，离开未提交表单后验证恢复"
+  ],
+  "cost": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-advanced-readonly-observation-20260908-01",
+    "directionId": "advanced-settings-DOM-observation",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 9605,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "advanced-toggle-independent-state",
+      "advanced-eight-current-field-identities"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "59a1252d7b40a64e084a5e8f286bc0dcbcb5fb2bd0300707a240d3d9936ef62b"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "costCoverage": "observation start through first terminal interpretation; excludes source preparation and closing artifact work"
+}

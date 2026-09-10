@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T17:37:18.764Z",
+  "input": {
+    "unitId": "addon-price-owned-repair-execution-01-resume",
+    "directionId": "addon-price-owned-repair-runtime",
+    "phase": "after-unit",
+    "tokenStart": 2282544,
+    "tokenCurrent": 2291471,
+    "elapsedMs": 127000,
+    "attempts": 2,
+    "beforeQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "afterQuestionIds": [
+      "zero-price-display-comparison"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "output/product-center-item-source-governed-addon-price-owned-repair-20260909-01-source-governed.json",
+        "sha256": "2b2a1ae7ec2fe26d5ead29dd1566f2829350261953205441efffc752272f997e",
+        "kind": "runtime-receipt"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-owned-repair-execution-01-resume",
+    "directionId": "addon-price-owned-repair-runtime",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 8927,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "newQuestionIds": [
+      "zero-price-display-comparison"
+    ],
+    "newEvidenceHashes": [
+      "2b2a1ae7ec2fe26d5ead29dd1566f2829350261953205441efffc752272f997e"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

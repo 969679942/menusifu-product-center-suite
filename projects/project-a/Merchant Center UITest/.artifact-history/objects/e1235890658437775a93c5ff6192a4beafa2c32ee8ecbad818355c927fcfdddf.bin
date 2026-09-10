@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W5_20260731_06",
+  "waveId": "W5",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "accepted-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-081",
+    "TC-ITEM-STD-090",
+    "TC-ITEM-STD-091",
+    "TC-ITEM-STD-089",
+    "TC-ITEM-ADD-046",
+    "TC-ITEM-PKG-073",
+    "TC-ITEM-PKG-074",
+    "TC-ITEM-PKG-075"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-ADD-046",
+    "TC-ITEM-PKG-074",
+    "TC-ITEM-PKG-075",
+    "TC-ITEM-STD-089",
+    "TC-ITEM-STD-090",
+    "TC-ITEM-STD-091"
+  ],
+  "canonicalConflictCaseIds": [
+    "TC-ITEM-PKG-073",
+    "TC-ITEM-STD-081"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-081": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "duplicateUpload": {
+          "uploadAttempts": 2,
+          "cardCount": 0,
+          "responseStatuses": [
+            200,
+            200
+          ]
+        },
+        "responses": [
+          {
+            "method": "POST",
+            "path": "/item/v1/ops-brand/brand-items/standard",
+            "status": 200
+          }
+        ],
+        "bodies": [
+          {
+            "code": "0",
+            "message": "success",
+            "data": 260940,
+            "success": true
+          }
+        ],
+        "messages": [
+          "BITEM-3006 : Image data duplicate",
+          "BITEM-3006 : Image data duplicate",
+          "Successfully Submitted"
+        ],
+        "apiRecordCount": 1,
+        "route": "/pp/brand/list",
+        "stableBlockedObservations": 0,
+        "lateCreatedRecord": {
+          "id": 260940,
+          "checkpointEntryId": "item-260940"
+        },
+        "canonicalExpected": "BITEM-3006：图片数据重复",
+        "canonicalMatched": true
+      }
+    },
+    "TC-ITEM-STD-090": {
+      "disposition": "accepted",
+      "evidence": {
+        "maximumText": "Maximum 5",
+        "attemptedCount": 6,
+        "checkedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ],
+        "blockedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_6"
+        ],
+        "selectedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ]
+      }
+    },
+    "TC-ITEM-ADD-046": {
+      "disposition": "accepted",
+      "evidence": {
+        "maximumText": "Maximum 5",
+        "attemptedCount": 6,
+        "checkedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ],
+        "blockedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_6"
+        ],
+        "selectedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ]
+      }
+    },
+    "TC-ITEM-PKG-074": {
+      "disposition": "accepted",
+      "evidence": {
+        "maximumText": "Maximum 5",
+        "attemptedCount": 6,
+        "checkedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ],
+        "blockedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_6"
+        ],
+        "selectedNames": [
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4",
+          "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5"
+        ]
+      }
+    },
+    "TC-ITEM-STD-089": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 30942,
+        "before": {
+          "checkedNames": [
+            "AUTO_AUDIT_TASTE_OPTION_1785484953785103_B"
+          ],
+          "checkedSwitches": 1
+        },
+        "after": {
+          "checkedNames": [
+            "AUTO_AUDIT_TASTE_OPTION_1785484953785103_B"
+          ],
+          "checkedSwitches": 1
+        },
+        "defaultMatched": true
+      }
+    },
+    "TC-ITEM-STD-091": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 30942,
+        "before": [
+          "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_1"
+        ],
+        "after": [
+          "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_2"
+        ],
+        "cornerMatched": true,
+        "response": {
+          "method": "PUT",
+          "path": "/item/v1/ops-brand/brand-items/standard/30942",
+          "status": 200
+        }
+      }
+    },
+    "TC-ITEM-PKG-073": {
+      "disposition": "canonical-conflict",
+      "evidence": {
+        "itemId": 260944,
+        "capability": {
+          "route": "/pp/brand/create/combo",
+          "addButtonCount": 0,
+          "selectedGroupCount": 0,
+          "attributeSectionText": "Attribute\nAdd Combo Group\nAdd\nAUTO_AUDIT_COMBO_1785485030291104\nFixed Combo\n套餐组审计\nEdit\nDelete\nItem Name\tSpecification\n\tQuantity\t\nItem Name\n\t\nSpecification\n\t\nQuantity\n\n\nAUTO_AUDIT_COMBO_PRODUCT_1785485030291104\nAUTO_AUDIT_COMBO_PRODUCT_1785485030291104_SECOND\n\t\t1"
+        },
+        "canonicalExpected": "套餐商品可关联至少两个子项的属性组，并且同组仅保留一个默认项。",
+        "observed": "当前套餐商品页没有共享 Attribute 添加入口。"
+      }
+    },
+    "TC-ITEM-PKG-075": {
+      "disposition": "accepted",
+      "evidence": {
+        "itemId": 260944,
+        "before": [
+          "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_1"
+        ],
+        "after": [
+          "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_2"
+        ],
+        "cornerMatched": true,
+        "response": {
+          "method": "PUT",
+          "path": "/item/v1/ops-brand/brand-items/combo/260944",
+          "status": 200
+        }
+      }
+    }
+  },
+  "cleanupEvidence": {
+    "apiResidue": {
+      "items": {
+        "AUTO_AUDIT_W5_DUPLICATE_IMAGE_1785484945963": 0,
+        "AUTO_AUDIT_W5_STANDARD_1785484945963": 0,
+        "AUTO_AUDIT_W5_COMBO_1785484945963": 0
+      },
+      "descriptionTags": {
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_6": 0
+      },
+      "cornerMarks": {
+        "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_1": 0,
+        "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_2": 0
+      },
+      "ruleGroups": {
+        "AUTO_AUDIT_TASTE_1785484953785103": 0
+      }
+    },
+    "uiResidue": {
+      "items": {
+        "AUTO_AUDIT_W5_DUPLICATE_IMAGE_1785484945963": 0,
+        "AUTO_AUDIT_W5_STANDARD_1785484945963": 0,
+        "AUTO_AUDIT_W5_COMBO_1785484945963": 0
+      },
+      "descriptionTags": {
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_1": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_2": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_3": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_4": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_5": 0,
+        "AUTO_AUDIT_DESCRIPTION_TAG_BOUNDARY_1785484945964101_6": 0
+      },
+      "cornerMarks": {
+        "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_1": 0,
+        "AUTO_AUDIT_CORNER_MARK_BOUNDARY_1785484952833102_2": 0
+      },
+      "ruleGroups": {
+        "AUTO_AUDIT_TASTE_1785484953785103": 0
+      }
+    },
+    "uiAndApiResidueFree": true,
+    "ledgerEntries": 15,
+    "residueVerified": 15,
+    "incompleteLedgerEntries": 0
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:w5-duplicate-detail-image:6f71ac7af9199490bb90d41d",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260940,
+      "ledgerEntryId": "item-260940"
+    },
+    {
+      "intentId": "intent:w5-create-standard:0082f130607de447ffc06878",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 30942,
+      "ledgerEntryId": "item-30942"
+    },
+    {
+      "intentId": "intent:w5-update-standard-corner:441dd3b925e2f0bccb360174",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/standard/30942"
+      },
+      "serverId": 30942,
+      "ledgerEntryId": "item-30942"
+    },
+    {
+      "intentId": "intent:w5-create-combo:2e4f49bc8a50e7dda988310c",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      },
+      "serverId": 260944,
+      "ledgerEntryId": "item-260944"
+    },
+    {
+      "intentId": "intent:w5-update-combo-corner:c4d8e42ca76c12d3ff1eb556",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "PUT",
+        "path": "/ops-brand/brand-items/combo/260944"
+      },
+      "serverId": 260944,
+      "ledgerEntryId": "item-260944"
+    }
+  ]
+}

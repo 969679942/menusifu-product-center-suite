@@ -1,0 +1,59 @@
+{
+  "recordedAt": "2026-09-08T14:19:08.995Z",
+  "caseId": "TC-ITEM-STD-019",
+  "status": "completed-qualified",
+  "sourceContract": "contracts/product-center/test-cases/standard-weight-units-acceptance.json",
+  "files": [
+    "flows/product-center/item-216/standard-weight-units-acceptance.flow.ts",
+    "fixtures/product-center-weight-units.fixture.ts",
+    "tests/generated/product-center-item-weight-units.spec.ts"
+  ],
+  "sourceContractValidated": true,
+  "operations": 2,
+  "assertions": 1,
+  "expectedUnits": [
+    "g",
+    "kg",
+    "ml"
+  ],
+  "implementation": "精确集合相等，拒绝额外或重复选项；复用既有页面方法；不保存商品",
+  "registered": true,
+  "businessExecuted": true,
+  "currentQualified": 9,
+  "softStop": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD019-registration-01",
+    "directionId": "STD019-registration-and-static-admission",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 7783,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "independent-route",
+      "exact-binding",
+      "extra-unit-negative-check",
+      "passed8-preservation",
+      "static-admission"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ca4d0d12ced9a201a69de61e91bac9f86911697cd5f86a1f0a9ef51622c336a2"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  },
+  "remaining": [],
+  "validation": {
+    "recordedAt": "2026-09-08T14:19:51.665Z",
+    "typecheck": "passed",
+    "architectureDebt": 571,
+    "architecture": "passed-no-increase",
+    "capabilityIndex": "generated-and-check-passed",
+    "businessExecuted": false
+  },
+  "registrationProof": "deliverables/system-test-platform/weight-units-registration-proof.json",
+  "resultPath": "deliverables/system-test-platform/weight-units-unit-result.json"
+}

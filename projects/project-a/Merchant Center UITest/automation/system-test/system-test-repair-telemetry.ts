@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-repair-telemetry';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-repair-telemetry';

@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+import { readRunEvidenceLedger } from '../src/governance/run-evidence-index';
 import path from 'node:path';
 import type { SystemTestPlan } from '../src/automation/system-test/system-test-plan-compiler';
 import { type TestExecutionIndexRecord, TestExecutionIndex } from '../src/utils/test-execution-index';
@@ -96,10 +97,10 @@ export function buildSystemTestExecutionResult(input: {
 }): ExecutionResult {
   const plan = readJson<SystemTestPlan>(input.planPath);
   const report = readJson<{ runId?: string; status?: string }>(input.runReportPath);
-  const ledger = readJson<{
+  const ledger = readRunEvidenceLedger<{
     summary: { selected: number; executed: number; evidenceComplete: number; evidenceIncomplete: number };
     cases: EvidenceCase[];
-  }>(input.evidenceLedgerPath);
+  }>(input.evidenceLedgerPath, report.runId ?? '', { requireFinal: true, runReport: report });
   const unlanded = readJson<{ cases: IntakeCase[] }>(input.unlandedPath);
   const selected = new Map(ledger.cases.map((item) => [item.caseId, item]));
   const landedCases: ExecutionResult['cases'] = plan.cases.map((planCase) => {

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
   "collectionId": "product-center-item-p0-technical-binding-batch",
-  "generatedAt": "2026-07-30T00:00:00.000Z",
+  "generatedAt": "2026-09-06T07:57:14.219Z",
   "sourceFingerprints": {
-    "canonical": "0db29db2eecebb6c7e5b38b1c2f1ed44b23acead6b517de6953942cc8c69a0b4",
-    "fullReview": "5cfaafd5341e9019427ec4854e241c6478815a82548f8201b6c0dc925cfdcd69",
-    "technicalGap": "cc3ff33a4c59f03b5c3a90aa46b47666fbd97e4aa1ed9e447059a7b4e31afd36",
+    "canonical": "0bc7064427b3156c0d5cda39293699bbf3accda1ead845826c4f7eda5e211f7f",
+    "fullReview": "21d42fde9086eb555c8954a842db9f076b26accc5be7b9edb9ff56f67b861254",
+    "technicalGap": "f00f6c6c8e45eec19b086e63c3f08af8ea62a2e176b0d3e45e11815c7907d0f5",
     "runtimeAcceptances": {
       "wave-a-combo": "3c99a16cb211cc84261bc195d0c35e9e5ac60a36f82d991bef74b4dfe3c4df7f",
       "wave-b-list": "1b659ba46aed37914eb1a506945e23b4ecde0e160e414c099e870b70881b7e96",
@@ -154,7 +154,7 @@
     },
     {
       "caseId": "TC-ITEM-STD-011",
-      "title": "同一一级分类下新建同名商品创建失败",
+      "title": "同一商户同一商品类型内新建同名商品创建失败",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
@@ -162,7 +162,7 @@
       "waveId": "wave-d-edit-and-rules",
       "status": "runtime-accepted",
       "contentReviewDecision": "approved",
-      "currentCanonicalClaimCount": 9,
+      "currentCanonicalClaimCount": 11,
       "existingEvidence": {
         "kind": "legacy-binding",
         "recipeIds": [],
@@ -176,7 +176,7 @@
     },
     {
       "caseId": "TC-ITEM-STD-013",
-      "title": "同一二级分类下新建同名商品创建失败",
+      "title": "同一商品类型同一二级分类下新建同名商品创建失败",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
@@ -184,7 +184,7 @@
       "waveId": "wave-d-edit-and-rules",
       "status": "runtime-accepted",
       "contentReviewDecision": "approved",
-      "currentCanonicalClaimCount": 10,
+      "currentCanonicalClaimCount": 12,
       "existingEvidence": {
         "kind": "legacy-binding",
         "recipeIds": [],
@@ -198,7 +198,7 @@
     },
     {
       "caseId": "TC-ITEM-STD-014",
-      "title": "同一商户下不同一级分类仍不可创建同名商品",
+      "title": "同一商户同一商品类型下不同一级分类仍不可创建同名商品",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "创建",
@@ -206,7 +206,7 @@
       "waveId": "wave-d-edit-and-rules",
       "status": "runtime-accepted",
       "contentReviewDecision": "approved",
-      "currentCanonicalClaimCount": 11,
+      "currentCanonicalClaimCount": 12,
       "existingEvidence": {
         "kind": "legacy-binding",
         "recipeIds": [],
@@ -793,32 +793,8 @@
       "generationAllowed": true
     },
     {
-      "caseId": "TC-ITEM-STD-007",
-      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
-      "priority": "P0",
-      "productType": "标准商品",
-      "scenarioFamily": "展示与其他",
-      "workPackageId": "p0-item-binding:recipe-drift-repair",
-      "waveId": "wave-d-edit-and-rules",
-      "status": "runtime-accepted",
-      "contentReviewDecision": "approved",
-      "currentCanonicalClaimCount": 9,
-      "existingEvidence": {
-        "kind": "direct-recipe",
-        "recipeIds": [
-          "product-center:item-category-leaf:TC-ITEM-STD-007"
-        ],
-        "bindingIds": [
-          "TC-ITEM-STD-007"
-        ],
-        "pageCapabilityIds": []
-      },
-      "missingContracts": [],
-      "generationAllowed": true
-    },
-    {
       "caseId": "TC-ITEM-STD-012",
-      "title": "同一一级分类不同二级分类的标准商品同名提示 BITEM-7010",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
       "priority": "P0",
       "productType": "标准商品",
       "scenarioFamily": "展示与其他",
@@ -832,6 +808,30 @@
         "recipeIds": [],
         "bindingIds": [
           "TC-ITEM-STD-012"
+        ],
+        "pageCapabilityIds": []
+      },
+      "missingContracts": [],
+      "generationAllowed": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "priority": "P0",
+      "productType": "标准商品",
+      "scenarioFamily": "展示与其他",
+      "workPackageId": "p0-item-binding:recipe-drift-repair",
+      "waveId": "wave-d-edit-and-rules",
+      "status": "runtime-accepted",
+      "contentReviewDecision": "approved",
+      "currentCanonicalClaimCount": 17,
+      "existingEvidence": {
+        "kind": "direct-recipe",
+        "recipeIds": [
+          "product-center:item-category-leaf:TC-ITEM-STD-007"
+        ],
+        "bindingIds": [
+          "TC-ITEM-STD-007"
         ],
         "pageCapabilityIds": []
       },
@@ -1274,5 +1274,5 @@
       "executionAllowed": true
     }
   ],
-  "fingerprint": "ef9464c6a727a1745a53cbe48cef505e54d654a0ed5be2b3eb6c853faf6659d8"
+  "fingerprint": "13a44900c228680509dacbb333a40bc6199307efae5c1263e1f0dcfa965f2d78"
 }

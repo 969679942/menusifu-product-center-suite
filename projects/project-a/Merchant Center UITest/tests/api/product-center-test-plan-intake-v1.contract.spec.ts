@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { expect, test } from '@playwright/test';
 import { buildProductCenterTestPlanIntakeV1Artifacts } from '../../scripts/build-product-center-test-plan-intake-v1';
 import {
@@ -19,12 +20,38 @@ test.describe('商品中心真实测试方案输入链路', () => {
       const release = JSON.parse(fs.readFileSync(paths.releasePath, 'utf8'));
       const bindings = JSON.parse(fs.readFileSync(paths.bindingsPath, 'utf8'));
       const report = JSON.parse(fs.readFileSync(paths.reportPath, 'utf8'));
+      const decisionsContent = fs.readFileSync(path.resolve(__dirname,
+        '../../contracts/product-center/reviews/unsupported-source-format-decisions.json'), 'utf8');
+      const decisions = JSON.parse(decisionsContent);
+      const blockedCaseIds = decisions.cases.filter((item: any) => item.status === 'blocked')
+        .map((item: any) => item.caseId).sort();
+      expect(blockedCaseIds).toEqual(['TC-GRP-ADD-010', 'TC-GRP-ADD-011', 'TC-GRP-ADD-031', 'TC-ITEM-STD-034']);
+      expect(decisions.summary.blockedCases).toBe(blockedCaseIds.length);
+      expect(release.sourceDecisionProvenance).toMatchObject({
+        sha256: createHash('sha256').update(decisionsContent).digest('hex'),
+        generatedAt: decisions.generatedAt, blockedCaseIds,
+      });
+      expect(report.sourceDecisionProvenance).toEqual(release.sourceDecisionProvenance);
+      const candidates = JSON.parse(fs.readFileSync(path.resolve(__dirname,
+        '../../contracts/product-center/test-cases/pilots/product-center-test-plan-gold-set.json'), 'utf8'));
+      for (const item of release.cases) {
+        const candidate = candidates.cases.find((entry: any) => entry.id === item.internalCaseId);
+        expect(candidate).toBeDefined();
+        expect(item.execution).toEqual(candidate.execution);
+        expect(item.coverageIds).toEqual(candidate.coverageIds);
+        for (const claim of item.claims) {
+          const original = candidate.claims.find((entry: any) => entry.id === claim.id);
+          expect(claim.sourceRefs).toEqual(original.sourceRefs);
+          expect(claim.evidenceLevel).toEqual(original.evidenceLevel);
+          expect(claim.sourceTrace).toEqual(original.sourceTrace);
+        }
+      }
 
       expect(release.summary).toMatchObject({
         inputCases: 11,
         generated: 11,
         reviewRequired: 0,
-        blockedSources: 116,
+        blockedSources: 4,
         falsePromotions: 0,
       });
       expect(bindings.bindings).toHaveLength(11);
@@ -81,7 +108,7 @@ test.describe('商品中心真实测试方案输入链路', () => {
       const missingBinding = buildProductCenterTestPlanIntake({
         markdown,
         bindings: bindingDocument.bindings.slice(1),
-        deferredBlocked: 116,
+        deferredBlocked: 4,
       });
       expect(missingBinding.summary).toMatchObject({ generated: 10, reviewRequired: 1 });
       expect(missingBinding.reviewRequired[0].issueCodes).toContain('TECHNICAL_BINDING_REQUIRED');
@@ -92,7 +119,7 @@ test.describe('商品中心真实测试方案输入链路', () => {
       const invalidSidebar = buildProductCenterTestPlanIntake({
         markdown,
         bindings: invalidBindings,
-        deferredBlocked: 116,
+        deferredBlocked: 4,
       });
       expect(invalidSidebar.summary).toMatchObject({ generated: 10, reviewRequired: 1 });
       expect(invalidSidebar.reviewRequired[0].issueCodes).toContain('SIDEBAR_ENTRY_REQUIRED');

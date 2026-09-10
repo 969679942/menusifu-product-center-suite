@@ -37,6 +37,23 @@ const projectRoot = path.resolve(__dirname, '..');
 const sourcePath = path.resolve(process.argv[2] || path.join(projectRoot, 'output/product-center-item-213-failures/failure-pack.md'));
 const outputPath = path.resolve(process.argv[3] || path.join(projectRoot, 'contracts/product-center/reviews/product-center-item-failure-manual-decisions.json'));
 const ruleConfirmationPath = path.join(projectRoot, 'contracts/product-center/reviews/product-center-item-rule-confirmations.json');
+if (!fs.existsSync(sourcePath)) {
+  const blockedPath = path.join(projectRoot, 'output/governance/product-center-item-manual-decisions.blocked.json');
+  const blocked = {
+    schemaVersion: '1.0.0',
+    reportId: 'product-center-item-manual-decisions-import',
+    generatedAt: new Date().toISOString(),
+    status: 'blocked',
+    code: 'ITEM_FAILURE_PACK_MISSING',
+    missingPath: path.relative(projectRoot, sourcePath),
+    executionScope: 'manual-decision-import',
+    guardrails: { businessExecutionStarted: false, existingPassedCasesInvalidated: false, secretsPersisted: false },
+  };
+  fs.mkdirSync(path.dirname(blockedPath), { recursive: true });
+  fs.writeFileSync(blockedPath, `${JSON.stringify(blocked, null, 2)}\n`, 'utf8');
+  console.error(JSON.stringify(blocked));
+  process.exit(1);
+}
 const source = fs.readFileSync(sourcePath, 'utf8');
 const parsed = source.split(/^# (?=TC-ITEM-)/m).slice(1).map((section) => {
   const heading = section.match(/^(TC-ITEM-[A-Z]+-\d{3}) (.+?)\r?\n/);

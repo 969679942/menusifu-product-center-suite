@@ -6,6 +6,7 @@ import {
   createMerchantCenterAllureIntegrityPolicy,
   createMerchantCenterAllureOptions,
   MerchantCenterAllureReporter,
+  bindPlaywrightFailureArtifacts,
   normalizeMerchantCenterAllureResults,
 } from '../../adapters/test-automation-platform/allure-reporting';
 import {
@@ -13,7 +14,7 @@ import {
   auditAllureBusinessReport,
   createStepBoundAttachmentName,
   type AllureBusinessReportResult,
-} from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import {
   buildSeasoningOperationChangeEvidence,
   createSeasoningSystemTestStepReporter,
@@ -25,18 +26,29 @@ import ProductCenterSystemAllureReporter, {
 } from '../../reporters/product-center-system-allure.reporter';
 import MerchantCenterSeasoningAllureReporter from '../../systems/merchant-center-product-center-seasoning/allure.reporter';
 import { renderStepTitle } from '../../utils/step';
-import { FileAuditEventStore } from '../../../../Test Automation Platform/src/audit/event-log';
+import { FileAuditEventStore } from '../../../Test Automation Platform/src/audit/event-log';
+import type { AutomationRecipe } from '../../../Test Automation Platform/src/automation/recipe/automation-recipe';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
 test.describe('Merchant Center Allure 步骤注释适配', () => {
-  test('调味适配器将业务 caseId 和执行实例绑定到实时审计事件', () => {
-    // The public receipt contract performs the executable dynamic check. This
-    // adapter contract guards the mapping without creating a second real-time
-    // audit writer inside a Playwright test worker.
-    const source = fs.readFileSync(path.join(projectRoot, 'adapters/product-center/seasoning-reporting.ts'), 'utf8');
-    expect(source).toContain('executionId: `${testInfo.testId}:${step.recipe.caseId}`');
-    expect(source).toContain('auditContext: { caseId: step.recipe.caseId }');
+  test('调味适配器将业务 caseId 和执行实例绑定到实时审计事件', async ({}, testInfo) => {
+    // Playwright outputPath includes the full localized test title. On Windows
+    // that can exceed the native path limit before the audit append starts.
+    // Keep the synthetic contract log isolated while using a short ASCII path.
+    const logPath = path.resolve('output', 'contract', `seasoning-audit-events-${testInfo.testId}.jsonl`);
+    const previous = { log: process.env.SYSTEM_TEST_AUDIT_EVENT_LOG, run: process.env.SYSTEM_TEST_RUN_ID };
+    Object.assign(process.env, { SYSTEM_TEST_AUDIT_EVENT_LOG: logPath, SYSTEM_TEST_RUN_ID: 'adapter-contract-run' });
+    const recipe = { caseId: 'TC-ADAPTER-AUDIT-001', title: '审计身份绑定', route: '/pp/brand/seasoning/list', capabilities: [], assertions: [] } as unknown as AutomationRecipe;
+    try {
+      await createSeasoningSystemTestStepReporter()({ phase: 'context-guard', recipe, input: { phase: 'before-action' } }, async () => undefined);
+      const called = new FileAuditEventStore({ filePath: logPath }).readAll().find((event) => event.eventType === 'operation.called');
+      expect(called).toEqual(expect.objectContaining({ caseId: recipe.caseId }));
+      expect(called?.eventId).toContain(`:${testInfo.testId}:${recipe.caseId}:${recipe.caseId}:`);
+    } finally {
+      if (previous.log === undefined) delete process.env.SYSTEM_TEST_AUDIT_EVENT_LOG; else process.env.SYSTEM_TEST_AUDIT_EVENT_LOG = previous.log;
+      if (previous.run === undefined) delete process.env.SYSTEM_TEST_RUN_ID; else process.env.SYSTEM_TEST_RUN_ID = previous.run;
+    }
   });
 
   test('业务操作结果必须能从真实前后快照生成结构化 Diff', () => {
@@ -344,6 +356,27 @@ test.describe('商品中心调味业务步骤标题适配', () => {
       }),
     ]));
     expect(auditAllureBusinessReport(normalized, createMerchantCenterAllureIntegrityPolicy())).toEqual([]);
+  });
+
+  test('Playwright 失败截图缺少 Allure 引用时必须自动绑定到失败步骤', () => {
+    const resultsDir = fs.mkdtempSync(path.join(process.cwd(), 'output', 'contract', 'allure-bind-'));
+    const playwrightDir = path.join(resultsDir, 'playwright-business');
+    const failureDir = path.join(playwrightDir, 'system-商品分组名称校验-system');
+    fs.mkdirSync(failureDir, { recursive: true });
+    fs.writeFileSync(path.join(failureDir, 'test-failed-1.png'), Buffer.from('png-fixture'));
+    const resultPath = path.join(resultsDir, 'case-result.json');
+    fs.writeFileSync(resultPath, JSON.stringify({
+      name: '商品分组名称校验', status: 'failed', labels: [{ name: 'caseId', value: 'TC-GRP-PKG-029' }],
+      steps: [{ name: '[业务操作] 执行商品分组校验', status: 'failed', attachments: [] }],
+    }));
+    try {
+      expect(bindPlaywrightFailureArtifacts(resultsDir, playwrightDir)).toBe(1);
+      const result = JSON.parse(fs.readFileSync(resultPath, 'utf8'));
+      expect(result.steps[0].attachments).toEqual([expect.objectContaining({ name: '失败截图附件' })]);
+      expect(fs.existsSync(path.join(resultsDir, 'case-result-screenshot.png'))).toBe(true);
+    } finally {
+      fs.rmSync(resultsDir, { recursive: true, force: true });
+    }
   });
 
   test('项目归一化必须隐藏框架元数据并保留业务子步骤', async ({}, testInfo) => {
@@ -741,5 +774,3 @@ test(
     }
   },
 );
-
-

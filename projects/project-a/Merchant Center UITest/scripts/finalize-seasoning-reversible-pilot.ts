@@ -4,19 +4,19 @@ import {
   buildSystemTestOptimizationPlan,
   type SystemTestOptimizationPlan,
   type SystemTestOptimizationReceipt,
-} from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+} from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 import {
   assertExecutionIntentCompletion,
   assertExecutionIntentContract,
   fingerprintExecutionIntent,
   fingerprintExecutionSelection,
   type ExecutionIntent,
-} from '../../../Test Automation Platform/src/governance/execution-intent';
+} from '../../Test Automation Platform/src/governance/execution-intent';
 import {
   discoverSystemTestPilotEvidence,
   hasCompleteReversibleCrudLifecycle,
-} from '../../../Test Automation Platform/scripts/build-platform-readiness';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
+} from '../../Test Automation Platform/scripts/build-platform-readiness';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 
 const projectRoot = path.resolve(__dirname, '..');

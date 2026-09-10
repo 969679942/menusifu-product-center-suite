@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { adaptIntakeV1ToDraft } from '../utils/product-center-intake-draft-adapter';
+import { productCenterRecipeCapabilityContracts } from '../adapters/product-center/product-center-recipe-capabilities';
 import contractDocument from '../contracts/product-center/product-center-test-contract.json';
 import { buildProductCenterTestCaseIrCatalog } from '../sop/product-center/product-center-test-case-ir.catalog';
 import type { ProductCenterCoverageItem } from '../utils/product-center-coverage-denominator';
@@ -25,7 +27,7 @@ const contract = contractDocument as ProductCenterTestContract;
 const knownSourceIds = new Set(productCenterContractCollections
   .filter((collection) => collection !== 'traceability')
   .flatMap((collection) => (contract[collection] ?? []).map((record) => record.id)));
-const inputDocument = readJson(inputPath);
+const inputDocument = adaptIntakeV1ToDraft(readJson(inputPath));
 const bindingDocument = readJson(bindingPath);
 const bindings = readBindings(bindingDocument);
 const denominatorDocument = readDenominator();
@@ -40,7 +42,7 @@ const result = processProductCenterTestCaseIntake(inputDocument, bindings, {
   } : {}),
   knownRoleIds: new Set(catalogCases.flatMap((item) => item.execution?.roleIds ?? [])),
   knownEnvironmentIds: new Set(catalogCases.flatMap((item) => item.execution?.environmentIds ?? [])),
-  knownCapabilityIds: new Set(catalogCases.flatMap((item) => item.execution?.capabilityIds ?? [])),
+  knownCapabilityIds: new Set(productCenterRecipeCapabilityContracts.map((item) => item.id)),
 });
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });

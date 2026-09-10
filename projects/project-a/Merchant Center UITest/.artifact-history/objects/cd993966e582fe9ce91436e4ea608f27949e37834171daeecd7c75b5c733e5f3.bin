@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "applicationId": "merchant-center-product-center",
+  "caseIds": [
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010"
+  ],
+  "planFingerprint": "ef3ec86c10226e75929743b6b9de5115488efd9c939f534542f908988d561861",
+  "selectionFingerprint": "fb28c78a71aa03d3c869fcd15cd1151a83f08571bd76ec2c7c88fda3ad7e3bbf",
+  "rootCause": "上一轮创建成功后，正式中文名称作为identityVariants传入只接受AUTO_AUDIT_的真实执行台账，登记抛错并遗留商品。原测试未注入真实台账，遗漏此边界。",
+  "correctiveAction": "已按精确原名称恢复服务器ID并验证API/UI零残留。适配器在登记前持久保存正式名称、审计标识、服务器ID和执行意图；台账仅接收审计标识。真实台账及登记中断恢复合同纳入18项隔离验证，类型与架构通过，原16条指纹不变。",
+  "evidenceRefs": [
+    "deliverables/system-test-platform/addon-price-failed-unit-result.json",
+    "deliverables/system-test-platform/addon-price-residue-recovery.json",
+    "deliverables/system-test-platform/addon-price-ownership-repair-proof.json",
+    "tests/api/product-center-addon-price-persistence.contract.spec.ts"
+  ],
+  "supersedesAttemptIds": [],
+  "businessRuleUnchanged": true,
+  "blockedStart": {
+    "runId": "addon-price-owned-repair-20260909-01",
+    "selected": 2,
+    "terminal": 0,
+    "actualBusinessAttempts": 0,
+    "saveActions": 0,
+    "code": "DIAGNOSIS_REQUIRED",
+    "detail": "cycle-time-budget-exhausted"
+  },
+  "nextAction": "同运行与同选择集恢复，旧失败收据保留；每条最多一次保存，登记并核验清理。"
+}

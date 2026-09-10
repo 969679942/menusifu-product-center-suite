@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T18:16:26.588Z",
+  "caseId": "TC-ITEM-ADD-011",
+  "status": "contract-draft-api-readback-channel-observed-ui-detail-pending",
+  "sourceCitation": "BR-FMT-005;正式用例TC-ITEM-ADD-011",
+  "operationMapping": [
+    {
+      "source": "商品名称填写唯一测试名称",
+      "method": "ItemCreateAcceptancePage.fillItemName",
+      "evidence": "source-name-ownership"
+    },
+    {
+      "source": "标准价填写10.00",
+      "method": "ItemCreateAcceptancePage.fillStandardPrice",
+      "evidence": "field-value"
+    },
+    {
+      "source": "包装费填写1.00",
+      "method": "ItemCreateStandardPage.fillPackagingFee",
+      "evidence": "field-value"
+    },
+    {
+      "source": "成本填写3.50",
+      "method": "ItemCreateStandardPage.fillCost",
+      "evidence": "field-value"
+    },
+    {
+      "source": "点击保存",
+      "method": "ItemCreateAcceptancePage.clickSave",
+      "evidence": "write-response-and-toast"
+    },
+    {
+      "source": "返回列表按名称查询",
+      "method": "ItemListPage.fillSearchAndWait",
+      "evidence": "exact-name-api-ui-query"
+    }
+  ],
+  "assertionMapping": [
+    {
+      "id": "TC-ITEM-ADD-011:expectation-1",
+      "expected": [
+        "提交成功",
+        "Successfully Submitted"
+      ],
+      "authority": "feedback contract",
+      "status": "ready"
+    },
+    {
+      "id": "TC-ITEM-ADD-011:expectation-2",
+      "expected": {
+        "packagingFee": "1.00",
+        "cost": "3.50"
+      },
+      "authority": "detail/edit API plus UI readback",
+      "status": "API-readback-channel-observed-current-created-case-still-pending"
+    }
+  ],
+  "cleanup": {
+    "required": true,
+    "exactNameApiUiZero": true,
+    "registration": "audit identity with actual-name ownership journal"
+  },
+  "admission": "blocked-before-business-execution-until-detail-readback-operation-and-receipt-implemented",
+  "businessCasesExecuted": 0,
+  "currentQualified": 19,
+  "notQualified": 185,
+  "next": "implement-ADD011-side-create-write-and-detail-readback-receipt",
+  "fieldObservationPath": "deliverables/system-test-platform/addon-011-fields-observation.json",
+  "fieldObservation": {
+    "businessCasesExecuted": 0,
+    "saveActions": 0,
+    "route": "/pp/brand/create/side",
+    "packagingFee": {
+      "count": 1,
+      "visible": true
+    },
+    "cost": {
+      "count": 1,
+      "visible": true
+    }
+  },
+  "apiReadbackObservation": {
+    "path": "deliverables/system-test-platform/addon-011-detail-api-observation.json",
+    "serverId": 35142,
+    "matchedFieldKeys": [
+      "body.data.skuList[0].costPrice",
+      "body.data.skuList[0].packageFee"
+    ],
+    "businessCasesExecuted": 0,
+    "saveActions": 0
+  },
+  "blockers": [
+    "需要用本次创建ID验证packageFee=1.00、cost=3.50的当前详情回读；现有商品只证明字段通道与键名，不证明本用例写入值"
+  ]
+}

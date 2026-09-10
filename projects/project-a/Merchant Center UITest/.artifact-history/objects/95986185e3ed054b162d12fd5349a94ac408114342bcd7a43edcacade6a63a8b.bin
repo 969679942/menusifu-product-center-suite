@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T13:52:11.691Z",
+  "input": {
+    "unitId": "standard-query-audit-01",
+    "directionId": "query-api-preconditions-diagnosis",
+    "phase": "after-unit",
+    "tokenStart": 57996,
+    "tokenCurrent": 84764,
+    "elapsedMs": 365000,
+    "attempts": 2,
+    "beforeQuestionIds": [
+      "type-dom",
+      "status-dom",
+      "query-data-preconditions"
+    ],
+    "afterQuestionIds": [
+      "query-data-preconditions"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/readonly-query-contract-observation.json",
+        "sha256": "8b486b9c6cae46794acdd306d76b67c2e1170734e9fa4b25d7758ac788005756",
+        "kind": "diagnosis"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "standard-query-audit-01",
+    "directionId": "query-api-preconditions-diagnosis",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT",
+      "WORK_UNIT_ATTEMPT_LIMIT"
+    ],
+    "tokensUsed": 26768,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "type-dom",
+      "status-dom"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "8b486b9c6cae46794acdd306d76b67c2e1170734e9fa4b25d7758ac788005756"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

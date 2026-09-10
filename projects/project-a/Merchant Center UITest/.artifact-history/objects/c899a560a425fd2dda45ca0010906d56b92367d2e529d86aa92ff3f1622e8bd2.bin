@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-09-08T14:24:34.715Z",
+  "input": {
+    "unitId": "STD019-registration-01",
+    "directionId": "STD019-registration-and-static-admission",
+    "phase": "after-unit",
+    "tokenStart": 607503,
+    "tokenCurrent": 615286,
+    "elapsedMs": 111000,
+    "attempts": 1,
+    "beforeQuestionIds": [
+      "independent-route",
+      "exact-binding",
+      "extra-unit-negative-check",
+      "passed8-preservation",
+      "static-admission"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/weight-units-registration-proof.json",
+        "sha256": "ca4d0d12ced9a201a69de61e91bac9f86911697cd5f86a1f0a9ef51622c336a2",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 6000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD019-registration-01",
+    "directionId": "STD019-registration-and-static-admission",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 7783,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "independent-route",
+      "exact-binding",
+      "extra-unit-negative-check",
+      "passed8-preservation",
+      "static-admission"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ca4d0d12ced9a201a69de61e91bac9f86911697cd5f86a1f0a9ef51622c336a2"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

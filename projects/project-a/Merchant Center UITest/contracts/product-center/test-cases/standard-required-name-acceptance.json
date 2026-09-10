@@ -1,0 +1,168 @@
+{
+  "routes": [
+    {
+      "id": "standard-create-route",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "route": "/pp/brand/create/standard"
+    }
+  ],
+  "controls": [],
+  "fields": [],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "STD005-required-name",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "rule": "名称为空、单规格且标准价10.00时，保存被拒绝；名称字段出现必填反馈；返回列表无本次操作新增记录"
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-STD-005:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "expectedValue": "保存失败校验：页面仍停留在创建页，未出现「提交成功」提示",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-005:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "expectedValue": "必填提示校验：「商品名称」字段出现必填校验提示（飘红/文案提示）",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-005:expectation-3",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "expectedValue": "列表无新增：返回商品列表，不存在因本次操作产生的新商品记录",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    }
+  ],
+  "traceability": [
+    {
+      "id": "STD005-source-step-coverage",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "line": 116
+        }
+      ],
+      "operationKeys": [
+        "TC-ITEM-STD-005:action-1",
+        "TC-ITEM-STD-005:action-2",
+        "TC-ITEM-STD-005:action-3",
+        "TC-ITEM-STD-005:action-4",
+        "TC-ITEM-STD-005:action-5",
+        "TC-ITEM-STD-005:action-6"
+      ],
+      "sourceStepCount": 6,
+      "assertionCount": 3
+    }
+  ],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "implementationStrategy": "独立flow/fixture/spec；复用标准创建页和StandardNameFormatPage.readNameFeedback；保持9条当前合格实现指纹不变",
+    "readiness": "source-contract-only; not executable until binding and negative contracts are verified",
+    "executionConstraints": [
+      "名称保持空，不调用旧factory.prepare",
+      "必须显式选单规格、输入10.00并核验实际值",
+      "不以创建请求发生或API总数独立判定产品失败/通过",
+      "请求未终结、响应不可读、网络失败维持证据不全；不得重复Save",
+      "若实际创建，立即保存返回的server ID，仅清理由本次响应证明的记录，在finally核验API/UI残留",
+      "3项断言都记录实际值；异常路径保存未到达操作及证据缺口"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页"
+      ],
+      "steps": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【标准商品】-【去创建】，进入创建标准商品页面",
+        "保持「商品名称」为空，不输入任何内容",
+        "「商品规格」选择【单规格】；「标准价」输入 10.00",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "保存失败校验：页面仍停留在创建页，未出现「提交成功」提示",
+        "必填提示校验：「商品名称」字段出现必填校验提示（飘红/文案提示）",
+        "列表无新增：返回商品列表，不存在因本次操作产生的新商品记录"
+      ],
+      "sources": [
+        "XMind已有 ← 标准商品 / 新增 / 必填项缺失 / 新建标准商品，必填项缺失，新建失败"
+      ],
+      "title": "标准商品必填项缺失时创建失败",
+      "fingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+      "assertionIds": [
+        "TC-ITEM-STD-005:expectation-1",
+        "TC-ITEM-STD-005:expectation-2",
+        "TC-ITEM-STD-005:expectation-3"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+# 迁移闭环审计
+
+- 审计 ID：`merchant-center-platform-extraction-closure`
+- 应用 ID：`merchant-center`
+- 迁移闭环状态：`incomplete`
+- 输入指纹：`acdf877e7ee10035c58f27d7ffc97923024938b43bd0e2ca1fdd61b46dba203f`
+- 范围说明：本报告只判定迁移和文件治理闭环，不声明跨系统平台最终完成。
+
+## 文件归属
+
+| 分类 | 数量 |
+| --- | ---: |
+| 公共核心 | 269 |
+| 项目适配器 | 275 |
+| 领域资产 | 1387 |
+| 生成证据 | 8569 |
+| 历史资产 | 57 |
+| 瞬态文件 | 2 |
+| 扫描总数 | 10559 |
+
+## 闭环门禁
+
+| 门禁 | 问题数 |
+| --- | ---: |
+| 未归属文件 | 0 |
+| 公共桥接违规 | 0 |
+| 重复公共实现 | 0 |
+| 断裂引用 | 0 |
+| 文档与机器引用冲突 | 0 |
+| 错位瞬态文件 | 0 |
+| 公共目录项目内容 | 1 |
+| 禁止内容引用 | 0 |
+| 必需迁移资产缺失 | 0 |
+| 迁移基线缺失 | 0 |
+| 迁移后缺失文件 | 0 |
+| 迁移后变更文件 | 17 |
+| 迁移基线接受收据无效 | 0 |
+| 历史快照断裂引用（非阻断） | 0 |
+
+## 公共目录项目内容
+
+- `platform:docs/run-evidence-index.md`：PUBLIC_BOUNDARY_CONTENT_FORBIDDEN，公共平台文件包含禁止的项目身份或业务内容：商品中心
+
+## 迁移完整性基线
+
+- `platform:docs/run-evidence-index.md`：MIGRATION_ASSET_ADDED，新增受管资产 7169ea4f742c3ec1c3b20138d2b847f7f21967a9a24b20240a58850cdad67320/2932 尚未接受
+- `platform:src/governance/run-evidence-index.ts`：MIGRATION_ASSET_ADDED，新增受管资产 b0a53e0e7c763320f399bda3b26333b36ab857698a31d2209e1ad4f29b88fc58/13080 尚未接受
+- `platform:tests/api/run-evidence-index.contract.spec.ts`：MIGRATION_ASSET_ADDED，新增受管资产 02fa4a08506d4a255207484a15e107dc190917320f7aca211de32d6eda3aa86c/11458 尚未接受
+- `platform:docs/execution-attempt-accounting.md`：MIGRATION_ASSET_CHANGED，基线 eb3f2009ff751dd23eec7d328599b9cfe7215deadb9775c03e243dee27ca780e/1649，当前 a1be4240509d0636738223ea7d90502984be592d0e1f647952414bb8f375a87a/1870
+- `platform:scripts/build-platform-readiness.ts`：MIGRATION_ASSET_CHANGED，基线 597070c98d49cc8a198f4e0ae6a1c239d4dad1fad6b0b7cb0e83298503835a60/22174，当前 5ae1ae6d46f2f43f3af586d53e58ae3124bc824da31b848af7152438c3a20201/22820
+- `platform:scripts/build-system-test-execution-result.ts`：MIGRATION_ASSET_CHANGED，基线 8c0d61d9cc39de3c3b788d69d287dc81e462d3662362d8f8e008e09e88afce6f/11392，当前 215ee6c113967f210c59facc35873130ab43cd095b0735ca8901c8e79e0584ee/11826
+- `platform:scripts/run-system-test-flow.ts`：MIGRATION_ASSET_CHANGED，基线 595cfe75290e1181c0019f712e9a987129206e78a3b403e00e221ef4c3823323/31911，当前 2ed2f7583cf6cd7ce055561de97a8caee3ebdfcd95e4d2cb66345523d82772af/32874
+- `platform:scripts/run-system-test.ts`：MIGRATION_ASSET_CHANGED，基线 d88682624cec5428e66583900d3eba369910ce0e9717aff02437c9a7a96bbadb/57241，当前 af0a0f8212271414b139f5c2a2476b599ddc8a7c77e1067c0dec6f58d31dcb57/58284
+- `platform:src/automation/system-test/system-test-safety.ts`：MIGRATION_ASSET_CHANGED，基线 1e6649ca113437f3d65d518fed42948d392e95616e9fa3aee0f3379df3893053/1356，当前 2eca5b7e8491cf2cc418593df0ba01d8af467c0e89e5d93a9721fa32a19cbf7f/1492
+- `platform:src/governance/execution-attempt-accounting.ts`：MIGRATION_ASSET_CHANGED，基线 cfb74173be70a6d18d4df1bc3d93a45a4ee01a8bb37b8f38327aec2eda4dfee6/6480，当前 50bbf1f8ad3a4ae976a8669d3231e08ef2bc0cca4dc33a895ea2e6f7ac816546/6506
+- `platform:src/index.ts`：MIGRATION_ASSET_CHANGED，基线 1357beba848f2dec2bf96019e0d7b6fa70c64d1e058af84bee1e673d8a6871cb/5557，当前 99e530b4be55450c43fc57abea23dd1ecc5e023f8b278f444d0a50e9e5fec1c4/5606
+- `platform:src/reporters/system-test-evidence.reporter.ts`：MIGRATION_ASSET_CHANGED，基线 83001d14751ebb425c27c470bf51b524ada52d3e4281caa8fba62c75bf8a5514/9467，当前 b7dcaaf8d50c7f38e9234f35be8d34238aedc9f0d42b33cc06f5bb00ff52ddb1/9875
+- `platform:src/utils/immutable-artifact.ts`：MIGRATION_ASSET_CHANGED，基线 9cf26765c6f7cfc6c978a66929448ebcffc817990d5259341287ad8e6a9bd26d/3870，当前 4e93c597f3afccac8cb2bf86719ecbe0b2611ab3210ce051a8e90244b1f4d9f3/4033
+- `platform:src/utils/system-test-allure-evidence-recovery.ts`：MIGRATION_ASSET_CHANGED，基线 dfc222222ecf383441b29dcad2cb07163e7bf938733d60f54e6e26184f16ef81/8965，当前 c3a3cac2ba609a29e1f79a783187ee5460fde853a4754c37afe968fd9b67c7a7/9307
+- `platform:src/utils/system-test-evidence-ledger-receipt.ts`：MIGRATION_ASSET_CHANGED，基线 4fb5fb0afa46222db6ccb81702ba379a6032cc0303e0f7e413cf6193eec84bd4/13510，当前 7440bae937b8a7fadba9414e042ba7a3bc667dc0bbc966bf9f04b33f7fdc5478/14154
+- `platform:tests/api/system-test-evidence-reporter-checkpoint.contract.spec.ts`：MIGRATION_ASSET_CHANGED，基线 c6cd10586a3a739c5c39bf4199c8051c3cd4e1bae64d74496b58a627dc37fb17/8849，当前 7101c9c32c55ff05b1f89331001709cae3c7ee2e4bcdd54cbe0e269a36bce42d/12462
+- `workspace:Merchant Center UITest/adapters/product-center/product-center-seasoning-terminal-receipts.ts`：MIGRATION_ASSET_CHANGED，基线 1e5f1a2299b3e5c407e5ed149e90464f7be76543f72095a66ff04f16285c91ba/2561，当前 8a53a09bd369f57bd230928f1cbe31a3d9e0b42a1e832a3f73990080596acdc0/2758
+
+## 历史来源
+
+- `workspace:Merchant Center Info/99-待废弃/商品中心-商品管理-商品`：retained-with-active-references，引用文件 4 个，引用目标 7 个。
+
+## 验收结论
+
+- 迁移闭环未完成；必须清零全部门禁问题后才能声明本次迁移结束。
+

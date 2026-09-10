@@ -1,0 +1,52 @@
+{
+  "recordedAt": "2026-09-08T17:15:55.702Z",
+  "input": {
+    "unitId": "addon-price-execution-01",
+    "directionId": "addon-price-runtime",
+    "phase": "before-start",
+    "tokenStart": 1912088,
+    "tokenCurrent": 1912088,
+    "elapsedMs": 0,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "ADD008-current-result",
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "afterQuestionIds": [
+      "ADD008-current-result",
+      "ADD009-current-result",
+      "ADD010-current-result"
+    ],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "contracts/product-center/test-cases/addon-price-acceptance.json",
+        "sha256": "90fb41c8df1dfdb04bd11076656b68f9664d5fd14979e1fef74a307f366041f4",
+        "kind": "formal-source"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 3
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "addon-price-execution-01",
+    "directionId": "addon-price-runtime",
+    "decision": "continue",
+    "reasons": [],
+    "tokensUsed": 0,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "90fb41c8df1dfdb04bd11076656b68f9664d5fd14979e1fef74a307f366041f4"
+    ],
+    "scopeReduced": false,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

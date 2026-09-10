@@ -15,7 +15,7 @@ type Scheduler = {
   schemaVersion: '1.0.0';
   collectionId: 'product-center-item-strict-revalidation-scheduler';
   runId: string;
-  status: 'running' | 'passed' | 'completed-with-findings' | 'failed';
+  status: 'running' | 'passed' | 'completed-with-findings' | 'failed' | 'blocked';
   generatedAt: string;
   updatedAt: string;
   sourcePlan: string;
@@ -30,6 +30,7 @@ export async function runProductCenterItemStrictRevalidation(input: {
   planPath?: string;
   runId?: string;
   maxBatches?: number;
+  dryRun?: boolean;
 } = {}): Promise<number> {
   const planPath = path.resolve(input.planPath ?? path.join(rootDir, '..', 'deliverables/product-center-item/strict-batch-plan.json'));
   const plan = JSON.parse(fs.readFileSync(planPath, 'utf8')) as ProductCenterItemStrictBatchPlan;
@@ -38,6 +39,10 @@ export async function runProductCenterItemStrictRevalidation(input: {
   const maxBatches = input.maxBatches ?? parseMaxBatches();
   if (!Number.isInteger(maxBatches) || maxBatches < 1) throw new Error('maxBatches 必须是正整数');
   const selectedBatches = plan.batches.slice(0, maxBatches);
+  if (input.dryRun) {
+    process.stdout.write(`${JSON.stringify({ mode: 'dry-run', batches: selectedBatches.map((batch) => ({ batchId: batch.batchId, caseIds: batch.caseIds })) }, null, 2)}\n`);
+    return 0;
+  }
   const batches: BatchState[] = selectedBatches.map((batch) => ({ ...batch, status: 'pending' }));
   const scheduler: Scheduler = {
     schemaVersion: '1.0.0',
@@ -66,7 +71,7 @@ export async function runProductCenterItemStrictRevalidation(input: {
     if (exitCode !== 0) {
       const report = readBatchRunReport(batch.runId);
       if (!report || report.status === 'blocked' || report.status === 'circuit-broken') {
-        scheduler.status = 'failed';
+        scheduler.status = report?.status === 'blocked' ? 'blocked' : 'failed';
         writeScheduler(schedulerPath, scheduler);
         process.stderr.write(`[strict-revalidation] ${batch.batchId} 无法安全完成，已停止后续批次，状态 ${report?.status ?? 'missing-report'}，退出码 ${exitCode}\n`);
         return exitCode;
@@ -145,7 +150,9 @@ function readExecutedCaseCount(runId: string, fallback: number): number {
 }
 
 if (require.main === module) {
-  runProductCenterItemStrictRevalidation()
+  const dryRun = process.argv.includes('--dry-run');
+  const maxBatchesArg = process.argv.find((argument) => argument.startsWith('--max-batches='));
+  runProductCenterItemStrictRevalidation({ dryRun, ...(maxBatchesArg ? { maxBatches: Number(maxBatchesArg.slice('--max-batches='.length)) } : {}) })
     .then((exitCode) => { process.exitCode = exitCode; })
     .catch((error) => {
       process.stderr.write(`${error instanceof Error ? error.stack ?? error.message : String(error)}\n`);

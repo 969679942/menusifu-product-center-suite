@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { recordChangeEvent, type ChangeObjectType } from '../../../Test Automation Platform/src/audit/change-event';
+import { recordChangeEvent, type ChangeObjectType } from '../../Test Automation Platform/src/audit/change-event';
 
 const projectRoot = path.resolve(__dirname, '..');
 const args = process.argv.slice(2);

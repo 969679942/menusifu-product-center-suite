@@ -1,0 +1,4025 @@
+{
+  "recordedAt": "2026-09-08T10:07:22.968Z",
+  "status": "first-current-receipt-qualified-remaining-incomplete",
+  "scope": "generated-evidence",
+  "inputs": {
+    "deliverables/system-test-platform/product-center-item-release-readiness.json": "bd67ecea201dc8d9fd75ea3891a6c22158cdbb922ffb51709bc000f9be27dc7f",
+    "deliverables/system-test-platform/product-center-item-remediation-scope.json": "6bc7485686d419f1f4d0ff7bce8586f12a1fdbbeeae857e021dfae03387cae39",
+    "deliverables/system-test-platform/product-center-item-source-derivation-audit.json": "0b3bb143acaba94f961054335135490c97c2888b7205352f89c09b3ffe932dbb",
+    "output/product-center-item-213-conversion.json": "e2642804ce229556b1000f265a4bf37a4170d15f546985241b43df10baaf0600",
+    "deliverables/system-test-platform/registered-wave-recovery.json": "e2d5acd1a8123d8e139b8cbda79869c6875ba5b5e0796641b5f11158df9a3144",
+    "output/governance/product-center-jenkins-auth-preflight.json": "b4258fa51e88eb20e576d67337612d1edf9018dad0cc53bf6504757a75de727d",
+    "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "deliverables/system-test-platform/addon-002-receipt-checkpoint.json": "e65dd7f64de28cce5ff2357fa085ec8cc6d6faff1149397e2b68171cee35be0a",
+    "deliverables/system-test-platform/addon-002-current-receipt-proof.json": "7b1e81b73b46b1525667996d37b09eb5144729f33e96f6e4f92bcd26d01f2d20",
+    "deliverables/system-test-platform/readonly-auth-addon-observation.json": "cea98439e4f6867a1e5d779604ee7772883cf898f455b72206e655901e501819"
+  },
+  "summary": {
+    "required": 205,
+    "remediationScope": 202,
+    "intersection": 202,
+    "requiredOutsideScope": [
+      "TC-ITEM-PKG-007",
+      "TC-ITEM-STD-102",
+      "TC-ITEM-STD-103"
+    ],
+    "scopeOutsideRequired": [],
+    "historicalWavesRestored": 9,
+    "historicalWaveLoaderValidated": 9,
+    "firstBatch": 5,
+    "currentQualified": 1,
+    "businessExecuted": 1,
+    "contractTestsPassed": 9,
+    "implementationFingerprintsDifferFromGenerated": 0,
+    "incomplete": 204,
+    "strictQualificationNegativeChecks": 3,
+    "implementationFingerprintsChangedByFix": 45
+  },
+  "firstBatch": [
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "method": "inspectCreateSurface",
+      "finding": "expectation-1 实际比较其他设置而非正式基础字段；存在 needs-prd 历史决策，须核对后续正式规则是否覆盖",
+      "action": "保持未准入；核对规则版本后修复基础字段观察映射",
+      "source": {
+        "caseId": "TC-ITEM-ADD-001",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "已进入商品类型选择页。"
+        ],
+        "steps": [
+          "选择「配菜/加料」进入创建页。",
+          "查看基础信息和价格相关字段。"
+        ],
+        "expectedResults": [
+          "页面包含商品名称、商品第二名称、商品分类、商品描述、POS名称、送厨名称、助记码、商品编码、单位、标准价、包装费、成本等字段。",
+          "页面不展示起售数量字段。"
+        ],
+        "sources": [
+          "XMind已有 ← 加料商品 / 基本信息与标准商品一致..."
+        ],
+        "title": "加料商品基础字段与标准商品一致且无起售数量",
+        "fingerprint": "de06c55076c06c056f0799f0003646055152fce7c6026efc50802da6f2542d91"
+      },
+      "implementation": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "dataFactory": "test-data/product-center/item-216/addon-item-216.factory.ts",
+      "page": "pages/product-management/item/item-create-side.page.ts",
+      "cleanup": "generated spec finally → cleanupRegistry.cleanupAll → tracked identities → verifyZeroResidue",
+      "admission": "technical-mapping-incomplete",
+      "currentBusinessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "method": "inspectOtherSettings",
+      "finding": "真实页面五项设置观察通过；标准断言、七项操作、独立上下文和严格收据验收通过",
+      "action": "保留本次run-only收据；不因相邻方法修改自动重跑",
+      "source": {
+        "caseId": "TC-ITEM-ADD-002",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "已进入加料商品创建页。"
+        ],
+        "steps": [
+          "查看其他设置信息区域。"
+        ],
+        "expectedResults": [
+          "加料商品支持添加详情图片、描述标签、商品角标、统计标签、材料信息。"
+        ],
+        "sources": [
+          "XMind已有 ← 加料商品 / 其他设置也与标准商品一致..."
+        ],
+        "title": "加料商品其他设置与标准商品一致",
+        "fingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163"
+      },
+      "implementation": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "dataFactory": "test-data/product-center/item-216/addon-item-216.factory.ts",
+      "page": "pages/product-management/item/item-create-side.page.ts",
+      "cleanup": "generated spec finally → cleanupRegistry.cleanupAll → tracked identities → verifyZeroResidue",
+      "admission": "current-receipt-qualified",
+      "currentBusinessPassAuthorized": true,
+      "reuseStatus": "run-only"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "method": "createRequiredOnly",
+      "finding": "实际按名称查询，缺正式启用状态及未过滤列表首位断言；派生稿差异本身不等于必须人工裁决",
+      "action": "按正式正文追踪排序/状态读取能力；只有正式来源互相冲突时提交裁决",
+      "source": {
+        "caseId": "TC-ITEM-ADD-005",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页"
+        ],
+        "steps": [
+          "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+          "填写商品信息：\n商品名称：加料商品-{当前时间戳毫秒}\n标准价：输入 5.00",
+          "点击右上角【保存】按钮",
+          "页面自动返回到商品中心页面，等待列表数据刷新"
+        ],
+        "expectedResults": [
+          "创建成功提示：页面展示「提交成功」的 Toast 提示",
+          "列表数据校验：列表自动刷新，第一条展示的商品必须同时满足：\n名称完全等于步骤 4 填写的商品名称\n商品类型为「加料/配菜」\n标准价为 5.00\n商品状态为「启用」",
+          "排序校验：该商品排在列表第一位（按创建时间倒序）"
+        ],
+        "sources": [
+          "BR-ITEM-028、BR-ITEM-022、BR-ITEM-027；XMind已有"
+        ],
+        "title": "加料商品仅填写必填项时创建成功",
+        "fingerprint": "3a0893dd15e92aa41adb80746404119a8a260500ad93d9df605f6568be88dde1"
+      },
+      "implementation": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "dataFactory": "test-data/product-center/item-216/addon-item-216.factory.ts",
+      "page": "pages/product-management/item/item-create-side.page.ts",
+      "cleanup": "generated spec finally → cleanupRegistry.cleanupAll → tracked identities → verifyZeroResidue",
+      "admission": "technical-mapping-incomplete",
+      "currentBusinessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "method": "requiredNameNegative → assertSaveBlocked",
+      "finding": "有前后API记录检查和按服务器ID异常清理，但通用错误提示观察尚未证明正式名称错误提示，未返回标准断言收据；通过深链进入代替正式导航步骤",
+      "action": "补导航路径与字段特定断言观察；不得将任意表单错误作为名称错误",
+      "source": {
+        "caseId": "TC-ITEM-ADD-006",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-必填项缺失创建-{当前时间戳毫秒}」）",
+          "已进入加料商品创建页。"
+        ],
+        "steps": [
+          "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+          "保持「商品名称」为空",
+          "「标准价」填写 `5.00`",
+          "点击右上角【保存】按钮"
+        ],
+        "expectedResults": [
+          "保存失败，页面拦截保存。",
+          "缺失的必填字段出现高亮或必填提示。"
+        ],
+        "sources": [
+          "加料商品基本信息与标准商品一致；BR-ITEM-027"
+        ],
+        "title": "加料商品必填项缺失时创建失败",
+        "fingerprint": "57634c39e430c04bc77b01a6873c174d288ede955d525ca91961044b5bbfb36d"
+      },
+      "implementation": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "dataFactory": "test-data/product-center/item-216/addon-item-216.factory.ts",
+      "page": "pages/product-management/item/item-create-side.page.ts",
+      "cleanup": "generated spec finally → cleanupRegistry.cleanupAll → tracked identities → verifyZeroResidue",
+      "admission": "technical-mapping-incomplete",
+      "currentBusinessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "method": "createWithoutCategory → createRequiredOnly",
+      "finding": "有创建、列表、分类为空和服务端ID追踪；成功Toast仅在ADD-005分支监听，缺ADD-007正式Toast断言和标准断言收据",
+      "action": "补本用例成功反馈及两条标准断言；恢复正式导航路径",
+      "source": {
+        "caseId": "TC-ITEM-ADD-007",
+        "preconditions": [
+          "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+          "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-不选择分类创建-{当前时间戳毫秒}」）",
+          "已进入加料商品创建页。",
+          "当前品牌下不存在同名测试商品（本用例使用名称「加料商品-不选择分类创建-{当前时间戳毫秒}」）"
+        ],
+        "steps": [
+          "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+          "点击右上角【新增商品】按钮，进入选择商品类型页面",
+          "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+          "填写商品信息：\n商品名称：加料商品-不选择分类创建-{当前时间戳毫秒}\n「标准价」填写 `10.00`",
+          "不选择商品分类",
+          "点击右上角【保存】按钮"
+        ],
+        "expectedResults": [
+          "页面展示「提交成功」的 Toast 提示。",
+          "列表可搜索到 「加料商品-不选择分类创建-{当前时间戳毫秒}」，且分类字段为空。"
+        ],
+        "sources": [
+          "BR-ITEM-022；加料商品基本信息与标准商品一致"
+        ],
+        "title": "加料商品不选择分类时创建成功",
+        "fingerprint": "8db1b2d0885d00545ff80d49b4d330e05982677e175ce073780179647a615681"
+      },
+      "implementation": "flows/product-center/item-216/addon-item-216.flow.ts",
+      "dataFactory": "test-data/product-center/item-216/addon-item-216.factory.ts",
+      "page": "pages/product-management/item/item-create-side.page.ts",
+      "cleanup": "generated spec finally → cleanupRegistry.cleanupAll → tracked identities → verifyZeroResidue",
+      "admission": "technical-mapping-incomplete",
+      "currentBusinessPassAuthorized": false
+    }
+  ],
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-001",
+      "title": "标准商品创建页展示正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8b2a3e43bcbac125a7f2f93997460123d77b7a7233bd34bf1975a80de9b4ae18",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING",
+        "FORMAL_ASSERTION_NUMBERING_AMBIGUOUS"
+      ],
+      "sourceComparison": "canonical-structure-incomplete",
+      "differingFields": [
+        "title",
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "title": "商品列表展示当前筛选、核心字段和分页入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "af177a42e15f0c5dddc8ba441e1ce9e59077a782427453d09f89cbed5c7be2f5",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "title": "商品展示列设置后列表仅展示所选列",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ecde543d7a8b695e8a3f305389e19d26b9c2f0b8864a1926dbd47677ecd74fdc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "title": "中英文切换后商品页面文本展示正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f393927749096c33a44f7a368fd73c332f1190d500bc3710717494c7907a5874",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-005",
+      "title": "标准商品必填项缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "270a8a1439505b1f91b4b27e0e118eab40791403d656ebe48f5c2846a9b5a014",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-006",
+      "title": "一级分类下无二级分类，可新增商品成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "023406575cc6baec090e1166f05a72b8ecfee9212b8e85ef49b180008ece2611",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-007",
+      "title": "一级分类存在二级分类时必须选择二级分类才能完成商品分类选择",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "780c44e60750526a88cd2a12851623a3b6d50aaa369dba1d33e02b9cc804b695",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-008",
+      "title": "商品名称最多 100 字符且连续空格不可保存",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "742e5592be577a73ee0260f97a8a89f03e685e1b95b1e07fb14bf70944e70fda",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-093",
+      "title": "商品名称首尾含空格时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "719f23b4c0f3618b98ed24fa57c7e62b7faedc25a267ccb32f136fffb30429cb",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-009",
+      "title": "POS名称和送厨名称超长及特殊字符保存后自动格式化",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f0cad029ce5c21e5bb247c92ba2ab31969445d8ea7b609b5603b2ca8974c0659",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-094",
+      "title": "商品名称超过100字符时失焦拦截",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "475455ef6848cc991ef8b0e519a3c82e29c32944c4bc0889b99d36f19fc92280",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-010",
+      "title": "商品编码重复时创建失败并提示 BITEM-7003",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5b033917e1d6263ca34e685bd227c221ab87c6c8d2d3bca2fece002eff364dac",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-011",
+      "title": "同一商户同一商品类型内新建同名商品创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "4da7a24da9c31778af6120b3960bab1f741f86e425a833ccab9e8b8d324ca197",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-012",
+      "title": "同一商品类型不同二级分类的标准商品同名提示 BITEM-7014",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5ddc0d6888a84c4b3b0032106b0b54652ddfba6bc75dcdb02b299934be90a42a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-013",
+      "title": "同一商品类型同一二级分类下新建同名商品创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "3617c60067bd90a104feb20fbcee4a492d11cf4a81c38095c47dc83b2a437aa4",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-014",
+      "title": "同一商户同一商品类型下不同一级分类仍不可创建同名商品",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7759638d3beab2d522d37b9f02f8fdd1d91740b4a03f4fe398bf1455630c3bf7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-015",
+      "title": "单规格商品标准价为0时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bb0aac15beef996f8febb8a9cd6aa5d3b91226ee8e506f2ac07a00eda28e1e7e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-016",
+      "title": "多规格商品选择默认规格后创建成功且列表展示所有规格价格",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "39dd70bcbc37e37151e5c8c657e7bfa561706782cb8999c40a0510f7e9e5c04f",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-017",
+      "title": "多规格商品未选择默认规格时列表仍展示所有规格价格",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "08fd15b89e0fc18ce3bb616e1bc68dd5a936aca09e12df2940b1052d85f95089",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-018",
+      "title": "称重商品创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bcd6dcc32bf03b1a51c7d6887df1689298b4419a750ce28339fd9390bd22cb9d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "title": "称重商品销售单位下拉展示 g、kg、ml",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "757d8f92040465264685ce676dda4eb86a4666ed71c2ea49c33fdc0ce80a0a0a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-020",
+      "title": "单规格商品标准价为1.99时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "d5197764aeb9cbe43633eb2ec491a30d88626642390df9f8f1915913e614f8d8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-021",
+      "title": "标准商品非法价格保存时归一化为 0.00",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5de5006167d35c5ac3732176e059dd5e570d59cd42fe1a728583c5279bf4f1cb",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "source",
+        "preconditions",
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-022",
+      "title": "起售数量输入0时保存失败并提示 SYSTEM-0001",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "c1a3cfff583a505f29ee4f3a86bbc69271832eeadd7da7f9bc4f49340598ff75",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-023",
+      "title": "标准商品非法起售数量保存时归一化为 1",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a3b3d604861a87f24349d8c659a757d9a9cb73d9336f94c8033caebd0b2793fd",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-024",
+      "title": "起售数量大于1时创建成功且C端默认点单数量为起售数量",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "4f29f07891cde8d8b1c60900dbb1720a079335abbb54d7cedff82e39981a170e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-028",
+      "title": "商品列表支持按名称、类型、分类、状态组合查询",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "321f6c83ce0b0125c4b2be9c25c5401010613dafa4d70832514417c2387e8168",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-029",
+      "title": "重置查询后页面恢复初始状态",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "13b108dc8267c6e37dc686ba0fe387d5618f1493300740f138be637a4eb2cbc1",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "title": "切换页面返回标准商品列表时不保留查询条件",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "c21baa9d5f1e461a6793ae1b76096d5382a8ea238c1edddbd8e9c91b3463ac8a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-031",
+      "title": "标准商品编辑基础信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "89308be22fd980470baf3e425c2fe92694027146e0dec2cf8889452e764daa1f",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-032",
+      "title": "标准商品内编辑口味组加价和默认选中仅对当前商品生效",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "3361d5d01236867fe98bf37f3850aa0486955217d429c0f577909f84a7e2e6dd",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-033",
+      "title": "标准商品编辑其他信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bc155074b4f16b1afc8f39063843755643c0b883fc6474ec2a6dc6e9f0c0c63e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-035",
+      "title": "分类下已有商品时不可继续新增子分类",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e8496f49217e9842a8e81f734721d2593b11d16cd25d6bbb3b96ca4a50d09936",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-036",
+      "title": "标准商品仅填写必填项时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "cf036438ea9acb1c5612d00504743fa96e3f9c715e5290e2927121ea2eb28bb7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-037",
+      "title": "不选择商品分类时标准商品创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b503475a52eaecc88a19c46336ef121dce2e45cf62bca65298ed527af7989f71",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-038",
+      "title": "标准价缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e0df327a44a6311b98547c983f29d9b2128b9e39ce7987d32700f05f5d10c924",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-039",
+      "title": "起售数量为空时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7bfcf43391ccf471ce60acb81f81a311f6f06378d3c0896a3c45bddfd27abd0b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-041",
+      "title": "标准商品创建页高级设置区域默认不展开",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "466d3d560e5f28d5b34a697c65469a29a86ceec038fb547a68d46c032a98a03f",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-042",
+      "title": "点击展开高级设置后展示 POS 名称等 8 个字段",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8fbf38f9e35ec87a7babb291e70535c09428be643553a3328a79a1f3735e3b2b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-043",
+      "title": "商品第二名称与商品名称互相不可重复",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "9df737fcd9db509a2cc5e56e13d4614f63bb72c7a925ed0d5d60f73b02e8d4d7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-044",
+      "title": "同一商户同一商品类型内商品名称重复时创建或编辑失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "c5695a4172f3fc9fe8cf66b5d9fabec3f163feb867a8bfb9db9444dd21d12620",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-046",
+      "title": "助记码或设备编码超过 20 字符时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "cd83b0bd8c99f19caa6434cec933c17a5c526303cb6b7a3024f0b22fa3bd3a6a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "preconditions",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-047",
+      "title": "多规格商品选择已有规格组后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5ea7151075882b2cd06f6685b4010643810fcc96573f9da8dc83e8f273625bb8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "28196ae289a223891b530c9ab819ed9b0c50fb59f44b28dc91146e85fa237f4e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "title": "选择多规格后是否称重商品置灰不可选",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "949a4acbc277634f666c6845f1b202fa474854d5e608ecd6dd84cfb20078dff5",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-050",
+      "title": "单规格商品包装费与成本合法输入时保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "233790865b70cec105137495cd234466797df5d41e4be627a8148858b48be43e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "preconditions",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-051",
+      "title": "超限价格保存成功并按 999999.99 展示",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ef4c4cf799ff39c6a6cfc357ff884945b7244dc044fa1ccd44a802fef8b5533e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-052",
+      "title": "从图片库选择主图后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b59e9797a20465995fb8fa0e64ffffeb8417a7472472a72897cc26bab60d6ca9",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-053",
+      "title": "本地上传主图后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "3234dc22a166e917850cd86d11fa5b4b954275176238574cecf2c12e808f85b2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-054",
+      "title": "详情图超过 10 张时不可继续添加",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0063f8d8b425caa86327734e4526c00171c64c57986999a2688f3d9f55dde5d4",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-055",
+      "title": "描述标签多选、商品角标单选、统计标签多选后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f31f7478d529e94d70ed7c2b67f4a495c487aedde00d1bea42b03159b5f693a4",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-056",
+      "title": "原料过敏原营养成分保存后编辑回显",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5ab7a0bcb4ec51e94a7f4f4bdc7c711c15fe986ee7d6a847a1247c7b9f43313f",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-057",
+      "title": "标准商品引用口味组整组后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7b75bb412abbf69826d7ea68faac28935ed1d607f8ea490103f7440a5861e01d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-058",
+      "title": "标准商品引用做法组与加料组整组后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "dc2988c34c71b8f7473ada506e4a66fca3f434b32737eeef09bccdf6f8ca26a7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-059",
+      "title": "商品内不可单独添加组子项仅可移除已引用子项",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2ba361e72d59724f8bfae0096a85bf5437d4d57731160467d8306928f59b53d4",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-061",
+      "title": "配置互斥规则后冲突项在编辑页置灰不可同时选中",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "abe097ff18fb9a3d9e4b68717590d755db6b757a0d82e898592b88d4970127a0",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "title": "商品列表分页切换 10/20/50/100 条后展示正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "91c3e8992a3bd1477d42b02292e6804fb9434b79ed87123341c189da907d50b7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-064",
+      "title": "商品列表按商品名称第二语言模糊查询成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "cc9839f72f54105bbdbd39f85a1bf37f4b7fc20bfcf7148b9daf39042d0623ed",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-065",
+      "title": "列表启用商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f9d1181798b462a0c2f822a1480cc11b0761505379e93c0f29dd81442506c41c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-066",
+      "title": "列表停用未被菜单引用的商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "de98963f1deffadaf650e093bca97f26051a675c531997fe87d22632f7364b2e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-068",
+      "title": "无引用关系的标准商品删除成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a1b4c7776784c9232ce6fed9a6502b623570bc987a8d44261f083abc26f591ac",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-069",
+      "title": "被套餐组引用的标准商品不可删除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "837161cbf22b89d7649629aec6cd641818110776a524ae8c33cd60dbad55cdc2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-071",
+      "title": "标准商品列表主图不支持点击查看大图",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "21221be7b73e586ec1f17bf16baf8cad76410203e20cc8bd0bbc9d4ce460ae03",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "title": "商品列表默认展示字段与默认收起字段正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "705f5df3f2bd09988cc760281e50690454a00953f14fd5fd5ce9e0d4e159a7f8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "title": "商品列表支持还原默认展示列",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "9ceb618472fc1f7f7f3ce0e988ed8679986e78ffa7106c0bfc3bd445e77c5a7e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "title": "商品列表展示总商品数量且不展示总金额",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b4e8136779d6404ad9df34c3930b18757256cf0b942a9b530104ec32db5cb127",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-075",
+      "title": "商品列表删除操作展示确认文案",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "4592159c701344dd5f2a0b712c5a94a4eb17b508216b2d30eea2bd367f2a139b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-076",
+      "title": "商品列表空值字段展示空而非“-”",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1516e7be2c2914eee6af75cab4971c3319f0e2e2bdb02c6eaa5594e37daa7886",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-078",
+      "title": "标准商品主图上传后不提供第二次本地上传入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "74958d8bb754b1f13cde6cb3873180c75f2a72076fde3b823bae1124fe5e399d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-079",
+      "title": "标准商品创建页不支持添加套餐组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "66bf3524415dbbbf6eb2385842e882913c5b9c3639797e598611a4f0520ddcfc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-001",
+      "title": "套餐商品基础字段与标准商品保持一致",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "9e612dcba17da2635defe399322e2093c4390f3c987da30207bc22e3ecf5dc43",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-002",
+      "title": "套餐商品可选择已有固定搭配套餐组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1ab8cefabadb0cfca39dc3fd6516a1dbe405f8e012b046b39131f7940317d53c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-003",
+      "title": "套餐商品可按名称搜索固定搭配套餐组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e22e702d11d4fef94ad1e8b502d1f45b045a01709004fc2b4fa62be286004764",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-004",
+      "title": "套餐商品可选择已有组合搭配套餐组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bb7b0456c516799bd67e6e31a92957eca4913e0fecf3d406d6b9b61d87912761",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-005",
+      "title": "套餐商品其他设置与标准商品一致",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ef342916c9d94412d3708d484787e407f031d7511a7bb53138664960b3062385",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-006",
+      "title": "套餐商品选择并引用已有固定搭配组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f255ccb7e52b9db3a0ea4692a24567c2309e8fa58f47bda97476c6237813dc68",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-007",
+      "title": "套餐商品可新增可选搭配套餐组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "6d58efbb6b9cd98bd412d42136a83a698e39f86c424cdbae10be84ac9e6c5878",
+      "inRemediationScope": false,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "核对正式用例与整改范围排除理由；未对齐不得加入执行选择集",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-008",
+      "title": "套餐商品创建页展示正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f28b9fe685b9a2ec4327e5da5b496b4e1c685d6862b5edb0df874e9b17f6a0c1",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-009",
+      "title": "套餐商品仅填写必填项时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "030b8479b447320ff9e353de228f622e67ebcb13d560a79046d047cb2080cf28",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-010",
+      "title": "套餐商品必填项缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "04dd2504bbdf12b3ac6f54ad2c852847021a8494e7041cd06bb8e35e09ef8cce",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-011",
+      "title": "套餐商品不选择分类时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "52b56690b8503d70d26bb7bf8fd4f6b7d3e1295211a8524b74fe10a71151eac2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-012",
+      "title": "一级分类下无二级分类时套餐可直接创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bbc1e27592846f96e8c67bac72ccec8c2c8794d452cfc8c8a152b672168229aa",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-013",
+      "title": "存在二级分类时未选二级分类不影响套餐商品提交",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "4070e1ed502dc3afefdba4b4c4fd61db00ffbad2cbdd6f87b2f3efa084f11d15",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-014",
+      "title": "套餐商品起售数量默认值为 1",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "826e88826ba8480915f0ad0980b9cf2393c3edd6a078a36b52308ee0b9953723",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-015",
+      "title": "套餐商品起售数量为 0 时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "fabbd0b7ebe9acab00acbff75d3ae236e234792473f87261a1dc5aee65f57b8d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-016",
+      "title": "套餐商品起售数量大于 1 时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1aab90ab216949c80873f3e65e47558e5d04325aea3754a4738e5d684e181ba8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-017",
+      "title": "套餐商品标准价缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "d1111f3e44ddc0dfcaa445d400a2dce7ca78b7d18994dd43cb000be3e28ef116",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-018",
+      "title": "套餐商品标准价为 0 时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "d32086a491037882e836b06199f6acb7df0852a3845fa6d14f316d755980da32",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-019",
+      "title": "套餐商品非法价格保存时归一化为 0.00",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1389a2460c1054d7bba5429f4d955e689d9326a23601ab7a90030dba198fc5c2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "source",
+        "preconditions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-020",
+      "title": "套餐商品包装费合法输入时保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0a1a9b6347bd0bf0e3008baa795d2943aa07d5e2a0547ab869ebd9c9a3d920de",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-021",
+      "title": "套餐商品名称首尾空格校验及 100 字符上限",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ff43e248ea2e7bf1b3d7cf6952d16a033cd5fffbca0f4ae093fec8614a85bbb1",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-076",
+      "title": "套餐商品名称首尾含空格时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "33e18bfd08dc0e775af4cb446a3081c26449e42f5f6eec82c680748feb08706a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-022",
+      "title": "套餐商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2d8cf7cfd0bd8ab28e478fecadeddea6b1ac0db437b3c64f03792f8142fa4a5c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-023",
+      "title": "套餐商品助记码超过 20 字符时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "172e878b87f9b640d31626512179b5cef5b3c74397e48616232b5c81a21894e5",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-024",
+      "title": "同一商户同一商品类型内套餐商品同名创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "13abf30d05cf533d290b2530519946bb93d8c6573afc67276085956fd331ecd8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-025",
+      "title": "套餐商品同商户同类型同名创建或编辑失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "c2820f3835a0b33bc4815a036378169e9d6b19990925d1ddd228a38548c85091",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-026",
+      "title": "套餐商品商品第二名称与商品名称互相不可重复",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "41cce378a969d1a22e0644338bfdf74b2866c3c6f86e634e675b3a9a9b0d49a0",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-027",
+      "title": "套餐商品描述达到500字符后输入框不可继续录入",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b30706ec4df2bde106747e3481fe24d96d4a218be1cdd49d4240994fa76fde2c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-028",
+      "title": "套餐商品最多保存 10 张有效详情图片",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "44f360f7b4e5d5fe7d1ed139e5620bc519969febda355a4b925f8564b52e8c1f",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-029",
+      "title": "套餐商品描述标签多选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7a0cc0a8f497f41cc787b0dc5b4d927c4608e2217925332042c7de03f33fb651",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-030",
+      "title": "套餐商品商品角标单选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0cf9a8bca93c503eb9c6c394275aa31e679441f8ffe4b0e13b44e33db4c94e1a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-031",
+      "title": "套餐商品统计标签多选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ceccd0936aa4b77c89837db7280cae1f4752c7890ec973c0278319efc5ec45cc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-032",
+      "title": "套餐商品配置材料信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5101983f8216e228f8cdfa2fbd0e6d79b6f65d366edeedb783c001b07e0d8bfc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-033",
+      "title": "套餐商品从图片库选择主图后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "102096ad6a481b349025af16f83195ef18465449c3495b1b97e0f2c40dfe0714",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-034",
+      "title": "套餐商品列表按名称类型分类状态组合查询成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "795f53666906f7bb116e3188629a6ab5dd5e0742012f897fc10569ccfc95fdab",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-035",
+      "title": "套餐编辑基础信息并删除主图后允许无图",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "9496bf8b225fa18d77fc4e2e42ffec045b9bab4b3be033596c6659aeb0195e08",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-036",
+      "title": "套餐商品编辑其他信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e804e3853adeb29bd71749d1f0148196e826ab15c61ec50bde5abf46265d44dc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-037",
+      "title": "套餐商品无引用时删除成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b220575f695d61ebd9f78058e3dab90c3e48c18635503603c6acf5a3f76267b6",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-038",
+      "title": "套餐商品被菜单引用时不可删除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "80f8249862f7996b7192aac484458e179f3975d8d45652d81208942064e901bc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-040",
+      "title": "未选择套餐组时确认按钮不可点击",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "47b231e8274cc61ad7012df6c4fd65c80b7f369c9190386f96b8e4ca36e0640a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-041",
+      "title": "选择套餐组后确认按钮可点击并返回创建页",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "386ab238a38c16adbb434796ab820dfa91fe107f2163dca03b5e60cf73893d7d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-042",
+      "title": "已选固定搭配套餐组可从右侧移除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "55ff9a7dd21755eb686c04f15a04c88cfdccbc624bb3683f7d80d94e7e2afa3d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-043",
+      "title": "已选组合搭配套餐组可从右侧移除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0266c491c1fbeff1889eb741892c907bb0a2d64b81c34227487db7e458e76a5d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-044",
+      "title": "组合搭配套餐组按名称模糊搜索成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a4ade70a60e19819d3cce3bbf25cdab8df30dde7e2255614f5defde09219bedc",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-045",
+      "title": "组合搭配套餐组清空搜索条件后恢复默认列表",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "4ddedf45411b2023a50153df2cf2ff5d046764a5bcfadd6ca6fbb16d22c2cb26",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-046",
+      "title": "套餐商品未添加套餐分组时保存与保存并新建均失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ec0741b514c440ba20ede1a26275390dcd833dcf43318edcfa4ba6af02b5c743",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-047",
+      "title": "套餐商品重置查询后页面恢复初始状态",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "13ec2a52b99e5de111f5d87cde330449fb8cf26e612d4dbe1bbe9fca7c0d8585",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-048",
+      "title": "切换页面返回套餐商品列表时不保留查询条件",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "09fee326ea5aff4df65867ceb6dbfec92d850a587366bebb5d049ce08a4d6615",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-049",
+      "title": "套餐商品同时引用已有固定搭配与可选搭配组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e6f4420d41482089b2d8a1eb222d8678cea4f1ac55253b2a3436f01af9ba4b11",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-050",
+      "title": "删除全部套餐分组后因分组必填无法保存",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "cb10e7e81693cb8b34ad2597826e3bb44620fd402275281f6b51e27bfeaebe8d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-051",
+      "title": "套餐商品创建页不展示多规格与称重相关入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7f66969dc448015d3f556644659cf9818f3237be7005c884973baf6434e131e8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-052",
+      "title": "套餐商品不支持引用口味做法加料组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "00b2cb666189be5eac1c698fe213af313dee326ca43317b69a9ba6c0e5688faa",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-053",
+      "title": "套餐和加料商品不支持互斥规则",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "650f124ad02f6f2cc3ad0a10c5da748a213b176c30d07dd974ee0b96d584ff06",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-054",
+      "title": "商品列表主图不支持点击查看大图",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "3d1a84af26522be9cdaa4c4f070c547f8d74cd446bdc616cfdf33470f9db95c8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-055",
+      "title": "套餐商品列表删除操作展示确认文案",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "986c877354d9b2a4fb4f4d6fd5d62fd6da925fb6a067b5dc1d609aef597ad526",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-056",
+      "title": "组合搭配套餐组按名称精确搜索成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "120b88a4bb5ef9e5c3bedd9bbc1eca27d97229ba06081c3119603508408def34",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-057",
+      "title": "套餐商品通过选择入口引用已有可选搭配组",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "170aa1b0e7d5103015f168242283ea8c6cd5e8b2642f4dc1a54acbf423b3b267",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-058",
+      "title": "套餐商品回显已有可选搭配组规则摘要",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f481a584d3f4fd5bed961ca1928d8e4f04a6711edb1bab043e33b30e669dd823",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-059",
+      "title": "套餐商品编辑页可选搭配组仅支持组级操作并验证持久化",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b8acc3d7a3c9d90787ede952062a9dd504754d17e7fff55b9118306d10920b82",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-061",
+      "title": "套餐商品列表启用商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "39546c4ffa93e2c7bd9f54f9767adac35940f290b8097e34fde0422b65c7368b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-062",
+      "title": "套餐商品列表停用未被菜单引用的商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5af3950ac8aa754ed518694308313984cd4dab5dbf07e8bf01dd0e095b0a5260",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-063",
+      "title": "套餐商品创建页不提供做法组引用入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ab6d238b5a14268147dace4590d7b5bc6831c85e212fdeb4e6f4e175bbc8969d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-064",
+      "title": "套餐商品创建页不提供加料组引用入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "67073ef3ed44dbab9387ebe91460a1da3b3b82eafd6f93d45103946965bccd2b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-065",
+      "title": "套餐商品创建页没有加料组子项编辑能力",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "03f10e69efc26b008cc86a5406df3f88252177fa54003cf3484459272d79a9b7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-067",
+      "title": "套餐商品本地上传主图回显后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "03fc73c90b4da52ba731d71296a263147520f93f6a820df8a21b7120ac845474",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-068",
+      "title": "套餐商品先删原图再上传第二张主图替换成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2db4bac58793871c34a1c6df054a3a62d6f56ed8d6273e14cfe71161489c641c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-001",
+      "title": "加料商品基础字段与标准商品一致且无起售数量",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "de06c55076c06c056f0799f0003646055152fce7c6026efc50802da6f2542d91",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "title": "加料商品其他设置与标准商品一致",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "inRemediationScope": true,
+      "qualification": "current-receipt-qualified",
+      "reasons": [],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "保留本次完整通过收据；非影响性变更不授权重跑，后续上下文变化需重新判定适用性",
+      "runtimeExecutedThisTurn": true,
+      "businessPassAuthorized": true,
+      "reuseStatus": "run-only"
+    },
+    {
+      "caseId": "TC-ITEM-ADD-005",
+      "title": "加料商品仅填写必填项时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "3a0893dd15e92aa41adb80746404119a8a260500ad93d9df605f6568be88dde1",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-006",
+      "title": "加料商品必填项缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "57634c39e430c04bc77b01a6873c174d288ede955d525ca91961044b5bbfb36d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-007",
+      "title": "加料商品不选择分类时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8db1b2d0885d00545ff80d49b4d330e05982677e175ce073780179647a615681",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "title": "加料商品标准价缺失时创建失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2d2413e6b69c3a294dc20314cb51e066e9cd59fb0315c3b1107f0780fb830908",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "title": "加料商品标准价为 0 时创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "515ffe52f870f4ad38910c3bf4368e0a61567aac0269ab1e1b717b822e18828b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "title": "加料商品非法价格保存时归一化为 0.00",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "source",
+        "preconditions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费与成本合法输入时保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "preconditions",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-012",
+      "title": "加料商品名称超长及特殊字符保存后自动格式化",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "986d66eae222611bc34b679a02bd801bd929c3249ab2fa9a19efa9bb2e3b7b35",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-047",
+      "title": "加料商品名称首尾含空格时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f079322d1e85564dc654ac686b2a5cf0d91de6290976614fc9f2ee92d65ba638",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-013",
+      "title": "加料商品 POS 名称和送厨名称超长及特殊字符保存后自动格式化",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e248bd3a78dbb1c68c94bdc9be858d4eae20b92c3bc7cc0169cea73bb427b7c7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-014",
+      "title": "同一商户同一商品类型内加料商品同名创建或编辑失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "af0488cafc60432adb66969fe7f90db1b79e55f4697f9d16e1f451d7869a1780",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-015",
+      "title": "加料商品允许与其他商品类型同名",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "30b0847cbcd8c0570d7bb8fa3f68778b86487a4184ae0d8739dcb4c3b42b7971",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-016",
+      "title": "加料商品商品第二名称与商品名称互相不可重复",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f8e179f01f673e38b64394f636aa2f1baeea3905297721d117478831a06f2f08",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-017",
+      "title": "加料商品添加详情图片不超过 10 张",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "535a3aebc6d49f38f683735d00226c223a2e9bb37bf4a0c0a5e527da2797b8e6",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-018",
+      "title": "加料商品描述标签多选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a5ecf5de65d3f1585fd938f36083dd239ddcd0d39c8060bf7b594fc88d013097",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-019",
+      "title": "加料商品商品角标单选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2457c6f9dafb47033fcd5dc96d3d995c9cdad5bfee62e979cb18af1a8fa6699b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-020",
+      "title": "加料商品统计标签多选保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "465f4783c1a4ceb1fcbeed5efa2b55fc8755dafb2b2e57164f5666ad6839d898",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-021",
+      "title": "加料商品配置材料信息中原料、过敏原和营养成分后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "27d9ccd3327541a97af371edc64488728829bd21bb77aa9bd7bc06a33b1a040c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-022",
+      "title": "加料商品本地上传主图后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "92c2555c80884cebc77cb59a2715164634eb88c81d0aa538a1a587bd906f2797",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-023",
+      "title": "加料商品列表按名称类型分类状态组合查询成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "6ac16fcc4a3e14ef7125437aa6d780fe52b50fa297adeb69c9c3b93fa4603d78",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-024",
+      "title": "加料商品编辑基础信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e349c8cce0f19683b3311799096d96f185586adf301dc6d77fa241ee34fb5ae9",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-025",
+      "title": "加料商品编辑其他信息后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "25083d130665820870843b3208dff8c372b06e4e83196b1421c3b417d9cde1c6",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-026",
+      "title": "加料商品无引用时删除成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "d171df236490c8cd6938b08dfd2eb6cf7c1af3d95fe903deecec12164e1470a2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-027",
+      "title": "加料商品被加料组引用且组被商品引用时不可删除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7eef0b110148675fe5990e089fa74e412c90fd04bf5ec25e85e25a3d31d71e37",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-028",
+      "title": "加料商品被菜单引用时不可删除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0ac59338b21e73077a2c1dbc6afc2ca2cded7921fd391086610d5db69df2416d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-029",
+      "title": "加料商品创建页不展示多规格入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a5ae2c6ada66db69dd237f5a22be7b8f17f45f6da4dad2339aa4430bfbc8df8a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-030",
+      "title": "加料商品创建页不展示是否称重商品选项",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a85967ae0b65e1d8a8224e56a6ea0d84d185a107d405b932ecf8a29ef1c104f5",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-031",
+      "title": "加料商品创建页不展示套餐组入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0e9fe4e309e0340e18d5f344cea7b5516e4135d10283a1b5a3caac81b070d236",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-032",
+      "title": "加料商品创建页不展示商品属性编辑区",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8e4fad970837975d8f1f218bc20e6a17361e0fda43c842cd1782af31df2b7f3b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-033",
+      "title": "加料组新增时可搜索并选择该加料商品",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "bf56ac60141533dbcb84b6e7974e79c25145d47e6f818e5c36ead0ab95032135",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-034",
+      "title": "标准商品引用含该加料的加料组后加料商品不可删除",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1ccdf0d52d032394791343235f295db0a861c14d6f1016f680fb50613931c1b0",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-035",
+      "title": "加料商品列表主图不支持点击查看大图",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "5eceb60f701c54268ef2ed561b212574f500ae943178e93637229298450f35e5",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-036",
+      "title": "加料商品列表删除操作展示确认文案",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "b8f15fa35c15f3edec1bcf9747bd4748a6d4b293fe0446a80cfbb2dfb3cd1409",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-037",
+      "title": "加料商品状态变更后需下发到门店终端才生效",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e6d3d2136f88b2a2a14d0e2359e196f0daa4ac330ece781ff4183b462df26f4e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-038",
+      "title": "加料商品继续上传第 2 张主图时覆盖第 1 张主图",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8ed915cf7bd2ea2126dfa61a2e2916263e924e79252df245ebf314bd6ab87978",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-039",
+      "title": "加料商品从图片库选择主图后创建成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ba08a492f94b4ddbe6e4caef720f0be16a4f2e87fbb5fbc080c9f72690d468b0",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-040",
+      "title": "加料商品重置查询后页面恢复初始状态",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "1fd48229900a6c015c6a99ad7b8266ad9c4c6b14546ef7e9da1ea6bb15baddef",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-041",
+      "title": "切换页面返回加料商品列表时不保留查询条件",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "db654ee5fb81ef282423c9262d9b68685ea91a504be71913d20354224a810950",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-042",
+      "title": "加料商品列表启用商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "eade7626ea56adc4398fc86824ff0e624547310e9c1e8743cf4e0e28924741c6",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-043",
+      "title": "加料商品列表停用商品操作成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "626343b00d1481f13746caa0b2b0488194a191d32f8d564b2b23e04417d600f7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "actions"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-044",
+      "title": "菜单已引用的加料商品二次确认后停用成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "c69cee2c1cae3217744b27e656ccb6bf77426e00e9c9f0969a1ae21a43110291",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-081",
+      "title": "详情图重复引用同一张图片保存失败并提示 BITEM-3006",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "0d6ac7606147e6035aa401810bfc66ba3593374b49ff30605787045ebc58593d",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-082",
+      "title": "标准商品绑定多个打印档口保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7473c3c78cf67a085c29e50c839ed13d7467e23fdc84b266e21cb44958b97412",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-069",
+      "title": "套餐商品内不提供口味组加价和默认选中编辑",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "7e02b4d0c438c54ce780053fdc0f168468a21e47358815416147e4cd2ad3107c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-084",
+      "title": "称重商品销售单位切换 g、kg、ml 后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "f7ff14c457ab71b3ff5df3b29421af07f3781bc290d36bd7e82bc0be15af1fc4",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-085",
+      "title": "多规格商品拖动调整规格顺序后保存成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "9979dc07df18100a8e7a45dd6e564a91a119ca3d6bda6c351ace36838ded2e1a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-086",
+      "title": "商品内移除已引用口味组子项后详情展示正确",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "29a983d1066431da16ad3e055a57ae02cb77d7bdada6e1267bd755ccf3e3451c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-087",
+      "title": "标准商品内编辑做法组加价和默认选中仅对当前商品生效",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "777a263f722cad7afd7e90748659bccf1652fcb6bf8c9fa433f89dccf800be9b",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-088",
+      "title": "标准商品内编辑加料组单次加价和默认选中仅对当前商品生效",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2fba07a36ab616ed4416407c146c8b20d398237e911af74fd79f8a1c38f084ac",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-089",
+      "title": "标准商品内同一选项组仅允许一个默认选中子项",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "df79ef50e49cb697ad273f39619297159a38c76e1b0993b556287920b714b7a7",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-071",
+      "title": "套餐商品内不提供做法组加价和默认选中编辑",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8411663b2224585fdffd68eaceb56b14cba8352f947639e6e43948bf8d5a1234",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-072",
+      "title": "套餐商品内不提供加料组加价和默认选中编辑",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "2b3ef9b8ad7b1ba152f3d0971ee24d5399775ab0b757387a0331ebcc53a7032e",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-073",
+      "title": "套餐商品内没有选项组默认选中子项配置入口",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "964ae2434341a460f8893c5653a98afec3162ae1efe04fa356087272833552eb",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-090",
+      "title": "标准商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "10e16d008789c17812dbae59643cf6e53ecea68cec5d696d0c949649aaefa7ed",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-091",
+      "title": "标准商品商品角标切换选择后仅保留最新一个角标",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "24c3456ed38ab65ea701213676a7a990740ef74c1d4d3822fd6f5ae378983d77",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-092",
+      "title": "点击商品名称进入编辑标准商品页加载成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "ff961d2a460520612505524ea39912e3c5595cf8e8a424bb2d5611db26bd94e1",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-096",
+      "title": "编辑标准商品本地上传主图成功",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "341a252ee854832ac3bfed7b30d009ab417dcee92920a4ac65b86630c98250f9",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-095",
+      "title": "商品标准价输入超过两位小数保存时四舍五入为两位",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "95630ff19c7ca9d61a612861ddd9cb2c590ce9ff54e92b559646f19f734b4d7a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-074",
+      "title": "套餐商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "feef7e76aa2679e709b404e85fe7bde035cf048469122ac2340df83fb3206be2",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-045",
+      "title": "加料商品角标切换选择后仅保留最新一个角标",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "17dc18d7e9c9dcf2f452fa94d10dfc809096553eb0cb61b17aa93f72f5bec30a",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-075",
+      "title": "套餐商品角标切换选择后仅保留最新一个角标",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a82614987f09eddc4d48189a34e244c794dc5a92ac2dc5ff4b30af5d2bd838e8",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "source",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-ADD-046",
+      "title": "加料商品引用描述标签达 5 个后第 6 个不可选（本用例验证拦截场景）",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "415a0c3c4eb74dbfaaeba5066557ea6719c0bc24f36c1a41174a76928658eda0",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "title",
+        "source",
+        "actions",
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-078",
+      "title": "套餐商品与加料商品允许同名并同时保留",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "8f07192cccaeeb722712b8c2175a92cc3679aee6c3fd49168689573977305599",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "逐项对照正式正文、已登记裁决与实际 handler；技术差异由代理修复，正式来源冲突单独裁决",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-PKG-079",
+      "title": "标准商品与套餐商品跨类型同名创建或编辑失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "48f400c3fc6de7bea63d00bee2d7bf0e2c515f5c9edb49a796d8211435f8d74c",
+      "inRemediationScope": true,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "从正式正文追踪实际 handler，补操作/断言/上下文映射；协调登记证据后判断复用或定向重验",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-102",
+      "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "e2a1f17731a02b2107421ee9542a6f9f7745bfa5a9c3f86d2bd0b9fe5ec16a61",
+      "inRemediationScope": false,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "derived-content-differs",
+      "differingFields": [
+        "expectedResults"
+      ],
+      "owner": "execution-agent",
+      "nextAction": "核对正式用例与整改范围排除理由；未对齐不得加入执行选择集",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-103",
+      "title": "商品名称包含 emoji 时保存失败",
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "sourceSemanticFingerprint": "a9ca879db129c9d31953a7169ec1319afcfc375eb428248e543b687f83a3482d",
+      "inRemediationScope": false,
+      "qualification": "current-contract-or-evidence-incomplete",
+      "reasons": [
+        "CURRENT_CASE_CONTRACT_MISSING"
+      ],
+      "sourceComparison": "aligned",
+      "differingFields": [],
+      "owner": "execution-agent",
+      "nextAction": "核对正式用例与整改范围排除理由；未对齐不得加入执行选择集",
+      "runtimeExecutedThisTurn": false,
+      "businessPassAuthorized": false
+    }
+  ],
+  "changedImplementationCaseIds": [
+    "TC-ITEM-ADD-001",
+    "TC-ITEM-ADD-002",
+    "TC-ITEM-ADD-005",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-007",
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-009",
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-ADD-011",
+    "TC-ITEM-ADD-012",
+    "TC-ITEM-ADD-047",
+    "TC-ITEM-ADD-013",
+    "TC-ITEM-ADD-014",
+    "TC-ITEM-ADD-015",
+    "TC-ITEM-ADD-016",
+    "TC-ITEM-ADD-017",
+    "TC-ITEM-ADD-018",
+    "TC-ITEM-ADD-019",
+    "TC-ITEM-ADD-020",
+    "TC-ITEM-ADD-021",
+    "TC-ITEM-ADD-022",
+    "TC-ITEM-ADD-023",
+    "TC-ITEM-ADD-024",
+    "TC-ITEM-ADD-025",
+    "TC-ITEM-ADD-026",
+    "TC-ITEM-ADD-027",
+    "TC-ITEM-ADD-028",
+    "TC-ITEM-ADD-029",
+    "TC-ITEM-ADD-030",
+    "TC-ITEM-ADD-031",
+    "TC-ITEM-ADD-032",
+    "TC-ITEM-ADD-033",
+    "TC-ITEM-ADD-034",
+    "TC-ITEM-ADD-035",
+    "TC-ITEM-ADD-036",
+    "TC-ITEM-ADD-037",
+    "TC-ITEM-ADD-038",
+    "TC-ITEM-ADD-039",
+    "TC-ITEM-ADD-040",
+    "TC-ITEM-ADD-041",
+    "TC-ITEM-ADD-042",
+    "TC-ITEM-ADD-043",
+    "TC-ITEM-ADD-044",
+    "TC-ITEM-ADD-045",
+    "TC-ITEM-ADD-046"
+  ],
+  "auth": {
+    "status": "readonly-observed",
+    "authenticationVerified": true,
+    "brandContextVerified": true,
+    "secretSource": "existing protected file via MC_SECRET_ENV_PATH",
+    "grantRevoked": true,
+    "statePersisted": false
+  },
+  "corrections": [
+    "旧搜索忽略output目录导致错误的文件不存在结论；已恢复9份逐字节SHA匹配历史证据",
+    "空platform-only影响计划的revalidation-complete不证明业务准入完成",
+    "canonical-release仅含部分用例；正式Markdown存在首批5条，缺派生文件是技术工作",
+    "源码注册ready不证明操作、断言、上下文和清理完整"
+  ],
+  "roadmap": {
+    "aiSinglePointCapabilities": "deferred-until-TAP-mature-and-later-discussion",
+    "fullGoal": "incomplete"
+  },
+  "nextAction": "继续剩余4条来源与handler整改；先分析整文件指纹传播，避免无关重跑；对范围外3条逐案追溯排除理由",
+  "guardrails": {
+    "businessExecutionStarted": true,
+    "historicalPassPreserved": true,
+    "businessRerunAuthorizedByThisReport": false,
+    "restoredEvidenceIsHistoricalOnly": true,
+    "secretsPersisted": false,
+    "businessExecutionCompletedCaseIds": [
+      "TC-ITEM-ADD-002"
+    ]
+  },
+  "staleGeneratedImplementationCaseIds": [],
+  "reviewCoverage": {
+    "allRequiredCases": "static-source-scope-mapping",
+    "sourceHandlerDeepReviewed": [
+      "TC-ITEM-ADD-001",
+      "TC-ITEM-ADD-002",
+      "TC-ITEM-ADD-005",
+      "TC-ITEM-ADD-006",
+      "TC-ITEM-ADD-007"
+    ],
+    "formalRuntimeQualified": [
+      "TC-ITEM-ADD-002"
+    ]
+  },
+  "goalControl": {
+    "observedStatus": "paused",
+    "resumeToolAvailable": false,
+    "currentTurnExecutionAuthorized": true,
+    "fullGoal": "incomplete"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "recordedAt": "2026-09-08T16:38:41.490Z",
+  "status": "source-and-call-tree-review-complete-observation-required",
+  "caseId": "TC-ITEM-ADD-002",
+  "source": {
+    "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+    "semanticFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+    "preconditions": [
+      "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+      "已进入加料商品创建页。"
+    ],
+    "steps": [
+      "查看其他设置信息区域。"
+    ],
+    "expectedResults": [
+      "加料商品支持添加详情图片、描述标签、商品角标、统计标签、材料信息。"
+    ],
+    "citations": [
+      "XMind已有 ← 加料商品 / 其他设置也与标准商品一致..."
+    ],
+    "assertionSurface": {
+      "source": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "semanticFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "sourceStepCount": 1,
+      "requiredAssertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "generatedAssertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "missingAssertionIds": [],
+      "unexpectedAssertionIds": [],
+      "duplicateSourceNumbers": [],
+      "status": "aligned",
+      "note": "只证明当前正文和生成声明的ID集合一致性；不能证明方法、业务语义或运行收据完整。"
+    }
+  },
+  "currentImplementation": {
+    "canonicalSpec": "tests/generated/product-center-item-216.generated.spec.ts",
+    "family": "addon",
+    "action": null,
+    "handlerId": "product-center:yellow-probe:at32:tc-item-add-002",
+    "fingerprint": "2a1cf480fcaeb433bc00d6b2dccc617f7d1fb0a5fcb054a82ad68238c28797f4",
+    "dependencies": [
+      {
+        "category": "flow",
+        "path": "flows/item-create.flow.ts"
+      },
+      {
+        "category": "flow",
+        "path": "playwright.config.ts"
+      },
+      {
+        "category": "flow",
+        "path": "scripts/generate-product-center-item-216-spec.ts"
+      },
+      {
+        "category": "flow",
+        "path": "api/product-center/recovery-service.ts"
+      },
+      {
+        "category": "page-object",
+        "path": "pages/product-management/item/item-list.page.ts"
+      },
+      {
+        "category": "locator",
+        "path": "pages/product-management/item/item-create-form-locators.ts"
+      },
+      {
+        "category": "data-factory",
+        "path": "test-data/product-center/product-center-item-create-data.factory.ts"
+      },
+      {
+        "category": "flow",
+        "path": "flows/product-center/item-216/addon-item-216.flow.ts"
+      },
+      {
+        "category": "page-object",
+        "path": "pages/product-management/item/item-create-side.page.ts"
+      },
+      {
+        "category": "locator",
+        "path": "pages/product-management/item/item-create-side-locators.ts"
+      },
+      {
+        "category": "data-factory",
+        "path": "test-data/product-center/item-216/addon-item-216.factory.ts"
+      }
+    ],
+    "coverageReview": "not-yet-inspected"
+  },
+  "requiredControls": [
+    "detailImageUpload",
+    "descriptionLabels",
+    "badges",
+    "stats",
+    "ingredientInfo"
+  ],
+  "gaps": [
+    "当前实现指纹与历史收据不匹配且存在实质代码变化，不能只改合同指纹复用旧结果",
+    "readOtherSettingsCapabilityEvidence仅返回5入口count；加料子类覆盖ensureOtherSettingsExpanded，只等待4个添加入口count总和大于0，缺全部5项逐控件可见性与可用性观察；父类的descriptionLabels可见等待并不在实际动态调用路径"
+  ],
+  "analysis": {
+    "priority": "必须",
+    "purpose": "处理唯一实现当前性缺口，保留正式五项设置断言",
+    "expected": "得到当前唯一、可见、可用入口观察，再补独立完整收据",
+    "impact": "不重跑或失效15条合格收据，不修改共有page/flow以免扩大指纹影响",
+    "maturity": "来源和历史映射已具备，当前证据缺口未消除，不准入正式重验"
+  },
+  "formalCasesExecuted": 0,
+  "currentQualified": 15,
+  "notQualified": 189,
+  "next": "ADD002-five-controls-current-observation"
+}

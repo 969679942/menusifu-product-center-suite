@@ -22,7 +22,7 @@ import {
   finishExecutableOperation,
   startExecutableOperation,
 } from '../../utils/executable-operation-receipt';
-import { fingerprintImplementationSources } from '../../../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
+import { fingerprintImplementationSources } from '../../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
 import { runtimeConfig } from '../../api/runtime-config';
 import type { RuntimeAssertionReceipt } from '../../automation/system-test/system-test-runtime-contract';
 

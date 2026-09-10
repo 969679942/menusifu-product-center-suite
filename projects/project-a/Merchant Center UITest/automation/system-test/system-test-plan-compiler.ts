@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-plan-compiler';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-plan-compiler';

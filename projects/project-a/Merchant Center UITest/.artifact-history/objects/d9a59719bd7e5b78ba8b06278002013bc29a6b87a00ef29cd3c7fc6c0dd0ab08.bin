@@ -1,0 +1,56 @@
+{
+  "recordedAt": "2026-09-08T15:17:42.700Z",
+  "input": {
+    "unitId": "STD005-formal-runner-integration",
+    "directionId": "STD005-formal-runner-integration",
+    "phase": "after-unit",
+    "tokenStart": 1147561,
+    "tokenCurrent": 1173561,
+    "elapsedMs": 412000,
+    "attempts": 0,
+    "beforeQuestionIds": [
+      "STD005-canonical-owner",
+      "STD005-routing",
+      "STD005-current-fingerprint",
+      "STD005-exact-admission"
+    ],
+    "afterQuestionIds": [],
+    "priorEvidenceHashes": [],
+    "evidence": [
+      {
+        "path": "deliverables/system-test-platform/required-name-registration-proof.json",
+        "sha256": "ce45b2cf7f6149b936266f7c57de605bdcb5c6df80e97b3681160268425243df",
+        "kind": "contract-proof"
+      }
+    ],
+    "policy": {
+      "maxTokens": 12000,
+      "maxElapsedMs": 1200000,
+      "maxAttempts": 2
+    }
+  },
+  "result": {
+    "schemaVersion": "1.0.0",
+    "unitId": "STD005-formal-runner-integration",
+    "directionId": "STD005-formal-runner-integration",
+    "decision": "pause-direction",
+    "reasons": [
+      "WORK_UNIT_TOKEN_LIMIT"
+    ],
+    "tokensUsed": 26000,
+    "tokenMeasurementStatus": "available",
+    "resolvedQuestionIds": [
+      "STD005-canonical-owner",
+      "STD005-routing",
+      "STD005-current-fingerprint",
+      "STD005-exact-admission"
+    ],
+    "newQuestionIds": [],
+    "newEvidenceHashes": [
+      "ce45b2cf7f6149b936266f7c57de605bdcb5c6df80e97b3681160268425243df"
+    ],
+    "scopeReduced": true,
+    "businessPassAuthorized": false,
+    "otherIndependentDirectionsMayContinue": true
+  }
+}

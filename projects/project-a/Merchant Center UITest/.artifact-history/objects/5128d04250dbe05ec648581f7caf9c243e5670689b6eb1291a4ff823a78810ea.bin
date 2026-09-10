@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-08T12:34:21.019Z",
+  "unit": "standard-list-seven-source-implementation-review",
+  "recommendation": "必须",
+  "scope": "project-adapter/domain-asset/generated-evidence",
+  "status": "analysis-complete-implementation-pending",
+  "purpose": "对剩余197条中7条列表用例逐案核对正式动作与实现，修复宽泛探测不能证明正式预期的问题，避免无收益业务重跑",
+  "expectedResult": "每条仅执行自己的正式动作；完整来源断言、变更状态恢复和上下文收据；再按真实影响构造公共执行意图",
+  "feasibility": "可复用现有列表定位器与底层动作；缺口在场景编排、严格断言和默认配置权威。需要先验证字段/默认配置及语言文案的现有来源适用性。",
+  "maturity": "现有绑定不具备该7条的当前正式收据准入条件；本审查不授权通过或执行",
+  "implementationImpact": "预计修改标准runner/flow/list page；当前文件级实现指纹会波及STD102，列表公共页还会波及已合格加料。实施前必须完成逐依赖影响分析，避免把无关方法变更当作真实业务失效；不能手改指纹或伪造代码等价。",
+  "passedCaseImpact": "本次只读审查不修改业务实现；STD102与ADD005/006/007资格、历史结果及当前业务收据不变，无重跑。",
+  "rows": [
+    {
+      "caseId": "TC-ITEM-STD-002",
+      "action": "list-page",
+      "sourceSteps": [
+        "通过侧边栏进入商品列表",
+        "查看当前筛选区域",
+        "查看商品表格字段和操作入口",
+        "查看分页与总数信息"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ],
+      "caseSemanticFingerprint": "af177a42e15f0c5dddc8ba441e1ce9e59077a782427453d09f89cbed5c7be2f5",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.verifyListLoaded",
+        "ItemListPage.verifyListLoaded"
+      ],
+      "currentImplementationGap": "当前仅确认页面加载与至少一个列头；缺少分类树不存在、筛选/新增入口、逐列、分页总数和50条预期断言。",
+      "requiredChanges": [
+        "正式动作1要求侧边栏进入；当前list.open直接导航",
+        "逐项读取筛选/新增、表头、分类树、分页和数量，并生成4条来源断言收据"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-003",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "点击「展示列设置」。",
+        "勾选「分类」「规格」「标准价」。",
+        "查看列表字段展示。",
+        "取消勾选「规格」。",
+        "再次查看列表字段展示。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-003:expectation-1",
+        "TC-ITEM-STD-003:expectation-2",
+        "TC-ITEM-STD-003:expectation-3"
+      ],
+      "caseSemanticFingerprint": "ecde543d7a8b695e8a3f305389e19d26b9c2f0b8864a1926dbd47677ecd74fdc",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.probeColumnSelection"
+      ],
+      "currentImplementationGap": "虽然探测列选择和移除规格，但runner不检查返回结果；固定列/锁定位置和准确所选列集合没有完整断言。",
+      "requiredChanges": [
+        "只执行当前列设置场景",
+        "校验固定列、锁定位置、所选列和移除规格后的列集合",
+        "异常时恢复原列配置并验证恢复"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-004",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "将系统语言切换为中文。",
+        "查看商品页面文案展示。",
+        "将系统语言切换为英文。",
+        "再次查看商品页面文案展示。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-004:expectation-1",
+        "TC-ITEM-STD-004:expectation-2"
+      ],
+      "caseSemanticFingerprint": "f393927749096c33a44f7a368fd73c332f1190d500bc3710717494c7907a5874",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.probeLanguageSwitch"
+      ],
+      "currentImplementationGap": "仅采集中英文表面文本；runner没有验证两种语言文本与正式预期的对应关系，入口不可用也可返回观测结果。",
+      "requiredChanges": [
+        "来源“文本正确”需绑定已有审计确认的文本和控件范围",
+        "切换及返回原语言均须观测确认",
+        "两种语言各形成独立断言收据"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-063",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "分页条数切换为 10。",
+        "分页条数依次切换为 20、50、100。",
+        "观察每页展示条数。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-063:expectation-1",
+        "TC-ITEM-STD-063:expectation-2"
+      ],
+      "caseSemanticFingerprint": "91c3e8992a3bd1477d42b02292e6804fb9434b79ed87123341c189da907d50b7",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.probePageSizeOptions"
+      ],
+      "currentImplementationGap": "缺失分页选项会被continue跳过；未验证四个选项完整执行、每档实际行数和超过100条前置条件。",
+      "requiredChanges": [
+        "先校验UI总数满足正式前置",
+        "完整执行10/20/50/100四档，不得跳过缺失选项",
+        "逐档验证请求选择与UI行数，finally恢复原分页"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-072",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "查看列表默认展示列。",
+        "打开展示列设置查看默认收起列。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-072:expectation-1",
+        "TC-ITEM-STD-072:expectation-2"
+      ],
+      "caseSemanticFingerprint": "705f5df3f2bd09988cc760281e50690454a00953f14fd5fd5ce9e0d4e159a7f8",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.readDefaultColumnConfiguration"
+      ],
+      "currentImplementationGap": "读取的是进入页面时的勾选状态；未证明该状态就是系统默认，也没有校验正式要求的展示/收起字段集合。",
+      "requiredChanges": [
+        "建立明确默认配置上下文并保留原配置",
+        "逐项核对显示与收起字段集合",
+        "只执行默认列场景并恢复原状态"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-073",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "打开展示列设置并修改列勾选状态。",
+        "点击还原默认状态。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-073:expectation-1",
+        "TC-ITEM-STD-073:expectation-2"
+      ],
+      "caseSemanticFingerprint": "9ceb618472fc1f7f7f3ce0e988ed8679986e78ffa7106c0bfc3bd445e77c5a7e",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.probeRestoreDefaultColumns"
+      ],
+      "currentImplementationGap": "比较还原结果与进入探针前配置；自定义的进入状态不能替代系统默认配置。runner也没有消费restored字段。",
+      "requiredChanges": [
+        "独立声明/观察系统默认列基线",
+        "先修改、再点击还原并验证默认配置和列表一致",
+        "将业务还原默认与测试后恢复用户原设置分开"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    },
+    {
+      "caseId": "TC-ITEM-STD-074",
+      "action": "list-evidence",
+      "sourceSteps": [
+        "查看列表上方或下方统计信息区域。"
+      ],
+      "requiredAssertionIds": [
+        "TC-ITEM-STD-074:expectation-1",
+        "TC-ITEM-STD-074:expectation-2"
+      ],
+      "caseSemanticFingerprint": "b4e8136779d6404ad9df34c3930b18757256cf0b942a9b530104ec32db5cb127",
+      "inspectedCallTree": [
+        "StandardItem216CaseRunner.execute",
+        "StandardItem216Flow.readListEvidence",
+        "ItemListPage.readPaginationTotalText"
+      ],
+      "currentImplementationGap": "读取分页总数文案后未验证总数量存在或总金额不存在，还顺带执行分页/列设置/语言切换。",
+      "requiredChanges": [
+        "仅观察统计区域",
+        "校验总商品数量存在和总金额统计不存在",
+        "不执行与本用例无关的状态修改"
+      ],
+      "classification": "automation-and-receipt-gap",
+      "currentBusinessFailureAsserted": false,
+      "sourceContractReady": false,
+      "businessRerunAuthorized": false
+    }
+  ],
+  "source": {
+    "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+    "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+  },
+  "inspectedDependencies": [
+    {
+      "path": "flows/product-center/item-216/standard-item-216.runner.ts",
+      "sha256": "159f212b6be5a10ad2699869a6bfbedd02ae19508559e3ceee926ee7230731ce"
+    },
+    {
+      "path": "flows/product-center/item-216/standard-item-216.flow.ts",
+      "sha256": "d72e4d6d3cba5f48a5443b9c99f2d5b527fb2bd8e0238620565cb7d029050907"
+    },
+    {
+      "path": "pages/product-management/item/item-list.page.ts",
+      "sha256": "48d17ed9b42bb693d974650abc33396d1335c91ec758c950a73d24e42d49a5e5"
+    },
+    {
+      "path": "scripts/generate-product-center-item-216-spec.ts",
+      "sha256": "71a0bde6eeddbae75b5a66f2cb9b6d0a4bc83f20bdff591d7c6f9b9bfc74f745"
+    },
+    {
+      "path": "adapters/product-center/product-center-item-implementation.ts",
+      "sha256": "e2ba659ab97530f52ed9173613971bb9542998aa11b0279a6662eb45d7759814"
+    }
+  ],
+  "nextWork": [
+    "按已读调用树明确最小新增Page/Flow职责；优先独立文件避免影响既有通过分支",
+    "核对可复用字段、分页、列设置和语言正式审计证据；缺口通过只读观察发现",
+    "为每条编写来源动作/断言/恢复合同，再实现对应场景",
+    "先运行隔离合同和影响门禁；不得把probe返回available:false或跳过分支当作通过",
+    "只有业务实现和来源准入就绪时，构造当前选择集公共意图执行"
+  ],
+  "historicalAuditAuthority": "历史审计可定位控件和冲突，不能替代当前用例级标准收据",
+  "businessCasesExecuted": 0
+}

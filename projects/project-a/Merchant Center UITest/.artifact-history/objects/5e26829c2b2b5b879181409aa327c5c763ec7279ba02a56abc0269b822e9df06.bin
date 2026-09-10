@@ -1,0 +1,876 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "AUTO_AUDIT_P0_REMAINING_W2_20260731_02",
+  "waveId": "W2",
+  "executionMode": "wave-shared-chain",
+  "caseLevelRunsClaimed": 0,
+  "status": "completed-with-canonical-conflicts",
+  "caseIds": [
+    "TC-ITEM-STD-039",
+    "TC-ITEM-STD-093",
+    "TC-ITEM-STD-021",
+    "TC-ITEM-STD-022",
+    "TC-ITEM-STD-023",
+    "TC-ITEM-STD-097",
+    "TC-ITEM-STD-043",
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-047",
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-ADD-048",
+    "TC-ITEM-ADD-016",
+    "TC-ITEM-PKG-015",
+    "TC-ITEM-PKG-019",
+    "TC-ITEM-PKG-077",
+    "TC-ITEM-PKG-026",
+    "TC-ITEM-PKG-076",
+    "TC-ITEM-PKG-013"
+  ],
+  "acceptedCaseIds": [
+    "TC-ITEM-ADD-006",
+    "TC-ITEM-ADD-008",
+    "TC-ITEM-ADD-016",
+    "TC-ITEM-ADD-047",
+    "TC-ITEM-ADD-048",
+    "TC-ITEM-PKG-015",
+    "TC-ITEM-PKG-026",
+    "TC-ITEM-PKG-076",
+    "TC-ITEM-PKG-077",
+    "TC-ITEM-STD-022",
+    "TC-ITEM-STD-039",
+    "TC-ITEM-STD-043",
+    "TC-ITEM-STD-093",
+    "TC-ITEM-STD-097"
+  ],
+  "conflictCaseIds": [
+    "TC-ITEM-ADD-010",
+    "TC-ITEM-PKG-013",
+    "TC-ITEM-PKG-019",
+    "TC-ITEM-STD-021",
+    "TC-ITEM-STD-023"
+  ],
+  "caseEvidence": {
+    "TC-ITEM-STD-039": {
+      "caseId": "TC-ITEM-STD-039",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_039_1785473360492",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_039_1785473360492",
+        "itemAltName": "",
+        "standardPrice": "10.00",
+        "minimumOrderQuantity": ""
+      },
+      "signal": {
+        "errors": [
+          "Required"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-STD-093": {
+      "caseId": "TC-ITEM-STD-093",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_093_1785473360493",
+      "submittedNameMode": "padded",
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "  AUTO_AUDIT_W2_TC_ITEM_STD_093_1785473360493  ",
+        "itemAltName": "",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [
+          "首尾不能有空格"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-STD-021": {
+      "caseId": "TC-ITEM-STD-021",
+      "verdict": "canonical-conflict",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_021_1785473360494",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/list",
+      "beforeCount": 0,
+      "afterCount": 1,
+      "accidentalRecordId": 260900,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_021_1785473360494",
+        "itemAltName": "",
+        "standardPrice": "-1"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Successfully Submitted"
+        ],
+        "successMessageCount": 1,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200,
+          "error": {
+            "code": "0",
+            "message": "success"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-STD-022": {
+      "caseId": "TC-ITEM-STD-022",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_022_1785473360495",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_022_1785473360495",
+        "itemAltName": "",
+        "standardPrice": "10.00",
+        "minimumOrderQuantity": "0"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "SYSTEM-0001 : Parameter error: Minimum order quantity must be at least 1"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 400,
+          "error": {
+            "code": "SYSTEM-0001",
+            "message": "参数错误"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-STD-023": {
+      "caseId": "TC-ITEM-STD-023",
+      "verdict": "canonical-conflict",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_023_1785473360496",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/list",
+      "beforeCount": 0,
+      "afterCount": 1,
+      "accidentalRecordId": 260901,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_023_1785473360496",
+        "itemAltName": "",
+        "standardPrice": "10.00",
+        "minimumOrderQuantity": "abc"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Successfully Submitted"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200,
+          "error": {
+            "code": "0",
+            "message": "success"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-STD-097": {
+      "caseId": "TC-ITEM-STD-097",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_097_1785473360497",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_097_1785473360497",
+        "itemAltName": "",
+        "standardPrice": "abc"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Please fill in the price"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-STD-043": {
+      "caseId": "TC-ITEM-STD-043",
+      "verdict": "accepted",
+      "productType": "standard",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_STD_043_1785473360498",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/standard",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_STD_043_1785473360498",
+        "itemAltName": "AUTO_AUDIT_W2_TC_ITEM_STD_043_1785473360498",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [
+          "Please enter product name"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-ADD-006": {
+      "caseId": "TC-ITEM-ADD-006",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_006_1785473360499",
+      "submittedNameMode": "missing",
+      "route": "/pp/brand/create/side",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "",
+        "itemAltName": "",
+        "standardPrice": "5.00"
+      },
+      "signal": {
+        "errors": [
+          "Please enter product name"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-ADD-008": {
+      "caseId": "TC-ITEM-ADD-008",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_008_1785473360500",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/side",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_ADD_008_1785473360500",
+        "itemAltName": "",
+        "standardPrice": ""
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Please fill in the price"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-ADD-047": {
+      "caseId": "TC-ITEM-ADD-047",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_047_1785473360501",
+      "submittedNameMode": "padded",
+      "route": "/pp/brand/create/side",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "  AUTO_AUDIT_W2_TC_ITEM_ADD_047_1785473360501  ",
+        "itemAltName": "",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [
+          "首尾不能有空格"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-ADD-010": {
+      "caseId": "TC-ITEM-ADD-010",
+      "verdict": "canonical-conflict",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_010_1785473360502",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/list",
+      "beforeCount": 0,
+      "afterCount": 1,
+      "accidentalRecordId": 260902,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_ADD_010_1785473360502",
+        "itemAltName": "",
+        "standardPrice": "-1"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Successfully Submitted"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 200,
+          "error": {
+            "code": "0",
+            "message": "success"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-ADD-048": {
+      "caseId": "TC-ITEM-ADD-048",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_048_1785473360503",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/side",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_ADD_048_1785473360503",
+        "itemAltName": "",
+        "standardPrice": "abc"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Please fill in the price"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-ADD-016": {
+      "caseId": "TC-ITEM-ADD-016",
+      "verdict": "accepted",
+      "productType": "side",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_ADD_016_1785473360504",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/side",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_ADD_016_1785473360504",
+        "itemAltName": "AUTO_AUDIT_W2_TC_ITEM_ADD_016_1785473360504",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "BITEM-7001 : name is same with secondName"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/standard",
+          "status": 400,
+          "error": {
+            "code": "BITEM-7001",
+            "message": "属性项名称不可以与属性项第二名称重复，请修改"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-PKG-015": {
+      "caseId": "TC-ITEM-PKG-015",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_015_1785473360505",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_PKG_015_1785473360505",
+        "itemAltName": "",
+        "standardPrice": "10.00",
+        "minimumOrderQuantity": "0"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "SYSTEM-0001 : Parameter error: Minimum order quantity must be at least 1"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 400,
+          "error": {
+            "code": "SYSTEM-0001",
+            "message": "参数错误"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-PKG-019": {
+      "caseId": "TC-ITEM-PKG-019",
+      "verdict": "canonical-conflict",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_019_1785473360506",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/list",
+      "beforeCount": 0,
+      "afterCount": 1,
+      "accidentalRecordId": 260903,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_PKG_019_1785473360506",
+        "itemAltName": "",
+        "standardPrice": "0.00"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Successfully Submitted"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 200,
+          "error": {
+            "code": "0",
+            "message": "success"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-PKG-077": {
+      "caseId": "TC-ITEM-PKG-077",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_077_1785473360507",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_PKG_077_1785473360507",
+        "itemAltName": "",
+        "standardPrice": ""
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Please fill in the price"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-PKG-026": {
+      "caseId": "TC-ITEM-PKG-026",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_026_1785473360508",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_PKG_026_1785473360508",
+        "itemAltName": "AUTO_AUDIT_W2_TC_ITEM_PKG_026_1785473360508",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 400,
+          "error": {
+            "code": "BITEM-7001",
+            "message": "属性项名称不可以与属性项第二名称重复，请修改"
+          }
+        }
+      ]
+    },
+    "TC-ITEM-PKG-076": {
+      "caseId": "TC-ITEM-PKG-076",
+      "verdict": "accepted",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_076_1785473360509",
+      "submittedNameMode": "padded",
+      "route": "/pp/brand/create/combo",
+      "beforeCount": 0,
+      "afterCount": 0,
+      "enteredValues": {
+        "itemName": "  AUTO_AUDIT_W2_TC_ITEM_PKG_076_1785473360509  ",
+        "itemAltName": "",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [
+          "首尾不能有空格"
+        ],
+        "messages": [],
+        "successMessageCount": 0,
+        "responseCount": 0
+      },
+      "responses": []
+    },
+    "TC-ITEM-PKG-013": {
+      "caseId": "TC-ITEM-PKG-013",
+      "verdict": "canonical-conflict",
+      "productType": "combo",
+      "identity": "AUTO_AUDIT_W2_TC_ITEM_PKG_013_1785473360510",
+      "submittedNameMode": "normal",
+      "route": "/pp/brand/list",
+      "beforeCount": 0,
+      "afterCount": 1,
+      "accidentalRecordId": 260904,
+      "enteredValues": {
+        "itemName": "AUTO_AUDIT_W2_TC_ITEM_PKG_013_1785473360510",
+        "itemAltName": "",
+        "standardPrice": "10.00"
+      },
+      "signal": {
+        "errors": [],
+        "messages": [
+          "Successfully Submitted"
+        ],
+        "successMessageCount": 0,
+        "responseCount": 1
+      },
+      "responses": [
+        {
+          "method": "POST",
+          "path": "/item/v1/ops-brand/brand-items/combo",
+          "status": 200,
+          "error": {
+            "code": "0",
+            "message": "success"
+          }
+        }
+      ],
+      "categoryEvidence": {
+        "selectedPathBefore": "",
+        "selectedPathAfter": "",
+        "visibleMenuCount": 2,
+        "childVisible": true
+      }
+    }
+  },
+  "summary": {
+    "total": 19,
+    "accepted": 14,
+    "canonicalConflict": 5,
+    "harnessError": 0
+  },
+  "sharedSeeds": {
+    "comboGroupName": "AUTO_AUDIT_COMBO_1785473360492",
+    "categoryIdentityCount": 5
+  },
+  "cleanupEvidence": {
+    "apiResidue": {
+      "AUTO_AUDIT_W2_TC_ITEM_STD_039_1785473360492": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_093_1785473360493": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_021_1785473360494": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_022_1785473360495": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_023_1785473360496": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_097_1785473360497": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_043_1785473360498": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_006_1785473360499": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_008_1785473360500": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_047_1785473360501": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_010_1785473360502": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_048_1785473360503": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_016_1785473360504": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_015_1785473360505": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_019_1785473360506": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_077_1785473360507": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_026_1785473360508": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_076_1785473360509": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_013_1785473360510": 0
+    },
+    "uiResidue": {
+      "AUTO_AUDIT_W2_TC_ITEM_STD_039_1785473360492": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_093_1785473360493": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_021_1785473360494": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_022_1785473360495": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_023_1785473360496": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_097_1785473360497": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_STD_043_1785473360498": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_006_1785473360499": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_008_1785473360500": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_047_1785473360501": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_010_1785473360502": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_048_1785473360503": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_ADD_016_1785473360504": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_015_1785473360505": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_019_1785473360506": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_077_1785473360507": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_026_1785473360508": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_076_1785473360509": 0,
+      "AUTO_AUDIT_W2_TC_ITEM_PKG_013_1785473360510": 0
+    },
+    "ledgerEntries": 12,
+    "residueVerified": 12
+  },
+  "mutationIntents": [
+    {
+      "intentId": "intent:remaining-w2:b697a3e4b2bbaf1cff4de349",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-039",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:568c081563089030f12c2a1b",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-093",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:0e53a3be99d8b044ef78a498",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-021",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260900,
+      "ledgerEntryId": "item-260900"
+    },
+    {
+      "intentId": "intent:remaining-w2:ca295f5358e6416ee6cb5458",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-022",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:15effe64521a443099698577",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-023",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260901,
+      "ledgerEntryId": "item-260901"
+    },
+    {
+      "intentId": "intent:remaining-w2:1188d582fdc969738cbf7e1a",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-097",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:bac0ca2b184bad67accaf713",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-STD-043",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:53aa568c86eb976c2ca05d29",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-006",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:53db92ad81b852e72c8845b8",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-008",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:1b4a45b0b2cd93c741ec7d3c",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-047",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:e02394d4f7b59fb1e206b126",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-010",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      },
+      "serverId": 260902,
+      "ledgerEntryId": "item-260902"
+    },
+    {
+      "intentId": "intent:remaining-w2:7a94861553cb743fbecf2edd",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-048",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:e384b49a250caec46e459e93",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-ADD-016",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/standard"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:f32e7576f632e3e209994973",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-015",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:615db9a359e72cca0bd3a852",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-019",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      },
+      "serverId": 260903,
+      "ledgerEntryId": "item-260903"
+    },
+    {
+      "intentId": "intent:remaining-w2:119e343fdbe88dcd88bfb390",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-077",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:1df4468042ca686b824be2a3",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-026",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:7e31f57dd5da7da9b57323c7",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-076",
+      "phase": "cleanup-complete",
+      "reconciliation": "absent",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      }
+    },
+    {
+      "intentId": "intent:remaining-w2:f062cb9419f355b8f3c7bb0c",
+      "unitId": "audit-unit:remaining-w2:TC-ITEM-PKG-013",
+      "phase": "cleanup-complete",
+      "reconciliation": "present",
+      "operation": {
+        "method": "POST",
+        "path": "/ops-brand/brand-items/combo"
+      },
+      "serverId": 260904,
+      "ledgerEntryId": "item-260904"
+    }
+  ],
+  "security": {
+    "credentialsPersisted": false,
+    "authorizationArtifactsPersisted": false,
+    "storageStatePersisted": false
+  }
+}

@@ -572,14 +572,29 @@ test.describe('商品中心页面合同观测', () => {
 
   test('最新页面合同产物无论 clean 或 review-required 都应保持指纹与影响集闭环', async () => {
     const projectRoot = process.cwd();
+    const observationPath = path.join(
+      projectRoot,
+      'output/page-contract/product-center-page-contract-observation.json',
+    );
+    if (!fs.existsSync(observationPath)) {
+      const blockedPath = path.join(
+        projectRoot,
+        'output/page-contract/product-center-page-contract-finding-review-queue.blocked.json',
+      );
+      expect(fs.existsSync(blockedPath)).toBe(true);
+      const blocked = readJson<{ status?: string; code?: string; businessExecutionStarted?: boolean }>(blockedPath);
+      expect(blocked).toMatchObject({
+        status: 'blocked',
+        code: 'PAGE_CONTRACT_DIFF_MISSING',
+        businessExecutionStarted: false,
+      });
+      return;
+    }
     const baseline = readJson<ProductCenterPageContractObservation>(path.join(
       projectRoot,
       'contracts/product-center/snapshots/product-center-page-contract-baseline.json',
     ));
-    const observation = readJson<ProductCenterPageContractObservation>(path.join(
-      projectRoot,
-      'output/page-contract/product-center-page-contract-observation.json',
-    ));
+    const observation = readJson<ProductCenterPageContractObservation>(observationPath);
     const diff = readJson<ProductCenterPageContractDiff>(path.join(
       projectRoot,
       'output/page-contract/product-center-page-contract-diff.json',

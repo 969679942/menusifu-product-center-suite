@@ -73,7 +73,7 @@ export default class ProductCenterLiveReleaseProbeReporter implements Reporter {
     }
   }
 
-  onEnd(result: FullResult): { status: FullResult['status'] } {
+  async onEnd(result: FullResult): Promise<{ status: FullResult['status'] }> {
     const outputPath = process.env.PC_LIVE_RELEASE_PROBE_OUTPUT;
     if (!outputPath || !this.runId || (this.entries.length === 0 && this.failures.length === 0)) {
       return { status: 'failed' };
@@ -86,7 +86,12 @@ export default class ProductCenterLiveReleaseProbeReporter implements Reporter {
       entries: [...this.entries].sort((left, right) => (
         String(left.route ?? '').localeCompare(String(right.route ?? ''))
       )),
-      failures: [...this.failures].sort((left, right) => left.route.localeCompare(right.route)),
+      failures: expandAuthBlockedFailures({
+        selectedRoutes: parseSelectedRoutes(process.env.PC_LIVE_RELEASE_PROBE_ROUTES),
+        entries: this.entries,
+        failures: this.failures,
+        attempt: this.attempt,
+      }).sort((left, right) => left.route.localeCompare(right.route)),
     };
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     const temporaryPath = `${outputPath}.tmp`;
@@ -96,10 +101,63 @@ export default class ProductCenterLiveReleaseProbeReporter implements Reporter {
   }
 }
 
+export function expandAuthBlockedFailures(input: {
+  selectedRoutes: readonly string[];
+  entries: ReadonlyArray<Record<string, unknown>>;
+  failures: ReadonlyArray<{
+    route: string;
+    status: string;
+    diagnosticFingerprint: string;
+    category: string;
+    retryable: boolean;
+    durationMs: number;
+    attempt: number;
+  }>;
+  attempt: number;
+}) {
+  const authFailures = input.failures.filter((failure) => failure.category === 'environment-auth');
+  if (authFailures.length === 0) return [...input.failures];
+  const source = authFailures[0];
+  const hasUnknownAuthFailure = authFailures.some((failure) => failure.route === '/unknown');
+  const retainedFailures = hasUnknownAuthFailure
+    ? input.failures.filter((failure) => !(failure.category === 'environment-auth' && failure.route === '/unknown'))
+    : [...input.failures];
+  const reportedRoutes = new Set([
+    ...input.entries.map((entry) => typeof entry.route === 'string' ? entry.route : '/unknown'),
+    ...retainedFailures.map((failure) => failure.route),
+  ]);
+  const blocked = input.selectedRoutes
+    .filter((route) => !reportedRoutes.has(route))
+    .map((route) => ({
+      route,
+      status: 'blocked',
+      diagnosticFingerprint: source.diagnosticFingerprint,
+      category: 'environment-auth',
+      retryable: false,
+      durationMs: source.durationMs,
+      attempt: input.attempt,
+    }));
+  return [...retainedFailures, ...blocked];
+}
+
 function routeFromTitle(title: string): string {
   const separator = title.lastIndexOf('：');
   const route = separator >= 0 ? title.slice(separator + 1).trim() : '';
-  return route.startsWith('/') ? route : '/unknown';
+  if (route.startsWith('/')) return route;
+  const match = title.match(/\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+/);
+  return match?.[0] ?? '/unknown';
+}
+
+function parseSelectedRoutes(value: string | undefined): string[] {
+  if (!value) return [];
+  try {
+    const parsed = JSON.parse(value) as unknown;
+    return Array.isArray(parsed)
+      ? parsed.filter((route): route is string => typeof route === 'string')
+      : [];
+  } catch {
+    return [];
+  }
 }
 
 function parseAttempt(value: string | undefined): number {

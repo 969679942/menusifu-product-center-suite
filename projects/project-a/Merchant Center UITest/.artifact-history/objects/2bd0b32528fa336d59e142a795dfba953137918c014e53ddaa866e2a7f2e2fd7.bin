@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-09-08T14:39:06.709Z",
+  "caseId": "TC-ITEM-STD-030",
+  "status": "static-ready-runtime-pending",
+  "cause": "首次返回后241ms读取，不足以排除初始化时序",
+  "repair": {
+    "observationWindowMs": 5000,
+    "intervalMs": 250,
+    "consecutiveEmptyObservationsRequired": 2,
+    "stableMismatchMinObservedSpanMs": 4500,
+    "probeErrors": "propagate-as-evidence-or-automation-error",
+    "changingState": "evidence-incomplete",
+    "newBusinessRule": false
+  },
+  "validation": {
+    "contractsPassed": 9,
+    "typecheck": "passed",
+    "architecture": "passed-571-no-increase",
+    "capabilityIndex": "passed",
+    "preservedQualifiedFingerprints": 9
+  },
+  "businessRunsStarted": 0,
+  "planPath": "deliverables/system-test-platform/query-return-repair-plan-02.json",
+  "planFingerprint": "8def96b08f6ee7a1b0ca62078510c8ffb2ed85eca3524f62c5e6b34fe38a7d94",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-030"
+  ],
+  "nextRunId": "standard-query-return-20260908-02",
+  "startScript": "C:/Users/Administrator/.codex/task-handoffs/01a07ed5-23d2-7ce2-917d-38c2182c8a7e/start-query-return-02.ts"
+}

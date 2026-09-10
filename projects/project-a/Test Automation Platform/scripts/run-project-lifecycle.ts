@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { publishImmutableArtifact } from '../src/utils/immutable-artifact';
 import path from 'node:path';
 import { buildSystemTestPlatformReadiness } from './build-platform-readiness';
 import { buildPlatformReviewQueue, type GovernanceFileReference } from './build-platform-review-queue';
@@ -168,7 +169,8 @@ function deduplicateGovernanceFiles(files: GovernanceFileReference[]): Array<{ p
 function writeVerdict(adapter: ResolvedProjectAdapter): string {
   const verdictPath = artifactPath(adapter, 'final-goal-verdict.json');
   const verdict = evaluateSystemTestFinalGoal(readReadiness(adapter));
-  fs.writeFileSync(verdictPath, `${JSON.stringify({ ...verdict, generatedAt: new Date().toISOString() }, null, 2)}\n`, 'utf8');
+  publishImmutableArtifact({ outputRoot: adapter.projectRoot, relativePath: path.relative(adapter.projectRoot, verdictPath),
+    content: `${JSON.stringify({ ...verdict, generatedAt: new Date().toISOString() }, null, 2)}\n`, reason: 'refresh-final-goal-verdict' });
   return verdictPath;
 }
 
@@ -179,13 +181,25 @@ function reconcileExternalDependency(adapter: ResolvedProjectAdapter, verdictPat
     ? JSON.parse(fs.readFileSync(outputPath, 'utf8')) as Record<string, unknown>
     : undefined;
   const verdict = JSON.parse(fs.readFileSync(verdictPath, 'utf8')) as SystemTestFinalGoalVerdict;
+  const readiness = readReadiness(adapter) as SystemTestPlatformReadiness & {
+    generatedAt?: string;
+    referenceBaseline?: import('../src/automation/system-test/system-test-platform-readiness').SystemTestReferenceBaselineEvidence;
+    pilots?: import('../src/automation/system-test/system-test-platform-readiness').SystemTestPilotEvidence[];
+  };
   const reconciled = reconcileSystemTestExternalDependency({
     existing,
     verdict,
     applicationId: adapter.descriptor.applicationId,
     businessDomainId: lifecycle.businessDomainId,
+    currentEvidence: {
+      generatedAt: readiness.generatedAt,
+      referenceBaseline: readiness.referenceBaseline,
+      pilots: readiness.pilots ?? [],
+      evidenceRef: 'readiness.json',
+    },
   });
-  fs.writeFileSync(outputPath, `${JSON.stringify(reconciled, null, 2)}\n`, 'utf8');
+  publishImmutableArtifact({ outputRoot: adapter.projectRoot, relativePath: path.relative(adapter.projectRoot, outputPath),
+    content: `${JSON.stringify(reconciled, null, 2)}\n`, reason: 'refresh-external-dependency-observation' });
   return outputPath;
 }
 

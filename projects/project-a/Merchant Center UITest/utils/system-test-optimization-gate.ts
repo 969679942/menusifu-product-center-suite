@@ -3,9 +3,9 @@ import {
   type SystemTestOptimizationCase,
   type SystemTestOptimizationPlan,
   type SystemTestOptimizationReceipt,
-} from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
-import type { SystemTestCompiledCase } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import type { SystemTestRevalidationImpactType } from '../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+} from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import type { SystemTestCompiledCase } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import type { SystemTestRevalidationImpactType } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
 
 export type MerchantCenterOptimizationCase = SystemTestOptimizationCase;
 

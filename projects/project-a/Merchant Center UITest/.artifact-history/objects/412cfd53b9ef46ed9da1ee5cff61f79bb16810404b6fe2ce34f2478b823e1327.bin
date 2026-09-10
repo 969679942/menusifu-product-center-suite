@@ -1,0 +1,35 @@
+{
+  "unit": "standard-name-format-source-binding",
+  "status": "analysis-complete-implementation-pending",
+  "recommendation": "必须",
+  "purpose": "补齐正式存在但缺少可执行动作的 STD102/103，防止生成脚本存在被误认为已绑定",
+  "expectedResult": "两条分别具备来源动作、唯一数据、字段级/UI/API断言、异常创建登记及清理合同，并经公共意图定向执行后核验当前收据",
+  "feasibility": "正式来源完整且已有 BR-FMT-001 人工裁决；现有标准商品创建、输入、列表查询和清理能力可复用；缺少动作绑定和完整场景验收实现",
+  "existingSource": {
+    "formalCaseIds": [
+      "TC-ITEM-STD-102",
+      "TC-ITEM-STD-103"
+    ],
+    "rule": "BR-FMT-001",
+    "decisionDate": "2026-09-05",
+    "generator": "scripts/generate-product-center-item-216-spec.ts",
+    "legacyActionSource": "tests/generated/product-center-item-standard-216.generated.spec.ts",
+    "problem": "readStandardActions reads actions from the legacy generated spec; new formal cases have action=null"
+  },
+  "implementationImpact": [
+    "标准名称边界/emoji场景的 Page/Flow/Runner 及项目数据、清理映射",
+    "生成入口的可追溯动作绑定；不得只手改生成脚本",
+    "绑定/生成依赖影响必须先对账，任何实现指纹协调只能基于真实代码依赖"
+  ],
+  "maturity": "当前技术绑定未实现，不能标记 ready/runtime-passed 或进入正式执行",
+  "passedCaseImpact": "ADD005/006/007当前资格保持；ADD002历史通过不变、当前实现不匹配；不得仅因生成/报告更新重跑既有业务，不得伪造代码等价",
+  "executionPlan": [
+    "从正式步骤与既有BR-FMT-001裁决声明两条详细场景合同",
+    "实现场景及可再生动作绑定，并先解决当前影响声明",
+    "隔离负向合同验证：名称100字符保留空格、emoji未被静默移除、延迟写响应及清理",
+    "构建只有这两条的当前公共计划/意图；在选择集、来源、权限及清理门禁通过后运行",
+    "按真实终态消费标准收据；真实业务偏差提供已有规则与当前实际行为证据，不重复索要同一规则"
+  ],
+  "approvalRequired": false,
+  "businessExecutionStarted": false
+}

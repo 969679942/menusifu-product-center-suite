@@ -1,0 +1,503 @@
+{
+  "intentFingerprint": "319dc76cb490e392291c034c95708a117aa55abde0471bcb5fe04335e6e04101",
+  "selectionFingerprint": "242778edc67d57cf91fc927371c233e2d787380b014f865ee4c180508e8fc9db",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-003",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-072",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-072"
+  ],
+  "status": "failed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-072",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "705f5df3f2bd09988cc760281e50690454a00953f14fd5fd5ce9e0d4e159a7f8",
+    "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/list"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T13:12:57.967Z"
+    },
+    "executionEpochId": "source-governed-standard-list-20260908-02-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-072:action-1",
+        "title": "查看列表默认展示列",
+        "sequence": 12,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 65,
+        "startedAt": "2026-09-08T13:12:54.963Z",
+        "finishedAt": "2026-09-08T13:12:55.028Z",
+        "occurredAt": "2026-09-08T13:12:55.028Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-072:action-2",
+        "title": "打开列设置查看默认收起列",
+        "sequence": 14,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 165,
+        "startedAt": "2026-09-08T13:12:55.037Z",
+        "finishedAt": "2026-09-08T13:12:55.202Z",
+        "occurredAt": "2026-09-08T13:12:55.202Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardListAcceptanceFlow.execute",
+        "title": "按正式来源执行商品列表场景",
+        "sequence": 1,
+        "method": "execute",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 12685,
+        "startedAt": "2026-09-08T13:12:45.190Z",
+        "finishedAt": "2026-09-08T13:12:57.875Z",
+        "occurredAt": "2026-09-08T13:12:57.875Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 2,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 8323,
+        "startedAt": "2026-09-08T13:12:45.196Z",
+        "finishedAt": "2026-09-08T13:12:53.519Z",
+        "occurredAt": "2026-09-08T13:12:53.519Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 3,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 31,
+        "startedAt": "2026-09-08T13:12:53.631Z",
+        "finishedAt": "2026-09-08T13:12:53.662Z",
+        "occurredAt": "2026-09-08T13:12:53.662Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.openColumns",
+        "title": "打开展示列设置",
+        "sequence": 4,
+        "method": "openColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 117,
+        "startedAt": "2026-09-08T13:12:53.982Z",
+        "finishedAt": "2026-09-08T13:12:54.099Z",
+        "occurredAt": "2026-09-08T13:12:54.099Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readColumns",
+        "title": "读取展示列设置的勾选状态",
+        "sequence": 5,
+        "method": "readColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 29,
+        "startedAt": "2026-09-08T13:12:54.109Z",
+        "finishedAt": "2026-09-08T13:12:54.138Z",
+        "occurredAt": "2026-09-08T13:12:54.138Z"
+      },
+      {
+        "operationKey": "StandardListAcceptanceFlow.verifyDefaults",
+        "title": "验证系统默认列和还原默认行为",
+        "sequence": 6,
+        "method": "verifyDefaults",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 1127,
+        "startedAt": "2026-09-08T13:12:54.145Z",
+        "finishedAt": "2026-09-08T13:12:55.272Z",
+        "occurredAt": "2026-09-08T13:12:55.272Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.clickRestoreDefaults",
+        "title": "还原系统默认展示列",
+        "sequence": 7,
+        "method": "clickRestoreDefaults",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 338,
+        "startedAt": "2026-09-08T13:12:54.149Z",
+        "finishedAt": "2026-09-08T13:12:54.487Z",
+        "occurredAt": "2026-09-08T13:12:54.487Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.openColumns",
+        "title": "打开展示列设置",
+        "sequence": 8,
+        "method": "openColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 34,
+        "startedAt": "2026-09-08T13:12:54.496Z",
+        "finishedAt": "2026-09-08T13:12:54.530Z",
+        "occurredAt": "2026-09-08T13:12:54.531Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readColumns",
+        "title": "读取展示列设置的勾选状态",
+        "sequence": 9,
+        "method": "readColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 23,
+        "startedAt": "2026-09-08T13:12:54.545Z",
+        "finishedAt": "2026-09-08T13:12:54.568Z",
+        "occurredAt": "2026-09-08T13:12:54.568Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.closeColumns",
+        "title": "关闭展示列设置",
+        "sequence": 10,
+        "method": "closeColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 338,
+        "startedAt": "2026-09-08T13:12:54.578Z",
+        "finishedAt": "2026-09-08T13:12:54.916Z",
+        "occurredAt": "2026-09-08T13:12:54.916Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readHeaders",
+        "title": "读取商品表格列与固定位置",
+        "sequence": 11,
+        "method": "readHeaders",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 15,
+        "startedAt": "2026-09-08T13:12:54.927Z",
+        "finishedAt": "2026-09-08T13:12:54.942Z",
+        "occurredAt": "2026-09-08T13:12:54.942Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readHeaders",
+        "title": "读取商品表格列与固定位置",
+        "sequence": 13,
+        "method": "readHeaders",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 15,
+        "startedAt": "2026-09-08T13:12:54.995Z",
+        "finishedAt": "2026-09-08T13:12:55.010Z",
+        "occurredAt": "2026-09-08T13:12:55.010Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.openColumns",
+        "title": "打开展示列设置",
+        "sequence": 15,
+        "method": "openColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 117,
+        "startedAt": "2026-09-08T13:12:55.055Z",
+        "finishedAt": "2026-09-08T13:12:55.172Z",
+        "occurredAt": "2026-09-08T13:12:55.172Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readColumns",
+        "title": "读取展示列设置的勾选状态",
+        "sequence": 16,
+        "method": "readColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 47,
+        "startedAt": "2026-09-08T13:12:55.206Z",
+        "finishedAt": "2026-09-08T13:12:55.253Z",
+        "occurredAt": "2026-09-08T13:12:55.253Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.openColumns",
+        "title": "打开展示列设置",
+        "sequence": 17,
+        "method": "openColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 14,
+        "startedAt": "2026-09-08T13:12:55.280Z",
+        "finishedAt": "2026-09-08T13:12:55.294Z",
+        "occurredAt": "2026-09-08T13:12:55.294Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Item(Alt.Language)",
+        "sequence": 18,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 216,
+        "startedAt": "2026-09-08T13:12:55.298Z",
+        "finishedAt": "2026-09-08T13:12:55.515Z",
+        "occurredAt": "2026-09-08T13:12:55.515Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Mnemonic Code",
+        "sequence": 19,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 179,
+        "startedAt": "2026-09-08T13:12:55.524Z",
+        "finishedAt": "2026-09-08T13:12:55.703Z",
+        "occurredAt": "2026-09-08T13:12:55.703Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Category",
+        "sequence": 20,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 197,
+        "startedAt": "2026-09-08T13:12:55.712Z",
+        "finishedAt": "2026-09-08T13:12:55.909Z",
+        "occurredAt": "2026-09-08T13:12:55.909Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Flavor",
+        "sequence": 21,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 155,
+        "startedAt": "2026-09-08T13:12:55.920Z",
+        "finishedAt": "2026-09-08T13:12:56.075Z",
+        "occurredAt": "2026-09-08T13:12:56.075Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Preparation",
+        "sequence": 22,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 160,
+        "startedAt": "2026-09-08T13:12:56.084Z",
+        "finishedAt": "2026-09-08T13:12:56.244Z",
+        "occurredAt": "2026-09-08T13:12:56.244Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Descriptions",
+        "sequence": 23,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 161,
+        "startedAt": "2026-09-08T13:12:56.255Z",
+        "finishedAt": "2026-09-08T13:12:56.416Z",
+        "occurredAt": "2026-09-08T13:12:56.416Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Badges",
+        "sequence": 24,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 167,
+        "startedAt": "2026-09-08T13:12:56.424Z",
+        "finishedAt": "2026-09-08T13:12:56.591Z",
+        "occurredAt": "2026-09-08T13:12:56.591Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Stats",
+        "sequence": 25,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 169,
+        "startedAt": "2026-09-08T13:12:56.602Z",
+        "finishedAt": "2026-09-08T13:12:56.771Z",
+        "occurredAt": "2026-09-08T13:12:56.771Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Allergens",
+        "sequence": 26,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 175,
+        "startedAt": "2026-09-08T13:12:56.781Z",
+        "finishedAt": "2026-09-08T13:12:56.956Z",
+        "occurredAt": "2026-09-08T13:12:56.956Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Device Code",
+        "sequence": 27,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 189,
+        "startedAt": "2026-09-08T13:12:56.964Z",
+        "finishedAt": "2026-09-08T13:12:57.153Z",
+        "occurredAt": "2026-09-08T13:12:57.153Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Action Time",
+        "sequence": 28,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 161,
+        "startedAt": "2026-09-08T13:12:57.161Z",
+        "finishedAt": "2026-09-08T13:12:57.322Z",
+        "occurredAt": "2026-09-08T13:12:57.322Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.selectColumn",
+        "title": "设置展示列：Print stall",
+        "sequence": 29,
+        "method": "selectColumn",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 158,
+        "startedAt": "2026-09-08T13:12:57.331Z",
+        "finishedAt": "2026-09-08T13:12:57.489Z",
+        "occurredAt": "2026-09-08T13:12:57.489Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readColumns",
+        "title": "读取展示列设置的勾选状态",
+        "sequence": 30,
+        "method": "readColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 15,
+        "startedAt": "2026-09-08T13:12:57.500Z",
+        "finishedAt": "2026-09-08T13:12:57.515Z",
+        "occurredAt": "2026-09-08T13:12:57.515Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.closeColumns",
+        "title": "关闭展示列设置",
+        "sequence": 31,
+        "method": "closeColumns",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 340,
+        "startedAt": "2026-09-08T13:12:57.527Z",
+        "finishedAt": "2026-09-08T13:12:57.867Z",
+        "occurredAt": "2026-09-08T13:12:57.867Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-072:expectation-1",
+        "status": "verified",
+        "actualValue": [
+          "Item",
+          "Type",
+          "Specification",
+          "Price($)",
+          "Status"
+        ],
+        "expectedValue": [
+          "Item",
+          "Type",
+          "Specification",
+          "Price($)",
+          "Status"
+        ],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-072:expectation-2",
+        "status": "observed-mismatch",
+        "actualValue": [
+          "Item(Alt.Language)",
+          "Mnemonic Code",
+          "Category",
+          "Flavor",
+          "Preparation",
+          "Descriptions",
+          "Badges",
+          "Stats",
+          "Allergens",
+          "Action Time"
+        ],
+        "expectedValue": [
+          "Item(Alt.Language)",
+          "Mnemonic Code",
+          "Category",
+          "Unit",
+          "Flavor",
+          "Preparation",
+          "Descriptions",
+          "Badges",
+          "Stats",
+          "Allergens",
+          "Action Time"
+        ],
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "mismatched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-072:expectation-1",
+        "TC-ITEM-STD-072:expectation-2"
+      ],
+      "observed": [
+        "TC-ITEM-STD-072:expectation-1",
+        "TC-ITEM-STD-072:expectation-2"
+      ],
+      "verified": [
+        "TC-ITEM-STD-072:expectation-1"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；列与分页恢复另有实际UI核验"
+    },
+    "terminalFailure": {
+      "status": "failed",
+      "unreachedSourceOperations": [],
+      "reason": "formal-assertion-mismatch"
+    },
+    "evidenceFingerprint": "199e284b74c4f2adc9156d44f5a3e700809d2a4fb86d87fcf0a59d4d914c6b05"
+  }
+}

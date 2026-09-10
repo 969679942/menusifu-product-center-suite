@@ -1,0 +1,533 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportId": "product-center-governance-execution-task-queue-v1",
+  "generatedAt": "2026-09-08T19:21:49.862Z",
+  "scope": "project-adapter+generated-evidence",
+  "source": {
+    "governanceReport": "Merchant Center UITest/output/governance/product-center-business-rule-governance-optimization.json",
+    "governanceFingerprint": "46ec9c6d0e3c96a126e3281d49721f47162aefba3818daf5030a68ffb8d73600",
+    "integrationAudit": "Merchant Center UITest/output/governance/product-center-git-jenkins-integration-audit.json"
+  },
+  "summary": {
+    "totalOpenTasks": 17,
+    "staticTasksRun": 13,
+    "staticAwaitingExternalRuntime": 2,
+    "awaitingExternalConnector": 2,
+    "deferredExplicitStart": 1,
+    "awaitingExecutionGrant": 2,
+    "businessSemanticManualTasks": 0,
+    "closedStaticTasks": 1
+  },
+  "policy": {
+    "jenkinsInfoRequiredForRuntimeTriggerOnly": true,
+    "businessExecutionStarted": false,
+    "existingPassedCasesInvalidated": false,
+    "formalRulesModified": false,
+    "missingEvidenceMayNotBeInferred": true,
+    "onlyRealBusinessSemanticConflictMayEnterManualQueue": true
+  },
+  "tasks": [
+    {
+      "taskId": "PC-ITEM-RELEASE-RECEIPT",
+      "sourceStatus": "open",
+      "priority": "must",
+      "purpose": "商品当前发布收据准入",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-current-contract",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run audit:product-center:item-source-derivation; npm run audit:product-center:item-release-readiness"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/deliverables/system-test-platform/product-center-item-release-readiness.json",
+        "Merchant Center UITest/deliverables/system-test-platform/product-center-item-source-derivation-audit.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "核对正式正文、重建稿和生成声明的来源差异；已批准派生稿不能直接授权改写正文。执行代理继续补齐当前逐案操作与上下文合同，并验收实际收据，不转交技术映射缺口或伪造合同。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-004",
+      "sourceStatus": "blocked",
+      "priority": "must",
+      "purpose": "让GitHub云端运行器获得可复现、不可漂移的公共测试平台版本。",
+      "blockers": [
+        "CI_PLATFORM_REPOSITORY_CONFIGURATION_REQUIRED"
+      ],
+      "disposition": "static-complete-awaiting-external-runtime",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run audit:product-center:git-jenkins"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/output/governance/product-center-git-jenkins-integration-audit.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "Git 固定版本和供应链门禁已静态检查；运行态仍取决于 CI 环境变量和只读凭据。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-005",
+      "sourceStatus": "blocked",
+      "priority": "must",
+      "purpose": "把原始PRD自动转换为来源登记、规则候选、测试方案和脚本候选，而不是要求人工先整理成正式规则。",
+      "blockers": [
+        "PRD_SOURCE_CONNECTOR_AND_FORMAT_NOT_CONFIGURED"
+      ],
+      "disposition": "awaiting-external-connector",
+      "executionAllowed": "external-only",
+      "commands": [],
+      "staticEvidenceRefs": [],
+      "staticEvidencePresent": false,
+      "staticExecutionCompleted": false,
+      "closureStatus": "open",
+      "reason": "PRD 系统连接器和稳定来源格式未配置，不能虚构来源或编译结果。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "selective-revalidation",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-006",
+      "sourceStatus": "blocked",
+      "priority": "optional",
+      "purpose": "将规则变化、阻断和待审批候选通知到明确负责人。",
+      "blockers": [
+        "OWNER_NOTIFICATION_CHANNEL_NOT_CONFIGURED"
+      ],
+      "disposition": "awaiting-external-connector",
+      "executionAllowed": "external-only",
+      "commands": [],
+      "staticEvidenceRefs": [],
+      "staticEvidencePresent": false,
+      "staticExecutionCompleted": false,
+      "closureStatus": "open",
+      "reason": "通知通道未配置；属于可选外部集成，不影响商品中心交付。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-008",
+      "sourceStatus": "blocked",
+      "priority": "must",
+      "purpose": "证明公共规则治理和测试闭环能够在不同applicationId的真实系统复用。",
+      "blockers": [
+        "CROSS_APPLICATION_PILOT_REQUIRED",
+        "CROSS_DOMAIN_PILOT_REQUIRED"
+      ],
+      "disposition": "deferred-explicit-start",
+      "executionAllowed": "none",
+      "commands": [],
+      "staticEvidenceRefs": [],
+      "staticEvidencePresent": false,
+      "staticExecutionCompleted": false,
+      "closureStatus": "open",
+      "reason": "跨 applicationId 真实试点必须由用户明确启动，且需目标系统认证、可逆数据和标准收据。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-011",
+      "sourceStatus": "blocked",
+      "priority": "must",
+      "purpose": "让Jenkins接入后能够触发当前治理优化任务提示和静态审计。",
+      "blockers": [
+        "JENKINS_NOT_CONNECTED"
+      ],
+      "disposition": "static-complete-awaiting-external-runtime",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run audit:product-center:git-jenkins"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/output/governance/product-center-git-jenkins-integration-audit.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "Jenkinsfile 与静态审计合同已验证；当前运行态为 not-connected，不因缺少连接信息重做本地静态任务。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-016",
+      "sourceStatus": "blocked",
+      "priority": "must",
+      "purpose": "补齐当前全部正式规则的权威时间证据和生效上下文。",
+      "blockers": [
+        "RULE_TIME_CONTEXT_EVIDENCE_REQUIRED"
+      ],
+      "disposition": "static-executed-awaiting-evidence",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:product-center:business-rule-time-context-review"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-business-rule-time-context-evidence.json",
+        "deliverables/test-plan-governance/product-center-business-rule-time-context-review.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "仅扫描规则、绑定和标准收据补齐时间/上下文证据，不修改规则语义、不启动业务用例。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-020",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "自动补齐候选规则来源、结构、义务、作用域和指纹。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-evidence",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:product-center:document-rule-promotion-plan"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-document-rule-promotion-plan.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "文档规则来源、结构和义务已生成标准化计划；22 条来源修复、69 条用例设计和 37 条收据关联仍需证据补齐，不自动晋级正式规则。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-021",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "按规则族和风险等级自动分流候选。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-downstream",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:product-center:business-rule-promotion-batch-plan"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-business-rule-promotion-batch-plan.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "规则族、风险等级和冲突簇已静态分流；当前候选仍需按批前置条件和当前收据继续处理。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-022",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "依据低风险代理策略批量晋级语义明确的候选为formal。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-formal-decision",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:product-center:delegated-rule-approval-plan"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-delegated-rule-approval-plan.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "仅生成低风险代理晋级预审计划；正式规则写入仍需已有批准收据，禁止由报告臆造批准。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-023",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "按规则义务自动生成测试方案和最小验证集。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-evidence",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:product-center:business-rule-coverage"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/output/governance/product-center-business-rule-coverage.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "义务级覆盖已静态生成；151/151 必选义务结构覆盖通过，但当前执行验证仍为 0，不将结构覆盖当作运行通过。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-024",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "对中风险规则执行最小必要验证并自动回填verified状态。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-execution-grant",
+      "executionAllowed": "none",
+      "commands": [
+        "npm run build:product-center:business-rule-promotion-readiness",
+        "npm run build:product-center:business-rule-promotion-batch-plan",
+        "npm run build:product-center:business-rule-optimization-completion"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-business-rule-promotion-readiness.json",
+        "deliverables/test-plan-governance/product-center-business-rule-promotion-batch-plan.json",
+        "deliverables/test-plan-governance/product-center-business-rule-optimization-completion.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "已生成最小验证候选和完成门禁；真实 UI/API 执行必须有公共 execution grant、精确 caseId 和标准清理收据。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "selective-revalidation",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-025",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "将高风险、冲突和跨系统规则整理为明确的业务裁决队列。",
+      "blockers": [],
+      "disposition": "closed-static",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm exec -- tsx scripts/build-product-center-business-rule-confirmation-queue.ts"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-business-rule-confirmation-queue.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "closed",
+      "reason": "业务确认队列已生成且当前待确认数量为 0；本轮无真实业务语义裁决项。未来新冲突仍按人工边界进入裁决，不转交技术缺口。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "BRG-OPT-026",
+      "sourceStatus": "not-started",
+      "priority": "must",
+      "purpose": "将规则优化完成门禁接入公共平台和商品中心结束流程。",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-execution-grant",
+      "executionAllowed": "none",
+      "commands": [
+        "npm run build:product-center:business-rule-optimization-completion"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-business-rule-optimization-completion.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "公共优化完成门禁已接入并生成当前 incomplete 结果；中风险最小验证仍需 execution grant，不能以静态结果放行。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "PC-REV-READINESS",
+      "sourceStatus": "open",
+      "priority": "must",
+      "purpose": "反向场景就绪",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-runtime-evidence",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:process-reverse-scenario-readiness; npm run build:product-center:reverse-scenario-evidence-queue"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-reverse-scenario-readiness-v1.json",
+        "deliverables/test-plan-governance/product-center-reverse-scenario-evidence-queue-v1.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "逐场景证据队列已生成；缺真实项目适配器、标准操作/断言/清理收据和 execution grant。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "PC-HIST-LINEAGE",
+      "sourceStatus": "open",
+      "priority": "must",
+      "purpose": "历史收据血缘",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-precondition",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run reconcile:test-plan:evidence; npm run audit:test-plan:historical-receipt-compatibility"
+      ],
+      "staticEvidenceRefs": [
+        "deliverables/test-plan-governance/product-center-historical-evidence-reconciliation.json",
+        "deliverables/test-plan-governance/product-center-historical-receipt-compatibility.json"
+      ],
+      "staticEvidencePresent": false,
+      "staticExecutionCompleted": false,
+      "closureStatus": "open",
+      "reason": "历史收据兼容性报告缺失时保持开放，禁止以协调报告或 blocked 诊断冒充正式兼容性结果。 当前正式证据未齐全。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "PC-PAGE-CONTRACT",
+      "sourceStatus": "open",
+      "priority": "must",
+      "purpose": "页面合同技术复验",
+      "blockers": [],
+      "disposition": "static-executed-awaiting-precondition",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run build:page-contract-finding-review-queue"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/output/page-contract/product-center-page-contract-finding-review-queue.json"
+      ],
+      "staticEvidencePresent": false,
+      "staticExecutionCompleted": false,
+      "closureStatus": "open",
+      "reason": "页面合同正式 diff/impact 或当前评审队列缺失时保持开放，blocked 诊断不计为正式证据。 当前正式证据未齐全。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    },
+    {
+      "taskId": "PC-MAINTAINABILITY",
+      "sourceStatus": "open",
+      "priority": "must",
+      "purpose": "维护性债务",
+      "blockers": [],
+      "disposition": "engineering-refactor-backlog",
+      "executionAllowed": "static-only",
+      "commands": [
+        "npm run audit:product-center:maintainability"
+      ],
+      "staticEvidenceRefs": [
+        "Merchant Center UITest/output/quality/product-center-maintainability-report.json",
+        "Merchant Center UITest/output/quality/product-center-maintainability-responsibility-plan.json",
+        "Merchant Center UITest/output/quality/product-center-maintainability-isolation-snapshot.json",
+        "Merchant Center UITest/output/quality/product-center-maintainability-behavior-contract.json",
+        "Merchant Center UITest/utils/product-center-group-runner-helpers.ts",
+        "Merchant Center UITest/adapters/product-center/product-center-group-combo-v2-cases.ts",
+        "Merchant Center UITest/adapters/product-center/product-center-group-combo-v2-support.ts",
+        "Merchant Center UITest/deliverables/system-test-platform/group-runner-extraction-proof.json"
+      ],
+      "staticEvidencePresent": true,
+      "staticExecutionCompleted": true,
+      "closureStatus": "open",
+      "reason": "5 个高优先级文件、128 个 direct identity templates、224 个公开接口；已完成 2 个纯职责抽离，职责计划、区域隔离快照和逐接口行为合同已完成，剩余区域仍需兼容 facade 评审后实施工程拆分。",
+      "businessSemanticManualRequired": false,
+      "passedCasesImpact": "preserved",
+      "rerunCaseIds": [],
+      "guardrails": {
+        "businessExecutionStarted": false,
+        "formalRulesModified": false,
+        "existingPassedCasesInvalidated": false
+      }
+    }
+  ]
+}

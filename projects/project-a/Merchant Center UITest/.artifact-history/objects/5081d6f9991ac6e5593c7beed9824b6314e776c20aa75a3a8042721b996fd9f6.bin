@@ -1,0 +1,346 @@
+{
+  "routes": [
+    {
+      "id": "standard-create",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "route": "/pp/brand/create/standard"
+    },
+    {
+      "id": "specification-create",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "route": "/pp/brand/spec/create",
+      "headings": [
+        "Basic Info",
+        "Specification in Group"
+      ],
+      "fieldLabel": "Specification Group Name"
+    }
+  ],
+  "controls": [
+    {
+      "id": "multi-spec",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "locatorProvider": "ItemCreateStandardLocators.multiSpecRadio"
+    },
+    {
+      "id": "weight-yes",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "locatorProvider": "ItemCreateStandardLocators.weightBasedYesRadio",
+      "disabledAuthority": "native-input-disabled-and-label-class",
+      "disabledClass": "ant-radio-wrapper-disabled"
+    },
+    {
+      "id": "spec-create-entry",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "locatorProvider": "ItemCreateStandardLocators.specGroupCreateEntry",
+      "label": "Go Create",
+      "opensNewPage": true
+    }
+  ],
+  "fields": [
+    {
+      "id": "description",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/standard-next-dom-observation.json",
+          "sha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7"
+        }
+      ],
+      "locatorProvider": "ItemCreateStandardLocators.descriptionInput",
+      "label": "Description",
+      "tag": "TEXTAREA",
+      "maxlength": 250,
+      "counterText": "250 / 250"
+    }
+  ],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "TC-ITEM-STD-045",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-STD-048",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "成功跳转到规格组新增页。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-STD-049",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "是否称重商品选项置灰不可选。"
+      ]
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-STD-045:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-048:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "成功跳转到规格组新增页。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-STD-049:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "是否称重商品选项置灰不可选。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    }
+  ],
+  "traceability": [],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "domObservationPath": "deliverables/system-test-platform/standard-next-dom-observation.json",
+    "domObservationSha256": "3d29ce099736c9af7d57b03d961ce3d598f36db1720aa4163648b7c65987fee7",
+    "runtimeReadiness": "DOM-confirmed-implementation-pending",
+    "observedApplicationVersion": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false
+    },
+    "expectedDescription": {
+      "initialLength": 250,
+      "finalLength": 250,
+      "maxlength": "250",
+      "counterText": "250 / 250"
+    },
+    "expectedWeight": {
+      "multiChecked": true,
+      "disabled": true,
+      "visible": true,
+      "disabledStyle": true
+    },
+    "expectedSpec": {
+      "route": "/pp/brand/spec/create",
+      "basicHeading": true,
+      "groupHeading": true,
+      "nameLabel": true
+    },
+    "requirements": [
+      "保留045/048正式同名不存在前置，049无额外造数",
+      "按正式3/2/2动作和各1断言生成收据",
+      "不得把任意导航或内嵌页签视为规格组新增页",
+      "描述用真实第251字按键验证，不由maxlength属性单独判通过",
+      "结束关闭本次新窗口并返回列表；不保存"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-045",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开标准商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「标准商品-商品描述达到500字符后输入框不可继续录-{当前时间戳毫秒}」）"
+      ],
+      "steps": [
+        "在商品描述输入 250 字符。",
+        "继续输入第 251 个字符。",
+        "读取输入框 maxlength、计数器和实际长度。"
+      ],
+      "expectedResults": [
+        "商品描述最多输入 250 字符，达到 250 字符后不可继续录入。"
+      ],
+      "sources": [
+        "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-std-045"
+      ],
+      "title": "商品描述达到 250 字符后不可继续输入",
+      "fingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+      "gap": "旧flow标题/green recipe仍写500，但当前正式来源明确250；缺三动作严格收据与同名不存在前置",
+      "nextObservation": "观察textarea身份、maxlength、250后继续输入251、计数器与实际长度",
+      "admissionStatus": "current-observation-required",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "b5bcf1be1e21670128f54e048c2b64184bee09d895a5d438c28593e2a95ce6d7",
+      "assertionIds": [
+        "TC-ITEM-STD-045:expectation-1"
+      ],
+      "sourceReady": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-048",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「商品-多规格商品点击去创建可跳转规格组新增页-{当前时间戳毫秒}」）",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "在商品价格区域选择多规格。",
+        "点击规格组旁的“去创建”入口。"
+      ],
+      "expectedResults": [
+        "成功跳转到规格组新增页。"
+      ],
+      "sources": [
+        "BR-ITEM-016、BR-ITEM-041"
+      ],
+      "title": "多规格商品点击去创建可跳转规格组新增页",
+      "fingerprint": "28196ae289a223891b530c9ab819ed9b0c50fb59f44b28dc91146e85fa237f4e",
+      "gap": "旧probe接受任意路径变化或内嵌页签，不能单独证明规格组新增页；缺同名不存在前置",
+      "nextObservation": "观察入口身份、新窗口或同页目标路径及新增表单身份，结束关闭新窗口并恢复列表",
+      "admissionStatus": "current-observation-required",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "28196ae289a223891b530c9ab819ed9b0c50fb59f44b28dc91146e85fa237f4e",
+      "assertionIds": [
+        "TC-ITEM-STD-048:expectation-2"
+      ],
+      "sourceReady": true
+    },
+    {
+      "caseId": "TC-ITEM-STD-049",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已打开标准商品创建页。"
+      ],
+      "steps": [
+        "在商品价格区域选择多规格。",
+        "查看是否称重商品选项状态。"
+      ],
+      "expectedResults": [
+        "是否称重商品选项置灰不可选。"
+      ],
+      "sources": [
+        "BR-ITEM-016、BR-ITEM-042"
+      ],
+      "title": "选择多规格后是否称重商品置灰不可选",
+      "fingerprint": "949a4acbc277634f666c6845f1b202fa474854d5e608ecd6dd84cfb20078dff5",
+      "gap": "现有探针可读disabled，尚无两动作一断言的当前正式收据",
+      "nextObservation": "观察多规格选中后称重Yes控件的唯一身份、实际disabled属性及可见禁用态",
+      "admissionStatus": "current-observation-required",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "949a4acbc277634f666c6845f1b202fa474854d5e608ecd6dd84cfb20078dff5",
+      "assertionIds": [
+        "TC-ITEM-STD-049:expectation-2"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

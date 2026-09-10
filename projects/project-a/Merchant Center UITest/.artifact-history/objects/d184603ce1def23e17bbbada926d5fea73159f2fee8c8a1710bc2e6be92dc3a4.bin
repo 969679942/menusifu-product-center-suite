@@ -1,0 +1,304 @@
+{
+  "intentFingerprint": "319dc76cb490e392291c034c95708a117aa55abde0471bcb5fe04335e6e04101",
+  "selectionFingerprint": "242778edc67d57cf91fc927371c233e2d787380b014f865ee4c180508e8fc9db",
+  "selectedCaseIds": [
+    "TC-ITEM-STD-002",
+    "TC-ITEM-STD-003",
+    "TC-ITEM-STD-063",
+    "TC-ITEM-STD-072",
+    "TC-ITEM-STD-073",
+    "TC-ITEM-STD-074"
+  ],
+  "terminalCaseIds": [
+    "TC-ITEM-STD-002"
+  ],
+  "status": "passed",
+  "receipt": {
+    "receiptVersion": "4.0.0",
+    "caseId": "TC-ITEM-STD-002",
+    "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+    "semanticCaseFingerprint": "af177a42e15f0c5dddc8ba441e1ce9e59077a782427453d09f89cbed5c7be2f5",
+    "implementationFingerprint": "152815bfb07873b7fb00fd11a6a640b252c58811046e4c53df4ea5dd616f3a2c",
+    "executionContext": {
+      "applicationVersionFingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "environmentId": "balamxqa",
+      "tenantScope": "000407",
+      "locale": "und",
+      "roleId": "merchant-operator",
+      "route": "/pp/brand/list"
+    },
+    "releaseObservation": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false,
+      "observedAt": "2026-09-08T13:12:18.715Z"
+    },
+    "executionEpochId": "source-governed-standard-list-20260908-02-source-governed",
+    "operationReceipts": [
+      {
+        "operationKey": "TC-ITEM-STD-002:action-1",
+        "title": "通过侧边栏进入商品列表",
+        "sequence": 5,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 132,
+        "startedAt": "2026-09-08T13:12:18.276Z",
+        "finishedAt": "2026-09-08T13:12:18.408Z",
+        "occurredAt": "2026-09-08T13:12:18.408Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-002:action-2",
+        "title": "查看当前筛选区域",
+        "sequence": 7,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 122,
+        "startedAt": "2026-09-08T13:12:18.412Z",
+        "finishedAt": "2026-09-08T13:12:18.534Z",
+        "occurredAt": "2026-09-08T13:12:18.534Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-002:action-3",
+        "title": "查看商品表格字段和操作入口",
+        "sequence": 9,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 66,
+        "startedAt": "2026-09-08T13:12:18.547Z",
+        "finishedAt": "2026-09-08T13:12:18.613Z",
+        "occurredAt": "2026-09-08T13:12:18.613Z"
+      },
+      {
+        "operationKey": "TC-ITEM-STD-002:action-4",
+        "title": "查看分页与总数信息",
+        "sequence": 11,
+        "method": "ui",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 56,
+        "startedAt": "2026-09-08T13:12:18.622Z",
+        "finishedAt": "2026-09-08T13:12:18.678Z",
+        "occurredAt": "2026-09-08T13:12:18.678Z"
+      }
+    ],
+    "supportingOperationReceipts": [
+      {
+        "operationKey": "StandardListAcceptanceFlow.execute",
+        "title": "按正式来源执行商品列表场景",
+        "sequence": 1,
+        "method": "execute",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 8699,
+        "startedAt": "2026-09-08T13:12:09.995Z",
+        "finishedAt": "2026-09-08T13:12:18.694Z",
+        "occurredAt": "2026-09-08T13:12:18.694Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.open",
+        "title": "进入商品列表并等待分页和表格就绪",
+        "sequence": 2,
+        "method": "open",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 7452,
+        "startedAt": "2026-09-08T13:12:10.382Z",
+        "finishedAt": "2026-09-08T13:12:17.834Z",
+        "occurredAt": "2026-09-08T13:12:17.834Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 3,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 35,
+        "startedAt": "2026-09-08T13:12:17.936Z",
+        "finishedAt": "2026-09-08T13:12:17.971Z",
+        "occurredAt": "2026-09-08T13:12:17.971Z"
+      },
+      {
+        "operationKey": "StandardListAcceptanceFlow.verifyStructure",
+        "title": "验证列表结构、核心字段和默认分页",
+        "sequence": 4,
+        "method": "verifyStructure",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 413,
+        "startedAt": "2026-09-08T13:12:18.272Z",
+        "finishedAt": "2026-09-08T13:12:18.685Z",
+        "occurredAt": "2026-09-08T13:12:18.685Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.enterFromSidebar",
+        "title": "通过侧边栏进入商品列表",
+        "sequence": 6,
+        "method": "enterFromSidebar",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 97,
+        "startedAt": "2026-09-08T13:12:18.303Z",
+        "finishedAt": "2026-09-08T13:12:18.400Z",
+        "occurredAt": "2026-09-08T13:12:18.400Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readStructure",
+        "title": "读取商品筛选、新增入口与分类树",
+        "sequence": 8,
+        "method": "readStructure",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 87,
+        "startedAt": "2026-09-08T13:12:18.438Z",
+        "finishedAt": "2026-09-08T13:12:18.525Z",
+        "occurredAt": "2026-09-08T13:12:18.525Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readHeaders",
+        "title": "读取商品表格列与固定位置",
+        "sequence": 10,
+        "method": "readHeaders",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 43,
+        "startedAt": "2026-09-08T13:12:18.559Z",
+        "finishedAt": "2026-09-08T13:12:18.602Z",
+        "occurredAt": "2026-09-08T13:12:18.602Z"
+      },
+      {
+        "operationKey": "StandardListAcceptancePage.readPagination",
+        "title": "读取分页和统计信息",
+        "sequence": 12,
+        "method": "readPagination",
+        "observed": true,
+        "status": "passed",
+        "durationMs": 18,
+        "startedAt": "2026-09-08T13:12:18.650Z",
+        "finishedAt": "2026-09-08T13:12:18.668Z",
+        "occurredAt": "2026-09-08T13:12:18.668Z"
+      }
+    ],
+    "assertionReceipts": [
+      {
+        "claimId": "TC-ITEM-STD-002:expectation-1",
+        "status": "verified",
+        "actualValue": {
+          "mainPresent": true,
+          "categoryTrees": 0
+        },
+        "expectedValue": {
+          "mainPresent": true,
+          "categoryTrees": 0
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-002:expectation-2",
+        "status": "verified",
+        "actualValue": {
+          "search": true,
+          "type": true,
+          "status": true,
+          "add": true
+        },
+        "expectedValue": {
+          "search": true,
+          "type": true,
+          "status": true,
+          "add": true
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-002:expectation-3",
+        "status": "verified",
+        "actualValue": {
+          "columns": [
+            "Item",
+            "Type",
+            "Specification",
+            "Price($)",
+            "Status",
+            "Action"
+          ],
+          "imagePresent": true
+        },
+        "expectedValue": {
+          "columns": [
+            "Item",
+            "Type",
+            "Specification",
+            "Price($)",
+            "Status",
+            "Action"
+          ],
+          "imagePresent": true
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      },
+      {
+        "claimId": "TC-ITEM-STD-002:expectation-4",
+        "status": "verified",
+        "actualValue": {
+          "totalPresent": true,
+          "size": 50
+        },
+        "expectedValue": {
+          "totalPresent": true,
+          "size": 50
+        },
+        "actualStatus": "observed",
+        "observationChannel": "ui",
+        "authority": "user-visible",
+        "comparison": "matched"
+      }
+    ],
+    "claims": {
+      "required": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ],
+      "observed": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ],
+      "verified": [
+        "TC-ITEM-STD-002:expectation-1",
+        "TC-ITEM-STD-002:expectation-2",
+        "TC-ITEM-STD-002:expectation-3",
+        "TC-ITEM-STD-002:expectation-4"
+      ]
+    },
+    "cleanup": {
+      "apiZeroResidue": true,
+      "uiZeroResidue": true,
+      "apiIdentityCounts": {},
+      "uiIdentityCounts": {},
+      "uiVerificationObserved": true,
+      "required": false,
+      "reason": "无业务数据写入；列与分页恢复另有实际UI核验"
+    },
+    "evidenceFingerprint": "67ce44531ac7d95e985d8742da438371844d4c3b5b0b7358e330063da52e514e"
+  }
+}

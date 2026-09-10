@@ -1,0 +1,788 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportId": "product-center-reverse-scenario-evidence-queue-v1",
+  "generatedAt": "2026-09-06T22:30:05.861Z",
+  "scope": "report-only-static-evidence-remediation",
+  "summary": {
+    "scenarioCount": 26,
+    "awaitingEvidenceAndRuntime": 26,
+    "awaitingRuntimeReceipt": 0,
+    "executionEligible": 0,
+    "consumedEvidence": 41
+  },
+  "source": {
+    "readinessReport": "deliverables/test-plan-governance/product-center-reverse-scenario-readiness-v1.json",
+    "sourceSummary": {
+      "scenarioCount": 26,
+      "mappedScenarioCount": 10,
+      "partial": 10,
+      "missing": 16,
+      "covered": 0,
+      "linkedCaseCount": 5
+    }
+  },
+  "guardrails": {
+    "businessExecutionStarted": false,
+    "liveBusinessWritesEnabled": false,
+    "candidateCasesExecutionEligible": false,
+    "aggregateEvidenceAuthorizesCovered": false,
+    "existingPassedCasesInvalidated": false
+  },
+  "items": [
+    {
+      "queueId": "RS-EVIDENCE-001",
+      "scenarioId": "RS-FR-001",
+      "requirementIds": [
+        "FR-001"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-002",
+      "scenarioId": "RS-FR-002",
+      "requirementIds": [
+        "FR-002"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-003",
+      "scenarioId": "RS-FR-003",
+      "requirementIds": [
+        "FR-003"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-004",
+      "scenarioId": "RS-FR-004",
+      "requirementIds": [
+        "FR-004"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-005",
+      "scenarioId": "RS-FR-005",
+      "requirementIds": [
+        "FR-005"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-006",
+      "scenarioId": "RS-FR-006",
+      "requirementIds": [
+        "FR-006"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-007",
+      "scenarioId": "RS-FR-007",
+      "requirementIds": [
+        "FR-007"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-008",
+      "scenarioId": "RS-FR-008",
+      "requirementIds": [
+        "FR-008"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-009",
+      "scenarioId": "RS-FR-009",
+      "requirementIds": [
+        "FR-009"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-010",
+      "scenarioId": "RS-FR-010",
+      "requirementIds": [
+        "FR-010"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-011",
+      "scenarioId": "RS-FR-011",
+      "requirementIds": [
+        "FR-011"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-012",
+      "scenarioId": "RS-FR-012",
+      "requirementIds": [
+        "FR-012"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-013",
+      "scenarioId": "RS-FR-013",
+      "requirementIds": [
+        "FR-013"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 1,
+      "declaredEvidenceCount": 2,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-014",
+      "scenarioId": "RS-FR-014",
+      "requirementIds": [
+        "FR-014"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-015",
+      "scenarioId": "RS-FR-015",
+      "requirementIds": [
+        "FR-015"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 4,
+      "declaredEvidenceCount": 5,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-016",
+      "scenarioId": "RS-FR-016",
+      "requirementIds": [
+        "FR-016"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-017",
+      "scenarioId": "RS-FR-017",
+      "requirementIds": [
+        "FR-017"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-018",
+      "scenarioId": "RS-FR-018",
+      "requirementIds": [
+        "FR-018"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-019",
+      "scenarioId": "RS-FR-019",
+      "requirementIds": [
+        "FR-019"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-020",
+      "scenarioId": "RS-FR-020",
+      "requirementIds": [
+        "FR-020"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003",
+        "TC-GRP-PKG-003",
+        "TC-GRP-PKG-027",
+        "TC-GRP-PKG-040",
+        "TC-GRP-PKG-045"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/audit-reconciliation.json"
+      ],
+      "consumedEvidenceCount": 5,
+      "declaredEvidenceCount": 6,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-021",
+      "scenarioId": "RS-FR-021",
+      "requirementIds": [
+        "FR-021"
+      ],
+      "linkedCaseIds": [
+        "TC-GRP-ADD-003"
+      ],
+      "readinessStatus": "partial",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [
+        "deliverables/product-center-group/runtime-audit-v2.json"
+      ],
+      "consumedEvidenceCount": 1,
+      "declaredEvidenceCount": 2,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "execution grant",
+        "完整事件流收据",
+        "标准操作/断言收据",
+        "API/UI 清理证据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-022",
+      "scenarioId": "RS-FR-022",
+      "requirementIds": [
+        "FR-022"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-023",
+      "scenarioId": "RS-FR-023",
+      "requirementIds": [
+        "FR-023"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-024",
+      "scenarioId": "RS-FR-024",
+      "requirementIds": [
+        "FR-024"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-025",
+      "scenarioId": "RS-FR-025",
+      "requirementIds": [
+        "FR-025"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    },
+    {
+      "queueId": "RS-EVIDENCE-026",
+      "scenarioId": "RS-FR-026",
+      "requirementIds": [
+        "FR-026"
+      ],
+      "linkedCaseIds": [],
+      "readinessStatus": "missing",
+      "disposition": "awaiting-evidence-and-runtime",
+      "missingEvidenceIds": [],
+      "unconsumedAggregateRefs": [],
+      "consumedEvidenceCount": 0,
+      "declaredEvidenceCount": 0,
+      "executionEligible": false,
+      "businessExecutionStarted": false,
+      "blockingConditions": [
+        "项目适配器映射",
+        "来源与证据引用",
+        "标准运行收据",
+        "standard-operation-receipt",
+        "assertion-receipt",
+        "cleanup-evidence",
+        "execution-grant"
+      ],
+      "nextAction": "补齐逐项来源、证据哈希和操作/断言/清理收据；共享汇总文件不能直接消费"
+    }
+  ]
+}
