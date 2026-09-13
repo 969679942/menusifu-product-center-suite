@@ -1,7 +1,7 @@
 """Single-job transport. Local AI consumes evidence; this script does not impersonate AI."""
 import argparse, hashlib, json, os, pathlib, re, subprocess, tempfile, time, uuid
 import xml.etree.ElementTree as ET
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 import requests
 import sys
 import importlib.util
@@ -11,8 +11,22 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
-BASE = 'http://192.168.1.50:8081'
-JOB = 'menusifu-product-center-suite'
+DEFAULT_BASE = 'http://192.168.1.50:8081'
+DEFAULT_JOB = 'menusifu-product-center-suite'
+
+def configured_base():
+    value = (os.environ.get('SUITE_JENKINS_BASE_URL') or
+             os.environ.get('JENKINS_BASE_URL') or DEFAULT_BASE).strip().rstrip('/')
+    parsed = urlparse(value)
+    if parsed.scheme not in ['http', 'https'] or not parsed.netloc or parsed.path not in ['', '/']:
+        raise ValueError('JENKINS_BASE_URL must be an absolute http(s) origin')
+    return value
+
+BASE = configured_base()
+JOB = (os.environ.get('SUITE_JENKINS_JOB_NAME') or
+       os.environ.get('JENKINS_JOB_NAME') or DEFAULT_JOB).strip()
+if not re.fullmatch(r'[A-Za-z0-9._-]{1,120}', JOB):
+    raise ValueError('JENKINS_JOB_NAME contains unsupported characters')
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
@@ -89,6 +103,59 @@ def post(url, **kwargs):
     response.raise_for_status()
     return response
 
+def health():
+    """Read-only probe for server/job reachability and trigger configuration.
+
+    A missing or unreachable Jenkins endpoint is an external integration state,
+    not a product-test failure. The result is deliberately sanitized and safe
+    to archive; credentials and response bodies are never persisted.
+    """
+    result = {
+        'schemaVersion': 1,
+        'server': BASE,
+        'job': JOB,
+        'checkedAt': time.time(),
+        'serverStatus': 'unknown',
+        'jobStatus': 'unknown',
+        'triggerStatus': 'unknown',
+        'scmTriggerConfigured': False,
+        'parameterizedBuildEndpoint': False,
+        'actionRequired': 'none',
+    }
+    try:
+        server = SESSION.get(BASE + '/api/json', timeout=8)
+        result['serverStatus'] = 'connected' if 200 <= server.status_code < 300 else ('unauthorized' if server.status_code in [401, 403] else 'unreachable')
+        if result['serverStatus'] != 'connected':
+            result['actionRequired'] = 'external-authorization-blocked' if result['serverStatus'] == 'unauthorized' else 'jenkins-endpoint-unreachable'
+        else:
+            job = SESSION.get(JOB_URL + 'api/json', timeout=8)
+            result['jobStatus'] = 'connected' if 200 <= job.status_code < 300 else ('unauthorized' if job.status_code in [401, 403] else 'unreachable')
+            result['parameterizedBuildEndpoint'] = result['jobStatus'] == 'connected'
+            if result['jobStatus'] == 'connected':
+                config = SESSION.get(JOB_URL + 'config.xml', timeout=8)
+                if 200 <= config.status_code < 300:
+                    root = ET.fromstring(config.content)
+                    triggers = root.find('triggers')
+                    trigger_names = {node.tag for node in triggers} if triggers is not None else set()
+                    result['scmTriggerConfigured'] = any('GitHubPushTrigger' in name or 'SCMTrigger' in name for name in trigger_names)
+                    result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
+                    if not result['scmTriggerConfigured']:
+                        result['actionRequired'] = 'configure-cross-repository-webhook'
+                else:
+                    result['triggerStatus'] = 'unknown'
+                    result['actionRequired'] = 'job-config-unreadable'
+            else:
+                result['actionRequired'] = 'jenkins-job-unreachable'
+    except (requests.ConnectionError, requests.Timeout):
+        result['serverStatus'] = 'unreachable'
+        result['actionRequired'] = 'jenkins-endpoint-unreachable'
+    except (requests.RequestException, ET.ParseError, ValueError) as error:
+        result['serverStatus'] = 'error'
+        result['actionRequired'] = 'jenkins-health-probe-error'
+        result['errorType'] = type(error).__name__
+    write(OUT / 'connection-status.json', result)
+    print(json.dumps(result, ensure_ascii=False))
+
 def configure():
     old=get(JOB_URL+'config.xml').content
     (OUT/'job-config-before.xml').write_bytes(old)
@@ -105,7 +172,7 @@ def configure():
         existing=props.find(tag)
         if existing is not None: props.remove(existing)
     params=ET.SubElement(ET.SubElement(props,'hudson.model.ParametersDefinitionProperty'),'parameterDefinitions')
-    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','MC_RUNTIME_ENV']:
+    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE','MC_RUNTIME_ENV']:
         item=ET.SubElement(params,'hudson.model.PasswordParameterDefinition' if name=='MC_RUNTIME_ENV' else 'hudson.model.StringParameterDefinition')
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
@@ -171,7 +238,8 @@ def submit(scope='contracts'):
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope}
+    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope,
+          'TRIGGER_SOURCE':'explicit-local-submit'}
     if scope in ['pilot','full-regression']:
         secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
@@ -329,7 +397,7 @@ def watch():
         'reviewed':[x['buildNumber'] for x in plan if x['action']=='done']},ensure_ascii=False))
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch','health'])
     parser.add_argument('--scope',choices=['contracts','pilot','full-regression','reports'],default='contracts')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.
