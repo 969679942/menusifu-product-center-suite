@@ -17,7 +17,17 @@ if (params.AUTO_CHAIN == true || params.RUN_SCOPE == 'pilot') {
   }
 }
 stage('Fixed contract selection') {
-  bat '@node suite-src/ci/run-contracts.cjs'
+  // Full regression must still collect the complete business result when a
+  // preflight contract exposes a governance finding.  Keep the build
+  // non-successful (UNSTABLE) so the finding remains visible and business
+  // pass authority is never granted by a partial run.
+  if (params.RUN_SCOPE == 'full-regression') {
+    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+      bat '@node suite-src/ci/run-contracts.cjs'
+    }
+  } else {
+    bat '@node suite-src/ci/run-contracts.cjs'
+  }
 }
 stage('CI transport and reporting contracts') {
   bat '@node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=suite-src/output/ci/ci-contracts.xml suite-src/tap/tests/ci-transport.test.cjs suite-src/tap/tests/build-watch.test.cjs suite-src/tap/tests/result-bundle.test.cjs suite-src/ci/tests/finalize-allure.test.cjs suite-src/ci/tests/pilot-concurrency.test.cjs suite-src/ci/tests/full-regression-intent.test.cjs suite-src/ci/tests/jenkinsfile.contract.test.cjs suite-src/ci/tests/chain-next.test.cjs'

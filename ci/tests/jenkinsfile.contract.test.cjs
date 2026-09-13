@@ -4,6 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const root=path.resolve(__dirname,'../..');
 const pipeline=fs.readFileSync(path.join(root,'Jenkinsfile'),'utf8');
+const pipelineStages=fs.readFileSync(path.join(root,'ci/pipeline.groovy'),'utf8');
 
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
   assert.match(pipeline,/ws\("\$\{env\.WORKSPACE\}-isolated"\)/);
@@ -38,4 +39,10 @@ test('normalized identities reach child processes and survive the node scope',()
  assert.ok(pipeline.includes('withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}"])'));
  assert.ok(pipeline.includes('if (!intentId) intentId = UUID.randomUUID().toString()'));
  assert.ok(pipeline.includes('if (!requestId) requestId = "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"'));
+});
+
+test('full regression continues after contract findings without granting business pass',()=>{
+ assert.match(pipelineStages,/params\.RUN_SCOPE == 'full-regression'/);
+ assert.match(pipelineStages,/catchError\(buildResult: 'UNSTABLE', stageResult: 'FAILURE'\)/);
+ assert.match(pipelineStages,/run-product-center-full\.ts/);
 });
