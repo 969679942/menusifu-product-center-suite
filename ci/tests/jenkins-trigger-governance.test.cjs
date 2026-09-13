@@ -15,7 +15,7 @@ test('dependency manifest pins reachable immutable source revisions',()=>{
   }
   assert.equal(manifest.policy.exactRevisionRequired,true);
   assert.equal(manifest.repositories.mc.revision,'4aaa46a0cf8adba1a8d3765cfef532837f46b8a8');
-  assert.equal(manifest.repositories.tap.revision,'e4bd995c65b4533074ed37efafcf6c8b7c83ea69');
+  assert.equal(manifest.repositories.tap.revision,'427a112d88d90835a22a850939bd09f6a2780c42');
 });
 
 test('trigger policy keeps full regression explicit and identities complete',()=>{
