@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "transportRepository": "menusifu-product-center-suite",
+  "sourceRepositories": [
+    "969679942/Test-Automation-Platform",
+    "969679942/Merchant-Center"
+  ],
+  "jobName": "menusifu-product-center-suite",
+  "defaultTriggerMode": "manual-parameterized",
+  "automaticTriggerStatus": "external-configuration-required",
+  "allowedTriggerSources": [
+    "explicit-local-submit",
+    "github-webhook",
+    "scm-trigger",
+    "workflow-dispatch"
+  ],
+  "requiredIdentity": [
+    "GIT_SHA",
+    "MC_GIT_SHA",
+    "TAP_GIT_SHA",
+    "REQUEST_ID",
+    "INTENT_ID",
+    "RUN_SCOPE"
+  ],
+  "fullRegression": {
+    "requiresExplicitScope": true,
+    "defaultOnPush": "contracts",
+    "businessExecutionOnMissingTriggerEvidence": "blocked"
+  },
+  "governance": {
+    "staleDependencyRevision": "blocked-before-submit",
+    "unreachableEndpointStatus": "external-authorization-blocked",
+    "separateServerReachabilityFromTriggerConfiguration": true,
+    "separateTriggerFromBusinessExecution": true
+  }
+}

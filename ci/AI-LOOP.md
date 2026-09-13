@@ -12,6 +12,8 @@
 ./ci/jenkins.ps1 submit --scope pilot
 # 查询队列/构建，完成后拉取归档并校验精确 Git SHA、build number、request ID、选择集指纹
 ./ci/jenkins.ps1 poll
+# 只读检查 Jenkins 服务器、Job 与 SCM 触发器配置（不会触发构建）
+./ci/jenkins.ps1 health
 # 手工维护入口（先暂停 worker）：发现构建并下载
 ./ci/jenkins.ps1 watch
 # 可选的一次性等候入口
@@ -19,6 +21,8 @@
 ```
 
 `contracts` 是基础合同验证；`pilot` 在合同验证后执行 `business-selection.json` 固定的十条正式用例。合同测试不具有业务通过权限。十条试点使用 TAP 的运行器、执行授权、来源门禁、标准收据和清理门禁；不能直接以 Playwright `--grep` 绕过公共执行流程。
+
+Jenkins 触发治理以 `ci/trigger-policy.json` 与 `ci/dependency-manifest.json` 为唯一声明位置：TAP 与 Merchant Center 是源仓库，`menusifu-product-center-suite` 是传输与执行 Job。默认推送只允许合同门禁；`full-regression` 必须显式提交，并使用 manifest 中当前可达的精确 MC/TAP SHA。服务器可达不等于 SCM 触发器已配置，必须分别核对；旧依赖提交或未配置触发器必须在业务启动前阻断，不能伪装成业务失败。
 
 ## 本机 AI 调度
 

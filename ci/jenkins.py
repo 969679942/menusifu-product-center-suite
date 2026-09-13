@@ -1,7 +1,7 @@
 """Single-job transport. Local AI consumes evidence; this script does not impersonate AI."""
 import argparse, hashlib, json, os, pathlib, re, subprocess, tempfile, time, uuid
 import xml.etree.ElementTree as ET
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 import requests
 import sys
 import importlib.util
@@ -11,7 +11,14 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
-BASE = os.environ.get('JENKINS_BASE_URL', 'http://192.168.1.50:8081').rstrip('/')
+DEFAULT_BASE = 'http://192.168.1.50:8081'
+def configured_base():
+    value = (os.environ.get('SUITE_JENKINS_BASE_URL') or os.environ.get('JENKINS_BASE_URL') or DEFAULT_BASE).strip().rstrip('/')
+    parsed = urlparse(value)
+    if parsed.scheme not in ['http', 'https'] or not parsed.netloc or parsed.path not in ['', '/']:
+        raise ValueError('JENKINS_BASE_URL must be an absolute http(s) origin')
+    return value
+BASE = configured_base()
 JOB = 'menusifu-product-center-suite'
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
@@ -89,6 +96,42 @@ def post(url, **kwargs):
     response.raise_for_status()
     return response
 
+def health():
+    """Probe server, Job and SCM trigger configuration without changing state."""
+    result = {'schemaVersion': 1, 'server': BASE, 'job': JOB, 'checkedAt': time.time(),
+              'serverStatus': 'unknown', 'jobStatus': 'unknown', 'triggerStatus': 'unknown',
+              'scmTriggerConfigured': False, 'parameterizedBuildEndpoint': False,
+              'actionRequired': 'none'}
+    try:
+        server = SESSION.get(BASE + '/api/json', timeout=8)
+        result['serverStatus'] = 'connected' if 200 <= server.status_code < 300 else ('unauthorized' if server.status_code in [401, 403] else 'unreachable')
+        if result['serverStatus'] != 'connected':
+            result['actionRequired'] = 'external-authorization-blocked' if result['serverStatus'] == 'unauthorized' else 'jenkins-endpoint-unreachable'
+        else:
+            job = SESSION.get(JOB_URL + 'api/json', timeout=8)
+            result['jobStatus'] = 'connected' if 200 <= job.status_code < 300 else ('unauthorized' if job.status_code in [401, 403] else 'unreachable')
+            result['parameterizedBuildEndpoint'] = result['jobStatus'] == 'connected'
+            if result['jobStatus'] == 'connected':
+                config = SESSION.get(JOB_URL + 'config.xml', timeout=8)
+                if 200 <= config.status_code < 300:
+                    root = ET.fromstring(config.content)
+                    triggers = root.find('triggers')
+                    names = {node.tag for node in triggers} if triggers is not None else set()
+                    result['scmTriggerConfigured'] = any('GitHubPushTrigger' in name or 'SCMTrigger' in name for name in names)
+                    result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
+                    if not result['scmTriggerConfigured']:
+                        result['actionRequired'] = 'configure-cross-repository-webhook'
+                else:
+                    result['actionRequired'] = 'job-config-unreadable'
+            else:
+                result['actionRequired'] = 'jenkins-job-unreachable'
+    except (requests.ConnectionError, requests.Timeout):
+        result['serverStatus'] = 'unreachable'; result['actionRequired'] = 'jenkins-endpoint-unreachable'
+    except (requests.RequestException, ET.ParseError, ValueError) as error:
+        result['serverStatus'] = 'error'; result['actionRequired'] = 'jenkins-health-probe-error'; result['errorType'] = type(error).__name__
+    write(OUT / 'connection-status.json', result)
+    print(json.dumps(result, ensure_ascii=False))
+
 def configure():
     old=get(JOB_URL+'config.xml').content
     (OUT/'job-config-before.xml').write_bytes(old)
@@ -105,7 +148,7 @@ def configure():
         existing=props.find(tag)
         if existing is not None: props.remove(existing)
     params=ET.SubElement(ET.SubElement(props,'hudson.model.ParametersDefinitionProperty'),'parameterDefinitions')
-    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','MC_RUNTIME_ENV']:
+    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE','MC_RUNTIME_ENV']:
         item=ET.SubElement(params,'hudson.model.PasswordParameterDefinition' if name=='MC_RUNTIME_ENV' else 'hudson.model.StringParameterDefinition')
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
@@ -152,7 +195,8 @@ def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
     manifest=read(ROOT/'ci/dependency-manifest.json')
     data={'GIT_SHA':sha, 'MC_GIT_SHA':manifest['repositories']['mc']['revision'],
         'TAP_GIT_SHA':manifest['repositories']['tap']['revision'], 'REQUEST_ID':request_id,
-        'INTENT_ID':intent_id, 'RUN_SCOPE':scope, 'AUTO_CHAIN':'true' if auto_chain else 'false'}
+        'INTENT_ID':intent_id, 'RUN_SCOPE':scope, 'TRIGGER_SOURCE':'explicit-local-submit',
+        'AUTO_CHAIN':'true' if auto_chain else 'false'}
     for name in ['GIT_SHA','MC_GIT_SHA','TAP_GIT_SHA']:
         if not re.fullmatch('[0-9a-f]{40}',data[name]): raise ValueError('Exact '+name+' required')
     if auto_chain or scope in ['pilot','full-regression']:
@@ -344,7 +388,7 @@ def watch():
         'reviewed':[x['buildNumber'] for x in plan if x['action']=='done']},ensure_ascii=False))
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch','health'])
     parser.add_argument('--scope',choices=['contracts','pilot','full-regression','reports'],default='contracts')
     parser.add_argument('--auto-chain',action='store_true',help='Supply pilot runtime now and continue contracts/reports/pilot on Jenkins')
     args=parser.parse_args()

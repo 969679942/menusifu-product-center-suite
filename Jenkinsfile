@@ -63,7 +63,7 @@ node {
             schemaVersion: 2, intentId: intentId, gitSha: params.GIT_SHA,
             pcsGitSha: params.GIT_SHA, mcGitSha: params.MC_GIT_SHA, tapGitSha: params.TAP_GIT_SHA,
             requestId: requestId, runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER,
-            trigger: 'jenkins-parameterized-build'
+            trigger: params.TRIGGER_SOURCE?.trim() ?: 'jenkins-parameterized-build'
           ]))
         }
         stage('Checkout exact MC and TAP revisions') {
@@ -144,4 +144,3 @@ if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
     ]
   }
 }
-
