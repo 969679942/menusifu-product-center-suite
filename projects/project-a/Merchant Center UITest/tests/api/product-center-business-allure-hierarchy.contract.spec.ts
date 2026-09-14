@@ -388,6 +388,36 @@ test('调味专项断言必须优先展示附件中的字符串型实际观测�
   expect(normalizeMerchantCenterAllureResults(resultsDir)).toBe(0);
 });
 
+test('未登记来源的商品中心用例也必须使用调味同款五层业务结构并显式标记证据缺口', ({}, testInfo) => {
+  const fallbackCaseId = 'TC-ITEM-UNINDEXED-001';
+  const resultsDir = testInfo.outputPath('unindexed-business-case');
+  fs.mkdirSync(resultsDir, { recursive: true });
+  const resultPath = path.join(resultsDir, 'case-result.json');
+  fs.writeFileSync(resultPath, JSON.stringify({
+    name: '未登记来源的商品中心业务用例',
+    status: 'passed',
+    labels: [
+      { name: 'tag', value: `case-${fallbackCaseId}` },
+      { name: 'story', value: '商品管理 → 商品' },
+    ],
+    steps: [{ name: 'Fill locator("#name")', status: 'passed', steps: [], attachments: [] }],
+  }));
+
+  expect(normalizeMerchantCenterAllureResults(resultsDir)).toBe(1);
+  const normalized = readResult(resultPath);
+  expect(normalized.status).toBe('failed');
+  expect(normalized.steps?.map((step) => step.name)).toEqual([
+    '[环境] 登录 → 商品中心 → 商品管理 → 商品',
+    '[业务操作] 未登记来源的商品中心业务用例',
+    '[断言] 核对「未登记来源的商品中心业务用例」预期结果',
+    '[清理] 执行收据未声明需清理的持久化对象',
+    `执行结论：失败（证据不完整）｜${fallbackCaseId}`,
+  ]);
+  expect(JSON.stringify(normalized.steps)).not.toContain('Fill locator');
+  expect(normalized.steps?.[2]?.steps?.[0]?.name).toContain('来源未提供可解析的预期结果');
+  expect(normalizeMerchantCenterAllureResults(resultsDir)).toBe(0);
+});
+
 function readResult(filePath: string): NormalizedResult {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as NormalizedResult;
 }

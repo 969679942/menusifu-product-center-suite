@@ -7,6 +7,7 @@ const root=path.resolve(__dirname,'../..');
 const policy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8'));
 const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const ps1=fs.readFileSync(path.join(root,'ci/jenkins.ps1'),'utf8');
+const triggerContract=require(path.join(root,'tap/src/ci/jenkins-trigger-contract.cjs'));
 
 test('trigger policy keeps cross-repository source identity explicit',()=>{
   assert.deepEqual(policy.sourceRepositories.sort(),[
@@ -46,4 +47,14 @@ test('full regression is not the implicit push trigger',()=>{
   assert.equal(policy.fullRegression.defaultOnPush,'contracts');
   assert.equal(policy.governance.separateTriggerFromBusinessExecution,true);
   assert.equal(policy.governance.separateServerReachabilityFromTriggerConfiguration,true);
+});
+
+test('local transport resolves the same three-repository identity required by Jenkins',()=>{
+  const manifest=JSON.parse(fs.readFileSync(path.join(root,'ci/dependency-manifest.json'),'utf8'));
+  const payload={gitSha:'a'.repeat(40),mcGitSha:manifest.repositories.mc.revision,tapGitSha:manifest.repositories.tap.revision,
+    requestId:'request-1',intentId:'123e4567-e89b-12d3-a456-426614174000',runScope:'full-regression',triggerSource:'explicit-local-submit'};
+  assert.deepEqual(triggerContract.validateJenkinsInvocation(payload),[]);
+  assert.match(transport,/submission_parameters\(sha, scope, request_id, intent_id\)/);
+  assert.match(transport,/MC_GIT_SHA/);
+  assert.match(transport,/TAP_GIT_SHA/);
 });

@@ -156,6 +156,33 @@ export class FileAuditEventStore {
     return this.appendManyWithResults(inputs).map((result) => result.event);
   }
 
+  appendExistingEvents(events: readonly AuditEvent[]): { appended: number; duplicates: number } {
+    if (events.length === 0) return { appended: 0, duplicates: 0 };
+    return withFileLock(`${this.filePath}.lock`, () => {
+      const state = loadAppendState(this.filePath);
+      const pending = events.filter((event) => {
+        const existing = state.byEventId.get(event.eventId);
+        if (!existing) return true;
+        if (!sameAuditPayload(existing, event)) throw new Error(`AUDIT_EVENT_ID_CONFLICT:${event.eventId}`);
+        return false;
+      });
+      if (pending.length === 0) return { appended: 0, duplicates: events.length };
+      const rebuilt: AuditEvent[] = [];
+      let previous = state.lastEvent;
+      for (const event of pending) {
+        const canonical = rechainAuditEvent(event, (previous?.eventSequence ?? 0) + 1, previous?.eventHash ?? null);
+        rebuilt.push(canonical);
+        state.byEventId.set(canonical.eventId, canonical);
+        previous = canonical;
+      }
+      fs.mkdirSync(path.dirname(this.filePath), { recursive: true });
+      fs.appendFileSync(this.filePath, `${rebuilt.map((event) => JSON.stringify(event)).join('\n')}\n`, 'utf8');
+      state.lastEvent = rebuilt.at(-1);
+      state.size = fs.statSync(this.filePath).size;
+      return { appended: rebuilt.length, duplicates: events.length - rebuilt.length };
+    });
+  }
+
   private appendManyWithResults(inputs: readonly AuditEventInput[]): Array<{ event: AuditEvent; duplicate: boolean }> {
     return withFileLock(`${this.filePath}.lock`, () => {
       const state = loadAppendState(this.filePath);
@@ -259,7 +286,43 @@ function loadAppendState(filePath: string): AppendState {
 
 /** Lightweight integration point for compilers, runners, reporters and lifecycle scripts. */
 export function appendAuditEvent(filePath: string, event: AuditEventInput): { event: AuditEvent; duplicate: boolean } {
-  return new FileAuditEventStore({ filePath }).append(event);
+  return new FileAuditEventStore({ filePath: resolveAuditEventAppendPath(filePath) }).append(event);
+}
+
+export function resolveAuditEventAppendPath(filePath: string, env: NodeJS.ProcessEnv = process.env): string {
+  const resolved = path.resolve(filePath);
+  if (env.SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING !== 'worker') return resolved;
+  const rawIndex = env.TEST_WORKER_INDEX;
+  if (!rawIndex || !/^\d+$/.test(rawIndex)) return resolved;
+  return `${resolved}.worker-${Number(rawIndex)}.jsonl`;
+}
+
+export type AuditEventShardMergeResult = {
+  shardPaths: string[];
+  eventCount: number;
+  appended: number;
+  duplicates: number;
+};
+
+export function mergeAuditEventLogShards(
+  targetPath: string,
+  options: { runId?: string; shardPaths?: readonly string[] } = {},
+): AuditEventShardMergeResult {
+  const target = path.resolve(targetPath);
+  const directory = path.dirname(target);
+  const basename = path.basename(target);
+  const escaped = basename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const paths = [...(options.shardPaths ?? (fs.existsSync(directory) ? fs.readdirSync(directory)
+    .filter((name) => new RegExp(`^${escaped}\\.worker-[0-9]+\\.jsonl$`).test(name))
+    .map((name) => path.join(directory, name)) : []))]
+    .map((value) => path.resolve(value))
+    .filter((value) => value !== target && fs.existsSync(value))
+    .sort();
+  const events = paths.flatMap((filePath) => new FileAuditEventStore({ filePath }).readAll())
+    .filter((event) => options.runId === undefined || event.runId === options.runId)
+    .sort((left, right) => left.occurredAt.localeCompare(right.occurredAt) || left.eventId.localeCompare(right.eventId));
+  const result = new FileAuditEventStore({ filePath: target }).appendExistingEvents(events);
+  return { shardPaths: paths, eventCount: events.length, ...result };
 }
 
 export function queryAuditEvents(events: readonly AuditEvent[], filter: AuditEventFilter = {}): AuditEvent[] {
@@ -353,6 +416,20 @@ function matchesExistingEvent(input: AuditEventInput, existing: AuditEvent): boo
     ...(input.details === undefined ? {} : { details: redactAuditValue(input.details) }),
   } as Record<string, unknown>;
   return Object.entries(normalizedInput).every(([key, value]) => stableStringify(existing[key as keyof AuditEvent]) === stableStringify(value));
+}
+
+function sameAuditPayload(left: AuditEvent, right: AuditEvent): boolean {
+  const strip = (event: AuditEvent): Record<string, unknown> => {
+    const { eventSequence: _sequence, previousEventHash: _previous, eventHash: _hash, ...payload } = event;
+    return payload;
+  };
+  return stableStringify(strip(left)) === stableStringify(strip(right));
+}
+
+function rechainAuditEvent(event: AuditEvent, sequence: number, previousEventHash: string | null): AuditEvent {
+  const { eventSequence: _sequence, previousEventHash: _previous, eventHash: _hash, ...payload } = event;
+  const canonical: Omit<AuditEvent, 'eventHash'> = { ...payload, eventSequence: sequence, previousEventHash };
+  return { ...canonical, eventHash: hashAuditEvent(canonical) };
 }
 
 function withFileLock<T>(lockPath: string, action: () => T): T {

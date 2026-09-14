@@ -235,6 +235,51 @@ def git(*args):
             if args[0] not in ['ls-remote','push'] or not delay: raise
             time.sleep(delay)
 
+def validate_trigger_request(payload, remote_sha=None):
+    """Run the TAP-owned trigger contract before any Jenkins POST.
+
+    Keeping this check in the transport adapter prevents malformed or stale
+    requests from reaching Jenkins, while the contract itself remains shared
+    with other adapters through tap/src/ci/jenkins-trigger-contract.cjs.
+    """
+    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
+    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsTriggerRequest(p, {remoteSha: process.argv[3] || undefined})));"
+    output = subprocess.check_output(
+        ['node', '-e', script, str(module), json.dumps(payload), remote_sha or ''],
+        cwd=ROOT, text=True,
+    )
+    errors = json.loads(output)
+    if errors:
+        raise RuntimeError('JENKINS_TRIGGER_CONTRACT_INVALID:' + ','.join(errors))
+
+def submission_parameters(sha, scope, request_id, intent_id):
+    manifest_path = ROOT / 'ci' / 'dependency-manifest.json'
+    if not manifest_path.exists():
+        raise RuntimeError('dependency-manifest-missing')
+    manifest = read(manifest_path)
+    repositories = manifest.get('repositories', {})
+    mc_sha = repositories.get('mc', {}).get('revision')
+    tap_sha = repositories.get('tap', {}).get('revision')
+    if not isinstance(mc_sha, str) or not isinstance(tap_sha, str):
+        raise RuntimeError('dependency-manifest-incomplete')
+    payload = {
+        'gitSha': sha, 'mcGitSha': mc_sha, 'tapGitSha': tap_sha,
+        'requestId': request_id, 'intentId': intent_id,
+        'runScope': scope, 'triggerSource': 'explicit-local-submit',
+    }
+    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
+    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsInvocation(p)));"
+    errors = json.loads(subprocess.check_output(
+        ['node', '-e', script, str(module), json.dumps(payload)], cwd=ROOT, text=True,
+    ))
+    if errors:
+        raise RuntimeError('JENKINS_INVOCATION_CONTRACT_INVALID:' + ','.join(errors))
+    return {
+        'GIT_SHA': sha, 'MC_GIT_SHA': mc_sha, 'TAP_GIT_SHA': tap_sha,
+        'REQUEST_ID': request_id, 'INTENT_ID': intent_id, 'RUN_SCOPE': scope,
+        'TRIGGER_SOURCE': 'explicit-local-submit',
+    }
+
 def submit(scope='contracts'):
     quarantine_legacy_checkpoint()
     if STATE.exists():
@@ -248,9 +293,11 @@ def submit(scope='contracts'):
     if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope:
         print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
     # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
-    if git('rev-parse','refs/remotes/origin/master') != sha:
+    remote_sha = git('rev-parse','refs/remotes/origin/master')
+    if remote_sha != sha:
         git('push','origin','HEAD:master')
-    if git('rev-parse','refs/remotes/origin/master')!=sha:
+        remote_sha = git('rev-parse','refs/remotes/origin/master')
+    if remote_sha!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
     state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'intentId':str(uuid.uuid4()),
         'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'createdAt':time.time()}
@@ -260,8 +307,14 @@ def submit(scope='contracts'):
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data={'GIT_SHA':sha,'REQUEST_ID':state['requestId'],'INTENT_ID':state['intentId'],'RUN_SCOPE':scope,
-          'TRIGGER_SOURCE':'explicit-local-submit'}
+    data=submission_parameters(sha, scope, state['requestId'], state['intentId'])
+    validate_trigger_request({
+        'gitSha': sha,
+        'requestId': state['requestId'],
+        'intentId': state['intentId'],
+        'runScope': scope,
+        'triggerSource': data['TRIGGER_SOURCE'],
+    }, remote_sha)
     if scope in ['pilot','full-regression']:
         secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
         data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
@@ -366,7 +419,8 @@ def discover_builds(first_build):
                 'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
                 'intentId':intent_id if isinstance(intent_id,str) and re.fullmatch('[0-9a-f-]{36}',intent_id) else None,
-                'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None})
+                'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None,
+                'triggerSource':params.get('TRIGGER_SOURCE') if params.get('TRIGGER_SOURCE') in ['explicit-local-submit','github-webhook','scm-trigger','workflow-dispatch','jenkins-schedule'] else None})
         if len(page)<100 or any(item['number']<first_build for item in page): return builds
     raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')
 
@@ -381,6 +435,7 @@ def watch():
     # being replayed after a worker restart.
     if not policy.get('autoDiscoverHistorical',False):
         registered={int(n) for n in policy.get('registeredBuilds',[])}
+        discover_scheduled = policy.get('autoDiscoverScheduled', False) is True
         active=read(STATE) if STATE.exists() else {}
         remember_explicit_submission(active)
         explicit = read(SUBMITTED_BUILDS).get('requests', []) if SUBMITTED_BUILDS.exists() else []
@@ -389,7 +444,9 @@ def watch():
         if active_request: explicit_request_ids.add(active_request)
         local=[]
         for build in builds:
-            if build['buildNumber'] in registered or build['requestId'] in explicit_request_ids:
+            if (build['buildNumber'] in registered
+                or build['requestId'] in explicit_request_ids
+                or (discover_scheduled and build.get('triggerSource') == 'jenkins-schedule')):
                 local.append(build)
         builds=local
     analyses={}; reviews={}

@@ -399,6 +399,18 @@ test.describe('商品中心来源治理执行门禁', () => {
       .toEqual(['TC-TAG-STAT-025']);
   });
 
+  test('full-regression must bypass incremental repair guard and execute its frozen selection', () => {
+    const sourceRunner = fs.readFileSync(
+      path.join(projectRoot, 'scripts/run-product-center-source-governed.ts'),
+      'utf8',
+    );
+    // A full run is an independent current-result acquisition. Reusing the
+    // repair ledger here would silently drop cases blocked in an earlier
+    // targeted run and produce a partial Allure report.
+    expect(sourceRunner).toContain('const repairRegistration = requestedCaseIds === null || fullRegression');
+    expect(sourceRunner).toContain('Full regression is an independent, authoritative execution');
+  });
+
   test('商品严格合同不得放行来源阻断用例', async () => {
     const governance = loadProductCenterSourceGovernance(projectRoot);
     const blockedItemCaseIds = new Set([...governance.decisions.values()]

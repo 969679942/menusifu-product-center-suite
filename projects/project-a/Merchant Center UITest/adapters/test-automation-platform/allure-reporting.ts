@@ -456,7 +456,15 @@ function normalizeProductCenterBusinessHierarchy(
   runtimeEvidence: Record<string, unknown> | undefined,
 ): number {
   const canonicalCase = readCanonicalBusinessCase(caseId);
-  if (!canonicalCase) return 0;
+  // Every business result must expose the same five-layer hierarchy, even
+  // when its source case is not yet present in the canonical index.  Older
+  // generated suites can legitimately produce such results while their
+  // source migration is pending; leaving the raw Playwright steps in Allure
+  // made those cases look different from seasoning and hid the evidence gap.
+  // Build a conservative fallback from the result title/labels/receipt and
+  // explicitly mark the missing source expectation as incomplete rather than
+  // inventing business rules.
+  if (!canonicalCase) return normalizeUnindexedBusinessHierarchy(document, resultsDir, caseId, runtimeEvidence);
   const original = document.steps ?? [];
   const existingSerialized = JSON.stringify(original);
   const allAttachments = collectAttachments(document);
@@ -620,6 +628,102 @@ function normalizeProductCenterBusinessHierarchy(
     conclusion.status = 'failed';
   }
   return existingSerialized === JSON.stringify(document.steps) ? 0 : 1;
+}
+
+/**
+ * Normalize a result whose case is not yet indexed in the canonical source.
+ * The fallback deliberately carries no guessed business expectation: it
+ * preserves any concrete receipt expectation values and otherwise records a
+ * visible evidence gap.  This keeps Allure shape-compatible with seasoning
+ * while preventing an unindexed case from being reported as a pass.
+ */
+function normalizeUnindexedBusinessHierarchy(
+  document: AllureBusinessReportResult & Record<string, unknown>,
+  resultsDir: string,
+  caseId: string,
+  runtimeEvidence: Record<string, unknown> | undefined,
+): number {
+  const currentSteps = document.steps ?? [];
+  if (currentSteps.length >= 5
+    && currentSteps[0]?.name?.startsWith('[环境] ')
+    && currentSteps.some((step) => step.name?.startsWith('[业务操作] '))
+    && currentSteps.some((step) => step.name?.startsWith('[断言] '))
+    && currentSteps.some((step) => step.name?.startsWith('[清理] '))
+    && currentSteps.some((step) => step.name?.startsWith('执行结论：'))) {
+    return 0;
+  }
+  const original = JSON.stringify(document.steps ?? []);
+  const allAttachments = collectAttachments(document);
+  const receiptAttachment = findReceiptAttachment(allAttachments, caseId);
+  const observationAttachment = findObservationAttachment(allAttachments, caseId, receiptAttachment);
+  const receipt = runtimeEvidence ?? readAttachmentJson(resultsDir, receiptAttachment);
+  const title = String(document.name ?? caseId);
+  const labels = Array.isArray(document.labels) ? document.labels as Array<Record<string, unknown>> : [];
+  const story = String(labels.find((label) => label.name === 'story')?.value ?? labels.find((label) => label.name === 'feature')?.value ?? '商品中心业务');
+  const statusMessage = readStatusMessage(document);
+  const operationReceipts = Array.isArray(receipt?.operationReceipts)
+    ? receipt.operationReceipts.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === 'object'))
+    : [];
+  const assertionReceipts = Array.isArray(receipt?.assertionReceipts)
+    ? receipt.assertionReceipts.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === 'object'))
+    : [];
+  const cleanup = readCleanupSummary(receipt, observationAttachment ? readAttachmentJson(resultsDir, observationAttachment) : undefined);
+  const hasCompleteReceipt = Boolean(
+    receiptAttachment
+      && operationReceipts.length > 0
+      && operationReceipts.every((item) => item.observed === true && item.status === 'passed')
+      && assertionReceipts.length > 0
+      && assertionReceipts.every((item) => item.status === 'verified')
+      && (!cleanup.declared || (cleanup.apiZeroResidue === true && cleanup.uiZeroResidue === true)),
+  );
+  const sourceExpectationValues = assertionReceipts
+    .map((item) => item.expectedValue ?? item.expected ?? item.businessExpectation)
+    .filter((value) => value !== undefined);
+  const rawOperationNames = flattenAllureSteps(document.steps ?? [])
+    .map((step) => step.name ?? '')
+    .filter((name) => name && !/^\[|^执行结论：|^结论摘要：|^Before Hooks|^After Hooks|^canonical-|^recipe-|^group-|^runtime-|^conversion-|^manual-|^(?:Fill|Click|Press|Expect|Goto|Navigate|locator\(|page\.)/i.test(name));
+  const operationNames = [...new Set(rawOperationNames)].slice(0, 30);
+  const operationStep: AllureReportStep = {
+    name: `[业务操作] ${title}`,
+    status: hasCompleteReceipt ? 'passed' : document.status === 'passed' ? 'passed' : 'failed',
+    stage: 'finished',
+    steps: (operationNames.length > 0 ? operationNames : ['操作1：执行来源定义的业务操作（来源步骤未提供）。'])
+      .map((name, index) => businessLeaf(`操作${index + 1}：${renderCanonicalBusinessText(name)}`, hasCompleteReceipt ? 'passed' : 'skipped')),
+    attachments: receiptAttachment ? [renamedAttachment(receiptAttachment, '业务操作执行收据（点击查看）')] : [],
+    parameters: [], statusDetails: {},
+  };
+  const assertionChildren = sourceExpectationValues.length > 0
+    ? sourceExpectationValues.map((expected, index) => businessLeaf(
+      `校验${index + 1}：期望：${renderCanonicalBusinessText(formatInlineReportValue(expected))}｜实际：${assertionReceipts[index]?.status === 'verified' ? '执行收据已验证' : statusMessage || '断言收据未验证'}｜结果：${assertionReceipts[index]?.status === 'verified' ? '通过' : '证据不完整'}`,
+      assertionReceipts[index]?.status === 'verified' ? 'passed' : 'skipped',
+    ))
+    : [businessLeaf('校验1：期望：当前用例来源未提供可解析的预期结果｜实际：无法从标准收据回读预期与实际值｜结果：证据不完整', 'skipped')];
+  const assertionStep: AllureReportStep = {
+    name: `[断言] 核对「${title}」预期结果`,
+    status: hasCompleteReceipt ? 'passed' : 'skipped', stage: 'finished', steps: assertionChildren,
+    attachments: observationAttachment ? [renamedAttachment(observationAttachment, '断言期望与实际观测（点击查看）')] : [],
+    parameters: [], statusDetails: {},
+  };
+  const environmentStep: AllureReportStep = {
+    name: `[环境] 登录 → 商品中心 → ${story}`,
+    status: 'passed', stage: 'finished',
+    steps: [businessLeaf('前置条件：当前执行上下文由标准收据提供；来源用例尚未登记。', 'passed')],
+    attachments: [], parameters: [], statusDetails: {},
+  };
+  const cleanupStep = buildCleanupBusinessStep(cleanup, hasCompleteReceipt ? 'passed' : 'failed');
+  const conclusion: AllureReportStep = {
+    name: `执行结论：${hasCompleteReceipt && document.status === 'passed' ? '通过' : '失败（证据不完整）'}｜${caseId}`,
+    status: hasCompleteReceipt && document.status === 'passed' ? 'passed' : 'failed', stage: 'finished',
+    steps: [businessLeaf(`结论摘要：业务操作 ${operationReceipts.length} 项｜断言 ${assertionReceipts.length} 项｜清理${cleanup.declared ? '已声明' : '未声明'}｜证据${hasCompleteReceipt ? '完整' : '不完整'}`, hasCompleteReceipt ? 'passed' : 'failed')],
+    attachments: [], parameters: [], statusDetails: {},
+  };
+  document.steps = [environmentStep, operationStep, assertionStep, cleanupStep, conclusion];
+  document.attachments = [];
+  if (!hasCompleteReceipt) {
+    document.status = 'failed';
+    document.statusDetails = { ...(document.statusDetails && typeof document.statusDetails === 'object' ? document.statusDetails : {}), message: '用例来源未登记或当前标准执行收据证据不完整，报告按证据不完整处理。' };
+  }
+  return original === JSON.stringify(document.steps) ? 0 : 1;
 }
 
 function ensureProductDifferenceAttachment(input: {

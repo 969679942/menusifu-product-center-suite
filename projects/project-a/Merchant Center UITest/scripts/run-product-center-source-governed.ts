@@ -121,7 +121,12 @@ export function runProductCenterSourceGoverned(options: {
       applicationId: 'merchant-center-product-center', caseIds: plannedCaseIds,
     })
     : undefined;
-  const repairRegistration = requestedCaseIds === null
+  // Full regression is an independent, authoritative execution of the
+  // complete current selection.  It must not consume the incremental repair
+  // ledger: previously blocked/deferred repair attempts are facts about an
+  // earlier run and cannot suppress cases from a new full-regression run.
+  // Keep the repair guard for explicitly targeted incremental executions.
+  const repairRegistration = requestedCaseIds === null || fullRegression
     ? { registrations: [] as RepairAttemptRegistration[], blocked: [] as RepairGuardBlock[] }
     : registerRepairAttempts({
       plan,

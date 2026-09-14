@@ -25,3 +25,23 @@ test('MC Allure adapter uses public selection gate and still archives a failing 
   assert.equal(JSON.parse(fs.readFileSync(path.join(out,'bundle-manifest.json'))).reportStatus,'incomplete');
  } finally {assert.ok(root.startsWith(path.join(os.tmpdir(),'suite-allure-')));fs.rmSync(root,{recursive:true});}
 });
+
+test('full regression publishes one governed Allure node for every formal case, including exclusions',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'suite-allure-formal-'));
+ try {
+  for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
+   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(path.resolve(__dirname,'../..',rel),file);
+  }
+  const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
+  const write=(file,value)=>fs.writeFileSync(file,JSON.stringify(value));
+  write(path.join(out,'result-envelope.json'),{kind:'governed-business-full-product-center',formalScopeCaseIds:['C1','C2'],plannedCaseIds:['C1','C2'],selectedCaseIds:['C1'],classifiedExclusions:['C2'],exclusionReasons:{C2:'deferred:外部依赖未就绪'},caseAudit:[{caseId:'C1',status:'passed',accepted:true}]});
+  write(path.join(allure,'one-result.json'),{labels:[{name:'caseId',value:'C1'}],status:'passed',steps:[{name:'[业务操作] C1',status:'passed'}]});
+  write(path.join(business,'evidence-ledger.json'),{cases:[{caseId:'C1',playwrightStatus:'passed',evidence:{status:'complete'}}]});
+  const execute=()=>spawnSync(process.execPath,[path.join(root,'ci/finalize-allure.cjs')],{env:{...process.env,RUN_SCOPE:'full-regression',BUILD_NUMBER:'1',REQUEST_ID:'fixture'},encoding:'utf8'});
+  assert.equal(execute().status,0);
+  const files=fs.readdirSync(path.join(out,'allure-results-business')).filter(name=>name.endsWith('-result.json'));
+  assert.equal(files.length,2);
+  const published=files.map(name=>JSON.parse(fs.readFileSync(path.join(out,'allure-results-business',name),'utf8')));
+  assert.equal(published.filter(item=>item.labels.some(label=>label.name==='caseId'&&label.value==='C2'))[0].status,'skipped');
+ } finally {assert.ok(root.startsWith(path.join(os.tmpdir(),'suite-allure-formal-')));fs.rmSync(root,{recursive:true});}
+});
