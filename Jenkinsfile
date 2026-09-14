@@ -1,9 +1,15 @@
 node {
-  ws("${env.WORKSPACE}-isolated") {
+  // Every build owns a distinct workspace even if the Jenkins job is later
+  // configured to allow overlap. This prevents one build from deleting or
+  // reading another build's audit locks and result files.
+  ws("${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated") {
     // Full regression runs the source-governed suite and the two seasoning
     // contexts in one executor.  Keep the job-local ceiling high enough for
     // the complete audit; individual runners still enforce their own limits.
-    def buildTimeoutMinutes = 180
+    // A 400+ case full regression is intentionally longer than pilot/report
+    // validation. #89 proved that the former 180-minute global ceiling could
+    // interrupt a healthy, still-progressing run.
+    def buildTimeoutMinutes = params.RUN_SCOPE == 'full-regression' ? 360 : 180
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!(params.GIT_SHA ==~ /[0-9a-f]{40}/)) error('Exact GIT_SHA required')
       if (!(params.REQUEST_ID ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')

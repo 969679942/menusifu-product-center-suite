@@ -50,7 +50,7 @@ import {
 } from '../src/governance/system-test-optimization-gate';
 import { appendSystemTestRepairTelemetry } from '../src/automation/system-test/system-test-repair-telemetry';
 import { resolveSystemTestConcurrency } from '../src/automation/system-test/system-test-concurrency';
-import { appendAuditEvent } from '../src/audit/event-log';
+import { appendAuditEvent, mergeAuditEventLogShards, type AuditEventShardMergeResult } from '../src/audit/event-log';
 import {
   assertExecutionIntentCompletion,
   assertExecutionIntentContract,
@@ -447,6 +447,7 @@ export async function runSystemTest(input: {
     SYSTEM_TEST_CONCURRENCY_DECISION: JSON.stringify(concurrency),
     ...(auditEventLogPath ? {
       SYSTEM_TEST_AUDIT_EVENT_LOG: path.resolve(rootDir, auditEventLogPath),
+      SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker',
       SYSTEM_TEST_APPLICATION_ID: applicationId,
       SYSTEM_TEST_BUSINESS_DOMAIN_ID: artifacts.manifest.system.portabilityScope?.businessDomainId ?? artifacts.manifest.system.systemId,
       SYSTEM_TEST_PLAN_ID: artifacts.manifest.system.systemId,
@@ -615,6 +616,12 @@ export async function runSystemTest(input: {
       1,
     );
   }
+  let auditShardMerge: AuditEventShardMergeResult | undefined;
+  let auditShardMergeError: string | undefined;
+  if (resolvedAuditEventLogPath) {
+    try { auditShardMerge = mergeAuditEventLogShards(resolvedAuditEventLogPath, { runId }); }
+    catch (error) { auditShardMergeError = error instanceof Error ? error.message : String(error); }
+  }
   const ledger = fs.existsSync(evidencePath) ? readJson<EvidenceLedger>(evidencePath) : undefined;
   const terminalCaseIds = [...new Set((ledger?.cases ?? [])
     .map((item) => item.caseId)
@@ -645,7 +652,8 @@ export async function runSystemTest(input: {
   const evidenceValid = ledger?.contractFingerprint === artifacts.contract.fingerprint
     && ledger.summary.selected === artifacts.contract.cases.length
     && ledger.summary.executed === artifacts.contract.cases.length
-    && ledger.summary.evidenceIncomplete === 0;
+    && ledger.summary.evidenceIncomplete === 0
+    && !auditShardMergeError;
   const receiptImport = ledger
     ? importSystemTestEvidenceLedgerReceipts({
       ledgerPath: evidencePath,
@@ -718,6 +726,11 @@ export async function runSystemTest(input: {
       workers: concurrency.effectiveWorkers,
     },
     concurrency,
+    ...(resolvedAuditEventLogPath ? {
+      auditShardMerge: auditShardMerge
+        ? { eventCount: auditShardMerge.eventCount, appended: auditShardMerge.appended, duplicates: auditShardMerge.duplicates, shardCount: auditShardMerge.shardPaths.length }
+        : { status: 'failed', error: auditShardMergeError },
+    } : {}),
     selectedCaseIds,
     executableCaseIds,
     blockedCaseIds,

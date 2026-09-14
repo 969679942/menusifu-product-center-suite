@@ -16,6 +16,10 @@ test('trigger policy keeps cross-repository source identity explicit',()=>{
   assert.equal(policy.transportRepository,'menusifu-product-center-suite');
   assert.equal(policy.defaultTriggerMode,'manual-parameterized');
   assert.equal(policy.fullRegression.requiresExplicitScope,true);
+  assert.equal(policy.fullRegression.timeoutMinutes,360);
+  assert.equal(policy.executionIsolation.disableConcurrentBuildsRequired,true);
+  assert.equal(policy.executionIsolation.workspaceTemplate,'${WORKSPACE}@${BUILD_NUMBER}-isolated');
+  assert.equal(policy.executionIsolation.auditEventLogMode,'worker-sharded-then-merged');
   assert.deepEqual(policy.requiredIdentity,[
     'GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE',
   ]);
@@ -25,8 +29,15 @@ test('transport exposes read-only health and configurable endpoint without print
   assert.match(transport,/def configured_base\(\)/);
   assert.match(transport,/def health\(\)/);
   assert.match(transport,/connection-status\.json/);
+  assert.match(transport,/concurrentBuildProtectionConfigured/);
+  assert.match(transport,/pipelineGovernanceConfigured/);
+  assert.match(transport,/configure-governed-pipeline-definition/);
+  assert.match(transport,/DisableConcurrentBuildsJobProperty/);
   assert.match(transport,/choices=\['configure','submit','poll','watch','health'\]/);
   assert.doesNotMatch(transport,/print\([^\n]*SUITE_JENKINS_TOKEN/);
+  assert.doesNotMatch(transport,/job-config-before\.xml/);
+  assert.match(transport,/job-config-before\.json/);
+  assert.match(transport,/hashlib\.sha256\(old\)\.hexdigest\(\)/);
   assert.match(ps1,/Import-Clixml/);
   assert.match(ps1,/Remove-Item Env:SUITE_JENKINS_USER,Env:SUITE_JENKINS_TOKEN/);
 });

@@ -24,7 +24,14 @@
   "fullRegression": {
     "requiresExplicitScope": true,
     "defaultOnPush": "contracts",
-    "businessExecutionOnMissingTriggerEvidence": "blocked"
+    "businessExecutionOnMissingTriggerEvidence": "blocked",
+    "timeoutMinutes": 360
+  },
+  "executionIsolation": {
+    "disableConcurrentBuildsRequired": true,
+    "workspaceTemplate": "${WORKSPACE}@${BUILD_NUMBER}-isolated",
+    "defaultTimeoutMinutes": 180,
+    "auditEventLogMode": "worker-sharded-then-merged"
   },
   "governance": {
     "sourcePushMustNotBeReportedAsJenkinsBuildWithout回执": true,

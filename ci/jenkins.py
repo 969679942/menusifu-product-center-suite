@@ -119,6 +119,8 @@ def health():
         'jobStatus': 'unknown',
         'triggerStatus': 'unknown',
         'scmTriggerConfigured': False,
+        'concurrentBuildProtectionConfigured': False,
+        'pipelineGovernanceConfigured': False,
         'parameterizedBuildEndpoint': False,
         'actionRequired': 'none',
     }
@@ -136,10 +138,23 @@ def health():
                 if 200 <= config.status_code < 300:
                     root = ET.fromstring(config.content)
                     triggers = root.find('triggers')
+                    properties = root.find('properties')
                     trigger_names = {node.tag for node in triggers} if triggers is not None else set()
                     result['scmTriggerConfigured'] = any('GitHubPushTrigger' in name or 'SCMTrigger' in name for name in trigger_names)
+                    result['concurrentBuildProtectionConfigured'] = properties is not None and properties.find(
+                        'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty') is not None
+                    pipeline_script = root.findtext('definition/script') or ''
+                    result['pipelineGovernanceConfigured'] = all(fragment in pipeline_script for fragment in [
+                        '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
+                        "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
+                        'jenkins-invocation.json',
+                    ])
                     result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
-                    if not result['scmTriggerConfigured']:
+                    if not result['pipelineGovernanceConfigured']:
+                        result['actionRequired'] = 'configure-governed-pipeline-definition'
+                    elif not result['concurrentBuildProtectionConfigured']:
+                        result['actionRequired'] = 'configure-job-concurrency-protection'
+                    elif not result['scmTriggerConfigured']:
                         result['actionRequired'] = 'configure-cross-repository-webhook'
                 else:
                     result['triggerStatus'] = 'unknown'
@@ -158,8 +173,15 @@ def health():
 
 def configure():
     old=get(JOB_URL+'config.xml').content
-    (OUT/'job-config-before.xml').write_bytes(old)
     root=ET.fromstring(old)
+    previous_properties=root.find('properties')
+    write(OUT/'job-config-before.json',{
+        'schemaVersion':1,
+        'sha256':hashlib.sha256(old).hexdigest(),
+        'definitionClass':root.find('definition').get('class') if root.find('definition') is not None else None,
+        'propertyTypes':sorted(node.tag for node in previous_properties) if previous_properties is not None else [],
+        'capturedAt':time.time(),
+    })
     definition=root.find('definition')
     definition.clear()
     definition.set('class','org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition')

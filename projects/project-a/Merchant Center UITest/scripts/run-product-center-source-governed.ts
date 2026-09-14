@@ -19,6 +19,7 @@ import {
   revokeSystemTestExecutionGrant,
 } from '../automation/system-test/system-test-execution-grant';
 import { assertSelectionMatchesPlan } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import { mergeAuditEventLogShards, type AuditEventShardMergeResult } from '../../Test Automation Platform/src/audit/event-log';
 import { createProductCenterAuthBatchSession } from '../utils/product-center-auth-batch-session';
 import { partitionProductCenterItemSpecs } from '../adapters/product-center/product-center-item-addon-price-specs';
 
@@ -107,6 +108,7 @@ export function runProductCenterSourceGoverned(options: {
   if (!options.execute) return 0;
 
   const runId = process.env.PC_SOURCE_GOVERNED_RUN_ID ?? timestamp();
+  const auditEventLogPath = path.join(projectRoot, 'output/audit/product-center-events.jsonl');
   const repairLedgerPath = path.join(projectRoot, 'output/system-test-repair/product-center/repair-attempt-ledger.json');
   const plannedCaseIds = runners.flatMap((runner) => runner.selectedCaseIds);
   const diagnosisFingerprint = options.repairDiagnosisPath
@@ -201,9 +203,15 @@ export function runProductCenterSourceGoverned(options: {
     PC_BATCH_AUTH_VERIFIED: '1',
     PC_BATCH_AUTH_ONCE: '1',
     PC_AUTH_NO_DEPENDENCIES: '1',
+    SYSTEM_TEST_RUN_ID: runId,
+    SYSTEM_TEST_LOGICAL_RUN_ID: runId,
+    SYSTEM_TEST_AUDIT_EVENT_LOG: auditEventLogPath,
+    SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker',
   };
   let authSetupExitCode = 0;
   let interruptedSignal: NodeJS.Signals | null = null;
+  let auditShardMerge: AuditEventShardMergeResult | undefined;
+  let auditShardMergeError: string | undefined;
   const onInterrupt = (signal: NodeJS.Signals) => { interruptedSignal = signal; };
   process.once('SIGINT', onInterrupt);
   process.once('SIGTERM', onInterrupt);
@@ -272,6 +280,13 @@ export function runProductCenterSourceGoverned(options: {
     authSession.cleanup();
     revokeSystemTestExecutionGrant(executionGrant);
   }
+  try {
+    auditShardMerge = mergeAuditEventLogShards(auditEventLogPath, { runId });
+  } catch (error) {
+    auditShardMergeError = error instanceof Error ? error.message : String(error);
+    executionExitCode = executionExitCode || 2;
+    process.stderr.write(`[source-governed] audit-shard-merge-failed error=${auditShardMergeError}\n`);
+  }
   if (interruptedSignal) {
     completeRepairRegistrations(repairLedgerPath, repairAttempts, 'interrupted');
     executionExitCode = 130;
@@ -296,6 +311,7 @@ export function runProductCenterSourceGoverned(options: {
     })),
     authSetupCount: 1,
     authSetupStatus: authSetupExitCode === 0 ? 'passed' : 'failed',
+    auditShardMerge: auditShardMerge ?? { status: 'failed', error: auditShardMergeError },
     ...(interruptedSignal ? { interruptionReason: `signal:${interruptedSignal}` } : {}),
   });
   const aggregationExitCode = runTsx('scripts/build-product-center-source-governed-execution-result.ts', {

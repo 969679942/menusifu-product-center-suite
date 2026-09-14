@@ -8,8 +8,10 @@ import {
   FileAuditEventStore,
   aggregateAuditEvents,
   createAuditCheckpoint,
+  mergeAuditEventLogShards,
   queryAuditEvents,
   readAuditCheckpoint,
+  resolveAuditEventAppendPath,
   writeAuditCheckpoint,
 } from '../../src/audit/event-log';
 
@@ -85,6 +87,55 @@ test.describe('系统无关流程审计事件合同', () => {
       })));
       expect(store.readAll().map((event) => event.eventSequence)).toEqual(Array.from({ length: 12 }, (_, index) => index + 1));
       expect(store.verifyIntegrity()).toEqual({ valid: true, count: 12, diagnostics: [] });
+    } finally { fs.rmSync(root, { recursive: true, force: true }); }
+  });
+
+  test('并行 worker 必须写入独立分片，合并后重建唯一连续哈希链', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'audit-event-shards-'));
+    try {
+      const targetPath = path.join(root, 'events.jsonl');
+      expect(resolveAuditEventAppendPath(targetPath, {
+        SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker', TEST_WORKER_INDEX: '3',
+      })).toBe(`${targetPath}.worker-3.jsonl`);
+      expect(resolveAuditEventAppendPath(targetPath, {
+        SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker',
+      })).toBe(targetPath);
+      new FileAuditEventStore({ filePath: targetPath }).append({
+        eventId: 'run:started', eventType: 'run.started', actorType: 'runner',
+        applicationId: 'application-sharded', runId: 'run-sharded', occurredAt: '2026-09-01T00:00:00.000Z',
+      });
+      for (const workerIndex of [0, 1]) {
+        new FileAuditEventStore({ filePath: `${targetPath}.worker-${workerIndex}.jsonl` }).append({
+          eventId: `case:${workerIndex}`, eventType: 'case.completed', actorType: 'runner',
+          applicationId: 'application-sharded', runId: 'run-sharded', caseId: `CASE-${workerIndex}`,
+          occurredAt: `2026-09-01T00:00:0${workerIndex + 1}.000Z`,
+        });
+      }
+      expect(mergeAuditEventLogShards(targetPath, { runId: 'run-sharded' }))
+        .toMatchObject({ eventCount: 2, appended: 2, duplicates: 0 });
+      const store = new FileAuditEventStore({ filePath: targetPath });
+      expect(store.readAll().map((event) => event.eventId)).toEqual(['run:started', 'case:0', 'case:1']);
+      expect(store.verifyIntegrity()).toEqual({ valid: true, count: 3, diagnostics: [] });
+      expect(mergeAuditEventLogShards(targetPath, { runId: 'run-sharded' }))
+        .toMatchObject({ eventCount: 2, appended: 0, duplicates: 2 });
+    } finally { fs.rmSync(root, { recursive: true, force: true }); }
+  });
+
+  test('损坏的 worker 分片必须阻断合并且不得污染主审计链', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'audit-event-invalid-shard-'));
+    try {
+      const targetPath = path.join(root, 'events.jsonl');
+      const store = new FileAuditEventStore({ filePath: targetPath });
+      store.append({
+        eventId: 'run:started', eventType: 'run.started', actorType: 'runner',
+        applicationId: 'application-sharded', runId: 'run-sharded', occurredAt: '2026-09-01T00:00:00.000Z',
+      });
+      fs.writeFileSync(`${targetPath}.worker-0.jsonl`, '{"invalid":true}\n', 'utf8');
+
+      expect(() => mergeAuditEventLogShards(targetPath, { runId: 'run-sharded' }))
+        .toThrow(/AUDIT_EVENT_INVALID_SEQUENCE/);
+      expect(store.readAll().map((event) => event.eventId)).toEqual(['run:started']);
+      expect(store.verifyIntegrity()).toEqual({ valid: true, count: 1, diagnostics: [] });
     } finally { fs.rmSync(root, { recursive: true, force: true }); }
   });
 
