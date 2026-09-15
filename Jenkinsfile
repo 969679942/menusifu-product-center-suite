@@ -112,15 +112,6 @@ node {
             stage('Persist chain decision') { withEnv(["AUTO_CHAIN=true", "CHAIN_BUILD_RESULT=${executionSucceeded ? currentBuild.currentResult : 'FAILURE'}"]) { nextChainScope = bat(returnStdout: true, script: '@node suite-src/ci/chain-next.cjs').trim() }; archiveArtifacts artifacts: 'suite-src/output/ci/chain-checkpoint.json', fingerprint: true }
           }
         }
-        if (params.AUTO_CHAIN == true && fileExists('suite-src/ci/chain-next.cjs')) {
-          stage('Persist chain decision') {
-            withEnv(["AUTO_CHAIN=true", "CHAIN_BUILD_RESULT=${executionSucceeded ? currentBuild.currentResult : 'FAILURE'}"]) {
-              nextChainScope = bat(returnStdout: true, script: '@node suite-src/ci/chain-next.cjs').trim()
-            }
-            archiveArtifacts artifacts: 'suite-src/output/ci/chain-checkpoint.json', fingerprint: true
-          }
-        }
-      }
       }
     }
   }

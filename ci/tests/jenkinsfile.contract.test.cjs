@@ -12,6 +12,8 @@ const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8')).fixedBranches;
 
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
+  assert.equal((pipeline.match(/\{/g)||[]).length,(pipeline.match(/\}/g)||[]).length);
+  assert.equal((pipeline.match(/stage\('Persist chain decision'\)/g)||[]).length,1);
   assert.match(pipeline,/ws\("\$\{env\.WORKSPACE\}@\$\{env\.BUILD_NUMBER\}-isolated"\)/);
   assert.match(pipeline,/params\.RUN_SCOPE == 'full-regression' \? 360 : 180/);
   assert.match(pipeline,/if \(!\(params\.INTENT_ID ==~ \/\[0-9a-f-\]\{36\}\//);
