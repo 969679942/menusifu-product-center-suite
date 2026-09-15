@@ -55,6 +55,8 @@ test('configured Jenkins parameters match the local submission CLI contract',()=
 });
 
 test('parallel audit events are worker-sharded and merged before report aggregation',()=>{
+  assert.match(sourceRunner,/const fullRegression = process\.env\.RUN_SCOPE === 'full-regression'/);
+  assert.match(sourceRunner,/requestedCaseIds === null && !fullRegression \? plan\.execution : plan\.revalidation/);
   assert.match(sourceRunner,/SYSTEM_TEST_RUN_ID: runId/);
   assert.match(sourceRunner,/SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker'/);
   assert.match(sourceRunner,/mergeAuditEventLogShards\(auditEventLogPath, \{ runId \}\)/);
