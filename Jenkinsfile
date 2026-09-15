@@ -57,7 +57,7 @@ node {
               if errorlevel 1 exit /b 1
               git sparse-checkout init --no-cone
               if errorlevel 1 exit /b 1
-              (echo /ci/**& echo /Jenkinsfile& echo /suite.json& echo /projects/merchant-center/**& echo !/projects/merchant-center/**/.artifact-history/**) > .git/info/sparse-checkout
+              (echo /ci/**& echo /Jenkinsfile& echo /suite.json) > .git/info/sparse-checkout
               git checkout --detach %GIT_SHA%
               if errorlevel 1 exit /b 1
               for /f "delims=" %%B in ('git rev-parse refs/remotes/origin/master') do set "REMOTE_BRANCH_SHA=%%B"

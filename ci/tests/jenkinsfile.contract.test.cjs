@@ -24,6 +24,8 @@ test('Jenkins checks the fixed branch tip for all three repositories',()=>{
   assert.deepEqual(branchPolicy,{pcs:'master',mc:'main',tap:'main',enforcement:'exact-branch-tip'});
   assert.match(pipeline,/fixedBranches\s*=\s*\[pcs: 'master', mc: 'main', tap: 'main'\]/);
   assert.match(pipeline,/--branch master --single-branch/);
+  assert.match(pipeline,/echo \/ci\/\*\*& echo \/Jenkinsfile& echo \/suite\.json/);
+  assert.doesNotMatch(pipeline,/echo \/projects\/merchant-center\/\*\*/);
   assert.match(pipeline,/refs\/remotes\/origin\/master/);
   assert.match(pipeline,/branch: fixedBranches\.tap/);
   assert.match(pipeline,/branch: fixedBranches\.mc/);
