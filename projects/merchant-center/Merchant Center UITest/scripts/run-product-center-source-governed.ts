@@ -18,8 +18,10 @@ import {
   issueSystemTestExecutionGrant,
   revokeSystemTestExecutionGrant,
 } from '../automation/system-test/system-test-execution-grant';
-import { assertSelectionMatchesPlan } from '../../../../tap/src/automation/system-test/system-test-revalidation-policy';
+import { assertSelectionMatchesPlan } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import { mergeAuditEventLogShards, type AuditEventShardMergeResult } from '../../Test Automation Platform/src/audit/event-log';
 import { createProductCenterAuthBatchSession } from '../utils/product-center-auth-batch-session';
+import { partitionProductCenterItemSpecs } from '../adapters/product-center/product-center-item-addon-price-specs';
 
 type RunnerPlan = {
   runnerId: 'group' | 'group-finding' | 'item' | 'remaining';
@@ -72,7 +74,8 @@ export function runProductCenterSourceGoverned(options: {
   const plan = readJson<ExecutionPlan>(planPath);
   const requestedRunners = new Set(options.runnerIds ?? ['group', 'group-finding', 'item', 'remaining']);
   const requestedCaseIds = options.caseIds === undefined ? null : new Set(options.caseIds);
-  const routingPlan = requestedCaseIds === null ? plan.execution : plan.revalidation;
+  const fullRegression = process.env.RUN_SCOPE === 'full-regression';
+  const routingPlan = requestedCaseIds === null && !fullRegression ? plan.execution : plan.revalidation;
   const plannedCaseIdSet = new Set(routingPlan.selectedCaseIds);
   const unplannedCaseIds = requestedCaseIds === null
     ? []
@@ -91,16 +94,21 @@ export function runProductCenterSourceGoverned(options: {
         .filter((caseId) => requestedCaseIds === null || requestedCaseIds.has(caseId)),
     }));
   if (options.execute) {
+    const plannedSelectionCaseIds = requestedCaseIds
+      ? [...requestedCaseIds]
+      : runners.flatMap((runner) => runner.selectedCaseIds);
     assertSelectionMatchesPlan({
-      plannedCaseIds: requestedCaseIds ? [...requestedCaseIds] : routingPlan.selectedCaseIds,
+      plannedCaseIds: plannedSelectionCaseIds,
       runnerCaseIds: runners.flatMap((runner) => runner.selectedCaseIds),
       phase: 'source-governed-before-browser',
     });
   }
-  process.stdout.write(`${JSON.stringify({ mode: options.execute ? 'execute' : 'plan-only', summary: plan.summary, runners }, null, 2)}\n`);
+  const executionRunners = runners.map(({spec,...runner})=>({...runner,configuredSpec:spec,executionSpecs:runner.runnerId==='item'?partitionProductCenterItemSpecs(runner.selectedCaseIds):[{specPath:spec,caseIds:runner.selectedCaseIds}]}));
+  process.stdout.write(`${JSON.stringify({ mode: options.execute ? 'execute' : 'plan-only', summary: plan.summary, runners:executionRunners }, null, 2)}\n`);
   if (!options.execute) return 0;
 
   const runId = process.env.PC_SOURCE_GOVERNED_RUN_ID ?? timestamp();
+  const auditEventLogPath = path.join(projectRoot, 'output/audit/product-center-events.jsonl');
   const repairLedgerPath = path.join(projectRoot, 'output/system-test-repair/product-center/repair-attempt-ledger.json');
   const plannedCaseIds = runners.flatMap((runner) => runner.selectedCaseIds);
   const diagnosisFingerprint = options.repairDiagnosisPath
@@ -113,7 +121,12 @@ export function runProductCenterSourceGoverned(options: {
       applicationId: 'merchant-center-product-center', caseIds: plannedCaseIds,
     })
     : undefined;
-  const repairRegistration = requestedCaseIds === null
+  // Full regression is an independent, authoritative execution of the
+  // complete current selection.  It must not consume the incremental repair
+  // ledger: previously blocked/deferred repair attempts are facts about an
+  // earlier run and cannot suppress cases from a new full-regression run.
+  // Keep the repair guard for explicitly targeted incremental executions.
+  const repairRegistration = requestedCaseIds === null || fullRegression
     ? { registrations: [] as RepairAttemptRegistration[], blocked: [] as RepairGuardBlock[] }
     : registerRepairAttempts({
       plan,
@@ -140,7 +153,14 @@ export function runProductCenterSourceGoverned(options: {
     const reportManifestPath = path.join(projectRoot, `output/product-center-source-governed-${runId}-reports.json`);
     writeJson(reportManifestPath, {
       schemaVersion: '1.0.0', runId, reportPaths: [], selectedCaseIds: plannedCaseIds,
+      selectionMode: fullRegression ? 'full-regression' : 'execution',
       blockedCaseIds: [...blockedCaseIds].sort(), runnerReports: [],
+    });
+    runTsx('scripts/build-product-center-source-governed-execution-result.ts', {
+      ...process.env,
+      PC_SOURCE_GOVERNED_RUN_ID: runId,
+      PC_SOURCE_GOVERNED_REPORT_MANIFEST: reportManifestPath,
+      PC_SOURCE_GOVERNED_MERGE_PREVIOUS: 'false',
     });
     return 1;
   }
@@ -152,8 +172,19 @@ export function runProductCenterSourceGoverned(options: {
   const stageLedgerPath = path.join(projectRoot, `output/product-center-source-governed-${runId}-stage-ledger.json`);
   const stageLedger: {
     schemaVersion: string; runId: string; selectedCaseIds: string[];
-    stages: Array<{ runnerId: string; selectedCaseIds: string[]; terminalCaseIds: string[]; status: string; startedAt?: string; finishedAt?: string; exitCode?: number }>;
-  } = { schemaVersion: '1.0.0', runId, selectedCaseIds, stages: executableRunners.filter((runner) => runner.selectedCaseIds.length > 0).map((runner) => ({ runnerId: runner.runnerId, selectedCaseIds: runner.selectedCaseIds, terminalCaseIds: [], status: 'pending' })) };
+    stages: Array<{
+      runnerId: string;
+      selectedCaseIds: string[];
+      terminalCaseIds: string[];
+      missingCaseIds: string[];
+      failedCaseIds: string[];
+      status: string;
+      diagnostic?: string;
+      startedAt?: string;
+      finishedAt?: string;
+      exitCode?: number;
+    }>;
+  } = { schemaVersion: '1.0.0', runId, selectedCaseIds, stages: executableRunners.filter((runner) => runner.selectedCaseIds.length > 0).map((runner) => ({ runnerId: runner.runnerId, selectedCaseIds: runner.selectedCaseIds, terminalCaseIds: [], missingCaseIds: runner.selectedCaseIds, failedCaseIds: [], status: 'pending' })) };
   writeJson(stageLedgerPath, stageLedger);
   const executionGrant = issueSystemTestExecutionGrant({
     rootDir: projectRoot,
@@ -162,7 +193,7 @@ export function runProductCenterSourceGoverned(options: {
     caseIds: selectedCaseIds,
     ttlMs: 4 * 60 * 60 * 1000,
     candidateFingerprint: fingerprintSystemTestValue({
-      plan: plan.execution,
+      plan: routingPlan,
       runners,
       selectedCaseIds,
     }),
@@ -177,9 +208,15 @@ export function runProductCenterSourceGoverned(options: {
     PC_BATCH_AUTH_VERIFIED: '1',
     PC_BATCH_AUTH_ONCE: '1',
     PC_AUTH_NO_DEPENDENCIES: '1',
+    SYSTEM_TEST_RUN_ID: runId,
+    SYSTEM_TEST_LOGICAL_RUN_ID: runId,
+    SYSTEM_TEST_AUDIT_EVENT_LOG: auditEventLogPath,
+    SYSTEM_TEST_AUDIT_EVENT_LOG_SHARDING: 'worker',
   };
   let authSetupExitCode = 0;
   let interruptedSignal: NodeJS.Signals | null = null;
+  let auditShardMerge: AuditEventShardMergeResult | undefined;
+  let auditShardMergeError: string | undefined;
   const onInterrupt = (signal: NodeJS.Signals) => { interruptedSignal = signal; };
   process.once('SIGINT', onInterrupt);
   process.once('SIGTERM', onInterrupt);
@@ -192,10 +229,17 @@ export function runProductCenterSourceGoverned(options: {
       const reportManifestPath = path.join(projectRoot, `output/product-center-source-governed-${runId}-reports.json`);
       writeJson(reportManifestPath, {
         schemaVersion: '1.0.0', runId, reportPaths: [], selectedCaseIds: plannedCaseIds,
+        selectionMode: fullRegression ? 'full-regression' : 'execution',
         blockedCaseIds: [...blockedCaseIds].sort(), runnerReports: [],
         authSetupCount: 1, authSetupStatus: 'failed', interruptionReason: 'batch-auth-setup-failed',
       });
-      return authSetupExitCode;
+      const aggregationExitCode = runTsx('scripts/build-product-center-source-governed-execution-result.ts', {
+        ...process.env,
+        PC_SOURCE_GOVERNED_RUN_ID: runId,
+        PC_SOURCE_GOVERNED_REPORT_MANIFEST: reportManifestPath,
+        PC_SOURCE_GOVERNED_MERGE_PREVIOUS: 'false',
+      });
+      return aggregationExitCode !== 0 ? aggregationExitCode : authSetupExitCode;
     }
     for (const runner of executableRunners) {
       if (runner.selectedCaseIds.length === 0) continue;
@@ -218,11 +262,15 @@ export function runProductCenterSourceGoverned(options: {
       }
       process.stdout.write(`[source-governed] runner-finish runner=${runner.runnerId} exit=${exitCode}\n`);
       const report = reportPathFor(runner.runnerId, runId);
-      stage.terminalCaseIds = runner.selectedCaseIds.filter((caseId) => readCaseOutcome([report], caseId).status !== 'interrupted');
+      const reconciliation = reconcileRunnerReport([report], runner.selectedCaseIds, exitCode);
+      stage.terminalCaseIds = reconciliation.terminalCaseIds;
+      stage.missingCaseIds = reconciliation.missingCaseIds;
+      stage.failedCaseIds = reconciliation.failedCaseIds;
+      stage.diagnostic = reconciliation.diagnostic;
       stage.exitCode = exitCode; stage.finishedAt = new Date().toISOString();
-      stage.status = exitCode === 0 ? 'completed' : 'completed-with-findings';
+      stage.status = reconciliation.status;
       writeJson(stageLedgerPath, stageLedger);
-      if (exitCode !== 0) executionExitCode = exitCode;
+      if (exitCode !== 0 || reconciliation.status === 'blocked') executionExitCode = exitCode || 1;
       // A product/test batch failure must not suppress independent runners.
       // Only an explicitly requested abort may stop the full-regression plan.
       if (interruptedSignal && process.env.PC_ABORT_ON_RUNNER_SIGNAL === 'true') break;
@@ -237,6 +285,13 @@ export function runProductCenterSourceGoverned(options: {
     authSession.cleanup();
     revokeSystemTestExecutionGrant(executionGrant);
   }
+  try {
+    auditShardMerge = mergeAuditEventLogShards(auditEventLogPath, { runId });
+  } catch (error) {
+    auditShardMergeError = error instanceof Error ? error.message : String(error);
+    executionExitCode = executionExitCode || 2;
+    process.stderr.write(`[source-governed] audit-shard-merge-failed error=${auditShardMergeError}\n`);
+  }
   if (interruptedSignal) {
     completeRepairRegistrations(repairLedgerPath, repairAttempts, 'interrupted');
     executionExitCode = 130;
@@ -245,6 +300,7 @@ export function runProductCenterSourceGoverned(options: {
   writeJson(reportManifestPath, {
     schemaVersion: '1.0.0',
     runId,
+    selectionMode: fullRegression ? 'full-regression' : 'execution',
     reportPaths,
     selectedCaseIds: plannedCaseIds,
     blockedCaseIds: [...blockedCaseIds].sort(),
@@ -252,9 +308,15 @@ export function runProductCenterSourceGoverned(options: {
       runnerId: runner.runnerId,
       reportPath: reportPathFor(runner.runnerId, runId),
       selectedCaseIds: runner.selectedCaseIds,
+      executionSpecs:runner.runnerId==='item'?partitionProductCenterItemSpecs(runner.selectedCaseIds):[{specPath:runner.spec,caseIds:runner.selectedCaseIds}],
+      terminalCaseIds: stageLedger.stages.find((stage) => stage.runnerId === runner.runnerId)?.terminalCaseIds ?? [],
+      missingCaseIds: stageLedger.stages.find((stage) => stage.runnerId === runner.runnerId)?.missingCaseIds ?? runner.selectedCaseIds,
+      status: stageLedger.stages.find((stage) => stage.runnerId === runner.runnerId)?.status ?? 'blocked',
+      diagnostic: stageLedger.stages.find((stage) => stage.runnerId === runner.runnerId)?.diagnostic ?? '运行阶段未形成终态',
     })),
     authSetupCount: 1,
     authSetupStatus: authSetupExitCode === 0 ? 'passed' : 'failed',
+    auditShardMerge: auditShardMerge ?? { status: 'failed', error: auditShardMergeError },
     ...(interruptedSignal ? { interruptionReason: `signal:${interruptedSignal}` } : {}),
   });
   const aggregationExitCode = runTsx('scripts/build-product-center-source-governed-execution-result.ts', {
@@ -265,6 +327,62 @@ export function runProductCenterSourceGoverned(options: {
   });
   completeRepairAttempts({ repairAttempts, repairLedgerPath, reportPaths });
   return aggregationExitCode !== 0 ? aggregationExitCode : blockedCaseIds.size > 0 ? 1 : executionExitCode;
+}
+
+export function reconcileRunnerReport(
+  reportPaths: readonly string[],
+  selectedCaseIds: readonly string[],
+  exitCode: number,
+): {
+  terminalCaseIds: string[];
+  missingCaseIds: string[];
+  failedCaseIds: string[];
+  status: 'completed' | 'completed-with-findings' | 'blocked';
+  diagnostic: string;
+} {
+  const missingReports = reportPaths.filter((reportPath) => !fs.existsSync(path.resolve(projectRoot, reportPath)));
+  if (missingReports.length > 0) {
+    return {
+      terminalCaseIds: [],
+      missingCaseIds: [...selectedCaseIds],
+      failedCaseIds: [],
+      status: 'blocked',
+      diagnostic: `失败诊断：运行报告缺失；阶段=runner-report；实际=未生成 ${missingReports.join(',')}；预期=每个选中用例形成终态；技术错误=RUNNER_REPORT_MISSING`,
+    };
+  }
+  try {
+    const outcomes = selectedCaseIds.map((caseId) => ({ caseId, ...readCaseOutcome(reportPaths, caseId) }));
+    const terminalCaseIds = outcomes.filter((item) => item.status !== 'interrupted').map((item) => item.caseId);
+    const missingCaseIds = outcomes.filter((item) => item.status === 'interrupted').map((item) => item.caseId);
+    const failedCaseIds = outcomes.filter((item) => item.status === 'failed').map((item) => item.caseId);
+    if (missingCaseIds.length > 0) {
+      return {
+        terminalCaseIds,
+        missingCaseIds,
+        failedCaseIds,
+        status: 'blocked',
+        diagnostic: `失败诊断：选中用例未全部形成终态；阶段=runner-reconciliation；实际=缺少 ${missingCaseIds.join(',')}；预期=${selectedCaseIds.length} 条全部终态；技术错误=RUNNER_TERMINAL_CASE_MISSING`,
+      };
+    }
+    const hasFindings = exitCode !== 0 || failedCaseIds.length > 0;
+    return {
+      terminalCaseIds,
+      missingCaseIds: [],
+      failedCaseIds,
+      status: hasFindings ? 'completed-with-findings' : 'completed',
+      diagnostic: hasFindings
+        ? `失败诊断：运行已完成但存在失败；阶段=runner-execution；实际=${failedCaseIds.length} 条失败，退出码 ${exitCode}；预期=全部通过`
+        : `运行完成：${terminalCaseIds.length}/${selectedCaseIds.length} 条用例均形成终态`,
+    };
+  } catch (error) {
+    return {
+      terminalCaseIds: [],
+      missingCaseIds: [...selectedCaseIds],
+      failedCaseIds: [],
+      status: 'blocked',
+      diagnostic: `失败诊断：运行报告无法解析；阶段=runner-report；实际=${error instanceof Error ? error.message : String(error)}；预期=有效 Playwright JSON 报告；技术错误=RUNNER_REPORT_INVALID`,
+    };
+  }
 }
 
 function runBatchAuthSetup(env: NodeJS.ProcessEnv): number {
@@ -508,10 +626,12 @@ export function readCaseOutcome(reportPaths: readonly string[], caseId: string):
       )?.description;
       if (annotatedCaseId !== caseId && !String(spec.title ?? '').includes(caseId)) return;
       const results = (Array.isArray(test.results) ? test.results : []) as Array<{
+        status?: string;
         error?: { message?: string };
         errors?: Array<{ message?: string }>;
         attachments?: Array<{ name?: string; body?: string; contentType?: string }>;
       }>;
+      if (results.length === 0) return;
       const messages = results.flatMap((result) => [
         result.error?.message,
         ...(result.errors ?? []).map((error) => error.message),
@@ -563,7 +683,7 @@ export function readCaseOutcome(reportPaths: readonly string[], caseId: string):
           return [];
         }
       }).at(-1) ?? null;
-      matches.push({ passed: test.status === 'expected', messages, productDifference });
+      matches.push({ passed: results.at(-1)?.status === 'passed', messages, productDifference });
     });
   }
   const latest = matches.at(-1);
@@ -644,8 +764,14 @@ function runGroupFinding(caseIds: readonly string[], runId: string, env: NodeJS.
 }
 
 function runItem(caseIds: readonly string[], runId: string, env: NodeJS.ProcessEnv): number {
+  const priceIntentRequired = caseIds.some((caseId) => (
+    ['TC-ITEM-ADD-008', 'TC-ITEM-ADD-009', 'TC-ITEM-ADD-010', 'TC-ITEM-ADD-011'].includes(caseId)
+  ));
   return runTsx('scripts/run-product-center-item-213.ts', {
     ...env,
+    ...(priceIntentRequired && !env.PC_PROJECT_EXECUTION_INTENT_PATH
+      ? { PC_PROJECT_EXECUTION_INTENT_PATH: 'deliverables/system-test-platform/addon-price-v5-execution-intent.json' }
+      : {}),
     ...sourceGovernedAllureEnvironment('item', runId),
     PC_ITEM_SELECTED_CASE_IDS: caseIds.join(','),
     PC_ITEM_RUN_ID: `source-governed-${runId}`,

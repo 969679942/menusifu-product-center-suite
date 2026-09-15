@@ -1,0 +1,148 @@
+{
+  "routes": [
+    {
+      "id": "item-list",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "direct-user-confirmation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "route": "/pp/brand/list"
+    },
+    {
+      "id": "category-navigation",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "direct-user-confirmation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/readonly-list-contract-observation.json"
+        }
+      ],
+      "route": "/pp/brand/category"
+    }
+  ],
+  "controls": [
+    {
+      "id": "type-trigger",
+      "status": "observed",
+      "confidence": 1,
+      "sourceType": "authenticated-dom",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/readonly-query-contract-observation.json"
+        }
+      ],
+      "locator": "[class*=\"selectLabel\"] exact Type"
+    },
+    {
+      "id": "type-option",
+      "status": "observed",
+      "confidence": 1,
+      "sourceType": "authenticated-dom",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/readonly-query-contract-observation.json"
+        }
+      ],
+      "locator": "[class*=\"customSelect\"] with exact Type header > [class*=\"optionItem\"] with exact Standard/Combo/Add-On text > checkbox"
+    }
+  ],
+  "fields": [],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "BR-TC-ITEM-STD-030",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "direct-user-confirmation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json"
+        }
+      ],
+      "rule": "切换页面返回后类型筛选条件为空"
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [
+    {
+      "id": "restore-initial-types",
+      "status": "observed",
+      "confidence": 1,
+      "sourceType": "authenticated-dom",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/readonly-query-contract-observation.json"
+        }
+      ],
+      "rule": "记录初始类型勾选，finally逐项恢复并读取核验"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "TC-ITEM-STD-030:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "direct-user-confirmation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json"
+        }
+      ],
+      "expectedValue": [],
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    }
+  ],
+  "traceability": [],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+      "contracts/product-center/reviews/product-center-item-failure-manual-decisions.json",
+      "deliverables/system-test-platform/readonly-query-contract-observation.json"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-030",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入商品列表页。"
+      ],
+      "steps": [
+        "进入已审计路由 /pp/brand/list 并准备受控状态 standard-list-returned-after-route-switch。",
+        "执行页面动作 navigate-away-and-return。",
+        "核对页面结果：返回列表后类型筛选条件为空。"
+      ],
+      "expectedResults": [
+        "返回列表后类型筛选条件为空"
+      ],
+      "sources": [
+        "运行审计接受 ← flows/product-center/item-216/standard-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md"
+      ],
+      "title": "切换页面返回标准商品列表时不保留查询条件",
+      "fingerprint": "c21baa9d5f1e461a6793ae1b76096d5382a8ea238c1edddbd8e9c91b3463ac8a",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "c21baa9d5f1e461a6793ae1b76096d5382a8ea238c1edddbd8e9c91b3463ac8a",
+      "assertionIds": [
+        "TC-ITEM-STD-030:expectation-1"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

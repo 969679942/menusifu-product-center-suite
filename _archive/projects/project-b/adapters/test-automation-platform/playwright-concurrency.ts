@@ -1,7 +1,7 @@
 import {
   resolveSystemTestConcurrency,
   type SystemTestConcurrencyDecision,
-} from '../../../../Test Automation Platform/src/automation/system-test/system-test-concurrency';
+} from '../../../Test Automation Platform/src/automation/system-test/system-test-concurrency';
 
 export function resolveMerchantCenterPlaywrightConcurrency(input: {
   maxWorkers: number;

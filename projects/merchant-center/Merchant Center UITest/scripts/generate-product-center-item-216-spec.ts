@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fingerprintProductCenterItemImplementation } from '../adapters/product-center/product-center-item-implementation';
+import { parseProductCenterItemCaseSemanticFingerprints } from '../utils/product-center-item-case-semantic-fingerprint';
 
 type ConversionCase = {
   caseId: string;
@@ -11,7 +12,12 @@ type ConversionCase = {
   blockingReasons: string[];
 };
 
-type FormalReport = { sourceCases: ConversionCase[] };
+type FormalReport = {
+  sourceCases: ConversionCase[];
+  status?: string;
+  validationIssues?: string[];
+  validations?: Record<string, boolean | number>;
+};
 
 type RuntimeProjection = {
   fingerprint: string;
@@ -119,10 +125,26 @@ for (const rule of businessRuleLifecycle.rules) {
   }
 }
 const assertionIdsByCaseId = readFormalExpectationIds(formalPlanPath);
+const semanticFingerprintByCaseId = new Map(parseProductCenterItemCaseSemanticFingerprints(formalPlanPath)
+  .map((item) => [item.caseId, item.fingerprint]));
 
 const report = JSON.parse(fs.readFileSync(reportPath, 'utf8')) as FormalReport;
-if (report.sourceCases.length !== 216) {
-  throw new Error(`商品管理-商品脚本分母不是 216：${report.sourceCases.length}`);
+if (report.status !== 'completed-with-blocked-cases'
+  || (report.validationIssues?.length ?? 0) > 0
+  || !report.validations
+  || ['sourceIdUnique', 'sourceIdsPresentInPlan', 'planIdsMatchReviewedBaseline',
+    'sourceIdsPresentInAutomationBatch', 'fullReviewCoversExpandedPlan',
+    'automationBatchCoversExpandedPlan', 'reviewPlanFingerprintMatches', 'fullReviewApproved']
+    .some((key) => report.validations?.[key] !== true)
+  || report.validations.sensitiveFindings !== 0
+  || Object.entries(report.validations).some(([key, value]) => key === 'sensitiveFindings' ? value !== 0 : value !== true)) {
+  throw new Error('FORMAL_CONVERSION_NOT_VALIDATED：正式转换未通过完整校验，禁止生成业务脚本');
+}
+const formalCaseIds = new Set(assertionIdsByCaseId.keys());
+const reportCaseIds = new Set(report.sourceCases.map((item) => item.caseId));
+if (reportCaseIds.size !== formalCaseIds.size
+  || [...formalCaseIds].some((caseId) => !reportCaseIds.has(caseId))) {
+  throw new Error(`商品管理-商品脚本分母与正式来源 caseId 不一致：来源=${formalCaseIds.size}，报告=${reportCaseIds.size}`);
 }
 
 const standardActions = readStandardActions(standardSpecPath);
@@ -159,9 +181,9 @@ if (new Set(formalCaseInventory.map((item) => item.caseId)).size !== report.sour
   throw new Error('商品管理-商品正式用例存在重复 caseId');
 }
 const executableCases = report.sourceCases.filter((item) => !notApplicable.has(item.caseId));
-// Additional bindings are supplemental to the 216-case canonical XMind release.
+// Additional bindings are supplemental to the current formal release.
 // They are executable through the same generated runner but must not silently
-// change the canonical 216-case denominator.
+// change the formal source denominator.
 const supplementalCases: ConversionCase[] = additionalAutomationBindings
   .filter((binding) => binding.module === 'brand-item'
     && binding.runnerId === 'item'
@@ -202,6 +224,7 @@ const caseData = JSON.stringify(generationCases.map((item) => ({
   runtimeStatus: runtimeStatusByCaseId.get(item.caseId) ?? 'not-run',
   handlerId: requiredExecutionTask(item.caseId).handlerId,
   bindingFingerprint: requiredExecutionTask(item.caseId).bindingFingerprint,
+  semanticCaseFingerprint: requiredSemanticFingerprint(item.caseId),
   implementationFingerprint: requiredImplementationFingerprint(item.caseId),
   assertionIds: requiredAssertionIds(item.caseId),
   businessRule: businessRuleReceiptMetadataByCaseId.get(item.caseId),
@@ -251,6 +274,7 @@ type GeneratedCase = {
   runtimeStatus: 'runtime-passed' | 'deferred' | 'unresolved' | 'not-run';
   handlerId: string;
   bindingFingerprint: string;
+  semanticCaseFingerprint: string;
   implementationFingerprint: string;
   assertionIds: string[];
   businessRule?: BusinessRuleReceiptMetadata;
@@ -258,8 +282,8 @@ type GeneratedCase = {
 
 export const item216FormalCaseInventory = ${formalCaseInventoryData} as const;
 const allCases = ${caseData} as readonly GeneratedCase[];
-const supplementalCaseIds = new Set(${JSON.stringify(supplementalCases.map((item) => item.caseId))});
-const conversionNotApplicableCaseIds = new Set<string>(item216FormalCaseInventory
+const supplementalCaseIds: Set<string> = new Set<string>(${JSON.stringify(supplementalCases.map((item) => item.caseId))});
+const conversionNotApplicableCaseIds: Set<string> = new Set<string>(item216FormalCaseInventory
   .filter((item) => item.conversionScope === 'not-applicable')
   .map((item) => item.caseId));
 const sourceBlockedCaseIds = new Set(sourceDecisionsDocument.cases
@@ -278,7 +302,7 @@ const selectedCaseIds = new Set((process.env.PC_ITEM_SELECTED_CASE_IDS ?? '')
 const unknownCaseIds = [...selectedCaseIds]
   .filter((caseId) => !item216FormalCaseInventory.some((item) => item.caseId === caseId)
     && !supplementalCaseIds.has(caseId));
-if (unknownCaseIds.length > 0) throw new Error('商品 216 正式范围包含未知用例：' + unknownCaseIds.join(','));
+if (unknownCaseIds.length > 0) throw new Error('商品正式范围包含未知用例：' + unknownCaseIds.join(','));
 const selectedConversionNotApplicableCaseIds = [...selectedCaseIds]
   .filter((caseId) => conversionNotApplicableCaseIds.has(caseId));
 if (selectedConversionNotApplicableCaseIds.length > 0) {
@@ -493,20 +517,17 @@ async function attachStandardExecutionReceipt(input: {
   const uiVerificationObserved = !Object.values(input.uiResidue)
     .some((count) => count === 'ui-verification-unavailable:403');
   const assertionReceipts = findRuntimeAssertionReceipts(input.evidence);
-  const observedAssertionIds = assertionReceipts.length > 0
-    ? input.item.assertionIds.filter((claimId) => assertionReceipts.some((receipt) => receipt.claimId === claimId))
-    : input.item.assertionIds;
-  const verifiedAssertionIds = assertionReceipts.length > 0
-    ? input.item.assertionIds.filter((claimId) => assertionReceipts.some((receipt) => receipt.claimId === claimId && receipt.status === 'verified'))
-    : input.item.assertionIds;
+  const observedAssertionIds = input.item.assertionIds.filter((claimId) => assertionReceipts.some((receipt) => receipt.claimId === claimId));
+  const verifiedAssertionIds = input.item.assertionIds.filter((claimId) => assertionReceipts.some((receipt) => receipt.claimId === claimId && receipt.status === 'verified'));
   const currentImplementationFingerprint = fingerprintProductCenterItemImplementation(process.cwd(), input.item.caseId);
   if (currentImplementationFingerprint !== input.item.implementationFingerprint) {
     throw new Error(input.item.caseId + ':EMBEDDED_IMPLEMENTATION_FINGERPRINT_STALE');
   }
   const receipt = {
-    receiptVersion: '3.1.0' as const,
+    receiptVersion: '4.0.0' as const,
     caseId: input.item.caseId,
     caseFingerprint: input.item.bindingFingerprint,
+    semanticCaseFingerprint: input.item.semanticCaseFingerprint,
     implementationFingerprint: currentImplementationFingerprint,
     executionContext: {
       applicationVersionFingerprint: applicationVersion.fingerprint ?? undefined,
@@ -531,7 +552,8 @@ async function attachStandardExecutionReceipt(input: {
     },
     assertionReceipts,
     operationReceipts,
-    cleanup: { apiZeroResidue, uiZeroResidue, uiVerificationObserved },
+    cleanup: { apiZeroResidue, uiZeroResidue, uiVerificationObserved,
+      apiIdentityCounts: input.cleanup.apiIdentityCounts, uiIdentityCounts: input.uiResidue },
     handlerId: input.item.handlerId,
     ...(input.item.businessRule ? {
       businessRuleId: input.item.businessRule.businessRuleId,
@@ -764,7 +786,7 @@ fs.renameSync(`${outputPath}.tmp`, outputPath);
 const manifest = {
   schemaVersion: '1.0.0',
   generatedAt: new Date().toISOString(),
-  denominator: { formal: 216, notApplicable: notApplicable.size, executable: executableCases.length },
+  denominator: { formal: formalCaseInventory.length, notApplicable: notApplicable.size, executable: executableCases.length },
   summary: {
     standard: executableCases.filter((item) => item.caseId.startsWith('TC-ITEM-STD-')).length,
     package: executableCases.filter((item) => item.caseId.startsWith('TC-ITEM-PKG-')).length,
@@ -812,7 +834,7 @@ const unresolved = executableCases.filter((item) => !isStandardFlowBound(item));
 fs.writeFileSync(summaryPath, [
   '# 商品管理-商品自动化转换',
   '',
-  `- 正式分母：216 条`,
+  `- 正式分母：${formalCaseInventory.length} 条`,
   `- N/A：${notApplicable.size} 条（${[...notApplicable].sort().join('、')}）`,
   `- 需要自动化：${executableCases.length} 条`,
   `- 已绑定现有 Flow：${manifest.summary.flowBound} 条`,
@@ -861,6 +883,12 @@ function requiredExecutionTask(caseId: string): { handlerId: string; bindingFing
 
 function requiredImplementationFingerprint(caseId: string): string {
   return fingerprintProductCenterItemImplementation(projectRoot, caseId);
+}
+
+function requiredSemanticFingerprint(caseId: string): string {
+  const fingerprint = semanticFingerprintByCaseId.get(caseId);
+  if (!fingerprint) throw new Error(`PRODUCT_CENTER_ITEM_SEMANTIC_FINGERPRINT_MISSING:${caseId}`);
+  return fingerprint;
 }
 
 function requiredAssertionIds(caseId: string): string[] {

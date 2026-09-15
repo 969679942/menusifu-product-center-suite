@@ -14,7 +14,7 @@ process.env.SYSTEM_TEST_ADDITIONAL_REPORTERS = [...new Set([...configuredReporte
 (async () => {
   const argument = (name: string): string | undefined => process.argv.find((item) => item.startsWith(`--${name}=`))?.slice(name.length + 3);
   if (mode === 'run') {
-    const { runSystemTest, resolveSystemTestCaseIds } = await import('../../../Test Automation Platform/scripts/run-system-test');
+    const { runSystemTest, resolveSystemTestCaseIds } = await import('../../Test Automation Platform/scripts/run-system-test');
     const manifestPath = argument('manifest');
     if (!manifestPath) throw new Error('缺少 --manifest=<path>');
     const optimizationPlanPath = argument('optimization-plan');
@@ -29,7 +29,7 @@ process.env.SYSTEM_TEST_ADDITIONAL_REPORTERS = [...new Set([...configuredReporte
     process.exitCode = exitCode;
     return;
   }
-  const { runSystemTestFlow } = await import('../../../Test Automation Platform/scripts/run-system-test-flow');
+  const { runSystemTestFlow } = await import('../../Test Automation Platform/scripts/run-system-test-flow');
   const planPath = argument('plan');
   const manifestPath = argument('manifest');
   if (!planPath || !manifestPath) throw new Error('用法：--plan=<path> --manifest=<path> [--execute]');

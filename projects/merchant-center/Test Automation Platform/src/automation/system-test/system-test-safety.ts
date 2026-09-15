@@ -10,6 +10,10 @@ const sensitivePatterns = [
 
 export type SystemTestArtifactFinding = { file: string };
 
+export function containsSystemTestSensitiveContent(content: string): boolean {
+  return sensitivePatterns.some((pattern) => pattern.test(content));
+}
+
 export function scanSystemTestArtifacts(rootDir: string): SystemTestArtifactFinding[] {
   const absoluteRoot = path.resolve(rootDir);
   if (!fs.existsSync(absoluteRoot)) return [];
@@ -17,7 +21,7 @@ export function scanSystemTestArtifacts(rootDir: string): SystemTestArtifactFind
   for (const filePath of walkFiles(absoluteRoot)) {
     if (!textExtensions.has(path.extname(filePath).toLowerCase())) continue;
     const content = fs.readFileSync(filePath, 'utf8');
-    if (sensitivePatterns.some((pattern) => pattern.test(content))) {
+    if (containsSystemTestSensitiveContent(content)) {
       findings.push({ file: path.relative(process.cwd(), filePath) });
     }
   }

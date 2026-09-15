@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { importSystemTestEvidenceLedgerReceipts } from '../../../Test Automation Platform/src/utils/system-test-evidence-ledger-receipt';
+import { importSystemTestEvidenceLedgerReceipts } from '../../Test Automation Platform/src/utils/system-test-evidence-ledger-receipt';
 
 const projectRoot = path.resolve(__dirname, '..');
 const workspaceRoot = path.resolve(projectRoot, '..');

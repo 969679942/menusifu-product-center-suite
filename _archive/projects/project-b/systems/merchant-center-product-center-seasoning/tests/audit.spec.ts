@@ -8,7 +8,7 @@ import {
   fingerprintRuntimeAuditablePlan,
   type RuntimeAuditCorrectionDocument,
   type RuntimeAuditObservation,
-} from '../../../../../Test Automation Platform/src/utils/test-plan-runtime-audit-correction';
+} from '../../../../Test Automation Platform/src/utils/test-plan-runtime-audit-correction';
 
 type Plan = {
   systemId: string;

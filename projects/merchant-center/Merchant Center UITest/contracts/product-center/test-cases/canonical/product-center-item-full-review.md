@@ -1,9 +1,9 @@
 # 商品中心商品测试用例逐条全审报告
 
 - 审核方式：证据约束的逐条静态专家审核
-- 总数：232
-- 已逐条审核：232
-- 审核通过：225
+- 总数：236
+- 已逐条审核：236
+- 审核通过：229
 - 需要修订：0
 - 来源/规则待确认：0
 - 已废弃：7
@@ -18,17 +18,7 @@
 
 ## revision-required（0）
 
-## approved（225）
-
-### TC-ITEM-STD-037 不选择商品分类时标准商品创建成功
-
-- 优先级：P0
-- 来源：业务规则明确 ← BR-ITEM-022
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+## approved（229）
 
 ### TC-ITEM-STD-036 标准商品仅填写必填项时创建成功
 
@@ -140,30 +130,30 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-011 同一一级分类下新建同名商品创建失败
+### TC-ITEM-STD-011 同一商户同一商品类型内新建同名商品创建失败
 
 - 优先级：P0
-- 来源：XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个一级分类下，新建相同商品名称的商品，创建失败
+- 来源：产品确认明确 ← BR-ITEM-010；XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个一级分类下，新建相同商品名称的商品，创建失败
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-013 同一二级分类下新建同名商品创建失败
+### TC-ITEM-STD-013 同一商品类型同一二级分类下新建同名商品创建失败
 
 - 优先级：P0
-- 来源：XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个二级分类下，新建相同商品名称的商品，创建失败
+- 来源：产品确认明确 ← BR-ITEM-010；XMind已有 ← 标准商品 / 新增 / 唯一性校验 / 同一个二级分类下，新建相同商品名称的商品，创建失败
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-014 同一商户下不同一级分类仍不可创建同名商品
+### TC-ITEM-STD-014 同一商户同一商品类型下不同一级分类仍不可创建同名商品
 
 - 优先级：P0
-- 来源：BR-ITEM-010
+- 来源：产品确认明确 ← BR-ITEM-010
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
@@ -180,16 +170,6 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-ADD-014 加料商品同一一级分类下同名创建失败
-
-- 优先级：P0
-- 来源：BR-ITEM-010、BR-CAT-005
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
 ### TC-ITEM-ADD-047 加料商品名称首尾含空格时保存失败
 
 - 优先级：P0
@@ -200,30 +180,10 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-044 品牌内商品名称重复时创建失败
+### TC-ITEM-PKG-024 同一商户同一商品类型内套餐商品同名创建失败
 
 - 优先级：P0
-- 来源：BR-ITEM-010、BR-CAT-005
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
-### TC-ITEM-PKG-024 套餐商品同一一级分类下同名创建失败
-
-- 优先级：P0
-- 来源：BR-ITEM-010、BR-CAT-005
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
-### TC-ITEM-PKG-025 套餐商品同商户同类型同名创建失败
-
-- 优先级：P0
-- 来源：BR-ITEM-010、BR-CAT-005
+- 来源：产品确认明确 ← BR-ITEM-010
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
@@ -234,6 +194,46 @@
 
 - 优先级：P0
 - 来源：BR-FMT-001、BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-STD-044 同一商户同一商品类型内商品名称重复时创建或编辑失败
+
+- 优先级：P0
+- 来源：产品确认明确 ← BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-ADD-014 同一商户同一商品类型内加料商品同名创建或编辑失败
+
+- 优先级：P0
+- 来源：产品确认明确 ← BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-PKG-025 套餐商品同商户同类型同名创建或编辑失败
+
+- 优先级：P0
+- 来源：产品确认明确 ← BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-PKG-079 标准商品与套餐商品跨类型同名创建或编辑失败
+
+- 优先级：P0
+- 来源：产品确认明确 ← BR-ITEM-010
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
@@ -882,15 +882,44 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-094 POS名称首尾含空格时保存失败
+### TC-ITEM-STD-037 不选择商品分类时标准商品创建成功
 
-- 优先级：P1
-- 来源：BR-FMT-001
+- 优先级：P0
+- 来源：BR-ITEM-CATEGORY-OPTIONAL；XMind已有
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
-- 自动化前置：需要跨系统页面/API 证据和独立运行合同
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-PKG-078 套餐商品与加料商品允许同名并同时保留
+
+- 优先级：P1
+- 来源：BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-STD-012 同一商品类型不同二级分类的标准商品同名提示 BITEM-7014
+
+- 优先级：P1
+- 来源：业务规则明确 ← BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-ADD-015 加料商品允许与其他商品类型同名
+
+- 优先级：P1
+- 来源：业务规则明确 ← BR-ITEM-010
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
 ### TC-ITEM-STD-015 单规格商品标准价为0时创建成功
@@ -1219,16 +1248,6 @@
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
 
-### TC-ITEM-PKG-049 套餐商品同时引用已有固定搭配与可选搭配组
-
-- 优先级：P1
-- 来源：PRD明确 ← 新增套餐
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
 ### TC-ITEM-PKG-057 套餐商品通过选择入口引用已有可选搭配组
 
 - 优先级：P1
@@ -1304,14 +1323,15 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-PKG-059 套餐商品编辑页可选搭配组仅支持组级操作
+### TC-ITEM-PKG-059 套餐商品编辑页可选搭配组仅支持组级操作并验证持久化
 
 - 优先级：P1
-- 来源：运行审计接受 ← flows/product-center/item-216/package-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md
+- 来源：产品确认明确 ← BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY；页面截图证据 ← contracts/product-center/evidence/business-rules/BR-ITEM-COMBO-OPTIONAL-EDIT-BOUNDARY.png
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
+- 自动化前置：需要跨系统页面/API 证据和独立运行合同
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
 ### TC-ITEM-PKG-069 套餐商品内不提供口味组加价和默认选中编辑
@@ -1707,6 +1727,26 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
+### TC-ITEM-STD-102 商品名称恰好100字符且包含单个中间空格时允许保存
+
+- 优先级：P1
+- 来源：业务规则明确 ← BR-FMT-001（2026-09-05 人工确认）
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-STD-103 商品名称包含 emoji 时保存失败
+
+- 优先级：P1
+- 来源：业务规则明确 ← BR-FMT-001（2026-09-05 人工确认）
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
 ### TC-ITEM-ADD-007 加料商品不选择分类时创建成功
 
 - 优先级：P1
@@ -1790,21 +1830,12 @@
 ### TC-ITEM-STD-007 一级分类存在二级分类时必须选择二级分类才能完成商品分类选择
 
 - 优先级：P1
-- 来源：XMind已有 ← 标准商品 / 新增 / 分类相关校验 / 一级分类下有二级分类，必须选择到二级分类，才能新增成功
+- 来源：产品确认明确 ← BR-ITEM-CATEGORY-LEAF-SELECTION；XMind已有 ← 标准商品 / 新增 / 分类相关校验 / 一级分类下有二级分类，必须选择到二级分类，才能新增成功
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
-### TC-ITEM-STD-045 商品描述达到 250 字符后不可继续输入
-
-- 优先级：P1
-- 来源：BR-FMT-003
-- 审核结论：approved
-- 自动化处置：eligible-for-technical-binding-review
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
 
 ### TC-ITEM-STD-054 详情图超过 10 张时不可继续添加
 
@@ -1834,6 +1865,16 @@
 - 自动化处置：eligible-for-technical-binding-review
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
+
+### TC-ITEM-STD-094 商品名称超过100字符时失焦拦截
+
+- 优先级：P1
+- 来源：BR-FMT-001
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
 ### TC-ITEM-ADD-002 加料商品其他设置与标准商品一致
 
@@ -1930,26 +1971,6 @@
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
 
-### TC-ITEM-STD-012 同一一级分类不同二级分类的标准商品同名提示 BITEM-7010
-
-- 优先级：P1
-- 来源：金将军人工处理确认 ← output\product-center-item-213-failures\failure-pack.md#tc-item-std-012
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
-### TC-ITEM-ADD-015 加料商品允许与其他商品类型同名
-
-- 优先级：P1
-- 来源：金将军人工处理确认 ← output\product-center-item-213-failures\failure-pack.md#tc-item-add-015
-- 审核结论：approved
-- 自动化处置：technical-contract-required
-- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
-- 问题：无
-- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
-
 ### TC-ITEM-STD-023 标准商品非法起售数量保存时归一化为 1
 
 - 优先级：P1
@@ -2024,6 +2045,16 @@
 
 - 优先级：P1
 - 来源：金将军人工处理确认 ← output\product-center-item-213-failures\failure-pack.md#tc-item-pkg-028
+- 审核结论：approved
+- 自动化处置：technical-contract-required
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
+- 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-PKG-049 套餐商品同时引用已有固定搭配与可选搭配组
+
+- 优先级：P1
+- 来源：运行审计接受 ← flows/product-center/item-216/package-item-216.flow.ts；output/product-center-item-213-failures/failure-pack.md
 - 审核结论：approved
 - 自动化处置：technical-contract-required
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
@@ -2176,6 +2207,15 @@
 - 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
 - 问题：无
 - 自动化前置：需要唯一测试数据、服务端 ID、清理适配器和零残留验证
+
+### TC-ITEM-STD-045 商品描述达到 250 字符后不可继续输入
+
+- 优先级：P1
+- 来源：金将军人工处理确认 ← output\product-center-item-213-failures\failure-pack.md#tc-item-std-045
+- 审核结论：approved
+- 自动化处置：eligible-for-technical-binding-review
+- 维度：来源=pass；目标=pass；步骤=pass；预期=pass；重复=pass；当前规则=pass
+- 问题：无
 
 ### TC-ITEM-STD-078 标准商品主图上传后不提供第二次本地上传入口
 

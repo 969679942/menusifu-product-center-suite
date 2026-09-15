@@ -1,5 +1,4 @@
-import { expect } from '@playwright/test';
-import type { Page, Response } from '@playwright/test';
+import { expect, type Page, type Response } from '@playwright/test';
 import path from 'node:path';
 import { ItemEditStandardPage } from '../../../pages/product-management/item/item-edit.page';
 import { ItemCreateStandardPage } from '../../../pages/product-management/item/item-create-standard.page';
@@ -12,13 +11,26 @@ import {
   type StandardItem216AttributeFixture,
   type StandardItem216CategoryFixture,
   type StandardItem216Context,
+  type ProductCenterItemCreateRecord,
 } from '../../../test-data/product-center/item-216/standard-item-216.factory';
 import type { CleanupRegistry } from '../../../api/product-center/cleanup-registry';
 import type { ProductCenterApi } from '../../../api/product-center/product-center-api';
 import { extractCreatedRecord } from '../../../api/product-center/created-record';
-import type { ProductCenterItemCreateRecord } from '../../../test-data/product-center/product-center-item-create-data.factory';
+import { createStandardNameFormatPage } from '../../../pages/product-management/item/standard-name-format.page';
 import { step } from '../../../utils/step';
 import { waitUntil } from '../../../utils/wait';
+import {
+  collectExactStringPaths,
+  containsExactString,
+  findExactNamedRecord,
+  findExactNamedStatus,
+  findNamedRecord,
+  isBusinessFailure,
+  readImageReferences,
+  readNamedOptionState,
+  readNamedOptionStates,
+  readPriceSnapshot,
+} from '../../../utils/product-center-standard-216-helpers';
 import { itemListFilterOptionsDom } from '../../../test-data/item-list';
 import { BrandPicturePage } from '../../../pages/brand-picture.page';
 import { createSpecificationsPage } from '../../../pages/product-management/group-list.factory';
@@ -1157,7 +1169,11 @@ export class StandardItem216Flow {
   }
 
   @step('验证标准商品名称保存后的格式化终态：{caseId}')
-  async verifyNameNormalization(caseId: string): Promise<Record<string, unknown>> {
+  async verifyNameNormalization(caseId: string, feedback?: {allowedMessages: string[]; matches: (value: string) => boolean}): Promise<Record<string, unknown>> {
+    if (caseId === 'TC-ITEM-STD-102' || caseId === 'TC-ITEM-STD-103') {
+      if (!feedback) throw Error('NAME_FORMAT_FEEDBACK_CONTRACT_REQUIRED');
+      return this.verifyFormalNameFormat(caseId, feedback);
+    }
     const context = await this.factory.prepare(caseId);
     const rawName = `AUTO_AUDIT_${caseId.replace(/[^A-Za-z0-9_-]/g, '_')}_${'N'.repeat(120)}`;
     const expectedName = rawName.slice(0, 100);
@@ -1182,6 +1198,96 @@ export class StandardItem216Flow {
     const actual = await edit.readItemName();
     expect(actual).toBe(expectedName);
     return { rawName, expectedName, actual, boundary, serverId: record.id };
+  }
+
+  @step('验证正式商品名称格式规则及保存终态：{caseId}')
+  private async verifyFormalNameFormat(caseId: string, feedbackContract: {allowedMessages: string[]; matches: (value: string) => boolean},
+    probe = createStandardNameFormatPage(this.page)): Promise<Record<string, unknown>> {
+    const positive = caseId === 'TC-ITEM-STD-102', context = await this.factory.prepare(caseId);
+    const identities = context.cleanupIdentityVariants ?? [context.originalIdentity];
+    for (const identity of identities) expect(await this.factory.itemRecordCount(identity), '本次名称及规范化变体必须预先不存在').toBe(0);
+    const form = await this.createFlow.openStandardCreateFromList(this.page);
+    await form.fillItemName(context.originalIdentity);
+    await form.ensureAdvancedSettingsExpanded();
+    await form.fillMinimumOrderQuantity('1');
+    await form.fillStandardPrice('10.00');
+    const initialFeedback = await probe.readNameFeedback();
+    expect(initialFeedback.value, '输入必须保留本次名称的全部字符').toBe(context.originalIdentity);
+    const writes = new Map<import('@playwright/test').Request, {response?: Response; failed?: boolean}>();
+    const requestListener = (request: import('@playwright/test').Request) => {
+      const route = new URL(request.url()).pathname;
+      if (request.method() === 'POST' && route.includes('/ops-brand/brand-items/') && !route.endsWith('/pageQuery')) writes.set(request, {});
+    };
+    const responseListener = (response: Response) => { const write = writes.get(response.request()); if (write) write.response = response; };
+    const failedListener = (request: import('@playwright/test').Request) => { const write = writes.get(request); if (write) write.failed = true; };
+    this.page.on('request', requestListener); this.page.on('response', responseListener); this.page.on('requestfailed', failedListener);
+    let record: ProductCenterItemCreateRecord | undefined;
+    const success = positive ? probe.readSaveSuccessText().catch(() => '') : Promise.resolve('');
+    const assertions: Array<Record<string, unknown>> = [];
+    const verify = (number: number, actualValue: unknown, expectedValue: unknown) => {
+      expect(actualValue, `${caseId}:expectation-${number}`).toEqual(expectedValue);
+      assertions.push({claimId:`${caseId}:expectation-${number}`,status:'verified',expectedValue,actualValue,
+        actualStatus:'observed',observationChannel:'ui',authority:'user-visible',comparison:'matched'});
+    };
+    try {
+      await form.clickSave();
+      let terminalError: unknown;
+      let field = initialFeedback;
+      await waitUntil(async () => {
+        if (new URL(this.page.url()).pathname === '/pp/brand/create/standard') field = await probe.readNameFeedback();
+        return {writes: writes.size, invalid: field.invalid || field.errors.length > 0};
+      }, state => state.writes > 0 || state.invalid, {timeout:8_000,interval:100,message:'保存后未观察到名称校验或写请求'}).catch(error => { terminalError = error; });
+      await waitUntil(() => [...writes.values()].every(write => write.response || write.failed), Boolean,
+        {timeout:8_000,interval:100,message:'名称保存写请求未结束，不能推断保存被拦截'}).catch(error => { terminalError = error; });
+      let accepted = 0, unreadable = 0;
+      for (const write of writes.values()) {
+        if (!write.response) continue;
+        const body = await write.response.json().catch(() => null);
+        if (!body) unreadable++;
+        if (write.response.ok() && !isBusinessFailure(body)) {
+          accepted++;
+          record = await this.factory.registerCreated(context, body, this.cleanupRegistry);
+          identities.forEach(identity => this.trackedItemIdentities.add(identity));
+        }
+      }
+      const network = {attempted:writes.size,accepted,pending:[...writes.values()].filter(write=>!write.response&&!write.failed).length,
+        failed:[...writes.values()].filter(write=>write.failed).length,unreadable};
+      // Reconcile a lost response before throwing; never replay Save.
+      if (!record && (terminalError || network.failed || unreadable)) {
+        for (const identity of identities) if (await this.factory.itemRecordCount(identity) > 0) {
+          record = await this.factory.registerCreated({...context,originalIdentity:identity}, null, this.cleanupRegistry);
+          identities.forEach(value => this.trackedItemIdentities.add(value));
+          break;
+        }
+      }
+      if (terminalError) throw terminalError;
+      if (network.failed || network.pending || unreadable) throw Error(`NAME_FORMAT_WRITE_EVIDENCE_INCOMPLETE:${JSON.stringify(network)}`);
+      if (positive) {
+        verify(1, {invalid:initialFeedback.invalid,errors:initialFeedback.errors}, {invalid:false,errors:[]});
+        const successText = await success;
+        expect(feedbackContract.matches(successText), '保存成功提示必须匹配已登记的反馈合同').toBe(true);
+        expect(record, '必须登记本次创建的服务端对象').toBeDefined();
+        verify(2, {successTextMatched:true,accepted}, {successTextMatched:true,accepted:1});
+        assertions[1].expectedValue = feedbackContract.allowedMessages; assertions[1].actualValue = successText;
+        const list = createItemListPage(this.page);
+        await list.expectLoaded(); await list.fillSearchAndWait(context.originalIdentity); await list.expectUniqueItemVisible(context.originalIdentity);
+        verify(3, await probe.readExactName(context.originalIdentity), {count:1,actualName:context.originalIdentity});
+      } else {
+        verify(1, {invalid:field.invalid || field.errors.length>0,route:new URL(this.page.url()).pathname,successCount:await form.readSuccessMessageCount(),accepted},
+          {invalid:true,route:'/pp/brand/create/standard',successCount:0,accepted:0});
+        const list = createItemListPage(this.page);
+        await list.open();
+        const counts = [];
+        for (const identity of identities) {
+          await list.fillSearchAndWait(identity); await list.expectEmptySearchResults();
+          counts.push({identity,ui:await list.readVisibleIdentityCount(identity),api:await this.factory.itemRecordCount(identity)});
+        }
+        verify(2, counts, identities.map(identity=>({identity,ui:0,api:0})));
+      }
+      return {route:positive?'/pp/brand/list':'/pp/brand/create/standard',identity:context.originalIdentity,identities,serverId:record?.id,network,field,assertionReceipts:assertions};
+    } finally {
+      this.page.off('request',requestListener); this.page.off('response',responseListener); this.page.off('requestfailed',failedListener);
+    }
   }
 
   @step('验证标准商品 POS 与送厨名称格式化终态：{caseId}')
@@ -2589,59 +2695,6 @@ export class StandardItem216Flow {
   }
 }
 
-function findExactNamedRecord(value: unknown, identity: string): { id: number; name: string } | undefined {
-  if (Array.isArray(value)) {
-    for (const child of value) {
-      const found = findExactNamedRecord(child, identity);
-      if (found) return found;
-    }
-    return undefined;
-  }
-  if (!value || typeof value !== 'object') return undefined;
-  const record = value as Record<string, unknown>;
-  if (typeof record.name === 'string' && record.name === identity && Number.isFinite(Number(record.id))) {
-    return { id: Number(record.id), name: record.name };
-  }
-  for (const child of Object.values(record)) {
-    const found = findExactNamedRecord(child, identity);
-    if (found) return found;
-  }
-  return undefined;
-}
-
-function findExactNamedStatus(value: unknown, identity: string): number | undefined {
-  if (Array.isArray(value)) {
-    for (const child of value) {
-      const found = findExactNamedStatus(child, identity);
-      if (found !== undefined) return found;
-    }
-    return undefined;
-  }
-  if (!value || typeof value !== 'object') return undefined;
-  const record = value as Record<string, unknown>;
-  if (record.name === identity) {
-    const basicInfo = record.basicInfo && typeof record.basicInfo === 'object'
-      ? record.basicInfo as Record<string, unknown>
-      : undefined;
-    const status = Number(record.status ?? record.itemStatus ?? basicInfo?.status);
-    if (Number.isFinite(status)) return status;
-  }
-  for (const child of Object.values(record)) {
-    const found = findExactNamedStatus(child, identity);
-    if (found !== undefined) return found;
-  }
-  return undefined;
-}
-
-function isBusinessFailure(value: unknown): boolean {
-  if (!value || typeof value !== 'object') return false;
-  const record = value as Record<string, unknown>;
-  const code = record.code;
-  return record.success === false
-    || typeof code === 'string' && code !== '' && code !== '0' && code.toLowerCase() !== 'success'
-    || typeof code === 'number' && code !== 0;
-}
-
 export const standardItem216ImplementedCaseIds = new Set([
   'TC-ITEM-STD-001', 'TC-ITEM-STD-002', 'TC-ITEM-STD-003', 'TC-ITEM-STD-004', 'TC-ITEM-STD-005',
   'TC-ITEM-STD-007', 'TC-ITEM-STD-015', 'TC-ITEM-STD-016', 'TC-ITEM-STD-017', 'TC-ITEM-STD-018',
@@ -2654,112 +2707,3 @@ export const standardItem216ImplementedCaseIds = new Set([
   'TC-ITEM-STD-074', 'TC-ITEM-STD-075', 'TC-ITEM-STD-076', 'TC-ITEM-STD-084', 'TC-ITEM-STD-085',
   'TC-ITEM-STD-092', 'TC-ITEM-STD-093', 'TC-ITEM-STD-094', 'TC-ITEM-STD-095',
 ]);
-
-function containsExactString(value: unknown, expected: string): boolean {
-  if (typeof value === 'string') return value === expected;
-  if (Array.isArray(value)) return value.some((item) => containsExactString(item, expected));
-  if (!value || typeof value !== 'object') return false;
-  return Object.values(value as Record<string, unknown>).some((item) => containsExactString(item, expected));
-}
-
-function collectExactStringPaths(value: unknown, expected: string, path = '$', output: string[] = []): string[] {
-  if (value === expected) output.push(path);
-  if (Array.isArray(value)) {
-    value.forEach((item, index) => collectExactStringPaths(item, expected, `${path}[${index}]`, output));
-    return output;
-  }
-  if (!value || typeof value !== 'object') return output;
-  for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
-    collectExactStringPaths(child, expected, `${path}.${key}`, output);
-  }
-  return output;
-}
-
-type NamedOptionState = {
-  found: boolean;
-  defaultSelected: boolean;
-  price: number | null;
-  path: string;
-};
-
-function readNamedOptionState(value: unknown, optionName: string): NamedOptionState {
-  return readNamedOptionStates(value, optionName)[0]
-    ?? { found: false, defaultSelected: false, price: null, path: '$' };
-}
-
-function readNamedOptionStates(
-  value: unknown,
-  optionName: string,
-  path = '$',
-  output: NamedOptionState[] = [],
-): NamedOptionState[] {
-  if (Array.isArray(value)) {
-    value.forEach((child, index) => readNamedOptionStates(child, optionName, `${path}[${index}]`, output));
-    return output;
-  }
-  if (!value || typeof value !== 'object') return output;
-  const record = value as Record<string, unknown>;
-  if (record.name === optionName) {
-    const pricingRule = record.pricingRule && typeof record.pricingRule === 'object'
-      ? record.pricingRule as Record<string, unknown>
-      : undefined;
-    const rawPrice = record.priceAdjustment ?? record.additionalPrice ?? pricingRule?.additionalPrice;
-    const price = Number(rawPrice);
-    output.push({
-      found: true,
-      defaultSelected: record.defaultSelected === true,
-      price: Number.isFinite(price) ? price : null,
-      path,
-    });
-  }
-  for (const [key, child] of Object.entries(record)) {
-    readNamedOptionStates(child, optionName, `${path}.${key}`, output);
-  }
-  return output;
-}
-
-function findNamedRecord(value: unknown, name: string): Record<string, unknown> | undefined {
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      const found = findNamedRecord(item, name);
-      if (found) return found;
-    }
-    return undefined;
-  }
-  if (!value || typeof value !== 'object') return undefined;
-  const record = value as Record<string, unknown>;
-  if (record.name === name) return record;
-  for (const child of Object.values(record)) {
-    const found = findNamedRecord(child, name);
-    if (found) return found;
-  }
-  return undefined;
-}
-
-function readImageReferences(value: unknown): string[] {
-  if (Array.isArray(value)) return [...new Set(value.flatMap(readImageReferences))];
-  if (!value || typeof value !== 'object') return [];
-  const record = value as Record<string, unknown>;
-  const direct = ['imagePath', 'imageUrl', 'iconPath', 'iconUrl']
-    .map((key) => record[key])
-    .filter((item): item is string => typeof item === 'string' && item.length > 0);
-  return [...new Set([...direct, ...Object.values(record).flatMap(readImageReferences)])];
-}
-
-function readPriceSnapshot(value: unknown, path = '$'): Record<string, number | string> {
-  const result: Record<string, number | string> = {};
-  if (Array.isArray(value)) {
-    value.forEach((item, index) => Object.assign(result, readPriceSnapshot(item, `${path}[${index}]`)));
-    return result;
-  }
-  if (!value || typeof value !== 'object') return result;
-  for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
-    const childPath = `${path}.${key}`;
-    if (/price|cost|fee/i.test(key) && (typeof child === 'number' || typeof child === 'string')) {
-      result[childPath] = child;
-    } else {
-      Object.assign(result, readPriceSnapshot(child, childPath));
-    }
-  }
-  return result;
-}

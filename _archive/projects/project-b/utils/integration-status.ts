@@ -1,1 +1,1 @@
-export * from '../../../Test Automation Platform/src/governance/integration-status';
+export * from '../../Test Automation Platform/src/governance/integration-status';

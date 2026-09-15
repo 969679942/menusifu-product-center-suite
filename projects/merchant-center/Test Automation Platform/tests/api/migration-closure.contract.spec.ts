@@ -431,6 +431,7 @@ function createFixture(): { root: string; manifest: MigrationClosureManifest } {
       ],
       exclusions: [],
       ownershipRules: [
+        { id: 'project-observation-snapshots', rootId: 'project', category: 'generated-evidence', patterns: ['.artifact-history/**', '**/.artifact-history/**'], rationale: '保留迁移修正前后原始观察' },
         { id: 'platform-core', rootId: 'platform', category: 'public-core', patterns: ['src/**', 'scripts/**', 'tests/**', 'package.json'], rationale: '公共实现' },
         { id: 'project-adapter', rootId: 'project', category: 'project-adapter', patterns: ['bridge/**', 'package.json'], rationale: '项目适配' },
         { id: 'project-domain', rootId: 'project', category: 'domain-asset', patterns: ['source/**', 'contracts/**'], rationale: '领域资产' },

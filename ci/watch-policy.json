@@ -2,7 +2,8 @@
   "schemaVersion": 1,
   "jobName": "menusifu-product-center-suite",
   "firstBuildNumber": 34,
-  "purpose": "Process only explicitly registered builds; historical Jenkins builds are diagnostic evidence and are never auto-enqueued",
+  "purpose": "Process explicitly registered builds and Jenkins-schedule builds; unrelated historical builds remain diagnostic-only",
   "autoDiscoverHistorical": false,
+  "autoDiscoverScheduled": true,
   "registeredBuilds": []
 }

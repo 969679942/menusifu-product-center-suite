@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { SystemTestRevalidationImpactType } from '../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import type { SystemTestRevalidationImpactType } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
 import {
   buildProductCenterFingerprintRevalidationImpact,
   type ProductCenterAssetRemediationQueues,

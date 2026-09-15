@@ -1,4 +1,5 @@
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
@@ -6,7 +7,25 @@ import { buildProductCenterUnsupportedSourceDecisions } from '../../scripts/audi
 import { discoverLatestAttempts } from '../../scripts/build-product-center-source-auto-resolution';
 
 test.describe('商品中心不支持来源格式受控审计', () => {
+  test('缺少权威最终状态时 CLI 必须输出结构化阻断而不是裸 ENOENT', async () => {
+    const source = await readFile(path.resolve(__dirname, '../../scripts/audit-product-center-unsupported-sources.ts'), 'utf8');
+    expect(source).toContain("code: 'PRODUCT_CENTER_AUTHORITATIVE_RELEASE_MISSING'");
+    expect(source).toContain('main().catch(async (error: unknown)');
+    expect(source).toContain('await writeFile(blockedPath');
+    expect(source).toContain('process.stderr.write(`${JSON.stringify(diagnostic)}\\n`)');
+  });
+
   test('应为全部来源问题指定负责人并仅接受可验证治理证据', async () => {
+    const authoritativeReleasePath = path.resolve(__dirname, '../../output/product-center-item-final-status.json');
+    if (!existsSync(authoritativeReleasePath)) {
+      const blockedPath = path.resolve(__dirname, '../../output/governance/product-center-unsupported-sources.blocked.json');
+      expect(JSON.parse(await readFile(blockedPath, 'utf8'))).toMatchObject({
+        status: 'blocked',
+        code: 'PRODUCT_CENTER_AUTHORITATIVE_RELEASE_MISSING',
+        businessExecutionStarted: false,
+      });
+      return;
+    }
     const outputRoot = await mkdtemp(path.join(tmpdir(), 'product-center-source-decisions-'));
     try {
       const outputPath = await buildProductCenterUnsupportedSourceDecisions({
@@ -59,7 +78,7 @@ test.describe('商品中心不支持来源格式受控审计', () => {
         } else if (item.status === 'blocked') {
           expect(item.status).toBe('blocked');
           expect(item.disposition).toBe('blocked-source-review');
-          expect(item.currentGoalBlocking).toBe(item.executionDisposition === null);
+          expect(item.currentGoalBlocking).toBe(item.executionDisposition !== 'not-applicable');
           expect(item.citations).toEqual([]);
           expect(item.blockReason).toBeTruthy();
         } else {
@@ -77,7 +96,7 @@ test.describe('商品中心不支持来源格式受控审计', () => {
       expect(decision.cases.find((item: any) => item.caseId === 'TC-GRP-ADD-031')).toMatchObject({
         status: 'blocked',
         executionDisposition: 'deferred',
-        currentGoalBlocking: false,
+        currentGoalBlocking: true,
       });
       expect(decision.cases.find((item: any) => item.caseId === 'TC-ITEM-STD-034')).toMatchObject({
         status: 'blocked',
@@ -125,6 +144,15 @@ test.describe('商品中心不支持来源格式受控审计', () => {
   });
 
   test('相同来源连续审计时正式决策产物应保持字节稳定', async () => {
+    if (!existsSync(path.resolve(__dirname, '../../output/product-center-item-final-status.json'))) {
+      const blockedPath = path.resolve(__dirname, '../../output/governance/product-center-unsupported-sources.blocked.json');
+      expect(JSON.parse(await readFile(blockedPath, 'utf8'))).toMatchObject({
+        status: 'blocked',
+        code: 'PRODUCT_CENTER_AUTHORITATIVE_RELEASE_MISSING',
+        businessExecutionStarted: false,
+      });
+      return;
+    }
     const outputRoot = await mkdtemp(path.join(tmpdir(), 'product-center-source-stability-'));
     try {
       const options = {

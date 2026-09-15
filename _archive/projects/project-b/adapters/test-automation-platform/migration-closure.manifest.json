@@ -5,7 +5,7 @@
   "roots": [
     {
       "id": "platform",
-      "path": "../../../../Test Automation Platform"
+      "path": "../../../Test Automation Platform"
     },
     {
       "id": "workspace",
@@ -13,6 +13,15 @@
     }
   ],
   "exclusions": [
+    {
+      "id": "workspace-embedded-platform-root",
+      "rootId": "workspace",
+      "patterns": [
+        "Test Automation Platform",
+        "Test Automation Platform/**"
+      ],
+      "reason": "公共 TAP 已由 platform 根单独审计，workspace 扫描中排除其嵌套副本以避免重复归属"
+    },
     {
       "id": "platform-third-party-dependencies",
       "rootId": "platform",
@@ -128,6 +137,8 @@
       "rootId": "workspace",
       "category": "generated-evidence",
       "patterns": [
+        ".artifact-history/**",
+        "**/.artifact-history/**",
         "deliverables/**",
         "Merchant Center UITest/deliverables/**",
         "contracts/**/*.log",
@@ -580,18 +591,7 @@
     {
       "id": "merchant-center-platform-state-and-migration-reports",
       "rootId": "workspace",
-      "paths": [
-        "Merchant Center UITest/deliverables/system-test-platform/artifact-manifest.json",
-        "Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.json",
-        "Merchant Center UITest/deliverables/system-test-platform/cross-system-platform-v1.md",
-        "Merchant Center UITest/deliverables/system-test-platform/execution-index.json",
-        "Merchant Center UITest/deliverables/system-test-platform/final-goal-verdict.json",
-        "Merchant Center UITest/deliverables/system-test-platform/platform-external-dependency.json",
-        "Merchant Center UITest/deliverables/system-test-platform/platform-release.json",
-        "Merchant Center UITest/deliverables/system-test-platform/platform-review-decision-20260815.json",
-        "Merchant Center UITest/deliverables/system-test-platform/platform-review-decision.template.json",
-        "Merchant Center UITest/deliverables/system-test-platform/platform-review-queue.json",
-        "Merchant Center UITest/deliverables/system-test-platform/readiness.json",
+    "paths": [
         "Merchant Center UITest/adapters/test-automation-platform/project-adapter.json",
         "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-extraction-audit.md",
         "Merchant Center UITest/adapters/test-automation-platform/reports/merchant-center-file-governance-result.md",

@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { appendAuditEvent } from '../../../Test Automation Platform/src/audit/event-log';
+import { appendAuditEvent } from '../../Test Automation Platform/src/audit/event-log';
 
 const projectRoot = path.resolve(__dirname, '..');
 
@@ -17,6 +17,7 @@ export type ProductCenterAuditRunMetadata = {
 /** 在 Playwright worker 启动前建立统一的实时审计上下文。 */
 export function configureProductCenterAuditRuntime(): ProductCenterAuditRunMetadata {
   const runId = process.env.SYSTEM_TEST_RUN_ID ?? `merchant-center-${Date.now()}`;
+  const auditInvocationId = process.env.SYSTEM_TEST_AUDIT_INVOCATION_ID ?? String(process.pid);
   const logicalRunId = process.env.SYSTEM_TEST_LOGICAL_RUN_ID ?? runId.replace(/(?:-retry)?-?\d{10,}$/i, '');
   const metadata: ProductCenterAuditRunMetadata = {
     runId,
@@ -36,7 +37,7 @@ export function configureProductCenterAuditRuntime(): ProductCenterAuditRunMetad
   process.env.SYSTEM_TEST_AUDIT_EVENT_LOG ??= path.join(projectRoot, 'output', 'audit', 'product-center-events.jsonl');
   process.env.SYSTEM_TEST_AUDIT_RUN_METADATA = JSON.stringify(metadata);
   appendAuditEvent(process.env.SYSTEM_TEST_AUDIT_EVENT_LOG, {
-    eventId: `run-started:${runId}`,
+    eventId: `run-started:${runId}:${auditInvocationId}`,
     eventType: 'run.started',
     occurredAt: new Date().toISOString(),
     actorType: 'runner',
@@ -52,12 +53,13 @@ export function configureProductCenterAuditRuntime(): ProductCenterAuditRunMetad
 
 export function appendProductCenterAuditRunCompleted(status: 'completed' | 'failed' | 'blocked' = 'completed'): void {
   const runId = process.env.SYSTEM_TEST_RUN_ID;
+  const auditInvocationId = process.env.SYSTEM_TEST_AUDIT_INVOCATION_ID ?? String(process.pid);
   const logPath = process.env.SYSTEM_TEST_AUDIT_EVENT_LOG;
   if (!runId || !logPath) return;
   let metadata: Record<string, unknown> = {};
   try { metadata = JSON.parse(process.env.SYSTEM_TEST_AUDIT_RUN_METADATA ?? '{}') as Record<string, unknown>; } catch { /* 保留最小终态事件 */ }
   appendAuditEvent(logPath, {
-    eventId: `run-completed:${runId}:${status}`,
+    eventId: `run-completed:${runId}:${auditInvocationId}:${status}`,
     eventType: status === 'completed' ? 'run.completed' : status === 'blocked' ? 'run.blocked' : 'run.failed',
     occurredAt: new Date().toISOString(),
     actorType: 'runner',

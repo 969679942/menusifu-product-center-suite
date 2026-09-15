@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "collectionId": "product-center-group-automation-contract",
-  "generatedAt": "2026-09-04T23:38:18.245Z",
+  "generatedAt": "2026-09-06T21:41:58.923Z",
   "status": "review-required",
   "summary": {
     "totalCases": 141,
@@ -8037,10 +8037,11 @@
         "downstream"
       ],
       "handlerId": null,
-      "blockClassification": "external-dependency-blocked",
+      "blockClassification": "source-evidence-blocked",
       "blockEvidencePaths": [],
       "blockedReasons": [
-        "TC-GRP-ADD-031 需要真实终端/C端状态观测与同步证据，品牌商品和 SKU 造数已可自动完成，但下游观测能力尚未接入"
+        "来源证据阻断 XMIND_EXACT_NODE_NOT_FOUND：原始 XMind 中未找到唯一精确节点路径或与用例标题完全相同的唯一节点。",
+        "缺少与 TC-GRP-ADD-031 业务步骤和预期逐项对应的专用执行 handler，属于自动化能力缺口，应由自动化流程继续补齐"
       ],
       "capabilityIds": [
         "navigation.sidebar.open",
@@ -8058,7 +8059,7 @@
       "executionProfile": "terminal-probe",
       "sourceGovernance": {
         "status": "blocked",
-        "currentGoalBlocking": false,
+        "currentGoalBlocking": true,
         "blockCode": "XMIND_EXACT_NODE_NOT_FOUND",
         "decisionGeneratedAt": "2026-09-04T17:58:39.499Z"
       }

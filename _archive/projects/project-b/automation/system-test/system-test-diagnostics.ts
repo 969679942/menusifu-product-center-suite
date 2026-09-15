@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-diagnostics';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-diagnostics';

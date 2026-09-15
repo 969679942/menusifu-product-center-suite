@@ -10,7 +10,7 @@ import { recoverProductCenterCheckpoints } from '../../../scripts/product-center
 import { resolveAuthCredentials } from '../../../test-data/auth';
 import { resolveSeasoningContext } from '../../../test-data/seasoning-context';
 import { SidebarPage } from '../../../pages/sidebar.page';
-import { writePassedSystemTestStageReceiptFromEnvironment } from '../../../../../Test Automation Platform/src/automation/system-test/system-test-stage-receipt';
+import { writePassedSystemTestStageReceiptFromEnvironment } from '../../../../Test Automation Platform/src/automation/system-test/system-test-stage-receipt';
 
 test('建立调味管理商户认证会话', async ({ browser }, testInfo) => {
   const checkpointRoot = process.env.SYSTEM_TEST_CHECKPOINT_ROOT

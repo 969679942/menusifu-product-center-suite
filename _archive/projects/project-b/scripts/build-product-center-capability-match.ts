@@ -3,7 +3,7 @@ import path from 'node:path';
 import {
   buildSystemTestCapabilityMatchReport,
   type SystemTestCapabilityMatchCase,
-} from '../../../Test Automation Platform/src/automation/system-test/system-test-capability-matching';
+} from '../../Test Automation Platform/src/automation/system-test/system-test-capability-matching';
 import { productCenterRecipeCapabilityContracts } from '../adapters/product-center/product-center-recipe-capabilities';
 
 const projectRoot = path.resolve(__dirname, '..');

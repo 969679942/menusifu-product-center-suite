@@ -40,31 +40,54 @@ export function appendSystemTestRepairTelemetry(input: {
 }
 
 export function summarizeSystemTestRepairTelemetry(filePath: string): {
-  eventCount: number;
+  scope: 'telemetry-ledger-events';
+  evidenceStatus: 'available' | 'missing' | 'invalid' | 'unreadable';
+  eventCount: number | null;
   byType: Record<string, number>;
-  avoidableDurationMs: number;
-  browserStarts: number;
-  selectionDriftCount: number;
+  avoidableDurationMs: number | null;
+  browserStarts: number | null;
+  avoidableBrowserStarts: number | null;
+  selectionDriftCount: number | null;
+  metricScope: 'single-session' | 'unavailable';
+  currentRunCountsAvailable: false;
 } {
-  if (!fs.existsSync(filePath)) return { eventCount: 0, byType: {}, avoidableDurationMs: 0, browserStarts: 0, selectionDriftCount: 0 };
-  const events = fs.readFileSync(filePath, 'utf8').split(/\r?\n/).filter(Boolean)
-    .map((line) => JSON.parse(line) as SystemTestRepairTelemetryEvent);
+  const empty = { scope: 'telemetry-ledger-events' as const, eventCount: null, byType: {},
+    avoidableDurationMs: null, browserStarts: null, avoidableBrowserStarts: null, selectionDriftCount: null,
+    metricScope: 'unavailable' as const, currentRunCountsAvailable: false as const };
+  let source: string;
+  try { source = fs.readFileSync(filePath, 'utf8'); }
+  catch (error) { return { ...empty, evidenceStatus: (error as NodeJS.ErrnoException).code === 'ENOENT' ? 'missing' : 'unreadable' }; }
+  let events: SystemTestRepairTelemetryEvent[];
+  try {
+    events = source.replace(/^\uFEFF/, '').split(/\r?\n/).filter((line) => line.trim()).map((line) => JSON.parse(line));
+    if (!events.every((event) => event && event.schemaVersion === '1.0.0'
+      && typeof event.eventType === 'string' && ['repair-session', 'case-decision', 'selection-drift', 'unit-timing', 'repair-attempt', 'efficiency-observation'].includes(event.eventType)
+      && typeof event.sessionId === 'string' && event.sessionId.trim()
+      && typeof event.applicationId === 'string' && event.applicationId.trim()
+      && typeof event.recordedAt === 'string' && Number.isFinite(Date.parse(event.recordedAt))
+      && event.payload && typeof event.payload === 'object' && !Array.isArray(event.payload))) throw new Error('invalid');
+  } catch { return { ...empty, evidenceStatus: 'invalid' }; }
   const byType: Record<string, number> = {};
-  let avoidableDurationMs = 0;
-  let browserStarts = 0;
   let selectionDriftCount = 0;
   for (const event of events) {
     byType[event.eventType] = (byType[event.eventType] ?? 0) + 1;
-    if (event.eventType === 'efficiency-observation') {
-      avoidableDurationMs += numberValue(event.payload.avoidableDurationMs);
-      browserStarts += numberValue(event.payload.avoidableBrowserStarts);
-    }
     if (event.eventType === 'selection-drift') selectionDriftCount += 1;
   }
-  return { eventCount: events.length, byType, avoidableDurationMs, browserStarts, selectionDriftCount };
+  const singleSession = new Set(events.map((event) => JSON.stringify([event.applicationId, event.sessionId]))).size === 1;
+  const observations = events.filter((event) => event.eventType === 'efficiency-observation');
+  const metric = (key: string, integer = false): number | null => {
+    if (!singleSession || !observations.length) return null;
+    const values = observations.map((event) => event.payload[key]);
+    if (!values.every((value): value is number => typeof value === 'number' && Number.isFinite(value)
+      && value >= 0 && (!integer || Number.isSafeInteger(value)))) return null;
+    const total = values.reduce((sum, value) => sum + value, 0);
+    return Number.isFinite(total) && (!integer || Number.isSafeInteger(total)) ? total : null;
+  };
+  return { scope: 'telemetry-ledger-events', evidenceStatus: 'available', eventCount: events.length, byType,
+    avoidableDurationMs: metric('avoidableDurationMs'), browserStarts: metric('browserStarts', true),
+    avoidableBrowserStarts: metric('avoidableBrowserStarts', true), selectionDriftCount,
+    metricScope: singleSession ? 'single-session' : 'unavailable', currentRunCountsAvailable: false };
 }
-
-function numberValue(value: unknown): number { return typeof value === 'number' && Number.isFinite(value) ? value : 0; }
 
 function redactTelemetryValue(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(redactTelemetryValue);

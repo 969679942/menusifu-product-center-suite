@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { refreshItemAssetReceiptQualification } from '../adapters/product-center/product-center-item-asset-receipt-projection';
 import {
   buildTestPlanAssetIndex,
   parseMarkdownTestCases,
@@ -243,6 +244,7 @@ export function loadAutomationDispositions(projectRoot: string, workspaceRoot: s
           });
     }
   }
+  refreshItemAssetReceiptQualification(projectRoot, dispositions);
   return dispositions;
 
   function normalizeWorkspaceScriptPath(scriptPath: string | undefined): string | undefined {

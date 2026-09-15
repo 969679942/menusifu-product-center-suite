@@ -1,16 +1,32 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildSystemTestArtifacts } from '../../../../Test Automation Platform/scripts/build-system-test-contract';
-import { buildSystemTestCaseImplementationFingerprints } from '../../../../Test Automation Platform/scripts/run-system-test';
-import { fingerprintSystemTestValue } from '../../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import { fingerprintImplementationSources } from '../../../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
-import type { ProjectRemediationScopeArtifact } from '../../../../Test Automation Platform/src/governance/project-remediation-scope';
-import type { ProjectRemediationOptimizationCase } from '../../../../Test Automation Platform/src/governance/project-remediation-optimization';
+import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
+import { buildSystemTestCaseImplementationFingerprints } from '../../../Test Automation Platform/scripts/run-system-test';
+import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { fingerprintImplementationSources } from '../../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
+import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
+import type { ProjectRemediationOptimizationCase } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
 import {
   buildProductCenterGroupReportReceiptContracts,
 } from '../../flows/product-center/group/group-report-receipt.adapter';
 import { fingerprintProductCenterItemImplementation } from './product-center-item-implementation';
+import listContract from '../../contracts/product-center/test-cases/standard-list-acceptance.json';
+import queryContract from '../../contracts/product-center/test-cases/standard-query-return.json';
+import weightContract from '../../contracts/product-center/test-cases/standard-weight-units-acceptance.json';
+import requiredNameContract from '../../contracts/product-center/test-cases/standard-required-name-acceptance.json';
+import advancedContract from '../../contracts/product-center/test-cases/standard-advanced-settings-acceptance.json';
+import {advancedSettingsSpecPath} from './product-center-item-advanced-specs';
+import createControlsContract from '../../contracts/product-center/test-cases/standard-create-controls-acceptance.json';
+import {createControlsSpecPath} from './product-center-item-create-controls-specs';
+import addonSettingsContract from '../../contracts/product-center/test-cases/addon-other-settings-acceptance.json';
+import {addonOtherSettingsSpecPath} from './product-center-item-addon-other-settings-specs';
+import addonPriceContract from '../../contracts/product-center/test-cases/addon-price-acceptance.json';
+import {addonPriceSpecPath} from './product-center-item-addon-price-specs';
+import {requiredNameSpecPath} from './product-center-item-required-name-specs';
+import {weightUnitsSpecPath} from './product-center-item-execution-specs';
+import {queryReturnSpecPath} from './product-center-item-spec-dispatch';
+import { standardListSpecPath } from './product-center-item-spec-routes';
 import type { GroupAutomationBinding } from '../../utils/product-center-group-automation';
 import { buildProductCenterGroupCaseFingerprintManifest } from '../../utils/product-center-group-case-fingerprint';
 import { mapMerchantCenterOptimizationCases } from '../../utils/system-test-optimization-gate';
@@ -217,6 +233,14 @@ function buildItemCases(projectRoot: string, inScopeCaseIds: ReadonlySet<string>
     }
     const authoritativeBinding = authoritativeByCaseId.get(item.caseId);
     const additionalBinding = additionalByCaseId.get(item.caseId);
+    const addonPriceCase=addonPriceContract.cases.find(row=>row.caseId===item.caseId);
+    const addonSettingsCase=addonPriceCase ?? addonSettingsContract.cases.find(row=>row.caseId===item.caseId);
+    const createControlsCase=addonSettingsCase ?? createControlsContract.cases.find(row=>row.caseId===item.caseId);
+    const advancedCase=createControlsCase ?? advancedContract.cases.find(row=>row.caseId===item.caseId);
+    const requiredNameCase = advancedCase ?? requiredNameContract.cases.find(row=>row.caseId===item.caseId);
+    const weightCase = requiredNameCase ?? weightContract.cases.find(row=>row.caseId===item.caseId);
+    const queryCase = weightCase ?? queryContract.cases.find(row=>row.caseId===item.caseId);
+    const listCase = queryCase ?? listContract.cases.find(row=>row.caseId===item.caseId);
     if (!authoritativeBinding && !additionalBinding) {
       throw new Error(`PRODUCT_CENTER_ITEM_EXECUTION_BINDING_MISSING:${item.caseId}`);
     }
@@ -228,7 +252,7 @@ function buildItemCases(projectRoot: string, inScopeCaseIds: ReadonlySet<string>
     const additionalRuntimeReady = Boolean(additionalBinding
       && additionalBinding.runtimeReadiness === 'ready'
       && additionalBinding.status === 'landed'
-      && additionalBinding.scriptPath === 'tests/generated/product-center-item-216.generated.spec.ts');
+      && additionalBinding.scriptPath === (addonPriceCase ? addonPriceSpecPath : addonSettingsCase ? addonOtherSettingsSpecPath : createControlsCase ? createControlsSpecPath : advancedCase ? advancedSettingsSpecPath : requiredNameCase ? requiredNameSpecPath : weightCase ? weightUnitsSpecPath : queryCase ? queryReturnSpecPath : listCase ? standardListSpecPath : 'tests/generated/product-center-item-216.generated.spec.ts'));
     const groupKeyInput = {
       businessDomainId: 'merchant-center-product-center-item',
       family: item.family,
@@ -241,11 +265,11 @@ function buildItemCases(projectRoot: string, inScopeCaseIds: ReadonlySet<string>
       caseFingerprint: item.bindingFingerprint,
       implementationFingerprint: fingerprintProductCenterItemImplementation(projectRoot, item.caseId),
       mutationMode: 'fixture-reversible' as const,
-      requiredOperationKeys: [item.handlerId],
+      requiredOperationKeys: listCase ? listCase.steps.map((_,index)=>`${item.caseId}:action-${index+1}`) : [item.handlerId],
       expectationClaimIds: [...item.assertionIds],
       contextGuardPhases: ['before-action', 'before-assertion'] as Array<'before-action' | 'before-assertion'>,
       cleanupRequired: true,
-      staticIssueCodes: authoritativeRuntimeReady || additionalRuntimeReady ? [] : ['ITEM_AUTHORITATIVE_RUNTIME_READY_REQUIRED'],
+      staticIssueCodes: listCase ? (listCase.sourceReady && additionalRuntimeReady ? [] : ['ITEM_LIST_SOURCE_CONTRACT_REQUIRED']) : authoritativeRuntimeReady || additionalRuntimeReady ? [] : ['ITEM_AUTHORITATIVE_RUNTIME_READY_REQUIRED'],
     };
   });
 }

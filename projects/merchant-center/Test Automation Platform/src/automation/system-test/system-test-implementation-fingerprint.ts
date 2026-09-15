@@ -87,11 +87,18 @@ export function fingerprintImplementationCheckpoint(
         sha256: createHash('sha256').update(fs.readFileSync(absolutePath)).digest('hex'),
       }];
     });
-  const fingerprint = createHash('sha256').update(JSON.stringify({
-    requiredCategories: [...new Set(checkpoint.requiredCategories)].sort(),
+  const fingerprint = fingerprintImplementationCheckpointContent(checkpoint.requiredCategories, sources);
+  return { fingerprint, sources, diagnostics: [...new Set(diagnostics)].sort() };
+}
+
+export function fingerprintImplementationCheckpointContent(
+  requiredCategories: readonly ImplementationCheckpointCategory[],
+  sources: ReadonlyArray<ImplementationSource & { category: ImplementationCheckpointCategory }>,
+): string {
+  return createHash('sha256').update(JSON.stringify({
+    requiredCategories: [...new Set(requiredCategories)].sort(),
     sources,
   })).digest('hex');
-  return { fingerprint, sources, diagnostics: [...new Set(diagnostics)].sort() };
 }
 
 function isInside(rootDir: string, targetPath: string): boolean {

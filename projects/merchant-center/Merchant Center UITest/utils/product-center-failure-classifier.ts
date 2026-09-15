@@ -38,7 +38,8 @@ export function classifyProductCenterFailure(input: ProductCenterFailureInput): 
   if (/strict mode violation|resolved to \d+ elements|locator|selector|uniqueness|侧边栏未进入目标路径|目标路径.*未.*侧边栏/.test(normalized)) {
     return result('locator-drift', false, message);
   }
-  if ([401, 403].includes(input.statusCode ?? 0) || /unauthorized|forbidden|login|auth/.test(normalized)) {
+  if ([401, 403].includes(input.statusCode ?? 0)
+    || /unauthorized|forbidden|login|auth|缺少(?:用户名|密码|商户|品牌|凭据)|username.*password|password.*merchant/.test(normalized)) {
     return result('environment-auth', false, message);
   }
   if (input.statusCode === 429 || /too many requests|exceeded retry limit|connection reset|err_timed_out|timeout|timed out/.test(normalized)) {

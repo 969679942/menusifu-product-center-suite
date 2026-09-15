@@ -1,7 +1,7 @@
 import type { CleanupRegistry } from '../../api/product-center/cleanup-registry';
 import { extractCreatedRecord } from '../../api/product-center/created-record';
 import type { ProductCenterApi } from '../../api/product-center/product-center-api';
-import { createAuditIdentity, nextAuditTimestamp } from './audit-identity';
+import { createAuditFieldValue, createAuditIdentity, nextAuditTimestamp } from './audit-identity';
 
 // Re-export the deterministic audit clock through the shared data-factory
 // boundary so item-family factories do not each add a separate dependency.
@@ -95,7 +95,7 @@ export class ProductCenterItemCreateDataFactory {
   ): Promise<ProductCenterItemCreateContext> {
     const itemIdentity = createAuditIdentity('ITEM', timestamp).marker;
     const comboGroupName = createAuditIdentity('COMBO', timestamp).marker;
-    const dependencyProductIdentity = `AUTO_AUDIT_COMBO_PRODUCT_${timestamp}`;
+    const dependencyProductIdentity = createAuditFieldValue('ITEM', 60, timestamp + 1);
     const existingItem = findNamedRecords(await this.api.productPage(itemIdentity), itemIdentity);
     if (existingItem.length !== 0) throw new Error(`套餐商品审计身份已存在：${itemIdentity}`);
 

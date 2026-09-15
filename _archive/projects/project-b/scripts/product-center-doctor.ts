@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildProcessDoctorReport, type ProcessDoctorSnapshot } from '../../../Test Automation Platform/src/governance/process-doctor';
+import { buildProcessDoctorReport, type ProcessDoctorSnapshot } from '../../Test Automation Platform/src/governance/process-doctor';
 
 const projectRoot = path.resolve(__dirname, '..');
 const workspaceRoot = path.resolve(projectRoot, '..');

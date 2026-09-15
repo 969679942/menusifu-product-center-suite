@@ -5,10 +5,10 @@ import {
   buildSystemTestAssetLifecycleLedger,
   fingerprintSystemTestAssetValue,
   type SystemTestAssetLifecycleInput,
-} from '../../../Test Automation Platform/src/automation/system-test/system-test-asset-lifecycle';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
-import { buildSystemTestCaseImplementationFingerprints } from '../../../Test Automation Platform/scripts/run-system-test';
+} from '../../Test Automation Platform/src/automation/system-test/system-test-asset-lifecycle';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { buildSystemTestArtifacts } from '../../Test Automation Platform/scripts/build-system-test-contract';
+import { buildSystemTestCaseImplementationFingerprints } from '../../Test Automation Platform/scripts/run-system-test';
 import { buildTestPlanAssetStatus, loadAutomationDispositions } from './build-test-plan-asset-index';
 import { loadProductCenterExecutionDecisions } from '../utils/product-center-execution-decisions';
 

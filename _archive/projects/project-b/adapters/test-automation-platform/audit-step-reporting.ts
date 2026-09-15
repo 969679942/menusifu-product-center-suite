@@ -1,4 +1,4 @@
-import type { PlaywrightAuditStepKind } from '../../../../Test Automation Platform/src/audit/playwright-step-audit';
+import type { PlaywrightAuditStepKind } from '../../../Test Automation Platform/src/audit/playwright-step-audit';
 
 export const MERCHANT_CENTER_CASE_ID_ANNOTATION_TYPES = [
   'system-test-case-id', 'canonical-case-id', 'group-case-id', 'recipe-case-id', 'case-id',

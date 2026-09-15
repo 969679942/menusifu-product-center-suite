@@ -3,7 +3,7 @@ import {
   type BusinessRuleDocument,
   type BusinessRuleExecutionReceipt,
   type BusinessRuleObservation,
-} from '../../../../Test Automation Platform/src/automation/system-test/business-rule-lifecycle';
+} from '../../../Test Automation Platform/src/automation/system-test/business-rule-lifecycle';
 
 export type ProductCenterExecutionObservationInput = {
   rule: BusinessRuleDocument;

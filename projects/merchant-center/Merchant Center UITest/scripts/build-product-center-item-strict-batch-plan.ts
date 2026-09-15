@@ -67,7 +67,11 @@ function buildStrictManifest(rootDir: string, ledger: ProductCenterItemMigration
   return {
     schemaVersion: '1.0.0',
     collectionId: 'product-center-item-strict-revalidation-v1',
-    sourceRelease: base.sourceRelease,
+    sourceRelease: {
+      ...(base.sourceRelease as Record<string, unknown>),
+      fingerprint: ledger.source.releaseFingerprint,
+      executableFingerprint: ledger.source.executableFingerprint,
+    },
     selectionPolicy: {
       targetSize: selected.length,
       familyQuota: {

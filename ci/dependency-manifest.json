@@ -2,20 +2,19 @@
   "schemaVersion": 1,
   "projectId": "merchant-center",
   "repositories": {
-    "pcs": {
-      "role": "orchestrator",
-      "checkout": "current-job"
-    },
+    "pcs": { "role": "orchestrator", "branch": "master", "checkout": "current-job" },
     "mc": {
       "role": "business-source",
       "repository": "git@github.com:969679942/Merchant-Center.git",
-      "revision": "4aaa46a0cf8adba1a8d3765cfef532837f46b8a8",
+      "branch": "main",
+      "revision": "e40932bdaf9f1dfa4e5b973e5f7d4ad0025e95d1",
       "checkout": "projects/merchant-center"
     },
     "tap": {
       "role": "public-runtime",
       "repository": "https://github.com/969679942/Test-Automation-Platform.git",
-      "revision": "427a112d88d90835a22a850939bd09f6a2780c42",
+      "branch": "main",
+      "revision": "42a7b38c0a6118bfe4d6a3eabf323d0b9aac8fbf",
       "checkout": "tap"
     }
   },

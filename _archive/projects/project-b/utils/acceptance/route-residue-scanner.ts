@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/acceptance/route-residue-scanner';
+export * from '../../../Test Automation Platform/src/acceptance/route-residue-scanner';

@@ -53,6 +53,34 @@ function main(): void {
   const incompleteCheckpoints = findIncompleteCheckpointFiles(checkpointDirectory);
   const timingSources = listTimingReports(path.join(projectRoot, 'output/performance'));
   const pageContractPath = 'output/page-contract/product-center-page-contract-diff.json';
+  const requiredInputPaths = [
+    pageContractPath,
+    ...feedbackPaths,
+    ...evidencePaths,
+    'output/recipes/product-center-pilot-acceptance.json',
+    'output/recipes/product-center-test-plan-gold-set-acceptance.json',
+    'contracts/product-center/failure-analysis/product-center-failure-classification-baseline.json',
+  ];
+  const missingInputs = requiredInputPaths.filter((relativePath) => !fs.existsSync(absolutePath(relativePath)));
+  if (missingInputs.length > 0) {
+    const blockedPath = absolutePath('output/failure-analysis/product-center-failure-analysis.blocked.json');
+    const blocked = {
+      schemaVersion: '1.0.0',
+      reportId: 'product-center-failure-analysis',
+      generatedAt: new Date().toISOString(),
+      status: 'blocked',
+      code: missingInputs[0] === pageContractPath ? 'PAGE_CONTRACT_DIFF_MISSING' : 'FAILURE_ANALYSIS_INPUTS_MISSING',
+      missingPath: missingInputs[0],
+      missingInputs,
+      scope: 'report-only',
+      executionScope: 'report-only',
+      guardrails: { businessExecutionStarted: false, existingPassedCasesInvalidated: false, secretsPersisted: false },
+    };
+    fs.mkdirSync(path.dirname(blockedPath), { recursive: true });
+    fs.writeFileSync(blockedPath, `${JSON.stringify(blocked, null, 2)}\n`, 'utf8');
+    console.error(JSON.stringify(blocked));
+    process.exit(1);
+  }
   const pageContract = readJson<PageContractDiff>(absolutePath(pageContractPath));
   const expectedPipelineRunId = process.env.PC_QUALITY_PIPELINE_RUN_ID;
   if (expectedPipelineRunId && pageContract.pipelineRunId !== expectedPipelineRunId) {

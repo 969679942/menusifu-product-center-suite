@@ -3,6 +3,7 @@ import { settleInput } from '../../utils/input-settle';
 import { step } from '../../utils/step';
 import { executeReadOnlyUiWithTransientRetry, waitUntil } from '../../utils/wait';
 import { SidebarPage } from '../sidebar.page';
+import { exactTextPattern, readDistributionTargetPois } from '../../utils/product-center-seasoning-helpers';
 
 export type StoreIdentityExpectation = {
   storeId: string;
@@ -545,7 +546,7 @@ export class SeasoningBoundaryPage {
     await confirm.click();
     const response = await distributionResponse;
     const requestBody = response.request().postDataJSON();
-    const targetPois = this.readDistributionTargetPois(requestBody);
+    const targetPois = readDistributionTargetPois(requestBody);
     if (!targetPois.some((target) => target.poiId === storeId && target.poiName === targetStoreName)) {
       throw new Error(`模板下发请求目标门店不一致：期望=${targetStoreName}/${storeId}`);
     }
@@ -2172,20 +2173,4 @@ export class SeasoningBoundaryPage {
     );
   }
 
-  private readDistributionTargetPois(body: unknown): Array<{ poiId: string; poiName: string }> {
-    if (!body || typeof body !== 'object' || Array.isArray(body)) return [];
-    const targetPois = (body as Record<string, unknown>).targetPois;
-    if (!Array.isArray(targetPois)) return [];
-    return targetPois.flatMap((target) => {
-      if (!target || typeof target !== 'object' || Array.isArray(target)) return [];
-      const record = target as Record<string, unknown>;
-      return typeof record.poiId === 'string' && typeof record.poiName === 'string'
-        ? [{ poiId: record.poiId, poiName: record.poiName }]
-        : [];
-    });
-  }
-}
-
-function exactTextPattern(value: string): RegExp {
-  return new RegExp(`^${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`);
 }

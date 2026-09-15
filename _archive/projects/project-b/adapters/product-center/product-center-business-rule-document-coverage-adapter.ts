@@ -3,7 +3,7 @@ import {
   type BusinessRuleCoverageAssessment,
   type BusinessRuleCoverageCaseClaim,
   type BusinessRuleCoverageObligation,
-} from '../../../../Test Automation Platform/src/automation/system-test/business-rule-coverage';
+} from '../../../Test Automation Platform/src/automation/system-test/business-rule-coverage';
 
 type RuleSemantics = {
   preconditions?: string[];
@@ -219,8 +219,8 @@ export function buildProductCenterRuleCoverage(input: {
   rule: ProductCenterFormalRule;
   canonicalCaseDocument: string;
   automationBindingCaseIds: ReadonlySet<string>;
-  currentIdentities?: import('../../../../Test Automation Platform/src/automation/system-test/business-rule-coverage').BusinessRuleCoverageCurrentIdentity[];
-  currentEvidence?: import('../../../../Test Automation Platform/src/automation/system-test/business-rule-coverage').BusinessRuleCoverageEvidence[];
+  currentIdentities?: import('../../../Test Automation Platform/src/automation/system-test/business-rule-coverage').BusinessRuleCoverageCurrentIdentity[];
+  currentEvidence?: import('../../../Test Automation Platform/src/automation/system-test/business-rule-coverage').BusinessRuleCoverageEvidence[];
 }): ProductCenterRuleCoverage {
   const obligations = input.rule.ruleId === 'BR-ITEM-010'
     ? buildItemNameUniquenessObligations(input.rule)

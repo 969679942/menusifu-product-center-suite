@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { SystemTestOptimizationReceipt } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import type { SystemTestOptimizationReceipt } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 
 const projectRoot = path.resolve(__dirname, '..');
 const planArgument = argument('plan');

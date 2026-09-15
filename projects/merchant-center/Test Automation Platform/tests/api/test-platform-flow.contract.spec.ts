@@ -25,6 +25,7 @@ import {
   partitionSystemTestCasesForExecution,
   resolveFlowResumeRunIds,
   resolveFlowExecutionSelection,
+  resolveFlowCheckpointTerminalCaseIds,
   resolveFlowSelection,
   shouldRunAudit,
 } from '../../scripts/run-system-test-flow';
@@ -351,6 +352,7 @@ test.describe('通用测试流程优化门禁', () => {
       }));
       fs.writeFileSync(path.join(runRoot, 'evidence-ledger.json'), JSON.stringify({
         summary: { selected: 2, executed: 2, evidenceIncomplete: 1 },
+        cases: [{ caseId: 'CASE-001' }, { caseId: 'CASE-002' }],
       }));
       expect(classifyFlowCompletion({ rootDir: root, systemId: 'demo-system', runId, exitCode: 1 })).toMatchObject({
         status: 'completed-with-findings',
@@ -358,6 +360,24 @@ test.describe('通用测试流程优化门禁', () => {
       expect(classifyFlowCompletion({
         rootDir: root, systemId: 'demo-system', runId: 'run-incomplete', exitCode: 1,
       })).toMatchObject({ status: 'blocked' });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  test('逐案账本缺失或数量不匹配时不得用汇总计数授权完成', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'flow-completion-case-ledger-'));
+    const runId = 'run-summary-only';
+    const runRoot = path.join(root, 'output/system-test/demo-system', runId);
+    fs.mkdirSync(runRoot, { recursive: true });
+    try {
+      fs.writeFileSync(path.join(runRoot, 'run-report.json'), JSON.stringify({ failureCategories: [], securityFindings: 0 }));
+      fs.writeFileSync(path.join(runRoot, 'evidence-ledger.json'), JSON.stringify({
+        summary: { selected: 2, executed: 2, evidenceIncomplete: 0 },
+        cases: [{ caseId: 'CASE-001' }],
+      }));
+      expect(classifyFlowCompletion({ rootDir: root, systemId: 'demo-system', runId, exitCode: 0 }))
+        .toMatchObject({ status: 'blocked' });
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
@@ -376,6 +396,14 @@ test.describe('通用测试流程优化门禁', () => {
       existingCheckpoint: checkpoint,
       flowId: 'flow-1', selectedCaseIds: ['CASE-003'], completedRunIds: ['run-1'],
     })).toThrow('SYSTEM_TEST_CHECKPOINT_SELECTION_DRIFT');
+  });
+
+  test('中断恢复保留检查点终态并合并已跳过批次的逐案收据', () => {
+    expect(resolveFlowCheckpointTerminalCaseIds({
+      selectedCaseIds: ['CASE-001', 'CASE-002', 'CASE-003'],
+      resumedTerminalCaseIds: ['CASE-001', 'CASE-OLD'],
+      completedRunTerminalCaseIds: ['CASE-002', 'CASE-002'],
+    })).toEqual(['CASE-001', 'CASE-002']);
   });
 
   test('全量回归必须在租户隔离后按有界数量切批，避免固定时限截断整轮', () => {
@@ -672,6 +700,7 @@ test.describe('通用测试流程优化门禁', () => {
     }), 'utf8');
     fs.writeFileSync(path.join(runRoot, 'evidence-ledger.json'), JSON.stringify({
       summary: { selected: 3, executed: 3, evidenceIncomplete: 0 },
+      cases: [{ caseId: 'CASE-001' }, { caseId: 'CASE-002' }, { caseId: 'CASE-003' }],
     }), 'utf8');
     try {
       expect(classifyFlowCompletion({ rootDir: root, systemId: 'demo', runId: 'run-1', exitCode: 1 }))

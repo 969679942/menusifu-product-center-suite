@@ -30,6 +30,7 @@ export function buildProductCenterMaintainabilityReport(
     { directory: 'flows', category: 'flow' },
     { directory: 'test-data', category: 'factory' },
     { directory: 'utils', category: 'utility' },
+    { directory: 'adapters/product-center', category: 'utility' },
   ];
   const files = roots.flatMap(({ directory, category }) => listTypeScriptFiles(path.join(projectRoot, directory))
     .map((filePath) => {
@@ -44,6 +45,8 @@ export function buildProductCenterMaintainabilityReport(
     }))
     .sort((left, right) => right.lines - left.lines || left.path.localeCompare(right.path));
   const directIdentityTemplates = files.flatMap((file) => {
+    // The detector's own pattern contains the marker text by design; never count it as a production identity template.
+    if (file.path.replaceAll('\\', '/') === 'utils/product-center-maintainability-audit.ts') return [];
     const source = fs.readFileSync(path.join(projectRoot, file.path), 'utf8');
     return source.split(/\r?\n/).flatMap((line, index) => /AUTO_AUDIT_.*(?:Date\.now|timestamp)/.test(line)
       ? [{ path: file.path, line: index + 1, text: line.trim() }]

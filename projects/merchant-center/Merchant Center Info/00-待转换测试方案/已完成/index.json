@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-04T15:47:46.132Z",
+  "generatedAt": "2026-09-08T23:56:49.485Z",
   "contract": {
     "canonicalFilesPerModule": 1,
     "canonicalRoot": "00-待转换测试方案/用例库",
@@ -8,7 +8,7 @@
     "unlandedIndexRoot": "00-待转换测试方案/未落地"
   },
   "summary": {
-    "landed": 432
+    "landed": 434
   },
   "cases": [
     {
@@ -1953,7 +1953,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-001",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-002",
@@ -1961,8 +1968,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-002",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "加料其他设置五项入口及上传支持按当前DOM独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-addon-other-settings.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-addon-other-settings-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-ADD-005",
@@ -1971,7 +1989,15 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-005",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_IMPLEMENTATION_MISMATCH",
+          "FORMAT_BASELINE_INVALID"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-006",
@@ -1980,7 +2006,15 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-006",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_IMPLEMENTATION_MISMATCH",
+          "FORMAT_BASELINE_INVALID"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-007",
@@ -1989,7 +2023,15 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-007",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_IMPLEMENTATION_MISMATCH",
+          "FORMAT_BASELINE_INVALID"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-008",
@@ -1997,8 +2039,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-008",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-addon-price-v5-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-ADD-009",
@@ -2006,8 +2059,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-009",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-addon-price-v5-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-ADD-010",
@@ -2015,8 +2079,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-010",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-addon-price-v5-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-ADD-011",
@@ -2024,8 +2099,17 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-011",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_IDENTITY_MISMATCH"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-012",
@@ -2034,7 +2118,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-012",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-013",
@@ -2043,7 +2134,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-013",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-014",
@@ -2052,7 +2150,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-014",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-015",
@@ -2061,7 +2166,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-015",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-016",
@@ -2070,7 +2182,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-016",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-017",
@@ -2079,7 +2198,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-017",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-018",
@@ -2088,7 +2214,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-018",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-019",
@@ -2097,7 +2230,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-019",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-020",
@@ -2106,7 +2246,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-020",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-021",
@@ -2115,7 +2262,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-021",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-022",
@@ -2124,7 +2278,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-022",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-023",
@@ -2133,7 +2294,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-023",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-024",
@@ -2142,7 +2310,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-024",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-025",
@@ -2151,7 +2326,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-025",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-026",
@@ -2160,7 +2342,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-026",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-027",
@@ -2169,7 +2358,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-027",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-028",
@@ -2178,7 +2374,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-028",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-029",
@@ -2187,7 +2390,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-029",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-030",
@@ -2196,7 +2406,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-030",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-031",
@@ -2205,7 +2422,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-031",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-032",
@@ -2214,7 +2438,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-032",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-033",
@@ -2223,7 +2454,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-033",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-034",
@@ -2232,7 +2470,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-034",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-035",
@@ -2241,7 +2486,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-035",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-036",
@@ -2250,7 +2502,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-036",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-037",
@@ -2259,7 +2518,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-037",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-038",
@@ -2268,7 +2534,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-038",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-039",
@@ -2277,7 +2550,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-039",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-040",
@@ -2286,7 +2566,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-040",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-041",
@@ -2295,7 +2582,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-041",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-042",
@@ -2304,7 +2598,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-042",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-043",
@@ -2313,7 +2614,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-043",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-044",
@@ -2322,7 +2630,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-044",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-045",
@@ -2331,7 +2646,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-045",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-046",
@@ -2340,7 +2662,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-046",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-ADD-047",
@@ -2349,7 +2678,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-ADD-047",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-001",
@@ -2358,7 +2694,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-001",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-002",
@@ -2367,7 +2710,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-002",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-003",
@@ -2376,7 +2726,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-003",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-004",
@@ -2385,7 +2742,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-004",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-005",
@@ -2394,7 +2758,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-005",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-006",
@@ -2403,7 +2774,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-006",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-008",
@@ -2412,7 +2790,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-008",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-009",
@@ -2421,7 +2806,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-009",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-010",
@@ -2430,7 +2822,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-010",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-011",
@@ -2439,7 +2838,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-011",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-012",
@@ -2448,7 +2854,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-012",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-013",
@@ -2457,7 +2870,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-013",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-014",
@@ -2466,7 +2886,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-014",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-015",
@@ -2475,7 +2902,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-015",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-016",
@@ -2484,7 +2918,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-016",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-017",
@@ -2493,7 +2934,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-017",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-018",
@@ -2502,7 +2950,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-018",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-019",
@@ -2511,7 +2966,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-019",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-020",
@@ -2520,7 +2982,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-020",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-021",
@@ -2529,7 +2998,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-021",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-022",
@@ -2538,7 +3014,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-022",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-023",
@@ -2547,7 +3030,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-023",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-024",
@@ -2556,7 +3046,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-024",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-025",
@@ -2565,7 +3062,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-025",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-026",
@@ -2574,7 +3078,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-026",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-027",
@@ -2583,7 +3094,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-027",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-028",
@@ -2592,7 +3110,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-028",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-029",
@@ -2601,7 +3126,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-029",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-030",
@@ -2610,7 +3142,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-030",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-031",
@@ -2619,7 +3158,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-031",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-032",
@@ -2628,7 +3174,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-032",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-033",
@@ -2637,7 +3190,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-033",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-034",
@@ -2646,7 +3206,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-034",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-035",
@@ -2655,7 +3222,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-035",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-036",
@@ -2664,7 +3238,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-036",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-037",
@@ -2673,7 +3254,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-037",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-038",
@@ -2682,7 +3270,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-038",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-040",
@@ -2691,7 +3286,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-040",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-041",
@@ -2700,7 +3302,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-041",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-042",
@@ -2709,7 +3318,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-042",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-043",
@@ -2718,7 +3334,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-043",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-044",
@@ -2727,7 +3350,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-044",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-045",
@@ -2736,7 +3366,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-045",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-046",
@@ -2745,7 +3382,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-046",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-047",
@@ -2754,7 +3398,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-047",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-048",
@@ -2763,7 +3414,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-048",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-049",
@@ -2772,7 +3430,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-049",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-050",
@@ -2781,7 +3446,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-050",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-051",
@@ -2790,7 +3462,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-051",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-052",
@@ -2799,7 +3478,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-052",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-053",
@@ -2808,7 +3494,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-053",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-054",
@@ -2817,7 +3510,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-054",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-055",
@@ -2826,7 +3526,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-055",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-056",
@@ -2835,7 +3542,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-056",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-057",
@@ -2844,7 +3558,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-057",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-058",
@@ -2853,7 +3574,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-058",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-059",
@@ -2862,7 +3590,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-059",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-061",
@@ -2871,7 +3606,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-061",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-062",
@@ -2880,7 +3622,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-062",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-063",
@@ -2889,7 +3638,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-063",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-064",
@@ -2898,7 +3654,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-064",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-065",
@@ -2907,7 +3670,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-065",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-067",
@@ -2916,7 +3686,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-067",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-068",
@@ -2925,7 +3702,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-068",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-069",
@@ -2934,7 +3718,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-069",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-071",
@@ -2943,7 +3734,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-071",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-072",
@@ -2952,7 +3750,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-072",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-073",
@@ -2961,7 +3766,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-073",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-074",
@@ -2970,7 +3782,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-074",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-075",
@@ -2979,7 +3798,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-075",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-076",
@@ -2988,7 +3814,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-076",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-078",
@@ -2997,7 +3830,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-078",
       "status": "landed",
       "runnerId": "item",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts"
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-PKG-079",
@@ -3006,7 +3846,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-PKG-079",
       "status": "landed",
       "runnerId": "item",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts"
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-001",
@@ -3015,7 +3862,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-001",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-002",
@@ -3023,8 +3877,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-002",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-003",
@@ -3032,8 +3897,17 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-003",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "LATEST_EXECUTION_NOT_PASSED"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-004",
@@ -3041,8 +3915,17 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-004",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "中文/英文正确文案与核对范围缺少正式来源；已登记阻断入口不表示可执行",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "blocked-source",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-005",
@@ -3050,8 +3933,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-005",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "正式名称必填六动作和三断言已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-required-name.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-required-name-20260908-03-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-006",
@@ -3060,7 +3954,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-006",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-007",
@@ -3069,7 +3970,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-007",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-008",
@@ -3078,7 +3986,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-008",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-009",
@@ -3087,7 +4002,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-009",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-010",
@@ -3096,7 +4018,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-010",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-011",
@@ -3105,7 +4034,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-011",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-012",
@@ -3114,7 +4050,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-012",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-013",
@@ -3123,7 +4066,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-013",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-014",
@@ -3132,7 +4082,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-014",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-015",
@@ -3141,7 +4098,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-015",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-016",
@@ -3150,7 +4114,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-016",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-017",
@@ -3159,7 +4130,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-017",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-018",
@@ -3168,7 +4146,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-018",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-019",
@@ -3176,8 +4161,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-019",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "正式销售单位精确集合断言已独立实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-weight-units.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-weight-units-20260908-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-020",
@@ -3186,7 +4182,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-020",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-021",
@@ -3195,7 +4198,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-021",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-022",
@@ -3204,7 +4214,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-022",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-023",
@@ -3213,7 +4230,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-023",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-024",
@@ -3222,7 +4246,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-024",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-028",
@@ -3231,7 +4262,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-028",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-029",
@@ -3240,7 +4278,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-029",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-030",
@@ -3248,8 +4293,17 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-030",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-query-return.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "LATEST_EXECUTION_NOT_PASSED"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-031",
@@ -3258,7 +4312,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-031",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-032",
@@ -3267,7 +4328,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-032",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-033",
@@ -3276,7 +4344,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-033",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-035",
@@ -3285,7 +4360,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-035",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-036",
@@ -3294,7 +4376,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-036",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-037",
@@ -3303,7 +4392,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-037",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-038",
@@ -3312,7 +4408,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-038",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-039",
@@ -3321,7 +4424,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-039",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-041",
@@ -3329,8 +4439,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-041",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "高级设置独立状态与字段身份断言已按当前DOM实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-advanced-settings.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-advanced-settings-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-042",
@@ -3338,8 +4459,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-042",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "高级设置独立状态与字段身份断言已按当前DOM实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-advanced-settings.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-advanced-settings-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-043",
@@ -3348,7 +4480,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-043",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-044",
@@ -3357,7 +4496,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-044",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-045",
@@ -3365,8 +4511,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-045",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-create-controls-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-046",
@@ -3375,7 +4532,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-046",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-047",
@@ -3384,7 +4548,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-047",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-048",
@@ -3392,8 +4563,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-048",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-create-controls-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-049",
@@ -3401,8 +4583,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-049",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-create-controls-20260909-01-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-050",
@@ -3411,7 +4604,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-050",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-051",
@@ -3420,7 +4620,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-051",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-052",
@@ -3429,7 +4636,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-052",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-053",
@@ -3438,7 +4652,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-053",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-054",
@@ -3447,7 +4668,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-054",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-055",
@@ -3456,7 +4684,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-055",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-056",
@@ -3465,7 +4700,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-056",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-057",
@@ -3474,7 +4716,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-057",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-058",
@@ -3483,7 +4732,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-058",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-059",
@@ -3492,7 +4748,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-059",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-061",
@@ -3501,7 +4764,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-061",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-063",
@@ -3509,8 +4779,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-063",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-064",
@@ -3519,7 +4800,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-064",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-065",
@@ -3528,7 +4816,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-065",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-066",
@@ -3537,7 +4832,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-066",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-068",
@@ -3546,7 +4848,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-068",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-069",
@@ -3555,7 +4864,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-069",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-071",
@@ -3564,7 +4880,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-071",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-072",
@@ -3572,8 +4895,17 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-072",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "LATEST_EXECUTION_NOT_PASSED"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-073",
@@ -3581,8 +4913,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-073",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-074",
@@ -3590,8 +4933,19 @@
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-074",
       "status": "landed",
-      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "独立来源场景已实现；通过资格必须消费当前标准收据",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-source-governed-standard-list-20260908-02-source-governed.json"
+      ]
     },
     {
       "caseId": "TC-ITEM-STD-075",
@@ -3600,7 +4954,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-075",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-076",
@@ -3609,7 +4970,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-076",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-078",
@@ -3618,7 +4986,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-078",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-079",
@@ -3627,7 +5002,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-079",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-081",
@@ -3636,7 +5018,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-081",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-082",
@@ -3645,7 +5034,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-082",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-084",
@@ -3654,7 +5050,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-084",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-085",
@@ -3663,7 +5066,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-085",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-086",
@@ -3672,7 +5082,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-086",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-087",
@@ -3681,7 +5098,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-087",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-088",
@@ -3690,7 +5114,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-088",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-089",
@@ -3699,7 +5130,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-089",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-090",
@@ -3708,7 +5146,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-090",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-091",
@@ -3717,7 +5162,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-091",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-092",
@@ -3726,7 +5178,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-092",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-093",
@@ -3735,16 +5194,30 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-093",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-094",
-      "title": "POS名称首尾含空格时保存失败",
+      "title": "商品名称超过100字符时失焦拦截",
       "module": "item",
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-094",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-095",
@@ -3753,7 +5226,14 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-095",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-ITEM-STD-096",
@@ -3762,7 +5242,52 @@
       "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-096",
       "status": "landed",
       "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
-      "runnerId": "item"
+      "runnerId": "item",
+      "runtimeStatus": "current-receipt-incomplete",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
+    },
+    {
+      "caseId": "TC-ITEM-STD-102",
+      "title": "商品名称恰好100字符且包含单个中间空格时允许保存",
+      "module": "item",
+      "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-102",
+      "status": "landed",
+      "runtimeStatus": "current-receipt-qualified",
+      "reason": "正式来源与名称格式场景已绑定；真实运行与当前收据资格独立验收",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "qualified",
+        "reasons": []
+      },
+      "currentReceiptEvidence": [
+        "contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json",
+        "output/product-center-item-handled-standard-name-20260908-02-handled-item-revalidation.json"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-STD-103",
+      "title": "商品名称包含 emoji 时保存失败",
+      "module": "item",
+      "canonicalPath": "Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md#TC-ITEM-STD-103",
+      "status": "landed",
+      "runtimeStatus": "current-receipt-incomplete",
+      "reason": "正式来源与名称格式场景已绑定；真实运行与当前收据资格独立验收",
+      "runnerId": "item",
+      "scriptPath": "Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts",
+      "bindingRuntimeStatus": "not-run",
+      "currentReceiptQualification": {
+        "status": "incomplete",
+        "reasons": [
+          "CURRENT_CASE_CONTRACT_MISSING"
+        ]
+      }
     },
     {
       "caseId": "TC-TAG-BDG-009",

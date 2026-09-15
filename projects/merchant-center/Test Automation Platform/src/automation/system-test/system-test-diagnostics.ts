@@ -64,9 +64,14 @@ export type SystemTestFailureDiagnosticDocument = {
     | 'none';
   requiredNextActions: SystemTestDiagnosticNextAction[];
   diagnostics: SystemTestFailureDiagnostic[];
+  runDiagnostics?: Array<{
+    phase: 'reporting'; failureCategory: 'automation-gap'; expected: string; actual: string;
+    humanSummary: string; evidenceRef: string; action: 'reconcile-run-evidence'; businessRerunAuthorized: false;
+  }>;
 };
 
 export function buildSystemTestFailureDiagnosticDocument(input: {
+  historicalEvidenceFinding?: string | null;
   outputDir: string;
   systemId: string;
   runId: string;
@@ -123,6 +128,15 @@ export function buildSystemTestFailureDiagnosticDocument(input: {
       } satisfies SystemTestFailureDiagnostic;
     });
   const requiredNextActions = [...new Set(diagnostics.map((item) => item.requiredNextAction))];
+  const historyReason = input.historicalEvidenceFinding
+    ? /^[A-Z][A-Z0-9_]+$/.test(input.historicalEvidenceFinding) ? input.historicalEvidenceFinding : 'HISTORICAL_EVIDENCE_UNAVAILABLE'
+    : null;
+  const runDiagnostics: NonNullable<SystemTestFailureDiagnosticDocument['runDiagnostics']> = historyReason ? [{
+    phase: 'reporting', failureCategory: 'automation-gap', expected: '历史索引与快照保持完整一致', actual: historyReason,
+    humanSummary: formatSystemTestFailureSummary({ failureCategory: 'automation-gap', phase: '报告与历史证据协调',
+      expected: '历史索引与快照保持完整一致', actual: historyReason, message: '本次独立执行观察保留；历史异常须协调证据，不能据此授权业务重跑或通过。' }),
+    evidenceRef: 'evidence-invocations/index.json', action: 'reconcile-run-evidence', businessRerunAuthorized: false,
+  }] : [];
   return {
     schemaVersion: '1.0.0',
     generatedAt: new Date().toISOString(),
@@ -130,7 +144,7 @@ export function buildSystemTestFailureDiagnosticDocument(input: {
     runId: input.runId,
     ...(input.contractFingerprint ? { contractFingerprint: input.contractFingerprint } : {}),
     ...(input.implementationFingerprint ? { implementationFingerprint: input.implementationFingerprint } : {}),
-    status: diagnostics.length === 0 ? 'not-run' : 'complete',
+    status: diagnostics.length === 0 && runDiagnostics.length === 0 ? 'not-run' : 'complete',
     rerunGate: requiredNextActions.includes('audit-action-chain')
       ? 'action-chain-audit-required'
       : requiredNextActions.includes('repair-seed-identity')
@@ -139,6 +153,7 @@ export function buildSystemTestFailureDiagnosticDocument(input: {
           ? 'implementation-or-context-change-required' : 'none',
     requiredNextActions,
     diagnostics,
+    ...(runDiagnostics.length ? { runDiagnostics } : {}),
   };
 }
 
@@ -154,6 +169,7 @@ export function buildSystemTestDiagnosticWorkQueue(document: SystemTestFailureDi
     evidenceRefs: string[];
     recoveryCondition: string;
   }>;
+  runItems?: Array<{ runId: string; action: 'reconcile-run-evidence'; evidenceRefs: string[]; recoveryCondition: string; businessRerunAuthorized: false }>;
 } {
   const items = document.diagnostics.map((item) => ({
     caseId: item.caseId,
@@ -161,13 +177,17 @@ export function buildSystemTestDiagnosticWorkQueue(document: SystemTestFailureDi
     evidenceRefs: item.errorArtifact ? [item.errorArtifact] : [],
     recoveryCondition: recoveryCondition(item.requiredNextAction),
   }));
+  const runItems = document.runDiagnostics?.map((item) => ({ runId: document.runId, action: item.action,
+    evidenceRefs: [item.evidenceRef], recoveryCondition: '保留本次终态与异常快照；完成历史证据协调并重新通过严格索引和收据校验。',
+    businessRerunAuthorized: false as const })) ?? [];
   return {
     schemaVersion: '1.0.0',
     generatedAt: new Date().toISOString(),
     systemId: document.systemId,
     runId: document.runId,
-    status: items.length > 0 ? 'ready' : 'empty',
+    status: items.length > 0 || runItems.length > 0 ? 'ready' : 'empty',
     items,
+    ...(runItems.length ? { runItems } : {}),
   };
 }
 

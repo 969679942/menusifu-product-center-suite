@@ -1,10 +1,91 @@
 import {
+  assertExecutionIntentContract,
+  assertExecutionIntentImpactScope,
   fingerprintExecutionIntent,
   fingerprintExecutionSelection,
   type ExecutionIntent,
-} from '../../../../Test Automation Platform/src/governance/execution-intent';
-import type { ProjectRemediationOptimizationPlan } from '../../../../Test Automation Platform/src/governance/project-remediation-optimization';
-import type { ProjectRemediationOptimizationCase } from '../../../../Test Automation Platform/src/governance/project-remediation-optimization';
+} from '../../../Test Automation Platform/src/governance/execution-intent';
+import type { ProjectRemediationOptimizationPlan } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
+import type { ProjectRemediationOptimizationCase } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
+
+export type ProductCenterFullRegressionIntent = ExecutionIntent & {
+  formalScopeCaseIds: string[];
+  exclusionReasons: Record<string, string>;
+};
+
+export function buildProductCenterFullRegressionExecutionIntent(input: {
+  runId: string;
+  scopeFingerprint: string;
+  formalCases: ReadonlyArray<{ caseId: string; module: string }>;
+  sourcePlan: {
+    revalidation: {
+      selectedCaseIds: string[];
+      runners: Array<{ runnerId: string; selectedCaseIds: string[] }>;
+    };
+    tasks: Array<{ caseId: string; module: string; action: string; reason: string; blockCode?: string | null }>;
+  };
+  seasoningCaseIds: readonly string[];
+}): ProductCenterFullRegressionIntent {
+  const sourceCaseIds = sortedUnique(input.sourcePlan.revalidation.selectedCaseIds);
+  const seasoningCaseIds = sortedUnique(input.seasoningCaseIds);
+  const selectedCaseIds = sortedUnique([...sourceCaseIds, ...seasoningCaseIds]);
+  const formalScopeCaseIds = sortedUnique([
+    ...input.formalCases.map((item) => item.caseId),
+    ...selectedCaseIds,
+  ]);
+  const taskByCaseId = new Map(input.sourcePlan.tasks.map((item) => [item.caseId, item]));
+  const explicitlyClassifiedActions = new Set([
+    'deferred',
+    'blocked-source',
+    'blocked-technical',
+    'not-applicable',
+  ]);
+  const classifiedExclusionCaseIds = formalScopeCaseIds
+    .filter((caseId) => !selectedCaseIds.includes(caseId));
+  const unclassifiedCaseIds = classifiedExclusionCaseIds.filter((caseId) => {
+    const task = taskByCaseId.get(caseId);
+    return !task || !explicitlyClassifiedActions.has(task.action) || !task.reason?.trim();
+  });
+  if (unclassifiedCaseIds.length > 0) {
+    throw new Error(`PRODUCT_CENTER_FULL_REGRESSION_UNCLASSIFIED_CASE:${unclassifiedCaseIds.join(',')}`);
+  }
+
+  const moduleByCaseId = new Map(input.formalCases.map((item) => [item.caseId, item.module]));
+  for (const task of input.sourcePlan.tasks) moduleByCaseId.set(task.caseId, task.module);
+  for (const caseId of seasoningCaseIds) moduleByCaseId.set(caseId, 'seasoning');
+  const unknownModuleCaseIds = selectedCaseIds.filter((caseId) => !moduleByCaseId.get(caseId));
+  if (unknownModuleCaseIds.length > 0) {
+    throw new Error(`PRODUCT_CENTER_FULL_REGRESSION_PARTITION_UNKNOWN:${unknownModuleCaseIds.join(',')}`);
+  }
+  const partitionCaseIds = Object.fromEntries(
+    [...new Set(selectedCaseIds.map((caseId) => moduleByCaseId.get(caseId)!))]
+      .sort()
+      .map((module) => [module, selectedCaseIds.filter((caseId) => moduleByCaseId.get(caseId) === module)]),
+  );
+  const intent: ProductCenterFullRegressionIntent = {
+    intentId: input.runId,
+    mode: 'full-regression',
+    stage: 'full',
+    scopeId: 'merchant-center-product-center:formal-full-regression',
+    scopeFingerprint: input.scopeFingerprint,
+    plannedCaseIds: selectedCaseIds,
+    classifiedExclusionCaseIds,
+    partitionCaseIds,
+    selectedCaseIds,
+    routes: {
+      ...(sourceCaseIds.length > 0 ? { 'source-governed': sourceCaseIds } : {}),
+      ...(seasoningCaseIds.length > 0 ? { seasoning: seasoningCaseIds } : {}),
+    },
+    formalScopeCaseIds,
+    exclusionReasons: Object.fromEntries(classifiedExclusionCaseIds.map((caseId) => {
+      const task = taskByCaseId.get(caseId)!;
+      return [caseId, `${task.blockCode ?? task.action}:${task.reason}`];
+    })),
+  };
+  assertExecutionIntentContract({ intent });
+  assertExecutionIntentImpactScope({ intent, impactedCaseIds: formalScopeCaseIds });
+  return intent;
+}
 
 export function buildProductCenterBatchExecutionIntent(input: {
   runId: string;

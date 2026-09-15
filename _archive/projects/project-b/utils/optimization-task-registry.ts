@@ -1,1 +1,1 @@
-export * from '../../../Test Automation Platform/src/governance/optimization-task-registry';
+export * from '../../Test Automation Platform/src/governance/optimization-task-registry';

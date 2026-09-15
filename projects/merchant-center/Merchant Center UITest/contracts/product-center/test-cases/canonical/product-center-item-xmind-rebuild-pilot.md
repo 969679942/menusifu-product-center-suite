@@ -1,11 +1,11 @@
 # 商品中心商品 XMind 全量重建试点
 
 - 原 XMind：48 个叶子，完整执行链 9 条
-- 正式用例：216 条，原始结构有效 123 条，原始结构/来源问题 93 条
-- 自动规范化来源：44 条；步骤结构规范化：0 条；产品规则修正：14 条
+- 正式用例：220 条，原始结构有效 120 条，原始结构/来源问题 100 条
+- 自动规范化来源：45 条；步骤结构规范化：2 条；产品规则修正：14 条
 - 全审修订：54 条原用例；拆分新增 8 条单目标用例
-- 重建结果：232 条；待逐条全审 195 条；来源/规则待确认 30 条；已废弃 7 条
-- 优先级：P0=87，P1=136，P2=9
+- 重建结果：236 条；待逐条全审 198 条；来源/规则待确认 31 条；已废弃 7 条
+- 优先级：P0=88，P1=139，P2=9
 - 原 XMind 未覆盖，所有页面补充候选禁止直接生成 Recipe。
 
 ## 产品规则修正
@@ -14,7 +14,7 @@
 - TC-ITEM-STD-006：一级分类下无二级分类，可新增商品成功 → 一级分类下无二级分类，可新增商品成功；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
 - TC-ITEM-PKG-057：套餐商品通过选择入口引用已有可选搭配组 → 套餐商品通过选择入口引用已有可选搭配组；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
 - TC-ITEM-PKG-058：套餐商品回显已有可选搭配组规则摘要 → 套餐商品回显已有可选搭配组规则摘要；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
-- TC-ITEM-PKG-059：套餐商品编辑页的可选搭配组不提供商品单项移除入口 → 套餐商品编辑页可选搭配组仅支持组级操作；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
+- TC-ITEM-PKG-059：套餐商品编辑页可选搭配组仅支持组级操作并验证持久化 → 套餐商品编辑页可选搭配组仅支持组级操作并验证持久化；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
 - TC-ITEM-PKG-069：套餐商品内不提供口味组加价和默认选中编辑 → 套餐商品内不提供口味组加价和默认选中编辑；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
 - TC-ITEM-PKG-071：套餐商品内不提供做法组加价和默认选中编辑 → 套餐商品内不提供做法组加价和默认选中编辑；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
 - TC-ITEM-PKG-072：套餐商品内不提供加料组加价和默认选中编辑 → 套餐商品内不提供加料组加价和默认选中编辑；删除“最少选择份数、最多选择份数、份数内免费”；采用“组名称、选择数量、相同商品合并展示、组内商品是否可重复选中、名称/分类筛选”
@@ -27,7 +27,6 @@
 
 ## 风险优先用例清单
 
-- [P0] TC-ITEM-STD-037 不选择商品分类时标准商品创建成功；标准商品/创建；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-STD-036 标准商品仅填写必填项时创建成功；标准商品/必填校验；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-ADD-005 加料商品仅填写必填项时创建成功；加料商品/必填校验；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-PKG-009 套餐商品仅填写必填项时创建成功；套餐商品/必填校验；pending-full-review；expert-reviewed-corrected
@@ -39,16 +38,17 @@
 - [P0] TC-ITEM-PKG-010 套餐商品必填项缺失时创建失败；套餐商品/必填校验；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-PKG-017 套餐商品标准价缺失时创建失败；套餐商品/必填校验；pending-full-review；source-normalized
 - [P0] TC-ITEM-STD-010 商品编码重复时创建失败并提示 BITEM-7003；标准商品/创建；pending-full-review；expert-reviewed-corrected
-- [P0] TC-ITEM-STD-011 同一一级分类下新建同名商品创建失败；标准商品/创建；pending-full-review；unchanged
-- [P0] TC-ITEM-STD-013 同一二级分类下新建同名商品创建失败；标准商品/创建；pending-full-review；unchanged
-- [P0] TC-ITEM-STD-014 同一商户下不同一级分类仍不可创建同名商品；标准商品/创建；pending-full-review；unchanged
+- [P0] TC-ITEM-STD-011 同一商户同一商品类型内新建同名商品创建失败；标准商品/创建；pending-full-review；unchanged
+- [P0] TC-ITEM-STD-013 同一商品类型同一二级分类下新建同名商品创建失败；标准商品/创建；pending-full-review；unchanged
+- [P0] TC-ITEM-STD-014 同一商户同一商品类型下不同一级分类仍不可创建同名商品；标准商品/创建；pending-full-review；unchanged
 - [P0] TC-ITEM-STD-093 商品名称首尾含空格时保存失败；标准商品/创建；pending-full-review；unchanged
-- [P0] TC-ITEM-ADD-014 加料商品同一一级分类下同名创建失败；加料商品/创建；pending-full-review；unchanged
 - [P0] TC-ITEM-ADD-047 加料商品名称首尾含空格时保存失败；加料商品/创建；pending-full-review；unchanged
-- [P0] TC-ITEM-STD-044 品牌内商品名称重复时创建失败；标准商品/价格规格；pending-full-review；unchanged
-- [P0] TC-ITEM-PKG-024 套餐商品同一一级分类下同名创建失败；套餐商品/套餐规则；pending-full-review；unchanged
-- [P0] TC-ITEM-PKG-025 套餐商品同商户同类型同名创建失败；套餐商品/套餐规则；pending-full-review；unchanged
+- [P0] TC-ITEM-PKG-024 同一商户同一商品类型内套餐商品同名创建失败；套餐商品/套餐规则；pending-full-review；unchanged
 - [P0] TC-ITEM-PKG-076 套餐商品名称首尾含空格时保存失败；套餐商品/套餐规则；pending-full-review；unchanged
+- [P0] TC-ITEM-STD-044 同一商户同一商品类型内商品名称重复时创建或编辑失败；标准商品/编辑；pending-full-review；unchanged
+- [P0] TC-ITEM-ADD-014 同一商户同一商品类型内加料商品同名创建或编辑失败；加料商品/编辑；pending-full-review；unchanged
+- [P0] TC-ITEM-PKG-025 套餐商品同商户同类型同名创建或编辑失败；套餐商品/编辑；pending-full-review；unchanged
+- [P0] TC-ITEM-PKG-079 标准商品与套餐商品跨类型同名创建或编辑失败；套餐商品/编辑；pending-full-review；unchanged
 - [P0] TC-ITEM-STD-016 多规格商品选择默认规格后创建成功且列表展示所有规格价格；标准商品/价格规格；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-STD-017 多规格商品未选择默认规格时列表仍展示所有规格价格；标准商品/价格规格；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-STD-018 称重商品创建成功；标准商品/价格规格；pending-full-review；expert-reviewed-corrected
@@ -113,8 +113,11 @@
 - [P0] TC-ITEM-STD-089 标准商品内同一选项组仅允许一个默认选中子项；标准商品/展示与其他；pending-full-review；unchanged
 - [P0] TC-ITEM-ADD-016 加料商品商品第二名称与商品名称互相不可重复；加料商品/展示与其他；pending-full-review；expert-reviewed-corrected
 - [P0] TC-ITEM-STD-001 标准商品创建页展示商品类型入口与核心配置模块；标准商品/展示与其他；pending-full-review；expert-reviewed-corrected
+- [P0] TC-ITEM-STD-037 不选择商品分类时标准商品创建成功；标准商品/创建；review-required；expert-reviewed-corrected
 - [P0] TC-ITEM-STD-040 【已废弃 v3.3】起售数量为 0 时保存失败并提示 SYSTEM-0001（与 TC-ITEM-STD-022 重复）；标准商品/价格规格；deprecated；expert-reviewed-corrected
-- [P1] TC-ITEM-STD-094 POS名称首尾含空格时保存失败；标准商品/创建；pending-full-review；expert-reviewed-corrected
+- [P1] TC-ITEM-PKG-078 套餐商品与加料商品允许同名并同时保留；套餐商品/套餐规则；pending-full-review；structure-normalized
+- [P1] TC-ITEM-STD-012 同一商品类型不同二级分类的标准商品同名提示 BITEM-7014；标准商品/展示与其他；pending-full-review；source-normalized
+- [P1] TC-ITEM-ADD-015 加料商品允许与其他商品类型同名；加料商品/展示与其他；pending-full-review；source-normalized
 - [P1] TC-ITEM-STD-015 单规格商品标准价为0时创建成功；标准商品/价格规格；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-STD-019 称重商品销售单位下拉展示 g、kg、ml；标准商品/价格规格；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-020 单规格商品标准价为1.99时创建成功；标准商品/价格规格；pending-full-review；expert-reviewed-corrected
@@ -148,7 +151,6 @@
 - [P1] TC-ITEM-PKG-033 套餐商品从图片库选择主图后创建成功；套餐商品/套餐规则；pending-full-review；source-normalized
 - [P1] TC-ITEM-PKG-042 已选固定搭配套餐组可从右侧移除；套餐商品/套餐规则；pending-full-review；unchanged
 - [P1] TC-ITEM-PKG-043 已选组合搭配套餐组可从右侧移除；套餐商品/套餐规则；pending-full-review；unchanged
-- [P1] TC-ITEM-PKG-049 套餐商品同时引用已有固定搭配与可选搭配组；套餐商品/套餐规则；pending-full-review；unchanged
 - [P1] TC-ITEM-PKG-057 套餐商品通过选择入口引用已有可选搭配组；套餐商品/套餐规则；pending-full-review；product-corrected
 - [P1] TC-ITEM-PKG-058 套餐商品回显已有可选搭配组规则摘要；套餐商品/套餐规则；pending-full-review；product-corrected
 - [P1] TC-ITEM-PKG-073 套餐商品内没有选项组默认选中子项配置入口；套餐商品/套餐规则；pending-full-review；product-corrected
@@ -157,7 +159,7 @@
 - [P1] TC-ITEM-PKG-045 组合搭配套餐组清空搜索条件后恢复默认列表；套餐商品/查询筛选；pending-full-review；unchanged
 - [P1] TC-ITEM-PKG-056 组合搭配套餐组按名称精确搜索成功；套餐商品/查询筛选；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-PKG-036 套餐商品编辑其他信息后保存成功；套餐商品/编辑；pending-full-review；source-normalized
-- [P1] TC-ITEM-PKG-059 套餐商品编辑页可选搭配组仅支持组级操作；套餐商品/编辑；pending-full-review；product-corrected
+- [P1] TC-ITEM-PKG-059 套餐商品编辑页可选搭配组仅支持组级操作并验证持久化；套餐商品/编辑；pending-full-review；product-corrected
 - [P1] TC-ITEM-PKG-069 套餐商品内不提供口味组加价和默认选中编辑；套餐商品/编辑；pending-full-review；product-corrected
 - [P1] TC-ITEM-PKG-071 套餐商品内不提供做法组加价和默认选中编辑；套餐商品/编辑；pending-full-review；product-corrected
 - [P1] TC-ITEM-PKG-072 套餐商品内不提供加料组加价和默认选中编辑；套餐商品/编辑；pending-full-review；product-corrected
@@ -197,6 +199,8 @@
 - [P1] TC-ITEM-STD-046 助记码超过 20 字符时保存失败；标准商品/创建；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-STD-053 本地上传主图后创建成功；标准商品/创建；pending-full-review；source-normalized
 - [P1] TC-ITEM-STD-101 设备编码超过 20 字符时保存失败；标准商品/创建；pending-full-review；expert-reviewed-corrected
+- [P1] TC-ITEM-STD-102 商品名称恰好100字符且包含单个中间空格时允许保存；标准商品/创建；pending-full-review；structure-normalized
+- [P1] TC-ITEM-STD-103 商品名称包含 emoji 时保存失败；标准商品/创建；pending-full-review；unchanged
 - [P1] TC-ITEM-ADD-007 加料商品不选择分类时创建成功；加料商品/创建；pending-full-review；source-normalized
 - [P1] TC-ITEM-ADD-009 加料商品标准价为 0 时创建成功；加料商品/创建；pending-full-review；unchanged
 - [P1] TC-ITEM-ADD-012 加料商品名称超长及特殊字符保存后自动格式化；加料商品/创建；pending-full-review；unchanged
@@ -206,10 +210,10 @@
 - [P1] TC-ITEM-ADD-048 加料商品标准价输入非数字时创建失败；加料商品/价格规格；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-STD-004 切换中英文后商品页面文案随系统语言切换；标准商品/展示与其他；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-STD-007 一级分类存在二级分类时必须选择二级分类才能完成商品分类选择；标准商品/展示与其他；pending-full-review；unchanged
-- [P1] TC-ITEM-STD-045 商品描述达到 250 字符后不可继续输入；标准商品/展示与其他；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-054 详情图超过 10 张时不可继续添加；标准商品/展示与其他；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-059 商品内不可单独添加组子项仅可移除已引用子项；标准商品/展示与其他；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-063 商品列表分页支持切换 10/20/50/100 条；标准商品/展示与其他；pending-full-review；expert-reviewed-corrected
+- [P1] TC-ITEM-STD-094 商品名称超过100字符时失焦拦截；标准商品/展示与其他；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-ADD-002 加料商品其他设置与标准商品一致；加料商品/展示与其他；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-ADD-038 加料商品继续上传第 2 张主图时覆盖第 1 张主图；加料商品/展示与其他；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-003 商品展示列设置后列表仅展示所选列；标准商品/展示与其他；pending-full-review；unchanged
@@ -220,8 +224,6 @@
 - [P1] TC-ITEM-STD-076 商品列表空值字段展示空而非“-”；标准商品/展示与其他；pending-full-review；unchanged
 - [P1] TC-ITEM-STD-086 移除已引用口味组子项后详情不再展示该子项；标准商品/展示与其他；pending-full-review；expert-reviewed-corrected
 - [P1] TC-ITEM-UI-007 标准商品创建页提供保存并新建入口；页面补充/展示与其他；pending-full-review；expert-reviewed-corrected
-- [P1] TC-ITEM-STD-012 同一一级分类不同二级分类的标准商品同名提示 BITEM-7010；标准商品/展示与其他；review-required；source-review-required
-- [P1] TC-ITEM-ADD-015 加料商品允许与其他商品类型同名；加料商品/展示与其他；review-required；source-review-required
 - [P1] TC-ITEM-STD-023 标准商品非法起售数量保存时归一化为 1；标准商品/价格规格；review-required；source-review-required
 - [P1] TC-ITEM-STD-051 超限价格保存成功并按 999999.99 展示；标准商品/价格规格；review-required；expert-reviewed-corrected
 - [P1] TC-ITEM-PKG-050 删除全部套餐分组后因分组必填无法保存；套餐商品/必填校验；review-required；source-review-required
@@ -230,6 +232,7 @@
 - [P1] TC-ITEM-PKG-021 套餐商品名称首尾空格校验及 100 字符上限；套餐商品/套餐规则；review-required；source-review-required
 - [P1] TC-ITEM-PKG-023 套餐商品助记码超过 20 字符时保存失败；套餐商品/套餐规则；review-required；expert-reviewed-corrected
 - [P1] TC-ITEM-PKG-028 套餐商品最多保存 10 张有效详情图片；套餐商品/套餐规则；review-required；source-review-required
+- [P1] TC-ITEM-PKG-049 套餐商品同时引用已有固定搭配与可选搭配组；套餐商品/套餐规则；review-required；source-review-required
 - [P1] TC-ITEM-PKG-052 套餐商品不支持引用口味做法加料组；套餐商品/套餐规则；review-required；source-review-required
 - [P1] TC-ITEM-PKG-053 套餐和加料商品不支持互斥规则；套餐商品/套餐规则；review-required；source-review-required
 - [P1] TC-ITEM-PKG-067 套餐商品本地上传主图回显后保存成功；套餐商品/套餐规则；review-required；source-review-required
@@ -245,6 +248,7 @@
 - [P1] TC-ITEM-ADD-037 加料商品状态变更后需下发到门店终端才生效；加料商品/状态生命周期；review-required；source-review-required
 - [P1] TC-ITEM-STD-021 标准价输入负数时创建失败；标准商品/价格规格；review-required；expert-reviewed-corrected
 - [P1] TC-ITEM-ADD-010 加料商品标准价输入负数时创建失败；加料商品/价格规格；review-required；expert-reviewed-corrected
+- [P1] TC-ITEM-STD-045 商品描述达到 250 字符后不可继续输入；标准商品/展示与其他；review-required；source-review-required
 - [P1] TC-ITEM-STD-078 标准商品主图上传后不提供第二次本地上传入口；标准商品/展示与其他；review-required；source-review-required
 - [P1] TC-ITEM-STD-025 【已废弃】从行业商品库选择单规格商品时可继承行业商品信息；标准商品/价格规格；deprecated；deprecated
 - [P1] TC-ITEM-STD-026 【已废弃】从行业商品库选择多规格商品时可继承多规格及图库信息；标准商品/价格规格；deprecated；deprecated

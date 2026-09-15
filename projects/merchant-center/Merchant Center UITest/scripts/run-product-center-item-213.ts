@@ -9,8 +9,9 @@ import {
 } from '../utils/product-center-remediation-policy';
 import { assertSystemTestExecutionGrant } from '../automation/system-test/system-test-execution-grant';
 import fs from 'node:fs';
+import { partitionProductCenterItemSpecs } from '../adapters/product-center/product-center-item-addon-price-specs';
+import { publishItemReportAggregate, type ItemReportUnit } from '../adapters/product-center/product-center-item-report-aggregation';
 
-const itemSpecPath = 'tests/generated/product-center-item-216.generated.spec.ts';
 const requiredRoutes = [
   '/pp/brand/list',
   '/pp/brand/create/standard',
@@ -32,6 +33,7 @@ export function runProductCenterItem213(
   const rootDir = options.rootDir ?? process.cwd();
   const shardCount = options.shardCount ?? positiveInteger(process.env.PC_ITEM_SHARDS, 1);
   const caseIds = options.caseIds ?? parseCsv(process.env.PC_ITEM_SELECTED_CASE_IDS);
+  const specRoutes = partitionProductCenterItemSpecs(caseIds);
   const workerCap = resolveProductCenterItemWorkerCap(caseIds);
   const requestedWorkers = options.workerCount ?? optionalPositiveInteger(process.env.PC_ITEM_WORKERS);
   const workerCount = resolveProductCenterRemediationWorkers(
@@ -58,6 +60,7 @@ export function runProductCenterItem213(
   const session = reuseBatchAuth ? undefined : createProductCenterAuthBatchSession('pc-item-213-auth-');
   const execute = options.execute ?? executePlaywright;
   let exitCode = 0;
+  const splitReportUnits: ItemReportUnit[] = [];
 
   try {
     const baseEnv = session?.env({ requiredRoutes }) ?? {
@@ -95,11 +98,20 @@ export function runProductCenterItem213(
       if (authResult !== 0) return authResult;
     }
 
-    for (let shardIndex = 1; shardIndex <= shardCount; shardIndex += 1) {
+    for (const specRoute of specRoutes) for (let shardIndex = 1; shardIndex <= shardCount; shardIndex += 1) {
+      const splitReport = (specRoutes.length > 1 || shardCount > 1) && process.env.PLAYWRIGHT_JSON_OUTPUT_NAME
+        ? process.env.PLAYWRIGHT_JSON_OUTPUT_NAME.replace(/\.json$/, `-${specRoute.unitId}-${shardIndex}.json`) : undefined;
+      if(splitReport)splitReportUnits.push({
+        reportPath: splitReport,
+        unitId: specRoute.unitId,
+        selectedCaseIds: specRoute.caseIds,
+        shardIndex,
+        shardCount,
+      });
       const args = [
         require.resolve('@playwright/test/cli'),
         'test',
-        itemSpecPath,
+        specRoute.specPath,
         '--project=chrome',
         `--workers=${workerCount}`,
         ...(shardCount > 1 ? [`--shard=${shardIndex}/${shardCount}`] : []),
@@ -118,11 +130,15 @@ export function runProductCenterItem213(
         PC_REMEDIATION_ROUND: String(round),
         PC_REMEDIATION_MAX_ROUNDS: String(productCenterRemediationPolicy.maxRounds),
         PC_RECIPE_RUN_SCOPE: caseIds.length > 0 ? 'impacted' : 'full',
-        PC_ITEM_SELECTED_CASE_IDS: caseIds.join(','),
+        PC_ITEM_SELECTED_CASE_IDS: specRoute.caseIds.join(','),
+        ...(splitReport ? {PLAYWRIGHT_JSON_OUTPUT_NAME:splitReport} : {}),
         PC_ITEM_SHARD_INDEX: String(shardIndex),
         PC_ITEM_SHARD_COUNT: String(shardCount),
       });
       if (result !== 0) exitCode = result;
+    }
+    if (!options.execute && splitReportUnits.length) {
+      publishItemReportAggregate(rootDir, process.env.PLAYWRIGHT_JSON_OUTPUT_NAME!, splitReportUnits);
     }
   } finally {
     session?.cleanup();

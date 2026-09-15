@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { resolveEvidenceLedgerTerminalCaseIds } from '../../../../Test Automation Platform/src/governance/execution-terminal-receipts';
+import { resolveEvidenceLedgerTerminalCaseIds } from '../../../Test Automation Platform/src/governance/execution-terminal-receipts';
+import { verifyExecutionAttemptLedger } from '../../../Test Automation Platform/src/governance/execution-attempt-accounting';
+import { readRunExecutionObservation } from '../../../Test Automation Platform/src/governance/run-evidence-index';
 
 export function resolveProductCenterSeasoningTerminalCaseIds(input: {
   projectRoot: string;
@@ -33,12 +35,18 @@ export function resolveProductCenterSeasoningTerminalCaseIds(input: {
     );
     if (!fs.existsSync(ledgerPath)) return [];
     try {
-      return [readJson<{ cases?: Array<{
+      const ledger = readRunExecutionObservation<{ schemaVersion?: string; runId?: string; selectedCaseIds?: string[]; attempts?: unknown[]; cases?: Array<{
         caseId?: string;
         caseFingerprint?: string;
         implementationFingerprint?: string;
         playwrightStatus?: string;
-      }> }>(ledgerPath)];
+      }> }>(ledgerPath, runId).ledger;
+      if (ledger.schemaVersion === '1.1.0' || ledger.attempts !== undefined) {
+        const selected = ledger.selectedCaseIds;
+        if (!Array.isArray(selected) || !selected.length || selected.some((id) => !input.selectedCaseIds.includes(id))
+          || !verifyExecutionAttemptLedger(runId, selected, ledger).valid) return [];
+      }
+      return [ledger];
     } catch {
       return [];
     }

@@ -1,4 +1,7 @@
 import fs from 'node:fs';
+import { withSystemTestRunLease, type SystemTestRunLease } from '../src/governance/run-execution-lease';
+import { reconcileSystemTestRunState } from '../src/automation/system-test/system-test-run-state';
+import { readRunExecutionObservation } from '../src/governance/run-evidence-index';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { buildSystemTestArtifacts } from './build-system-test-contract';
@@ -49,7 +52,7 @@ type FlowCheckpoint = {
 
 const rootDir = path.resolve(process.env.SYSTEM_TEST_PROJECT_ROOT ?? process.cwd());
 
-export async function runSystemTestFlow(input: {
+export type RunSystemTestFlowInput = {
   planPath: string;
   manifestPath: string;
   execute?: boolean;
@@ -60,7 +63,20 @@ export async function runSystemTestFlow(input: {
   optimizationPlanPath?: string;
   optimizationStage?: 'canary' | 'batch';
   auditEventLogPath?: string;
-}): Promise<{ exitCode: number; checkpointPath: string; selectedCaseIds: string[] }> {
+};
+
+export async function runSystemTestFlow(input: RunSystemTestFlowInput): Promise<{ exitCode: number; checkpointPath: string; selectedCaseIds: string[] }> {
+  const manifest = readJson<SystemTestManifest>(path.resolve(rootDir, input.manifestPath));
+  const systemId = manifest.system?.systemId;
+  if (!systemId) throw new Error('SYSTEM_TEST_MANIFEST_IDENTITY_UNAVAILABLE');
+  return withSystemTestRunLease({ projectRoot: rootDir, systemId, runId: input.flowId ?? 'flow-startup' }, async (lease) => {
+    const prior = reconcileSystemTestRunState(path.join(rootDir, 'output/system-test', systemId, 'latest-run-state.json'));
+    if (prior?.status === 'running') throw new Error('SYSTEM_TEST_RUN_ALREADY_ACTIVE');
+    return runSystemTestFlowOwned(input, lease);
+  });
+}
+
+async function runSystemTestFlowOwned(input: RunSystemTestFlowInput, lease: SystemTestRunLease): Promise<{ exitCode: number; checkpointPath: string; selectedCaseIds: string[] }> {
   const fullRegression = input.fullRegression === true;
   if (fullRegression && (input.optimizationPlanPath || input.optimizationStage)) {
     throw new Error('FULL_REGRESSION_OPTIMIZATION_MIXED');
@@ -157,14 +173,19 @@ export async function runSystemTestFlow(input: {
       optimizationPlan,
       optimizationStage: input.optimizationStage,
     });
+    const resumedTerminalCaseIds = resolveFlowCheckpointTerminalCaseIds({
+      selectedCaseIds,
+      resumedTerminalCaseIds: resumeCheckpoint?.terminalCaseIds ?? [],
+      completedRunTerminalCaseIds: [],
+    });
     checkpoint = update(checkpoint, {
       phase: input.execute && selectedCaseIds.length > 0 ? 'execute' : 'complete',
       status: input.execute && selectedCaseIds.length > 0 ? 'running' : 'compiled',
       selectedCaseIds,
       intentFingerprint: fingerprintSystemTestValue({ executionFingerprint, executionMode: checkpoint.executionMode, selectedCaseIds }),
       selectionFingerprint: fingerprintExecutionSelection(selectedCaseIds),
-      terminalCaseIds: [],
-      incompleteCaseIds: [...selectedCaseIds],
+      terminalCaseIds: resumedTerminalCaseIds,
+      incompleteCaseIds: selectedCaseIds.filter((caseId) => !resumedTerminalCaseIds.includes(caseId)),
     });
     persist(checkpointPath, checkpoint);
     if (!input.execute || selectedCaseIds.length === 0) {
@@ -193,14 +214,23 @@ export async function runSystemTestFlow(input: {
         const report = readJson<{ exitCode?: number }>(path.join(
           rootDir, 'output/system-test', manifest.system.systemId, runId, 'run-report.json',
         ));
-        const exitCode = report.exitCode ?? 1;
-        results.push({
-          runId,
-          exitCode,
-          completion: classifyFlowCompletion({
-            rootDir, systemId: manifest.system.systemId, runId, exitCode,
+        const completion = classifyFlowCompletion({ rootDir, systemId: manifest.system.systemId, runId, exitCode: report.exitCode ?? 1 });
+        const exitCode = resolveFlowCompletionExitCode(report.exitCode ?? 1, completion.status);
+        results.push({ runId, exitCode, completion });
+        const terminalCaseIds = resolveFlowCheckpointTerminalCaseIds({
+          selectedCaseIds: checkpoint.selectedCaseIds,
+          resumedTerminalCaseIds: checkpoint.terminalCaseIds,
+          completedRunTerminalCaseIds: readFlowRunTerminalCaseIds({
+            rootDir, systemId: manifest.system.systemId, runId,
           }),
         });
+        checkpoint = update(checkpoint, {
+          runId,
+          runIds: results.map((item) => item.runId),
+          terminalCaseIds,
+          incompleteCaseIds: checkpoint.selectedCaseIds.filter((caseId) => !terminalCaseIds.includes(caseId)),
+        });
+        persist(checkpointPath, checkpoint);
         continue;
       }
       appendFlowAuditEvent(auditEventLogPath, {
@@ -213,7 +243,8 @@ export async function runSystemTestFlow(input: {
         outcome: 'success', checkpointId: flowId,
         details: { caseIds: batch.caseIds, executionContextProfile: batch.profile },
       });
-      const exitCode = await runSystemTest({
+      const runnerExitCode = await runSystemTest({
+        parentLease: lease,
         manifestPath,
         runId,
         caseIds: batch.caseIds,
@@ -224,16 +255,14 @@ export async function runSystemTestFlow(input: {
         optimizationStage: fullRegression ? undefined : input.optimizationStage,
         auditEventLogPath: auditEventLogPath ?? undefined,
       });
-      results.push({
-        runId,
-        exitCode,
-        completion: classifyFlowCompletion({ rootDir, systemId: manifest.system.systemId, runId, exitCode }),
-      });
+      const completion = classifyFlowCompletion({ rootDir, systemId: manifest.system.systemId, runId, exitCode: runnerExitCode });
+      const exitCode = resolveFlowCompletionExitCode(runnerExitCode, completion.status);
+      results.push({ runId, exitCode, completion });
       appendFlowAuditEvent(auditEventLogPath, {
         eventType: 'run.completed', manifest, plan, flowId, runId,
         outcome: exitCode === 0 ? 'success' : 'failed', checkpointId: flowId,
         effectiveSuccess: exitCode === 0,
-        details: { exitCode, caseIds: batch.caseIds, completion: results.at(-1)?.completion.status },
+        details: { exitCode, runnerExitCode, caseIds: batch.caseIds, completion: results.at(-1)?.completion.status },
       });
       appendFlowAuditEvent(auditEventLogPath, {
         eventType: 'batch.completed', manifest, plan, flowId, runId,
@@ -255,7 +284,7 @@ export async function runSystemTestFlow(input: {
     const blocked = results.find((item) => item.completion.status === 'blocked');
     const finding = results.find((item) => item.completion.status === 'completed-with-findings');
     const completion = blocked?.completion ?? finding?.completion ?? { status: 'executed' as const, error: null };
-    const exitCode = blocked?.exitCode ?? finding?.exitCode ?? 0;
+    const exitCode = resolveFlowCompletionExitCode(blocked?.exitCode ?? finding?.exitCode ?? 0, completion.status);
     const runId = results.at(-1)?.runId ?? null;
     checkpoint = update(checkpoint, {
       phase: 'complete', status: completion.status, runId, runIds: results.map((item) => item.runId),
@@ -376,6 +405,10 @@ function safeKey(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]+/g, '_').replace(/^_+|_+$/g, '') || 'default';
 }
 
+export function resolveFlowCompletionExitCode(processExitCode: number, status: FlowCheckpoint['status']): number {
+  return processExitCode === 0 && (status === 'blocked' || status === 'completed-with-findings') ? 2 : processExitCode;
+}
+
 export function classifyFlowCompletion(input: {
   rootDir: string;
   systemId: string;
@@ -392,14 +425,21 @@ export function classifyFlowCompletion(input: {
     failureCategories?: string[];
     securityFindings?: number;
   }>(reportPath);
-  const ledger = readJson<{
-    summary?: { selected?: number; executed?: number; evidenceIncomplete?: number };
-  }>(ledgerPath);
+  const ledger = readFlowRunLedger(input);
+  if (!ledger) return { status: 'blocked', error: '当前运行证据索引或报告绑定不可用' };
   const summary = ledger.summary;
-  const completeExecution = summary?.selected !== undefined && summary.executed === summary.selected;
+  const ledgerCaseIds = [...new Set((ledger.cases ?? [])
+    .map((item) => item.caseId)
+    .filter((caseId): caseId is string => typeof caseId === 'string' && caseId.trim().length > 0))].sort();
+  const caseLedgerComplete = summary?.selected !== undefined
+    && ledgerCaseIds.length === summary.selected
+    && summary.executed === summary.selected;
+  const completeExecution = caseLedgerComplete;
   if (!completeExecution) {
     return { status: 'blocked', error: `系统测试未完成全部选中用例，退出码 ${input.exitCode}` };
   }
+  if (ledger.historicalEvidenceFinding) return { status: 'completed-with-findings',
+    error: `本次选中用例已完成执行；历史证据异常：${ledger.historicalEvidenceFinding}，通过资格仍需严格收据校验` };
   if (input.exitCode === 0 && summary.evidenceIncomplete === 0) {
     return { status: 'executed', error: null };
   }
@@ -430,13 +470,53 @@ export function resolveFlowResumeRunIds(input: {
   return checkpoint.runIds.filter((runId) => completed.has(runId));
 }
 
-function isCompletedFlowRun(input: { rootDir: string; systemId: string; runId: string }): boolean {
+type FlowRunLedger = {
+  historicalEvidenceFinding?: string | null;
+  summary?: { selected?: number; executed?: number; evidenceIncomplete?: number };
+  cases?: Array<{ caseId?: string }>;
+};
+function readFlowRunLedger(input: { rootDir: string; systemId: string; runId: string }): FlowRunLedger | null {
   const runRoot = path.join(input.rootDir, 'output/system-test', input.systemId, input.runId);
-  const reportPath = path.join(runRoot, 'run-report.json');
-  const ledgerPath = path.join(runRoot, 'evidence-ledger.json');
-  if (!fs.existsSync(reportPath) || !fs.existsSync(ledgerPath)) return false;
-  const ledger = readJson<{ summary?: { selected?: number; executed?: number } }>(ledgerPath);
-  return ledger.summary?.selected !== undefined && ledger.summary.executed === ledger.summary.selected;
+  try {
+    const observation = readRunExecutionObservation<FlowRunLedger>(path.join(runRoot, 'evidence-ledger.json'), input.runId, {
+      requireFinal: true, runReport: readJson<unknown>(path.join(runRoot, 'run-report.json')),
+    });
+    return { ...observation.ledger, historicalEvidenceFinding: observation.historicalEvidenceFinding };
+  } catch { return null; }
+}
+
+export function isCompletedFlowRun(input: { rootDir: string; systemId: string; runId: string }): boolean {
+  const ledger = readFlowRunLedger(input);
+  if (!ledger) return false;
+  const caseIds = new Set((ledger.cases ?? []).map((item) => item.caseId).filter(Boolean));
+  return ledger.summary?.selected !== undefined && ledger.summary.executed === ledger.summary.selected
+    && caseIds.size === ledger.summary.selected;
+}
+
+export function readFlowRunTerminalCaseIds(input: { rootDir: string; systemId: string; runId: string }): string[] {
+  const ledger = readFlowRunLedger(input);
+  return [...new Set((ledger?.cases ?? [])
+    .map((item) => item.caseId)
+    .filter((caseId): caseId is string => typeof caseId === 'string' && caseId.trim().length > 0))].sort();
+}
+
+/**
+ * Merge checkpoint and recovered batch terminal IDs while enforcing the
+ * current flow selection boundary. This keeps resume bookkeeping deterministic
+ * when a completed batch is skipped after a process interruption.
+ */
+export function resolveFlowCheckpointTerminalCaseIds(input: {
+  selectedCaseIds: readonly string[];
+  resumedTerminalCaseIds: readonly string[];
+  completedRunTerminalCaseIds: readonly string[];
+}): string[] {
+  const selected = new Set(input.selectedCaseIds);
+  return [...new Set([
+    ...input.resumedTerminalCaseIds,
+    ...input.completedRunTerminalCaseIds,
+  ])]
+    .filter((caseId) => selected.has(caseId))
+    .sort();
 }
 
 export function shouldRunAudit(input: {

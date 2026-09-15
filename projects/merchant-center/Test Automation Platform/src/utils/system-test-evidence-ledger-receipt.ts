@@ -7,6 +7,8 @@ import {
   type SystemTestRunContract,
 } from '../automation/system-test/system-test-contract';
 import { TestExecutionIndex, type TestExecutionIndexRecord } from './test-execution-index';
+import { verifyExecutionAttemptLedger } from '../governance/execution-attempt-accounting';
+import { readRunEvidenceLedger } from '../governance/run-evidence-index';
 import {
   fingerprintExecutionContext,
   normalizeReleaseObservation,
@@ -57,6 +59,8 @@ type EvidenceLedger = {
   collectionId?: string;
   generatedAt?: string;
   systemId?: string;
+  runId?: string;
+  attempts?: unknown[];
   contractFingerprint?: string;
   summary?: { selected?: number; executed?: number };
   cases?: LedgerCase[];
@@ -99,7 +103,12 @@ export function readSystemTestEvidenceLedgerReceipts(input: {
   expectedExecutionContextFingerprint?: string;
   allowPartial?: boolean;
 }): Omit<SystemTestEvidenceLedgerImportResult, 'indexChanged'> {
-  const ledger = readJson<EvidenceLedger>(input.ledgerPath);
+  let ledger: EvidenceLedger;
+  try { ledger = readRunEvidenceLedger<EvidenceLedger>(input.ledgerPath, input.runId); }
+  catch (error) {
+    const reason = error instanceof Error && /^[A-Z][A-Z0-9_]+$/.test(error.message) ? error.message : 'EVIDENCE_LEDGER_UNAVAILABLE';
+    return { records: [], diagnostics: [reason] };
+  }
   const contract = readJson<SystemTestRunContract>(input.contractPath);
   const diagnostics: string[] = [];
   const expectedCaseIds = [...new Set(input.expectedCaseIds)].sort();
@@ -110,6 +119,11 @@ export function readSystemTestEvidenceLedgerReceipts(input: {
   const ledgerCases = ledger.cases ?? [];
   const ledgerCaseIds = ledgerCases.flatMap((item) => item.caseId ? [item.caseId] : []).sort();
   const contractCaseIds = contract.cases.map((item) => item.caseId).sort();
+  const hasAttemptAccounting = ledger.schemaVersion === '1.1.0' || ledger.attempts !== undefined;
+  if (hasAttemptAccounting) {
+    const projection = verifyExecutionAttemptLedger(input.runId, contract.cases.map((item) => item.caseId), ledger);
+    diagnostics.push(...projection.reasons);
+  }
   if (ledger.collectionId !== 'system-test-evidence-ledger') diagnostics.push('LEDGER_COLLECTION_INVALID');
   if (ledger.systemId !== input.expectedSystemId || contract.system.systemId !== input.expectedSystemId) {
     diagnostics.push('LEDGER_SYSTEM_ID_MISMATCH');
@@ -127,7 +141,9 @@ export function readSystemTestEvidenceLedgerReceipts(input: {
     ? unexpectedLedgerCaseIds.length === 0
     : JSON.stringify(ledgerCaseIds) === JSON.stringify(expectedCaseIds);
   if (!ledgerSelectionValid) diagnostics.push('LEDGER_SELECTION_MISMATCH');
-  const executionCountValid = ledger.summary?.selected === expectedCaseIds.length
+  const executionCountValid = hasAttemptAccounting ? ledger.summary?.selected === expectedCaseIds.length
+    && (input.allowPartial === true || ledgerCaseIds.length === expectedCaseIds.length)
+    : ledger.summary?.selected === expectedCaseIds.length
     && ledger.summary?.executed === ledgerCaseIds.length
     && (input.allowPartial === true || ledgerCaseIds.length === expectedCaseIds.length);
   if (!executionCountValid) {

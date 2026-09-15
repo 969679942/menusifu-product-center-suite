@@ -5,7 +5,7 @@ import {
   cleanupStaleSystemTestResourceLeases,
   findSystemTestResourceLeases,
   withSystemTestResourceClaims,
-} from '../../../Test Automation Platform/src/automation/system-test/system-test-resource-lock';
+} from '../../Test Automation Platform/src/automation/system-test/system-test-resource-lock';
 import { isInfrastructureOnlyPlaywrightRun } from './playwright-project-scope';
 
 export async function withProductCenterRecipeResourceLocks<T>(

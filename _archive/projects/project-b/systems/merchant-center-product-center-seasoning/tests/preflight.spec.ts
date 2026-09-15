@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { executeReadOnlyUiWithTransientRetry } from '../../../api/transient-retry';
 import { SeasoningBoundaryPage } from '../../../pages/product-center/seasoning-boundary.page';
 import { resolveSeasoningContext } from '../../../test-data/seasoning-context';
-import { writePassedSystemTestStageReceiptFromEnvironment } from '../../../../../Test Automation Platform/src/automation/system-test/system-test-stage-receipt';
+import { writePassedSystemTestStageReceiptFromEnvironment } from '../../../../Test Automation Platform/src/automation/system-test/system-test-stage-receipt';
 
 test('调味管理页面只读在线预检', async ({ page }) => {
   const route = process.env.SYSTEM_TEST_PREFLIGHT_ROUTE;

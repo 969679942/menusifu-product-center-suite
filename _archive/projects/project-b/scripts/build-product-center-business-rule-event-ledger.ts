@@ -7,11 +7,11 @@ import {
   type BusinessRuleDecision,
   type BusinessRuleDecisionDetails,
   type BusinessRuleEvaluationRunDetails,
-} from '../../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
+} from '../../Test Automation Platform/src/automation/system-test/business-rule-change-event';
 import {
   FileAuditEventStore,
   type AuditEvent,
-} from '../../../Test Automation Platform/src/audit/event-log';
+} from '../../Test Automation Platform/src/audit/event-log';
 import type { BusinessRuleSemanticBaseline, BusinessRuleChangeTriggerResult } from '../automation/system-test/business-rule-change-trigger';
 import {
   buildProductCenterCurrentRuleEvaluationEvents,
@@ -474,7 +474,21 @@ if (require.main === module) {
       reportPath: relativeTo(defaultProjectRoot, result.outputJsonPath),
     })}\n`);
   } catch (error) {
-    process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+    const message = error instanceof Error ? error.message : String(error);
+    // Keep missing current/source artifacts machine-readable for the queue and
+    // failure analyzer, while preserving the non-zero exit and fail-closed gate.
+    if (message.startsWith('PRODUCT_CENTER_RULE_SOURCE_NOT_FOUND:')) {
+      const blockedPath = path.join(defaultProjectRoot, 'output/governance/product-center-business-rule-event-ledger.blocked.json');
+      writeJsonAtomic(blockedPath, {
+        schemaVersion: '1.0.0',
+        status: 'blocked',
+        code: 'PRODUCT_CENTER_RULE_SOURCE_NOT_FOUND',
+        missingSource: message.slice('PRODUCT_CENTER_RULE_SOURCE_NOT_FOUND:'.length),
+        businessExecutionStarted: false,
+        generatedAt: new Date().toISOString(),
+      });
+    }
+    process.stderr.write(`${message}\n`);
     process.exitCode = 1;
   }
 }

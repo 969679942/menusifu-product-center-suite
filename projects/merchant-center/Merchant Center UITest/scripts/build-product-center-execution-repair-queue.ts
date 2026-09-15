@@ -81,7 +81,11 @@ export function buildProductCenterExecutionRepairQueue(input?: {
   executionResult?: ExecutionResult;
   sourcePath?: string;
 }): ExecutionRepairQueue {
-  const result = input?.executionResult ?? readJson<ExecutionResult>(input?.sourcePath ?? sourcePath);
+  const inputPath = input?.sourcePath ?? sourcePath;
+  if (!input?.executionResult && !fs.existsSync(inputPath)) {
+    throw new Error('EXECUTION_RESULT_MISSING：缺少正式执行结果，不能构建逐案修复队列');
+  }
+  const result = input?.executionResult ?? readJson<ExecutionResult>(inputPath);
   const executionPlanTasks = fs.existsSync(executionPlanPath)
     ? new Map(readJson<{ tasks: Array<{ caseId: string; bindingFingerprint?: string | null }> }>(executionPlanPath)
       .tasks.map((item) => [item.caseId, item]))
@@ -328,9 +332,9 @@ function nextActionFor(classification: RepairItem['classification']): string {
   return '补充诊断证据后再决定重跑、产品偏差或技术阻断。';
 }
 
-export function writeProductCenterExecutionRepairQueue(queue: ExecutionRepairQueue): void {
-  writeJson(outputJsonPath, queue);
-  writeMarkdown(queue);
+export function writeProductCenterExecutionRepairQueue(queue: ExecutionRepairQueue, destinationRoot = outputRoot): void {
+  writeJson(path.join(destinationRoot, 'product-center-execution-repair-queue.json'), queue);
+  writeMarkdown(queue, path.join(destinationRoot, 'product-center-execution-repair-queue.md'));
 }
 
 function writeJson(filePath: string, value: unknown): void {
@@ -340,7 +344,7 @@ function writeJson(filePath: string, value: unknown): void {
   fs.renameSync(temporaryPath, filePath);
 }
 
-function writeMarkdown(queue: ExecutionRepairQueue): void {
+function writeMarkdown(queue: ExecutionRepairQueue, markdownPath = outputMarkdownPath): void {
   const lines = [
     '# 商品中心执行修复队列',
     '',
@@ -359,15 +363,38 @@ function writeMarkdown(queue: ExecutionRepairQueue): void {
     ...queue.items.map((item) => `| ${item.caseId} | ${item.classification} | ${item.diagnostic.replace(/\r?\n/g, ' ').replace(/\|/g, '\\|').slice(0, 240)} | ${item.nextAction} |`),
     '',
   ];
-  fs.writeFileSync(outputMarkdownPath, `${lines.join('\n')}\n`, 'utf8');
+  fs.writeFileSync(markdownPath, `${lines.join('\n')}\n`, 'utf8');
 }
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
 }
 
+export function runProductCenterExecutionRepairQueue(options: { sourcePath?: string; outputRoot?: string } = {}): number {
+  const inputPath = options.sourcePath ?? sourcePath;
+  const diagnosticPath = path.join(options.outputRoot ?? outputRoot, 'product-center-execution-repair-queue.blocked.json');
+  if (!fs.existsSync(inputPath)) {
+    writeJson(diagnosticPath, {
+      schemaVersion: '1.0.0',
+      collectionId: 'product-center-execution-repair-queue-diagnostic',
+      generatedAt: new Date().toISOString(),
+      status: 'blocked',
+      code: 'EXECUTION_RESULT_MISSING',
+      source: path.relative(workspaceRoot, inputPath).replaceAll(path.sep, '/'),
+      businessExecution: false,
+      queueWritten: false,
+      nextAction: '由当前执行意图及真实逐案终态收据生成执行结果，然后重新构建修复队列',
+    });
+    return 1;
+  }
+  const queue = buildProductCenterExecutionRepairQueue({ sourcePath: inputPath });
+  writeProductCenterExecutionRepairQueue(queue, options.outputRoot);
+  // A successful rebuild supersedes this diagnostic; do not leave a stale blocked marker.
+  if (fs.existsSync(diagnosticPath)) fs.unlinkSync(diagnosticPath);
+  return 0;
+}
+
 if (require.main === module) {
-  const queue = buildProductCenterExecutionRepairQueue();
-  writeProductCenterExecutionRepairQueue(queue);
-  process.stdout.write(`${JSON.stringify(queue, null, 2)}\n`);
+  process.exitCode = runProductCenterExecutionRepairQueue();
+  if (process.exitCode) process.stderr.write('EXECUTION_RESULT_MISSING：诊断已保存，逐案修复队列未写入。\n');
 }

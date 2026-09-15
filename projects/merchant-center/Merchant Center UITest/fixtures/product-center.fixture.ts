@@ -7,6 +7,9 @@ import { ProductCenterExecutionLedger } from '../api/product-center/execution-le
 import { establishMerchantCenterSession } from '../flows/auth.flow';
 import { ItemListFlow } from '../flows/item-list.flow';
 import { AddonItem216Flow } from '../flows/product-center/item-216/addon-item-216.flow';
+import { AddonCreationAcceptanceFlow } from '../flows/product-center/item-216/addon-creation-acceptance.flow';
+import { ItemCreateAcceptancePage } from '../pages/product-management/item/item-create-acceptance.page';
+import { ItemListCreationEvidencePage } from '../pages/product-management/item/item-list-creation-evidence.page';
 import { PackageItem216Flow } from '../flows/product-center/item-216/package-item-216.flow';
 import { StandardItem216Flow } from '../flows/product-center/item-216/standard-item-216.flow';
 import { StandardItem216CaseRunner } from '../flows/product-center/item-216/standard-item-216.runner';
@@ -115,7 +118,8 @@ export const test = base.extend<ProductCenterFixtures>({
     await use(new PackageItem216Flow(page, { api: productCenterApi, cleanupRegistry, executionLedger }));
   },
   addonItem216Flow: async ({ page, productCenterApi, cleanupRegistry }, use) => {
-    await use(new AddonItem216Flow(page, productCenterApi, cleanupRegistry));
+    const acceptance = new AddonCreationAcceptanceFlow(page, new ItemCreateAcceptancePage(page), new ItemListCreationEvidencePage(page));
+    await use(new AddonItem216Flow(page, productCenterApi, cleanupRegistry, acceptance));
   },
   itemListFlow: async ({}, use) => {
     await use(new ItemListFlow());

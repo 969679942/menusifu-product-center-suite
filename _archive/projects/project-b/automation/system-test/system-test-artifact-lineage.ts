@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-artifact-lineage';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-artifact-lineage';

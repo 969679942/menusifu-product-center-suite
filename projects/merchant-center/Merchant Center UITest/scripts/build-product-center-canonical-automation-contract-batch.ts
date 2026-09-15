@@ -22,11 +22,19 @@ export function buildProductCenterCanonicalAutomationContractBatchArtifacts(opti
   rootDir?: string;
   generatedAt?: string;
   write?: boolean;
+  snapshot?: {
+    review: { entries: ProductCenterCanonicalReviewEntry[]; sourcePlanFingerprint: string };
+    plan: { cases: Array<{ id: string }>; fingerprint: string };
+  };
 } = {}): { report: ProductCenterCanonicalAutomationContractBatch; jsonPath: string; markdownPath: string } {
   const rootDir = options.rootDir ?? projectRoot;
-  const review = readJson<{ entries: ProductCenterCanonicalReviewEntry[] }>(rootDir,
+  if (options.snapshot && (!options.snapshot.plan.fingerprint
+    || options.snapshot.review.sourcePlanFingerprint !== options.snapshot.plan.fingerprint)) {
+    throw new Error('REVIEW_PLAN_FINGERPRINT_MISMATCH：评审与计划快照不匹配');
+  }
+  const review = options.snapshot?.review ?? readJson<{ entries: ProductCenterCanonicalReviewEntry[] }>(rootDir,
     'contracts/product-center/test-cases/canonical/product-center-item-full-review.json');
-  const ir = readJson<{ cases: Array<{ id: string }> }>(rootDir,
+  const ir = options.snapshot?.plan ?? readJson<{ cases: Array<{ id: string }> }>(rootDir,
     'contracts/product-center/test-cases/canonical/product-center-item-xmind-rebuild-pilot.json');
   const runtime = readJson<{ decisions: ProductCenterCanonicalRuntimeDecision[] }>(rootDir,
     'contracts/product-center/runtime/product-center-canonical-runtime-retain.json');

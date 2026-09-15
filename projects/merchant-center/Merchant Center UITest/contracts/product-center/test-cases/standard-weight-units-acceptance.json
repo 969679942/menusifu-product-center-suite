@@ -1,0 +1,112 @@
+{
+  "routes": [
+    {
+      "id": "standard-create-route",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "route": "/pp/brand/create/standard"
+    }
+  ],
+  "controls": [],
+  "fields": [],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "STD019-only-weight-units",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "rule": "销售单位仅g、kg、ml"
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-STD-019:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "expectedValue": [
+        "g",
+        "kg",
+        "ml"
+      ],
+      "comparison": "exact-set-with-no-duplicates",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    }
+  ],
+  "traceability": [
+    {
+      "id": "existing-weight-unit-page-api",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "implementation": "ItemCreateStandardPage.enableWeightBasedItem/readWeightUnitOptions",
+      "newLocatorsGenerated": false
+    }
+  ],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "implementationStrategy": "复用现有页面公开方法；新实现仅补正式动作和精确断言收据，不把既有脚本当业务期望来源"
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-STD-019",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入称重商品创建页。"
+      ],
+      "steps": [
+        "将商品设置为称重商品。",
+        "打开销售单位下拉框。"
+      ],
+      "expectedResults": [
+        "销售单位下拉仅展示 `g`、`kg`、`ml` 三个选项。"
+      ],
+      "sources": [
+        "BR-ITEM-015"
+      ],
+      "title": "称重商品销售单位下拉展示 g、kg、ml",
+      "fingerprint": "757d8f92040465264685ce676dda4eb86a4666ed71c2ea49c33fdc0ce80a0a0a",
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "757d8f92040465264685ce676dda4eb86a4666ed71c2ea49c33fdc0ce80a0a0a",
+      "assertionIds": [
+        "TC-ITEM-STD-019:expectation-1"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

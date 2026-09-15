@@ -6,7 +6,7 @@ import {
   type AllureBusinessReportResult,
   type AllureReportIntegrityFindingCode,
   type AllureReportStep,
-} from '../../../Test Automation Platform/src/reporters/allure-report-integrity';
+} from '../../Test Automation Platform/src/reporters/allure-report-integrity';
 import { createMerchantCenterAllureIntegrityPolicy } from '../adapters/test-automation-platform/allure-reporting';
 import { describesMutation, type Recipe, auditSeasoningCaseCoverage } from './audit-seasoning-case-coverage';
 

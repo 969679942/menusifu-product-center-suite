@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { validateBusinessRuleTemporalContext } from '../../../Test Automation Platform/src/automation/system-test/business-rule-governance';
+import { validateBusinessRuleTemporalContext } from '../../Test Automation Platform/src/automation/system-test/business-rule-governance';
 import { loadCurrentProductCenterBusinessRuleLifecycleSnapshot } from './build-product-center-business-rule-lifecycle-snapshot';
 import { buildProductCenterBusinessRuleTimeContextEvidence, type ProductCenterRuleTimeContextEvidence } from '../utils/product-center-business-rule-time-context-evidence';
 

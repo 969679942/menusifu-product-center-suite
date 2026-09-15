@@ -3,7 +3,7 @@ import path from 'node:path';
 import {
   assertSystemTestArtifactIdentity,
   resolveSystemTestPlatformArtifact as resolvePublicArtifact,
-} from '../../../Test Automation Platform/src/platform-paths';
+} from '../../Test Automation Platform/src/platform-paths';
 
 const projectRoot = path.resolve(__dirname, '..');
 const descriptorPath = path.join(projectRoot, 'adapters/test-automation-platform/project-adapter.json');

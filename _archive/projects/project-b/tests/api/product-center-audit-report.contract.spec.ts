@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { FileAuditEventStore } from '../../../../Test Automation Platform/src/audit/event-log';
+import { FileAuditEventStore } from '../../../Test Automation Platform/src/audit/event-log';
 import {
   adaptProductCenterClosureAudit,
   adaptProductCenterExecutionReceipts,

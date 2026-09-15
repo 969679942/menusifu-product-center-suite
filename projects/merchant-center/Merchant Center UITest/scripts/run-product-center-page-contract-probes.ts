@@ -516,7 +516,54 @@ if (require.main === module) {
   }).then((result) => {
     process.stdout.write(`商品中心当前版本 Probe：${result.evidencePath}\n状态：${result.report.status}\n`);
   }).catch((error: unknown) => {
+    writeProbeBlockedDiagnostic(error);
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = 1;
   });
+}
+
+function writeProbeBlockedDiagnostic(error: unknown): void {
+  const projectRoot = path.resolve(__dirname, '..');
+  const message = error instanceof Error ? error.message : String(error);
+  const runRoot = path.join(projectRoot, 'output/page-contract/runs/product-center-current-release-probe');
+  const checkpoints = fs.existsSync(runRoot)
+    ? fs.readdirSync(runRoot)
+      .map((name) => path.join(runRoot, name, 'checkpoint.json'))
+      .filter((filePath) => fs.existsSync(filePath))
+      .sort()
+    : [];
+  const latestCheckpointPath = checkpoints.at(-1);
+  let checkpoint: Record<string, unknown> | undefined;
+  if (latestCheckpointPath) {
+    try {
+      checkpoint = JSON.parse(fs.readFileSync(latestCheckpointPath, 'utf8')) as Record<string, unknown>;
+    } catch {
+      checkpoint = undefined;
+    }
+  }
+  const unresolvedRoutes = Array.isArray(checkpoint?.unresolvedRoutes)
+    ? checkpoint?.unresolvedRoutes.filter((route): route is string => typeof route === 'string')
+    : [];
+  const code = unresolvedRoutes.length > 0 && message.includes('stop-deterministic')
+    ? 'PAGE_CONTRACT_PROBE_EXTERNAL_AUTH_BLOCKED'
+    : 'PAGE_CONTRACT_PROBE_BLOCKED';
+  const outputPath = path.join(projectRoot, 'output/page-contract/product-center-current-release-probe.blocked.json');
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, `${JSON.stringify({
+    schemaVersion: '1.0.0',
+    reportId: 'product-center-current-release-probe',
+    status: 'blocked',
+    code,
+    scope: 'report-only',
+    diagnostic: message.slice(0, 1_000),
+    runId: typeof checkpoint?.runId === 'string' ? checkpoint.runId : undefined,
+    unresolvedRoutes,
+    checkpointPath: latestCheckpointPath
+      ? path.relative(projectRoot, latestCheckpointPath).replaceAll(path.sep, '/')
+      : undefined,
+    businessExecutionStarted: false,
+    existingPassedCasesInvalidated: false,
+    secretsPersisted: false,
+    generatedAt: new Date().toISOString(),
+  }, null, 2)}\n`, 'utf8');
 }

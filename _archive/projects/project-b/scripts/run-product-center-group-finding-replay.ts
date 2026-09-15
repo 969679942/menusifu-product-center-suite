@@ -4,9 +4,9 @@ import path from 'node:path';
 import {
   issueSystemTestExecutionGrant,
   revokeSystemTestExecutionGrant,
-} from '../../../Test Automation Platform/src/automation/system-test/system-test-execution-grant';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import type { ProjectRemediationOptimizationPlan } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
+} from '../../Test Automation Platform/src/automation/system-test/system-test-execution-grant';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import type { ProjectRemediationOptimizationPlan } from '../../Test Automation Platform/src/governance/project-remediation-optimization';
 import type { GroupAutomationBinding } from '../utils/product-center-group-automation';
 
 const projectRoot = path.resolve(__dirname, '..');

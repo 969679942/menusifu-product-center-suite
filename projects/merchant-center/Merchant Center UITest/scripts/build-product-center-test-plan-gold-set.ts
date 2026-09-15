@@ -759,7 +759,7 @@ async function loadMainRuntimeProof(): Promise<MainRuntimeProof> {
 
 async function buildBomCreateGold(runtimeProof: MainRuntimeProof) {
   const projectRoot = path.resolve(__dirname, '..');
-  const aiqaRoot = path.resolve(projectRoot, '..', '..', 'AIQA');
+  const aiqaRoot = path.resolve(projectRoot, '..', '..', '..', '..', 'AIQA');
   return buildFormalSopGold({
     caseId: bomCaseId,
     module: 'brand-material-recipe',
@@ -783,7 +783,7 @@ async function buildBomCreateGold(runtimeProof: MainRuntimeProof) {
 
 async function buildPrintStallDeleteGold(runtimeProof: MainRuntimeProof) {
   const projectRoot = path.resolve(__dirname, '..');
-  const aiqaRoot = path.resolve(projectRoot, '..', '..', 'AIQA');
+  const aiqaRoot = path.resolve(projectRoot, '..', '..', '..', '..', 'AIQA');
   return buildFormalSopGold({
     caseId: printStallCaseId,
     module: 'brand-print',
@@ -1474,7 +1474,7 @@ async function buildMethodDetailBoundaryReview() {
       citation: businessRuleCitation.citation,
       sectionHeading: '2.2 全局格式与输入（B 端规范）',
       ruleId: 'BR-FMT-001',
-      expectedText: '[B端] 名称类字段（商品名、组名、菜单名等）：最长 **100** 字符；**首尾禁止空格**（输入含首尾空格时**保存失败**，页面拦截并提示格式校验，**不可**保存成功后自动去除）；字符间允许单空格；**禁止 emoji**；超限失去焦点飘红「内容超出限制，请重新输入」。',
+      expectedText: '[B端+2026-09-05 人工确认] **标签名称最长 20 字符**；当前确认按 **100** 字符校验的名称字段为**商品名、组名和菜单名**。上述字段输入含首尾空格时**保存失败**，页面拦截并提示格式校验，**不可**保存成功后自动去除；字符间允许单空格；**禁止 emoji**；超限失去焦点飘红「内容超出限制，请重新输入」。未明确列出的名称字段不得自动套用此规则。',
     },
   );
   const testPlanRef = `TEST-PLAN:${methodDetailTestPlanFileName}#${methodDetailExternalCaseId}`;

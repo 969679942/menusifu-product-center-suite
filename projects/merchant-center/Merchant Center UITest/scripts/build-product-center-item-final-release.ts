@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import { publishImmutableArtifact } from '../utils/immutable-artifact';
 import path from 'node:path';
+import { ITEM_CURRENT_RECEIPT_CONTRACT_PATH, qualifyProductCenterItemReleaseReceipts } from '../adapters/product-center/product-center-item-release-receipts';
 import {
   buildProductCenterItemTestPlanRuleLedger,
   renderProductCenterItemTestPlanRuleMarkdown,
@@ -18,6 +20,8 @@ type ConversionCase = {
   scriptStatus: string;
   runtimeReadiness: 'ready' | 'environment-blocked';
   blockingReasons: string[];
+  bindingFingerprint?: string;
+  assertionIds?: string[];
 };
 
 type ConversionDocument = {
@@ -194,20 +198,51 @@ export function buildProductCenterItemFinalRelease(options: {
     conversion: 'output/product-center-item-213-conversion.json',
     fullReview: 'contracts/product-center/test-cases/canonical/product-center-item-full-review.json',
     manualDecisions: 'contracts/product-center/reviews/product-center-item-failure-manual-decisions.json',
-    remediation31: 'output/product-center-item-31-remediation-report.json',
-    remediation19: 'output/product-center-item-19-remediation-report.json',
+    currentReceiptContract: ITEM_CURRENT_RECEIPT_CONTRACT_PATH,
   } as const;
+  const missingInputs = Object.values(sourcePaths)
+    .filter((relativePath) => !fs.existsSync(path.join(projectRoot, relativePath)));
+  if (missingInputs.length > 0) {
+    const diagnosticPath = path.join(outputRoot, 'output/product-center-item-final-status.blocked.json');
+    fs.mkdirSync(path.dirname(diagnosticPath), { recursive: true });
+    writeText(diagnosticPath, `${JSON.stringify({
+      schemaVersion: '1.0.0',
+      reportId: 'product-center-item-final-status',
+      status: 'blocked',
+      code: 'FINAL_RELEASE_INPUT_MISSING',
+      scope: 'report-only',
+      missingInputs,
+      firstBlockingInput: missingInputs[0],
+      message: '缺少当前正式交付输入，禁止生成最终状态来源。',
+      guardrails: {
+        businessExecutionStarted: false,
+        existingPassedCasesInvalidated: false,
+        secretsPersisted: false,
+      },
+      generatedAt,
+    }, null, 2)}\n`);
+    throw new Error(`FINAL_RELEASE_INPUT_MISSING:${missingInputs.join(',')}`);
+  }
   const conversion = readJson<ConversionDocument>(projectRoot, sourcePaths.conversion);
   const fullReview = readJson<{ entries: FullReviewEntry[] }>(projectRoot, sourcePaths.fullReview);
   const manual = readJson<{ decisions: ManualDecision[] }>(projectRoot, sourcePaths.manualDecisions);
-  const remediation31 = readJson<{ remainingFailedCaseIds: string[] }>(projectRoot, sourcePaths.remediation31);
-  const remediation19 = readJson<{ cases: Array<{ caseId: string; status: string }> }>(projectRoot, sourcePaths.remediation19);
   const executableById = new Map(conversion.cases.map((item) => [item.caseId, item]));
   const reviewById = new Map(fullReview.entries.map((item) => [item.caseId, item]));
   const decisionById = new Map(manual.decisions.map((item) => [item.caseId, item]));
   const deferredIds = new Set(manual.decisions.filter((item) => item.disposition === 'skip-deferred').map((item) => item.caseId));
-  const remainingIds = new Set(remediation31.remainingFailedCaseIds);
-  const remediatedIds = new Set(remediation19.cases.filter((item) => item.status === 'runtime-passed').map((item) => item.caseId));
+  const qualification = qualifyProductCenterItemReleaseReceipts({ projectRoot,
+    cases: conversion.cases.filter((item) => !deferredIds.has(item.caseId)) });
+  if (qualification.findings.length > 0) {
+    const diagnosticPath = path.join(outputRoot, 'output/product-center-item-final-status.blocked.json');
+    fs.mkdirSync(path.dirname(diagnosticPath), { recursive: true });
+    writeText(diagnosticPath, `${JSON.stringify({
+      schemaVersion: '1.0.0', reportId: 'product-center-item-final-status', status: 'blocked',
+      code: 'CURRENT_RELEASE_RECEIPTS_INCOMPLETE', scope: 'report-only', generatedAt,
+      findings: qualification.findings,
+      guardrails: { businessExecutionStarted: false, existingPassedCasesInvalidated: false, secretsPersisted: false },
+    }, null, 2)}\n`);
+    throw new Error(`CURRENT_RELEASE_RECEIPTS_INCOMPLETE:${qualification.findings.length}`);
+  }
   const notApplicableIds = new Set(conversion.notApplicable);
   const executableFingerprint = sha256(JSON.stringify(
     [...executableById.values()].map((item) => ({ caseId: item.caseId, title: item.title })),
@@ -216,7 +251,7 @@ export function buildProductCenterItemFinalRelease(options: {
     const executable = executableById.get(review.caseId);
     const decision = decisionById.get(review.caseId);
     const scope = executable ? 'executable' : notApplicableIds.has(review.caseId) ? 'not-applicable' : 'supplemental';
-    const runtime = resolveRuntimeStatus(review.caseId, scope, deferredIds, remainingIds, remediatedIds);
+    const runtime = resolveRuntimeStatus(review.caseId, scope, deferredIds, qualification.accepted);
     return {
       caseId: review.caseId,
       title: decision?.updatedTitle ?? review.title,
@@ -278,6 +313,7 @@ export function buildProductCenterItemFinalRelease(options: {
     key,
     { path: relativePath, sha256: sha256(fs.readFileSync(path.join(projectRoot, relativePath))) },
   ]));
+  Object.assign(sourceArtifacts, qualification.sourceArtifacts);
   const fingerprint = sha256(JSON.stringify({ executableFingerprint, summary, sourceArtifacts, cases, automationBindings }));
   const release: ProductCenterItemFinalRelease = {
     schemaVersion: '1.0.0',
@@ -551,15 +587,14 @@ function resolveRuntimeStatus(
   caseId: string,
   scope: ItemFinalReleaseCase['scope'],
   deferredIds: Set<string>,
-  remainingIds: Set<string>,
-  remediatedIds: Set<string>,
+  acceptedReceipts: Map<string, string[]>,
 ): ItemFinalReleaseCase['runtime'] {
   if (scope === 'not-applicable') return { status: 'not-applicable', evidenceRefs: ['output/product-center-item-213-conversion.json'] };
   if (scope === 'supplemental') return { status: 'supplemental-reviewed', evidenceRefs: ['contracts/product-center/test-cases/canonical/product-center-item-full-review.json'] };
   if (deferredIds.has(caseId)) return { status: 'deferred', evidenceRefs: ['contracts/product-center/reviews/product-center-item-failure-manual-decisions.json'] };
-  if (remediatedIds.has(caseId)) return { status: 'runtime-passed', evidenceRefs: ['output/product-center-item-19-remediation-report.json'] };
-  if (!remainingIds.has(caseId)) return { status: 'runtime-passed', evidenceRefs: ['output/product-center-item-31-remediation-report.json'] };
-  return { status: 'unresolved', evidenceRefs: ['output/product-center-item-31-remediation-report.json'] };
+  const evidenceRefs = acceptedReceipts.get(caseId);
+  if (evidenceRefs) return { status: 'runtime-passed', evidenceRefs };
+  return { status: 'unresolved', evidenceRefs: [ITEM_CURRENT_RECEIPT_CONTRACT_PATH] };
 }
 
 function validateSummary(
@@ -650,10 +685,8 @@ function writeJson(filePath: string, value: unknown): void {
 }
 
 function writeText(filePath: string, value: string): void {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const temporaryPath = `${filePath}.tmp`;
-  fs.writeFileSync(temporaryPath, value, 'utf8');
-  fs.renameSync(temporaryPath, filePath);
+  publishImmutableArtifact({ outputRoot: path.dirname(path.resolve(filePath)), relativePath: path.basename(filePath),
+    content: value, reason: 'publish-qualified-final-release-or-blocking-diagnostic' });
 }
 
 if (require.main === module) {

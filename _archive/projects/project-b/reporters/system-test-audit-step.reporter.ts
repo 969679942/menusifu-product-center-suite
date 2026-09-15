@@ -1,4 +1,4 @@
-import PlaywrightAuditStepReporter from '../../../Test Automation Platform/src/reporters/playwright-audit-step.reporter';
+import PlaywrightAuditStepReporter from '../../Test Automation Platform/src/reporters/playwright-audit-step.reporter';
 import {
   MERCHANT_CENTER_CASE_ID_ANNOTATION_TYPES,
   classifyMerchantCenterAuditStep,

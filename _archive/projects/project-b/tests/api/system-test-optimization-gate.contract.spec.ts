@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { buildMerchantCenterOptimizationPlan } from '../../utils/system-test-optimization-gate';
-import type { SystemTestCompiledCase } from '../../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import type { SystemTestCompiledCase } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
 
 function compiledCase(caseId: string): SystemTestCompiledCase {
   return {

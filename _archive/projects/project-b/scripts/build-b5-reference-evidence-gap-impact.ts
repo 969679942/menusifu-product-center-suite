@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
-import type { SystemTestOptimizationReceipt } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
+import type { SystemTestOptimizationReceipt } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 
 type ClosureAudit = {
   cases: Array<{ caseId: string; module: string; responsibilityClass?: string }>;

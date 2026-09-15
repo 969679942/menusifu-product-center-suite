@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import { publishImmutableArtifact } from '../utils/immutable-artifact';
 import path from 'node:path';
 import ts from 'typescript';
 
@@ -503,8 +504,10 @@ export function writeMigrationClosureReport(
   const markdownPath = path.resolve(outputRoot.absolutePath, manifest.outputs.markdownPath);
   fs.mkdirSync(path.dirname(jsonPath), { recursive: true });
   fs.mkdirSync(path.dirname(markdownPath), { recursive: true });
-  fs.writeFileSync(jsonPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-  fs.writeFileSync(markdownPath, renderMigrationClosureMarkdown(report), 'utf8');
+  publishImmutableArtifact({ outputRoot: outputRoot.absolutePath, relativePath: manifest.outputs.jsonPath,
+    content: `${JSON.stringify(report, null, 2)}\n`, reason: 'refresh-migration-closure-observation' });
+  publishImmutableArtifact({ outputRoot: outputRoot.absolutePath, relativePath: manifest.outputs.markdownPath,
+    content: renderMigrationClosureMarkdown(report), reason: 'refresh-migration-closure-observation' });
   return { jsonPath, markdownPath };
 }
 
@@ -736,17 +739,8 @@ function recoverMigrationAcceptanceTransaction(
 }
 
 function writeFileAtomically(filePath: string, content: string): void {
-  const temporaryPath = `${filePath}.tmp-${process.pid}-${Date.now()}`;
-  fs.writeFileSync(temporaryPath, content, 'utf8');
-  try {
-    fs.renameSync(temporaryPath, filePath);
-  } catch (error) {
-    if (!['EEXIST', 'EPERM', 'ENOTEMPTY'].includes((error as NodeJS.ErrnoException).code ?? '')) throw error;
-    fs.rmSync(filePath, { force: true });
-    fs.renameSync(temporaryPath, filePath);
-  } finally {
-    fs.rmSync(temporaryPath, { force: true });
-  }
+  publishImmutableArtifact({ outputRoot: path.dirname(path.resolve(filePath)), relativePath: path.basename(filePath),
+    content, reason: 'preserve-migration-baseline-and-acceptance-transaction' });
 }
 
 function assertMigrationAcceptanceChain(

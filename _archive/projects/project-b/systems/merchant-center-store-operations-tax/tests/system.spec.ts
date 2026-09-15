@@ -12,7 +12,7 @@ import {
   type SystemTestReportStep,
   type SystemTestStepReporter,
 } from '../../../automation/system-test/system-test-recipe-executor';
-import { formatContinuousBusinessStepTitle } from '../../../../../Test Automation Platform/src/reporters/allure-report-integrity';
+import { formatContinuousBusinessStepTitle } from '../../../../Test Automation Platform/src/reporters/allure-report-integrity';
 import { matchesSystemTestRoute } from '../../../automation/system-test/system-test-semantic-governance';
 import { ProductCenterLowDependencySopFlow } from '../../../flows/product-center/product-center-low-dependency-sop.flow';
 import {

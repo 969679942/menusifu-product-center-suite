@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import type { BusinessRuleExecutionReceipt } from '../../../Test Automation Platform/src/automation/system-test/business-rule-lifecycle';
-import { fingerprintExecutionContext } from '../../../Test Automation Platform/src/utils/test-execution-state';
+import type { BusinessRuleExecutionReceipt } from '../../Test Automation Platform/src/automation/system-test/business-rule-lifecycle';
+import { fingerprintExecutionContext } from '../../Test Automation Platform/src/utils/test-execution-state';
 import { observeProductCenterRuleExecution, type ProductCenterRuleObservationResult } from '../adapters/product-center/product-center-business-rule-observation-adapter';
 
 const projectRoot = path.resolve(__dirname, '..');

@@ -15,7 +15,7 @@ export type SystemTestFailureCategory =
 export type SystemTestProgressEvent = {
   runId: string;
   caseId: string;
-  phase: 'started' | 'completed' | 'failed';
+  phase: 'started' | 'completed' | 'failed' | 'skipped';
   status?: string;
   failureCategory?: SystemTestFailureCategory;
   diagnosticFingerprint?: string;

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { withSystemTestRunLease, type SystemTestRunLease } from '../src/governance/run-execution-lease';
 import path from 'node:path';
 import { spawn, type ChildProcess } from 'node:child_process';
 import { buildSystemTestArtifacts } from './build-system-test-contract';
@@ -59,12 +60,19 @@ import {
   type ExecutionIntent,
 } from '../src/governance/execution-intent';
 import { importSystemTestEvidenceLedgerReceipts } from '../src/utils/system-test-evidence-ledger-receipt';
+import { verifyExecutionAttemptLedger } from '../src/governance/execution-attempt-accounting';
+import { resolveEvidenceLedgerTerminalCaseIds } from '../src/governance/execution-terminal-receipts';
+import { registerEvidenceInvocation, readIndexedRunEvidence, readCurrentIndexedRunObservation } from '../src/governance/run-evidence-index';
+import { summarizeIndexedRunTelemetry } from '../src/governance/indexed-run-telemetry';
 
 type EvidenceLedger = {
+  runId?: string;
   contractFingerprint: string;
   summary: { selected: number; executed: number; evidenceIncomplete: number };
   cases?: Array<{
     caseId?: string;
+    caseFingerprint?: string;
+    implementationFingerprint?: string;
     playwrightStatus?: string;
     failureCategory?: SystemTestFailureCategory;
     runtimeEvidence?: {
@@ -82,7 +90,9 @@ export type SystemTestExecutionMode = 'incremental' | 'full-regression' | 'refer
 const rootDir = path.resolve(process.env.SYSTEM_TEST_PROJECT_ROOT ?? process.cwd());
 const platformRoot = path.resolve(__dirname, '..');
 
-export async function runSystemTest(input: {
+export type RunSystemTestInput = {
+  /** Opaque in-process lease passed by the public flow to its sequential batches. */
+  parentLease?: SystemTestRunLease;
   manifestPath: string;
   runId?: string;
   caseIds?: readonly string[];
@@ -98,7 +108,23 @@ export async function runSystemTest(input: {
   allowUnscopedSelection?: boolean;
   /** Optional project-relative audit log. Jenkins may also provide SYSTEM_TEST_AUDIT_EVENT_LOG. */
   auditEventLogPath?: string;
-}): Promise<number> {
+};
+
+export async function runSystemTest(input: RunSystemTestInput): Promise<number> {
+  resolveSystemTestExecutionMode(input);
+  const runId = input.runId ?? `system-test-${Date.now()}`;
+  const manifest = readJson<{ system?: { systemId?: string } }>(path.resolve(rootDir, input.manifestPath));
+  const systemId = manifest?.system?.systemId;
+  if (!systemId) throw new Error('SYSTEM_TEST_MANIFEST_IDENTITY_UNAVAILABLE');
+  return withSystemTestRunLease({ projectRoot: rootDir, systemId, runId, parentLease: input.parentLease }, async () => {
+    const statePath = path.join(rootDir, 'output/system-test', systemId, 'latest-run-state.json');
+    const prior = reconcileSystemTestRunState(statePath);
+    if (prior?.status === 'running') throw new Error('SYSTEM_TEST_RUN_ALREADY_ACTIVE');
+    return runSystemTestOwned({ ...input, runId });
+  });
+}
+
+async function runSystemTestOwned(input: RunSystemTestInput): Promise<number> {
   const executionMode = resolveSystemTestExecutionMode(input);
   const runId = input.runId ?? `system-test-${Date.now()}`;
   const bootstrap = buildSystemTestArtifacts({ rootDir, manifestPath: input.manifestPath });
@@ -108,18 +134,6 @@ export async function runSystemTest(input: {
     ? path.resolve(rootDir, process.env.SYSTEM_TEST_REPAIR_TELEMETRY_PATH)
     : path.join(systemOutputDir, 'repair-execution-ledger.jsonl');
   const statePath = path.join(systemOutputDir, 'latest-run-state.json');
-  const previousRunState = reconcileSystemTestRunState(statePath);
-  if (previousRunState?.status === 'running' && previousRunState.runId !== runId) {
-    fs.mkdirSync(outputDir, { recursive: true });
-    writeJson(path.join(outputDir, 'run-report.json'), {
-      schemaVersion: '1.0.0', runId, systemId: bootstrap.manifest.system.systemId,
-      status: 'blocked', exitCode: 2, reason: 'SYSTEM_TEST_RUN_ALREADY_ACTIVE',
-      activeRunId: previousRunState.runId,
-      failureCategories: ['transient-platform'],
-      metrics: { totalDurationMs: 0, phaseDurationsMs: {}, setupRuns: 0, preflightRuns: 0, businessRuns: 0, selectedCaseCount: 0 },
-    });
-    return 2;
-  }
   const startedAt = new Date().toISOString();
   let state: SystemTestRunState = {
     schemaVersion: '1.0.0', runId, systemId: bootstrap.manifest.system.systemId,
@@ -423,6 +437,8 @@ export async function runSystemTest(input: {
     details: { selectedCaseIds: executableCaseIds, blockedCaseIds, candidateFingerprint: executionCandidate.fingerprint, grantSource: 'ephemeral-runner-grant' },
   });
   try {
+  const evidenceInvocation = registerEvidenceInvocation(outputDir, { runId, selectedCaseIds: artifacts.contract.cases.map((item) => item.caseId),
+    contractFingerprint: artifacts.contract.fingerprint, implementationFingerprint, executionCandidateFingerprint: executionCandidate.fingerprint });
   const baseEnv: NodeJS.ProcessEnv = {
     ...process.env,
     ...executionGrant.env,
@@ -431,6 +447,7 @@ export async function runSystemTest(input: {
     SYSTEM_TEST_PROGRESS_LATEST: progressLatest,
     SYSTEM_TEST_PROGRESS_HISTORY: progressHistory,
     SYSTEM_TEST_EVIDENCE_OUTPUT: evidencePath,
+    SYSTEM_TEST_EVIDENCE_INVOCATION_ID: evidenceInvocation.invocationId,
     SYSTEM_TEST_BASE_URL: artifacts.manifest.system.baseURL,
     SYSTEM_TEST_MARKER_PREFIX: artifacts.manifest.system.markerPrefix,
     SYSTEM_TEST_CASE_IDS: executableCaseIds.join(','),
@@ -615,10 +632,15 @@ export async function runSystemTest(input: {
       1,
     );
   }
-  const ledger = fs.existsSync(evidencePath) ? readJson<EvidenceLedger>(evidencePath) : undefined;
-  const terminalCaseIds = [...new Set((ledger?.cases ?? [])
-    .map((item) => item.caseId)
-    .filter((caseId): caseId is string => typeof caseId === 'string' && caseId.length > 0))].sort();
+  const observation = readCurrentIndexedRunObservation(outputDir, runId, evidenceInvocation.invocationId);
+  const ledger = observation.status === 'available' ? observation.ledger as EvidenceLedger : undefined;
+  const indexedEvidence = readIndexedRunEvidence(outputDir, runId, evidenceInvocation.invocationId);
+  const executionProjection = ledger && observation.status === 'available'
+    ? verifyExecutionAttemptLedger(runId, artifacts.contract.cases.map((item) => item.caseId), ledger) : null;
+  const terminalCaseIds = resolveEvidenceLedgerTerminalCaseIds({ selectedCaseIds: executableCaseIds,
+    currentCases: artifacts.contract.cases.map((item) => ({ caseId: item.caseId, caseFingerprint: fingerprintSystemTestValue(item),
+      implementationFingerprint: caseImplementationFingerprints[item.caseId] ?? implementationFingerprint })),
+    ledgers: ledger && executionProjection?.valid ? [ledger] : [] });
   if (executionIntentArtifact && executionIntentCheckpointPath) {
     writeExecutionIntentCheckpoint(executionIntentCheckpointPath, executionIntentArtifact, terminalCaseIds);
     assertExecutionIntentCompletion({
@@ -632,6 +654,7 @@ export async function runSystemTest(input: {
   const diagnosticsPath = path.join(outputDir, 'diagnostics.json');
   const diagnosticWorkQueuePath = path.join(outputDir, 'repair-work-queue.json');
   const diagnostics = buildSystemTestFailureDiagnosticDocument({
+    historicalEvidenceFinding: observation.status === 'available' ? observation.historicalEvidenceFinding : null,
     outputDir,
     systemId: artifacts.manifest.system.systemId,
     runId,
@@ -642,7 +665,7 @@ export async function runSystemTest(input: {
   writeJson(diagnosticsPath, diagnostics);
   writeJson(diagnosticWorkQueuePath, buildSystemTestDiagnosticWorkQueue(diagnostics));
   const diagnosticFingerprint = fingerprintSystemTestFailureDiagnostic(diagnostics);
-  const evidenceValid = ledger?.contractFingerprint === artifacts.contract.fingerprint
+  const evidenceValid = indexedEvidence.status === 'available' && executionProjection?.valid === true && ledger?.contractFingerprint === artifacts.contract.fingerprint
     && ledger.summary.selected === artifacts.contract.cases.length
     && ledger.summary.executed === artifacts.contract.cases.length
     && ledger.summary.evidenceIncomplete === 0;
@@ -668,7 +691,7 @@ export async function runSystemTest(input: {
   const failureCategories = exitCode === 0 ? [] : uniqueSystemTestFailureCategories([
     ...(ledger?.cases ?? []).map((item) => item.failureCategory),
     execution.circuit ? classifySystemTestCircuit(execution.circuit.code) : undefined,
-    !evidenceValid || securityFindings.length > 0 ? 'automation-gap' : undefined,
+    !evidenceValid || !receiptImportValid || securityFindings.length > 0 ? 'automation-gap' : undefined,
   ]);
   for (const registration of repairAttempts) {
     const item = ledger?.cases?.find((candidate) => candidate.caseId === registration.caseId);
@@ -691,7 +714,9 @@ export async function runSystemTest(input: {
       ? 'circuit-broken'
       : terminalCaseIds.length < executableCaseIds.length
         ? 'blocked'
-        : 'failed';
+        : failureCategories.includes('product-failure')
+          ? 'failed'
+          : 'completed-with-findings';
   phaseDurationsMs[state.phase] = (phaseDurationsMs[state.phase] ?? 0) + (Date.now() - phaseStartedAtMs);
   writeJson(reportPath, {
     schemaVersion: '1.0.0', runId, systemId: artifacts.manifest.system.systemId,
@@ -711,19 +736,22 @@ export async function runSystemTest(input: {
       preflightRuns,
       businessRuns: 1,
       selectedCaseCount: executableCaseIds.length,
-      averageCaseDurationMs: executableCaseIds.length > 0
-        ? Math.round((Date.now() - Date.parse(startedAt)) / executableCaseIds.length)
-        : 0,
+      // Legacy total/selection ratio was not an observed case-duration average.
+      averageCaseDurationMs: null,
       recipePhaseDurationsMs: aggregateRecipePhaseDurations(ledger),
       workers: concurrency.effectiveWorkers,
     },
     concurrency,
+    reporterInvocationTelemetry: summarizeIndexedRunTelemetry(outputDir, runId, evidenceInvocation.invocationId),
     selectedCaseIds,
     executableCaseIds,
     blockedCaseIds,
     repairGuardDecisions,
     executionCandidate: path.relative(rootDir, executionCandidatePath).replaceAll(path.sep, '/'),
     evidenceLedger: path.relative(rootDir, evidencePath).replaceAll(path.sep, '/'),
+    evidenceInvocation: { invocationId: evidenceInvocation.invocationId, indexPath: path.relative(rootDir, path.join(outputDir, 'evidence-invocations/index.json')).replaceAll(path.sep, '/'),
+      snapshotHash: observation.status === 'available' ? observation.ledgerHash : null, observationStatus: observation.status,
+      indexStatus: indexedEvidence.status, ...(indexedEvidence.status === 'incomplete' ? { reason: indexedEvidence.reason } : {}) },
     diagnostics: path.relative(rootDir, diagnosticsPath).replaceAll(path.sep, '/'),
     repairWorkQueue: path.relative(rootDir, diagnosticWorkQueuePath).replaceAll(path.sep, '/'),
     repairAttemptReconciliation,

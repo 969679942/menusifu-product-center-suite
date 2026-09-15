@@ -64,6 +64,21 @@ class TransportBoundaryTests(unittest.TestCase):
             remembered=j.read(j.SUBMITTED_BUILDS)['requests']
             self.assertEqual(remembered[0]['buildNumber'],51)
 
+    def test_scheduled_build_is_discoverable_without_codex_process_state(self):
+        """A heartbeat/watch invocation can collect a scheduled build later."""
+        with tempfile.TemporaryDirectory() as d, self.isolated_watch(d):
+            j.write(j.ROOT/'ci/watch-policy.json',{
+                'jobName': j.JOB, 'firstBuildNumber': 34,
+                'autoDiscoverHistorical': False, 'autoDiscoverScheduled': True,
+                'registeredBuilds': [],
+            })
+            build={'buildNumber':56,'building':False,'result':'SUCCESS','gitSha':'a'*40,
+                   'requestId':'schedule-56','intentId':'123e4567-e89b-12d3-a456-426614174000',
+                   'runScope':'full-regression','triggerSource':'jenkins-schedule'}
+            with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
+                j.watch()
+                self.assertEqual(poll.call_args.args[0],j.OUT/'build-56/checkpoint.json')
+
     def test_other_job_mutation_is_denied_before_network(self):
         with patch.object(j.SESSION,'post') as post:
             with self.assertRaises(ValueError):j.post(j.BASE+'/job/another-job/config.xml',data=b'')

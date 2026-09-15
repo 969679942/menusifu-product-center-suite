@@ -1,11 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { assertSystemTestOptimizationGate } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
-import { appendSystemTestRepairTelemetry } from '../../../Test Automation Platform/src/automation/system-test/system-test-repair-telemetry';
-import { assertSelectionMatchesPlan } from '../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
-import { issueSystemTestExecutionGrant, revokeSystemTestExecutionGrant } from '../../../Test Automation Platform/src/automation/system-test/system-test-execution-grant';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { assertSystemTestOptimizationGate } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import { appendSystemTestRepairTelemetry } from '../../Test Automation Platform/src/automation/system-test/system-test-repair-telemetry';
+import { assertSelectionMatchesPlan } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import { issueSystemTestExecutionGrant, revokeSystemTestExecutionGrant } from '../../Test Automation Platform/src/automation/system-test/system-test-execution-grant';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
 import {
   assertExecutionIntentCheckpointState,
   assertExecutionIntentCompletion,
@@ -13,14 +13,16 @@ import {
   assertExecutionIntentImpactScope,
   fingerprintExecutionIntent,
   fingerprintExecutionSelection,
-} from '../../../Test Automation Platform/src/governance/execution-intent';
-import { resolveEvidenceLedgerTerminalCaseIds } from '../../../Test Automation Platform/src/governance/execution-terminal-receipts';
+} from '../../Test Automation Platform/src/governance/execution-intent';
+import { resolveEvidenceLedgerTerminalCaseIds } from '../../Test Automation Platform/src/governance/execution-terminal-receipts';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 import { buildProductCenterBatchExecutionIntent } from '../adapters/product-center/product-center-execution-intent';
 import { resolveProductCenterSourceTerminalCaseIds } from '../adapters/product-center/product-center-source-terminal-receipts';
-import type { ProjectRemediationOptimizationCase, ProjectRemediationOptimizationPlan } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
+import type { ProjectRemediationOptimizationCase, ProjectRemediationOptimizationPlan } from '../../Test Automation Platform/src/governance/project-remediation-optimization';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
 import { runProductCenterItem213 } from './run-product-center-item-213';
+import { partitionProductCenterItemSpecs } from '../adapters/product-center/product-center-item-addon-price-specs';
+import { assertProductCenterWorkUnitMayStart } from '../adapters/product-center/product-center-work-unit-stop-loss';
 
 type SourcePlan = {
   execution: { selectedCaseIds: string[]; runners: Array<{ runnerId: string; selectedCaseIds: string[] }> };
@@ -130,8 +132,12 @@ if (require.main === module) {
 async function run(): Promise<number> {
   try {
     validatePlan();
+    const workUnitGuard = argument('work-unit-guard');
+    if(process.env.PC_WORK_UNIT_GUARD_REQUIRED==='1'&&!workUnitGuard)throw Error('WORK_UNIT_GUARD_REQUIRED_BEFORE_BROWSER');
+    if(workUnitGuard)assertProductCenterWorkUnitMayStart(projectRoot,workUnitGuard,{runId,caseIds:selectedCaseIds});
     writeJsonAtomic(executionIntentPath, executionIntent);
     persist(checkpoint);
+    process.env.PC_PROJECT_EXECUTION_INTENT_PATH = executionIntentPath;
   } catch (error) {
     const reason = errorMessage(error);
     if (reason.startsWith('SYSTEM_TEST_SELECTION_DRIFT:')) {
@@ -175,8 +181,8 @@ async function run(): Promise<number> {
   if (sourcePending.length > 0) {
     units.push({ unitId: 'source-governed', runner: 'source-governed', caseIds: sourcePending, execute: async () => runSource(sourcePending) });
   }
-  if (handledItemIds.length > 0) {
-    units.push({ unitId: 'handled-item-revalidation', runner: 'item', caseIds: handledItemIds, execute: async () => runHandledItems(handledItemIds) });
+  for (const route of partitionProductCenterItemSpecs(handledItemIds)) {
+    units.push({ unitId: route.unitId, runner: 'item', caseIds: route.caseIds, execute: async () => runHandledItems(route.caseIds, route.unitId) });
   }
   for (const batch of seasoningBatches) {
     const batchCaseIds = batch.caseIds.filter((caseId) => !terminal.has(caseId));
@@ -427,24 +433,27 @@ async function runSource(caseIds: readonly string[]): Promise<number> {
   return result.status ?? 1;
 }
 
-async function runHandledItems(caseIds: readonly string[]): Promise<number> {
+async function runHandledItems(caseIds: readonly string[], unitId = 'handled-item-revalidation'): Promise<number> {
   const candidateFingerprint = fingerprintSystemTestValue({ plan: plan.fingerprint, caseIds });
   const grant = issueSystemTestExecutionGrant({
     rootDir: projectRoot,
     applicationId: 'merchant-center-product-center',
-    runId: unitRunId('handled-item-revalidation'),
+    runId: unitRunId(unitId),
     caseIds,
     ttlMs: 4 * 60 * 60 * 1000,
     candidateFingerprint,
   });
-  const previous = captureEnv(['PC_ITEM_RUN_ID', 'PC_ITEM_SELECTED_CASE_IDS', 'PLAYWRIGHT_JSON_OUTPUT_NAME', ...Object.keys(grant.env)]);
+  const previous = captureEnv(['PC_ITEM_RUN_ID', 'PC_ITEM_SELECTED_CASE_IDS', 'PLAYWRIGHT_JSON_OUTPUT_NAME', 'PC_SOURCE_GOVERNED_ALLURE_DIR', 'ALLURE_RESULTS_DIR', 'PC_PLAYWRIGHT_OUTPUT_DIR', ...Object.keys(grant.env)]);
   Object.assign(process.env, grant.env, {
-    PC_ITEM_RUN_ID: unitRunId('handled-item-revalidation'),
+    PC_ITEM_RUN_ID: unitRunId(unitId),
     PC_ITEM_SELECTED_CASE_IDS: caseIds.join(','),
-    PLAYWRIGHT_JSON_OUTPUT_NAME: `output/product-center-item-handled-${unitRunId('handled-item-revalidation')}.json`,
+    PLAYWRIGHT_JSON_OUTPUT_NAME: `output/product-center-item-handled-${unitRunId(unitId)}.json`,
+    PC_SOURCE_GOVERNED_ALLURE_DIR: path.join(projectRoot, 'output/allure-results', unitRunId(unitId)),
+    ALLURE_RESULTS_DIR: path.join(projectRoot, 'output/allure-results', unitRunId(unitId)),
+    PC_PLAYWRIGHT_OUTPUT_DIR: path.join(projectRoot, 'test-results', unitRunId(unitId)),
   });
   try {
-    return runProductCenterItem213({ caseIds, workerCount: 1 });
+    return runProductCenterItem213({ caseIds, workerCount: 1, shardCount: 1 });
   } finally {
     restoreEnv(previous);
     revokeSystemTestExecutionGrant(grant);
@@ -544,3 +553,5 @@ function writeJsonAtomic(filePath: string, value: unknown): void {
 function errorMessage(error: unknown): string { return error instanceof Error ? error.message : String(error); }
 function captureEnv(keys: readonly string[]): Record<string, string | undefined> { return Object.fromEntries(keys.map((key) => [key, process.env[key]])); }
 function restoreEnv(values: Record<string, string | undefined>): void { for (const [key, value] of Object.entries(values)) { if (value === undefined) delete process.env[key]; else process.env[key] = value; } }
+
+

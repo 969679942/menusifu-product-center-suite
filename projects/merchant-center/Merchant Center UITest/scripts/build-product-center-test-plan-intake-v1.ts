@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { reconcileIntakeSourceSummary } from '../utils/product-center-intake-source-summary';
 import {
   buildProductCenterTestPlanIntake,
   type ProductCenterTestPlanAutomationBinding,
@@ -45,16 +46,25 @@ export function buildProductCenterTestPlanIntakeV1Artifacts(options: {
     ? path.resolve(projectRoot, options.runtimeAuditPath)
     : fs.existsSync(defaultRuntimeAuditPath) ? defaultRuntimeAuditPath : undefined;
   const markdown = fs.readFileSync(inputPath, 'utf8');
-  const decisions = readJson<JsonRecord>(path.join(
+  const decisionsPath = path.join(
     projectRoot,
     'contracts/product-center/reviews/unsupported-source-format-decisions.json',
-  ));
+  );
+  const decisionsContent = fs.readFileSync(decisionsPath, 'utf8');
+  const decisions = JSON.parse(decisionsContent) as JsonRecord;
+  const sourceDecisionSummary = reconcileIntakeSourceSummary(decisions);
+  const sourceDecisionProvenance = {
+    path: path.relative(projectRoot, decisionsPath).replace(/\\/g, '/'),
+    sha256: createHash('sha256').update(decisionsContent).digest('hex'),
+    generatedAt: decisions.generatedAt,
+    ...sourceDecisionSummary,
+  };
   const bindings = options.bindingsPath
     ? readJson<{ bindings: ProductCenterTestPlanAutomationBinding[] }>(
       path.resolve(options.bindingsPath),
     ).bindings
     : buildDefaultBindings(projectRoot);
-  const blockedSources = Number(decisions.summary?.blockedCases ?? 0);
+  const blockedSources = sourceDecisionSummary.blockedCases;
   const intake = buildProductCenterTestPlanIntake({ markdown, bindings, blockedSources });
   const runtimeAudit = runtimeAuditPath
     ? readJson<ProductCenterRuntimeAuditCorrectionDocument>(runtimeAuditPath)
@@ -105,6 +115,8 @@ export function buildProductCenterTestPlanIntakeV1Artifacts(options: {
   const fingerprint = createHash('sha256')
     .update(markdown)
     .update(JSON.stringify(bindings))
+    .update(sourceDecisionProvenance.sha256)
+    .update(JSON.stringify(runtimeAudit ?? null))
     .digest('hex');
   const bindingArtifact = {
     schemaVersion: '1.0.0',
@@ -118,6 +130,7 @@ export function buildProductCenterTestPlanIntakeV1Artifacts(options: {
     collectionId: 'product-center-test-plan-intake-v1',
     fingerprint,
     status,
+    sourceDecisionProvenance,
     summary: {
       ...intake.summary,
       generated: reconciledCases.length,
@@ -132,6 +145,7 @@ export function buildProductCenterTestPlanIntakeV1Artifacts(options: {
     collectionId: 'product-center-test-plan-intake-v1',
     fingerprint,
     status,
+    sourceDecisionProvenance,
     input: bindingArtifact.input,
     summary: {
       ...intake.summary,
@@ -216,7 +230,12 @@ function buildDefaultBindings(projectRoot: string): ProductCenterTestPlanAutomat
         id: claim.id,
         kind: claim.kind,
         text: claim.text,
+        sourceRefs: claim.sourceRefs,
+        evidenceLevel: claim.evidenceLevel,
+        sourceTrace: claim.sourceTrace,
       })),
+      coverageIds: candidate.coverageIds,
+      execution: candidate.execution,
       mutatesData: candidate.mutatesData === true,
       cleanup: [...(candidate.cleanup ?? [])],
     } satisfies ProductCenterTestPlanAutomationBinding;

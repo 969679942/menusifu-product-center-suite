@@ -1,17 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { assertSystemTestOptimizationGate, type SystemTestOptimizationPlan } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import { assertSystemTestOptimizationGate, type SystemTestOptimizationPlan } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 import type {
   ProjectRemediationOptimizationCase,
   ProjectRemediationOptimizationPlan,
-} from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
+} from '../../Test Automation Platform/src/governance/project-remediation-optimization';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
 import { runProductCenterSourceGoverned } from './run-product-center-source-governed';
-import { assertExecutionIntentCheckpointState, assertExecutionIntentCompletion, assertExecutionIntentContract, type ExecutionIntent } from '../../../Test Automation Platform/src/governance/execution-intent';
-import { fingerprintImplementationSources } from '../../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
-import { inspectSystemTestRepairAttemptState } from '../../../Test Automation Platform/src/automation/system-test/system-test-repair-attempt-guard';
+import { assertExecutionIntentCheckpointState, assertExecutionIntentCompletion, assertExecutionIntentContract, type ExecutionIntent } from '../../Test Automation Platform/src/governance/execution-intent';
+import { fingerprintImplementationSources } from '../../Test Automation Platform/src/automation/system-test/system-test-implementation-fingerprint';
+import { inspectSystemTestRepairAttemptState } from '../../Test Automation Platform/src/automation/system-test/system-test-repair-attempt-guard';
 import { buildProductCenterGroupCaseFingerprintManifest } from '../utils/product-center-group-case-fingerprint';
 import {
   buildProductCenterCanaryCheckpointMetadata,

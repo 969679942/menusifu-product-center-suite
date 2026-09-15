@@ -12,14 +12,21 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
 DEFAULT_BASE = 'http://192.168.1.50:8081'
+DEFAULT_JOB = 'menusifu-product-center-suite'
+
 def configured_base():
-    value = (os.environ.get('SUITE_JENKINS_BASE_URL') or os.environ.get('JENKINS_BASE_URL') or DEFAULT_BASE).strip().rstrip('/')
+    value = (os.environ.get('SUITE_JENKINS_BASE_URL') or
+             os.environ.get('JENKINS_BASE_URL') or DEFAULT_BASE).strip().rstrip('/')
     parsed = urlparse(value)
     if parsed.scheme not in ['http', 'https'] or not parsed.netloc or parsed.path not in ['', '/']:
         raise ValueError('JENKINS_BASE_URL must be an absolute http(s) origin')
     return value
+
 BASE = configured_base()
-JOB = 'menusifu-product-center-suite'
+JOB = (os.environ.get('SUITE_JENKINS_JOB_NAME') or
+       os.environ.get('JENKINS_JOB_NAME') or DEFAULT_JOB).strip()
+if not re.fullmatch(r'[A-Za-z0-9._-]{1,120}', JOB):
+    raise ValueError('JENKINS_JOB_NAME contains unsupported characters')
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
@@ -97,11 +104,26 @@ def post(url, **kwargs):
     return response
 
 def health():
-    """Probe server, Job and SCM trigger configuration without changing state."""
-    result = {'schemaVersion': 1, 'server': BASE, 'job': JOB, 'checkedAt': time.time(),
-              'serverStatus': 'unknown', 'jobStatus': 'unknown', 'triggerStatus': 'unknown',
-              'scmTriggerConfigured': False, 'parameterizedBuildEndpoint': False,
-              'actionRequired': 'none'}
+    """Read-only probe for server/job reachability and trigger configuration.
+
+    A missing or unreachable Jenkins endpoint is an external integration state,
+    not a product-test failure. The result is deliberately sanitized and safe
+    to archive; credentials and response bodies are never persisted.
+    """
+    result = {
+        'schemaVersion': 1,
+        'server': BASE,
+        'job': JOB,
+        'checkedAt': time.time(),
+        'serverStatus': 'unknown',
+        'jobStatus': 'unknown',
+        'triggerStatus': 'unknown',
+        'scmTriggerConfigured': False,
+        'concurrentBuildProtectionConfigured': False,
+        'pipelineGovernanceConfigured': False,
+        'parameterizedBuildEndpoint': False,
+        'actionRequired': 'none',
+    }
     try:
         server = SESSION.get(BASE + '/api/json', timeout=8)
         result['serverStatus'] = 'connected' if 200 <= server.status_code < 300 else ('unauthorized' if server.status_code in [401, 403] else 'unreachable')
@@ -116,26 +138,50 @@ def health():
                 if 200 <= config.status_code < 300:
                     root = ET.fromstring(config.content)
                     triggers = root.find('triggers')
-                    names = {node.tag for node in triggers} if triggers is not None else set()
-                    result['scmTriggerConfigured'] = any('GitHubPushTrigger' in name or 'SCMTrigger' in name for name in names)
+                    properties = root.find('properties')
+                    trigger_names = {node.tag for node in triggers} if triggers is not None else set()
+                    result['scmTriggerConfigured'] = any('GitHubPushTrigger' in name or 'SCMTrigger' in name for name in trigger_names)
+                    result['concurrentBuildProtectionConfigured'] = properties is not None and properties.find(
+                        'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty') is not None
+                    pipeline_script = root.findtext('definition/script') or ''
+                    result['pipelineGovernanceConfigured'] = all(fragment in pipeline_script for fragment in [
+                        '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
+                        "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
+                        'jenkins-invocation.json',
+                    ])
                     result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
-                    if not result['scmTriggerConfigured']:
+                    if not result['pipelineGovernanceConfigured']:
+                        result['actionRequired'] = 'configure-governed-pipeline-definition'
+                    elif not result['concurrentBuildProtectionConfigured']:
+                        result['actionRequired'] = 'configure-job-concurrency-protection'
+                    elif not result['scmTriggerConfigured']:
                         result['actionRequired'] = 'configure-cross-repository-webhook'
                 else:
+                    result['triggerStatus'] = 'unknown'
                     result['actionRequired'] = 'job-config-unreadable'
             else:
                 result['actionRequired'] = 'jenkins-job-unreachable'
     except (requests.ConnectionError, requests.Timeout):
-        result['serverStatus'] = 'unreachable'; result['actionRequired'] = 'jenkins-endpoint-unreachable'
+        result['serverStatus'] = 'unreachable'
+        result['actionRequired'] = 'jenkins-endpoint-unreachable'
     except (requests.RequestException, ET.ParseError, ValueError) as error:
-        result['serverStatus'] = 'error'; result['actionRequired'] = 'jenkins-health-probe-error'; result['errorType'] = type(error).__name__
+        result['serverStatus'] = 'error'
+        result['actionRequired'] = 'jenkins-health-probe-error'
+        result['errorType'] = type(error).__name__
     write(OUT / 'connection-status.json', result)
     print(json.dumps(result, ensure_ascii=False))
 
 def configure():
     old=get(JOB_URL+'config.xml').content
-    (OUT/'job-config-before.xml').write_bytes(old)
     root=ET.fromstring(old)
+    previous_properties=root.find('properties')
+    write(OUT/'job-config-before.json',{
+        'schemaVersion':1,
+        'sha256':hashlib.sha256(old).hexdigest(),
+        'definitionClass':root.find('definition').get('class') if root.find('definition') is not None else None,
+        'propertyTypes':sorted(node.tag for node in previous_properties) if previous_properties is not None else [],
+        'capturedAt':time.time(),
+    })
     definition=root.find('definition')
     definition.clear()
     definition.set('class','org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition')
@@ -189,24 +235,57 @@ def git(*args):
             if args[0] not in ['ls-remote','push'] or not delay: raise
             time.sleep(delay)
 
-def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
-    if auto_chain and scope not in ['contracts', 'reports', 'pilot']:
-        raise ValueError('Automatic chain scope invalid')
-    manifest=read(ROOT/'ci/dependency-manifest.json')
-    data={'GIT_SHA':sha, 'MC_GIT_SHA':manifest['repositories']['mc']['revision'],
-        'TAP_GIT_SHA':manifest['repositories']['tap']['revision'], 'REQUEST_ID':request_id,
-        'INTENT_ID':intent_id, 'RUN_SCOPE':scope, 'TRIGGER_SOURCE':'explicit-local-submit',
-        'AUTO_CHAIN':'true' if auto_chain else 'false'}
-    for name in ['GIT_SHA','MC_GIT_SHA','TAP_GIT_SHA']:
-        if not re.fullmatch('[0-9a-f]{40}',data[name]): raise ValueError('Exact '+name+' required')
-    if auto_chain or scope in ['pilot','full-regression']:
-        secret_file=pathlib.Path(os.environ.get('MC_RUNTIME_ENV_PATH', str(ROOT.parent/'Merchant Center'/'.secrets/runtime.env')))
-        runtime=secret_file.read_text(encoding='utf-8-sig')
-        if not runtime.strip(): raise ValueError('Pilot runtime configuration empty')
-        data['MC_RUNTIME_ENV']=runtime
-    return data
+def validate_trigger_request(payload, remote_sha=None):
+    """Run the TAP-owned trigger contract before any Jenkins POST.
 
-def submit(scope='contracts', auto_chain=False):
+    Keeping this check in the transport adapter prevents malformed or stale
+    requests from reaching Jenkins, while the contract itself remains shared
+    with other adapters through tap/src/ci/jenkins-trigger-contract.cjs.
+    """
+    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
+    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsTriggerRequest(p, {remoteSha: process.argv[3] || undefined})));"
+    output = subprocess.check_output(
+        ['node', '-e', script, str(module), json.dumps(payload), remote_sha or ''],
+        cwd=ROOT, text=True,
+    )
+    errors = json.loads(output)
+    if errors:
+        raise RuntimeError('JENKINS_TRIGGER_CONTRACT_INVALID:' + ','.join(errors))
+
+def submission_parameters(sha, scope, request_id, intent_id):
+    manifest_path = ROOT / 'ci' / 'dependency-manifest.json'
+    if not manifest_path.exists():
+        raise RuntimeError('dependency-manifest-missing')
+    manifest = read(manifest_path)
+    repositories = manifest.get('repositories', {})
+    expected_branches = {'pcs': 'master', 'mc': 'main', 'tap': 'main'}
+    for key, expected in expected_branches.items():
+        actual = repositories.get(key, {}).get('branch')
+        if actual != expected:
+            raise RuntimeError(f'fixed-branch-policy-violation:{key}:{actual!r}')
+    mc_sha = repositories.get('mc', {}).get('revision')
+    tap_sha = repositories.get('tap', {}).get('revision')
+    if not isinstance(mc_sha, str) or not isinstance(tap_sha, str):
+        raise RuntimeError('dependency-manifest-incomplete')
+    payload = {
+        'gitSha': sha, 'mcGitSha': mc_sha, 'tapGitSha': tap_sha,
+        'requestId': request_id, 'intentId': intent_id,
+        'runScope': scope, 'triggerSource': 'explicit-local-submit',
+    }
+    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
+    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsInvocation(p)));"
+    errors = json.loads(subprocess.check_output(
+        ['node', '-e', script, str(module), json.dumps(payload)], cwd=ROOT, text=True,
+    ))
+    if errors:
+        raise RuntimeError('JENKINS_INVOCATION_CONTRACT_INVALID:' + ','.join(errors))
+    return {
+        'GIT_SHA': sha, 'MC_GIT_SHA': mc_sha, 'TAP_GIT_SHA': tap_sha,
+        'REQUEST_ID': request_id, 'INTENT_ID': intent_id, 'RUN_SCOPE': scope,
+        'TRIGGER_SOURCE': 'explicit-local-submit',
+    }
+
+def submit(scope='contracts'):
     quarantine_legacy_checkpoint()
     if STATE.exists():
         previous=read(STATE)
@@ -219,21 +298,34 @@ def submit(scope='contracts', auto_chain=False):
     if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope and previous.get('autoChain',False)==auto_chain:
         print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
     # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
-    if git('rev-parse','refs/remotes/origin/master') != sha:
+    remote_sha = git('rev-parse','refs/remotes/origin/master')
+    if remote_sha != sha:
         git('push','origin','HEAD:master')
-    if git('rev-parse','refs/remotes/origin/master')!=sha:
+        remote_sha = git('rev-parse','refs/remotes/origin/master')
+    if remote_sha!=sha:
         raise RuntimeError('Remote SHA differs; build not triggered')
     state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'intentId':str(uuid.uuid4()),
         'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'autoChain':auto_chain,'createdAt':time.time()}
     # Validate all dependencies and load the protected runtime before recording
     # a pending mutation. Never log or persist this parameter dictionary.
-    data=submission_parameters(sha,scope,state['requestId'],state['intentId'],auto_chain)
+    data=submission_parameters(sha,scope,state['requestId'],state['intentId'])
     write(STATE,state)
     write(OUT/'intents'/(state['intentId']+'.json'),{
         'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
+    data=submission_parameters(sha, scope, state['requestId'], state['intentId'])
+    validate_trigger_request({
+        'gitSha': sha,
+        'requestId': state['requestId'],
+        'intentId': state['intentId'],
+        'runScope': scope,
+        'triggerSource': data['TRIGGER_SOURCE'],
+    }, remote_sha)
+    if scope in ['pilot','full-regression']:
+        secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+        data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);remember_explicit_submission(state);print(json.dumps(state))
@@ -335,7 +427,8 @@ def discover_builds(first_build):
                 'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
                 'intentId':intent_id if isinstance(intent_id,str) and re.fullmatch('[0-9a-f-]{36}',intent_id) else None,
-                'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None})
+                'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None,
+                'triggerSource':params.get('TRIGGER_SOURCE') if params.get('TRIGGER_SOURCE') in ['explicit-local-submit','github-webhook','scm-trigger','workflow-dispatch','jenkins-schedule'] else None})
         if len(page)<100 or any(item['number']<first_build for item in page): return builds
     raise RuntimeError('Build discovery pagination limit reached; no builds silently discarded')
 
@@ -350,6 +443,7 @@ def watch():
     # being replayed after a worker restart.
     if not policy.get('autoDiscoverHistorical',False):
         registered={int(n) for n in policy.get('registeredBuilds',[])}
+        discover_scheduled = policy.get('autoDiscoverScheduled', False) is True
         active=read(STATE) if STATE.exists() else {}
         remember_explicit_submission(active)
         explicit = read(SUBMITTED_BUILDS).get('requests', []) if SUBMITTED_BUILDS.exists() else []
@@ -358,7 +452,9 @@ def watch():
         if active_request: explicit_request_ids.add(active_request)
         local=[]
         for build in builds:
-            if build['buildNumber'] in registered or build['requestId'] in explicit_request_ids:
+            if (build['buildNumber'] in registered
+                or build['requestId'] in explicit_request_ids
+                or (discover_scheduled and build.get('triggerSource') == 'jenkins-schedule')):
                 local.append(build)
         builds=local
     analyses={}; reviews={}

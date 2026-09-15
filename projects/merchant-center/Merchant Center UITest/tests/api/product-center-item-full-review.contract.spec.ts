@@ -5,7 +5,7 @@ import { buildProductCenterItemFullReviewArtifacts } from '../../scripts/build-p
 import { assertProductCenterItemFullReviewGate } from '../../utils/product-center-item-full-review';
 
 test.describe('商品测试用例逐条全审合同', () => {
-  test('232 条用例必须逐条形成明确审核结论且不得抽审', async () => {
+  test('236 条用例必须逐条形成明确审核结论且不得抽审', async () => {
     const projectRoot = path.resolve(__dirname, '../..');
     const { review } = buildProductCenterItemFullReviewArtifacts({
       projectRoot,
@@ -13,13 +13,13 @@ test.describe('商品测试用例逐条全审合同', () => {
       reviewedAt: '2026-07-30T00:00:00.000Z',
     });
 
-    expect(review.summary.total).toBe(232);
-    expect(review.summary.expertReviewed).toBe(232);
+    expect(review.summary.total).toBe(236);
+    expect(review.summary.expertReviewed).toBe(236);
     expect(review.summary.pending).toBe(0);
     expect(review.summary.sourceConfirmationRequired).toBe(0);
     expect(review.summary.deprecated).toBe(7);
     expect(review.summary.revisionRequired).toBe(0);
-    expect(review.summary.approved).toBe(225);
+    expect(review.summary.approved).toBe(229);
     expect(review.guardrails.samplingAllowed).toBe(false);
     expect(review.guardrails.partialDownstreamReleaseAllowed).toBe(false);
     expect(review.entries.every((item) => item.reviewedBy === 'Codex 测试专家')).toBe(true);

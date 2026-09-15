@@ -6,6 +6,7 @@ import {
 } from '../utils/optimization-task-registry';
 import { buildGovernanceIntegrationPrompts, readGovernanceIntegrationSnapshot } from '../utils/integration-status';
 import { buildProductCenterHistoricalBusinessRuleMigration } from './build-product-center-historical-business-rule-migration';
+import { buildLifecycleSnapshot } from '../adapters/test-automation-platform/business-rule-governance-lifecycle';
 
 const projectRoot = path.resolve(__dirname, '..');
 const registryPath = path.join(projectRoot, 'contracts/product-center/governance/product-center-business-rule-governance-optimization.json');
@@ -14,8 +15,24 @@ const externalDependencyPath = path.join(projectRoot, 'deliverables/system-test-
 const triggerPath = path.join(projectRoot, 'contracts/product-center/business-rules/generated/product-center-business-rule-change-trigger.json');
 const outputJsonPath = path.join(projectRoot, 'output/governance/product-center-business-rule-governance-optimization.json');
 const outputMarkdownPath = path.join(projectRoot, 'output/governance/product-center-business-rule-governance-optimization.md');
+const blockedJsonPath = `${outputJsonPath}.blocked.json`;
+
+function writeBlockedDiagnostic(missingPath: string): never {
+  const diagnostic = {
+    schemaVersion: '1.0.0',
+    status: 'blocked',
+    code: 'PLATFORM_EXTERNAL_DEPENDENCY_MISSING',
+    missingInput: path.relative(projectRoot, missingPath),
+    message: '缺少当前平台外部依赖快照；不得从历史或占位文件推导规则治理完成状态。',
+    generatedAt: new Date().toISOString(),
+  };
+  fs.mkdirSync(path.dirname(blockedJsonPath), { recursive: true });
+  fs.writeFileSync(blockedJsonPath, `${JSON.stringify(diagnostic, null, 2)}\n`, 'utf8');
+  throw new Error(`PLATFORM_EXTERNAL_DEPENDENCY_MISSING: ${missingPath}`);
+}
 
 export function buildProductCenterBusinessRuleGovernanceOptimization() {
+  if (!fs.existsSync(externalDependencyPath)) writeBlockedDiagnostic(externalDependencyPath);
   const registry = readJson<GovernanceOptimizationRegistry>(registryPath);
   const assessment = assessGovernanceOptimizationRegistry(registry);
   const migration = readJson<any>(migrationPath);
@@ -103,52 +120,6 @@ function renderMarkdown(report: ReturnType<typeof buildProductCenterBusinessRule
     '', '说明：本报告只登记和裁决治理任务，不授权或执行任何UI/API业务用例。', '',
   ];
   return lines.join('\n');
-}
-
-function buildLifecycleSnapshot(
-  lifecycle: GovernanceOptimizationRegistry['lifecycle'],
-  integration: ReturnType<typeof readGovernanceIntegrationSnapshot>,
-  migration: any,
-  historicalMigration: any,
-  externalDependency: any,
-  timeContextReview: any,
-  confirmationQueue: any,
-  observationLedger: any,
-) {
-  const conditions = lifecycle?.resumeConditions ?? [];
-  const conditionStatuses = conditions.map((condition) => ({
-    ...condition,
-    satisfied: condition.source === 'integration.git.status=connected'
-      ? integration.git.status === 'connected'
-      : condition.source === 'integration.jenkins.status=connected'
-        ? integration.jenkins.status === 'connected'
-        : condition.source === 'integration.prd.sourceMode=system-event'
-          ? integration.prd.sourceMode === 'system-event'
-          : condition.source === 'migration.status=complete'
-            ? migration.status === 'complete'
-            : condition.source === 'historicalMigration.summary.legacyAwaitingConfirmation=0'
-              ? historicalMigration.summary?.legacyAwaitingConfirmation === 0
-              : condition.source === 'platformExternalDependency.status=complete'
-                ? externalDependency.status === 'complete'
-                  : condition.source === 'timeContextReview.summary.evidenceCollectionRequired=0'
-                    ? timeContextReview?.summary?.evidenceCollectionRequired === 0
-                  : condition.source === 'confirmationQueue.summary.total=0'
-                    ? confirmationQueue?.summary?.total === 0
-                    : condition.source === 'observationLedger.summary.diagnostics=0'
-                      ? observationLedger?.summary?.diagnostics === 0
-                : false,
-  }));
-  return {
-    status: lifecycle?.status ?? 'active',
-    frozenAt: lifecycle?.frozenAt ?? null,
-    frozenBy: lifecycle?.frozenBy ?? null,
-    reason: lifecycle?.reason ?? null,
-    frozenTaskIds: lifecycle?.frozenTaskIds ?? [],
-    resumePolicy: lifecycle?.resumePolicy ?? null,
-    onResume: lifecycle?.onResume ?? null,
-    resumeReady: lifecycle?.status !== 'frozen' || conditionStatuses.every((condition) => !condition.required || condition.satisfied),
-    conditionStatuses,
-  };
 }
 
 function readJson<T>(filePath: string): T {

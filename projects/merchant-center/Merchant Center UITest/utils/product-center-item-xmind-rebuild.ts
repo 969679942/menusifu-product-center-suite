@@ -295,7 +295,9 @@ export function validateProductCenterItemXmindRebuildPlan(
     if (item.preconditions.length === 0 || item.actions.length === 0 || item.expectedResults.length === 0) {
       errors.push(`${item.id}:EXECUTION_CHAIN_REQUIRED`);
     }
-    if (item.status === 'pending-full-review' && item.diagnostics.some((code) =>
+    const supersededProductCorrection = item.changeType === 'product-corrected'
+      && item.diagnostics.some((code) => code.startsWith('SUPERSEDED:'));
+    if (item.status === 'pending-full-review' && !supersededProductCorrection && item.diagnostics.some((code) =>
       code === 'UNSUPPORTED_SOURCE_FORMAT' || code === 'NON_NUMBERED_STEP')) {
       errors.push(`${item.id}:INVALID_SOURCE_MAY_NOT_BE_READY`);
     }

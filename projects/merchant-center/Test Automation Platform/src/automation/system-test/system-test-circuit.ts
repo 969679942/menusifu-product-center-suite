@@ -30,7 +30,7 @@ export function evaluateSystemTestCircuit(input: {
   if (nowMs - latestAt > input.policy.stallMs) {
     return { trip: true, code: 'STALL', detail: String(nowMs - latestAt) };
   }
-  const terminal = businessEvents.filter((event) => event.phase !== 'started');
+  const terminal = businessEvents.filter((event) => event.phase === 'completed' || event.phase === 'failed');
   // Case failures are recorded and classified, but never stop the remaining
   // selected cases. Only execution-health failures may trip the circuit.
   if (terminal.length >= input.policy.minimumCompletedForFailureRate) {

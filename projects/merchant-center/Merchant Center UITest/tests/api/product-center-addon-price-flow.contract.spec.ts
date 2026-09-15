@@ -1,0 +1,26 @@
+import {test,expect,type Page} from '@playwright/test';
+import {EventEmitter} from 'node:events';
+import {AddonPriceAcceptanceFlow} from '../../flows/product-center/item-216/addon-price-acceptance.flow';
+import {consumeExecutableOperationReceipts} from '../../utils/executable-operation-receipt';
+import {matchesAddonZeroPrice} from '../../test-data/product-center/addon-price';
+function setup(caseId:string,mode:'valid'|'global-error-only'|'unexpected-create'|'click-error-after-create'='valid',listPrice='0.00'){
+ const emitter=new EventEmitter();let route='/pp/brand/create/side',records:Array<{id:number;name:string}>=[],name='',price='',cleaned=false,saves=0;const ids=new Set<number>();
+ const page=Object.assign(emitter,{url:()=> 'https://synthetic.invalid'+route,screenshot:async()=>Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/lN8AAAAASUVORK5CYII=','base64')}) as unknown as Page;
+ const negative=caseId==='TC-ITEM-ADD-008';
+ const form={open:async()=>{route='/pp/brand/create/side';},fillItemName:async(n:string)=>{name=n;},clearPrice:async()=>{price='';},fillObservedPrice:async(v:string)=>{price=v;return v;},typeObservedNegative:async()=>{price='-1.00';return price;},readPriceFieldFeedback:async()=>({value:price,inputAriaInvalid:false,controlErrorState:mode!=='global-error-only',formItemErrorState:false,fieldInvalid:negative&&mode!=='global-error-only'}),readSaveSuccessText:async()=>negative?'':'Successfully Submitted',clickSave:async()=>{
+  saves++;if(!negative||mode==='unexpected-create'||mode==='click-error-after-create'){records=[{id:12,name}];route='/pp/brand/list';}
+  if(!negative||mode!=='valid'){const request={method:()=> 'POST',url:()=> 'https://synthetic.invalid/ops-brand/brand-items/side'},response={request:()=>request,ok:()=>true,json:async()=>records.length?{data:12}:{success:false}};emitter.emit('request',request);emitter.emit('response',response);}
+  if(mode==='click-error-after-create')throw Error('synthetic-click-disconnected-after-create');
+ }};
+ const persistence={registeredServerIds:ids,prepare:async(n:string)=>{name=n;return {name:n,exactCount:0};},records:async()=>records,registerResponse:(body:any)=>{if(body.data)ids.add(body.data);},reconcile:async()=>{records.forEach(r=>ids.add(r.id));return records;},cleanup:async()=>{records=[];cleaned=true;return {apiIdentityCounts:{owned:0},apiIdentityKinds:{owned:'item'},serverIds:[...ids],verifiedZero:true,objects:[],exactBusinessName:name,exactNameCount:0,registeredServerIds:[...ids]};}};
+ const list={open:async()=>{route='/pp/brand/list';},expectLoaded:async()=>{},fillSearchAndWait:async()=>{},readVisibleIdentityCount:async()=>records.length,expectUniqueItemVisible:async()=>{if(records.length!==1)throw Error('identity missing');},readItemPriceText:async()=> listPrice,enterCreateTypePage:async()=>({enterSideCreate:async()=>{route='/pp/brand/create/side';}})};
+ const flow=new AddonPriceAcceptanceFlow(page,form as never,persistence as never,list as never,{openFromSidebar:async()=>{route='/pp/brand/list';}} as never);
+ return {flow,cleaned:()=>cleaned,saves:()=>saves,ids};
+}
+for(const[id,actions,assertions]of [['TC-ITEM-ADD-008',5,3],['TC-ITEM-ADD-009',4,2],['TC-ITEM-ADD-010',3,1]] as const)test(`价格正式动作与断言完整：${id}`,async({},info)=>{const s=setup(id);await s.flow.execute(id,'synthetic-name');expect(s.flow.assertions).toHaveLength(assertions);expect(s.flow.assertions.every(a=>a.status==='verified')).toBe(true);expect(consumeExecutableOperationReceipts(info.testId).filter(r=>r.operationKey.startsWith(id+':action-'))).toHaveLength(actions);expect(s.saves()).toBe(1);expect(s.cleaned()&&s.flow.stateRestored).toBe(true);});
+test('任意页面错误不能替代价格字段自身必填',async()=>{const s=setup('TC-ITEM-ADD-008','global-error-only');await expect(s.flow.execute('TC-ITEM-ADD-008','synthetic-name')).rejects.toThrow('正式断言不匹配');expect(s.flow.assertions[1].status).toBe('observed-mismatch');expect(s.cleaned()).toBe(true);});
+test('空价意外创建必须登记并清理，不能标通过',async()=>{const s=setup('TC-ITEM-ADD-008','unexpected-create');await expect(s.flow.execute('TC-ITEM-ADD-008','synthetic-name')).rejects.toThrow('正式断言不匹配');expect([...s.ids]).toEqual([12]);expect(s.cleaned()).toBe(true);expect(s.saves()).toBe(1);});
+test('点击在创建后断连也先登记和清理，不重放保存',async()=>{const s=setup('TC-ITEM-ADD-009','click-error-after-create');await expect(s.flow.execute('TC-ITEM-ADD-009','synthetic-name')).rejects.toThrow('synthetic-click-disconnected-after-create');expect([...s.ids]).toEqual([12]);expect(s.cleaned()).toBe(true);expect(s.saves()).toBe(1);});
+test('零金额只接受正式数值及当前已观察美元展示，拒绝其他金额和未知格式',()=>{expect(matchesAddonZeroPrice('$0.00')).toBe(true);for(const raw of ['$0.01','-$0.00','USD 0.00','€0.00','$0.00 extra',''])expect(matchesAddonZeroPrice(raw)).toBe(false);});
+test('两条真实美元展示可比较且保留原始金额证据',async()=>{for(const id of ['TC-ITEM-ADD-009','TC-ITEM-ADD-010']){const s=setup(id,'valid','$0.00');await s.flow.execute(id,'synthetic-name');expect(s.flow.assertions.every(a=>a.status==='verified')).toBe(true);expect(JSON.stringify(s.flow.assertions)).toContain('$0.00');expect(s.cleaned()).toBe(true);}});
+test('非零金额仍为断言不符并完成清理',async()=>{const s=setup('TC-ITEM-ADD-009','valid','$0.01');await expect(s.flow.execute('TC-ITEM-ADD-009','synthetic-name')).rejects.toThrow('正式断言不匹配');expect(s.cleaned()).toBe(true);});

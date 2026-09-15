@@ -1,4 +1,4 @@
-import type { SystemTestRevalidationImpactType } from '../../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import type { SystemTestRevalidationImpactType } from '../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
 
 export type ProductCenterFingerprintRevalidationItem = {
   caseId: string;

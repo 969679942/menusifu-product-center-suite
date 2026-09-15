@@ -1,0 +1,476 @@
+{
+  "routes": [
+    {
+      "id": "addon-create",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon-price-dom-observation.json",
+          "sha256": "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1"
+        }
+      ],
+      "route": "/pp/brand/create/side"
+    },
+    {
+      "id": "item-list",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "route": "/pp/brand/list"
+    }
+  ],
+  "controls": [],
+  "fields": [
+    {
+      "id": "standard-price",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon-price-dom-observation.json",
+          "sha256": "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1"
+        }
+      ],
+      "role": "spinbutton",
+      "locatorProvider": "ItemCreateSideLocators.standardPriceInput",
+      "initialValue": "",
+      "zeroValue": "0.00",
+      "negativeTypedValue": "-1.00",
+      "negativeAfterBlur": "0.00",
+      "normalizationAuthority": "browser-blur-before-save",
+      "fieldFormItemAvailable": false,
+      "requiredFeedbackAfterSave": "must-observe-current-field-specific-validity-or-required-message; arbitrary page errors and visual differences forbidden"
+    },
+    {
+      "id": "packaging-fee",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon-011-fields-observation.json"
+        }
+      ],
+      "generationAllowed": true,
+      "role": "spinbutton",
+      "locatorProvider": "ItemCreateSideLocators.packagingFeeInput"
+    },
+    {
+      "id": "cost",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon-011-fields-observation.json"
+        }
+      ],
+      "generationAllowed": true,
+      "role": "spinbutton",
+      "locatorProvider": "ItemCreateSideLocators.costInput"
+    }
+  ],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "TC-ITEM-ADD-008",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "页面仍停留在创建页，未出现保存成功提示。",
+        "「标准价」字段出现必填校验提示。",
+        "商品列表按 「加料商品-标准价缺失创建-{当前时间戳毫秒}」 查询，无本次新建记录。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-ADD-009",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "页面展示「提交成功」的 Toast 提示。",
+        "列表中 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」 的标准价显示为 `0.00`。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-ADD-010",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "rule": [
+        "点击保存后价格归一化为 0.00，加料商品保存成功且列表显示 0.00。"
+      ]
+    },
+    {
+      "id": "TC-ITEM-ADD-011",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "rule": [
+        "包装费和成本保存为本次输入值"
+      ],
+      "generationAllowed": true
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-ADD-008:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "页面仍停留在创建页，未出现保存成功提示。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-008:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "「标准价」字段出现必填校验提示。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-008:expectation-3",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "商品列表按 「加料商品-标准价缺失创建-{当前时间戳毫秒}」 查询，无本次新建记录。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-009:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "页面展示「提交成功」的 Toast 提示。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-009:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "列表中 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」 的标准价显示为 `0.00`。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-010:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md",
+          "sha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e"
+        }
+      ],
+      "expectedValue": "点击保存后价格归一化为 0.00，加料商品保存成功且列表显示 0.00。",
+      "observationChannel": "ui",
+      "authority": "user-visible"
+    },
+    {
+      "id": "TC-ITEM-ADD-011:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "expectedValue": "页面展示提交成功Toast",
+      "observationChannel": "ui",
+      "authority": "user-visible",
+      "generationAllowed": true
+    },
+    {
+      "id": "TC-ITEM-ADD-011:expectation-2",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "expectedValue": {
+        "packagingFee": "1.00",
+        "cost": "3.50"
+      },
+      "observationChannel": "api",
+      "authority": "brand-item-detail",
+      "generationAllowed": true
+    }
+  ],
+  "traceability": [],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "domObservationPath": "deliverables/system-test-platform/addon-price-dom-observation.json",
+    "domObservationSha256": "d440c2e7ec1f1c4645050e603cef8a68810747621f3c3929344507670899baf1",
+    "observedApplicationVersion": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false
+    },
+    "runtimeReadiness": "current-input-DOM-confirmed-independent-save-and-cleanup-implementation-pending",
+    "successFeedbackContract": "contracts/product-center/feedback/item-create-submitted.json",
+    "negativeInput": "-1.00",
+    "priceDisplay": "0.00",
+    "requirements": [
+      "ADD008明确清空价格并观测空值，必填反馈只能来自价格字段",
+      "ADD009保留原始列表价格文本与成功文案等价合同",
+      "ADD010采用来源允许的负数-1.00，不把页面预先归零伪装成提交值",
+      "所有成功或意外成功响应先登记服务器ID，再做断言",
+      "保存超时先按唯一名称查询，不盲目重试；清理放finally且API/UI双验零",
+      "不改已有合格加料flow/factory/page文件，只复用已审计能力"
+    ],
+    "cleanupContract": {
+      "formalIdentity": "exact-source-Chinese-name-with-timestamp",
+      "registrationIdentity": "AUTO_AUDIT_ internal ownership identity",
+      "identityVariants": "actual exact business name",
+      "precondition": "strict pageQuery proves exact name absent; invalid/missing schema must throw",
+      "registration": "register observed serverId immediately, before assertions; reconcile unreadable/timeout writes by exact name before any replay",
+      "deletion": "only registered serverIds belonging to exact prechecked name, query after any error before bounded retry",
+      "verification": "finally API exact-name and UI exact-name zero residue plus return to list",
+      "portSources": [
+        "api/product-center/cleanup-registry.ts",
+        "test-data/product-center/product-center-item-create-data.factory.ts",
+        "api/product-center/product-center-api.ts"
+      ],
+      "legacyLimitations": [
+        "AddonItem216Factory.findProductRecords silently returns[] on malformed schema; cannot prove absence",
+        "cleanupAuditItemIds requires AUTO_AUDIT_ business name; use registration identity plus actual-name alias instead",
+        "saveSide is private; do not change qualified shared flow to expose or broaden it"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-008",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-标准价缺失创建-{当前时间戳毫秒}」）",
+        "已进入 商品管理 → 商品 列表页。",
+        "已打开加料商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「加料商品-标准价缺失创建-{当前时间戳毫秒}」）"
+      ],
+      "steps": [
+        "点击侧边栏【商品管理】-【商品】，进入商品列表页",
+        "点击右上角【新增商品】按钮，进入选择商品类型页面",
+        "点击【配菜/加料】-【去创建】，进入创建加料/配菜商品页面",
+        "「商品名称」填写 加料商品-标准价缺失创建-{当前时间戳毫秒}；「标准价」保持为空",
+        "点击右上角【保存】按钮"
+      ],
+      "expectedResults": [
+        "页面仍停留在创建页，未出现保存成功提示。",
+        "「标准价」字段出现必填校验提示。",
+        "商品列表按 「加料商品-标准价缺失创建-{当前时间戳毫秒}」 查询，无本次新建记录。"
+      ],
+      "sources": [
+        "BR-ITEM-027；XMind已有"
+      ],
+      "title": "加料商品标准价缺失时创建失败",
+      "fingerprint": "2d2413e6b69c3a294dc20314cb51e066e9cd59fb0315c3b1107f0780fb830908",
+      "gaps": [
+        "旧assertSaveBlocked接受任意页面错误或通用视觉指纹变化作为标准价必填，且缺五动作三断言的完整标准收据和列表精确无新增观察"
+      ],
+      "sourceReady": true,
+      "runtimeReady": false,
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "2d2413e6b69c3a294dc20314cb51e066e9cd59fb0315c3b1107f0780fb830908",
+      "assertionIds": [
+        "TC-ITEM-ADD-008:expectation-1",
+        "TC-ITEM-ADD-008:expectation-2",
+        "TC-ITEM-ADD-008:expectation-3"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-009",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-标准价为 0 创建-{当前时间戳毫秒}」）",
+        "已进入加料商品创建页。",
+        "当前品牌下不存在同名测试商品（本用例使用名称「加料商品-标准价为 0 创建-{当前时间戳毫秒}」）"
+      ],
+      "steps": [
+        "商品名称填写 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」。",
+        "标准价填写 `0.00`。",
+        "点击保存。",
+        "返回列表按商品名称搜索 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」。"
+      ],
+      "expectedResults": [
+        "页面展示「提交成功」的 Toast 提示。",
+        "列表中 「加料商品-标准价为 0 创建-{当前时间戳毫秒}」 的标准价显示为 `0.00`。"
+      ],
+      "sources": [
+        "BR-FMT-005"
+      ],
+      "title": "加料商品标准价为 0 时创建成功",
+      "fingerprint": "515ffe52f870f4ad38910c3bf4368e0a61567aac0269ab1e1b717b822e18828b",
+      "gaps": [
+        "旧createRequiredOnly验证数值和类型，但缺正式成功Toast收据、4动作2断言的完整源映射"
+      ],
+      "sourceReady": true,
+      "runtimeReady": false,
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "515ffe52f870f4ad38910c3bf4368e0a61567aac0269ab1e1b717b822e18828b",
+      "assertionIds": [
+        "TC-ITEM-ADD-009:expectation-1",
+        "TC-ITEM-ADD-009:expectation-2"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-010",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "当前品牌下不存在与本次冲突的同名测试商品（本用例商品名称：「加料商品-价格输入负数或非数字创建-{当前时间戳毫秒}」）",
+        "已进入加料商品创建页。"
+      ],
+      "steps": [
+        "进入加料商品创建页并填写唯一名称。",
+        "输入负数或非数字标准价并点击保存。",
+        "在商品列表搜索该商品并读取价格。"
+      ],
+      "expectedResults": [
+        "点击保存后价格归一化为 0.00，加料商品保存成功且列表显示 0.00。"
+      ],
+      "sources": [
+        "金将军人工处理确认 ← output\\product-center-item-213-failures\\failure-pack.md#tc-item-add-010"
+      ],
+      "title": "加料商品非法价格保存时归一化为 0.00",
+      "fingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+      "gaps": [
+        "旧invalidPriceNegative仅返回归零价格结果，缺输入负数的实际值、保存终态、列表0.00与3动作1完整断言的当前收据"
+      ],
+      "sourceReady": true,
+      "runtimeReady": false,
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "124821f828a29af319a79d33242fe1bfe571907b24020bd084e9e6c4ca811d87",
+      "assertionIds": [
+        "TC-ITEM-ADD-010:expectation-1"
+      ]
+    },
+    {
+      "caseId": "TC-ITEM-ADD-011",
+      "title": "加料商品包装费与成本合法输入时保存成功",
+      "fingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+      "semanticCaseFingerprint": "2b92b2e04e934c498c9ca523f18b2420210a0c7f3c87a0f75422303f7d16b7bd",
+      "steps": [
+        "填写商品名称唯一测试名",
+        "标准价填写10.00",
+        "包装费填写1.00",
+        "成本填写3.50",
+        "点击保存",
+        "返回列表按名称查询"
+      ],
+      "assertionIds": [
+        "TC-ITEM-ADD-011:expectation-1",
+        "TC-ITEM-ADD-011:expectation-2"
+      ],
+      "expectedResults": [
+        "页面展示提交成功Toast",
+        "详情或编辑页包装费为1.00且成本为3.50"
+      ],
+      "sources": [
+        "BR-FMT-005"
+      ],
+      "sourceReady": true,
+      "runtimeReady": true,
+      "gaps": [],
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b"
+    }
+  ]
+}

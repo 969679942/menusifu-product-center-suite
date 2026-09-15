@@ -3,7 +3,7 @@ import path from 'node:path';
 import {
   resolvePlaywrightExecutionTerminalCaseIds,
   type PlaywrightExecutionReportManifest,
-} from '../../../../Test Automation Platform/src/governance/execution-terminal-receipts';
+} from '../../../Test Automation Platform/src/governance/execution-terminal-receipts';
 
 export function resolveProductCenterSourceTerminalCaseIds(input: {
   projectRoot: string;

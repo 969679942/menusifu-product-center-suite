@@ -1,6 +1,6 @@
 # 已落地自动化用例索引
 
-- 生成时间：2026-09-04T15:47:46.132Z
+- 生成时间：2026-09-08T23:56:49.485Z
 - 权威用例文件规则：每个模块仅 1 个 Markdown 文件，正文位于 `00-待转换测试方案/用例库`。
 - 已完成目录语义：仅记录已有自动化脚本绑定的用例，不代表当前版本运行通过；当前运行状态必须查看运行账本。
 
@@ -221,208 +221,210 @@
 | TC-IMG-ITEM-030 | image | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |
 | TC-IMG-LIB-025 | image | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |
 | TC-IMG-LIB-026 | image | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |
-| TC-ITEM-ADD-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-007 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-025 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-026 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-027 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-034 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-039 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-040 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-ADD-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-003 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-004 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-025 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-026 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-027 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-034 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-040 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-048 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-049 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-050 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-051 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-052 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-053 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-054 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-055 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-056 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-057 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-058 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-059 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-061 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-062 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-063 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-064 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-065 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-067 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-068 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-069 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-071 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-072 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-073 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-074 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-075 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-076 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-078 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-PKG-079 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-003 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-004 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-007 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-039 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-048 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-049 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-050 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-051 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-052 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-053 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-054 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-055 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-056 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-057 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-058 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-059 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-061 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-063 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-064 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-065 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-066 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-068 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-069 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-071 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-072 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-073 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-074 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-075 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-076 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-078 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-079 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-081 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-082 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-084 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-085 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-086 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-087 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-088 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-089 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-090 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-091 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-092 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-093 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-094 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-095 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
-| TC-ITEM-STD-096 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts |  |  |
+| TC-ITEM-ADD-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-addon-other-settings.spec.ts | current-receipt-qualified | 加料其他设置五项入口及上传支持按当前DOM独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-ADD-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-007 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts | current-receipt-qualified | 加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-ADD-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts | current-receipt-qualified | 加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-ADD-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts | current-receipt-qualified | 加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-ADD-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-addon-price.spec.ts | current-receipt-incomplete | 加料价格五/四/三动作、三/二/一断言及严格清理已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-ADD-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-025 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-026 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-027 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-034 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-039 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-040 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-ADD-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-003 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-004 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-025 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-026 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-027 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-034 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-040 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-048 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-049 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-050 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-051 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-052 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-053 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-054 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-055 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-056 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-057 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-058 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-059 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-061 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-062 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-063 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-064 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-065 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-067 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-068 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-069 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-071 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-072 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-073 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-074 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-075 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-076 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-078 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-PKG-079 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-001 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-002 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-qualified | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-003 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-incomplete | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-004 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-incomplete | 中文/英文正确文案与核对范围缺少正式来源；已登记阻断入口不表示可执行 |
+| TC-ITEM-STD-005 | item | landed | Merchant Center UITest/tests/generated/product-center-item-required-name.spec.ts | current-receipt-qualified | 正式名称必填六动作和三断言已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-006 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-007 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-008 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-009 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-010 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-011 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-012 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-013 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-014 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-015 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-016 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-017 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-018 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-019 | item | landed | Merchant Center UITest/tests/generated/product-center-item-weight-units.spec.ts | current-receipt-qualified | 正式销售单位精确集合断言已独立实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-020 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-021 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-022 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-023 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-024 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-028 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-029 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-030 | item | landed | Merchant Center UITest/tests/generated/product-center-item-query-return.spec.ts | current-receipt-incomplete | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-031 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-032 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-033 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-035 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-036 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-037 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-038 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-039 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-041 | item | landed | Merchant Center UITest/tests/generated/product-center-item-advanced-settings.spec.ts | current-receipt-qualified | 高级设置独立状态与字段身份断言已按当前DOM实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-042 | item | landed | Merchant Center UITest/tests/generated/product-center-item-advanced-settings.spec.ts | current-receipt-qualified | 高级设置独立状态与字段身份断言已按当前DOM实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-043 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-044 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-045 | item | landed | Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts | current-receipt-qualified | 创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-046 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-047 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-048 | item | landed | Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts | current-receipt-qualified | 创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-049 | item | landed | Merchant Center UITest/tests/generated/product-center-item-create-controls.spec.ts | current-receipt-qualified | 创建页250字符、规格组新增目标及称重禁用断言按当前DOM实现；当前合格资格必须消费真实收据 |
+| TC-ITEM-STD-050 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-051 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-052 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-053 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-054 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-055 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-056 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-057 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-058 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-059 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-061 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-063 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-qualified | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-064 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-065 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-066 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-068 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-069 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-071 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-072 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-incomplete | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-073 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-qualified | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-074 | item | landed | Merchant Center UITest/tests/generated/product-center-item-list-acceptance.spec.ts | current-receipt-qualified | 独立来源场景已实现；通过资格必须消费当前标准收据 |
+| TC-ITEM-STD-075 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-076 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-078 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-079 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-081 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-082 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-084 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-085 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-086 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-087 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-088 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-089 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-090 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-091 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-092 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-093 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-094 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-095 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-096 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete |  |
+| TC-ITEM-STD-102 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-qualified | 正式来源与名称格式场景已绑定；真实运行与当前收据资格独立验收 |
+| TC-ITEM-STD-103 | item | landed | Merchant Center UITest/tests/generated/product-center-item-216.generated.spec.ts | current-receipt-incomplete | 正式来源与名称格式场景已绑定；真实运行与当前收据资格独立验收 |
 | TC-TAG-BDG-009 | tag | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |
 | TC-TAG-BDG-018 | tag | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |
 | TC-TAG-BDG-019 | tag | landed | Merchant Center UITest/tests/generated/product-center-legacy-remaining.generated.spec.ts |  |  |

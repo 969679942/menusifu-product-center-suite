@@ -56,10 +56,15 @@ type StandardCase = {
     | 'second-language-search'
     | 'minimum-replay'
     | 'category-with-product'
-    | 'type-filter';
+    | 'type-filter'
+    | 'name-format';
 };
 
 const cases: readonly StandardCase[] = [
+  // BEGIN SOURCE-BOUND STANDARD NAME CASES
+  { caseId: 'TC-ITEM-STD-102', title: '商品名称恰好100字符且包含单个中间空格时允许保存', action: 'name-format' },
+  { caseId: 'TC-ITEM-STD-103', title: '商品名称包含 emoji 时保存失败', action: 'name-format' },
+  // END SOURCE-BOUND STANDARD NAME CASES
   { caseId: 'TC-ITEM-STD-001', title: '标准商品创建页展示正确', action: 'create-page' },
   { caseId: 'TC-ITEM-STD-002', title: '商品列表页面展示正确', action: 'list-page' },
   { caseId: 'TC-ITEM-STD-003', title: '商品展示列设置后列表仅展示所选列', action: 'list-evidence' },
@@ -131,9 +136,12 @@ if (process.env.PC_ITEM_216_SPECIALIZED === '1') test.describe('商品管理-标
         { type: 'canonical-case-id', description: item.caseId },
         { type: 'implementation-status', description: 'implemented' },
       ],
-    }, async ({ page, productCenterApi, cleanupRegistry }) => {
+    }, async ({ page, productCenterApi, cleanupRegistry, standardItem216CaseRunner }) => {
       const flow = new StandardItem216Flow(page, productCenterApi, cleanupRegistry);
       switch (item.action) {
+        case 'name-format':
+          await standardItem216CaseRunner.execute(item.caseId, item.action);
+          break;
         case 'create-page': {
           const result = await flow.readCreatePageEvidence();
           expect(result.path).toBe('/pp/brand/create/standard');

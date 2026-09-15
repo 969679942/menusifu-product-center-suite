@@ -8,7 +8,9 @@
 - 本机 Jenkins 凭据：Windows 当前用户加密的 `.codex/secrets/menusifu-jenkins.credential.xml`。禁止把解密值写入文件、日志、报告或 Git。
 
 ```powershell
-# 推送当前提交，按请求 ID 触发；有未完成构建则恢复同一请求
+# 推送当前提交，按请求 ID 触发；有未完成构建则恢复同一请求。
+# submit 会从 ci/dependency-manifest.json 解析 MC/TAP 精确 40 位 SHA，
+# 在 Jenkins POST 前校验三仓库身份，不再接受短 SHA 或旧协议。
 ./ci/jenkins.ps1 submit --scope pilot
 # 查询队列/构建，完成后拉取归档并校验精确 Git SHA、build number、request ID、选择集指纹
 ./ci/jenkins.ps1 poll
@@ -22,11 +24,11 @@
 
 `contracts` 是基础合同验证；`pilot` 在合同验证后执行 `business-selection.json` 固定的十条正式用例。合同测试不具有业务通过权限。十条试点使用 TAP 的运行器、执行授权、来源门禁、标准收据和清理门禁；不能直接以 Playwright `--grep` 绕过公共执行流程。
 
-Jenkins 触发治理以 `ci/trigger-policy.json` 与 `ci/dependency-manifest.json` 为唯一声明位置：TAP 与 Merchant Center 是源仓库，`menusifu-product-center-suite` 是传输与执行 Job。默认推送只允许合同门禁；`full-regression` 必须显式提交，并使用 manifest 中当前可达的精确 MC/TAP SHA。服务器可达不等于 SCM 触发器已配置，必须分别核对；旧依赖提交或未配置触发器必须在业务启动前阻断，不能伪装成业务失败。
+Jenkins 触发治理以 `ci/trigger-policy.json` 和 `ci/dependency-manifest.json` 为声明位置：TAP 与 Merchant Center 是源仓库，`menusifu-product-center-suite` 是传输与执行 Job。每次下发必须携带 PCS、MC、TAP 三个精确 40 位 SHA，以及 `REQUEST_ID`、`INTENT_ID`、`RUN_SCOPE`、`TRIGGER_SOURCE`；full-regression 不得混入整改优化计划。服务器可达不等于 SCM 触发器已配置，必须用 `ci/jenkins.ps1 health` 分别核对；`manual-only` 或 `unreachable` 只能标记外部接入缺口，不得伪装成业务失败。
 
 ## 本机 AI 调度
 
-Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 只收集已明确登记构建的状态和归档。当前 `collect-only` 模式不调用 AI、改源码、提交代码或触发构建；Codex 对话收到明确分析请求后才读取已收集证据。详细入口见 `ci/WORKER.md`。
+Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 通过 `jenkins.ps1 watch` 自动发现带 `TRIGGER_SOURCE=jenkins-schedule` 的定时构建，并按 build number、requestId、intentId、三仓库 SHA 对账后收集归档。Codex 对话未运行时，计划任务仍会持久化 checkpoint 和分析结果；对话恢复后只能读取已核验结果，不依赖聊天上下文。当前 `collect-only` 模式不调用 AI、改源码、提交代码或触发构建。详细入口见 `ci/WORKER.md`。
 
 协调器每 120 秒做无 AI 的空闲发现；已知构建运行期间每 30 秒探测。仅有未分析证据时才调用本机 `codex exec`，不依赖当前聊天上下文。每个构建按 Jenkins server / job / build number 唯一入队，Git SHA、request ID、runScope 固化；同 SHA 的不同构建不会相互覆盖。首次基线从构建 34 开始。
 

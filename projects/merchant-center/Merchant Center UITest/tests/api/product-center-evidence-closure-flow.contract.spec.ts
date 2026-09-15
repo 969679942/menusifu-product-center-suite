@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { buildHistoricalEvidenceReconciliation } from '../../scripts/reconcile-product-center-historical-evidence';
+import { buildProductCenterEvidenceClosurePreflight } from '../../scripts/run-product-center-evidence-closure-flow';
 
 test.describe('商品中心证据协调与重审触发门禁', () => {
   test('历史证据先协调，不能直接签发通过或自动重跑', () => {
@@ -56,4 +57,28 @@ test.describe('商品中心证据协调与重审触发门禁', () => {
       noAutomaticPageExecution: true,
     });
   });
+});
+
+test('证据闭环入口一次盘点全部阶段缺口并保持业务执行保护', () => {
+  const report = buildProductCenterEvidenceClosurePreflight('D:/workspace', [
+    { id: 'audit', inputs: ['input/a.json', 'input/shared.json'], outputs: ['generated/a.json'] },
+    { id: 'reconcile', inputs: ['input/b.json', 'input/shared.json', 'generated/a.json'], outputs: ['generated/b.json'] },
+  ], '2026-09-07T00:00:00.000Z');
+
+  expect(report).toMatchObject({
+    status: 'blocked',
+    code: 'EVIDENCE_CLOSURE_PREFLIGHT_INPUTS_MISSING',
+    stageCount: 2,
+    guardrails: {
+      businessExecutionStarted: false,
+      liveBusinessWritesEnabled: false,
+      existingPassedCasesInvalidated: false,
+      secretsPersisted: false,
+    },
+  });
+  expect(report.missingInputs).toEqual([
+    { path: 'input/a.json', stages: ['audit'] },
+    { path: 'input/b.json', stages: ['reconcile'] },
+    { path: 'input/shared.json', stages: ['audit', 'reconcile'] },
+  ]);
 });

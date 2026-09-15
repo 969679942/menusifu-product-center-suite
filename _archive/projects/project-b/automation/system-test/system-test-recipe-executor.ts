@@ -1,1 +1,1 @@
-export * from '../../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';
+export * from '../../../Test Automation Platform/src/automation/system-test/system-test-recipe-executor';

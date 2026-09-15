@@ -48,6 +48,12 @@ test.describe('公共项目生命周期', () => {
         businessDomainId: 'sample-domain',
         moduleDeliveryBlocked: false,
       });
+      const originalVerdict = fs.readFileSync(result.verdictPath!);
+      const { createHash } = require('node:crypto') as typeof import('node:crypto');
+      const originalHash = createHash('sha256').update(originalVerdict).digest('hex');
+      const next = runProjectLifecycle({ projectRoot, action: 'close' });
+      expect(next.migrationStatus).toBe('complete');
+      expect(fs.readFileSync(path.join(projectRoot, `.artifact-history/objects/${originalHash}.bin`))).toEqual(originalVerdict);
     } finally {
       fs.rmSync(projectRoot, { recursive: true, force: true });
     }

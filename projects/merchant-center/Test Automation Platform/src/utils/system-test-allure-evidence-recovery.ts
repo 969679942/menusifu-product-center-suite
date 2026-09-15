@@ -49,6 +49,7 @@ export function recoverSystemTestEvidenceLedgerFromAllure(input: {
   const executionCandidatePath = path.join(runDir, 'execution-candidate.json');
   const progressHistoryPath = path.join(runDir, 'progress.jsonl');
   const ledgerPath = path.join(runDir, 'evidence-ledger.json');
+  if (fs.existsSync(path.join(runDir, 'evidence-invocations/index.json'))) throw new Error('INDEXED_RUN_LEGACY_RECOVERY_FORBIDDEN');
   if (fs.existsSync(ledgerPath) && input.overwrite !== true) {
     throw new Error(`EVIDENCE_LEDGER_ALREADY_EXISTS:${ledgerPath}`);
   }

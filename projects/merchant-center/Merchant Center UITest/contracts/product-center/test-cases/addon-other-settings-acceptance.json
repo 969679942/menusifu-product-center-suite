@@ -1,0 +1,233 @@
+{
+  "routes": [
+    {
+      "id": "addon-create",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "route": "/pp/brand/create/side"
+    }
+  ],
+  "controls": [
+    {
+      "id": "detailImageUpload",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "text": "Upload Image",
+      "locatorProvider": "ItemCreateSideLocators.detailImageUploadButton"
+    },
+    {
+      "id": "descriptionLabels",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "text": "Add",
+      "locatorProvider": "ItemCreateSideLocators.descriptionLabelsAddButton"
+    },
+    {
+      "id": "badges",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "text": "Add",
+      "locatorProvider": "ItemCreateSideLocators.badgesAddButton"
+    },
+    {
+      "id": "stats",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "text": "Add",
+      "locatorProvider": "ItemCreateSideLocators.statsAddButton"
+    },
+    {
+      "id": "ingredientInfo",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "text": "Add",
+      "locatorProvider": "ItemCreateSideLocators.ingredientInfoAddButton"
+    }
+  ],
+  "fields": [
+    {
+      "id": "detail-image-file-input",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "authenticated-ui-observation",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+          "sha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7"
+        }
+      ],
+      "type": "file",
+      "accept": "image/png, image/jpeg, image/jpg, image/heic, image/heif, image/webp, image/gif",
+      "locatorProvider": "ItemCreateSideLocators.detailImageFileInput"
+    }
+  ],
+  "dialogs": [],
+  "validations": [],
+  "apiOperations": [],
+  "uiApiMappings": [],
+  "businessRules": [
+    {
+      "id": "addon-other-settings-source",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "rule": "加料商品支持添加详情图片、描述标签、商品角标、统计标签、材料信息。"
+    }
+  ],
+  "testDataFactories": [],
+  "cleanupAdapters": [],
+  "assertions": [
+    {
+      "id": "TC-ITEM-ADD-002:expectation-1",
+      "status": "confirmed",
+      "confidence": 1,
+      "sourceType": "formal-case",
+      "generationAllowed": true,
+      "source": [
+        {
+          "path": "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+        }
+      ],
+      "expectedValue": "加料商品支持添加详情图片、描述标签、商品角标、统计标签、材料信息。"
+    }
+  ],
+  "traceability": [],
+  "unresolved": [],
+  "metadata": {
+    "sourceArtifacts": [
+      "../Merchant Center Info/00-待转换测试方案/用例库/商品中心-商品管理-商品/1.商品中心-商品管理-商品-正式测试用例.md"
+    ],
+    "sourceSha256": "f9eb32d4b9886a3fb8e18ecdde4234c4fd67e25e0629fa9643a6abdcbe6c9d5e",
+    "domObservationPath": "deliverables/system-test-platform/addon002-five-controls-observation.json",
+    "domObservationSha256": "22648d353cea1581ad1f5fb94d7b3d019b81ff9ec1688140c6818e34db23c7d7",
+    "runtimeReadiness": "DOM-confirmed-independent-implementation-pending",
+    "observedApplicationVersion": {
+      "fingerprint": "1a75787c58e600141e2631740c446b94b4e8178e80ff394ef51dc88a5bc585a5",
+      "signals": [
+        "entry-asset:/runtime.30d7fe24.js"
+      ],
+      "status": "derived",
+      "source": "browser-runtime",
+      "stable": false
+    },
+    "expectedControls": {
+      "detailImageUpload": {
+        "count": 1,
+        "visible": true,
+        "enabled": true
+      },
+      "descriptionLabels": {
+        "count": 1,
+        "visible": true,
+        "enabled": true
+      },
+      "badges": {
+        "count": 1,
+        "visible": true,
+        "enabled": true
+      },
+      "stats": {
+        "count": 1,
+        "visible": true,
+        "enabled": true
+      },
+      "ingredientInfo": {
+        "count": 1,
+        "visible": true,
+        "enabled": true
+      }
+    },
+    "expectedUploadInput": {
+      "count": 1,
+      "enabled": true
+    },
+    "requirements": [
+      "正式仅1动作1断言，不扩为实际添加或保存",
+      "五入口必须分别唯一、可见、可用，图片入口需实际file输入支持",
+      "展开方法不得使用合计count大于0替代完整可见性",
+      "无业务数据写入；结束离开未提交表单并确认列表恢复",
+      "保留15条当前合格的全部实现依赖，新增独立路由层",
+      "新当前收据取代ADD002旧实现指纹；不得只改旧收据或放宽格式等价"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "TC-ITEM-ADD-002",
+      "title": "加料商品其他设置与标准商品一致",
+      "preconditions": [
+        "登录商品中心，选择商户(Brand ID为:000407)，点击确定进入商品中心首页",
+        "已进入加料商品创建页。"
+      ],
+      "steps": [
+        "查看其他设置信息区域。"
+      ],
+      "expectedResults": [
+        "加料商品支持添加详情图片、描述标签、商品角标、统计标签、材料信息。"
+      ],
+      "citations": [
+        "XMind已有 ← 加料商品 / 其他设置也与标准商品一致..."
+      ],
+      "caseFingerprint": "fa126b1f6dd0304ce090f706dda4f8d87816fb6144bd36910696ab443c0a606b",
+      "semanticCaseFingerprint": "09e865c48f67b93b8ccc727a950a4caaf6b81a2a29d5ffd25b0f94691f8c8163",
+      "assertionIds": [
+        "TC-ITEM-ADD-002:expectation-1"
+      ],
+      "sourceReady": true
+    }
+  ]
+}

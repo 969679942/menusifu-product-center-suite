@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { publishImmutableArtifact } from '../src/utils/immutable-artifact';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import {
@@ -39,7 +40,8 @@ export function buildPlatformReviewQueue(input: PlatformReviewQueueInput): strin
     governanceFingerprint: fingerprintGovernance(input.governanceFiles, input.workspaceRoot),
   });
   fs.mkdirSync(path.dirname(input.outputPath), { recursive: true });
-  fs.writeFileSync(input.outputPath, `${JSON.stringify({ ...queue, generatedAt: new Date().toISOString() }, null, 2)}\n`, 'utf8');
+  publishImmutableArtifact({ outputRoot: path.dirname(path.resolve(input.outputPath)), relativePath: path.basename(input.outputPath),
+    content: `${JSON.stringify({ ...queue, generatedAt: new Date().toISOString() }, null, 2)}\n`, reason: 'refresh-platform-review-queue' });
   if (input.releasePath) reconcilePlatformReleaseFile(input.releasePath, queue);
   return input.outputPath;
 }
@@ -53,7 +55,8 @@ export function reconcilePlatformReleaseFile(
   const assessed = assessSystemTestPlatformRelease({ release, currentQueue });
   if (assessed === release) return assessed;
   fs.mkdirSync(path.dirname(releasePath), { recursive: true });
-  fs.writeFileSync(releasePath, `${JSON.stringify({ ...assessed, generatedAt: new Date().toISOString() }, null, 2)}\n`, 'utf8');
+  publishImmutableArtifact({ outputRoot: path.dirname(path.resolve(releasePath)), relativePath: path.basename(releasePath),
+    content: `${JSON.stringify({ ...assessed, generatedAt: new Date().toISOString() }, null, 2)}\n`, reason: 'reconcile-platform-release-currentness' });
   return assessed;
 }
 

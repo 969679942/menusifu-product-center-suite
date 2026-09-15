@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
-import { buildSystemTestCaseImplementationFingerprints } from '../../../Test Automation Platform/scripts/run-system-test';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
-import { buildProjectRemediationOptimizationPlan } from '../../../Test Automation Platform/src/governance/project-remediation-optimization';
-import type { ProjectRemediationScopeArtifact } from '../../../Test Automation Platform/src/governance/project-remediation-scope';
-import type { SystemTestOptimizationPlan, SystemTestOptimizationReceipt } from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+import { buildSystemTestArtifacts } from '../../Test Automation Platform/scripts/build-system-test-contract';
+import { buildSystemTestCaseImplementationFingerprints } from '../../Test Automation Platform/scripts/run-system-test';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { buildProjectRemediationOptimizationPlan } from '../../Test Automation Platform/src/governance/project-remediation-optimization';
+import type { ProjectRemediationScopeArtifact } from '../../Test Automation Platform/src/governance/project-remediation-scope';
+import type { SystemTestOptimizationPlan, SystemTestOptimizationReceipt } from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 import { buildProductCenterProjectOptimizationCases } from '../adapters/product-center/product-center-project-optimization';
 import { buildMerchantCenterOptimizationPlan } from '../utils/system-test-optimization-gate';
-import type { SystemTestRevalidationImpactType } from '../../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
+import type { SystemTestRevalidationImpactType } from '../../Test Automation Platform/src/automation/system-test/system-test-revalidation-policy';
 
 type ImpactManifest = {
   schemaVersion: '1.0.0';

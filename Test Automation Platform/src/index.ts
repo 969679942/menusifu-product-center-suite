@@ -32,7 +32,7 @@ export * from './automation/system-test/system-test-correction-audit';
 export * from './automation/system-test/requirements-change-event';
 export * from './governance/optimization-task-registry';
 export * from './governance/system-test-optimization-gate';
-export * from './governance/system-test-optimization-gate';
+export * from './governance/optimization-completion-gate';
 export * from './governance/integration-status';
 export * from './automation/system-test/system-test-circuit';
 export * from './automation/system-test/system-test-contract';

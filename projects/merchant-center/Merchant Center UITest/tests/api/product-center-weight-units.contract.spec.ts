@@ -1,0 +1,11 @@
+import {test,expect} from '@playwright/test';
+import type {Page} from '@playwright/test';
+import fs from 'node:fs';
+import {partitionProductCenterItemSpecs,weightUnitsSpecPath} from '../../adapters/product-center/product-center-item-execution-specs';
+import {fingerprintProductCenterItemImplementation} from '../../adapters/product-center/product-center-item-implementation';
+import {StandardWeightUnitsAcceptanceFlow} from '../../flows/product-center/item-216/standard-weight-units-acceptance.flow';
+import type {ItemCreateFlow} from '../../flows/item-create.flow';
+import type {StandardListAcceptancePage} from '../../pages/product-management/item/standard-list-acceptance.page';
+test('称重与查询列表混合路由每条恰好执行一次',()=>{const ids=['TC-ITEM-STD-019','TC-ITEM-STD-030','TC-ITEM-STD-063','TC-ITEM-ADD-005'];const routes=partitionProductCenterItemSpecs(ids);expect(routes).toHaveLength(4);expect(routes.flatMap(r=>r.caseIds).sort()).toEqual([...ids].sort());expect(routes.find(r=>r.specPath===weightUnitsSpecPath)?.caseIds).toEqual([ids[0]]);expect(()=>partitionProductCenterItemSpecs([ids[0],ids[0]])).toThrow('ITEM_SPEC_DUPLICATE_SELECTION');});
+test('称重新增依赖不使八条合格结果失效',()=>{const before=JSON.parse(fs.readFileSync('deliverables/system-test-platform/query-return-prior-fingerprints.json','utf8'));for(const[id,hash]of Object.entries(before))expect(fingerprintProductCenterItemImplementation(process.cwd(),id)).toBe(hash);});
+for(const options of [['g','kg','ml','oz'],['g','kg','ml','ml']])test(`拒绝额外或重复的销售单位${options.join('/')}`,async()=>{let restored=false;const create={openStandardCreateFromList:async()=>({enableWeightBasedItem:async()=>{},readWeightUnitOptions:async()=>options})} as unknown as ItemCreateFlow;const list={open:async()=>{restored=true;}} as unknown as StandardListAcceptancePage;const page={url:()=> 'https://synthetic.invalid/pp/brand/create/standard'} as Page;const flow=new StandardWeightUnitsAcceptanceFlow(page,create,list);await expect(flow.execute('TC-ITEM-STD-019')).rejects.toThrow();expect(restored).toBe(true);expect(flow.assertions[0].status).toBe('observed-mismatch');expect(flow.assertions[0].actualValue).toEqual([...options].sort());expect(flow.assertionRoute).toBe('/pp/brand/create/standard');});

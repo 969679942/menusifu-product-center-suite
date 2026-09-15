@@ -36,7 +36,7 @@ test.describe('调味模板异步下发回读合同', () => {
     expect(source).toContain("'brand-menu:POST /ops-brand/modifier-template'");
     expect(source).toContain("'brand-menu:GET /ops-poi/global-modifier/list'");
     expect(source).toContain('withObservedExecutableOperation(');
-    expect(source).toContain('finishExecutableOperation(operation, \'passed\');');
+    expect(source).toContain("finishExecutableOperation(operation, 'passed'");
     expect(source).toContain('finishExecutableOperation(operation, \'failed\');');
   });
 

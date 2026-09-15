@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { validateBusinessFeedbackContract } from '../../utils/business-feedback-contract';
 import type { RecipeAdapterCall } from '../recipe/automation-recipe';
 
 export type SystemTestObservationChannel = 'ui' | 'api' | 'downstream' | 'cleanup';
@@ -69,6 +70,11 @@ export type SystemTestExpectationContract = {
     mode: 'exact-message' | 'disabled-control' | 'confirmation-dialog';
     trigger: 'pre-submit' | 'submitted-operation';
     exactText?: string;
+    allowedMessages?: string[];
+    equivalenceKey?: string;
+    locale?: string;
+    evidencePaths?: string[];
+    semanticSignals?: { codes?: string[]; statuses?: string[]; states?: string[] };
     operationKey?: string;
   };
   sourceIds: string[];
@@ -117,6 +123,16 @@ export function validateSystemTestSourceRegistry(input: {
     }
     if (!authorityMatchesChannel(expectation.authority, expectation.observationChannel)) {
       errors.push(`${claim}:OBSERVATION_AUTHORITY_MISMATCH:${expectation.authority}:${expectation.observationChannel}`);
+    }
+    if (expectation.feedback?.mode === 'exact-message') {
+      errors.push(...validateBusinessFeedbackContract({
+        exactMessage: expectation.feedback.exactText ?? '',
+        allowedMessages: expectation.feedback.allowedMessages,
+        equivalenceKey: expectation.feedback.equivalenceKey,
+        locale: expectation.feedback.locale,
+        evidencePaths: expectation.feedback.evidencePaths,
+        semanticSignals: expectation.feedback.semanticSignals,
+      }).map((error) => `${claim}:${error}`));
     }
   });
   return [...new Set(errors)].sort();

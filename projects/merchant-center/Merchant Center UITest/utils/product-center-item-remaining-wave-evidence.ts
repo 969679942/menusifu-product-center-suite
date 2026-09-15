@@ -66,6 +66,9 @@ const runtimeEvidencePaths = [
 export function loadProductCenterItemRemainingWaveEvidence(projectRoot: string): RemainingWaveEvidence {
   const w1EvidencePath = 'output/audit/product-center-item-p0-w1-20260731/audit.json';
   const w1AbsolutePath = path.join(projectRoot, w1EvidencePath);
+  if (!fs.existsSync(w1AbsolutePath)) {
+    throw new Error(`P0_W1_RUNTIME_EVIDENCE_MISSING:${w1EvidencePath}`);
+  }
   const w1 = readJson<W1Report>(w1AbsolutePath);
   const w1CaseIds = w1.caseEvidence.map((item) => item.caseId);
   const w1AcceptedCaseIds = w1.caseEvidence.filter((item) => item.verdict === 'accepted').map((item) => item.caseId);

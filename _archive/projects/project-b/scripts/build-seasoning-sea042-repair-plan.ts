@@ -4,7 +4,7 @@ import path from 'node:path';
 import {
   assertSystemTestOptimizationPlanMetadata,
   buildSystemTestOptimizationPlan,
-} from '../../../Test Automation Platform/src/governance/system-test-optimization-gate';
+} from '../../Test Automation Platform/src/governance/system-test-optimization-gate';
 import {
   buildProductCenterSeasoningOptimizationCases,
 } from '../adapters/product-center/product-center-project-optimization';

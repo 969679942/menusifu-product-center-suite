@@ -12,6 +12,8 @@ import { auditSemanticDuplicateCandidates } from '../utils/product-center-semant
 import { fingerprintProductCenterItemImplementation } from '../adapters/product-center/product-center-item-implementation';
 import { matchesCurrentCaseAndImplementationFingerprints } from '../automation/system-test/system-test-case-state-arbiter';
 import { fingerprintSystemTestArtifact } from '../automation/system-test/system-test-artifact-lineage';
+import { fingerprintProductCenterLegacyCaseById } from '../utils/product-center-legacy-case-fingerprint';
+import { partitionProductCenterItemSpecs } from '../adapters/product-center/product-center-item-addon-price-specs';
 
 type GroupBinding = {
   caseId: string;
@@ -52,6 +54,13 @@ type AdditionalBinding = RemainingBinding & {
   runnerId: 'group' | 'item' | 'remaining';
   runtimeReadiness: 'ready' | 'blocked';
   blockedReasons?: string[];
+};
+
+type FormalExecutionIndexCase = {
+  caseId: string;
+  module: string;
+  canonicalPath?: string;
+  status: string;
 };
 
 type SourceAutoResolution = {
@@ -160,6 +169,10 @@ export function buildProductCenterSourceGovernedExecutionPlan(options: {
     'contracts/product-center/test-plan-additional-automation-bindings.json',
   ));
   const additionalByCaseId = new Map(additionalAutomation.bindings.map((item) => [item.caseId, item]));
+  const formalExecutionIndex = readJson<{ cases: FormalExecutionIndexCase[] }>(path.join(
+    workspaceRoot,
+    'Merchant Center Info/00-待转换测试方案/已完成/index.json',
+  ));
   const sourceDecisions = new Map(governance.decisions);
   // Supplemental bindings are deliberately kept outside the authoritative
   // release.  They still need a source decision when the case is explicitly
@@ -253,6 +266,24 @@ export function buildProductCenterSourceGovernedExecutionPlan(options: {
       module: 'brand-item',
       status: 'not-applicable',
       disposition: 'not-applicable',
+      currentGoalBlocking: false,
+    });
+  }
+  // The landed formal index is the final adapter-side coverage universe. A
+  // source-backed supplemental binding must not disappear merely because it
+  // was introduced after the older source-decision registry was generated.
+  // Only a landed case with a canonical source path and an explicit binding
+  // may be promoted here; everything else is rejected by the coverage gate
+  // below instead of being silently excluded by the CI runner.
+  for (const formalCase of formalExecutionIndex.cases) {
+    if (formalCase.module === 'seasoning' || sourceDecisions.has(formalCase.caseId)) continue;
+    const additionalBinding = additionalByCaseId.get(formalCase.caseId);
+    if (formalCase.status !== 'landed' || !formalCase.canonicalPath || !additionalBinding) continue;
+    sourceDecisions.set(formalCase.caseId, {
+      caseId: formalCase.caseId,
+      module: additionalBinding.module,
+      status: 'verified',
+      disposition: 'verified-source-evidence',
       currentGoalBlocking: false,
     });
   }
@@ -425,21 +456,23 @@ export function buildProductCenterSourceGovernedExecutionPlan(options: {
           action: 'execute',
           reason: '正式来源已验证且历史剩余用例已有独立严格自动化入口',
           handlerId: remainingBinding.handlerId,
-          bindingFingerprint: remainingAutomation.bindingFingerprint,
+          bindingFingerprint: fingerprintProductCenterLegacyCaseById(decision.caseId, workspaceRoot),
           blockCode: null,
           runnerId: 'remaining',
         };
       }
       if (additionalBinding) {
-        const expectedSpecs: Record<AdditionalBinding['runnerId'], string> = {
+        const expectedSpecs: Record<Exclude<AdditionalBinding['runnerId'], 'item'>, string> = {
           group: 'tests/generated/product-center-group.generated.spec.ts',
-          item: 'tests/generated/product-center-item-216.generated.spec.ts',
           remaining: 'tests/generated/product-center-legacy-remaining.generated.spec.ts',
         };
+        const expectedSpec = additionalBinding.runnerId === 'item'
+          ? partitionProductCenterItemSpecs([additionalBinding.caseId])[0]?.specPath
+          : expectedSpecs[additionalBinding.runnerId];
         const bindingErrors = [
           ...(additionalBinding.runtimeReadiness === 'ready' ? [] : ['附加自动化绑定尚未获得运行资格']),
           ...(additionalBinding.handlerId ? [] : ['附加自动化绑定缺少 handlerId']),
-          ...(additionalBinding.scriptPath === expectedSpecs[additionalBinding.runnerId]
+          ...(additionalBinding.scriptPath === expectedSpec
             ? []
             : [`附加自动化绑定脚本与执行通道不一致：${additionalBinding.scriptPath}`]),
           ...(fs.existsSync(path.join(projectRoot, additionalBinding.scriptPath)) ? [] : ['附加自动化绑定脚本不存在']),
@@ -601,6 +634,14 @@ export function buildProductCenterSourceGovernedExecutionPlan(options: {
       };
     })
     .sort((left, right) => left.caseId.localeCompare(right.caseId));
+  const taskCaseIds = new Set(tasks.map((item) => item.caseId));
+  const missingFormalCaseIds = formalExecutionIndex.cases
+    .filter((item) => item.module !== 'seasoning' && !taskCaseIds.has(item.caseId))
+    .map((item) => item.caseId)
+    .sort();
+  if (missingFormalCaseIds.length > 0) {
+    throw new Error(`FULL_REGRESSION_PLAN_CASE_UNCLASSIFIED:${missingFormalCaseIds.join(',')}`);
+  }
   const runnableActions = new Set<ExecutionTask['action']>(['execute', 'source-recovery']);
   const executableCaseIds = tasks.filter((item) => runnableActions.has(item.action)).map((item) => item.caseId);
   const groupCaseIds = tasks.filter((item) => runnableActions.has(item.action) && item.runnerId === 'group').map((item) => item.caseId);

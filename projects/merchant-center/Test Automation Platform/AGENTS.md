@@ -28,6 +28,8 @@
 
 ## Public Receipt And Report Contract
 
+- UI 提示文案的语言差异不得单独判定为业务失败。适用同一业务规则的用例必须在适配器反馈合同中声明稳定的 `equivalenceKey`，并以证据支持的 `allowedMessages` 集合覆盖中文/英文等实际环境变体；公共 matcher 只接受该集合，未登记的文案仍判为证据或业务偏差，禁止按 caseId 写语言特例或放宽为任意文本。
+
 - The compiler must preserve source, case, context, assertion, operation, cleanup, and evidence traceability. A passed formal case requires a current receipt matching `caseId`, case fingerprint, implementation fingerprint, execution context, and every declared assertion surface.
 - Every declared business operation must have exactly one executable operation receipt, or an explicit terminal failure/interruption receipt. `observed: true` self-reports, aggregate counts, screenshots, and shared file paths cannot authorize a pass.
 - Every assertion receipt must show the expected value, actual value, observation channel, verification authority, comparison result, and final status. If actual data is unavailable, record the reason and mark evidence incomplete.

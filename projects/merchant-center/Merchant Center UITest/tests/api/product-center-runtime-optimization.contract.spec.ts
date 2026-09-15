@@ -4,6 +4,7 @@ import path from 'node:path';
 import { extractCreatedRecord } from '../../api/product-center/created-record';
 import { nextAuditTimestamp } from '../../test-data/product-center/audit-identity';
 import { resolveAccessToken, resetAccessTokenCache } from '../../api/auth-client';
+import { runtimeConfig } from '../../api/runtime-config';
 
 test.describe('商品中心运行时优化合同', () => {
   test('创建响应应优先直接提取服务端 ID 并保留身份', async () => {
@@ -34,6 +35,10 @@ test.describe('商品中心运行时优化合同', () => {
 
   test('同一 worker 并发 API 调用应共享一次登录 Token', async () => {
     resetAccessTokenCache();
+    const previousUsername = runtimeConfig.username;
+    const previousPassword = runtimeConfig.password;
+    runtimeConfig.username = 'contract-user';
+    runtimeConfig.password = 'contract-password';
     let postCalls = 0;
     const request = {
       post: async () => {
@@ -48,13 +53,19 @@ test.describe('商品中心运行时优化合同', () => {
       },
     } as any;
 
-    const [first, second, third] = await Promise.all([
-      resolveAccessToken(request),
-      resolveAccessToken(request),
-      resolveAccessToken(request),
-    ]);
+    try {
+      const [first, second, third] = await Promise.all([
+        resolveAccessToken(request),
+        resolveAccessToken(request),
+        resolveAccessToken(request),
+      ]);
 
-    expect(new Set([first, second, third]).size).toBe(1);
-    expect(postCalls).toBe(1);
+      expect(new Set([first, second, third]).size).toBe(1);
+      expect(postCalls).toBe(1);
+    } finally {
+      runtimeConfig.username = previousUsername;
+      runtimeConfig.password = previousPassword;
+      resetAccessTokenCache();
+    }
   });
 });

@@ -2,8 +2,11 @@ import { expect } from '@playwright/test';
 import { step } from '../../../utils/step';
 import { StandardItem216Flow } from './standard-item-216.flow';
 import type { RuntimeAssertionReceipt } from '../../../automation/system-test/system-test-runtime-contract';
+import submitFeedback from '../../../contracts/product-center/feedback/item-create-submitted.json';
+import { matchesBusinessFeedbackMessage } from '../../../utils/business-feedback-contract';
 
 export type StandardItem216Action =
+  | 'name-format'
   | 'create-page'
   | 'list-page'
   | 'list-evidence'
@@ -64,6 +67,9 @@ export class StandardItem216CaseRunner {
   @step('执行标准商品 216 用例动作：{caseId}')
   async execute(caseId: string, action: StandardItem216Action): Promise<Record<string, unknown>> {
     switch (action) {
+      case 'name-format':
+        return this.flow.verifyNameNormalization(caseId, { allowedMessages: submitFeedback.allowedMessages,
+          matches: value => matchesBusinessFeedbackMessage(value, submitFeedback) });
       case 'create-page': {
         const result = await this.flow.readCreatePageEvidence();
         expect(result.path).toBe('/pp/brand/create/standard');

@@ -15,13 +15,14 @@ import {
   findProductCenterRuntimeLocks,
 } from '../../utils/product-center-resource-lock';
 import { appendProductCenterAuditRunCompleted } from '../../utils/product-center-audit-runtime';
+import { resolveMerchantCenterContractRunIsolation } from '../../adapters/test-automation-platform/contract-run-isolation';
 
 export default async function globalTeardown(config: FullConfig): Promise<void> {
+  if (resolveMerchantCenterContractRunIsolation().isolated) return;
   let runStatus: 'completed' | 'failed' | 'blocked' = 'completed';
   try {
     if (process.env.PC_PRESERVE_AUTH_STATE !== '1') removeAuthState(appConfig.storageStatePath);
 
-  const isolatedContractRun = process.env.PC_CONTRACT_ISOLATED === '1';
   const checkpointRoot = path.resolve(process.env.PC_CHECKPOINT_ROOT || 'output/checkpoints');
   const runtimeLockRoot = path.resolve(process.env.PC_RUNTIME_LOCK_ROOT || 'output/runtime-locks');
   const recovery = await recoverProductCenterCheckpoints(checkpointRoot);
@@ -50,13 +51,13 @@ export default async function globalTeardown(config: FullConfig): Promise<void> 
   }
 
   const modifiedAfterMs = resolveRunStartedAt(process.env.PW_RUN_STARTED_AT);
-  const reportDirectories = isolatedContractRun ? [] : ['output', 'test-results'];
+  const reportDirectories = ['output', 'test-results'];
   if (usesReporter(config, 'allure-playwright')) reportDirectories.push('allure-results');
   reportDirectories.forEach((directory) => {
     sanitizeGeneratedTestReports(path.resolve(directory), { modifiedAfterMs });
   });
 
-  const findings = isolatedContractRun ? [] : scanGeneratedArtifacts('output', { modifiedAfterMs });
+  const findings = scanGeneratedArtifacts('output', { modifiedAfterMs });
   if (findings.length > 0) {
     runStatus = 'failed';
     throw new Error(`生成物包含敏感字段：${findings.map((finding) => finding.file).join(', ')}`);

@@ -187,7 +187,7 @@ export async function executeSystemTestRecipe<Context extends SystemTestRecipeCo
         () => {
           for (const claimId of assertion.claimIds ?? []) {
             const existing = context.assertionReceipts.find((receipt) => receipt.claimId === claimId);
-            if (existing?.status === 'observed-mismatch') continue;
+            if (existing) continue;
             context.assertionReceipts.push({ claimId, assertionAdapterId: assertion.adapterId, status: 'verified' });
           }
         },
@@ -364,7 +364,6 @@ function readReference(reference: string, context: SystemTestRecipeContext): unk
   }
   return current;
 }
-
 
 
 

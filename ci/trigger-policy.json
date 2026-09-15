@@ -6,6 +6,12 @@
     "969679942/Merchant-Center"
   ],
   "jobName": "menusifu-product-center-suite",
+  "fixedBranches": {
+    "pcs": "master",
+    "mc": "main",
+    "tap": "main",
+    "enforcement": "exact-branch-tip"
+  },
   "defaultTriggerMode": "manual-parameterized",
   "automaticTriggerStatus": "external-configuration-required",
   "allowedTriggerSources": [
@@ -16,19 +22,25 @@
   ],
   "requiredIdentity": [
     "GIT_SHA",
-    "MC_GIT_SHA",
-    "TAP_GIT_SHA",
     "REQUEST_ID",
     "INTENT_ID",
-    "RUN_SCOPE"
+    "RUN_SCOPE",
+    "TRIGGER_SOURCE"
   ],
   "fullRegression": {
     "requiresExplicitScope": true,
     "defaultOnPush": "contracts",
-    "businessExecutionOnMissingTriggerEvidence": "blocked"
+    "businessExecutionOnMissingTriggerEvidence": "blocked",
+    "timeoutMinutes": 360
+  },
+  "executionIsolation": {
+    "disableConcurrentBuildsRequired": true,
+    "workspaceTemplate": "${WORKSPACE}@${BUILD_NUMBER}-isolated",
+    "defaultTimeoutMinutes": 180,
+    "auditEventLogMode": "worker-sharded-then-merged"
   },
   "governance": {
-    "staleDependencyRevision": "blocked-before-submit",
+    "sourcePushMustNotBeReportedAsJenkinsBuildWithout回执": true,
     "unreachableEndpointStatus": "external-authorization-blocked",
     "separateServerReachabilityFromTriggerConfiguration": true,
     "separateTriggerFromBusinessExecution": true

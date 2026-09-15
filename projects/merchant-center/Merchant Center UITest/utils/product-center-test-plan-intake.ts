@@ -4,6 +4,10 @@ import {
   type ProductCenterParsedMarkdownTestCase,
   type ProductCenterTestPlanSourceCitation,
 } from './product-center-test-plan-markdown';
+import type { ProductCenterTestCaseDraftClaim, ProductCenterTestCaseExecution } from './product-center-test-case-ir';
+
+type IntakeClaim = Pick<ProductCenterTestCaseDraftClaim, 'id' | 'kind' | 'text'>
+  & Partial<Omit<ProductCenterTestCaseDraftClaim, 'id' | 'kind' | 'text'>>;
 
 export type ProductCenterTestPlanAutomationBinding = {
   canonicalId: string;
@@ -17,11 +21,9 @@ export type ProductCenterTestPlanAutomationBinding = {
   cleanupAdapterIds: string[];
   verificationSignals: string[];
   claimIds: string[];
-  claims?: Array<{
-    id: string;
-    kind: 'precondition' | 'action' | 'expectation';
-    text: string;
-  }>;
+  claims?: IntakeClaim[];
+  coverageIds?: string[];
+  execution?: ProductCenterTestCaseExecution;
   mutatesData: boolean;
   cleanup: string[];
 };
@@ -60,11 +62,9 @@ export type ProductCenterTestPlanIntakeCase = {
   capabilityIds: string[];
   assertionAdapterIds: string[];
   claimIds: string[];
-  claims: Array<{
-    id: string;
-    kind: 'precondition' | 'action' | 'expectation';
-    text: string;
-  }>;
+  claims: IntakeClaim[];
+  coverageIds?: string[];
+  execution?: ProductCenterTestCaseExecution;
   verificationSignals: string[];
   mutatesData: boolean;
   cleanup: string[];
@@ -196,6 +196,8 @@ export function buildProductCenterTestPlanIntake(input: {
       assertionAdapterIds: [...binding.assertionAdapterIds],
       claimIds: [...binding.claimIds],
       claims: bindingClaims.map((claim) => ({ ...claim })),
+      coverageIds: binding.coverageIds ? [...binding.coverageIds] : undefined,
+      execution: binding.execution ? structuredClone(binding.execution) : undefined,
       verificationSignals: [...binding.verificationSignals],
       mutatesData: binding.mutatesData,
       cleanup: [...binding.cleanup],

@@ -41,6 +41,15 @@ type ExecutionPlan = {
       sourceRecoveryCaseIds?: string[];
     }>;
   };
+  revalidation: {
+    selectedCaseIds: string[];
+    runners: Array<{
+      runnerId: string;
+      spec: string;
+      selectedCaseIds: string[];
+      sourceRecoveryCaseIds?: string[];
+    }>;
+  };
   tasks: Array<{
     caseId: string;
     module: string;
@@ -178,7 +187,10 @@ export function buildProductCenterSourceGovernedExecutionResult(options: {
     ? mergeSourceGovernedExecutionCases(previousResult?.executionCases ?? [], executionCases, selectedCaseIdList)
     : executionCases;
   const resultSelectedCaseIds = mergedExecutionCases.map((item) => item.caseId);
-  const executionSelection = selectExecutionRoutes(plan.execution, resultSelectedCaseIds);
+  const planSelection = reportManifest?.selectionMode === 'full-regression'
+    ? plan.revalidation
+    : plan.execution;
+  const executionSelection = selectExecutionRoutes(planSelection, resultSelectedCaseIds);
   const selectionFingerprint = fingerprintProductCenterSourceGovernedSelection(executionSelection);
   const mergedPlaywrightReports = mergePreviousResult
     ? [...new Set([
@@ -196,15 +208,30 @@ export function buildProductCenterSourceGovernedExecutionResult(options: {
   const failed = mergedExecutionCases.filter((item) => item.status === 'failed').length;
   const skipped = mergedExecutionCases.filter((item) => item.status === 'skipped').length;
   const notRun = mergedExecutionCases.filter((item) => item.status === 'not-run').length;
+  const executed = passed + failed + skipped;
+  const resultSelectedCaseIdSet = new Set(resultSelectedCaseIds);
+  const nonExecutionTasks = plan.tasks.filter((item) => (
+    !['execute', 'source-recovery'].includes(item.action)
+    && !resultSelectedCaseIdSet.has(item.caseId)
+  ));
+  const nonExecutionCount = (action: ExecutionPlan['tasks'][number]['action']): number => (
+    nonExecutionTasks.filter((item) => item.action === action).length
+  );
+  // A run prevented before any selected case starts is an execution block,
+  // not a product failure. Keep real case failures distinct from environment
+  // or authorization gating so operators know what action to take next.
   const status = mergedExecutionCases.length === 0
     ? 'not-run'
-    : failed === 0 && skipped === 0 && notRun === 0 && cleanup.status === 'residue-verified'
-      ? 'passed'
-      : 'failed';
+    : notRun > 0
+      ? 'blocked'
+      : failed === 0 && skipped === 0 && cleanup.status === 'residue-verified'
+        ? 'passed'
+        : 'failed';
   const report = {
     schemaVersion: '1.0.0',
     collectionId: 'product-center-source-governed-execution-result',
     generatedAt,
+    runId: reportManifest?.runId ?? 'legacy-scan',
     planGeneratedAt: plan.generatedAt,
     planFingerprint: plan.planFingerprint,
     planSelectionFingerprint: plan.selectionFingerprint,
@@ -212,24 +239,19 @@ export function buildProductCenterSourceGovernedExecutionResult(options: {
     executionSelection,
     status,
     summary: {
-      total: mergedExecutionCases.length
-        + plan.summary.deferred
-        + plan.summary.blockedSource
-        + plan.summary.blockedTechnical
-        + plan.summary.productDefect
-        + plan.summary.handled
-        + plan.summary.notApplicable,
-      executed: mergedExecutionCases.length,
+      total: mergedExecutionCases.length + nonExecutionTasks.length,
+      selected: mergedExecutionCases.length,
+      executed,
       passed,
       failed,
       skipped,
       notRun,
-      blockedSource: plan.summary.blockedSource,
-      deferred: plan.summary.deferred,
-      blockedTechnical: plan.summary.blockedTechnical,
-      productDefect: plan.summary.productDefect,
-      handled: plan.summary.handled,
-      notApplicable: plan.summary.notApplicable,
+      blockedSource: nonExecutionCount('blocked-source'),
+      deferred: nonExecutionCount('deferred'),
+      blockedTechnical: nonExecutionCount('blocked-technical'),
+      productDefect: nonExecutionCount('product-defect'),
+      handled: nonExecutionCount('handled'),
+      notApplicable: nonExecutionCount('not-applicable'),
     },
     evidence: {
       playwrightReports: mergedPlaywrightReports,
@@ -240,15 +262,16 @@ export function buildProductCenterSourceGovernedExecutionResult(options: {
     },
     cleanup,
     executionCases: mergedExecutionCases,
-    nonExecutionTasks: plan.tasks.filter((item) => !['execute', 'source-recovery'].includes(item.action)),
+    nonExecutionTasks,
   };
 
-  assertProductCenterSourceGovernedExecutionResultCurrent(plan, report);
+  assertProductCenterSourceGovernedExecutionResultCurrent(plan, report, planSelection);
 
-  if (report.summary.executed !== report.executionCases.length) {
-    throw new Error(`执行用例分母不一致：selected=${report.executionCases.length}, result=${report.summary.executed}`);
+  if (report.summary.selected !== report.executionCases.length
+    || report.summary.selected !== report.summary.executed + report.summary.notRun) {
+    throw new Error(`执行用例分母不一致：selected=${report.summary.selected}, executed=${report.summary.executed}, notRun=${report.summary.notRun}`);
   }
-  if (report.summary.total !== report.summary.executed
+  if (report.summary.total !== report.summary.selected
     + report.summary.deferred
     + report.summary.blockedSource
     + report.summary.blockedTechnical
@@ -296,6 +319,7 @@ export function assertProductCenterSourceGovernedExecutionResultCurrent(
     executionSelection?: ExecutionSelection | null;
     executionCases?: readonly SourceGovernedExecutionCase[];
   },
+  planSelection: ExecutionSelection = plan.execution,
 ): void {
   assertProductCenterSourceGovernedPlanIntegrity(plan);
   if (!result.executionSelection) {
@@ -305,11 +329,11 @@ export function assertProductCenterSourceGovernedExecutionResultCurrent(
   if (new Set(selectedCaseIds).size !== selectedCaseIds.length) {
     throw new Error('SYSTEM_TEST_ARTIFACT_STALE:RESULT_SELECTION_CASE_ID_DUPLICATED');
   }
-  const plannedCaseIds = new Set(plan.execution.selectedCaseIds);
+  const plannedCaseIds = new Set(planSelection.selectedCaseIds);
   if (selectedCaseIds.some((caseId) => !plannedCaseIds.has(caseId))) {
     throw new Error('SYSTEM_TEST_ARTIFACT_STALE:RESULT_SELECTION_OUTSIDE_PLAN');
   }
-  const expectedSelection = selectExecutionRoutes(plan.execution, selectedCaseIds);
+  const expectedSelection = selectExecutionRoutes(planSelection, selectedCaseIds);
   if (fingerprintSystemTestArtifact(result.executionSelection)
     !== fingerprintSystemTestArtifact(expectedSelection)) {
     throw new Error('SYSTEM_TEST_ARTIFACT_STALE:RESULT_EXECUTION_ROUTE_MISMATCH');
@@ -389,8 +413,9 @@ function readReportManifest(projectRoot: string): null | {
   runId: string;
   reportPaths: string[];
   selectedCaseIds: string[];
+  selectionMode?: 'execution' | 'full-regression';
   runnerReports?: Array<{
-    runnerId: 'group' | 'item' | 'remaining';
+    runnerId: 'group' | 'group-finding' | 'item' | 'remaining';
     reportPath: string;
     selectedCaseIds: string[];
   }>;

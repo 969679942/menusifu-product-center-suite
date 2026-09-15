@@ -5,7 +5,7 @@ import {
   type BusinessRuleSemanticBaseline,
   type BusinessRuleChangeTriggerResult,
 } from '../automation/system-test/business-rule-change-trigger';
-import { FileAuditEventStore } from '../../../Test Automation Platform/src/audit/event-log';
+import { FileAuditEventStore } from '../../Test Automation Platform/src/audit/event-log';
 import { buildProductCenterFormalRulePromotionEvents } from '../adapters/product-center/product-center-business-rule-event-adapter';
 import { buildProductCenterBusinessRuleEventLedger } from './build-product-center-business-rule-event-ledger';
 import { loadCurrentProductCenterBusinessRuleLifecycleSnapshot } from './build-product-center-business-rule-lifecycle-snapshot';

@@ -7,9 +7,9 @@ import {
   type ProductCenterSourceRecoveryRuntimeEvidence,
 } from '../adapters/product-center/product-center-source-recovery-adapter';
 import { buildProductCenterGroupCaseFingerprintManifest } from '../utils/product-center-group-case-fingerprint';
-import { buildSystemTestArtifacts } from '../../../Test Automation Platform/scripts/build-system-test-contract';
-import { buildSystemTestCaseImplementationFingerprints } from '../../../Test Automation Platform/scripts/run-system-test';
-import { fingerprintSystemTestValue } from '../../../Test Automation Platform/src/automation/system-test/system-test-contract';
+import { buildSystemTestArtifacts } from '../../Test Automation Platform/scripts/build-system-test-contract';
+import { buildSystemTestCaseImplementationFingerprints } from '../../Test Automation Platform/scripts/run-system-test';
+import { fingerprintSystemTestValue } from '../../Test Automation Platform/src/automation/system-test/system-test-contract';
 
 type SourceDecision = {
   caseId: string;

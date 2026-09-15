@@ -7,6 +7,9 @@ import { evaluateSystemTestRuntimeEvidence, type SystemTestRuntimeEvidence } fro
 import { appendSystemTestProgress, type SystemTestFailureCategory } from '../automation/system-test/system-test-progress';
 import { classifySystemTestFailure } from '../automation/system-test/system-test-failure';
 import { parseStepBoundAttachmentName } from './allure-report-integrity';
+import { accountExecutionAttempts, type ExecutionAttempt } from '../governance/execution-attempt-accounting';
+import { fingerprintExecutionSelection } from '../governance/execution-intent';
+import { claimEvidenceInvocation } from '../governance/run-evidence-index';
 import {
   evaluateSystemTestCaseAuditCompleteness,
   summarizeSystemTestAuditCompleteness,
@@ -15,14 +18,16 @@ import {
 
 export default class SystemTestEvidenceReporter implements Reporter {
   private readonly contract: SystemTestRunContract;
-  private readonly cases: Array<Record<string, unknown>> = [];
+  private readonly attempts: ExecutionAttempt[] = [];
+  private readonly running = new Map<string, ExecutionAttempt>();
   private readonly progressPaths: { latestPath: string; historyPath: string };
   private readonly caseImplementationFingerprints: Record<string, string>;
-  private readonly auditCompleteness: SystemTestCaseAuditCompleteness[] = [];
   private readonly outputPath: string;
   private readonly runId: string;
   private readonly implementationFingerprint: string;
   private readonly executionCandidateFingerprint: string;
+  private readonly invocationId: string;
+  private readonly publication: ReturnType<typeof claimEvidenceInvocation>;
 
   constructor() {
     this.contract = readJson<SystemTestRunContract>(requiredEnv('SYSTEM_TEST_CONTRACT'));
@@ -30,6 +35,12 @@ export default class SystemTestEvidenceReporter implements Reporter {
     this.runId = requiredTextEnv('SYSTEM_TEST_RUN_ID');
     this.implementationFingerprint = requiredTextEnv('SYSTEM_TEST_IMPLEMENTATION_FINGERPRINT');
     this.executionCandidateFingerprint = requiredTextEnv('SYSTEM_TEST_EXECUTION_CANDIDATE_FINGERPRINT');
+    this.invocationId = requiredTextEnv('SYSTEM_TEST_EVIDENCE_INVOCATION_ID');
+    this.publication = claimEvidenceInvocation(path.dirname(this.outputPath), this.invocationId, {
+      runId: this.runId, selectedCaseIds: this.contract.cases.map((item) => item.caseId),
+      contractFingerprint: this.contract.fingerprint, implementationFingerprint: this.implementationFingerprint,
+      executionCandidateFingerprint: this.executionCandidateFingerprint,
+    });
     this.progressPaths = {
       latestPath: requiredEnv('SYSTEM_TEST_PROGRESS_LATEST'),
       historyPath: requiredEnv('SYSTEM_TEST_PROGRESS_HISTORY'),
@@ -39,16 +50,21 @@ export default class SystemTestEvidenceReporter implements Reporter {
     ) ?? {};
   }
 
-  onTestBegin(test: TestCase): void {
+  onTestBegin(test: TestCase, result: TestResult): void {
     const caseId = readCaseId(test);
-    if (caseId) appendSystemTestProgress(this.progressPaths, { runId: this.runId, caseId, phase: 'started' });
+    if (caseId) {
+      this.running.set(JSON.stringify([test.id, result.retry]), this.attempt(test, result, 'running'));
+      this.persist('running');
+      appendSystemTestProgress(this.progressPaths, { runId: this.runId, caseId, phase: 'started' });
+    }
   }
 
   onTestEnd(test: TestCase, result: TestResult): void {
     const caseId = readCaseId(test);
     if (!caseId) return;
     const item = this.contract.cases.find((candidate) => candidate.caseId === caseId);
-    if (!item) return;
+    this.running.delete(JSON.stringify([test.id, result.retry]));
+    if (!item) { this.attempts.push(this.attempt(test, result, result.status)); this.persist('running'); return; }
     const runtimeEvidence = parseEvidence(result);
     const evaluation = evaluateSystemTestRuntimeEvidence(item, runtimeEvidence);
     const auditCompleteness = evaluateSystemTestCaseAuditCompleteness({
@@ -56,10 +72,9 @@ export default class SystemTestEvidenceReporter implements Reporter {
       evidence: runtimeEvidence,
       runId: this.runId,
     });
-    this.auditCompleteness.push(auditCompleteness);
     const passed = result.status === 'passed' && evaluation.status === 'complete';
-    const failureCategory = passed ? undefined : classify(test, result, evaluation.status === 'incomplete');
-    this.cases.push({
+    const failureCategory = passed || result.status === 'skipped' ? undefined : classify(test, result, evaluation.status === 'incomplete');
+    this.attempts.push({ ...this.attempt(test, result, result.status), receipt: {
       receiptVersion: '3.1.0',
       caseId,
       caseFingerprint: fingerprintSystemTestValue(item),
@@ -72,32 +87,48 @@ export default class SystemTestEvidenceReporter implements Reporter {
       evidence: evaluation,
       auditCompleteness,
       ...(failureCategory ? { failureCategory } : {}),
-    });
+    } });
     this.persist('running');
     appendSystemTestProgress(this.progressPaths, {
-      runId: this.runId, caseId, phase: passed ? 'completed' : 'failed', status: result.status,
+      runId: this.runId, caseId, phase: result.status === 'skipped' ? 'skipped' : passed ? 'completed' : 'failed', status: result.status,
       ...(failureCategory ? { failureCategory } : {}),
     });
   }
 
   onEnd(result: FullResult): void {
-    this.persist(result.status);
+    this.persist(result.status, true);
   }
 
-  private persist(playwrightStatus: string): void {
-    const incomplete = this.cases.filter((item) => (item.evidence as { status: string }).status !== 'complete');
-    const auditSummary = summarizeSystemTestAuditCompleteness(this.auditCompleteness);
-    writeJson(this.outputPath, {
-      schemaVersion: '1.0.0', collectionId: 'system-test-evidence-ledger', generatedAt: new Date().toISOString(),
+  private persist(playwrightStatus: string, final = false): void {
+    const selectedCaseIds = this.contract.cases.map((item) => item.caseId);
+    const attempts = [...this.attempts, ...this.running.values()];
+    const accounting = accountExecutionAttempts({ runId: this.runId, selectedCaseIds, attempts });
+    const cases = accounting.terminalAttempts.flatMap((item) => item.receipt ? [item.receipt] : []);
+    const complete = cases.filter((item) => item.playwrightStatus === 'passed' && (item.evidence as { status: string }).status === 'complete').length;
+    const auditCompleteness = this.contract.cases.map((item) => cases.find((row) => row.caseId === item.caseId)?.auditCompleteness as SystemTestCaseAuditCompleteness | undefined
+      ?? evaluateSystemTestCaseAuditCompleteness({ item, evidence: undefined, runId: this.runId }));
+    const auditSummary = summarizeSystemTestAuditCompleteness(auditCompleteness);
+    const { latestAttempts: _latest, terminalAttempts: _terminal, ...executionAccounting } = accounting;
+    this.publication.publish({
+      schemaVersion: '1.2.0', invocationId: this.invocationId, collectionId: 'system-test-evidence-ledger', generatedAt: new Date().toISOString(),
+      runId: this.runId, selectedCaseIds, selectedFingerprint: fingerprintExecutionSelection(selectedCaseIds),
       systemId: this.contract.system.systemId,
       contractFingerprint: this.contract.fingerprint,
       implementationFingerprint: this.implementationFingerprint,
       executionCandidateFingerprint: this.executionCandidateFingerprint,
       playwrightStatus,
-      summary: { selected: this.contract.cases.length, executed: this.cases.length, evidenceComplete: this.cases.length - incomplete.length, evidenceIncomplete: incomplete.length },
-      auditCompleteness: { schemaVersion: '1.1.0', summary: auditSummary, cases: this.auditCompleteness },
-      cases: this.cases,
-    });
+      summary: { selected: selectedCaseIds.length, executed: accounting.status === 'valid' ? accounting.executedCaseIds.length : null,
+        evidenceComplete: complete, evidenceIncomplete: accounting.status === 'valid' ? accounting.executedCaseIds.length - complete : null },
+      executionAccounting, attempts,
+      auditCompleteness: { schemaVersion: '1.1.0', summary: auditSummary, cases: auditCompleteness },
+      cases,
+    }, final);
+  }
+
+  private attempt(test: TestCase, result: TestResult, status: ExecutionAttempt['status']): ExecutionAttempt {
+    return { runId: this.runId, caseId: readCaseId(test)!, testId: test.id, retry: result.retry, status,
+      startedAt: result.startTime instanceof Date ? result.startTime.toISOString() : '',
+      durationMs: status === 'running' ? null : result.duration };
   }
 }
 
@@ -151,10 +182,4 @@ function readJson<T>(filePath: string): T { return JSON.parse(fs.readFileSync(fi
 function readOptionalJson<T>(filePath: string | undefined): T | undefined {
   if (!filePath || !fs.existsSync(filePath)) return undefined;
   return readJson<T>(filePath);
-}
-function writeJson(filePath: string, value: unknown): void {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const temporaryPath = `${filePath}.${process.pid}.tmp`;
-  fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-  fs.renameSync(temporaryPath, filePath);
 }

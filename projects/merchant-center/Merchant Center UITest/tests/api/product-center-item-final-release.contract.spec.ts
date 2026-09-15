@@ -10,6 +10,22 @@ test.describe('商品管理 209 条可执行用例唯一权威发布合同', () 
   test('应发布 202 通过、11 延期、0 失败的唯一状态', () => {
     const outputRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'pc-item-final-release-'));
     try {
+      if (!fs.existsSync(path.join(projectRoot, 'contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json'))) {
+        expect(() => buildProductCenterItemFinalRelease({ projectRoot, outputRoot })).toThrow('FINAL_RELEASE_INPUT_MISSING');
+        const blocked = JSON.parse(fs.readFileSync(path.join(outputRoot, 'output/product-center-item-final-status.blocked.json'), 'utf8')) as {
+          status: string;
+          code: string;
+          scope: string;
+          missingInputs: string[];
+          guardrails: { businessExecutionStarted: boolean; existingPassedCasesInvalidated: boolean };
+        };
+        expect(blocked).toMatchObject({
+          status: 'blocked', code: 'FINAL_RELEASE_INPUT_MISSING', scope: 'report-only',
+          guardrails: { businessExecutionStarted: false, existingPassedCasesInvalidated: false },
+        });
+        expect(blocked.missingInputs).toContain('contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json');
+        return;
+      }
       const { release } = buildProductCenterItemFinalRelease({
         projectRoot,
         outputRoot,
@@ -40,6 +56,10 @@ test.describe('商品管理 209 条可执行用例唯一权威发布合同', () 
   test('应包含最新人工业务规则和完整脚本绑定', () => {
     const outputRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'pc-item-final-rules-'));
     try {
+      if (!fs.existsSync(path.join(projectRoot, 'contracts/product-center/test-cases/canonical/product-center-item-current-receipt-contract.json'))) {
+        expect(() => buildProductCenterItemFinalRelease({ projectRoot, outputRoot })).toThrow('FINAL_RELEASE_INPUT_MISSING');
+        return;
+      }
       const { release, businessRulesPath } = buildProductCenterItemFinalRelease({ projectRoot, outputRoot, updateConversionManifest: false });
       const addonDuplicate = release.cases.find((item) => item.caseId === 'TC-ITEM-ADD-015');
       const businessRules = JSON.parse(fs.readFileSync(businessRulesPath, 'utf8')) as {
@@ -143,8 +163,19 @@ test.describe('商品管理 209 条可执行用例唯一权威发布合同', () 
     expect(delivery).toContain("...(fullLive ? [{ id: 'live-213'");
     expect(delivery).toContain("nonIdempotentReplayPolicy: 'runner-server-id-reconciliation-required'");
     expect(delivery).toContain("cleanupPolicy: 'finally-and-ui-api-zero-residue'");
+    expect(delivery).toContain("writeCheckpoint(blocked ? 'blocked' : 'failed', states)");
+    expect(delivery).toContain('hasStructuredBlockedDiagnostic');
     expect(delivery).toContain('workspaceCleanupEnabled: !preserveWorkspace');
     expect(delivery).toContain("path.join(projectRoot, 'utils/product-center-item-test-plan-rules.ts')");
+  });
+
+  test('一键交付输入缺失时仍应进入可恢复检查点，而不是在指纹计算阶段崩溃', () => {
+    const delivery = fs.readFileSync(path.join(projectRoot, 'scripts/run-product-center-item-delivery.ts'), 'utf8');
+    expect(delivery).toContain('if (!fs.existsSync(filePath))');
+    expect(delivery).toContain("hash.update('MISSING_INPUT')");
+    expect(delivery).toContain('ITEM_DELIVERY_PREFLIGHT_INPUTS_MISSING');
+    expect(delivery).toContain('missingPreflightInputs');
+    expect(delivery).toContain('static-release-preflight');
   });
 
   test('主工程构建应发布单一当前态交付包且不建立 SaaS 版本目录', () => {
