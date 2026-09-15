@@ -44,11 +44,25 @@ node {
           }
           stage('Checkout exact revision') {
             dir('suite-src') {
-              prepareCheckout()
-              def result = checkout([$class: 'GitSCM', branches: [[name: params.GIT_SHA]],
-                userRemoteConfigs: [[url: 'https://github.com/969679942/menusifu-product-center-suite.git', credentialsId: 'menusifu-github-readonly']],
-                extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'ci'], [path: 'Jenkinsfile'], [path: 'suite.json']]]]])
-              if (result.GIT_COMMIT != params.GIT_SHA) error('PCS checkout identity mismatch')
+              // Do not materialize the repository's deep .artifact-history tree
+              // on the Windows agent. GitSCM sparse checkout still evaluates
+              // those paths during checkout and can fail with MAX_PATH before
+              // the pipeline starts. Blobless + no-cone sparse checkout keeps
+              // the exact revision while excluding transient history objects.
+              bat '''@echo off
+              git -c http.proxy= -c https.proxy= clone --filter=blob:none --no-checkout https://github.com/969679942/menusifu-product-center-suite.git .
+              if errorlevel 1 exit /b 1
+              git config core.longpaths true
+              if errorlevel 1 exit /b 1
+              git sparse-checkout init --no-cone
+              if errorlevel 1 exit /b 1
+              (echo /ci/**& echo /Jenkinsfile& echo /suite.json& echo /projects/project-a/**& echo !/projects/project-a/**/.artifact-history/**) > .git/info/sparse-checkout
+              git checkout --detach %GIT_SHA%
+              if errorlevel 1 exit /b 1
+              git rev-parse HEAD
+              '''
+              def checkedOut = bat(returnStdout: true, script: '@git rev-parse HEAD').trim()
+              if (checkedOut != params.GIT_SHA) error('PCS checkout identity mismatch')
             }
           }
           stage('Record immutable Jenkins invocation') {
