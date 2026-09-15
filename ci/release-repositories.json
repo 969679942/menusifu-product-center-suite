@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "purpose": "发布前固定分支与远程身份预检；不执行 Jenkins",
+  "repositories": [
+    {
+      "id": "pcs",
+      "repository": "969679942/menusifu-product-center-suite",
+      "path": ".",
+      "remote": "origin",
+      "branch": "master"
+    },
+    {
+      "id": "tap",
+      "repository": "969679942/Test-Automation-Platform",
+      "path": "../Test Automation Platform",
+      "remote": "origin",
+      "branch": "main"
+    },
+    {
+      "id": "mc",
+      "repository": "969679942/Merchant-Center",
+      "path": "../Merchant Center",
+      "remote": "origin",
+      "branch": "main"
+    }
+  ],
+  "rules": {
+    "requireCleanWorktree": true,
+    "requireAttachedHead": true,
+    "requireRemoteBranch": true,
+    "rejectDivergedHistory": true,
+    "allowForcePush": false,
+    "jenkinsTrigger": "never"
+  }
+}
