@@ -295,7 +295,45 @@ export class AddonItem216Flow {
     const savedName = await edit.readItemName();
     expect(savedName).toBe(submittedName);
     expect(savedName.length).toBe(maxLength);
-    return { saved, rawName, maxLength, submittedName, savedName };
+    return {
+      saved,
+      rawName,
+      maxLength,
+      submittedName,
+      savedName,
+      assertionReceipts: [
+        {
+          claimId: expectation(context.caseId, 1),
+          status: 'verified',
+          expectedValue: { maxLength, submittedLength: maxLength },
+          actualValue: { maxLength, submittedLength: submittedName.length },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 2),
+          status: 'verified',
+          expectedValue: { savedLength: maxLength },
+          actualValue: { savedLength: savedName.length },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 3),
+          status: 'verified',
+          expectedValue: { savedName: submittedName },
+          actualValue: { savedName },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+      ],
+    };
   }
 
   @step('验证商品名称首尾空格阻断')
@@ -319,9 +357,47 @@ export class AddonItem216Flow {
     const saved = await this.saveSide(form, context);
     const edit = await this.openEdit(context.originalIdentity);
     const actual = { posName: await edit.readPosName(), kitchenName: await edit.readKitchenName() };
-    expect(actual.posName).toBe(actual.posName.trim());
-    expect(actual.kitchenName).toBe(actual.kitchenName.trim());
-    return { saved, requested: { posName, kitchenName }, actual };
+    const expectedPosName = posName.trim();
+    const expectedKitchenName = kitchenName.trim();
+    expect(actual.posName).toBe(expectedPosName);
+    expect(actual.kitchenName).toBe(expectedKitchenName);
+    return {
+      saved,
+      requested: { posName, kitchenName },
+      actual,
+      assertionReceipts: [
+        {
+          claimId: expectation(context.caseId, 1),
+          status: 'verified',
+          expectedValue: { posName: expectedPosName },
+          actualValue: { posName: actual.posName },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 2),
+          status: 'verified',
+          expectedValue: { kitchenName: expectedKitchenName },
+          actualValue: { kitchenName: actual.kitchenName },
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+        {
+          claimId: expectation(context.caseId, 3),
+          status: 'verified',
+          expectedValue: { posName: expectedPosName, kitchenName: expectedKitchenName },
+          actualValue: actual,
+          actualStatus: 'observed',
+          observationChannel: 'ui',
+          authority: 'user-visible',
+          comparison: 'matched',
+        },
+      ],
+    };
   }
 
   @step('验证同类商品重名阻断')
