@@ -5,6 +5,8 @@ const scope=process.env.RUN_SCOPE;
 const envelopePath=path.join(out,scope==='pilot'?'pilot-envelope.json':'result-envelope.json');
 const envelope=fs.existsSync(envelopePath)?JSON.parse(fs.readFileSync(envelopePath,'utf8')):{};
 const businessRoot=path.join(out,'business'),rawDir=path.join(out,'allure-results'),businessDir=path.join(out,'allure-results-business');
+const projectCandidates=['projects/project-a/Merchant Center UITest','projects/merchant-center/Merchant Center UITest'];
+const projectRoot=projectCandidates.map(rel=>path.join(root,rel)).find(fs.existsSync)||path.join(root,projectCandidates[0]);
 const isBusiness=scope==='pilot'||scope==='full-regression';
 const caseIdOf=result=>result.labels?.find(label=>label.name==='caseId')?.value || result.labels?.find(label=>label.name==='tag'&&String(label.value).startsWith('case-'))?.value.slice(5);
 const moduleOf=caseId=>({FLV:'调味管理',GRP:'商品分组',ITEM:'商品管理',TAG:'标签管理',IMG:'图片管理'})[String(caseId||'').split('-')[1]]||'待归类业务用例';
@@ -12,9 +14,11 @@ const labelsFor=(labels,caseId)=>[...labels.filter(label=>!['caseId','tag','pare
 const copy=(from,to)=>{if(!fs.existsSync(to))fs.copyFileSync(from,to);};
 function resultSources(){const sources=[];if(fs.existsSync(businessRoot))for(const entry of fs.readdirSync(businessRoot))sources.push(path.join(businessRoot,entry,'allure-results'));sources.push(rawDir);return sources.filter(fs.existsSync);}
 function normalizeSources(){
- const adapterPath=path.join(root,'projects/project-a/Merchant Center UITest/adapters/test-automation-platform/allure-reporting.ts');
+ const adapterPath=path.join(projectRoot,'adapters/test-automation-platform/allure-reporting.ts');
  if(!fs.existsSync(adapterPath)) return;
- require(path.join(root,'projects/project-a/Merchant Center UITest/node_modules/tsx/cjs'));
+ const tsxRegister=path.join(projectRoot,'node_modules/tsx/dist/cjs/index.cjs');
+ if(!fs.existsSync(tsxRegister)) throw new Error(`tsx-register-missing:${tsxRegister}`);
+ require(tsxRegister);
  const adapter=require(adapterPath);
  for(const source of resultSources()) adapter.normalizeMerchantCenterAllureResults(source,{playwrightOutputDir:path.join(path.dirname(source),'playwright-business')});
 }
