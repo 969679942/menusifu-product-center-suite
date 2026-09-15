@@ -33,6 +33,8 @@ test('transport exposes read-only health and configurable endpoint without print
   assert.match(transport,/connection-status\.json/);
   assert.match(transport,/concurrentBuildProtectionConfigured/);
   assert.match(transport,/pipelineGovernanceConfigured/);
+  assert.match(transport,/fixedBranches = \[pcs: 'master', mc: 'main', tap: 'main'\]/);
+  assert.match(transport,/--branch master --single-branch/);
   assert.match(transport,/configure-governed-pipeline-definition/);
   assert.match(transport,/DisableConcurrentBuildsJobProperty/);
   assert.match(transport,/choices=\['configure','submit','poll','watch','health'\]/);

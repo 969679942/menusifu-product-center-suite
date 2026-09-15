@@ -148,6 +148,10 @@ def health():
                         '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
                         "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
                         'jenkins-invocation.json',
+                        "fixedBranches = [pcs: 'master', mc: 'main', tap: 'main']",
+                        '--branch master --single-branch',
+                        'branch: fixedBranches.tap',
+                        'branch: fixedBranches.mc',
                     ])
                     result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
                     if not result['pipelineGovernanceConfigured']:
