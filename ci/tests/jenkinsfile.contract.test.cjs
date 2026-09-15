@@ -7,6 +7,7 @@ const pipeline=fs.readFileSync(path.join(root,'Jenkinsfile'),'utf8');
 const sourceRunner=fs.readFileSync(path.join(root,'projects/merchant-center/Merchant Center UITest/scripts/run-product-center-source-governed.ts'),'utf8');
 const auditStore=fs.readFileSync(path.join(root,'tap/src/audit/event-log.ts'),'utf8');
 const auditRuntime=fs.readFileSync(path.join(root,'projects/merchant-center/Merchant Center UITest/utils/product-center-audit-runtime.ts'),'utf8');
+const fullRegressionRunner=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8')).fixedBranches;
 
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
@@ -33,6 +34,12 @@ test('Jenkins checks the fixed branch tip for all three repositories',()=>{
   assert.match(pipeline,/pcsBranch: fixedBranches\.pcs/);
   assert.match(pipeline,/mcBranch: fixedBranches\.mc/);
   assert.match(pipeline,/tapBranch: fixedBranches\.tap/);
+});
+
+test('full regression runner resolves the separately checked out MC and TAP roots',()=>{
+  assert.match(fullRegressionRunner,/\.\.\/tap\/src\/governance\/execution-intent/);
+  assert.match(fullRegressionRunner,/projects\/merchant-center\/Merchant Center UITest/);
+  assert.doesNotMatch(fullRegressionRunner,/projects\/project-a|\.\.\/Test Automation Platform/);
 });
 
 test('parallel audit events are worker-sharded and merged before report aggregation',()=>{

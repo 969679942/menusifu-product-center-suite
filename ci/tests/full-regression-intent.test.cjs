@@ -35,6 +35,7 @@ test('full regression freezes its selection before execution without a fixed exc
     assert.doesNotMatch(implementation,/classifiedExclusions\.length\s*===\s*\d+/);
     assert.match(implementation,/PC_CI_OUTPUT_DIR/);
     assert.match(implementation,/buildProductCenterFullRegressionExecutionIntent/);
+    assert.match(implementation,/\.\.\/tap\/src\/governance\/execution-intent/);
+    assert.doesNotMatch(implementation,/projects\/project-a|Test Automation Platform/);
   } finally { fs.rmSync(isolatedOut,{recursive:true,force:true}); }
 });
-

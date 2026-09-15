@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { assertExecutionIntentCompletion } from '../Test Automation Platform/src/governance/execution-intent';
-import { buildProductCenterFullRegressionExecutionIntent } from '../projects/project-a/Merchant Center UITest/adapters/product-center/product-center-execution-intent';
+import { assertExecutionIntentCompletion } from '../tap/src/governance/execution-intent';
+import { buildProductCenterFullRegressionExecutionIntent } from '../projects/merchant-center/Merchant Center UITest/adapters/product-center/product-center-execution-intent';
 
 const root = path.resolve(__dirname, '..');
 const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
@@ -77,7 +77,7 @@ function findAllureResultDirs(rootPath: string): string[] {
 
 function main(): void {
   fs.mkdirSync(out, { recursive: true });
-  const indexPath = path.join(root, 'projects/project-a/Merchant Center Info/00-待转换测试方案/已完成/index.json');
+  const indexPath = path.join(root, 'projects/merchant-center/Merchant Center Info/00-待转换测试方案/已完成/index.json');
   const completedIndex = readJson<{ cases: Array<{ caseId: string; module: string }> }>(indexPath);
   // Jenkins passes the runtime file as one masked parameter.  The source-governed
   // Playwright setup reads the individual variables, so expand only the permitted
@@ -108,7 +108,7 @@ function main(): void {
       runners: Array<{ runnerId: string; selectedCaseIds: string[] }>;
     };
     tasks: Array<{ caseId: string; module: string; action: string; reason: string; blockCode?: string | null }>;
-  }>(path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-plan.json'));
+  }>(path.join(root, 'projects/merchant-center/deliverables/product-center-source-governance/execution-plan.json'));
   const seasoningManifest = readJson<{ cases: Array<{ caseId: string }> }>(path.join(project, 'systems/merchant-center-product-center-seasoning/manifest.json'));
   const gitSha = require('node:child_process').execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
   // Freeze and validate the complete executable selection before authentication
@@ -138,7 +138,7 @@ function main(): void {
     return;
   }
   const sourceExit = run(['scripts/run-product-center-source-governed.ts', '--execute'], project, commonEnv);
-  const sourceResultPath = path.join(root, 'projects/project-a/deliverables/product-center-source-governance/execution-result.json');
+  const sourceResultPath = path.join(root, 'projects/merchant-center/deliverables/product-center-source-governance/execution-result.json');
   const sourceResultCandidate = fs.existsSync(sourceResultPath) ? readJson<any>(sourceResultPath) : null;
   const sourceResult = sourceResultCandidate?.runId === runId ? sourceResultCandidate : null;
 
@@ -219,4 +219,3 @@ function main(): void {
 }
 
 try { main(); } catch (error) { process.stderr.write(`${error instanceof Error ? error.stack ?? error.message : String(error)}\n`); process.exitCode = 2; }
-
