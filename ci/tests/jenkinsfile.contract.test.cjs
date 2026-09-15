@@ -8,6 +8,7 @@ const sourceRunner=fs.readFileSync(path.join(root,'projects/merchant-center/Merc
 const auditStore=fs.readFileSync(path.join(root,'tap/src/audit/event-log.ts'),'utf8');
 const auditRuntime=fs.readFileSync(path.join(root,'projects/merchant-center/Merchant Center UITest/utils/product-center-audit-runtime.ts'),'utf8');
 const fullRegressionRunner=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
+const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8')).fixedBranches;
 
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
@@ -40,6 +41,12 @@ test('full regression runner resolves the separately checked out MC and TAP root
   assert.match(fullRegressionRunner,/\.\.\/tap\/src\/governance\/execution-intent/);
   assert.match(fullRegressionRunner,/projects\/merchant-center\/Merchant Center UITest/);
   assert.doesNotMatch(fullRegressionRunner,/projects\/project-a|\.\.\/Test Automation Platform/);
+});
+
+test('configured Jenkins parameters match the local submission CLI contract',()=>{
+  assert.match(transport,/def submit\(scope='contracts', auto_chain=False\)/);
+  assert.match(transport,/hudson\.model\.BooleanParameterDefinition/);
+  assert.match(transport,/'AUTO_CHAIN': 'true' if auto_chain else 'false'/);
 });
 
 test('parallel audit events are worker-sharded and merged before report aggregation',()=>{

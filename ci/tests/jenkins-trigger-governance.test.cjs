@@ -60,7 +60,7 @@ test('local transport resolves the same three-repository identity required by Je
   const payload={gitSha:'a'.repeat(40),mcGitSha:manifest.repositories.mc.revision,tapGitSha:manifest.repositories.tap.revision,
     requestId:'request-1',intentId:'123e4567-e89b-12d3-a456-426614174000',runScope:'full-regression',triggerSource:'explicit-local-submit'};
   assert.deepEqual(triggerContract.validateJenkinsInvocation(payload),[]);
-  assert.match(transport,/submission_parameters\(sha, scope, request_id, intent_id\)/);
+  assert.match(transport,/submission_parameters\(sha, scope, request_id, intent_id, auto_chain=False\)/);
   assert.match(transport,/MC_GIT_SHA/);
   assert.match(transport,/TAP_GIT_SHA/);
 });

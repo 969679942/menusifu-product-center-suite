@@ -203,6 +203,9 @@ def configure():
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
         ET.SubElement(item,'trim').text='true'
+    auto_chain_param=ET.SubElement(params,'hudson.model.BooleanParameterDefinition')
+    ET.SubElement(auto_chain_param,'name').text='AUTO_CHAIN'
+    ET.SubElement(auto_chain_param,'defaultValue').text='false'
     ET.SubElement(props,'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty')
     desired=ET.tostring(root,encoding='utf-8',xml_declaration=True)
     if ET.canonicalize(old.decode('utf-8'))==ET.canonicalize(desired.decode('utf-8')):
@@ -256,7 +259,9 @@ def validate_trigger_request(payload, remote_sha=None):
     if errors:
         raise RuntimeError('JENKINS_TRIGGER_CONTRACT_INVALID:' + ','.join(errors))
 
-def submission_parameters(sha, scope, request_id, intent_id):
+def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
+    if auto_chain and scope == 'full-regression':
+        raise ValueError('full-regression-cannot-auto-chain')
     manifest_path = ROOT / 'ci' / 'dependency-manifest.json'
     if not manifest_path.exists():
         raise RuntimeError('dependency-manifest-missing')
@@ -283,13 +288,19 @@ def submission_parameters(sha, scope, request_id, intent_id):
     ))
     if errors:
         raise RuntimeError('JENKINS_INVOCATION_CONTRACT_INVALID:' + ','.join(errors))
-    return {
+    result = {
         'GIT_SHA': sha, 'MC_GIT_SHA': mc_sha, 'TAP_GIT_SHA': tap_sha,
         'REQUEST_ID': request_id, 'INTENT_ID': intent_id, 'RUN_SCOPE': scope,
         'TRIGGER_SOURCE': 'explicit-local-submit',
+        'AUTO_CHAIN': 'true' if auto_chain else 'false',
     }
+    if auto_chain or scope in ['pilot', 'full-regression']:
+        secret_file=pathlib.Path(os.environ.get(
+            'MC_RUNTIME_ENV_PATH', r'D:\Menusifu\Merchant Center\.secrets\runtime.env'))
+        result['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
+    return result
 
-def submit(scope='contracts'):
+def submit(scope='contracts', auto_chain=False):
     quarantine_legacy_checkpoint()
     if STATE.exists():
         previous=read(STATE)
@@ -312,14 +323,14 @@ def submit(scope='contracts'):
         'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'autoChain':auto_chain,'createdAt':time.time()}
     # Validate all dependencies and load the protected runtime before recording
     # a pending mutation. Never log or persist this parameter dictionary.
-    data=submission_parameters(sha,scope,state['requestId'],state['intentId'])
+    data=submission_parameters(sha,scope,state['requestId'],state['intentId'],auto_chain)
     write(STATE,state)
     write(OUT/'intents'/(state['intentId']+'.json'),{
         'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data=submission_parameters(sha, scope, state['requestId'], state['intentId'])
+    data=submission_parameters(sha, scope, state['requestId'], state['intentId'], auto_chain)
     validate_trigger_request({
         'gitSha': sha,
         'requestId': state['requestId'],
@@ -327,9 +338,6 @@ def submit(scope='contracts'):
         'runScope': scope,
         'triggerSource': data['TRIGGER_SOURCE'],
     }, remote_sha)
-    if scope in ['pilot','full-regression']:
-        secret_file=pathlib.Path(r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
-        data['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);remember_explicit_submission(state);print(json.dumps(state))
