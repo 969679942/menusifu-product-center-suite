@@ -18,6 +18,7 @@ test('trigger policy keeps cross-repository source identity explicit',()=>{
   assert.equal(policy.transportRepository,'menusifu-product-center-suite');
   assert.equal(policy.defaultTriggerMode,'manual-parameterized');
   assert.equal(policy.fullRegression.requiresExplicitScope,true);
+  assert.equal(policy.fullRegression.minimumSelectedCaseCount,400);
   assert.equal(policy.fullRegression.timeoutMinutes,360);
   assert.equal(policy.executionIsolation.disableConcurrentBuildsRequired,true);
   assert.equal(policy.executionIsolation.workspaceTemplate,'${WORKSPACE}@${BUILD_NUMBER}-isolated');

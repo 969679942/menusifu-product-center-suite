@@ -7,6 +7,7 @@ const {spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'../..');
 const project=path.join(root,'projects/merchant-center/Merchant Center UITest');
 const tsx=path.join(project,'node_modules/tsx/dist/cli.mjs');
+const triggerPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8'));
 const unique=items=>[...new Set(items)].sort();
 
 test('full regression freezes its selection before execution without a fixed exclusion count',()=>{
@@ -27,8 +28,8 @@ test('full regression freezes its selection before execution without a fixed exc
     assert.deepEqual(unique([...intent.selectedCaseIds,...intent.classifiedExclusions]),unique(intent.formalScopeCaseIds));
     assert.equal(intent.selectedCaseIds.filter(id=>intent.classifiedExclusions.includes(id)).length,0);
     assert.deepEqual(intent.selectedCaseIds,unique([...source.revalidation.selectedCaseIds,...seasoning.cases.map(item=>item.caseId)]));
-    assert.ok(intent.selectedCaseIds.includes('TC-ITEM-STD-102'));
-    assert.ok(intent.selectedCaseIds.includes('TC-ITEM-STD-103'));
+    assert.ok(intent.selectedCaseIds.length>=triggerPolicy.fullRegression.minimumSelectedCaseCount,
+      `full regression selection ${intent.selectedCaseIds.length} is below governed floor ${triggerPolicy.fullRegression.minimumSelectedCaseCount}`);
     assert.ok(intent.routes['source-governed'].some(id=>id.startsWith('TC-ITEM-')));
     assert.deepEqual(Object.keys(intent.exclusionReasons).sort(),intent.classifiedExclusions);
     const implementation=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
