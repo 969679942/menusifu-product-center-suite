@@ -48,6 +48,9 @@ test('full regression is not the implicit push trigger',()=>{
   assert.equal(policy.fullRegression.defaultOnPush,'contracts');
   assert.equal(policy.governance.separateTriggerFromBusinessExecution,true);
   assert.equal(policy.governance.separateServerReachabilityFromTriggerConfiguration,true);
+  assert.equal(policy.governance.releasePreflightRequired,true);
+  assert.equal(policy.governance.forcePushForbidden,true);
+  assert.equal(policy.governance.preflightScript,'ci/release-preflight.ps1');
 });
 
 test('local transport resolves the same three-repository identity required by Jenkins',()=>{

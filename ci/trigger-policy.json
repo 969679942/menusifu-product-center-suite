@@ -43,6 +43,9 @@
     "sourcePushMustNotBeReportedAsJenkinsBuildWithout回执": true,
     "unreachableEndpointStatus": "external-authorization-blocked",
     "separateServerReachabilityFromTriggerConfiguration": true,
-    "separateTriggerFromBusinessExecution": true
+    "separateTriggerFromBusinessExecution": true,
+    "releasePreflightRequired": true,
+    "forcePushForbidden": true,
+    "preflightScript": "ci/release-preflight.ps1"
   }
 }
