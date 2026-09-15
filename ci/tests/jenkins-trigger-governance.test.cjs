@@ -63,6 +63,8 @@ test('local transport resolves the same three-repository identity required by Je
   assert.match(transport,/submission_parameters\(sha, scope, request_id, intent_id, auto_chain=False\)/);
   assert.match(transport,/MC_GIT_SHA/);
   assert.match(transport,/TAP_GIT_SHA/);
+  assert.match(transport,/parameterContractConfigured/);
+  assert.match(transport,/configure-job-parameter-contract/);
 });
 
 test('all Jenkins source repositories use their fixed integration branches',()=>{

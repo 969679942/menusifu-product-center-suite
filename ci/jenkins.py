@@ -30,9 +30,21 @@ if not re.fullmatch(r'[A-Za-z0-9._-]{1,120}', JOB):
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
+BUILD_STRING_PARAMETERS = [
+    'GIT_SHA', 'MC_GIT_SHA', 'TAP_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
+    'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
+]
+BUILD_BOOLEAN_PARAMETERS = ['AUTO_CHAIN']
 SESSION = requests.Session()
 SESSION.auth = (os.environ['SUITE_JENKINS_USER'], os.environ['SUITE_JENKINS_TOKEN'])
 SESSION.trust_env = False
+
+def configured_parameter_names(root):
+    definitions=root.find('properties/hudson.model.ParametersDefinitionProperty/parameterDefinitions')
+    return {item.findtext('name') for item in definitions} if definitions is not None else set()
+
+def required_parameter_names():
+    return set(BUILD_STRING_PARAMETERS + BUILD_BOOLEAN_PARAMETERS)
 
 def write(path, obj):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -121,6 +133,7 @@ def health():
         'scmTriggerConfigured': False,
         'concurrentBuildProtectionConfigured': False,
         'pipelineGovernanceConfigured': False,
+        'parameterContractConfigured': False,
         'parameterizedBuildEndpoint': False,
         'actionRequired': 'none',
     }
@@ -144,6 +157,7 @@ def health():
                     result['concurrentBuildProtectionConfigured'] = properties is not None and properties.find(
                         'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty') is not None
                     pipeline_script = root.findtext('definition/script') or ''
+                    result['parameterContractConfigured'] = configured_parameter_names(root) == required_parameter_names()
                     result['pipelineGovernanceConfigured'] = all(fragment in pipeline_script for fragment in [
                         '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
                         "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
@@ -154,7 +168,9 @@ def health():
                         'branch: fixedBranches.mc',
                     ])
                     result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
-                    if not result['pipelineGovernanceConfigured']:
+                    if not result['parameterContractConfigured']:
+                        result['actionRequired'] = 'configure-job-parameter-contract'
+                    elif not result['pipelineGovernanceConfigured']:
                         result['actionRequired'] = 'configure-governed-pipeline-definition'
                     elif not result['concurrentBuildProtectionConfigured']:
                         result['actionRequired'] = 'configure-job-concurrency-protection'
@@ -198,22 +214,27 @@ def configure():
         existing=props.find(tag)
         if existing is not None: props.remove(existing)
     params=ET.SubElement(ET.SubElement(props,'hudson.model.ParametersDefinitionProperty'),'parameterDefinitions')
-    for name in ['GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE','MC_RUNTIME_ENV']:
+    for name in BUILD_STRING_PARAMETERS:
         item=ET.SubElement(params,'hudson.model.PasswordParameterDefinition' if name=='MC_RUNTIME_ENV' else 'hudson.model.StringParameterDefinition')
         ET.SubElement(item,'name').text=name
         ET.SubElement(item,'defaultValue').text=''
         ET.SubElement(item,'trim').text='true'
-    auto_chain_param=ET.SubElement(params,'hudson.model.BooleanParameterDefinition')
-    ET.SubElement(auto_chain_param,'name').text='AUTO_CHAIN'
-    ET.SubElement(auto_chain_param,'defaultValue').text='false'
+    for name in BUILD_BOOLEAN_PARAMETERS:
+        item=ET.SubElement(params,'hudson.model.BooleanParameterDefinition')
+        ET.SubElement(item,'name').text=name
+        ET.SubElement(item,'defaultValue').text='false'
     ET.SubElement(props,'org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty')
     desired=ET.tostring(root,encoding='utf-8',xml_declaration=True)
     if ET.canonicalize(old.decode('utf-8'))==ET.canonicalize(desired.decode('utf-8')):
-        print(json.dumps({'configuredJob':JOB,'verified':True,'unchanged':True}));return
+        if configured_parameter_names(root) != required_parameter_names():
+            raise RuntimeError('jenkins-parameter-contract-verification-failed')
+        print(json.dumps({'configuredJob':JOB,'verified':True,'parameterContractVerified':True,'unchanged':True}));return
     post(JOB_URL+'config.xml',data=desired)
     actual=ET.fromstring(get(JOB_URL+'config.xml').content)
     assert actual.find('definition/script').text==definition.find('script').text
-    print(json.dumps({'configuredJob':JOB,'verified':True}))
+    if configured_parameter_names(actual) != required_parameter_names():
+        raise RuntimeError('jenkins-parameter-contract-verification-failed')
+    print(json.dumps({'configuredJob':JOB,'verified':True,'parameterContractVerified':True}))
 
 def parameters(item):
     return {p['name']:p.get('value') for action in item.get('actions',[]) for p in action.get('parameters',[])}

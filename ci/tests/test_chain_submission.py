@@ -10,6 +10,11 @@ class ChainSubmission(unittest.TestCase):
 
     def test_submit_cli_contract_accepts_scope_and_auto_chain(self):
         self.assertEqual(list(inspect.signature(j.submit).parameters), ['scope', 'auto_chain'])
+        self.assertEqual(set(j.BUILD_STRING_PARAMETERS), {
+            'GIT_SHA', 'MC_GIT_SHA', 'TAP_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
+            'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
+        })
+        self.assertEqual(j.BUILD_BOOLEAN_PARAMETERS, ['AUTO_CHAIN'])
 
     def test_chain_loads_runtime_at_contracts_and_pins_dependencies(self):
         with tempfile.TemporaryDirectory() as d:
