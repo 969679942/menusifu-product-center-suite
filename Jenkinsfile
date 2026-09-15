@@ -51,7 +51,7 @@ node {
               // the pipeline starts. Blobless + no-cone sparse checkout keeps
               // the exact revision while excluding transient history objects.
               bat '''@echo off
-              git -c http.proxy= -c https.proxy= clone --filter=blob:none --no-checkout --branch master --single-branch https://github.com/969679942/menusifu-product-center-suite.git .
+              git -c http.proxy= -c http.https://github.com.proxy= clone --filter=blob:none --no-checkout --branch master --single-branch https://github.com/969679942/menusifu-product-center-suite.git .
               if errorlevel 1 exit /b 1
               git config core.longpaths true
               if errorlevel 1 exit /b 1
