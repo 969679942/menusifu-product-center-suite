@@ -55,6 +55,10 @@ node {
               if errorlevel 1 exit /b 1
               git config core.longpaths true
               if errorlevel 1 exit /b 1
+              git config --local http.proxy ""
+              if errorlevel 1 exit /b 1
+              git config --local http.https://github.com.proxy ""
+              if errorlevel 1 exit /b 1
               git sparse-checkout init --no-cone
               if errorlevel 1 exit /b 1
               (echo /ci/**& echo /Jenkinsfile& echo /suite.json) > .git/info/sparse-checkout

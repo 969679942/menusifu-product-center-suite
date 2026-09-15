@@ -29,6 +29,7 @@ test('Jenkins checks the fixed branch tip for all three repositories',()=>{
   assert.match(pipeline,/fixedBranches\s*=\s*\[pcs: 'master', mc: 'main', tap: 'main'\]/);
   assert.match(pipeline,/--branch master --single-branch/);
   assert.match(pipeline,/git -c http\.proxy= -c http\.https:\/\/github\.com\.proxy= clone/);
+  assert.ok((pipeline.match(/git config --local http\.https:\/\/github\.com\.proxy ""/g)||[]).length>=2);
   assert.doesNotMatch(pipeline,/-c https\.proxy=/);
   assert.match(pipeline,/echo \/ci\/\*\*& echo \/Jenkinsfile& echo \/suite\.json/);
   assert.doesNotMatch(pipeline,/echo \/projects\/merchant-center\/\*\*/);
