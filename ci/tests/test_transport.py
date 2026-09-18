@@ -14,7 +14,7 @@ class TransportBoundaryTests(unittest.TestCase):
         shutil.copyfile(j.ROOT/'tap/src/ci/build-watch-contract.cjs',helper)
         j.write(root/'ci/watch-policy.json',{'jobName':j.JOB,'firstBuildNumber':34,'autoDiscoverHistorical':True,'registeredBuilds':[]})
         stack=ExitStack()
-        for name,value in [('ROOT',root),('OUT',out),('STATE',out/'checkpoint.json'),('SUBMITTED_BUILDS',out/'submitted-builds.json')]:stack.enter_context(patch.object(j,name,value))
+        for name,value in [('ROOT',root),('OUT',out),('STATE',out/'checkpoint.json'),('SUBMITTED_BUILDS',out/'submitted-builds.json'),('DISCOVERY_STATE',out/'discovery-checkpoint.json')]:stack.enter_context(patch.object(j,name,value))
         return stack
 
     def test_discovery_strips_password_parameters_and_rejects_malformed_identity(self):
@@ -78,6 +78,23 @@ class TransportBoundaryTests(unittest.TestCase):
             with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
                 j.watch()
                 self.assertEqual(poll.call_args.args[0],j.OUT/'build-56/checkpoint.json')
+
+    def test_new_terminal_build_from_another_checkout_is_collected_once(self):
+        with tempfile.TemporaryDirectory() as d, self.isolated_watch(d):
+            j.write(j.ROOT/'ci/watch-policy.json',{
+                'jobName': j.JOB, 'firstBuildNumber': 34,
+                'autoDiscoverHistorical': False, 'autoDiscoverScheduled': False,
+                'initialBackfillBuilds': 10, 'registeredBuilds': [],
+            })
+            j.write(j.DISCOVERY_STATE, {'schemaVersion': 1, 'terminalBuilds': list(range(34, 101))})
+            build={'buildNumber':101,'building':False,'result':'FAILURE','gitSha':'a'*40,
+                   'requestId':'request-101','intentId':'123e4567-e89b-12d3-a456-426614174000',
+                   'runScope':'full-regression','triggerSource':'explicit-local-submit'}
+            with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
+                j.watch(); self.assertEqual(poll.call_args.args[0],j.OUT/'build-101/checkpoint.json')
+            self.assertIn(101, j.read(j.DISCOVERY_STATE)['terminalBuilds'])
+            with patch.object(j,'discover_builds',return_value=[build]),patch.object(j,'poll') as poll:
+                j.watch(); poll.assert_not_called()
 
     def test_other_job_mutation_is_denied_before_network(self):
         with patch.object(j.SESSION,'post') as post:

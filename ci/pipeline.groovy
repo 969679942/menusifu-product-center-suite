@@ -11,9 +11,18 @@ stage('Prepare TAP runtime') {
   exit /b %ERRORLEVEL%
   '''
 }
-if (params.AUTO_CHAIN == true || params.RUN_SCOPE == 'pilot') {
-  stage('Compile pilot selection without business execution') {
-    bat '@node "suite-src/projects/merchant-center/Merchant Center UITest/node_modules/tsx/dist/cli.mjs" suite-src/ci/run-pilot.ts --plan-only'
+if (params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot','full-regression']) {
+  stage('Compile business selection without business execution') {
+    bat '''@echo off
+    rem The MC adapter imports TAP contracts from the separately checked-out
+    rem suite-src/tap tree. Never let its fallback path resolve to
+    rem suite-src/projects/Test Automation Platform.
+    set "TAP_SOURCE_ROOT=%WORKSPACE%\suite-src\tap"
+    node "suite-src/projects/merchant-center/Merchant Center UITest/node_modules/tsx/dist/cli.mjs" "suite-src/projects/merchant-center/Merchant Center UITest/scripts/refresh-seasoning-implementation-contract.ts" --check
+    if errorlevel 1 exit /b 1
+    node "suite-src/projects/merchant-center/Merchant Center UITest/node_modules/tsx/dist/cli.mjs" suite-src/ci/run-pilot.ts --plan-only
+    exit /b %ERRORLEVEL%
+    '''
   }
 }
 stage('Fixed contract selection') {

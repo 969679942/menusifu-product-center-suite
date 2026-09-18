@@ -261,7 +261,7 @@ def process_task(task,queue):
 def cycle(queue):
     status(state='discovering',mode=config()['mode'])
     with lock(j.OUT/'transport.lock'):
-        j.watch()
+        watch_summary=j.watch() or {}
     snapshot=j.read(j.OUT/'watch-checkpoint.json');by_number={b['buildNumber']:b for b in snapshot['builds']}
     for action in snapshot['actions']:
         if action['action'] not in ['done','wait','superseded','cancelled']:
@@ -284,7 +284,10 @@ def cycle(queue):
             detail={'category':'execution-platform-or-technical','reason':str(error),'at':now()}
             # Exhaustion cools down the affected task; technical work is never silently handed to a user.
             queue.finish(task,'retry',detail,3600 if task['attempts']>=config()['maxAttempts'] else delay)
-    status(state='idle',mode=config()['mode'],queue=[{k:r[k] for k in ['identity','state','attempts']} for r in queue.rows()],running=[b['buildNumber'] for b in snapshot['builds'] if b['building']])
+    status(state='idle',mode=config()['mode'],queue=[{k:r[k] for k in ['identity','state','attempts']} for r in queue.rows()],
+        running=[b['buildNumber'] for b in snapshot['builds'] if b['building']],
+        lastDiscoveryAt=now(), discoveredBuilds=watch_summary.get('discoveredBuilds',[]),
+        pendingAI=watch_summary.get('pendingAI',[]))
     return bool(task) or any(b['building'] for b in snapshot['builds'])
 
 def main():
@@ -302,4 +305,3 @@ def main():
             if args.action=='once':break
             time.sleep(config()['activePollSeconds'] if active else config()['idlePollSeconds'])
 if __name__=='__main__':main()
-

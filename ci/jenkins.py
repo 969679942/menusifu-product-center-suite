@@ -30,6 +30,7 @@ if not re.fullmatch(r'[A-Za-z0-9._-]{1,120}', JOB):
 JOB_URL = BASE + '/job/' + JOB + '/'
 STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
+DISCOVERY_STATE = OUT / 'discovery-checkpoint.json'
 BUILD_STRING_PARAMETERS = [
     'GIT_SHA', 'MC_GIT_SHA', 'TAP_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
     'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
@@ -470,10 +471,9 @@ def watch():
     if policy['jobName']!=JOB: raise ValueError('Watch policy outside dedicated job')
     if STATE.exists() and read(STATE)['status']!='analyzed': poll()
     builds=discover_builds(policy['firstBuildNumber'])
-    # Historical discovery is diagnostic-only by default.  A build enters the
-    # AI queue only when it was explicitly registered by a local checkpoint or
-    # listed in the watch policy; this prevents old full-regression runs from
-    # being replayed after a worker restart.
+    seen_terminal=set()
+    # Jenkins is authoritative for new terminal builds. Local submission state
+    # is an optimization only; builds from another checkout must not be lost.
     if not policy.get('autoDiscoverHistorical',False):
         registered={int(n) for n in policy.get('registeredBuilds',[])}
         discover_scheduled = policy.get('autoDiscoverScheduled', False) is True
@@ -483,11 +483,25 @@ def watch():
         explicit_request_ids = {item.get('requestId') for item in explicit if isinstance(item, dict)}
         active_request = active.get('requestId')
         if active_request: explicit_request_ids.add(active_request)
+        discovery = read(DISCOVERY_STATE) if DISCOVERY_STATE.exists() else {}
+        seen_terminal = {int(n) for n in discovery.get('terminalBuilds', []) if str(n).isdigit()}
+        if not discovery:
+            local_numbers=[]
+            local_numbers += [int(n) for n in policy.get('registeredBuilds', []) if str(n).isdigit()]
+            local_numbers += [int(item.get('buildNumber')) for item in explicit if str(item.get('buildNumber','')).isdigit()]
+            local_numbers += [int(p.name[6:]) for p in OUT.glob('build-*') if p.is_dir() and p.name[6:].isdigit()]
+            known_floor=max(local_numbers, default=policy['firstBuildNumber']-1)
+            remote_terminal=[b['buildNumber'] for b in builds if not b.get('building')]
+            if not local_numbers and remote_terminal:
+                known_floor=max(policy['firstBuildNumber']-1,
+                    max(remote_terminal)-int(policy.get('initialBackfillBuilds',10)))
+            seen_terminal={n for n in remote_terminal if n <= known_floor}
         local=[]
         for build in builds:
             if (build['buildNumber'] in registered
                 or build['requestId'] in explicit_request_ids
-                or (discover_scheduled and build.get('triggerSource') == 'jenkins-schedule')):
+                or (discover_scheduled and build.get('triggerSource') == 'jenkins-schedule')
+                or (not build.get('building') and build['buildNumber'] not in seen_terminal)):
                 local.append(build)
         builds=local
     analyses={}; reviews={}
@@ -511,10 +525,19 @@ def watch():
             item['action']='review'
         elif not build['building'] and build['runScope'] is None:
             item['action']='diagnose-identity'
+        if not build.get('building') and item['action'] != 'collect':
+            seen_terminal.add(build['buildNumber'])
+        if not policy.get('autoDiscoverHistorical',False):
+            write(DISCOVERY_STATE, {'schemaVersion': 1,
+                'lastUpdatedAt': time.time(),
+                'terminalBuilds': sorted(seen_terminal)[-5000:]})
         write(OUT/'watch-checkpoint.json',snapshot)
-    print(json.dumps({'jobName':JOB,'pendingAI':[x for x in plan if x['action'] not in ['done','wait']],
+    summary={'jobName':JOB,'pendingAI':[x for x in plan if x['action'] not in ['done','wait']],
         'running':[x['buildNumber'] for x in plan if x['action']=='wait'],
-        'reviewed':[x['buildNumber'] for x in plan if x['action']=='done']},ensure_ascii=False))
+        'reviewed':[x['buildNumber'] for x in plan if x['action']=='done'],
+        'discoveredBuilds':sorted(by_number)}
+    print(json.dumps(summary,ensure_ascii=False))
+    return summary
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch','health'])
