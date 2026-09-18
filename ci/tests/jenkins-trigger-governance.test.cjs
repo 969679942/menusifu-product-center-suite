@@ -82,7 +82,7 @@ test('all Jenkins source repositories use their fixed integration branches',()=>
 test('full regression checks current MC adapter fingerprints before browser execution',()=>{
   assert.match(pipeline,/params\.RUN_SCOPE in \['pilot','full-regression'\]/);
   assert.match(pipeline,/refresh-seasoning-implementation-contract\.ts" --check/);
-  assert.match(pipeline,/TAP_SOURCE_ROOT=%WORKSPACE%\\suite-src\\tap/);
+  assert.match(pipeline,/TAP_SOURCE_ROOT=%WORKSPACE%\\\\suite-src\\\\tap/);
   assert.match(pipeline,/run-pilot\.ts --plan-only/);
   assert.ok(pipeline.indexOf('refresh-seasoning-implementation-contract.ts') < pipeline.indexOf("stage('Full Merchant Center product-center regression')"));
 });
