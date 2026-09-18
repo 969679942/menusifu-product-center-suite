@@ -8,6 +8,7 @@ const policy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json')
 const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const ps1=fs.readFileSync(path.join(root,'ci/jenkins.ps1'),'utf8');
 const pipeline=fs.readFileSync(path.join(root,'ci/pipeline.groovy'),'utf8');
+const pilotRunner=fs.readFileSync(path.join(root,'ci/run-pilot.ts'),'utf8');
 const triggerContract=require(path.join(root,'tap/src/ci/jenkins-trigger-contract.cjs'));
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/branch-policy.json'),'utf8'));
 
@@ -85,4 +86,12 @@ test('full regression checks current MC adapter fingerprints before browser exec
   assert.match(pipeline,/TAP_SOURCE_ROOT=%WORKSPACE%\\\\suite-src\\\\tap/);
   assert.match(pipeline,/run-pilot\.ts --plan-only/);
   assert.ok(pipeline.indexOf('refresh-seasoning-implementation-contract.ts') < pipeline.indexOf("stage('Full Merchant Center product-center regression')"));
+});
+
+test('full regression materializes scoped task authorization before business execution',()=>{
+  assert.match(pilotRunner,/prepareFullRegressionTaskScopeAuthorization/);
+  assert.match(pilotRunner,/createSystemTestTaskScopeAuthorization/);
+  assert.match(pilotRunner,/SYSTEM_TEST_TASK_SCOPE_AUTHORIZATION_PATH/);
+  assert.match(pilotRunner,/SYSTEM_TEST_TASK_SCOPE_CASE_IDENTITIES/);
+  assert.match(pilotRunner,/explicit-full-regression/);
 });

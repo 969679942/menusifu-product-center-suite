@@ -7,6 +7,8 @@ import { verifyCiBusinessReceipts } from '../tap/scripts/verify-ci-business-rece
 import { sanitizePlaywrightTraceText } from '../tap/src/reporters/allure-report-integrity';
 import { sanitizeMerchantCenterPlaywrightTraceArchive } from '../projects/merchant-center/Merchant Center UITest/adapters/test-automation-platform/allure-reporting';
 const { selectionFingerprint } = require('../tap/src/ci/transport-contract.cjs');
+const { createSystemTestTaskScopeAuthorization } = require('../tap/src/automation/system-test/system-test-task-scope-authorization');
+const { fingerprintSystemTestValue } = require('../tap/src/automation/system-test/system-test-contract');
 const { sanitizeTraceSecrets } = require('./sanitize-trace.cjs');
 const root = path.resolve(__dirname, '..');
 const project = path.join(root, 'projects/merchant-center/Merchant Center UITest');
@@ -56,6 +58,33 @@ function groupsForRun(): Group[] {
   return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([contextProfile, caseIds]) => ({ contextProfile, caseIds: [...caseIds].sort() }));
 }
 function contextBrand(contextProfile: string): string { return contextProfile === 'multi-store-000420' ? '000420' : '000407'; }
+function prepareFullRegressionTaskScopeAuthorization(caseIds: readonly string[]): void {
+  if (!fullRegression) return;
+  const compiled = buildSystemTestArtifacts({ rootDir: project, manifestPath, caseIds });
+  if (compiled.errors.length > 0) throw new Error(`full-regression-task-scope-contract-invalid:${compiled.errors.join(';')}`);
+  const identities = compiled.contract.cases.map((item: any) => ({
+    caseId: item.caseId,
+    caseFingerprint: fingerprintSystemTestValue(item),
+  }));
+  const approvedAt = new Date();
+  const authorization = createSystemTestTaskScopeAuthorization({
+    authorizationId: `jenkins-${process.env.BUILD_NUMBER}-${process.env.REQUEST_ID}-seasoning`,
+    scopeId: `merchant-center-product-center-seasoning:full-regression:${process.env.INTENT_ID}`,
+    applicationId: 'merchant-center-product-center-seasoning',
+    approvedBy: process.env.SYSTEM_TEST_TASK_SCOPE_APPROVED_BY?.trim() || 'explicit-full-regression',
+    approvedAt: approvedAt.toISOString(),
+    expiresAt: new Date(approvedAt.getTime() + 4 * 60 * 60 * 1000).toISOString(),
+    caseIdentities: identities,
+    technicalRepair: false,
+    businessExecutionCaseIds: caseIds,
+  });
+  const relativePath = `output/private/task-scope/${authorization.authorizationId}.json`;
+  const absolutePath = path.join(project, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, `${JSON.stringify(authorization, null, 2)}\n`, { flag: 'wx' });
+  process.env.SYSTEM_TEST_TASK_SCOPE_AUTHORIZATION_PATH = relativePath.replaceAll('\\', '/');
+  process.env.SYSTEM_TEST_TASK_SCOPE_CASE_IDENTITIES = JSON.stringify(identities);
+}
 async function main() {
   fs.mkdirSync(out, { recursive: true });
   const allCaseIds = fullRegression ? (manifest.cases as Array<{ caseId: string }>).map((item) => item.caseId).sort() : pilotSelection.selectedCaseIds;
@@ -66,6 +95,7 @@ async function main() {
   }
   if (process.cwd().toLowerCase() !== project.toLowerCase()) throw new Error('Business regression must start from the MC project root');
   if (!fullRegression && (allCaseIds.length !== 10 || new Set(allCaseIds).size !== 10)) throw new Error('Exact ten-case selection required');
+  prepareFullRegressionTaskScopeAuthorization(allCaseIds);
   let code = 0; const diagnostics: string[] = [];
   const groupResults: Array<{ runId: string; contextProfile: string; selectedCaseIds: string[]; terminalCaseIds: string[]; code: number; report: any; ledger: any; receiptAudit: any }> = [];
   for (const group of groupsForRun()) {
@@ -103,4 +133,3 @@ async function main() {
   process.exitCode = code;
 }
 void main().catch((error) => { process.stderr.write(`${safeText(error instanceof Error ? error.stack || error.message : String(error))}\n`); process.exitCode = 2; });
-
