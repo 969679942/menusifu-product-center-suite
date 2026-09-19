@@ -88,6 +88,17 @@ def review_record(build,decision,**extra):
         'actionRequired':'none' if decision['action']=='complete' else decision['action'],
         'conclusion':decision['conclusion'],'category':decision['category'],'evidence':decision['evidence'],'reviewedAt':now(),**extra}
 
+def deterministic_decision(analysis):
+    if analysis.get('reviewAuthority')!='tap-deterministic-result-arbiter':return None
+    required=analysis.get('actionRequired');categories=analysis.get('failureCategories') or [];evidence=['analysis.json']
+    if required=='none':
+        return {'action':'complete','category':'accepted-current-result','conclusion':'当前执行、证据与身份合同均已通过确定性仲裁。','impact':'reports','evidence':evidence,'sourceFiles':[],'changes':[]}
+    if required=='business-review-required':
+        return {'action':'business-decision','category':'product-failure','conclusion':'当前完整证据确认产品行为与预期不一致，需要业务裁决。','impact':'business','evidence':evidence,'sourceFiles':[],'changes':[]}
+    if required=='technical-remediation-required':
+        return {'action':'repair','category':','.join(categories) or 'execution-platform-or-technical','conclusion':'非业务执行闭环失败：'+('、'.join(categories) or 'automation-gap')+'。由平台技术整改处理。','impact':'platform','evidence':evidence,'sourceFiles':[],'changes':[]}
+    return None
+
 def publish_result_notification(build,evidence,decision):
     """Publish one idempotent, user-readable terminal receipt for every reviewed build."""
     target=evidence/'result-notification.json'
@@ -249,6 +260,19 @@ def process_task(task,queue):
         phase=repair(build,decision,folder,queue,task)
         j.write(evidence/'ai-review.json',review_record(build,decision,followupRequestId=phase['followupRequestId'],repairCommit=phase['commit']))
         queue.finish(task,'awaiting-verification',phase)
+        return
+    analysis=j.read(evidence/'analysis.json') if (evidence/'analysis.json').exists() else {}
+    decision=deterministic_decision(analysis)
+    if decision and (decision['action']!='repair' or config()['mode']=='collect-and-report'):
+        queue.assert_owner(task)
+        record=review_record(build,decision,status='complete',actionRequired=analysis['actionRequired'],
+            reviewAuthority='tap-deterministic-result-arbiter')
+        j.write(evidence/'result-review.json',record)
+        j.write(evidence/'ai-review.json',record)
+        notification=publish_result_notification(build,evidence,decision)
+        if decision['action']=='complete':queue.finish(task,'reviewed',notification)
+        elif decision['action']=='business-decision':queue.finish(task,'needs-action',notification)
+        else:queue.finish(task,'completed-with-findings',notification)
         return
     prompt=(ROOT/'ci/worker-prompt.md').read_text(encoding='utf-8')+'\n阶段：只读分析。运行证据目录：'+str(evidence)+'\n构建身份：'+json.dumps(build)
     prompt+='\n只读分析，不修改文件、运行测试、提交代码或调用 Jenkins。返回 schema JSON；evidence 使用相对于运行证据目录的文件路径。'

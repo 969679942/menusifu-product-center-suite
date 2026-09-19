@@ -7,6 +7,13 @@ spec=importlib.util.spec_from_file_location('jenkins_transport',pathlib.Path(__f
 j=importlib.util.module_from_spec(spec);spec.loader.exec_module(j)
 
 class TransportBoundaryTests(unittest.TestCase):
+    def test_build_108_non_business_errors_are_deterministically_classified(self):
+        result=j.arbitrate_result(['allure-evidence-incomplete','bundle-file-missing','selection-drift-or-incomplete','execution-incomplete','standard-business-ledger-missing'],
+            {'selectedCaseIds':['A','B'],'terminalCaseIds':[],'status':'blocked'},'FAILURE')
+        self.assertEqual(result['executionStatus'],'blocked')
+        self.assertEqual(result['actionRequired'],'technical-remediation-required')
+        self.assertNotIn('product-failure',result['failureCategories'])
+
     def test_terminal_statistics_keep_known_case_results_when_aggregate_gate_fails(self):
         stats=j.terminal_statistics({'passed':0,'failed':0,'terminalCaseIds':['A','B'],
             'caseAudit':[{'caseId':'A','status':'passed'},{'caseId':'B','status':'broken'}]})

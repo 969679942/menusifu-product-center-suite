@@ -70,7 +70,7 @@ function prepareFullRegressionTaskScopeAuthorization(caseIds: readonly string[])
   const authorization = createSystemTestTaskScopeAuthorization({
     authorizationId: `jenkins-${process.env.BUILD_NUMBER}-${process.env.REQUEST_ID}-seasoning`,
     scopeId: `merchant-center-product-center-seasoning:full-regression:${process.env.INTENT_ID}`,
-    applicationId: 'merchant-center-product-center-seasoning',
+    applicationId: manifest.system.portabilityScope.applicationId,
     approvedBy: process.env.SYSTEM_TEST_TASK_SCOPE_APPROVED_BY?.trim() || 'explicit-full-regression',
     approvedAt: approvedAt.toISOString(),
     expiresAt: new Date(approvedAt.getTime() + 4 * 60 * 60 * 1000).toISOString(),

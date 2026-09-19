@@ -6,6 +6,7 @@ const plan = (extra={}) => planBuildReviews({firstBuildNumber:7, builds:[build],
 test('terminal build discovered without any local submission needs collection',()=>assert.equal(plan()[0].action,'collect'));
 test('artifact analysis is not an AI review',()=>assert.equal(plan({analyses:{7:build}})[0].action,'review'));
 test('an evidenced completed AI review suppresses duplicate work',()=>assert.equal(plan({reviews:{7:{...build,status:'complete',actionRequired:'none',conclusion:'Reviewed',evidence:['ledger.json']}}})[0].action,'done'));
+test('a completed deterministic technical review is terminal and does not remain pending',()=>assert.equal(plan({reviews:{7:{...build,status:'complete',actionRequired:'technical-remediation-required',reviewAuthority:'tap-deterministic-result-arbiter',conclusion:'Technical finding classified',evidence:['analysis.json']}}})[0].action,'done'));
 test('stale, incomplete and repair-pending reviews cannot close current work',()=>{
   for(const patch of [{gitSha:'b'.repeat(40)},{requestId:'other'},{intentId:'123e4567-e89b-12d3-a456-426614174001'},{runScope:'pilot'},{evidence:[]},{conclusion:''},{actionRequired:'repair'}]) {
     assert.equal(plan({reviews:{7:{...build,status:'complete',actionRequired:'none',conclusion:'Reviewed',evidence:['ledger.json'],...patch}}})[0].action,'collect');

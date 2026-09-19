@@ -21,14 +21,15 @@ def validate_bundle(folder,expected):
             errors.append('bundle-path-invalid');continue
         seen.add(rel)
         policy=item.get('policy','required')
-        if policy not in ['required','optional','excluded']:
+        if policy not in ['required','optional','excluded','generated-after-download']:
             errors.append('bundle-artifact-policy-invalid');continue
-        if policy=='excluded':
+        if policy in ['excluded','generated-after-download']:
             if not str(item.get('reason','')).strip():errors.append('bundle-exclusion-reason-missing')
             continue
         file=folder/pathlib.Path(*p.parts)
         if not file.is_file() or not file.resolve().is_relative_to(folder.resolve()):
-            if policy=='required':errors.append('bundle-file-missing')
+            if policy=='required':
+                errors.append('bundle-file-missing');errors.append('bundle-file-missing:'+rel)
             continue
         if not isinstance(item.get('size'),int) or item['size']<0 or not isinstance(item.get('sha256'),str) or not re.fullmatch('[0-9a-f]{64}',item['sha256']):
             errors.append('bundle-artifact-metadata-invalid');continue

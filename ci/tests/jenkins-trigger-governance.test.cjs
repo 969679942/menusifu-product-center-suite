@@ -9,6 +9,7 @@ const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const ps1=fs.readFileSync(path.join(root,'ci/jenkins.ps1'),'utf8');
 const pipeline=fs.readFileSync(path.join(root,'ci/pipeline.groovy'),'utf8');
 const pilotRunner=fs.readFileSync(path.join(root,'ci/run-pilot.ts'),'utf8');
+const fullRunner=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
 const triggerContract=require(path.join(root,'tap/src/ci/jenkins-trigger-contract.cjs'));
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/branch-policy.json'),'utf8'));
 
@@ -94,4 +95,18 @@ test('full regression materializes scoped task authorization before business exe
   assert.match(pilotRunner,/SYSTEM_TEST_TASK_SCOPE_AUTHORIZATION_PATH/);
   assert.match(pilotRunner,/SYSTEM_TEST_TASK_SCOPE_CASE_IDENTITIES/);
   assert.match(pilotRunner,/explicit-full-regression/);
+  assert.match(pilotRunner,/manifest\.system\.portabilityScope\.applicationId/);
+  assert.doesNotMatch(pilotRunner,/applicationId:\s*'merchant-center-product-center-seasoning'/);
+});
+
+test('Jenkins analysis uses the TAP deterministic result arbiter instead of AI as state authority',()=>{
+  assert.match(transport,/tap\/src\/ci\/result-arbitration\.cjs/);
+  assert.match(transport,/arbitrate_result\(errors,envelope,info\['result'\]\)/);
+  assert.doesNotMatch(transport,/else 'ai-evidence-review'/);
+});
+
+test('full regression counts only executable terminal receipts and never treats skipped registration as execution',()=>{
+  assert.match(fullRunner,/\['passed', 'failed', 'blocked', 'interrupted'\]/);
+  assert.doesNotMatch(fullRunner,/\['passed', 'failed', 'skipped'\]/);
+  assert.match(fullRunner,/assertExecutionIntentCompletion/);
 });

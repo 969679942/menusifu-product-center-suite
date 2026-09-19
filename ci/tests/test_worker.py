@@ -83,6 +83,7 @@ class BundleTests(unittest.TestCase):
             manifest={**expected,'artifacts':[
                 {'path':'optional.json','policy':'optional','size':0,'sha256':'unused'},
                 {'path':'test-results','policy':'excluded','reason':'raw output is not transported'},
+                {'path':'analysis.json','policy':'generated-after-download','reason':'worker creates analysis after collection'},
             ]}
             (root/'bundle-manifest.json').write_text(json.dumps(manifest))
             self.assertEqual(validate_bundle(root,expected),[])
@@ -98,6 +99,22 @@ class BundleTests(unittest.TestCase):
             self.assertIn('bundle-artifact-invalid',validate_bundle(root,expected))
 
 class QueueTests(unittest.TestCase):
+    def test_deterministic_technical_finding_does_not_require_ai(self):
+        decision=worker.deterministic_decision({'reviewAuthority':'tap-deterministic-result-arbiter',
+            'actionRequired':'technical-remediation-required','failureCategories':['execution-incomplete','evidence-incomplete']})
+        self.assertEqual(decision['action'],'repair')
+        self.assertEqual(decision['changes'],[])
+        self.assertIn('execution-incomplete',decision['conclusion'])
+
+    def test_deterministic_review_record_can_close_collection_with_findings(self):
+        build={'buildNumber':108,'gitSha':'a'*40,'requestId':'request-108','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'full-regression'}
+        decision=worker.deterministic_decision({'reviewAuthority':'tap-deterministic-result-arbiter',
+            'actionRequired':'technical-remediation-required','failureCategories':['execution-incomplete']})
+        record=worker.review_record(build,decision,status='complete',actionRequired='technical-remediation-required',
+            reviewAuthority='tap-deterministic-result-arbiter')
+        self.assertEqual(record['status'],'complete')
+        self.assertEqual(record['actionRequired'],'technical-remediation-required')
+
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.q=BuildQueue(pathlib.Path(self.tmp.name)/'queue.sqlite')
     def tearDown(self):self.q.db.close();self.tmp.cleanup()

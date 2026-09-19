@@ -161,7 +161,7 @@ function main(): void {
   }));
   const caseAudit = [...sourceCases, ...seasoningCases];
   const selectedCaseIds = selectedIntentCaseIds;
-  const terminalCaseIds = [...new Set(caseAudit.filter((item) => ['passed', 'failed', 'skipped'].includes(item.status)).map((item) => item.caseId))].sort();
+  const terminalCaseIds = [...new Set(caseAudit.filter((item) => ['passed', 'failed', 'blocked', 'interrupted'].includes(item.status)).map((item) => item.caseId))].sort();
   const auditCounts = new Map<string, number>();
   for (const item of caseAudit) auditCounts.set(item.caseId, (auditCounts.get(item.caseId) ?? 0) + 1);
   const duplicateCaseIds = selectedCaseIds.filter((caseId) => (auditCounts.get(caseId) ?? 0) > 1);

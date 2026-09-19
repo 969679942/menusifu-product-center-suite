@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 
-// Discovery and AI review are independent from successful artifact collection.
+// Discovery and result review are independent from successful artifact collection.
 function planBuildReviews({ firstBuildNumber, builds, analyses = {}, reviews = {} }) {
   if (!Number.isInteger(firstBuildNumber) || firstBuildNumber < 1 || !Array.isArray(builds)) {
     throw new Error('invalid-build-watch-input');
@@ -17,7 +17,8 @@ function planBuildReviews({ firstBuildNumber, builds, analyses = {}, reviews = {
     let action;
     if (build.building) action = 'wait';
     else if (!validIdentity) action = 'diagnose-identity';
-    else if (matches(review) && review.status === 'complete' && review.actionRequired === 'none' &&
+    else if (matches(review) && review.status === 'complete'
+      && (review.actionRequired === 'none' || review.reviewAuthority === 'tap-deterministic-result-arbiter') &&
       typeof review.conclusion === 'string' && review.conclusion.trim() && Array.isArray(review.evidence) && review.evidence.length) action = 'done';
     else if (matches(analyses[n])) action = 'review';
     else action = 'collect';

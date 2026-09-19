@@ -91,6 +91,11 @@ def terminal_statistics(envelope):
             if isinstance(value,int) and value>=0: counts[key]=value
     return counts
 
+def arbitrate_result(errors,envelope,jenkins_result):
+    contract=ROOT/'tap/src/ci/result-arbitration.cjs'
+    payload=json.dumps({'errors':errors,'envelope':envelope or {},'jenkinsResult':jenkins_result})
+    return json.loads(subprocess.check_output(['node',str(contract)],input=payload,text=True,encoding='utf-8'))
+
 def remember_explicit_submission(state):
     """Persist only the non-secret identity of an explicitly submitted build.
 
@@ -465,15 +470,13 @@ def poll(state_path=None):
                         'cases':[case for audit in audits for case in audit.get('cases',[])]})
                 if state.get('runScope')=='full-regression' and (not envelope.get('receiptAudit') or envelope['receiptAudit'].get('status')!='complete'):
                     errors.append('standard-assertion-receipts-incomplete')
-    identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','intentId-mismatch','runScope-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','bundle-intentId-mismatch','bundle-runScope-mismatch','envelope-or-identity-missing','result-envelope-missing']]
     terminal=terminal_statistics(envelope or {})
+    arbitration=arbitrate_result(errors,envelope,info['result'])
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
-      'gitSha':state['gitSha'],'requestId':state['requestId'],'intentId':state.get('intentId'),'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
-      'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
+      'gitSha':state['gitSha'],'requestId':state['requestId'],'intentId':state.get('intentId'),'runScope':state.get('runScope'),'jenkinsResult':info['result'],'errors':errors,
+      'kind':envelope.get('kind') if envelope else None,'artifactCount':len(downloaded),**arbitration,
       'passed':terminal['passed'],'failed':terminal['failed'],'skipped':terminal['skipped'],'blocked':terminal['blocked'],
-      'terminalCaseCount':terminal['terminalCaseCount'],
-      'failureCategories':envelope.get('runReport',{}).get('failureCategories',[]) if envelope and envelope.get('runReport') else [],
-      'actionRequired':'none' if not errors and info['result']=='SUCCESS' else 'ai-evidence-review'}
+      'terminalCaseCount':terminal['terminalCaseCount']}
     write(folder/'artifact-hashes.json',downloaded)
     write(folder/'analysis.json',analysis)
     spec=importlib.util.spec_from_file_location('ci_report',ROOT/'ci/render-report.py')
