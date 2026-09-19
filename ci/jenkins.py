@@ -96,6 +96,32 @@ def arbitrate_result(errors,envelope,jenkins_result):
     payload=json.dumps({'errors':errors,'envelope':envelope or {},'jenkinsResult':jenkins_result})
     return json.loads(subprocess.check_output(['node',str(contract)],input=payload,text=True,encoding='utf-8'))
 
+def reconcile_legacy_analysis(folder,identity):
+    """Upgrade a collected legacy finding without replaying a Jenkins build."""
+    path=folder/'analysis.json'
+    if not path.exists():return None
+    analysis=read(path)
+    for key in ['buildNumber','gitSha','requestId','intentId','runScope']:
+        if str(analysis.get(key))!=str(identity.get(key)):
+            raise RuntimeError('legacy-analysis-identity-mismatch:'+key)
+    if analysis.get('reviewAuthority')=='tap-deterministic-result-arbiter':return analysis
+    envelope_path=folder/('pilot-envelope.json' if identity['runScope']=='pilot' else 'result-envelope.json')
+    envelope=read(envelope_path) if envelope_path.exists() else {}
+    errors=list(analysis.get('errors') or [])
+    if envelope:
+        expected={key:identity[key] for key in ['buildNumber','gitSha','requestId','intentId']}
+        expected['runScope']=identity['runScope']
+        errors+=json.loads(subprocess.check_output([
+            'node',str(ROOT/'tap/src/ci/transport-contract.cjs'),str(envelope_path),json.dumps(expected)],text=True))
+    else:errors.append('result-envelope-missing')
+    # A historical analysis is diagnostic evidence, never a new pass authority.
+    if not errors:errors.append('legacy-analysis-incomplete')
+    updated={**analysis,'errors':sorted(set(errors)),**arbitrate_result(errors,envelope,analysis.get('jenkinsResult'))}
+    snapshot=folder/'analysis.legacy-original.json'
+    if not snapshot.exists():write(snapshot,analysis)
+    write(path,updated)
+    return updated
+
 def remember_explicit_submission(state):
     """Persist only the non-secret identity of an explicitly submitted build.
 
@@ -409,7 +435,9 @@ def poll(state_path=None):
     if not state_path.exists():
         print(json.dumps({'status':'no-pending-submission'}));return
     state=read(state_path)
-    if state['status']=='analyzed': print(json.dumps(state));return
+    if state['status']=='analyzed':
+        reconcile_legacy_analysis(OUT/('build-'+str(state['buildNumber'])),state)
+        print(json.dumps(state));return
     if not state.get('buildNumber'): reconcile(state, state_path)
     remember_explicit_submission(state)
     if not state.get('buildNumber'):

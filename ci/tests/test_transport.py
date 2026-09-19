@@ -7,6 +7,26 @@ spec=importlib.util.spec_from_file_location('jenkins_transport',pathlib.Path(__f
 j=importlib.util.module_from_spec(spec);spec.loader.exec_module(j)
 
 class TransportBoundaryTests(unittest.TestCase):
+    def test_legacy_build_110_analysis_is_reconciled_once_without_granting_pass(self):
+        build={'buildNumber':110,'gitSha':'a'*40,'requestId':'request-110',
+               'intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'full-regression'}
+        with tempfile.TemporaryDirectory() as d:
+            folder=pathlib.Path(d)
+            old={**build,'jenkinsResult':'FAILURE','identityVerified':True,
+                 'errors':['selection-drift-or-incomplete','standard-business-ledger-missing'],
+                 'actionRequired':'ai-evidence-review','businessPassAuthority':False}
+            j.write(folder/'analysis.json',old)
+            j.write(folder/'result-envelope.json',{**build,'selectedCaseIds':['A','B'],
+                'terminalCaseIds':[],'status':'blocked','publicReceiptAccepted':False})
+            result=j.reconcile_legacy_analysis(folder,build)
+            self.assertEqual(result['executionStatus'],'blocked')
+            self.assertEqual(result['actionRequired'],'technical-remediation-required')
+            self.assertFalse(result['businessPassAuthority'])
+            self.assertEqual(j.read(folder/'analysis.legacy-original.json'),old)
+            self.assertEqual(j.reconcile_legacy_analysis(folder,build),result)
+            with self.assertRaisesRegex(RuntimeError,'legacy-analysis-identity-mismatch'):
+                j.reconcile_legacy_analysis(folder,{**build,'requestId':'another'})
+
     def test_build_108_non_business_errors_are_deterministically_classified(self):
         result=j.arbitrate_result(['allure-evidence-incomplete','bundle-file-missing','selection-drift-or-incomplete','execution-incomplete','standard-business-ledger-missing'],
             {'selectedCaseIds':['A','B'],'terminalCaseIds':[],'status':'blocked'},'FAILURE')

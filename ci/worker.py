@@ -261,7 +261,7 @@ def process_task(task,queue):
         j.write(evidence/'ai-review.json',review_record(build,decision,followupRequestId=phase['followupRequestId'],repairCommit=phase['commit']))
         queue.finish(task,'awaiting-verification',phase)
         return
-    analysis=j.read(evidence/'analysis.json') if (evidence/'analysis.json').exists() else {}
+    analysis=j.reconcile_legacy_analysis(evidence,build) or {}
     decision=deterministic_decision(analysis)
     if decision and (decision['action']!='repair' or config()['mode']=='collect-and-report'):
         queue.assert_owner(task)
