@@ -207,7 +207,12 @@ function main(): void {
     failed: caseAudit.filter((item) => item.status === 'failed').length,
     skipped: caseAudit.filter((item) => item.status === 'skipped').length,
     exitCode: fullPass ? 0 : 1,
-    sourceGoverned: { exitCode: sourceExit, summary: sourceSummary, resultPath: 'product-center-audit/source-execution-result.json' },
+    sourceGoverned: {
+      exitCode: sourceExit,
+      summary: sourceSummary,
+      executionIdentityMode: sourceResult?.executionIdentityMode ?? 'current-execution-contract',
+      resultPath: 'product-center-audit/source-execution-result.json',
+    },
     seasoning: { exitCode: seasoningExit, envelope: seasoningEnvelope },
     auditReport: { exitCode: auditReportExit, path: 'product-center-audit/product-center-audit-report.json' },
     allure: { resultCount: allureCount, path: 'allure-results' },
