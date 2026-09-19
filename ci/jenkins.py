@@ -446,7 +446,12 @@ def poll(state_path=None):
         if q.get('cancelled'): raise RuntimeError('Queue cancelled')
         if not q.get('executable'): print(json.dumps(state));return
         state.update(buildNumber=q['executable']['number'],buildUrl=q['executable']['url'],status='running');write(state_path,state)
-    info=get(state['buildUrl']+'api/json').json()
+    # Full regression builds accumulate large action/cause payloads. Request
+    # only the immutable fields required by the transport so collection does
+    # not time out before artifact download.
+    info=get(state['buildUrl']+'api/json',params={
+        'tree':'building,result,artifacts[fileName,relativePath]'
+    }).json()
     if info['building']: print(json.dumps(state));return
     folder=OUT/('build-'+str(state['buildNumber']))
     folder.mkdir(exist_ok=True)

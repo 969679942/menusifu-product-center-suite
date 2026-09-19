@@ -46,6 +46,19 @@ class TransportBoundaryTests(unittest.TestCase):
         self.assertEqual(stats['passed'],0)
         self.assertEqual(stats['failed'],0)
 
+    def test_poll_requests_only_build_status_and_artifact_fields(self):
+        with tempfile.TemporaryDirectory() as d:
+            state_path=pathlib.Path(d)/'checkpoint.json'
+            j.write(state_path,{'status':'running','buildNumber':111,
+                'buildUrl':j.JOB_URL+'111/','gitSha':'a'*40,'requestId':'request-111',
+                'intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'full-regression'})
+            response=unittest.mock.Mock();response.json.return_value={'building':True,'result':None,'artifacts':[]}
+            with patch.object(j,'get',return_value=response) as get,patch.object(j,'remember_explicit_submission'):
+                j.poll(state_path)
+            self.assertEqual(get.call_args.args[0],j.JOB_URL+'111/api/json')
+            self.assertEqual(get.call_args.kwargs['params']['tree'],
+                'building,result,artifacts[fileName,relativePath]')
+
     def isolated_watch(self, directory):
         root=pathlib.Path(directory); out=root/'output/jenkins'
         helper=root/'tap/src/ci/build-watch-contract.cjs'
