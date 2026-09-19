@@ -19,7 +19,7 @@ flowchart TD
 
 **必须：单一协调器。目的：**避免桌面和后台重复修复、重复推送。**预期结果：**关闭 Codex 桌面后仍可发现构建并分析；重新打开后读取同一状态。**后续影响：**维护一个本机 Windows 计划任务；已有业务通过收据不变。
 
-Windows 任务名 `Menusifu-ProductCenter-AI-Worker`，脚本 `ci/worker.ps1 serve`，当前模式 `collect-only`。它只收集已明确登记构建的归档和状态，不能调用 AI、修改源码、提交代码或触发 Jenkins。AI 分析和修复只在当前对话明确请求后进行。
+Windows 任务名 `Menusifu-ProductCenter-AI-Worker`，脚本 `ci/worker.ps1 serve`，当前模式 `collect-and-report`。它会自动收集已登记或定时构建的归档，完成只读证据审查，并幂等生成 `result-notification.json`。该模式不修改源码、不提交代码、不推送、不触发 Jenkins；发现技术问题时只登记待整改结论。
 
 **可选：常驻服务账号或外部服务机。目的：**支持用户注销期间运行。**预期结果：**与当前登录会话解耦。**后续影响：**需要独立维护身份、网络与 AI 凭据，本次未部署；不重跑业务。当前需求无需这项能力。
 

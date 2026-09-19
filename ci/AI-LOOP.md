@@ -30,7 +30,7 @@ Jenkins 触发治理以 `ci/trigger-policy.json` 和 `ci/dependency-manifest.jso
 
 ## 本机 AI 调度
 
-Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 通过 `jenkins.ps1 watch` 自动发现带 `TRIGGER_SOURCE=jenkins-schedule` 的定时构建，并按 build number、requestId、intentId、三仓库 SHA 对账后收集归档。Codex 对话未运行时，计划任务仍会持久化 checkpoint 和分析结果；对话恢复后只能读取已核验结果，不依赖聊天上下文。当前 `collect-only` 模式不调用 AI、改源码、提交代码或触发构建。详细入口见 `ci/WORKER.md`。
+Windows 计划任务 `Menusifu-ProductCenter-AI-Worker` 通过 `jenkins.ps1 watch` 自动发现带 `TRIGGER_SOURCE=jenkins-schedule` 的定时构建，并按 build number、requestId、intentId、三仓库 SHA 对账后收集归档。Codex 对话未运行时，计划任务仍会持久化 checkpoint、只读审查和 `result-notification.json`；对话恢复后可直接读取已核验结果，不依赖聊天上下文。当前 `collect-and-report` 模式不改源码、不提交代码、不推送或触发构建。详细入口见 `ci/WORKER.md`。
 
 协调器每 120 秒做无 AI 的空闲发现；已知构建运行期间每 30 秒探测。仅有未分析证据时才调用本机 `codex exec`，不依赖当前聊天上下文。每个构建按 Jenkins server / job / build number 唯一入队，Git SHA、request ID、runScope 固化；同 SHA 的不同构建不会相互覆盖。首次基线从构建 34 开始。
 

@@ -19,6 +19,14 @@ test('complete Allure attachment package has content hashes',()=>fixture(root=>{
  assert.equal(manifest.artifacts.length,2);
  assert.equal(manifest.artifacts.some(item=>item.path.startsWith('test-results/')),false);
 }));
+test('bundle manifest is stable when finalization is repeated',()=>fixture(root=>{
+ fs.writeFileSync(path.join(root,'receipt.txt'),'observed value');
+ const identity={gitSha:'a'.repeat(40),buildNumber:'7',requestId:'r',runScope:'reports'};
+ const first=writeBundleManifest(root,identity);
+ const second=writeBundleManifest(root,identity);
+ assert.deepEqual(second.artifacts,first.artifacts);
+ assert.equal(second.artifacts.some(item=>item.path==='bundle-manifest.json'),false);
+}));
 test('missing attachment is not a complete report',()=>fixture(root=>{
  fs.writeFileSync(path.join(root,'case-result.json'),JSON.stringify({steps:[{attachments:[{source:'missing.txt'}]}]}));
  assert.throws(()=>verifyAllureAttachments(root),/missing/);

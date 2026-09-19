@@ -28,10 +28,12 @@ function writeBundleManifest(root,identity) {
   // with the receiver's archive filter so every declared item is retrievable.
   const artifacts=files(root).filter(f=>{
     const relative=path.relative(root,f).split(path.sep);
+    // The manifest describes the payload; it cannot include its own previous
+    // bytes or a second finalize would necessarily invalidate its hash.
     return path.basename(f)!=='bundle-manifest.json' && !relative.includes('test-results') && !relative.some(part=>part.startsWith('.playwright-artifacts-'));
   }).map(file=>({
     path:path.relative(root,file).split(path.sep).join('/'),size:fs.statSync(file).size,
-    sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')
+    sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),policy:'required'
   }));
   const manifest={schemaVersion:1,...identity,artifacts};
   fs.writeFileSync(path.join(root,'bundle-manifest.json'),JSON.stringify(manifest,null,2));

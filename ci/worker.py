@@ -88,6 +88,31 @@ def review_record(build,decision,**extra):
         'actionRequired':'none' if decision['action']=='complete' else decision['action'],
         'conclusion':decision['conclusion'],'category':decision['category'],'evidence':decision['evidence'],'reviewedAt':now(),**extra}
 
+def publish_result_notification(build,evidence,decision):
+    """Publish one idempotent, user-readable terminal receipt for every reviewed build."""
+    target=evidence/'result-notification.json'
+    # A build identity is immutable.  Once a terminal notification exists, a
+    # resumed worker must return that exact receipt instead of rewriting its
+    # timestamp (or accidentally publishing a second conclusion).
+    if target.exists():
+        existing=j.read(target)
+        if existing.get('notificationId')!=identity(build):
+            raise RuntimeError('result-notification-identity-mismatch')
+        return existing
+    analysis=j.read(evidence/'analysis.json') if (evidence/'analysis.json').exists() else {}
+    action={'complete':'none','repair':'technical-remediation-required','business-decision':'business-decision-required','retry':'evidence-retry-required'}[decision['action']]
+    record={
+        'schemaVersion':1,'notificationId':identity(build),'buildNumber':build['buildNumber'],
+        'gitSha':build['gitSha'],'requestId':build['requestId'],'intentId':build['intentId'],
+        'runScope':build['runScope'],'jenkinsResult':analysis.get('jenkinsResult'),
+        'executionStatus':analysis.get('executionStatus') or analysis.get('status'),
+        'passed':analysis.get('passed'),'failed':analysis.get('failed'),
+        'actionRequired':action,'category':decision['category'],
+        'conclusion':decision['conclusion'],'evidence':decision['evidence'],'publishedAt':now(),
+    }
+    j.write(target,record)
+    return record
+
 def post_task_review(build,folder,worktree,queue,task,phase):
     """Independent completion gate: no repair is published without a second review."""
     diff=git('diff','--cached','--',cwd=worktree)
@@ -250,13 +275,15 @@ def process_task(task,queue):
     if decision['action']=='complete' and analysis.get('actionRequired')!='none':raise RuntimeError('ai-completion-conflicts-with-receipt-gate')
     queue.assert_owner(task)
     j.write(evidence/'ai-review.json',review_record(build,decision))
-    if decision['action']=='complete':queue.finish(task,'reviewed',decision)
+    notification=publish_result_notification(build,evidence,decision)
+    if decision['action']=='complete':queue.finish(task,'reviewed',notification)
     elif decision['action']=='repair' and config()['mode']=='repair':
         phase=repair(build,decision,folder,queue,task)
         j.write(evidence/'ai-review.json',review_record(build,decision,followupRequestId=phase['followupRequestId'],repairCommit=phase['commit']))
         queue.finish(task,'awaiting-verification',phase)
-    elif decision['action']=='business-decision':queue.finish(task,'needs-action',decision)
-    else:queue.finish(task,'retry',decision,delay=300 if decision['action']=='retry' else 120)
+    elif decision['action']=='business-decision':queue.finish(task,'needs-action',notification)
+    elif decision['action']=='repair' and config()['mode']=='collect-and-report':queue.finish(task,'completed-with-findings',notification)
+    else:queue.finish(task,'retry',notification,delay=300 if decision['action']=='retry' else 120)
 
 def cycle(queue):
     status(state='discovering',mode=config()['mode'])

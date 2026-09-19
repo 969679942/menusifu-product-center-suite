@@ -56,6 +56,41 @@ def write(path, obj):
 def read(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
 
+def terminal_statistics(envelope):
+    """Retain known per-case terminal counts when an aggregate gate fails.
+
+    A failed selection/receipt gate must not erase real terminal observations
+    by reporting the envelope's fallback ``0/0``.  Counts are derived only from
+    explicit case-audit rows; Allure files and aggregate pass numbers never
+    create business outcomes.
+    """
+    rows=envelope.get('caseAudit') or []
+    if not isinstance(rows,list): rows=[]
+    counts={'passed':0,'failed':0,'skipped':0,'blocked':0}
+    terminal=[]
+    for row in rows:
+        if not isinstance(row,dict): continue
+        case_id=row.get('caseId')
+        status=str(row.get('status','')).lower().replace('_','-')
+        if status in counts:
+            counts[status]+=1
+            terminal.append(case_id) if case_id else None
+        elif status in ('broken','error'):
+            counts['failed']+=1
+            terminal.append(case_id) if case_id else None
+    explicit=envelope.get('terminalCaseIds')
+    if isinstance(explicit,list) and explicit:
+        counts['terminalCaseCount']=len(set(explicit))
+    else:
+        counts['terminalCaseCount']=len(set(terminal))
+    # Preserve an aggregate count only when no case-level rows were supplied;
+    # it is an observation, not a pass authority.
+    if not rows:
+        for key in ('passed','failed','skipped','blocked'):
+            value=envelope.get(key)
+            if isinstance(value,int) and value>=0: counts[key]=value
+    return counts
+
 def remember_explicit_submission(state):
     """Persist only the non-secret identity of an explicitly submitted build.
 
@@ -431,11 +466,12 @@ def poll(state_path=None):
                 if state.get('runScope')=='full-regression' and (not envelope.get('receiptAudit') or envelope['receiptAudit'].get('status')!='complete'):
                     errors.append('standard-assertion-receipts-incomplete')
     identity_errors=[e for e in errors if e in ['gitSha-mismatch','buildNumber-mismatch','requestId-mismatch','intentId-mismatch','runScope-mismatch','bundle-gitSha-mismatch','bundle-buildNumber-mismatch','bundle-requestId-mismatch','bundle-intentId-mismatch','bundle-runScope-mismatch','envelope-or-identity-missing','result-envelope-missing']]
+    terminal=terminal_statistics(envelope or {})
     analysis={'schemaVersion':1,'jobName':JOB,'buildNumber':state['buildNumber'],'buildUrl':state['buildUrl'],
       'gitSha':state['gitSha'],'requestId':state['requestId'],'intentId':state.get('intentId'),'runScope':state.get('runScope'),'jenkinsResult':info['result'],'identityVerified':not identity_errors,'executionComplete':not errors,'errors':errors,
       'kind':envelope.get('kind') if envelope else None,'businessPassAuthority':bool(envelope and envelope.get('publicReceiptAccepted') and not errors),'artifactCount':len(downloaded),
-      'passed':envelope.get('passed',0) if envelope else 0,'failed':envelope.get('failed',0) if envelope else 0,
-      'skipped':envelope.get('skipped',0) if envelope else 0,
+      'passed':terminal['passed'],'failed':terminal['failed'],'skipped':terminal['skipped'],'blocked':terminal['blocked'],
+      'terminalCaseCount':terminal['terminalCaseCount'],
       'failureCategories':envelope.get('runReport',{}).get('failureCategories',[]) if envelope and envelope.get('runReport') else [],
       'actionRequired':'none' if not errors and info['result']=='SUCCESS' else 'ai-evidence-review'}
     write(folder/'artifact-hashes.json',downloaded)

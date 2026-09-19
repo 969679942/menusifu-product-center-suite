@@ -7,6 +7,18 @@ spec=importlib.util.spec_from_file_location('jenkins_transport',pathlib.Path(__f
 j=importlib.util.module_from_spec(spec);spec.loader.exec_module(j)
 
 class TransportBoundaryTests(unittest.TestCase):
+    def test_terminal_statistics_keep_known_case_results_when_aggregate_gate_fails(self):
+        stats=j.terminal_statistics({'passed':0,'failed':0,'terminalCaseIds':['A','B'],
+            'caseAudit':[{'caseId':'A','status':'passed'},{'caseId':'B','status':'broken'}]})
+        self.assertEqual(stats['passed'],1)
+        self.assertEqual(stats['failed'],1)
+        self.assertEqual(stats['terminalCaseCount'],2)
+
+    def test_terminal_statistics_never_infer_business_results_from_allure_counts(self):
+        stats=j.terminal_statistics({'passed':0,'failed':0,'allureResultCount':366})
+        self.assertEqual(stats['passed'],0)
+        self.assertEqual(stats['failed'],0)
+
     def isolated_watch(self, directory):
         root=pathlib.Path(directory); out=root/'output/jenkins'
         helper=root/'tap/src/ci/build-watch-contract.cjs'

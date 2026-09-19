@@ -6,6 +6,13 @@ from windows_process_job import ProcessJob
 from bundle_contract import validate_bundle
 from repair_contract import apply_changes,prepare_changes,apply_plan,verified_followup
 
+# worker imports the transport module, whose session setup requires the
+# presence of credential names even though this contract never contacts Jenkins.
+os.environ.setdefault('SUITE_JENKINS_USER','contract-test')
+os.environ.setdefault('SUITE_JENKINS_TOKEN','contract-test')
+_worker_spec=importlib.util.spec_from_file_location('suite_worker',ROOT/'ci/worker.py')
+worker=importlib.util.module_from_spec(_worker_spec);_worker_spec.loader.exec_module(worker)
+
 class RepairTests(unittest.TestCase):
     def test_interrupted_plan_resumes_and_does_not_overwrite_new_edits(self):
         with tempfile.TemporaryDirectory() as d:
@@ -70,6 +77,26 @@ class BundleTests(unittest.TestCase):
             manifest['intentId']=expected['intentId'];manifest['runScope']='pilot';(root/'bundle-manifest.json').write_text(json.dumps(manifest))
             self.assertIn('bundle-runScope-mismatch',validate_bundle(root,expected))
 
+    def test_optional_and_explicitly_excluded_artifacts_do_not_fail_collection(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=pathlib.Path(d);expected={'gitSha':'a'*40,'buildNumber':7,'requestId':'request-7'}
+            manifest={**expected,'artifacts':[
+                {'path':'optional.json','policy':'optional','size':0,'sha256':'unused'},
+                {'path':'test-results','policy':'excluded','reason':'raw output is not transported'},
+            ]}
+            (root/'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertEqual(validate_bundle(root,expected),[])
+            manifest['artifacts'][1].pop('reason');(root/'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertIn('bundle-exclusion-reason-missing',validate_bundle(root,expected))
+
+    def test_malformed_manifest_is_a_contract_error_not_a_worker_crash(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=pathlib.Path(d);expected={'gitSha':'a'*40,'buildNumber':7,'requestId':'request-7'}
+            (root/'bundle-manifest.json').write_text('{bad json')
+            self.assertEqual(validate_bundle(root,expected),['bundle-manifest-invalid'])
+            (root/'bundle-manifest.json').write_text(json.dumps({**expected,'artifacts':[{}]}))
+            self.assertIn('bundle-artifact-invalid',validate_bundle(root,expected))
+
 class QueueTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.q=BuildQueue(pathlib.Path(self.tmp.name)/'queue.sqlite')
@@ -105,6 +132,18 @@ class QueueTests(unittest.TestCase):
         row=self.q.rows()[0]
         self.assertEqual(row['state'],'blocked')
         self.assertIsNone(self.q.claim())
+
+    def test_result_notification_is_idempotent_for_a_terminal_build(self):
+        with tempfile.TemporaryDirectory() as d:
+            evidence=pathlib.Path(d);(evidence/'analysis.json').write_text(json.dumps({
+                'jenkinsResult':'FAILURE','executionStatus':'completed-with-findings','passed':3,'failed':1
+            }))
+            build={'buildNumber':108,'gitSha':'a'*40,'requestId':'request-108','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'full-regression'}
+            decision={'action':'repair','category':'execution-platform-or-technical','conclusion':'保留证据并登记技术整改','evidence':['analysis.json']}
+            first=worker.publish_result_notification(build,evidence,decision)
+            second=worker.publish_result_notification(build,evidence,decision)
+            self.assertEqual(first,second)
+            self.assertEqual(json.loads((evidence/'result-notification.json').read_text(encoding='utf-8')),first)
 
 @unittest.skipUnless(os.name=='nt','Windows job ownership')
 class ProcessTests(unittest.TestCase):
