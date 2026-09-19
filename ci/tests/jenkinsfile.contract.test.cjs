@@ -65,5 +65,7 @@ test('parallel audit events are worker-sharded and merged before report aggregat
   assert.match(auditStore,/appendExistingEvents/);
   assert.match(auditStore,/eventSequence: sequence, previousEventHash/);
   assert.match(auditRuntime,/SYSTEM_TEST_RUN_ID/);
-  assert.match(auditRuntime,/run-started:\$\{runId\}/);
+  assert.match(auditRuntime,/buildAuditLifecycleEventId/);
+  assert.match(auditRuntime,/SYSTEM_TEST_AUDIT_EVENT_NAMESPACE/);
+  assert.match(auditStore,/AUDIT_EVENT_NAMESPACE_INVALID/);
 });
