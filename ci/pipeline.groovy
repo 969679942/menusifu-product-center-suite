@@ -17,7 +17,10 @@ if (params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot','full-regression']
     rem The MC adapter imports TAP contracts from the separately checked-out
     rem suite-src/tap tree. Never let its fallback path resolve to
     rem suite-src/projects/Test Automation Platform.
-    set "TAP_SOURCE_ROOT=%WORKSPACE%\\suite-src\\tap"
+    rem Jenkins may retain WORKSPACE from the job's base allocation while the
+    rem pipeline runs inside an isolated ws(...) directory. Resolve TAP from
+    rem the command's actual directory so fingerprints use this build's SHA.
+    set "TAP_SOURCE_ROOT=%CD%\\suite-src\\tap"
     node "suite-src/projects/merchant-center/Merchant Center UITest/node_modules/tsx/dist/cli.mjs" "suite-src/projects/merchant-center/Merchant Center UITest/scripts/refresh-seasoning-implementation-contract.ts" --check
     if errorlevel 1 exit /b 1
     node "suite-src/projects/merchant-center/Merchant Center UITest/node_modules/tsx/dist/cli.mjs" suite-src/ci/run-pilot.ts --plan-only

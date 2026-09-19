@@ -4,6 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const root=path.resolve(__dirname,'../..');
 const pipeline=fs.readFileSync(path.join(root,'Jenkinsfile'),'utf8');
+const businessPipeline=fs.readFileSync(path.join(root,'ci/pipeline.groovy'),'utf8');
 const sourceRunner=fs.readFileSync(path.join(root,'projects/merchant-center/Merchant Center UITest/scripts/run-product-center-source-governed.ts'),'utf8');
 const auditStore=fs.readFileSync(path.join(root,'tap/src/audit/event-log.ts'),'utf8');
 const auditRuntime=fs.readFileSync(path.join(root,'projects/merchant-center/Merchant Center UITest/utils/product-center-audit-runtime.ts'),'utf8');
@@ -40,6 +41,11 @@ test('Jenkins checks the fixed branch tip for all three repositories',()=>{
   assert.match(pipeline,/pcsBranch: fixedBranches\.pcs/);
   assert.match(pipeline,/mcBranch: fixedBranches\.mc/);
   assert.match(pipeline,/tapBranch: fixedBranches\.tap/);
+});
+
+test('isolated builds resolve TAP from the active workspace directory',()=>{
+  assert.ok(businessPipeline.includes('set "TAP_SOURCE_ROOT=%CD%\\\\suite-src\\\\tap"'));
+  assert.ok(!businessPipeline.includes('set "TAP_SOURCE_ROOT=%WORKSPACE%\\\\suite-src\\\\tap"'));
 });
 
 test('full regression runner resolves the separately checked out MC and TAP roots',()=>{
