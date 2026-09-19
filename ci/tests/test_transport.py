@@ -1,4 +1,4 @@
-import importlib.util, json, os, pathlib, tempfile, unittest, shutil
+import importlib.util, json, os, pathlib, tempfile, unittest, shutil, zipfile
 from contextlib import ExitStack
 from unittest.mock import patch
 os.environ.setdefault('SUITE_JENKINS_USER','fixture')
@@ -57,7 +57,23 @@ class TransportBoundaryTests(unittest.TestCase):
                 j.poll(state_path)
             self.assertEqual(get.call_args.args[0],j.JOB_URL+'111/api/json')
             self.assertEqual(get.call_args.kwargs['params']['tree'],
-                'building,result,artifacts[fileName,relativePath]')
+                'building,result')
+
+    def test_artifact_archive_extracts_only_safe_ci_evidence(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=pathlib.Path(d);archive_path=root/'artifacts.zip';stage=root/'stage'
+            with zipfile.ZipFile(archive_path,'w') as archive:
+                archive.writestr('archive/suite-src/output/ci/result-envelope.json',b'{}')
+                archive.writestr('archive/suite-src/output/ci/business/run/evidence-ledger.json',b'{"cases":[]}')
+                archive.writestr('archive/suite-src/output/ci/test-results/raw/trace.zip',b'raw')
+                archive.writestr('archive/jenkins-terminal-report.html',b'outside')
+                archive.writestr('archive/suite-src/output/ci/../escaped.txt',b'escape')
+            downloaded=j.extract_ci_artifact_archive(archive_path,stage)
+            self.assertEqual([item['path'] for item in downloaded],[
+                'result-envelope.json','business/run/evidence-ledger.json'])
+            self.assertTrue((stage/'result-envelope.json').exists())
+            self.assertFalse((stage/'test-results/raw/trace.zip').exists())
+            self.assertFalse((root/'escaped.txt').exists())
 
     def isolated_watch(self, directory):
         root=pathlib.Path(directory); out=root/'output/jenkins'

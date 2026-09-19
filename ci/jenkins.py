@@ -1,7 +1,7 @@
 """Single-job transport. Local AI consumes evidence; this script does not impersonate AI."""
-import argparse, hashlib, json, os, pathlib, re, subprocess, tempfile, time, uuid
+import argparse, hashlib, json, os, pathlib, re, subprocess, tempfile, time, uuid, zipfile
 import xml.etree.ElementTree as ET
-from urllib.parse import quote, urlparse
+from urllib.parse import urlparse
 import requests
 import sys
 import importlib.util
@@ -173,6 +173,52 @@ def get(url, **kwargs):
         while delay>0:
             interval=min(delay,60);time.sleep(interval);delay-=interval
     raise RuntimeError('Read retries exhausted; checkpoint retained')
+
+def download_artifact_archive(url, destination):
+    if not url.startswith(BASE + '/'):
+        raise ValueError('Jenkins URL outside authorized server')
+    destination=pathlib.Path(destination)
+    for attempt, delay in enumerate([5,15,30,60,0]):
+        try:
+            with SESSION.get(url,stream=True,timeout=(25,120)) as response:
+                if response.status_code not in [429,500,502,503,504]:
+                    response.raise_for_status()
+                    with destination.open('wb') as output:
+                        for chunk in response.iter_content(1024*1024):
+                            if chunk:output.write(chunk)
+                    return
+                retry_after=response.headers.get('Retry-After')
+                if retry_after:
+                    try:delay=max(0,int(retry_after))
+                    except ValueError:delay=max(0,int(parsedate_to_datetime(retry_after).timestamp()-time.time()))
+        except (requests.ConnectionError,requests.Timeout):
+            pass
+        destination.unlink(missing_ok=True)
+        write(OUT/'retry.json',{'operation':'GET_ARTIFACT_ARCHIVE','attempt':attempt+1,'retryDelay':delay,'time':time.time()})
+        while delay>0:
+            interval=min(delay,60);time.sleep(interval);delay-=interval
+    raise RuntimeError('Artifact archive retries exhausted; checkpoint retained')
+
+def extract_ci_artifact_archive(archive_path,stage):
+    stage=pathlib.Path(stage);downloaded=[]
+    prefix='archive/suite-src/output/ci/'
+    with zipfile.ZipFile(archive_path) as archive:
+        for item in archive.infolist():
+            if item.is_dir() or not item.filename.startswith(prefix):continue
+            rel=item.filename.removeprefix(prefix)
+            pure=pathlib.PurePosixPath(rel)
+            if not rel or pure.is_absolute() or '..' in pure.parts or '\\' in rel or ':' in rel:continue
+            if '/test-results/' in f'/{rel}' or '/.playwright-artifacts-' in f'/{rel}':continue
+            dest=stage/pathlib.Path(*pure.parts);dest.parent.mkdir(parents=True,exist_ok=True)
+            digest=hashlib.sha256();size=0
+            with archive.open(item) as source,dest.open('wb') as output:
+                while True:
+                    chunk=source.read(1024*1024)
+                    if not chunk:break
+                    output.write(chunk);digest.update(chunk);size+=len(chunk)
+            if size!=item.file_size:raise RuntimeError('artifact-archive-size-mismatch:'+rel)
+            downloaded.append({'path':rel,'sha256':digest.hexdigest()})
+    return downloaded
 
 def post(url, **kwargs):
     if url not in [JOB_URL+'config.xml', JOB_URL+'buildWithParameters']:
@@ -449,29 +495,17 @@ def poll(state_path=None):
     # Full regression builds accumulate large action/cause payloads. Request
     # only the immutable fields required by the transport so collection does
     # not time out before artifact download.
-    info=get(state['buildUrl']+'api/json',params={
-        'tree':'building,result,artifacts[fileName,relativePath]'
-    }).json()
+    info=get(state['buildUrl']+'api/json',params={'tree':'building,result'}).json()
     if info['building']: print(json.dumps(state));return
     folder=OUT/('build-'+str(state['buildNumber']))
     folder.mkdir(exist_ok=True)
     downloaded=[]
     with tempfile.TemporaryDirectory(prefix='download-'+str(state['buildNumber'])+'-',dir=OUT) as staging:
         stage=pathlib.Path(staging)
-        for artifact in info['artifacts']:
-            rel=artifact['relativePath']
-            if not rel.startswith('suite-src/output/ci/') or '..' in pathlib.PurePosixPath(rel).parts or '\\' in rel or ':' in rel:continue
-            # Playwright's raw test-results tree can contain deeply nested trace
-            # resources.  Business ledgers, diagnostics and Allure results are
-            # the governed AI evidence; the raw duplicate tree is optional and
-            # can exceed Windows MAX_PATH during local collection.
-            if '/test-results/' in f'/{rel}' or '/.playwright-artifacts-' in f'/{rel}':
-                continue
-            dest=stage / rel.removeprefix('suite-src/output/ci/')
-            dest.parent.mkdir(parents=True,exist_ok=True)
-            content=get(state['buildUrl']+'artifact/'+quote(rel,safe='/')).content
-            dest.write_bytes(content)
-            downloaded.append({'path':dest.relative_to(stage).as_posix(),'sha256':hashlib.sha256(content).hexdigest()})
+        archive_path=stage/'jenkins-artifacts.zip'
+        download_artifact_archive(state['buildUrl']+'artifact/*zip*/archive.zip',archive_path)
+        downloaded=extract_ci_artifact_archive(archive_path,stage)
+        archive_path.unlink()
         spec=importlib.util.spec_from_file_location('bundle_contract',ROOT/'tap/src/ci/bundle_contract.py')
         validator=importlib.util.module_from_spec(spec);spec.loader.exec_module(validator)
         bundle_errors=validator.validate_bundle(stage,{**state,'requireManifest':state.get('runScope') in ['pilot','reports'] and int(state['buildNumber'])>=35})
