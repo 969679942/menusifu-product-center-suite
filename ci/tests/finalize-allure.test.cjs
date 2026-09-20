@@ -1,9 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
+const suiteRoot=path.resolve(__dirname,'../..');
+const tapRoot=path.resolve(process.env.TAP_SOURCE_ROOT||path.join(suiteRoot,'tap'));
+const sourceFile=rel=>rel.startsWith('tap/')?path.join(tapRoot,rel.slice(4)):path.join(suiteRoot,rel);
 test('MC Allure adapter uses public selection gate and still archives a failing audit',()=>{
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'suite-allure-'));
  try {
   for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
-   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(path.resolve(__dirname,'../..',rel),file);
+   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(sourceFile(rel),file);
   }
   const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
   const raw=path.join(out,'allure-results');fs.mkdirSync(raw,{recursive:true});
@@ -30,7 +33,7 @@ test('full regression publishes one governed Allure node for every formal case, 
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'suite-allure-formal-'));
  try {
   for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
-   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(path.resolve(__dirname,'../..',rel),file);
+   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(sourceFile(rel),file);
   }
   const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
   const write=(file,value)=>fs.writeFileSync(file,JSON.stringify(value));
@@ -44,4 +47,26 @@ test('full regression publishes one governed Allure node for every formal case, 
   const published=files.map(name=>JSON.parse(fs.readFileSync(path.join(out,'allure-results-business',name),'utf8')));
   assert.equal(published.filter(item=>item.labels.some(label=>label.name==='caseId'&&label.value==='C2'))[0].status,'skipped');
  } finally {assert.ok(root.startsWith(path.join(os.tmpdir(),'suite-allure-formal-')));fs.rmSync(root,{recursive:true});}
+});
+
+test('technical preflight failure publishes a diagnostic Allure node without business authority',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'suite-allure-technical-'));
+ try {
+  for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
+   const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(sourceFile(rel),file);
+  }
+  const out=path.join(root,'output/ci');fs.mkdirSync(out,{recursive:true});
+  fs.writeFileSync(path.join(out,'jenkins-invocation.json'),JSON.stringify({gitSha:'a'.repeat(40)}));
+  fs.writeFileSync(path.join(out,'dependency-checkout.json'),JSON.stringify({tapGitSha:'b'.repeat(40),mcGitSha:'c'.repeat(40)}));
+  const execution=spawnSync(process.execPath,[path.join(root,'ci/finalize-allure.cjs')],{env:{...process.env,RUN_SCOPE:'full-regression',BUILD_NUMBER:'117',REQUEST_ID:'fixture-technical'},encoding:'utf8'});
+  assert.equal(execution.status,2,execution.stderr||execution.stdout);
+  assert.equal(fs.existsSync(path.join(out,'allure-technical-publishable.marker')),true);
+  assert.equal(fs.existsSync(path.join(out,'allure-business-publishable.marker')),false);
+  const technicalDir=path.join(out,'allure-results-technical');
+  const result=JSON.parse(fs.readFileSync(path.join(technicalDir,'technical-terminal-result.json'),'utf8'));
+  assert.equal(result.status,'broken');
+  assert.equal(result.labels.some(label=>label.name==='executionDisposition'&&label.value==='technical-blocked'),true);
+  assert.equal(result.labels.some(label=>label.name==='caseId'),false);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out,'bundle-manifest.json'))).reportStatus,'incomplete');
+ } finally {assert.ok(root.startsWith(path.join(os.tmpdir(),'suite-allure-technical-')));fs.rmSync(root,{recursive:true});}
 });

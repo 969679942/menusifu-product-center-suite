@@ -19,10 +19,15 @@ test('dedicated Jenkins job always leaves a terminal report and preserves invoca
   assert.match(pipeline,/params\.RUN_SCOPE == 'full-regression' \? 360 : 180/);
   assert.match(pipeline,/if \(!\(params\.INTENT_ID ==~ \/\[0-9a-f-\]\{36\}\//);
   assert.match(pipeline,/jenkins-invocation\.json/);
+  assert.match(pipeline,/allure-technical-publishable\.marker/);
+  assert.match(pipeline,/allure-results-technical/);
+  assert.match(pipeline,/jenkins-allure-results\/technical-terminal-result\.json/);
+  assert.match(pipeline,/executionDisposition',value:'technical-blocked'/);
+  assert.match(pipeline,/Business pass authority=FALSE/);
   assert.doesNotMatch(pipeline,/writeFile file: 'suite-src\/output\/ci\/execution-intent\.json'/);
   assert.match(pipeline,/if \(!fileExists\('suite-src\/output\/ci\/execution-report\.html'\)\)/);
   assert.match(pipeline,/jenkins-terminal-report\.html/);
-  assert.ok(pipeline.includes("archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html'"));
+  assert.ok(pipeline.includes("archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html,jenkins-allure-results/**/*'"));
 });
 
 test('Jenkins checks the fixed branch tip for all three repositories',()=>{

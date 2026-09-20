@@ -106,10 +106,24 @@ node {
           if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression' || params.RUN_SCOPE == 'reports') && fileExists('suite-src/ci/finalize-allure.cjs')) {
             stage('Validate Allure evidence bundle') { catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') { bat '@node suite-src/ci/finalize-allure.cjs' } }
           }
-          stage('Archive every terminal outcome') { archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html', allowEmptyArchive: true, fingerprint: true }
+          if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') &&
+              !fileExists('suite-src/output/ci/allure-business-publishable.marker') &&
+              !fileExists('suite-src/output/ci/allure-technical-publishable.marker')) {
+            writeFile file: 'jenkins-allure-results/technical-terminal-result.json', text: groovy.json.JsonOutput.toJson([
+              uuid: "technical-${env.BUILD_NUMBER}-${intentId}", name: "技术阻断诊断｜${params.RUN_SCOPE}｜构建 #${env.BUILD_NUMBER}",
+              fullName: "商品中心.技术诊断.${params.RUN_SCOPE}.构建-${env.BUILD_NUMBER}", status: 'broken', stage: 'finished',
+              statusDetails: [message: '构建在公共 Allure finalizer 生成结果前终止；请查看 Jenkins Console Log。'],
+              labels: [[name:'parentSuite',value:'商品中心'],[name:'suite',value:'技术诊断'],[name:'subSuite',value:'执行基础设施'],[name:'severity',value:'blocker'],[name:'executionDisposition',value:'technical-blocked']],
+              steps: [[name:'[技术阶段] 公共 finalizer 前终止',status:'broken',stage:'finished'],[name:'[业务执行资格] 未授权',status:'skipped',stage:'finished']], attachments: []
+            ])
+            writeFile file: 'jenkins-allure-results/environment.properties', text: 'Execution disposition=TECHNICAL_BLOCKED\nBusiness pass authority=FALSE\n'
+          }
+          stage('Archive every terminal outcome') { archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html,jenkins-allure-results/**/*', allowEmptyArchive: true, fingerprint: true }
           def allurePath = null
           if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-business-publishable.marker')) allurePath = 'suite-src/output/ci/allure-results-business'
+          else if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('suite-src/output/ci/allure-technical-publishable.marker')) allurePath = 'suite-src/output/ci/allure-results-technical'
           else if (params.RUN_SCOPE == 'reports' && fileExists('suite-src/output/ci/allure-results')) allurePath = 'suite-src/output/ci/allure-results'
+          else if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') && fileExists('jenkins-allure-results/technical-terminal-result.json')) allurePath = 'jenkins-allure-results'
           if (allurePath != null) stage('Publish Allure report') { allure commandline: 'allure-2.36.0', includeProperties: false, results: [[path: allurePath]] }
           else if (params.RUN_SCOPE in ['pilot','full-regression','reports']) stage('Allure report unavailable') { echo 'No publishable Allure business result. See output/ci/execution-report.html and allure-audit.json in archived artifacts.' }
           if (params.AUTO_CHAIN == true && fileExists('suite-src/ci/chain-next.cjs')) {
