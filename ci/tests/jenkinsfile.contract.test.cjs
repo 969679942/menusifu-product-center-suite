@@ -11,6 +11,8 @@ const auditRuntime=fs.readFileSync(path.join(root,'projects/merchant-center/Merc
 const fullRegressionRunner=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
 const transport=fs.readFileSync(path.join(root,'ci/jenkins.py'),'utf8');
 const branchPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8')).fixedBranches;
+const contractSelection=JSON.parse(fs.readFileSync(path.join(root,'ci/contract-selection.json'),'utf8'));
+const contractRunner=fs.readFileSync(path.join(root,'ci/run-contracts.cjs'),'utf8');
 
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
   assert.equal((pipeline.match(/\{/g)||[]).length,(pipeline.match(/\}/g)||[]).length);
@@ -63,6 +65,22 @@ test('configured Jenkins parameters match the local submission CLI contract',()=
   assert.match(transport,/def submit\(scope='contracts', auto_chain=False\)/);
   assert.match(transport,/hudson\.model\.BooleanParameterDefinition/);
   assert.match(transport,/'AUTO_CHAIN': 'true' if auto_chain else 'false'/);
+});
+
+test('fixed technical gate covers public and adapter terminal receipt contracts',()=>{
+  assert.ok(contractSelection.files.includes('seasoning-read-assertions.contract.spec.ts'));
+  assert.ok(contractSelection.files.includes('seasoning-terminal-receipts.contract.spec.ts'));
+  assert.deepEqual(contractSelection.tapFiles,[
+    'ci-business-receipt.contract.spec.ts',
+    'system-test-runtime-contract.contract.spec.ts',
+    'system-test-recipe-reporting.contract.spec.ts',
+  ]);
+  assert.match(contractRunner,/id:'merchant-center-adapter'/);
+  assert.match(contractRunner,/id:'tap-public-runtime'/);
+  assert.match(contractRunner,/process\.env\.MC_SOURCE_ROOT/);
+  assert.match(contractRunner,/process\.env\.TAP_SOURCE_ROOT/);
+  assert.match(contractRunner,/for \(const suite of suites\)/);
+  assert.match(contractRunner,/records\.push\(\.\.\.cases\(report,suite\.id\)\)/);
 });
 
 test('parallel audit events are worker-sharded and merged before report aggregation',()=>{
