@@ -127,7 +127,7 @@ node {
               dir(dependency.path) {
                 prepareCheckout()
                  def result = checkout([$class: 'GitSCM', branches: [[name: "refs/heads/main" ]],
-                   userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'menusifu-github-readonly']], extensions: [[$class: 'CloneOption', noTags: true, shallow: true, depth: 1]])
+                   userRemoteConfigs: [[url: "https://github.com/969679942/${dependency.repo}.git", credentialsId: 'menusifu-github-readonly']], extensions: [[$class: 'CloneOption', noTags: true, shallow: true, depth: 1]]])
                  if (result.GIT_COMMIT != dependency.revision) error('Dependency checkout identity mismatch with remote main')
               }
             }
