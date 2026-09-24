@@ -88,7 +88,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
         if (pair.size() == 2) bundleFields[pair[0]] = pair[1]
       }
       if (!bundleFields.bundleId) error('BUNDLE_JSON must be valid JSON')
-      def bundle = [
+      bundle = [
         schemaVersion: 1, projectId: 'merchant-center', bundleId: bundleFields.bundleId,
         repositories: [
           pcs: [revision: bundleFields.pcsRevision, branch: bundleFields.pcsBranch],
