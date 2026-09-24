@@ -8,6 +8,10 @@ stage('Preflight runtime') {
   if errorlevel 1 exit /b 1
   cd /d "..\\projects\\merchant-center\\Merchant Center UITest"
   call npm ci --ignore-scripts --no-audit
+  if errorlevel 1 exit /b 1
+  cd /d "..\\..\\.."
+  node suite-src/ci/validate-cross-repository-contract.cjs --pcs-root suite-src --mc-root suite-src/projects/merchant-center --tap-root suite-src/tap
+  if errorlevel 1 exit /b 1
   exit /b %ERRORLEVEL%
   '''
 }
@@ -41,7 +45,7 @@ stage('Contract gates') {
   bat '@node suite-src/ci/run-contracts.cjs'
 }
 stage('CI transport and reporting contracts') {
-  bat '@node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=suite-src/output/ci/ci-contracts.xml suite-src/tap/tests/ci-transport.test.cjs suite-src/tap/tests/build-watch.test.cjs suite-src/tap/tests/result-bundle.test.cjs suite-src/ci/tests/finalize-allure.test.cjs suite-src/ci/tests/pilot-concurrency.test.cjs suite-src/ci/tests/full-regression-intent.test.cjs suite-src/ci/tests/jenkinsfile.contract.test.cjs suite-src/ci/tests/chain-next.test.cjs'
+  bat '@node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=suite-src/output/ci/ci-contracts.xml suite-src/tap/tests/ci-transport.test.cjs suite-src/tap/tests/build-watch.test.cjs suite-src/tap/tests/result-bundle.test.cjs suite-src/ci/tests/finalize-allure.test.cjs suite-src/ci/tests/cross-repository-entrypoints.contract.test.cjs suite-src/ci/tests/pilot-concurrency.test.cjs suite-src/ci/tests/full-regression-intent.test.cjs suite-src/ci/tests/jenkinsfile.contract.test.cjs suite-src/ci/tests/chain-next.test.cjs'
 }
 if (params.RUN_SCOPE == 'pilot') {
   stage('Ten governed MC business cases') {
