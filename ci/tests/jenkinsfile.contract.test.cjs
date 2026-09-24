@@ -37,7 +37,7 @@ test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
   assert.deepEqual(branchPolicy,{pcs:'main',mc:'main',tap:'main',enforcement:'bundle-declared-branch-with-exact-revision'});
   assert.match(pipeline,/params\.BUNDLE_JSON/);
   assert.match(pipeline,/MC_RUNTIME_ENV=\$\{runtimeEnv\}/);
-  assert.match(pipeline,/MC_SECRET_ENV_PATH=\$\\{runtimeEnvPath\}/);
+  assert.match(pipeline,/MC_SECRET_ENV_PATH=\$\{runtimeEnvPath\}/);
   assert.match(pipeline,/D:\\\\Menusifu\\\\Merchant Center\\\\\.secrets\\\\runtime\.env/);
   assert.match(pipeline,/def runtimeEnv = params\.MC_RUNTIME_ENV/);
   assert.match(pipeline,/Free SHA parameters are forbidden/);
