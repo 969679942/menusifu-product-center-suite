@@ -79,7 +79,7 @@ const fields = {
   tapAdapterContractVersion: bundle.contract.adapterContracts.tap,
   merchantCenterAdapterContractVersion: bundle.contract.adapterContracts.merchantCenter,
 };
-process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${value}`).join('\n'));
+process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${value}`).join('\\n'));
 '''
       def bundleMetadata = bat(returnStdout: true, script: '@node bundle-validator.cjs bundle.json').trim()
       def bundleFields = [:]
