@@ -63,7 +63,7 @@ for (const key of ['pcs', 'mc', 'tap']) {
   if (repository.branch !== 'main') errors.push(`bundle-${key}-branch-invalid`);
   if (repository.sourceRef !== 'refs/heads/main' || repository.sourceKind !== 'remote-main') errors.push(`bundle-${key}-source-invalid`);
   const checkout = String(repository.checkout || '');
-  if (!checkout || checkout.startsWith('/') || checkout.includes('..') || checkout.includes(':') || checkout.includes('\\')) errors.push(`bundle-${key}-checkout-invalid`);
+  if (!checkout || checkout.startsWith('/') || checkout.includes('..') || checkout.includes(':') || checkout.includes('\\\\')) errors.push(`bundle-${key}-checkout-invalid`);
 }
 if (errors.length) { console.error(errors.join(',')); process.exit(2); }
 const fields = {
