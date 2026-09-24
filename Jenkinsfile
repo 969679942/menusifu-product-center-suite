@@ -118,9 +118,10 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
       if (!(triggerSource in ['explicit-local-submit','github-webhook','scm-trigger','workflow-dispatch','jenkins-schedule','jenkins-parameterized-build'])) error('Valid TRIGGER_SOURCE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
       def runtimeEnv = params.MC_RUNTIME_ENV?.toString() ?: ''
+      def runtimeEnvPath = env.MC_RUNTIME_ENV_PATH?.trim() ?: 'D:\\Menusifu\\Merchant Center\\.secrets\\runtime.env'
       if (params.AUTO_CHAIN == true && !runtimeEnv.trim()) error('Automatic chain requires pilot runtime configuration')
       def executionSucceeded = false
-      withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}", "MC_RUNTIME_ENV=${runtimeEnv}"]) {
+      withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}", "MC_RUNTIME_ENV=${runtimeEnv}", "MC_SECRET_ENV_PATH=${runtimeEnvPath}"]) {
         deleteDir()
         writeFile file: 'bundle.json', text: params.BUNDLE_JSON
         try {
