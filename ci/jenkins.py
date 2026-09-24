@@ -33,7 +33,7 @@ SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
 DISCOVERY_STATE = OUT / 'discovery-checkpoint.json'
 BUILD_STRING_PARAMETERS = [
     'BUNDLE_JSON', 'REQUEST_ID', 'INTENT_ID',
-    'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
+    'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV', 'MC_RUNTIME_ENV_PATH',
 ]
 BUILD_BOOLEAN_PARAMETERS = ['AUTO_CHAIN']
 SESSION = requests.Session()
@@ -410,6 +410,11 @@ def submission_parameters(scope, request_id, intent_id, auto_chain=False):
     tap_sha = repositories.get('tap', {}).get('revision')
     if not isinstance(mc_sha, str) or not isinstance(tap_sha, str):
         raise RuntimeError('dependency-manifest-incomplete')
+    if auto_chain or scope in ['pilot', 'full-regression']:
+        runtime_path = pathlib.Path(os.environ.get(
+            'MC_RUNTIME_ENV_PATH', r'D:\Menusifu\Merchant Center\.secrets\runtime.env'))
+        if not runtime_path.is_file():
+            raise FileNotFoundError(runtime_path)
     bundle_output = subprocess.check_output([
         'node', str(ROOT / 'ci' / 'release-bundle.cjs'), 'create',
         '--manifest', str(manifest_path), '--from-main',
@@ -434,9 +439,7 @@ def submission_parameters(scope, request_id, intent_id, auto_chain=False):
         'AUTO_CHAIN': 'true' if auto_chain else 'false',
     }
     if auto_chain or scope in ['pilot', 'full-regression']:
-        secret_file=pathlib.Path(os.environ.get(
-            'MC_RUNTIME_ENV_PATH', r'D:\Menusifu\Merchant Center\.secrets\runtime.env'))
-        result['MC_RUNTIME_ENV']=secret_file.read_text(encoding='utf-8-sig')
+        result['MC_RUNTIME_ENV_PATH'] = str(runtime_path)
     return result
 
 def submit(scope='contracts', auto_chain=False):

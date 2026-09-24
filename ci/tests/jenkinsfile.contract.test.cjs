@@ -38,8 +38,11 @@ test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
   assert.match(pipeline,/params\.BUNDLE_JSON/);
   assert.match(pipeline,/MC_RUNTIME_ENV=\$\{runtimeEnv\}/);
   assert.match(pipeline,/MC_SECRET_ENV_PATH=\$\{runtimeEnvPath\}/);
+  assert.match(pipeline,/params\.MC_RUNTIME_ENV_PATH/);
   assert.match(pipeline,/D:\\\\Menusifu\\\\Merchant Center\\\\\.secrets\\\\runtime\.env/);
   assert.match(pipeline,/def runtimeEnv = params\.MC_RUNTIME_ENV/);
+  assert.match(pipeline,/runtimeConfigurationAvailable = runtimeEnv\.trim\(\) \|\| fileExists\(runtimeEnvPath\)/);
+  assert.match(pipeline,/string\(name: 'MC_RUNTIME_ENV_PATH', value: params\.MC_RUNTIME_ENV_PATH/);
   assert.match(pipeline,/Free SHA parameters are forbidden/);
   assert.match(pipeline,/git checkout --detach %BUNDLE_PCS_SHA%/);
   assert.match(pipeline,/git cat-file -e %BUNDLE_PCS_SHA%/);

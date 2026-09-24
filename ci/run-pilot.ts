@@ -20,7 +20,16 @@ const manifest = JSON.parse(fs.readFileSync(path.join(project, manifestPath), 'u
 const gitSha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
 const runId = `jenkins-${process.env.BUILD_NUMBER}-${process.env.REQUEST_ID}`;
 const secretValues: string[] = [];
-for (const line of (process.env.MC_RUNTIME_ENV || '').split(/\r?\n/)) {
+const runtimeEnvPath = (process.env.MC_SECRET_ENV_PATH || process.env.MC_RUNTIME_ENV_PATH || '').trim();
+let runtimeEnvText = process.env.MC_RUNTIME_ENV || '';
+if (!runtimeEnvText.trim() && runtimeEnvPath) {
+  try {
+    runtimeEnvText = fs.readFileSync(runtimeEnvPath, 'utf8');
+  } catch {
+    throw new Error('runtime-auth-credentials-missing');
+  }
+}
+for (const line of runtimeEnvText.split(/\r?\n/)) {
   const split = line.indexOf('=');
   if (split < 1 || line.trimStart().startsWith('#')) continue;
   const key = line.slice(0, split).trim(), value = line.slice(split + 1);
@@ -30,6 +39,8 @@ for (const line of (process.env.MC_RUNTIME_ENV || '').split(/\r?\n/)) {
   if (/PASSWORD|TOKEN|SECRET/i.test(key) && value.length > 3) secretValues.push(value);
 }
 delete process.env.MC_RUNTIME_ENV;
+delete process.env.MC_RUNTIME_ENV_PATH;
+delete process.env.MC_SECRET_ENV_PATH;
 process.env.CI = 'true';
 process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER = path.join(out, 'business-execution-started.marker');
 if (fullRegression || process.env.RUN_SCOPE === 'pilot') {
