@@ -118,8 +118,9 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
       if (!(triggerSource in ['explicit-local-submit','github-webhook','scm-trigger','workflow-dispatch','jenkins-schedule','jenkins-parameterized-build'])) error('Valid TRIGGER_SOURCE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
       def runtimeEnv = params.MC_RUNTIME_ENV?.toString() ?: ''
-      def runtimeEnvPath = env.MC_RUNTIME_ENV_PATH?.trim() ?: 'D:\\Menusifu\\Merchant Center\\.secrets\\runtime.env'
-      if (params.AUTO_CHAIN == true && !runtimeEnv.trim()) error('Automatic chain requires pilot runtime configuration')
+      def runtimeEnvPath = params.MC_RUNTIME_ENV_PATH?.trim() ?: (env.MC_RUNTIME_ENV_PATH?.trim() ?: 'D:\\Menusifu\\Merchant Center\\.secrets\\runtime.env')
+      def runtimeConfigurationAvailable = runtimeEnv.trim() || fileExists(runtimeEnvPath)
+      if ((params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot', 'full-regression']) && !runtimeConfigurationAvailable) error('Pilot runtime configuration is unavailable')
       def executionSucceeded = false
       withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}", "MC_RUNTIME_ENV=${runtimeEnv}", "MC_SECRET_ENV_PATH=${runtimeEnvPath}"]) {
         deleteDir()
@@ -272,6 +273,8 @@ if (nextChainScope && currentBuild.currentResult == 'SUCCESS') {
   stage('Continue verified chain') { build job: 'menusifu-product-center-suite', wait: false, parameters: [
     string(name: 'BUNDLE_JSON', value: params.BUNDLE_JSON),
     string(name: 'REQUEST_ID', value: "${requestId}-${nextChainScope}"), string(name: 'INTENT_ID', value: intentId), string(name: 'RUN_SCOPE', value: nextChainScope),
-    string(name: 'TRIGGER_SOURCE', value: 'workflow-dispatch'), booleanParam(name: 'AUTO_CHAIN', value: true), password(name: 'MC_RUNTIME_ENV', value: params.MC_RUNTIME_ENV)
+    string(name: 'TRIGGER_SOURCE', value: 'workflow-dispatch'), booleanParam(name: 'AUTO_CHAIN', value: true),
+    password(name: 'MC_RUNTIME_ENV', value: params.MC_RUNTIME_ENV),
+    string(name: 'MC_RUNTIME_ENV_PATH', value: params.MC_RUNTIME_ENV_PATH ?: env.MC_RUNTIME_ENV_PATH ?: 'D:\\Menusifu\\Merchant Center\\.secrets\\runtime.env')
   ] }
 }
