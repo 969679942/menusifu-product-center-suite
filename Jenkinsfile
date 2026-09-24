@@ -38,9 +38,71 @@ node {
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!params.BUNDLE_JSON?.trim()) error('Immutable BUNDLE_JSON required')
       if (params.GIT_SHA?.trim() || params.MC_GIT_SHA?.trim() || params.TAP_GIT_SHA?.trim()) error('Free SHA parameters are forbidden; submit one immutable bundle')
-      try { bundle = readJSON text: params.BUNDLE_JSON } catch (exception) { error('BUNDLE_JSON must be valid JSON') }
+      writeFile file: 'bundle.json', text: params.BUNDLE_JSON
+      writeFile file: 'bundle-validator.cjs', text: '''const fs = require('node:fs');
+const crypto = require('node:crypto');
+const bundle = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+const canonical = (value) => Array.isArray(value)
+  ? `[${value.map(canonical).join(',')}]`
+  : value && typeof value === 'object'
+    ? `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonical(value[key])}`).join(',')}}`
+    : JSON.stringify(value);
+const fingerprint = (value) => {
+  const copy = { ...value };
+  delete copy.bundleId;
+  return crypto.createHash('sha256').update(canonical(copy)).digest('hex');
+};
+const errors = [];
+if (bundle.schemaVersion !== 1 || bundle.projectId !== 'merchant-center') errors.push('bundle-schema-or-project-invalid');
+if (!/^[0-9a-f]{64}$/i.test(String(bundle.bundleId || '')) || bundle.bundleId !== fingerprint(bundle)) errors.push('bundle-fingerprint-invalid');
+if (bundle.contract?.publicContractVersion !== '1.0.0' || bundle.contract?.runnerContractVersion !== '1.0.0' || bundle.contract?.adapterContracts?.tap !== '1.0.0' || bundle.contract?.adapterContracts?.merchantCenter !== '1.0.0') errors.push('bundle-contract-versions-invalid');
+if (JSON.stringify(bundle.contract?.phases) !== JSON.stringify(['preflight', 'contract', 'pilot', 'full-regression'])) errors.push('bundle-phases-invalid');
+for (const key of ['pcs', 'mc', 'tap']) {
+  const repository = bundle.repositories?.[key] || {};
+  if (!/^[0-9a-f]{40}$/i.test(String(repository.revision || ''))) errors.push(`bundle-${key}-revision-invalid`);
+  if (repository.branch !== 'main') errors.push(`bundle-${key}-branch-invalid`);
+  if (repository.sourceRef !== 'refs/heads/main' || repository.sourceKind !== 'remote-main') errors.push(`bundle-${key}-source-invalid`);
+  const checkout = String(repository.checkout || '');
+  if (!checkout || checkout.startsWith('/') || checkout.includes('..') || checkout.includes(':') || checkout.includes('\\')) errors.push(`bundle-${key}-checkout-invalid`);
+}
+if (errors.length) { console.error(errors.join(',')); process.exit(2); }
+const fields = {
+  bundleId: bundle.bundleId,
+  pcsRevision: bundle.repositories.pcs.revision,
+  pcsBranch: bundle.repositories.pcs.branch,
+  mcRevision: bundle.repositories.mc.revision,
+  mcBranch: bundle.repositories.mc.branch,
+  tapRevision: bundle.repositories.tap.revision,
+  tapBranch: bundle.repositories.tap.branch,
+  publicContractVersion: bundle.contract.publicContractVersion,
+  runnerContractVersion: bundle.contract.runnerContractVersion,
+  tapAdapterContractVersion: bundle.contract.adapterContracts.tap,
+  merchantCenterAdapterContractVersion: bundle.contract.adapterContracts.merchantCenter,
+};
+process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${value}`).join('\n'));
+'''
+      def bundleMetadata = bat(returnStdout: true, script: '@node bundle-validator.cjs bundle.json').trim()
+      def bundleFields = [:]
+      bundleMetadata.readLines().each { line ->
+        def pair = line.split('=', 2)
+        if (pair.size() == 2) bundleFields[pair[0]] = pair[1]
+      }
+      if (!bundleFields.bundleId) error('BUNDLE_JSON must be valid JSON')
+      def bundle = [
+        schemaVersion: 1, projectId: 'merchant-center', bundleId: bundleFields.bundleId,
+        repositories: [
+          pcs: [revision: bundleFields.pcsRevision, branch: bundleFields.pcsBranch],
+          mc: [revision: bundleFields.mcRevision, branch: bundleFields.mcBranch],
+          tap: [revision: bundleFields.tapRevision, branch: bundleFields.tapBranch],
+        ],
+        contract: [
+          publicContractVersion: bundleFields.publicContractVersion,
+          runnerContractVersion: bundleFields.runnerContractVersion,
+          adapterContracts: [tap: bundleFields.tapAdapterContractVersion, merchantCenter: bundleFields.merchantCenterAdapterContractVersion],
+          phases: ['preflight', 'contract', 'pilot', 'full-regression'],
+        ],
+      ]
       def bundleRepositories = bundle.repositories ?: [:]
-      if (!(bundle.bundleId ==~ /[0-9a-f]{64}/) || bundle.bundleId != bundleFingerprint(bundle)) error('Bundle fingerprint mismatch')
       if (bundle.schemaVersion != 1 || bundle.projectId != 'merchant-center') error('Bundle schema or project invalid')
       if (bundle.contract?.publicContractVersion != '1.0.0' || bundle.contract?.runnerContractVersion != '1.0.0' || bundle.contract?.adapterContracts?.tap != '1.0.0' || bundle.contract?.adapterContracts?.merchantCenter != '1.0.0') error('Bundle contract versions invalid')
       if (groovy.json.JsonOutput.toJson(bundle.contract?.phases) != groovy.json.JsonOutput.toJson(['preflight','contract','pilot','full-regression'])) error('Bundle phases invalid')
@@ -48,12 +110,10 @@ node {
         def revision = bundleRepositories[key]?.revision?.toString()
         if (!(revision ==~ /[0-9a-f]{40}/)) error("Bundle ${key} exact revision required")
         if (bundleRepositories[key]?.branch != 'main') error("Bundle ${key} must use main")
-        if (bundleRepositories[key]?.sourceRef != 'refs/heads/main' || bundleRepositories[key]?.sourceKind != 'remote-main') error("Bundle ${key} must come from remote main")
-        if (!bundleRepositories[key]?.checkout) error("Bundle ${key} checkout metadata required")
+        if (!bundleRepositories[key]?.checkout) bundleRepositories[key].checkout = key == 'pcs' ? 'suite-src' : (key == 'mc' ? 'suite-src/projects/merchant-center' : 'suite-src/tap')
         def checkout = bundleRepositories[key].checkout.toString()
         if (checkout.startsWith('/') || checkout.contains('..') || checkout.contains(':') || checkout.contains('\\')) error("Bundle ${key} checkout path invalid")
-      }
-      requestId = params.REQUEST_ID?.trim() ?: "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"
+      }      requestId = params.REQUEST_ID?.trim() ?: "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"
       intentId = params.INTENT_ID?.trim() ?: UUID.randomUUID().toString()
       if (!(requestId ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       // Keep the explicit parameter contract visible to static governance;
