@@ -38,7 +38,7 @@ node {
     timeout(time: buildTimeoutMinutes, unit: 'MINUTES') {
       if (!params.BUNDLE_JSON?.trim()) error('Immutable BUNDLE_JSON required')
       if (params.GIT_SHA?.trim() || params.MC_GIT_SHA?.trim() || params.TAP_GIT_SHA?.trim()) error('Free SHA parameters are forbidden; submit one immutable bundle')
-      try { bundle = new groovy.json.JsonSlurperClassic().parseText(params.BUNDLE_JSON) } catch (exception) { error('BUNDLE_JSON must be valid JSON') }
+      try { bundle = readJSON text: params.BUNDLE_JSON } catch (exception) { error('BUNDLE_JSON must be valid JSON') }
       def bundleRepositories = bundle.repositories ?: [:]
       if (!(bundle.bundleId ==~ /[0-9a-f]{64}/) || bundle.bundleId != bundleFingerprint(bundle)) error('Bundle fingerprint mismatch')
       if (bundle.schemaVersion != 1 || bundle.projectId != 'merchant-center') error('Bundle schema or project invalid')
