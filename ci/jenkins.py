@@ -463,7 +463,7 @@ def submit(scope='contracts', auto_chain=False):
         'createdAt':state['createdAt'],'status':'submitted'
     })
     validate_trigger_request({
-        'gitSha': sha,
+        'bundleId': bundle['bundleId'],
         'requestId': state['requestId'],
         'intentId': state['intentId'],
         'runScope': scope,

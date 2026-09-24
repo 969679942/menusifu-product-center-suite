@@ -7,6 +7,12 @@ spec=importlib.util.spec_from_file_location('jenkins_transport',pathlib.Path(__f
 j=importlib.util.module_from_spec(spec);spec.loader.exec_module(j)
 
 class TransportBoundaryTests(unittest.TestCase):
+    def test_submission_preflight_validates_bundle_identity_not_free_sha(self):
+        payload={'bundleId':'a'*64,'requestId':'request-1','intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'pilot','triggerSource':'explicit-local-submit'}
+        j.validate_trigger_request(payload, 'b'*40)
+        with self.assertRaisesRegex(RuntimeError, 'free-gitSha-forbidden'):
+            j.validate_trigger_request({**payload, 'gitSha':'b'*40}, 'b'*40)
+
     def test_legacy_build_110_analysis_is_reconciled_once_without_granting_pass(self):
         build={'buildNumber':110,'gitSha':'a'*40,'requestId':'request-110',
                'intentId':'123e4567-e89b-12d3-a456-426614174000','runScope':'full-regression'}
