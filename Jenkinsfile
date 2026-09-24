@@ -149,7 +149,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
               git sparse-checkout init --no-cone
               if errorlevel 1 exit /b 1
               (echo /ci/**& echo /Jenkinsfile& echo /suite.json) > .git/info/sparse-checkout
-              git cat-file -e %BUNDLE_PCS_SHA%^{commit}
+              git cat-file -e %BUNDLE_PCS_SHA%
               if errorlevel 1 exit /b 1
               git checkout --detach %BUNDLE_PCS_SHA%
               if errorlevel 1 exit /b 1

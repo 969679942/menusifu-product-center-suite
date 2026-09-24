@@ -38,6 +38,8 @@ test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
   assert.match(pipeline,/params\.BUNDLE_JSON/);
   assert.match(pipeline,/Free SHA parameters are forbidden/);
   assert.match(pipeline,/git checkout --detach %BUNDLE_PCS_SHA%/);
+  assert.match(pipeline,/git cat-file -e %BUNDLE_PCS_SHA%/);
+  assert.doesNotMatch(pipeline,/git cat-file -e %BUNDLE_PCS_SHA%\^\{commit\}/);
   assert.match(pipeline,/release-bundle\.cjs validate/);
   assert.match(pipeline,/bundle-validator\.cjs bundle\.json/);
   assert.match(pipeline,/jsonString = \{ value ->/);
