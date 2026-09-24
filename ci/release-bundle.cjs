@@ -142,8 +142,12 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     if (!value.startsWith('--')) continue;
-    args[value.slice(2)] = argv[index + 1];
-    index += 1;
+    const key = value.slice(2);
+    const next = argv[index + 1];
+    if (next && !next.startsWith('--')) {
+      args[key] = next;
+      index += 1;
+    } else args[key] = true;
   }
   return args;
 }
