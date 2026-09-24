@@ -34,7 +34,8 @@ process.env.CI = 'true';
 process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER = path.join(out, 'business-execution-started.marker');
 if (fullRegression || process.env.RUN_SCOPE === 'pilot') {
   const runtimeConfigScript = path.join(project, 'scripts', 'validate-product-center-runtime-config.ts');
-  execFileSync(path.join(project, 'node_modules', 'tsx', 'dist', 'cli.mjs'), [runtimeConfigScript], {
+  const tsxCli = path.join(project, 'node_modules', 'tsx', 'dist', 'cli.mjs');
+  execFileSync(process.execPath, [tsxCli, runtimeConfigScript], {
     cwd: project,
     env: process.env,
     stdio: ['ignore', 'pipe', 'pipe'],
