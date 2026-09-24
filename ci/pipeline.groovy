@@ -31,7 +31,7 @@ if (params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot','full-regression']
 if (params.RUN_SCOPE in ['pilot','full-regression']) {
   stage('Preflight runtime configuration schema') {
     bat '''@echo off
-    cd /d "suite-src\projects\merchant-center\Merchant Center UITest"
+    cd /d "suite-src\\projects\\merchant-center\\Merchant Center UITest"
     node node_modules/tsx/dist/cli.mjs scripts/validate-product-center-runtime-config.ts
     exit /b %ERRORLEVEL%
     '''
@@ -56,10 +56,10 @@ if (params.RUN_SCOPE == 'full-regression') {
   stage('Technical Pilot authorization') {
     bat '''@echo off
     set "RUN_SCOPE=pilot"
-    cd /d "suite-src\projects\merchant-center\Merchant Center UITest"
+    cd /d "suite-src\\projects\\merchant-center\\Merchant Center UITest"
     node node_modules/tsx/dist/cli.mjs ../../../ci/run-pilot.ts
     if errorlevel 1 exit /b 1
-    cd /d "..\..\.."
+    cd /d "..\\..\\.."
     node ci/verify-pilot-authorization.cjs
     exit /b %ERRORLEVEL%
     '''
