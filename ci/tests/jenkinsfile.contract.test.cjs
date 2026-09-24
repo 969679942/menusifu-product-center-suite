@@ -36,6 +36,8 @@ test('dedicated Jenkins job always leaves a terminal report and preserves invoca
 test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
   assert.deepEqual(branchPolicy,{pcs:'main',mc:'main',tap:'main',enforcement:'bundle-declared-branch-with-exact-revision'});
   assert.match(pipeline,/params\.BUNDLE_JSON/);
+  assert.match(pipeline,/MC_RUNTIME_ENV=\$\{runtimeEnv\}/);
+  assert.match(pipeline,/def runtimeEnv = params\.MC_RUNTIME_ENV/);
   assert.match(pipeline,/Free SHA parameters are forbidden/);
   assert.match(pipeline,/git checkout --detach %BUNDLE_PCS_SHA%/);
   assert.match(pipeline,/git cat-file -e %BUNDLE_PCS_SHA%/);

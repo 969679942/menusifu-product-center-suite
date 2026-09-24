@@ -117,9 +117,10 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
       def triggerSource = params.TRIGGER_SOURCE?.trim() ?: (currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause') ? 'jenkins-schedule' : 'jenkins-parameterized-build')
       if (!(triggerSource in ['explicit-local-submit','github-webhook','scm-trigger','workflow-dispatch','jenkins-schedule','jenkins-parameterized-build'])) error('Valid TRIGGER_SOURCE required')
       if (params.AUTO_CHAIN == true && !(params.RUN_SCOPE in ['contracts','reports','pilot'])) error('Automatic chain scope invalid')
-      if (params.AUTO_CHAIN == true && !env.MC_RUNTIME_ENV?.trim()) error('Automatic chain requires pilot runtime configuration')
+      def runtimeEnv = params.MC_RUNTIME_ENV?.toString() ?: ''
+      if (params.AUTO_CHAIN == true && !runtimeEnv.trim()) error('Automatic chain requires pilot runtime configuration')
       def executionSucceeded = false
-      withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}"]) {
+      withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}", "MC_RUNTIME_ENV=${runtimeEnv}"]) {
         deleteDir()
         writeFile file: 'bundle.json', text: params.BUNDLE_JSON
         try {
