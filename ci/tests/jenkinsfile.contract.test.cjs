@@ -25,7 +25,7 @@ test('dedicated Jenkins job always leaves a terminal report and preserves invoca
   assert.match(pipeline,/allure-technical-publishable\.marker/);
   assert.match(pipeline,/allure-results-technical/);
   assert.match(pipeline,/jenkins-allure-results\/technical-terminal-result\.json/);
-  assert.match(pipeline,/executionDisposition',value:'technical-blocked'/);
+  assert.match(pipeline,/executionDisposition.*technical-blocked/);
   assert.match(pipeline,/Business pass authority=FALSE/);
   assert.doesNotMatch(pipeline,/writeFile file: 'suite-src\/output\/ci\/execution-intent\.json'/);
   assert.match(pipeline,/if \(!fileExists\('suite-src\/output\/ci\/execution-report\.html'\)\)/);
@@ -39,7 +39,8 @@ test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
   assert.match(pipeline,/Free SHA parameters are forbidden/);
   assert.match(pipeline,/git checkout --detach %BUNDLE_PCS_SHA%/);
   assert.match(pipeline,/release-bundle\.cjs validate/);
-  assert.match(pipeline,/bundleFingerprint\(bundle\)/);
+  assert.match(pipeline,/bundle-validator\.cjs bundle\.json/);
+  assert.match(pipeline,/jsonString = \{ value ->/);
   assert.match(pipeline,/adapterContracts/);
   assert.match(pipeline,/core\.longpaths/);
   assert.match(pipeline,/--branch main --single-branch/);

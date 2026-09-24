@@ -2,17 +2,9 @@ def nextChainScope = null
 def requestId = null
 def intentId = null
 def bundle = null
-def canonicalBundleValue
-canonicalBundleValue = { value ->
-  if (value instanceof List) return '[' + value.collect { canonicalBundleValue(it) }.join(',') + ']'
-  if (value instanceof Map) return '{' + value.keySet().collect { it.toString() }.sort().collect { key -> groovy.json.JsonOutput.toJson(key) + ':' + canonicalBundleValue(value[key]) }.join(',') + '}'
-  return groovy.json.JsonOutput.toJson(value)
-}
-def bundleFingerprint = { value ->
-  def copy = new LinkedHashMap(value as Map)
-  copy.remove('bundleId')
-  def digest = java.security.MessageDigest.getInstance('SHA-256')
-  digest.digest(canonicalBundleValue(copy).getBytes('UTF-8')).collect { Integer.toHexString((it as int) & 0xff).padLeft(2, '0') }.join()
+def jsonString = { value ->
+  def text = value == null ? '' : value.toString()
+  '"' + text.replace('\\', '\\\\').replace('"', '\\"').replace('\r', '\\r').replace('\n', '\\n').replace('\t', '\\t') + '"'
 }
 def safePhaseReason = { value ->
   value.toString().replaceAll(/(?i)(password|token|secret|authorization|cookie)=[^\s&]+/, '$1=<redacted>').replaceAll(/[\r\n]+/, ' ').take(1000)
@@ -105,7 +97,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
       def bundleRepositories = bundle.repositories ?: [:]
       if (bundle.schemaVersion != 1 || bundle.projectId != 'merchant-center') error('Bundle schema or project invalid')
       if (bundle.contract?.publicContractVersion != '1.0.0' || bundle.contract?.runnerContractVersion != '1.0.0' || bundle.contract?.adapterContracts?.tap != '1.0.0' || bundle.contract?.adapterContracts?.merchantCenter != '1.0.0') error('Bundle contract versions invalid')
-      if (groovy.json.JsonOutput.toJson(bundle.contract?.phases) != groovy.json.JsonOutput.toJson(['preflight','contract','pilot','full-regression'])) error('Bundle phases invalid')
+      if (bundle.contract?.phases != ['preflight','contract','pilot','full-regression']) error('Bundle phases invalid')
       for (def key : ['pcs', 'mc', 'tap']) {
         def revision = bundleRepositories[key]?.revision?.toString()
         if (!(revision ==~ /[0-9a-f]{40}/)) error("Bundle ${key} exact revision required")
@@ -129,7 +121,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
       def executionSucceeded = false
       withEnv(["REQUEST_ID=${requestId}", "INTENT_ID=${intentId}", "TRIGGER_SOURCE=${triggerSource}", "BUNDLE_PCS_SHA=${bundle.repositories.pcs.revision}"]) {
         deleteDir()
-        writeFile file: 'bundle.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(bundle))
+        writeFile file: 'bundle.json', text: params.BUNDLE_JSON
         try {
           stage('Check agent GitHub connectivity') {
             bat '''@echo off
@@ -170,15 +162,25 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
             }
           }
           stage('Record immutable Jenkins invocation') {
-            writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
-              schemaVersion: 4, intentId: intentId, bundleId: bundle.bundleId,
-              gitSha: bundle.repositories.pcs.revision, pcsGitSha: bundle.repositories.pcs.revision,
-              pcsBranch: bundle.repositories.pcs.branch, mcBranch: bundle.repositories.mc.branch, tapBranch: bundle.repositories.tap.branch,
-              mcGitSha: bundle.repositories.mc.revision, tapGitSha: bundle.repositories.tap.revision, requestId: requestId,
-              publicContractVersion: bundle.contract.publicContractVersion, runnerContractVersion: bundle.contract.runnerContractVersion,
-              adapterContracts: bundle.contract.adapterContracts,
-              runScope: params.RUN_SCOPE, buildNumber: env.BUILD_NUMBER, trigger: triggerSource
-            ]))
+            writeFile file: 'suite-src/output/ci/jenkins-invocation.json', text: """{
+  \"schemaVersion\":4,
+  \"intentId\":${jsonString(intentId)},
+  \"bundleId\":${jsonString(bundle.bundleId)},
+  \"gitSha\":${jsonString(bundle.repositories.pcs.revision)},
+  \"pcsGitSha\":${jsonString(bundle.repositories.pcs.revision)},
+  \"pcsBranch\":${jsonString(bundle.repositories.pcs.branch)},
+  \"mcBranch\":${jsonString(bundle.repositories.mc.branch)},
+  \"tapBranch\":${jsonString(bundle.repositories.tap.branch)},
+  \"mcGitSha\":${jsonString(bundle.repositories.mc.revision)},
+  \"tapGitSha\":${jsonString(bundle.repositories.tap.revision)},
+  \"requestId\":${jsonString(requestId)},
+  \"publicContractVersion\":${jsonString(bundle.contract.publicContractVersion)},
+  \"runnerContractVersion\":${jsonString(bundle.contract.runnerContractVersion)},
+  \"adapterContracts\":{\"tap\":${jsonString(bundle.contract.adapterContracts.tap)},\"merchantCenter\":${jsonString(bundle.contract.adapterContracts.merchantCenter)}},
+  \"runScope\":${jsonString(params.RUN_SCOPE)},
+  \"buildNumber\":${jsonString(env.BUILD_NUMBER)},
+  \"trigger\":${jsonString(triggerSource)}
+}"""
           }
           stage('Checkout exact MC and TAP revisions') {
             for (def dependency : [
@@ -192,13 +194,21 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
                  if (result.GIT_COMMIT != dependency.revision) error('Dependency checkout identity mismatch with remote main')
               }
             }
-            writeFile file: 'suite-src/output/ci/dependency-checkout.json', text: groovy.json.JsonOutput.toJson([
-              bundleId: bundle.bundleId, pcsGitSha: bundle.repositories.pcs.revision, mcGitSha: bundle.repositories.mc.revision, tapGitSha: bundle.repositories.tap.revision,
-              pcsBranch: bundle.repositories.pcs.branch, mcBranch: bundle.repositories.mc.branch, tapBranch: bundle.repositories.tap.branch,
-              publicContractVersion: bundle.contract.publicContractVersion, runnerContractVersion: bundle.contract.runnerContractVersion,
-              adapterContracts: bundle.contract.adapterContracts,
-              mode: 'three-repository', mcRoot: 'projects/merchant-center', tapRoot: 'tap'
-            ])
+            writeFile file: 'suite-src/output/ci/dependency-checkout.json', text: """{
+  \"bundleId\":${jsonString(bundle.bundleId)},
+  \"pcsGitSha\":${jsonString(bundle.repositories.pcs.revision)},
+  \"mcGitSha\":${jsonString(bundle.repositories.mc.revision)},
+  \"tapGitSha\":${jsonString(bundle.repositories.tap.revision)},
+  \"pcsBranch\":${jsonString(bundle.repositories.pcs.branch)},
+  \"mcBranch\":${jsonString(bundle.repositories.mc.branch)},
+  \"tapBranch\":${jsonString(bundle.repositories.tap.branch)},
+  \"publicContractVersion\":${jsonString(bundle.contract.publicContractVersion)},
+  \"runnerContractVersion\":${jsonString(bundle.contract.runnerContractVersion)},
+  \"adapterContracts\":{\"tap\":${jsonString(bundle.contract.adapterContracts.tap)},\"merchantCenter\":${jsonString(bundle.contract.adapterContracts.merchantCenter)}},
+  \"mode\":\"three-repository\",
+  \"mcRoot\":\"projects/merchant-center\",
+  \"tapRoot\":\"tap\"
+}"""
             bat '@powershell -NoProfile -File suite-src/ci/link-tap-runtime.ps1'
           }
           def pipelineStartedAt = new Date().toInstant().toString()
@@ -207,10 +217,16 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
             executionSucceeded = true
           } catch (Throwable phaseError) {
             def phaseName = (env.STAGE_NAME ?: 'jenkins-pipeline').replaceAll(/[^A-Za-z0-9._-]+/, '-').toLowerCase()
-            writeFile file: 'suite-src/output/ci/phase-failure.json', text: groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
-              schemaVersion: 1, phase: phaseName, category: 'technical-blocked', reason: safePhaseReason(phaseError),
-              technicalDetails: safePhaseReason(phaseError), startedAt: pipelineStartedAt, finishedAt: new Date().toInstant().toString(), bundleId: bundle.bundleId
-            ]))
+            writeFile file: 'suite-src/output/ci/phase-failure.json', text: """{
+  \"schemaVersion\":1,
+  \"phase\":${jsonString(phaseName)},
+  \"category\":\"technical-blocked\",
+  \"reason\":${jsonString(safePhaseReason(phaseError))},
+  \"technicalDetails\":${jsonString(safePhaseReason(phaseError))},
+  \"startedAt\":${jsonString(pipelineStartedAt)},
+  \"finishedAt\":${jsonString(new Date().toInstant().toString())},
+  \"bundleId\":${jsonString(bundle.bundleId)}
+}"""
             throw phaseError
           }
         } finally {
@@ -221,13 +237,17 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
           if ((params.RUN_SCOPE == 'pilot' || params.RUN_SCOPE == 'full-regression') &&
               !fileExists('suite-src/output/ci/allure-business-publishable.marker') &&
               !fileExists('suite-src/output/ci/allure-technical-publishable.marker')) {
-            writeFile file: 'jenkins-allure-results/technical-terminal-result.json', text: groovy.json.JsonOutput.toJson([
-              uuid: "technical-${env.BUILD_NUMBER}-${intentId}", name: "技术阻断诊断｜${params.RUN_SCOPE}｜构建 #${env.BUILD_NUMBER}",
-              fullName: "商品中心.技术诊断.${params.RUN_SCOPE}.构建-${env.BUILD_NUMBER}", status: 'broken', stage: 'finished',
-              statusDetails: [message: '构建在公共 Allure finalizer 生成结果前终止；请查看 Jenkins Console Log。'],
-              labels: [[name:'parentSuite',value:'商品中心'],[name:'suite',value:'技术诊断'],[name:'subSuite',value:'执行基础设施'],[name:'severity',value:'blocker'],[name:'executionDisposition',value:'technical-blocked']],
-              steps: [[name:'[技术阶段] 公共 finalizer 前终止',status:'broken',stage:'finished'],[name:'[业务执行资格] 未授权',status:'skipped',stage:'finished']], attachments: []
-            ])
+            writeFile file: 'jenkins-allure-results/technical-terminal-result.json', text: """{
+  \"uuid\":${jsonString("technical-${env.BUILD_NUMBER}-${intentId}")},
+  \"name\":${jsonString("技术阻断诊断｜${params.RUN_SCOPE}｜构建 #${env.BUILD_NUMBER}")},
+  \"fullName\":${jsonString("商品中心.技术诊断.${params.RUN_SCOPE}.构建-${env.BUILD_NUMBER}")},
+  \"status\":\"broken\",
+  \"stage\":\"finished\",
+  \"statusDetails\":{\"message\":${jsonString('构建在公共 Allure finalizer 生成结果前终止；请查看 Jenkins Console Log。')}},
+  \"labels\":[{\"name\":\"parentSuite\",\"value\":\"商品中心\"},{\"name\":\"suite\",\"value\":\"技术诊断\"},{\"name\":\"subSuite\",\"value\":\"执行基础设施\"},{\"name\":\"severity\",\"value\":\"blocker\"},{\"name\":\"executionDisposition\",\"value\":\"technical-blocked\"}],
+  \"steps\":[{\"name\":\"[技术阶段] 公共 finalizer 前终止\",\"status\":\"broken\",\"stage\":\"finished\"},{\"name\":\"[业务执行资格] 未授权\",\"status\":\"skipped\",\"stage\":\"finished\"}],
+  \"attachments\":[]
+}"""
             writeFile file: 'jenkins-allure-results/environment.properties', text: 'Execution disposition=TECHNICAL_BLOCKED\nBusiness pass authority=FALSE\n'
           }
           stage('Archive every terminal outcome') { archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html,jenkins-allure-results/**/*', allowEmptyArchive: true, fingerprint: true }
