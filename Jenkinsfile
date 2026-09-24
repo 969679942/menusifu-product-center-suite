@@ -211,7 +211,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
 }"""
             bat '@powershell -NoProfile -File suite-src/ci/link-tap-runtime.ps1'
           }
-          def pipelineStartedAt = new Date().toInstant().toString()
+          def pipelineStartedAt = new Date().getTime().toString()
           try {
             load('suite-src/ci/pipeline.groovy')
             executionSucceeded = true
@@ -224,7 +224,7 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
   \"reason\":${jsonString(safePhaseReason(phaseError))},
   \"technicalDetails\":${jsonString(safePhaseReason(phaseError))},
   \"startedAt\":${jsonString(pipelineStartedAt)},
-  \"finishedAt\":${jsonString(new Date().toInstant().toString())},
+  \"finishedAt\":${jsonString(new Date().getTime().toString())},
   \"bundleId\":${jsonString(bundle.bundleId)}
 }"""
             throw phaseError
