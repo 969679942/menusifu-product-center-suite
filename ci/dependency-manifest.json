@@ -2,11 +2,20 @@
   "schemaVersion": 1,
   "projectId": "merchant-center",
   "repositories": {
-    "pcs": { "role": "orchestrator", "branch": "master", "checkout": "current-job" },
+    "pcs": {
+      "role": "orchestrator",
+      "repository": "https://github.com/969679942/menusifu-product-center-suite.git",
+      "branch": "main",
+      "sourceRef": "refs/heads/main",
+      "sourceKind": "remote-main",
+      "checkout": "suite-src"
+    },
     "mc": {
       "role": "business-source",
       "repository": "git@github.com:969679942/Merchant-Center.git",
       "branch": "main",
+      "sourceRef": "refs/heads/main",
+      "sourceKind": "remote-main",
       "revision": "9c458df4b85c35022a046715c13be20dde24319b",
       "checkout": "projects/merchant-center"
     },
@@ -14,6 +23,8 @@
       "role": "public-runtime",
       "repository": "https://github.com/969679942/Test-Automation-Platform.git",
       "branch": "main",
+      "sourceRef": "refs/heads/main",
+      "sourceKind": "remote-main",
       "revision": "a45e0ef8ab79459169c903beaf5509b530bec499",
       "checkout": "tap"
     }

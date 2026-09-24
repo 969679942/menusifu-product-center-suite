@@ -87,12 +87,12 @@ class TransportBoundaryTests(unittest.TestCase):
 
     def test_discovery_strips_password_parameters_and_rejects_malformed_identity(self):
         item={'number':35,'building':False,'result':'FAILURE','actions':[{'parameters':[
-            {'name':'GIT_SHA','value':'bad sha'},{'name':'REQUEST_ID','value':'request-35'},
+            {'name':'BUNDLE_JSON','value':'not-json'},{'name':'REQUEST_ID','value':'request-35'},
             {'name':'INTENT_ID','value':'123e4567-e89b-12d3-a456-426614174000'},
             {'name':'RUN_SCOPE','value':'pilot'},{'name':'MC_RUNTIME_ENV','value':'secret-fixture'}]}]}
         response=unittest.mock.Mock();response.json.return_value={'builds':[item]}
         with patch.object(j,'get',return_value=response): result=j.discover_builds(34)
-        self.assertIsNone(result[0]['gitSha'])
+        self.assertIsNone(result[0]['bundleId'])
         self.assertEqual(result[0]['intentId'],'123e4567-e89b-12d3-a456-426614174000')
         self.assertNotIn('secret-fixture',json.dumps(result))
         self.assertNotIn('MC_RUNTIME_ENV',json.dumps(result))

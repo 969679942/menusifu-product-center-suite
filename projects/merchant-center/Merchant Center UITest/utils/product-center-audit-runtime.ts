@@ -1,5 +1,6 @@
 import path from 'node:path';
-import { appendAuditEvent } from '../../../../tap/src/audit/event-log';
+import { appendAuditEvent, buildAuditLifecycleEventId } from '../../../../tap/src/audit/event-log';
+import { PUBLIC_CONTRACT_VERSION } from '../../../../tap/src/ci/public-contract';
 
 const projectRoot = path.resolve(__dirname, '..');
 
@@ -12,6 +13,7 @@ export type ProductCenterAuditRunMetadata = {
   triggerActor: string;
   scope: string;
   purpose: string;
+  publicContractVersion: string;
 };
 
 /** 在 Playwright worker 启动前建立统一的实时审计上下文。 */
@@ -27,6 +29,7 @@ export function configureProductCenterAuditRuntime(): ProductCenterAuditRunMetad
     triggerActor: process.env.SYSTEM_TEST_TRIGGER_ACTOR ?? '执行器',
     scope: process.env.SYSTEM_TEST_SCOPE ?? '商品中心',
     purpose: process.env.SYSTEM_TEST_PURPOSE ?? '记录流程步骤、结果和证据，支持审计复盘',
+    publicContractVersion: PUBLIC_CONTRACT_VERSION,
   };
   process.env.SYSTEM_TEST_RUN_ID = runId;
   process.env.SYSTEM_TEST_LOGICAL_RUN_ID = logicalRunId;
@@ -35,8 +38,9 @@ export function configureProductCenterAuditRuntime(): ProductCenterAuditRunMetad
   process.env.SYSTEM_TEST_PLAN_ID ??= 'merchant-center-product-center';
   process.env.SYSTEM_TEST_AUDIT_EVENT_LOG ??= path.join(projectRoot, 'output', 'audit', 'product-center-events.jsonl');
   process.env.SYSTEM_TEST_AUDIT_RUN_METADATA = JSON.stringify(metadata);
+  const eventNamespace = process.env.SYSTEM_TEST_AUDIT_EVENT_NAMESPACE?.trim();
   appendAuditEvent(process.env.SYSTEM_TEST_AUDIT_EVENT_LOG, {
-    eventId: `run-started:${runId}`,
+    eventId: buildAuditLifecycleEventId({ runId, event: 'started', namespace: eventNamespace }),
     eventType: 'run.started',
     occurredAt: new Date().toISOString(),
     actorType: 'runner',
@@ -56,8 +60,9 @@ export function appendProductCenterAuditRunCompleted(status: 'completed' | 'fail
   if (!runId || !logPath) return;
   let metadata: Record<string, unknown> = {};
   try { metadata = JSON.parse(process.env.SYSTEM_TEST_AUDIT_RUN_METADATA ?? '{}') as Record<string, unknown>; } catch { /* 保留最小终态事件 */ }
+  const eventNamespace = process.env.SYSTEM_TEST_AUDIT_EVENT_NAMESPACE?.trim();
   appendAuditEvent(logPath, {
-    eventId: `run-completed:${runId}:${status}`,
+    eventId: buildAuditLifecycleEventId({ runId, event: status, namespace: eventNamespace }),
     eventType: status === 'completed' ? 'run.completed' : status === 'blocked' ? 'run.blocked' : 'run.failed',
     occurredAt: new Date().toISOString(),
     actorType: 'runner',
@@ -70,4 +75,3 @@ export function appendProductCenterAuditRunCompleted(status: 'completed' | 'fail
     details: { sourceKind: 'playwright-run-lifecycle', ...metadata, terminalStatus: status, realtime: true },
   });
 }
-

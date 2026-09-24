@@ -1,4 +1,4 @@
-stage('Prepare TAP runtime') {
+stage('Preflight runtime') {
   bat '''@echo off
   node suite-src\\ci\\validate-suite-config.cjs
   if errorlevel 1 exit /b 1
@@ -12,7 +12,7 @@ stage('Prepare TAP runtime') {
   '''
 }
 if (params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot','full-regression']) {
-  stage('Compile business selection without business execution') {
+  stage('Preflight business selection') {
     bat '''@echo off
     rem The MC adapter imports TAP contracts from the separately checked-out
     rem suite-src/tap tree. Never let its fallback path resolve to
@@ -28,18 +28,17 @@ if (params.AUTO_CHAIN == true || params.RUN_SCOPE in ['pilot','full-regression']
     '''
   }
 }
-stage('Fixed contract selection') {
-  // Full regression must still collect the complete business result when a
-  // preflight contract exposes a governance finding.  Keep the build
-  // non-successful (UNSTABLE) so the finding remains visible and business
-  // pass authority is never granted by a partial run.
-  if (params.RUN_SCOPE == 'full-regression') {
-    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-      bat '@node suite-src/ci/run-contracts.cjs'
-    }
-  } else {
-    bat '@node suite-src/ci/run-contracts.cjs'
+if (params.RUN_SCOPE in ['pilot','full-regression']) {
+  stage('Preflight runtime configuration schema') {
+    bat '''@echo off
+    cd /d "suite-src\projects\merchant-center\Merchant Center UITest"
+    node node_modules/tsx/dist/cli.mjs scripts/validate-product-center-runtime-config.ts
+    exit /b %ERRORLEVEL%
+    '''
   }
+}
+stage('Contract gates') {
+  bat '@node suite-src/ci/run-contracts.cjs'
 }
 stage('CI transport and reporting contracts') {
   bat '@node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=suite-src/output/ci/ci-contracts.xml suite-src/tap/tests/ci-transport.test.cjs suite-src/tap/tests/build-watch.test.cjs suite-src/tap/tests/result-bundle.test.cjs suite-src/ci/tests/finalize-allure.test.cjs suite-src/ci/tests/pilot-concurrency.test.cjs suite-src/ci/tests/full-regression-intent.test.cjs suite-src/ci/tests/jenkinsfile.contract.test.cjs suite-src/ci/tests/chain-next.test.cjs'
@@ -54,6 +53,17 @@ if (params.RUN_SCOPE == 'pilot') {
   }
 }
 if (params.RUN_SCOPE == 'full-regression') {
+  stage('Technical Pilot authorization') {
+    bat '''@echo off
+    set "RUN_SCOPE=pilot"
+    cd /d "suite-src\projects\merchant-center\Merchant Center UITest"
+    node node_modules/tsx/dist/cli.mjs ../../../ci/run-pilot.ts
+    if errorlevel 1 exit /b 1
+    cd /d "..\..\.."
+    node ci/verify-pilot-authorization.cjs
+    exit /b %ERRORLEVEL%
+    '''
+  }
   stage('Full Merchant Center product-center regression') {
     bat '''@echo off
     cd /d "suite-src\\projects\\merchant-center\\Merchant Center UITest"

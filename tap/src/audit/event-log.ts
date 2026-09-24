@@ -106,6 +106,14 @@ export type AuditAggregate = {
 
 const SENSITIVE_KEY = /(password|passwd|token|secret|cookie|authorization|set-cookie|access[-_]?key|private[-_]?key|session)/i;
 
+export function buildAuditLifecycleEventId(input: { runId: string; event: 'started' | 'completed' | 'failed' | 'blocked'; namespace?: string }): string {
+  const runId = String(input.runId ?? '').trim();
+  if (!runId) throw new Error('AUDIT_LIFECYCLE_RUN_ID_REQUIRED');
+  const namespace = String(input.namespace ?? '').trim();
+  if (namespace && !/^[A-Za-z0-9._-]{1,80}$/.test(namespace)) throw new Error('AUDIT_EVENT_NAMESPACE_INVALID');
+  return `run-${input.event}:${runId}${namespace ? `:${namespace}` : ''}`;
+}
+
 /** Redacts credentials recursively while retaining safe metadata for audit diagnostics. */
 export function redactAuditValue(value: unknown, keyHint?: string): unknown {
   if (keyHint && SENSITIVE_KEY.test(keyHint)) {

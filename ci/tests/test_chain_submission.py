@@ -11,7 +11,7 @@ class ChainSubmission(unittest.TestCase):
     def test_submit_cli_contract_accepts_scope_and_auto_chain(self):
         self.assertEqual(list(inspect.signature(j.submit).parameters), ['scope', 'auto_chain'])
         self.assertEqual(set(j.BUILD_STRING_PARAMETERS), {
-            'GIT_SHA', 'MC_GIT_SHA', 'TAP_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
+            'BUNDLE_JSON', 'REQUEST_ID', 'INTENT_ID',
             'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
         })
         self.assertEqual(j.BUILD_BOOLEAN_PARAMETERS, ['AUTO_CHAIN'])
@@ -23,8 +23,10 @@ class ChainSubmission(unittest.TestCase):
                 data=j.submission_parameters('a'*40,'contracts','request',self.intent_id,True)
             self.assertEqual(data['AUTO_CHAIN'],'true')
             self.assertEqual(data['MC_RUNTIME_ENV'],'FIXTURE=value')
-            self.assertEqual(data['MC_GIT_SHA'],j.read(j.ROOT/'ci/dependency-manifest.json')['repositories']['mc']['revision'])
-            self.assertEqual(len(data['TAP_GIT_SHA']),40)
+            bundle=j.json.loads(data['BUNDLE_JSON'])
+            self.assertEqual(bundle['repositories']['mc']['revision'],j.read(j.ROOT/'ci/dependency-manifest.json')['repositories']['mc']['revision'])
+            self.assertEqual(len(bundle['repositories']['tap']['revision']),40)
+            self.assertEqual(len(bundle['bundleId']),64)
 
     def test_missing_runtime_blocks_chain_before_submit(self):
         with tempfile.TemporaryDirectory() as d, patch.dict(os.environ,{'MC_RUNTIME_ENV_PATH':str(pathlib.Path(d)/'missing.env')}):

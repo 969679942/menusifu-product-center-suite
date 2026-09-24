@@ -26,10 +26,20 @@ for (const line of (process.env.MC_RUNTIME_ENV || '').split(/\r?\n/)) {
   const key = line.slice(0, split).trim(), value = line.slice(split + 1);
   if (!/^(MC_|PLAYWRIGHT_)/.test(key)) continue;
   process.env[key] = value;
+  if (key === 'MC_MERCHANT_NAME' && !process.env.MC_MERCHANT) process.env.MC_MERCHANT = value;
   if (/PASSWORD|TOKEN|SECRET/i.test(key) && value.length > 3) secretValues.push(value);
 }
 delete process.env.MC_RUNTIME_ENV;
 process.env.CI = 'true';
+process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER = path.join(out, 'business-execution-started.marker');
+if (fullRegression || process.env.RUN_SCOPE === 'pilot') {
+  const runtimeConfigScript = path.join(project, 'scripts', 'validate-product-center-runtime-config.ts');
+  execFileSync(path.join(project, 'node_modules', 'tsx', 'dist', 'cli.mjs'), [runtimeConfigScript], {
+    cwd: project,
+    env: process.env,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
 process.env.SYSTEM_TEST_ADDITIONAL_REPORTERS = path.join(project, 'reporters/product-center-system-allure.reporter.ts');
 // The public concurrency resolver clamps the requested worker count by the
 // manifest cap, CPU, memory and selected-case count; Jenkins still owns one
@@ -96,7 +106,7 @@ async function main() {
   if (process.cwd().toLowerCase() !== project.toLowerCase()) throw new Error('Business regression must start from the MC project root');
   if (!fullRegression && (allCaseIds.length !== 10 || new Set(allCaseIds).size !== 10)) throw new Error('Exact ten-case selection required');
   prepareFullRegressionTaskScopeAuthorization(allCaseIds);
-  let code = 0; const diagnostics: string[] = [];
+  let code = 0; const diagnostics: string[] = []; let primaryFailure: { category: string; phase: string; reason: string } | null = null;
   const groupResults: Array<{ runId: string; contextProfile: string; selectedCaseIds: string[]; terminalCaseIds: string[]; code: number; report: any; ledger: any; receiptAudit: any }> = [];
   for (const group of groupsForRun()) {
     const groupRunId = fullRegression ? `${runId}-${group.contextProfile}` : runId;
@@ -108,7 +118,11 @@ async function main() {
     process.env.SYSTEM_TEST_RUN_ID = groupRunId;
     let groupCode = 2;
     try { groupCode = await runSystemTest({ manifestPath, runId: groupRunId, caseIds: group.caseIds, executionIntent: 'full-regression', fullRegressionAuthorized: true, auditEventLogPath: process.env.SYSTEM_TEST_AUDIT_EVENT_LOG }); }
-    catch (error) { diagnostics.push(`${group.contextProfile}: ${safeText(error instanceof Error ? error.stack || error.message : String(error))}`); }
+    catch (error) {
+      const reason = safeText(error instanceof Error ? error.stack || error.message : String(error));
+      diagnostics.push(`${group.contextProfile}: ${reason}`);
+      primaryFailure ??= { category: 'runner/application', phase: 'business', reason };
+    }
     finally {
       archive(source, path.join(out, 'business', groupRunId));
       const load = (name: string) => fs.existsSync(path.join(source, name)) ? JSON.parse(fs.readFileSync(path.join(source, name), 'utf8')) : null;
@@ -127,9 +141,14 @@ async function main() {
   const receiptAudit = { status: groupResults.length > 0 && groupResults.every((group) => group.receiptAudit?.status === 'complete') && terminalCaseIds.length === allCaseIds.length ? 'complete' : 'incomplete', selected: allCaseIds.length, received: terminalCaseIds.length, cases: receiptCases };
   const records = groupResults.flatMap((group) => group.ledger?.cases ?? []);
   const caseAudit = records.map((item: any) => ({ caseId: item.caseId, status: item.playwrightStatus ?? 'not-run', accepted: item.playwrightStatus === 'passed' && item.evidence?.status === 'complete' }));
-  const envelope = { schemaVersion: 1, kind: fullRegression ? 'governed-business-full-regression' : pilotSelection.kind, gitSha, buildNumber: process.env.BUILD_NUMBER, requestId: process.env.REQUEST_ID, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'pilot', selectedCaseIds: allCaseIds, selectionFingerprint: selectionFingerprint(allCaseIds), terminalCaseIds, caseAudit, publicReceiptAccepted: code === 0 && receiptAudit.status === 'complete', receiptAudit, status: terminalCaseIds.length < allCaseIds.length ? 'blocked' : code === 0 ? 'completed' : 'completed-with-findings', passed: records.filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: records.filter((item: any) => item.playwrightStatus === 'failed').length, skipped: Math.max(0, allCaseIds.length - terminalCaseIds.length), exitCode: code, diagnostic: diagnostics.join('\n'), runId, contextRuns: groupResults.map((group) => ({ runId: group.runId, contextProfile: group.contextProfile, selectedCaseIds: group.selectedCaseIds, terminalCaseIds: group.terminalCaseIds, status: group.terminalCaseIds.length < group.selectedCaseIds.length ? 'blocked' : group.code === 0 ? 'passed' : 'completed-with-findings', passed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'failed').length })) };
+  const envelope = { schemaVersion: 1, kind: fullRegression ? 'governed-business-full-regression' : pilotSelection.kind, gitSha, buildNumber: process.env.BUILD_NUMBER, requestId: process.env.REQUEST_ID, intentId: process.env.INTENT_ID ?? null, runScope: process.env.RUN_SCOPE ?? 'pilot', selectedCaseIds: allCaseIds, selectionFingerprint: selectionFingerprint(allCaseIds), terminalCaseIds, caseAudit, publicReceiptAccepted: code === 0 && receiptAudit.status === 'complete', receiptAudit, status: terminalCaseIds.length < allCaseIds.length ? 'blocked' : code === 0 ? 'completed' : 'completed-with-findings', passed: records.filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: records.filter((item: any) => item.playwrightStatus === 'failed').length, skipped: Math.max(0, allCaseIds.length - terminalCaseIds.length), exitCode: code, diagnostic: diagnostics.join('\n'), primaryFailure, runId, contextRuns: groupResults.map((group) => ({ runId: group.runId, contextProfile: group.contextProfile, selectedCaseIds: group.selectedCaseIds, terminalCaseIds: group.terminalCaseIds, status: group.terminalCaseIds.length < group.selectedCaseIds.length ? 'blocked' : group.code === 0 ? 'passed' : 'completed-with-findings', passed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'passed' && item.evidence?.status === 'complete').length, failed: (group.ledger?.cases ?? []).filter((item: any) => item.playwrightStatus === 'failed').length })) };
   fs.writeFileSync(path.join(out, fullRegression ? 'result-envelope.json' : 'pilot-envelope.json'), safeText(JSON.stringify(envelope, null, 2)));
   if (diagnostics.length) process.stderr.write(safeText(diagnostics.join('\n')) + '\n');
   process.exitCode = code;
 }
-void main().catch((error) => { process.stderr.write(`${safeText(error instanceof Error ? error.stack || error.message : String(error))}\n`); process.exitCode = 2; });
+void main().catch((error) => {
+  const reason = safeText(error instanceof Error ? error.stack || error.message : String(error));
+  fs.mkdirSync(out, { recursive: true });
+  fs.writeFileSync(path.join(out, 'primary-failure.json'), JSON.stringify({ category: 'runner/application', phase: 'preflight-or-business', reason }));
+  process.stderr.write(`${reason}\n`); process.exitCode = 2;
+});

@@ -430,6 +430,7 @@ export async function runSystemTest(input: {
     SYSTEM_TEST_CONTRACT: artifacts.contractPath,
     SYSTEM_TEST_PROGRESS_LATEST: progressLatest,
     SYSTEM_TEST_PROGRESS_HISTORY: progressHistory,
+    ...(process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER ? { SYSTEM_TEST_BUSINESS_STARTED_MARKER: path.resolve(process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER) } : {}),
     SYSTEM_TEST_EVIDENCE_OUTPUT: evidencePath,
     SYSTEM_TEST_BASE_URL: artifacts.manifest.system.baseURL,
     SYSTEM_TEST_MARKER_PREFIX: artifacts.manifest.system.markerPrefix,

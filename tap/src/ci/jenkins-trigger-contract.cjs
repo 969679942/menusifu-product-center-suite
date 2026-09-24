@@ -30,10 +30,8 @@ function isUuid(value) {
 function validateJenkinsTriggerRequest(request, options = {}) {
   const errors = [];
   const value = request && typeof request === 'object' ? request : {};
-  if (!isSha(value.gitSha)) errors.push('gitSha-must-be-exact-40-hex');
-  if (options.remoteSha !== undefined && value.gitSha !== options.remoteSha) {
-    errors.push('gitSha-not-equal-remote-head');
-  }
+  if (!/^[0-9a-f]{64}$/i.test(String(value.bundleId || ''))) errors.push('bundleId-must-be-exact-64-hex');
+  for (const field of ['gitSha', 'mcGitSha', 'tapGitSha']) if (Object.prototype.hasOwnProperty.call(value, field)) errors.push(`free-${field}-forbidden`);
   if (!isRequestId(value.requestId)) errors.push('requestId-invalid');
   if (!isUuid(value.intentId)) errors.push('intentId-invalid');
   if (!RUN_SCOPES.has(value.runScope)) errors.push('runScope-invalid');
@@ -55,8 +53,8 @@ function assertJenkinsTriggerRequest(request, options = {}) {
 
 function normalizeJenkinsTriggerRequest(request) {
   return {
-    schemaVersion: 1,
-    gitSha: request.gitSha.toLowerCase(),
+    schemaVersion: 2,
+    bundleId: request.bundleId.toLowerCase(),
     requestId: request.requestId,
     intentId: request.intentId.toLowerCase(),
     runScope: request.runScope,
@@ -71,13 +69,7 @@ function fingerprintJenkinsTriggerRequest(request) {
 
 function validateJenkinsInvocation(input, options = {}) {
   const value = input && typeof input === 'object' ? input : {};
-  const errors = validateJenkinsTriggerRequest(value, { remoteSha: options.remoteSha });
-  for (const [field, label] of [['mcGitSha', 'mcGitSha'], ['tapGitSha', 'tapGitSha']]) {
-    if (!isSha(value[field])) errors.push(`${label}-must-be-exact-40-hex`);
-  }
-  if (options.remoteMcSha !== undefined && value.mcGitSha !== options.remoteMcSha) errors.push('mcGitSha-not-equal-remote-head');
-  if (options.remoteTapSha !== undefined && value.tapGitSha !== options.remoteTapSha) errors.push('tapGitSha-not-equal-remote-head');
-  return [...new Set(errors)];
+  return [...new Set(validateJenkinsTriggerRequest(value, options))];
 }
 
 function assertJenkinsInvocation(input, options = {}) {

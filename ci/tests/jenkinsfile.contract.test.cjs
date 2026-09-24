@@ -17,7 +17,8 @@ const contractRunner=fs.readFileSync(path.join(root,'ci/run-contracts.cjs'),'utf
 test('dedicated Jenkins job always leaves a terminal report and preserves invocation identity',()=>{
   assert.equal((pipeline.match(/\{/g)||[]).length,(pipeline.match(/\}/g)||[]).length);
   assert.equal((pipeline.match(/stage\('Persist chain decision'\)/g)||[]).length,1);
-  assert.match(pipeline,/ws\("\$\{env\.WORKSPACE\}@\$\{env\.BUILD_NUMBER\}-isolated"\)/);
+  assert.match(pipeline,/WINDOWS_SHORT_WORKSPACE_ROOT/);
+  assert.ok(pipeline.includes('ws("${shortWorkspaceRoot}\\\\${safeJobName}\\\\${env.BUILD_NUMBER}")'));
   assert.match(pipeline,/params\.RUN_SCOPE == 'full-regression' \? 360 : 180/);
   assert.match(pipeline,/if \(!\(params\.INTENT_ID ==~ \/\[0-9a-f-\]\{36\}\//);
   assert.match(pipeline,/jenkins-invocation\.json/);
@@ -32,22 +33,25 @@ test('dedicated Jenkins job always leaves a terminal report and preserves invoca
   assert.ok(pipeline.includes("archiveArtifacts artifacts: 'suite-src/output/ci/**/*,jenkins-terminal-report.html,jenkins-allure-results/**/*'"));
 });
 
-test('Jenkins checks the fixed branch tip for all three repositories',()=>{
-  assert.deepEqual(branchPolicy,{pcs:'master',mc:'main',tap:'main',enforcement:'exact-branch-tip'});
-  assert.match(pipeline,/fixedBranches\s*=\s*\[pcs: 'master', mc: 'main', tap: 'main'\]/);
-  assert.match(pipeline,/--branch master --single-branch/);
+test('Jenkins consumes the immutable Bundle and checks exact revisions',()=>{
+  assert.deepEqual(branchPolicy,{pcs:'main',mc:'main',tap:'main',enforcement:'bundle-declared-branch-with-exact-revision'});
+  assert.match(pipeline,/params\.BUNDLE_JSON/);
+  assert.match(pipeline,/Free SHA parameters are forbidden/);
+  assert.match(pipeline,/git checkout --detach %BUNDLE_PCS_SHA%/);
+  assert.match(pipeline,/release-bundle\.cjs validate/);
+  assert.match(pipeline,/bundleFingerprint\(bundle\)/);
+  assert.match(pipeline,/adapterContracts/);
+  assert.match(pipeline,/core\.longpaths/);
+  assert.match(pipeline,/--branch main --single-branch/);
   assert.match(pipeline,/git -c http\.proxy= -c http\.https:\/\/github\.com\.proxy= clone/);
   assert.ok((pipeline.match(/git config --local http\.https:\/\/github\.com\.proxy ""/g)||[]).length>=2);
   assert.doesNotMatch(pipeline,/-c https\.proxy=/);
   assert.match(pipeline,/echo \/ci\/\*\*& echo \/Jenkinsfile& echo \/suite\.json/);
   assert.doesNotMatch(pipeline,/echo \/projects\/merchant-center\/\*\*/);
-  assert.match(pipeline,/refs\/remotes\/origin\/master/);
-  assert.match(pipeline,/branch: fixedBranches\.tap/);
-  assert.match(pipeline,/branch: fixedBranches\.mc/);
-  assert.match(pipeline,/refs\/heads\/\$\{dependency\.branch\}/);
-  assert.match(pipeline,/pcsBranch: fixedBranches\.pcs/);
-  assert.match(pipeline,/mcBranch: fixedBranches\.mc/);
-  assert.match(pipeline,/tapBranch: fixedBranches\.tap/);
+  assert.doesNotMatch(pipeline,/refs\/remotes\/origin\/master/);
+  assert.match(pipeline,/revision: bundle\.repositories\.tap\.revision/);
+  assert.match(pipeline,/revision: bundle\.repositories\.mc\.revision/);
+  assert.doesNotMatch(pipeline,/refs\/heads\/\$\{dependency\.branch\}/);
 });
 
 test('isolated builds resolve TAP from the active workspace directory',()=>{

@@ -32,7 +32,7 @@ STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
 DISCOVERY_STATE = OUT / 'discovery-checkpoint.json'
 BUILD_STRING_PARAMETERS = [
-    'GIT_SHA', 'MC_GIT_SHA', 'TAP_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
+    'BUNDLE_JSON', 'REQUEST_ID', 'INTENT_ID',
     'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV',
 ]
 BUILD_BOOLEAN_PARAMETERS = ['AUTO_CHAIN']
@@ -275,8 +275,8 @@ def health():
                         '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
                         "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
                         'jenkins-invocation.json',
-                        "fixedBranches = [pcs: 'master', mc: 'main', tap: 'main']",
-                        '--branch master --single-branch',
+                        "fixedBranches = [pcs: 'main', mc: 'main', tap: 'main']",
+                        '--branch main --single-branch',
                         'branch: fixedBranches.tap',
                         'branch: fixedBranches.mc',
                     ])
@@ -373,7 +373,7 @@ def git(*args):
                 env={**os.environ,'GIT_TERMINAL_PROMPT':'0','GCM_INTERACTIVE':'Never'}).strip()
         except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
             write(OUT/'git-retry.json',{'operation':args[0],'attempt':attempt+1,'delay':delay})
-            if args[0] not in ['ls-remote','push'] or not delay: raise
+            if args[0] not in ['ls-remote'] or not delay: raise
             time.sleep(delay)
 
 def validate_trigger_request(payload, remote_sha=None):
@@ -393,7 +393,7 @@ def validate_trigger_request(payload, remote_sha=None):
     if errors:
         raise RuntimeError('JENKINS_TRIGGER_CONTRACT_INVALID:' + ','.join(errors))
 
-def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
+def submission_parameters(scope, request_id, intent_id, auto_chain=False):
     if auto_chain and scope == 'full-regression':
         raise ValueError('full-regression-cannot-auto-chain')
     manifest_path = ROOT / 'ci' / 'dependency-manifest.json'
@@ -401,7 +401,7 @@ def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
         raise RuntimeError('dependency-manifest-missing')
     manifest = read(manifest_path)
     repositories = manifest.get('repositories', {})
-    expected_branches = {'pcs': 'master', 'mc': 'main', 'tap': 'main'}
+    expected_branches = {'pcs': 'main', 'mc': 'main', 'tap': 'main'}
     for key, expected in expected_branches.items():
         actual = repositories.get(key, {}).get('branch')
         if actual != expected:
@@ -410,8 +410,13 @@ def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
     tap_sha = repositories.get('tap', {}).get('revision')
     if not isinstance(mc_sha, str) or not isinstance(tap_sha, str):
         raise RuntimeError('dependency-manifest-incomplete')
+    bundle_output = subprocess.check_output([
+        'node', str(ROOT / 'ci' / 'release-bundle.cjs'), 'create',
+        '--manifest', str(manifest_path), '--from-main',
+    ], cwd=ROOT, text=True).strip().splitlines()[-1]
+    bundle = json.loads(bundle_output)
     payload = {
-        'gitSha': sha, 'mcGitSha': mc_sha, 'tapGitSha': tap_sha,
+        'bundleId': bundle['bundleId'],
         'requestId': request_id, 'intentId': intent_id,
         'runScope': scope, 'triggerSource': 'explicit-local-submit',
     }
@@ -423,7 +428,7 @@ def submission_parameters(sha, scope, request_id, intent_id, auto_chain=False):
     if errors:
         raise RuntimeError('JENKINS_INVOCATION_CONTRACT_INVALID:' + ','.join(errors))
     result = {
-        'GIT_SHA': sha, 'MC_GIT_SHA': mc_sha, 'TAP_GIT_SHA': tap_sha,
+        'BUNDLE_JSON': json.dumps(bundle, ensure_ascii=False, separators=(',', ':')),
         'REQUEST_ID': request_id, 'INTENT_ID': intent_id, 'RUN_SCOPE': scope,
         'TRIGGER_SOURCE': 'explicit-local-submit',
         'AUTO_CHAIN': 'true' if auto_chain else 'false',
@@ -443,35 +448,27 @@ def submit(scope='contracts', auto_chain=False):
                 print(json.dumps(previous));return
             if previous['status']=='submitting':
                 raise RuntimeError('Uncertain submission is not replayed; reconcile checkpoint/server')
-    sha=git('rev-parse','HEAD')
-    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('gitSha')==sha and previous.get('runScope','contracts')==scope and previous.get('autoChain',False)==auto_chain:
+    request_id, intent_id = str(uuid.uuid4()), str(uuid.uuid4())
+    data=submission_parameters(scope, request_id, intent_id, auto_chain)
+    bundle=json.loads(data['BUNDLE_JSON'])
+    sha=bundle['repositories']['pcs']['revision']
+    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('bundleId')==bundle['bundleId'] and previous.get('runScope','contracts')==scope and previous.get('autoChain',False)==auto_chain:
         print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
-    # Successful push updates this tracking ref. An exact checkout is safe even if another commit follows.
-    remote_sha = git('rev-parse','refs/remotes/origin/master')
-    if remote_sha != sha:
-        git('push','origin','HEAD:master')
-        remote_sha = git('rev-parse','refs/remotes/origin/master')
-    if remote_sha!=sha:
-        raise RuntimeError('Remote SHA differs; build not triggered')
-    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'requestId':str(uuid.uuid4()),'intentId':str(uuid.uuid4()),
+    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'bundleId':bundle['bundleId'],'requestId':request_id,'intentId':intent_id,
         'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'autoChain':auto_chain,'createdAt':time.time()}
-    # Validate all dependencies and load the protected runtime before recording
-    # a pending mutation. Never log or persist this parameter dictionary.
-    data=submission_parameters(sha,scope,state['requestId'],state['intentId'],auto_chain)
     write(STATE,state)
     write(OUT/'intents'/(state['intentId']+'.json'),{
         'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
         'requestId':state['requestId'],'runScope':scope,'trigger':state['trigger'],
         'createdAt':state['createdAt'],'status':'submitted'
     })
-    data=submission_parameters(sha, scope, state['requestId'], state['intentId'], auto_chain)
     validate_trigger_request({
         'gitSha': sha,
         'requestId': state['requestId'],
         'intentId': state['intentId'],
         'runScope': scope,
         'triggerSource': data['TRIGGER_SOURCE'],
-    }, remote_sha)
+    }, sha)
     result=post(JOB_URL+'buildWithParameters',data=data)
     state.update(queueUrl=result.headers['Location'],status='queued')
     write(STATE,state);remember_explicit_submission(state);print(json.dumps(state))
@@ -561,10 +558,17 @@ def discover_builds(first_build):
         for item in page:
             if item['number'] < first_build: continue
             params=parameters(item)
-            sha=params.get('GIT_SHA'); request_id=params.get('REQUEST_ID'); intent_id=params.get('INTENT_ID'); scope=params.get('RUN_SCOPE')
+            bundle_json=params.get('BUNDLE_JSON'); request_id=params.get('REQUEST_ID'); intent_id=params.get('INTENT_ID'); scope=params.get('RUN_SCOPE')
+            bundle_id=None
+            if isinstance(bundle_json,str):
+                try:
+                    candidate=json.loads(bundle_json)
+                    if isinstance(candidate,dict) and re.fullmatch('[0-9a-f]{64}',str(candidate.get('bundleId',''))): bundle_id=candidate['bundleId']
+                except json.JSONDecodeError:
+                    bundle_id=None
             # Never persist parameter dumps; the same API response contains the password parameter.
             builds.append({'buildNumber':item['number'],'building':item['building'],'result':item.get('result'),
-                'gitSha':sha if isinstance(sha,str) and re.fullmatch('[0-9a-f]{40}',sha) else None,
+                'bundleId':bundle_id,
                 'requestId':request_id if isinstance(request_id,str) and re.fullmatch('[a-zA-Z0-9-]{1,80}',request_id) else None,
                 'intentId':intent_id if isinstance(intent_id,str) and re.fullmatch('[0-9a-f-]{36}',intent_id) else None,
                 'runScope':scope if scope in ['pilot','full-regression','contracts','reports'] else None,

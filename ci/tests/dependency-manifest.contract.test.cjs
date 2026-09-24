@@ -10,5 +10,10 @@ test('dependency manifest identifies independent MC and TAP revisions', () => {
   assert.equal(manifest.policy.exactRevisionRequired, true);
   assert.equal(manifest.repositories.mc.role, 'business-source');
   assert.equal(manifest.repositories.tap.role, 'public-runtime');
+  for (const repository of Object.values(manifest.repositories)) {
+    assert.equal(repository.branch, 'main');
+    assert.equal(repository.sourceRef, 'refs/heads/main');
+    assert.equal(repository.sourceKind, 'remote-main');
+  }
   assert.notEqual(manifest.repositories.mc.checkout, manifest.repositories.tap.checkout);
 });

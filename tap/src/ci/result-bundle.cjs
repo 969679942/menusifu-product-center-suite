@@ -1,4 +1,12 @@
 const fs=require('node:fs'), path=require('node:path'), crypto=require('node:crypto');
+function redactDiagnosticText(value) {
+  return String(value ?? '')
+    .replace(/(password|token|secret|authorization|cookie)=([^\s&]+)/gi, '$1=<redacted>')
+    .replace(/(bearer\s+)[A-Za-z0-9._-]+/gi, '$1<redacted>')
+    .replace(/(set-cookie:\s*)[^\r\n]+/gi, '$1<redacted>')
+    .replace(/[\r\n]+/g, ' ')
+    .slice(0, 4000);
+}
 function files(root, directory=root) {
   return fs.readdirSync(directory,{withFileTypes:true}).flatMap(entry=>{
     const target=path.join(directory,entry.name);
@@ -55,4 +63,11 @@ function verifyReportSelection(results,selectedCaseIds,receipts) {
   if(issues.length)throw new Error([...new Set(issues)].join(','));
   return {status:'complete',selectedCount:selected.size};
 }
-module.exports={verifyAllureAttachments,writeBundleManifest,verifyReportSelection};
+function writeTechnicalAllureDiagnostic(root, metadata = {}) {
+  fs.mkdirSync(root, { recursive: true });
+  const result = { uuid: `technical-${metadata.buildNumber || 'unknown'}-${metadata.requestId || 'unknown'}`, name: `技术阻断诊断｜${metadata.runScope || 'unknown'}｜${metadata.phase || 'unknown'}`, fullName: `商品中心.技术诊断.${metadata.runScope || 'unknown'}`, status: 'broken', stage: 'finished', statusDetails: { message: redactDiagnosticText(metadata.reason || '技术阶段阻断') }, labels: [{ name: 'parentSuite', value: metadata.applicationName || '商品中心' }, { name: 'suite', value: '技术诊断' }, { name: 'subSuite', value: '执行基础设施' }, { name: 'severity', value: 'blocker' }, { name: 'executionDisposition', value: 'technical-blocked' }], steps: [{ name: `[技术阶段] ${metadata.phase || 'unknown'}`, status: 'broken', stage: 'finished' }, { name: '[业务执行资格] 未授权', status: 'skipped', stage: 'finished' }], attachments: [] };
+  fs.writeFileSync(path.join(root, 'technical-terminal-result.json'), JSON.stringify(result));
+  fs.writeFileSync(path.join(root, 'environment.properties'), 'Execution disposition=TECHNICAL_BLOCKED\nBusiness pass authority=FALSE\n');
+  return { resultCount: 1 };
+}
+module.exports={verifyAllureAttachments,writeBundleManifest,verifyReportSelection,writeTechnicalAllureDiagnostic,redactDiagnosticText};

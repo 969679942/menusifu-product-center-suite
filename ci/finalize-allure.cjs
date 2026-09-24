@@ -1,5 +1,5 @@
-const fs=require('node:fs'),path=require('node:path');
-const {verifyAllureAttachments,writeBundleManifest,verifyReportSelection,writeTechnicalAllureDiagnostic}=require('../tap/src/ci/result-bundle.cjs');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {verifyAllureAttachments,writeBundleManifest,verifyReportSelection,writeTechnicalAllureDiagnostic,redactDiagnosticText}=require('../tap/src/ci/result-bundle.cjs');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'output/ci');
 const scope=process.env.RUN_SCOPE;
 const envelopePath=path.join(out,scope==='pilot'?'pilot-envelope.json':'result-envelope.json');
@@ -12,16 +12,17 @@ const caseIdOf=result=>result.labels?.find(label=>label.name==='caseId')?.value 
 const moduleOf=caseId=>({FLV:'调味管理',GRP:'商品分组',ITEM:'商品管理',TAG:'标签管理',IMG:'图片管理'})[String(caseId||'').split('-')[1]]||'待归类业务用例';
 const labelsFor=(labels,caseId)=>[...labels.filter(label=>!['caseId','tag','parentSuite','suite','subSuite'].includes(label.name)),{name:'caseId',value:caseId},{name:'tag',value:'case-'+caseId},{name:'parentSuite',value:'商品中心'},{name:'suite',value:moduleOf(caseId)},{name:'subSuite',value:'业务用例'}];
 const copy=(from,to)=>{if(!fs.existsSync(to))fs.copyFileSync(from,to);};
-function resultSources(){const sources=[];if(fs.existsSync(businessRoot))for(const entry of fs.readdirSync(businessRoot))sources.push(path.join(businessRoot,entry,'allure-results'));sources.push(rawDir);return sources.filter(fs.existsSync);}
-function normalizeSources(){
+function resultSources({includeRaw=true}={}){const sources=[];if(fs.existsSync(businessRoot))for(const entry of fs.readdirSync(businessRoot))sources.push(path.join(businessRoot,entry,'allure-results'));if(includeRaw)sources.push(rawDir);return sources.filter(fs.existsSync);}
+function normalizeSources(options={}){
  const adapterPath=path.join(projectRoot,'adapters/test-automation-platform/allure-reporting.ts');
  if(!fs.existsSync(adapterPath)) return;
  const tsxRegister=path.join(projectRoot,'node_modules/tsx/dist/cjs/index.cjs');
  if(!fs.existsSync(tsxRegister)) throw new Error(`tsx-register-missing:${tsxRegister}`);
  require(tsxRegister);
  const adapter=require(adapterPath);
- for(const source of resultSources()) adapter.normalizeMerchantCenterAllureResults(source,{playwrightOutputDir:path.join(path.dirname(source),'playwright-business')});
+ for(const source of resultSources(options)) adapter.normalizeMerchantCenterAllureResults(source,{playwrightOutputDir:path.join(path.dirname(source),'playwright-business')});
 }
+function safeResultFileName(caseId){const safe=String(caseId||'case').replace(/[^A-Za-z0-9._-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,64)||'case';const digest=crypto.createHash('sha256').update(String(caseId||'case')).digest('hex').slice(0,16);return `${safe}-${digest}-result.json`;}
 function placeholderResult(caseId, status, reason){
  const safeReason=String(reason||'当前运行未生成标准业务结果').replace(/[\r\n]+/g,' ');
  return {uuid:`governed-${caseId}`,name:`${caseId}｜商品中心业务用例`,status,
@@ -39,27 +40,38 @@ function projectBusinessResults(){
  const scopeIds=new Set(envelope.formalScopeCaseIds||envelope.plannedCaseIds||envelope.selectedCaseIds||[]);
  const selected=new Set(envelope.selectedCaseIds||[]),excluded=new Set(envelope.classifiedExclusions||envelope.classifiedExclusionCaseIds||[]),chosen=new Map();
  const caseAuditById=new Map((envelope.caseAudit||[]).map(item=>[item.caseId,item]));
- for(const source of resultSources())for(const name of fs.readdirSync(source)){const from=path.join(source,name);if(!fs.statSync(from).isFile())continue;if(!name.endsWith('-result.json')){copy(from,path.join(businessDir,name));continue;}const result=JSON.parse(fs.readFileSync(from,'utf8')),caseId=caseIdOf(result);if(!caseId||(scopeIds.size&&!scopeIds.has(caseId)))continue;const score=JSON.stringify(result).length+(result.steps?.length||0)*1000+(result.attachments?.length||0)*1000;const priority=source===rawDir?0:1;const prior=chosen.get(caseId);if(prior&&(prior.priority>priority||(prior.priority===priority&&prior.score>=score)))continue;chosen.set(caseId,{name,source,result,score,priority});}
- for(const caseId of scopeIds){if(chosen.has(caseId))continue;const status=excluded.has(caseId)?'skipped':'failed';chosen.set(caseId,{name:`${caseId}-governed-result.json`,source:'placeholder',result:placeholderResult(caseId,status,excluded.has(caseId)?(envelope.exclusionReasons||{})[caseId]||'已分类排除，未进入执行选择集':'选中用例未生成终态业务收据'),score:0,priority:2});}
- for(const [caseId,item] of chosen){const result=item.result;result.labels=labelsFor(result.labels||[],caseId);const caseAudit=caseAuditById.get(caseId);if(selected.has(caseId)&&result.status==='passed'&&caseAudit&&!(caseAudit.accepted===true&&caseAudit.status==='passed')){result.status='broken';result.statusDetails={...(result.statusDetails||{}),message:`${caseId} 标准收据未接受；Allure 不得显示为通过。`};result.steps=[...(result.steps||[]),{name:'[失败诊断] 标准执行收据未接受',status:'broken',stage:'finished',steps:[{name:'报告状态已降级为证据不完整；该节点不具备业务通过资格。',status:'broken',stage:'finished'}]}];}const target=path.join(businessDir,item.name);fs.writeFileSync(target,JSON.stringify(result));}
+ for(const source of resultSources({includeRaw:false}))for(const name of fs.readdirSync(source)){const from=path.join(source,name);if(!fs.statSync(from).isFile())continue;if(!name.endsWith('-result.json')){copy(from,path.join(businessDir,name));continue;}const result=JSON.parse(fs.readFileSync(from,'utf8')),caseId=caseIdOf(result);if(!caseId||(scopeIds.size&&!scopeIds.has(caseId)))continue;const score=JSON.stringify(result).length+(result.steps?.length||0)*1000+(result.attachments?.length||0)*1000;const priority=1;const prior=chosen.get(caseId);if(prior&&(prior.priority>priority||(prior.priority===priority&&prior.score>=score)))continue;chosen.set(caseId,{name,source,result,score,priority});}
+ for(const caseId of scopeIds){if(chosen.has(caseId))continue;const status=excluded.has(caseId)?'skipped':'failed';chosen.set(caseId,{name:safeResultFileName(caseId),source:'placeholder',result:placeholderResult(caseId,status,excluded.has(caseId)?(envelope.exclusionReasons||{})[caseId]||'已分类排除，未进入执行选择集':'选中用例未生成终态业务收据'),score:0,priority:2});}
+ for(const [caseId,item] of chosen){const result=item.result;result.labels=labelsFor(result.labels||[],caseId);const caseAudit=caseAuditById.get(caseId);if(selected.has(caseId)&&result.status==='passed'&&caseAudit&&!(caseAudit.accepted===true&&caseAudit.status==='passed')){result.status='broken';result.statusDetails={...(result.statusDetails||{}),message:`${caseId} 标准收据未接受；Allure 不得显示为通过。`};result.steps=[...(result.steps||[]),{name:'[失败诊断] 标准执行收据未接受',status:'broken',stage:'finished',steps:[{name:'报告状态已降级为证据不完整；该节点不具备业务通过资格。',status:'broken',stage:'finished'}]}];}const target=path.join(businessDir,safeResultFileName(caseId));fs.writeFileSync(target,JSON.stringify(result));}
  return [...chosen.keys()];
 }
 function technicalPhase(){if(!fs.existsSync(path.join(out,'jenkins-invocation.json')))return'identity-recording';if(!fs.existsSync(path.join(out,'dependency-checkout.json')))return'dependency-checkout';if(!fs.existsSync(envelopePath))return'business-selection-preflight';return'allure-evidence-finalization';}
-function writeExecutionReport(audit,published,technicalPublished){const state=audit.status==='complete'?'COMPLETE':'INCOMPLETE',reason=audit.reason||audit.selection?.reason||'none';fs.writeFileSync(path.join(out,'execution-report.html'),`<!doctype html><meta charset="utf-8"><title>商品中心执行报告</title><style>body{font:16px Microsoft YaHei;margin:36px;color:#172b4d}strong{color:${state==='COMPLETE'?'#087f5b':'#b42318'}}code{background:#f1f5f9;padding:2px 5px}</style><h1>商品中心执行报告：<strong>${state}</strong></h1><p>范围：<code>${scope||'unknown'}</code>；构建：<code>${process.env.BUILD_NUMBER||'unknown'}</code></p><p>Allure 业务结果：${published} 条；技术诊断结果：${technicalPublished} 条。技术诊断节点不包含 caseId，不能授予业务通过资格。</p><p>审计原因：<code>${reason}</code></p><p>业务通过资格取决于选择集、终态收据和 Allure 审计同时完整，不能以本页或 Jenkins SUCCESS 代替。</p>`);}
+function sanitizeFailure(value){if(!value||typeof value!=='object')return value;const result={...value};for(const key of ['reason','technicalDetails','detail','message'])if(result[key]!==undefined)result[key]=redactDiagnosticText(result[key]);return result;}
+function primaryFailure(){
+ const candidate=envelope.primaryFailure||envelope.failure||envelope.runReport?.primaryFailure;
+ if(candidate)return sanitizeFailure(candidate);
+ for(const file of [path.join(out,'primary-failure.json'),path.join(out,'phase-failure.json')]){
+  if(fs.existsSync(file)){try{return sanitizeFailure(JSON.parse(fs.readFileSync(file,'utf8')));}catch{} }
+ }
+ return null;
+}
+function escapeHtml(value){return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function writeExecutionReport(audit,published,technicalPublished){const state=audit.status==='complete'?'COMPLETE':'INCOMPLETE',reason=redactDiagnosticText(audit.reason||audit.selection?.reason||'none'),rootCause=redactDiagnosticText(audit.primaryFailure?.reason||'未提供原始根因');fs.writeFileSync(path.join(out,'execution-report.html'),`<!doctype html><meta charset="utf-8"><title>商品中心执行报告</title><style>body{font:16px Microsoft YaHei;margin:36px;color:#172b4d}strong{color:${state==='COMPLETE'?'#087f5b':'#b42318'}}code{background:#f1f5f9;padding:2px 5px}</style><h1>商品中心执行报告：<strong>${escapeHtml(state)}</strong></h1><p>范围：<code>${escapeHtml(scope||'unknown')}</code>；构建：<code>${escapeHtml(process.env.BUILD_NUMBER||'unknown')}</code></p><p>Allure 业务结果：${published} 条；技术诊断结果：${technicalPublished} 条。技术诊断节点不包含 caseId，不能授予业务通过资格。</p><p>原始根因：<code>${escapeHtml(rootCause)}</code></p><p>报告阶段原因：<code>${escapeHtml(reason)}</code></p><p>业务通过资格取决于选择集、终态收据和 Allure 审计同时完整，不能以本页或 Jenkins SUCCESS 代替。</p>`);}
 for(const marker of ['allure-business-publishable.marker','allure-technical-publishable.marker'])fs.rmSync(path.join(out,marker),{force:true});
 let audit={status:'incomplete',reason:'finalizer-not-started'},published=0,technicalPublished=0;
 try {
- if(isBusiness) normalizeSources();
- const resultsDir=isBusiness?businessDir:rawDir;if(isBusiness)published=projectBusinessResults().length;else fs.mkdirSync(resultsDir,{recursive:true});
- if(!published&&isBusiness)audit={status:'incomplete',reason:'no-business-allure-results'};else if(!fs.readdirSync(resultsDir).some(name=>name.endsWith('-result.json')))audit={status:'incomplete',reason:'no-allure-results'};else audit=verifyAllureAttachments(resultsDir);
+  const businessStarted=isBusiness&&(envelope.businessStarted===true||fs.existsSync(path.join(out,'business-execution-started.marker')));
+  if(isBusiness&&businessStarted) normalizeSources({includeRaw:false});
+  const resultsDir=isBusiness?businessDir:rawDir;if(isBusiness&&businessStarted)published=projectBusinessResults().length;else if(isBusiness)published=0;else fs.mkdirSync(resultsDir,{recursive:true});
+  if(isBusiness&&!businessStarted)audit={status:'incomplete',reason:'business-not-started',primaryFailure:primaryFailure(),secondaryFindings:[]};else if(!published&&isBusiness)audit={status:'incomplete',reason:'no-business-allure-results',primaryFailure:primaryFailure(),secondaryFindings:[]};else if(!fs.readdirSync(resultsDir).some(name=>name.endsWith('-result.json')))audit={status:'incomplete',reason:'no-allure-results',primaryFailure:primaryFailure(),secondaryFindings:[]};else audit=verifyAllureAttachments(resultsDir);
  if(isBusiness&&audit.status==='complete'){const results=fs.readdirSync(resultsDir).filter(name=>name.endsWith('-result.json')).map(name=>JSON.parse(fs.readFileSync(path.join(resultsDir,name),'utf8')));const selectedSet=new Set(envelope.selectedCaseIds||[]);const projected=results.filter(result=>selectedSet.has(caseIdOf(result))).map(result=>({caseId:caseIdOf(result),status:result.status}));const receipts=scope==='full-regression'&&envelope.kind==='governed-business-full-product-center'?(envelope.caseAudit||[]).map(caseAudit=>({caseId:caseAudit.caseId,accepted:caseAudit.accepted===true&&caseAudit.status==='passed'})):fs.existsSync(businessRoot)?fs.readdirSync(businessRoot).map(entry=>path.join(businessRoot,entry,'evidence-ledger.json')).filter(fs.existsSync).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')).cases||[]).map(item=>({caseId:item.caseId,accepted:item.playwrightStatus==='passed'&&item.evidence?.status==='complete'&&envelope.receiptAudit?.cases?.find(a=>a.caseId===item.caseId)?.status==='complete'})):[];audit.selection=verifyReportSelection(projected,envelope.selectedCaseIds,receipts);}
-}catch(error){audit={status:'incomplete',reason:error.message};}
+ }catch(error){audit={status:'incomplete',reason:primaryFailure()?.reason||'allure-finalization-failed',primaryFailure:primaryFailure()||{category:'report-finalization',phase:'allure-finalization',reason:'原始执行未提供根因'},secondaryFindings:[{category:'report-finalization',reason:redactDiagnosticText(error?.message||error)}]};}
 if (audit.selection && audit.selection.status !== 'complete') audit.status = 'incomplete';
 fs.writeFileSync(path.join(out,'allure-audit.json'),JSON.stringify(audit,null,2));
 if(isBusiness&&published===0){technicalPublished=writeTechnicalAllureDiagnostic(technicalDir,{applicationName:'商品中心',buildNumber:process.env.BUILD_NUMBER,requestId:process.env.REQUEST_ID,runScope:scope,phase:technicalPhase(),reason:audit.reason||'technical-execution-blocked'}).resultCount;fs.writeFileSync(path.join(out,'allure-technical-publishable.marker'),'');}
 writeExecutionReport(audit,published,technicalPublished);
 if(isBusiness&&published>0){
- const reason=String(audit.reason||audit.selection?.reason||'none').replace(/[\r\n=]/g,' ');
+ const reason=redactDiagnosticText(audit.reason||audit.selection?.reason||'none').replace(/[=]/g,' ');
  fs.writeFileSync(path.join(businessDir,'environment.properties'),`Evidence status=${audit.status==='complete'?'COMPLETE':'INCOMPLETE'}\nAudit reason=${reason}\nRequest ID=${process.env.REQUEST_ID||'unknown'}\n`);
 }
 if(isBusiness&&published>0)fs.writeFileSync(path.join(out,'allure-business-publishable.marker'),'');

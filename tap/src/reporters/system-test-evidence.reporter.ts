@@ -40,6 +40,7 @@ export default class SystemTestEvidenceReporter implements Reporter {
   }
 
   onTestBegin(test: TestCase): void {
+    markBusinessExecutionStarted();
     const caseId = readCaseId(test);
     if (caseId) appendSystemTestProgress(this.progressPaths, { runId: this.runId, caseId, phase: 'started' });
   }
@@ -98,6 +99,22 @@ export default class SystemTestEvidenceReporter implements Reporter {
       auditCompleteness: { schemaVersion: '1.1.0', summary: auditSummary, cases: this.auditCompleteness },
       cases: this.cases,
     });
+  }
+}
+
+function markBusinessExecutionStarted(): void {
+  const markerPath = process.env.SYSTEM_TEST_BUSINESS_STARTED_MARKER;
+  if (!markerPath || fs.existsSync(markerPath)) return;
+  fs.mkdirSync(path.dirname(markerPath), { recursive: true });
+  try {
+    fs.writeFileSync(markerPath, JSON.stringify({
+      schemaVersion: 1,
+      phase: 'business',
+      businessRunId: process.env.SYSTEM_TEST_RUN_ID ?? 'unknown',
+      startedAt: new Date().toISOString(),
+    }), { encoding: 'utf8', flag: 'wx' });
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error;
   }
 }
 

@@ -26,7 +26,7 @@
 
 Jenkins 触发治理以 `ci/trigger-policy.json` 和 `ci/dependency-manifest.json` 为声明位置：TAP 与 Merchant Center 是源仓库，`menusifu-product-center-suite` 是传输与执行 Job。每次下发必须携带 PCS、MC、TAP 三个精确 40 位 SHA，以及 `REQUEST_ID`、`INTENT_ID`、`RUN_SCOPE`、`TRIGGER_SOURCE`；full-regression 不得混入整改优化计划。服务器可达不等于 SCM 触发器已配置，必须用 `ci/jenkins.ps1 health` 分别核对；`manual-only` 或 `unreachable` 只能标记外部接入缺口，不得伪装成业务失败。
 
-发布前先执行 `powershell -NoProfile -ExecutionPolicy Bypass -File ci/release-preflight.ps1`。该预检要求 PCS=`master`、TAP=`main`、MC=`main`，要求工作区无未提交修改、HEAD 非 detached、远程固定分支存在且历史不分叉；任一项失败都必须停止，不得强推或触发 Jenkins。预检通过后才允许人工审查提交内容并执行普通 `git push origin <固定分支>`。
+发布前先执行 `powershell -NoProfile -ExecutionPolicy Bypass -File ci/release-preflight.ps1`。该预检要求 PCS=`main`、TAP=`main`、MC=`main`，要求工作区无未提交修改、HEAD 非 detached、远程固定分支存在且历史不分叉；任一项失败都必须停止，不得强推或触发 Jenkins。预检通过后才允许人工审查提交内容并执行普通 `git push origin <固定分支>`。
 
 ## 本机 AI 调度
 

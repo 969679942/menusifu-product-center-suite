@@ -27,7 +27,7 @@ test('trigger policy keeps cross-repository source identity explicit',()=>{
   assert.equal(policy.executionIsolation.workspaceTemplate,'${WORKSPACE}@${BUILD_NUMBER}-isolated');
   assert.equal(policy.executionIsolation.auditEventLogMode,'worker-sharded-then-merged');
   assert.deepEqual(policy.requiredIdentity,[
-    'GIT_SHA','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE',
+    'BUNDLE_JSON','REQUEST_ID','INTENT_ID','RUN_SCOPE','TRIGGER_SOURCE',
   ]);
 });
 
@@ -37,8 +37,8 @@ test('transport exposes read-only health and configurable endpoint without print
   assert.match(transport,/connection-status\.json/);
   assert.match(transport,/concurrentBuildProtectionConfigured/);
   assert.match(transport,/pipelineGovernanceConfigured/);
-  assert.match(transport,/fixedBranches = \[pcs: 'master', mc: 'main', tap: 'main'\]/);
-  assert.match(transport,/--branch master --single-branch/);
+  assert.match(transport,/BUILD_STRING_PARAMETERS = \[/);
+  assert.match(transport,/release-bundle\.cjs/);
   assert.match(transport,/configure-governed-pipeline-definition/);
   assert.match(transport,/DisableConcurrentBuildsJobProperty/);
   assert.match(transport,/choices=\['configure','submit','poll','watch','health'\]/);
@@ -61,21 +61,21 @@ test('full regression is not the implicit push trigger',()=>{
 
 test('local transport resolves the same three-repository identity required by Jenkins',()=>{
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'ci/dependency-manifest.json'),'utf8'));
-  const payload={gitSha:'a'.repeat(40),mcGitSha:manifest.repositories.mc.revision,tapGitSha:manifest.repositories.tap.revision,
+  const payload={bundleId:'a'.repeat(64),
     requestId:'request-1',intentId:'123e4567-e89b-12d3-a456-426614174000',runScope:'full-regression',triggerSource:'explicit-local-submit'};
   assert.deepEqual(triggerContract.validateJenkinsInvocation(payload),[]);
-  assert.match(transport,/submission_parameters\(sha, scope, request_id, intent_id, auto_chain=False\)/);
-  assert.match(transport,/MC_GIT_SHA/);
-  assert.match(transport,/TAP_GIT_SHA/);
+  assert.match(transport,/submission_parameters\(scope, request_id, intent_id, auto_chain=False\)/);
+  assert.match(transport,/BUNDLE_JSON/);
+  assert.match(transport,/release-bundle\.cjs/);
   assert.match(transport,/parameterContractConfigured/);
   assert.match(transport,/configure-job-parameter-contract/);
 });
 
 test('all Jenkins source repositories use their fixed integration branches',()=>{
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'ci/dependency-manifest.json'),'utf8'));
-  assert.equal(branchPolicy.requiredIntegrationBranch,'master');
+  assert.equal(branchPolicy.requiredIntegrationBranch,'main');
   assert.deepEqual(branchPolicy.dependencies,{'Merchant-Center':'main','Test-Automation-Platform':'main'});
-  assert.equal(manifest.repositories.pcs.branch,'master');
+  assert.equal(manifest.repositories.pcs.branch,'main');
   assert.equal(manifest.repositories.mc.branch,'main');
   assert.equal(manifest.repositories.tap.branch,'main');
   assert.match(transport,/fixed-branch-policy-violation/);
@@ -84,8 +84,10 @@ test('all Jenkins source repositories use their fixed integration branches',()=>
 test('full regression checks current MC adapter fingerprints before browser execution',()=>{
   assert.match(pipeline,/params\.RUN_SCOPE in \['pilot','full-regression'\]/);
   assert.match(pipeline,/refresh-seasoning-implementation-contract\.ts" --check/);
-  assert.match(pipeline,/TAP_SOURCE_ROOT=%WORKSPACE%\\\\suite-src\\\\tap/);
+  assert.match(pipeline,/TAP_SOURCE_ROOT=%CD%\\\\suite-src\\\\tap/);
   assert.match(pipeline,/run-pilot\.ts --plan-only/);
+  assert.match(pipeline,/Technical Pilot authorization/);
+  assert.match(pipeline,/verify-pilot-authorization\.cjs/);
   assert.ok(pipeline.indexOf('refresh-seasoning-implementation-contract.ts') < pipeline.indexOf("stage('Full Merchant Center product-center regression')"));
 });
 

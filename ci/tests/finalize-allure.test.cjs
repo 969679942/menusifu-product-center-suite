@@ -2,13 +2,19 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=requir
 const suiteRoot=path.resolve(__dirname,'../..');
 const tapRoot=path.resolve(process.env.TAP_SOURCE_ROOT||path.join(suiteRoot,'tap'));
 const sourceFile=rel=>rel.startsWith('tap/')?path.join(tapRoot,rel.slice(4)):path.join(suiteRoot,rel);
+test('诊断根因在技术 Allure 和 HTML 报告中脱敏',()=>{
+ const resultBundle=require(sourceFile('tap/src/ci/result-bundle.cjs'));
+ const text=resultBundle.redactDiagnosticText('password=secret token=abc bearer XYZ cookie=session');
+ assert.doesNotMatch(text,/secret|abc|XYZ|session/);
+ assert.match(text,/password=<redacted>/);
+});
 test('MC Allure adapter uses public selection gate and still archives a failing audit',()=>{
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'suite-allure-'));
  try {
   for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
    const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(sourceFile(rel),file);
   }
-  const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
+  const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});fs.writeFileSync(path.join(out,'business-execution-started.marker'),'');
   const raw=path.join(out,'allure-results');fs.mkdirSync(raw,{recursive:true});
   const write=(file,value)=>fs.writeFileSync(file,JSON.stringify(value));
   write(path.join(out,'pilot-envelope.json'),{runId:'sample',gitSha:'a'.repeat(40),selectedCaseIds:['C1'],receiptAudit:{cases:[{caseId:'C1',status:'complete'}]}});
@@ -35,7 +41,7 @@ test('full regression publishes every formal case and projects unaccepted receip
   for(const rel of ['ci/finalize-allure.cjs','tap/src/ci/result-bundle.cjs']) {
    const file=path.join(root,rel);fs.mkdirSync(path.dirname(file),{recursive:true});fs.copyFileSync(sourceFile(rel),file);
   }
-  const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});
+  const out=path.join(root,'output/ci'),business=path.join(out,'business/sample'),allure=path.join(business,'allure-results');fs.mkdirSync(allure,{recursive:true});fs.writeFileSync(path.join(out,'business-execution-started.marker'),'');
   const write=(file,value)=>fs.writeFileSync(file,JSON.stringify(value));
   write(path.join(out,'result-envelope.json'),{kind:'governed-business-full-product-center',formalScopeCaseIds:['C1','C2','C3'],plannedCaseIds:['C1','C2','C3'],selectedCaseIds:['C1','C3'],classifiedExclusions:['C2'],exclusionReasons:{C2:'deferred:外部依赖未就绪'},caseAudit:[{caseId:'C1',status:'passed',accepted:true},{caseId:'C3',status:'passed',accepted:false}]});
   write(path.join(allure,'one-result.json'),{labels:[{name:'caseId',value:'C1'}],status:'passed',steps:[{name:'[业务操作] C1',status:'passed'}]});

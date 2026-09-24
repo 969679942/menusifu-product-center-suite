@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "transportRepository": "menusifu-product-center-suite",
   "sourceRepositories": [
     "969679942/Test-Automation-Platform",
@@ -7,10 +7,10 @@
   ],
   "jobName": "menusifu-product-center-suite",
   "fixedBranches": {
-    "pcs": "master",
+    "pcs": "main",
     "mc": "main",
     "tap": "main",
-    "enforcement": "exact-branch-tip"
+    "enforcement": "bundle-declared-branch-with-exact-revision"
   },
   "defaultTriggerMode": "manual-parameterized",
   "automaticTriggerStatus": "external-configuration-required",
@@ -21,7 +21,7 @@
     "workflow-dispatch"
   ],
   "requiredIdentity": [
-    "GIT_SHA",
+    "BUNDLE_JSON",
     "REQUEST_ID",
     "INTENT_ID",
     "RUN_SCOPE",
