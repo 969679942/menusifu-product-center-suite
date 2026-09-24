@@ -113,7 +113,8 @@ process.stdout.write(Object.entries(fields).map(([key, value]) => `${key}=${valu
         if (!bundleRepositories[key]?.checkout) bundleRepositories[key].checkout = key == 'pcs' ? 'suite-src' : (key == 'mc' ? 'suite-src/projects/merchant-center' : 'suite-src/tap')
         def checkout = bundleRepositories[key].checkout.toString()
         if (checkout.startsWith('/') || checkout.contains('..') || checkout.contains(':') || checkout.contains('\\')) error("Bundle ${key} checkout path invalid")
-      }`n      requestId = params.REQUEST_ID?.trim() ?: "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"
+      }
+      requestId = params.REQUEST_ID?.trim() ?: "jenkins-${env.BUILD_NUMBER}-${UUID.randomUUID()}"
       intentId = params.INTENT_ID?.trim() ?: UUID.randomUUID().toString()
       if (!(requestId ==~ /[a-zA-Z0-9-]{1,80}/)) error('Valid REQUEST_ID required')
       // Keep the explicit parameter contract visible to static governance;
