@@ -6,8 +6,10 @@ const path = require('node:path');
 const { validateEntrypoints } = require('../validate-cross-repository-contract.cjs');
 
 const root = path.resolve(__dirname, '..', '..');
-const mcRoot = path.resolve(process.env.MC_SOURCE_ROOT || path.join(root, 'projects', 'merchant-center'));
-const tapRoot = path.resolve(process.env.TAP_SOURCE_ROOT || path.join(root, 'tap'));
+const bundledMcRoot = path.join(root, 'projects', 'merchant-center');
+const bundledTapRoot = path.join(root, 'tap');
+const mcRoot = path.resolve(process.env.MC_SOURCE_ROOT || (fs.existsSync(path.join(bundledMcRoot, 'Merchant Center UITest', 'scripts', 'validate-product-center-runtime-config.ts')) ? bundledMcRoot : path.join(root, '..', '_release-main-mc')));
+const tapRoot = path.resolve(process.env.TAP_SOURCE_ROOT || bundledTapRoot);
 
 test('当前 PCS、MC、TAP 的跨仓入口合同完整', () => {
   assert.deepEqual(validateEntrypoints({ pcsRoot: root, mcRoot, tapRoot }), []);
