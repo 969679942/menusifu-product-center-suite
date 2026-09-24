@@ -10,7 +10,7 @@ stage('Preflight runtime') {
   call npm ci --ignore-scripts --no-audit
   if errorlevel 1 exit /b 1
   cd /d "..\\..\\.."
-  node suite-src/ci/validate-cross-repository-contract.cjs --pcs-root suite-src --mc-root suite-src/projects/merchant-center --tap-root suite-src/tap
+  node ci/validate-cross-repository-contract.cjs --pcs-root . --mc-root projects/merchant-center --tap-root tap
   if errorlevel 1 exit /b 1
   exit /b %ERRORLEVEL%
   '''
