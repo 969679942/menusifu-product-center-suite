@@ -8,11 +8,12 @@ const pipeline = fs.readFileSync(path.join(root, 'Jenkinsfile'), 'utf8');
 
 test('PCS Jenkins 只承载 MC 单项目执行壳', () => {
   assert.match(pipeline, /MC_GIT_SHA/);
-  assert.match(pipeline, /@menusifu\/tap-contract@1\.1\.3/);
+  assert.match(pipeline, /@menusifu\/tap-contract@1\.1\.4/);
   assert.match(pipeline, /"RUN_SCOPE=\$\{params\.RUN_SCOPE\}"/);
   assert.match(pipeline, /mc-single-project/);
   assert.match(pipeline, /Checkout MC main/);
   assert.match(pipeline, /core\.autocrlf false/);
+  assert.match(pipeline, /GIT_CONFIG_VALUE_1=false/);
   assert.match(pipeline, /GIT_CONFIG_KEY_1=core\.autocrlf/);
   assert.match(pipeline, /Install and preflight contract/);
   assert.match(pipeline, /Run MC UI automation/);

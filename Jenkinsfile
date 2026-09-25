@@ -101,7 +101,7 @@ node {
   \"triggerSource\":${jsonString(triggerSource)},
   \"requestId\":${jsonString(requestId)},
   \"intentId\":${jsonString(intentId)},
-  \"tapContractPackage\":\"@menusifu/tap-contract@1.1.3\"
+  \"tapContractPackage\":\"@menusifu/tap-contract@1.1.4\"
 }"""
 
         stage('Install and preflight contract') {
