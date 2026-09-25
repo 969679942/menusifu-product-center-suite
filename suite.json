@@ -1,7 +1,7 @@
 {
   "suiteId": "product-center-suite",
-  "platform": {"id":"tap","root":"tap","sourceRoot":"D:/Menusifu/Test Automation Platform"},
+  "platform": {"id":"tap-contract","role":"contract-package-and-result-analyzer","sourceRoot":"package:@menusifu/tap-contract@1.1.3"},
   "projects": [{"id":"merchant-center","displayName":"Merchant Center","root":"projects/merchant-center","testRoot":"projects/merchant-center/Merchant Center UITest","sourceRoot":"external:merchant-center","sourceRepository":"git@github.com:969679942/Merchant-Center.git","sourceRevisionPolicy":"exact-sha","applicationId":"merchant-center"}],
-  "execution": {"route":"shared-agent-isolated-workspace","jobName":"menusifu-product-center-suite","allowConcurrentBuilds":false},
+  "execution": {"model":"mc-single-project","route":"mc-jenkins","jobName":"menusifu-product-center-suite","allowConcurrentBuilds":false},
   "legacy": {"_archive/projects/project-b":"Historical duplicate; archived and not executed or maintained as a separate application"}
 }

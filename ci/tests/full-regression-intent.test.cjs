@@ -1,42 +1,20 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const fs=require('node:fs');
-const path=require('node:path');
-const {spawnSync}=require('node:child_process');
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 
-const root=path.resolve(__dirname,'../..');
-const project=path.join(root,'projects/merchant-center/Merchant Center UITest');
-const tsx=path.join(project,'node_modules/tsx/dist/cli.mjs');
-const triggerPolicy=JSON.parse(fs.readFileSync(path.join(root,'ci/trigger-policy.json'),'utf8'));
-const unique=items=>[...new Set(items)].sort();
+const root = path.resolve(__dirname, '../..');
 
-test('full regression freezes its selection before execution without a fixed exclusion count',()=>{
-  const isolatedOut=fs.mkdtempSync(path.join(root,'output','intent-contract-'));
-  try {
-    const result=spawnSync(process.execPath,[tsx,'ci/run-product-center-full.ts','--plan-only'],{
-      cwd:root,encoding:'utf8',windowsHide:true,
-      env:{...process.env,PC_CI_OUTPUT_DIR:isolatedOut,BUILD_NUMBER:'intent-contract',REQUEST_ID:'intent-contract',INTENT_ID:'123e4567-e89b-12d3-a456-426614174000',RUN_SCOPE:'full-regression'},
-    });
-    assert.equal(result.status,0,result.stderr);
-    const intent=JSON.parse(fs.readFileSync(path.join(isolatedOut,'execution-intent.json'),'utf8'));
-    const source=JSON.parse(fs.readFileSync(path.join(root,'projects/merchant-center/deliverables/product-center-source-governance/execution-plan.json'),'utf8'));
-    const seasoning=JSON.parse(fs.readFileSync(path.join(project,'systems/merchant-center-product-center-seasoning/manifest.json'),'utf8'));
-    assert.equal(intent.intentId,'123e4567-e89b-12d3-a456-426614174000');
-    assert.equal(intent.runScope,'full-regression');
-    assert.equal(intent.mode,'full-regression');
-    assert.deepEqual(intent.selectedCaseIds,intent.executionEligibleCaseIds);
-    assert.deepEqual(unique([...intent.selectedCaseIds,...intent.classifiedExclusions]),unique(intent.formalScopeCaseIds));
-    assert.equal(intent.selectedCaseIds.filter(id=>intent.classifiedExclusions.includes(id)).length,0);
-    assert.deepEqual(intent.selectedCaseIds,unique([...source.revalidation.selectedCaseIds,...seasoning.cases.map(item=>item.caseId)]));
-    assert.ok(intent.selectedCaseIds.length>=triggerPolicy.fullRegression.minimumSelectedCaseCount,
-      `full regression selection ${intent.selectedCaseIds.length} is below governed floor ${triggerPolicy.fullRegression.minimumSelectedCaseCount}`);
-    assert.ok(intent.routes['source-governed'].some(id=>id.startsWith('TC-ITEM-')));
-    assert.deepEqual(Object.keys(intent.exclusionReasons).sort(),intent.classifiedExclusions);
-    const implementation=fs.readFileSync(path.join(root,'ci/run-product-center-full.ts'),'utf8');
-    assert.doesNotMatch(implementation,/classifiedExclusions\.length\s*===\s*\d+/);
-    assert.match(implementation,/PC_CI_OUTPUT_DIR/);
-    assert.match(implementation,/buildProductCenterFullRegressionExecutionIntent/);
-    assert.match(implementation,/\.\.\/tap\/src\/governance\/execution-intent/);
-    assert.doesNotMatch(implementation,/projects\/project-a|Test Automation Platform/);
-  } finally { fs.rmSync(isolatedOut,{recursive:true,force:true}); }
+test('full regression uses the MC compiled contract and does not require an embedded MC checkout', () => {
+  const policy = JSON.parse(fs.readFileSync(path.join(root, 'ci/trigger-policy.json'), 'utf8'));
+  const pipeline = fs.readFileSync(path.join(root, 'Jenkinsfile'), 'utf8');
+  const suite = JSON.parse(fs.readFileSync(path.join(root, 'suite.json'), 'utf8'));
+  assert.equal(policy.fullRegression.requiresExplicitScope, true);
+  assert.equal(policy.fullRegression.selectionAuthority, 'mc-compiled-contract-exact-set');
+  assert.equal(policy.fullRegression.minimumSelectedCaseCount, undefined);
+  assert.match(pipeline, /RUN_SCOPE=\$\{params\.RUN_SCOPE\}/);
+  assert.match(pipeline, /npm run contract:product-center:preflight/);
+  assert.match(pipeline, /npm run ci:product-center/);
+  assert.doesNotMatch(pipeline, /run-product-center-full\.ts|tap\/src\/governance\/execution-intent/);
+  assert.equal(suite.execution.model, 'mc-single-project');
 });

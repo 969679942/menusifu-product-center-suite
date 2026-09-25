@@ -1,16 +1,12 @@
 {
   "schemaVersion": 2,
   "transportRepository": "menusifu-product-center-suite",
-  "sourceRepositories": [
-    "969679942/Test-Automation-Platform",
-    "969679942/Merchant-Center"
-  ],
+  "sourceRepositories": ["969679942/Merchant-Center"],
   "jobName": "menusifu-product-center-suite",
   "fixedBranches": {
-    "pcs": "main",
     "mc": "main",
-    "tap": "main",
-    "enforcement": "bundle-declared-branch-with-exact-revision"
+    "tapContractPackage": "@menusifu/tap-contract@1.1.3",
+    "enforcement": "single-project-with-fixed-contract-package"
   },
   "defaultTriggerMode": "manual-parameterized",
   "automaticTriggerStatus": "external-configuration-required",
@@ -21,7 +17,7 @@
     "workflow-dispatch"
   ],
   "requiredIdentity": [
-    "BUNDLE_JSON",
+    "MC_GIT_SHA",
     "REQUEST_ID",
     "INTENT_ID",
     "RUN_SCOPE",
@@ -29,8 +25,8 @@
   ],
   "fullRegression": {
     "requiresExplicitScope": true,
-    "minimumSelectedCaseCount": 400,
-    "defaultOnPush": "contracts",
+    "selectionAuthority": "mc-compiled-contract-exact-set",
+    "defaultOnPush": "pilot",
     "businessExecutionOnMissingTriggerEvidence": "blocked",
     "timeoutMinutes": 360
   },
@@ -47,6 +43,7 @@
     "separateTriggerFromBusinessExecution": true,
     "releasePreflightRequired": true,
     "forcePushForbidden": true,
-    "preflightScript": "ci/release-preflight.ps1"
+    "preflightScript": "Merchant Center UITest/scripts/validate-product-center-execution-contract.ts",
+    "contractPackage": "@menusifu/tap-contract@1.1.3"
   }
 }

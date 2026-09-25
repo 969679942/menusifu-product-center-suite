@@ -13,6 +13,7 @@ OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
 DEFAULT_BASE = 'http://192.168.1.50:8081'
 DEFAULT_JOB = 'menusifu-product-center-suite'
+MC_REPOSITORY = 'https://github.com/969679942/Merchant-Center.git'
 
 def configured_base():
     value = (os.environ.get('SUITE_JENKINS_BASE_URL') or
@@ -32,10 +33,10 @@ STATE = OUT / 'checkpoint.json'
 SUBMITTED_BUILDS = OUT / 'submitted-builds.json'
 DISCOVERY_STATE = OUT / 'discovery-checkpoint.json'
 BUILD_STRING_PARAMETERS = [
-    'BUNDLE_JSON', 'REQUEST_ID', 'INTENT_ID',
+    'MC_GIT_SHA', 'REQUEST_ID', 'INTENT_ID',
     'RUN_SCOPE', 'TRIGGER_SOURCE', 'MC_RUNTIME_ENV', 'MC_RUNTIME_ENV_PATH',
 ]
-BUILD_BOOLEAN_PARAMETERS = ['AUTO_CHAIN']
+BUILD_BOOLEAN_PARAMETERS = []
 SESSION = requests.Session()
 SESSION.auth = (os.environ['SUITE_JENKINS_USER'], os.environ['SUITE_JENKINS_TOKEN'])
 SESSION.trust_env = False
@@ -272,14 +273,14 @@ def health():
                     pipeline_script = root.findtext('definition/script') or ''
                     result['parameterContractConfigured'] = configured_parameter_names(root) == required_parameter_names()
                     result['pipelineGovernanceConfigured'] = all(fragment in pipeline_script for fragment in [
-                        '${env.WORKSPACE}@${env.BUILD_NUMBER}-isolated',
+                        'Checkout MC main',
                         "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
-                        'jenkins-invocation.json',
-                        "fixedBranches = [pcs: 'main', mc: 'main', tap: 'main']",
-                        '--branch main --single-branch',
-                        'branch: fixedBranches.tap',
-                        'branch: fixedBranches.mc',
-                    ])
+                        "branches: [[name: 'refs/heads/main']]",
+                        "credentialsId: 'menusifu-github-readonly'",
+                        'git config --local http.proxy ""',
+                        'git config --local http.https://github.com.proxy ""',
+                        'checkoutResult.GIT_COMMIT != mcRevision',
+                    ]) and 'git fetch --no-tags' not in pipeline_script
                     result['triggerStatus'] = 'configured' if result['scmTriggerConfigured'] else 'manual-only'
                     if not result['parameterContractConfigured']:
                         result['actionRequired'] = 'configure-job-parameter-contract'
@@ -377,92 +378,70 @@ def git(*args):
             time.sleep(delay)
 
 def validate_trigger_request(payload, remote_sha=None):
-    """Run the TAP-owned trigger contract before any Jenkins POST.
-
-    Keeping this check in the transport adapter prevents malformed or stale
-    requests from reaching Jenkins, while the contract itself remains shared
-    with other adapters through tap/src/ci/jenkins-trigger-contract.cjs.
-    """
-    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
-    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsTriggerRequest(p, {remoteSha: process.argv[3] || undefined})));"
-    output = subprocess.check_output(
-        ['node', '-e', script, str(module), json.dumps(payload), remote_sha or ''],
-        cwd=ROOT, text=True,
-    )
-    errors = json.loads(output)
+    """Validate the MC-only Jenkins invocation before the POST."""
+    errors = []
+    mc_sha = str(payload.get('mcGitSha') or '')
+    if not re.fullmatch(r'[0-9a-fA-F]{40}', mc_sha):
+        errors.append('mc-git-sha-invalid')
+    if remote_sha and mc_sha.lower() != remote_sha.lower():
+        errors.append('mc-git-sha-not-remote-main')
+    if payload.get('runScope') not in ['pilot', 'full-regression']:
+        errors.append('run-scope-invalid')
+    if not re.fullmatch(r'[A-Za-z0-9-]{1,80}', str(payload.get('requestId') or '')):
+        errors.append('request-id-invalid')
+    if not re.fullmatch(r'[0-9a-fA-F-]{36}', str(payload.get('intentId') or '')):
+        errors.append('intent-id-invalid')
+    if payload.get('triggerSource') != 'explicit-local-submit':
+        errors.append('trigger-source-invalid')
     if errors:
         raise RuntimeError('JENKINS_TRIGGER_CONTRACT_INVALID:' + ','.join(errors))
 
-def submission_parameters(scope, request_id, intent_id, auto_chain=False):
-    if auto_chain and scope == 'full-regression':
-        raise ValueError('full-regression-cannot-auto-chain')
-    manifest_path = ROOT / 'ci' / 'dependency-manifest.json'
-    if not manifest_path.exists():
-        raise RuntimeError('dependency-manifest-missing')
-    manifest = read(manifest_path)
-    repositories = manifest.get('repositories', {})
-    expected_branches = {'pcs': 'main', 'mc': 'main', 'tap': 'main'}
-    for key, expected in expected_branches.items():
-        actual = repositories.get(key, {}).get('branch')
-        if actual != expected:
-            raise RuntimeError(f'fixed-branch-policy-violation:{key}:{actual!r}')
-    mc_sha = repositories.get('mc', {}).get('revision')
-    tap_sha = repositories.get('tap', {}).get('revision')
-    if not isinstance(mc_sha, str) or not isinstance(tap_sha, str):
-        raise RuntimeError('dependency-manifest-incomplete')
-    if auto_chain or scope in ['pilot', 'full-regression']:
-        runtime_path = pathlib.Path(os.environ.get(
-            'MC_RUNTIME_ENV_PATH', r'D:\Menusifu\Merchant Center\.secrets\runtime.env'))
-        if not runtime_path.is_file():
-            raise FileNotFoundError(runtime_path)
-        runtime_text = runtime_path.read_text(encoding='utf-8-sig')
-        if not runtime_text.strip():
-            raise RuntimeError('runtime-auth-credentials-missing')
-    bundle_output = subprocess.check_output([
-        'node', str(ROOT / 'ci' / 'release-bundle.cjs'), 'create',
-        '--manifest', str(manifest_path), '--from-main',
-    ], cwd=ROOT, text=True).strip().splitlines()[-1]
-    bundle = json.loads(bundle_output)
-    payload = {
-        'bundleId': bundle['bundleId'],
-        'requestId': request_id, 'intentId': intent_id,
-        'runScope': scope, 'triggerSource': 'explicit-local-submit',
-    }
-    module = ROOT / 'tap' / 'src' / 'ci' / 'jenkins-trigger-contract.cjs'
-    script = "const c=require(process.argv[1]); const p=JSON.parse(process.argv[2]); process.stdout.write(JSON.stringify(c.validateJenkinsInvocation(p)));"
-    errors = json.loads(subprocess.check_output(
-        ['node', '-e', script, str(module), json.dumps(payload)], cwd=ROOT, text=True,
-    ))
-    if errors:
-        raise RuntimeError('JENKINS_INVOCATION_CONTRACT_INVALID:' + ','.join(errors))
+def submission_parameters(scope, request_id, intent_id):
+    if scope not in ['pilot', 'full-regression']:
+        raise ValueError('mc-only-scope-required')
+    remote_line = git('ls-remote', MC_REPOSITORY, 'refs/heads/main')
+    remote_sha = remote_line.split()[0] if remote_line.split() else ''
+    runtime_path = os.environ.get(
+        'MC_RUNTIME_ENV_PATH', r'D:\Menusifu\Merchant Center\.secrets\runtime.env')
+    runtime_file = pathlib.Path(runtime_path)
+    if not runtime_file.is_file():
+        raise FileNotFoundError(runtime_file)
+    runtime_text = runtime_file.read_text(encoding='utf-8-sig')
+    if not runtime_text.strip():
+        raise RuntimeError('runtime-auth-credentials-missing')
     result = {
-        'BUNDLE_JSON': json.dumps(bundle, ensure_ascii=False, separators=(',', ':')),
+        'MC_GIT_SHA': remote_sha,
         'REQUEST_ID': request_id, 'INTENT_ID': intent_id, 'RUN_SCOPE': scope,
         'TRIGGER_SOURCE': 'explicit-local-submit',
-        'AUTO_CHAIN': 'true' if auto_chain else 'false',
+        'MC_RUNTIME_ENV': runtime_text,
+        'MC_RUNTIME_ENV_PATH': runtime_path,
     }
-    if auto_chain or scope in ['pilot', 'full-regression']:
-        result['MC_RUNTIME_ENV'] = runtime_text
-        result['MC_RUNTIME_ENV_PATH'] = str(runtime_path)
+    validate_trigger_request({
+        'mcGitSha': remote_sha,
+        'requestId': request_id,
+        'intentId': intent_id,
+        'runScope': scope,
+        'triggerSource': result['TRIGGER_SOURCE'],
+    }, remote_sha)
     return result
 
-def submit(scope='contracts', auto_chain=False):
+def submit(scope='pilot'):
     quarantine_legacy_checkpoint()
     if STATE.exists():
         previous=read(STATE)
-        if previous['status'] not in ['analyzed']:
-            if reconcile(previous) or previous.get('queueUrl'):
+        if previous['status'] in ['submitting', 'queued', 'running']:
+            found = reconcile(previous)
+            if found and previous['status'] in ['queued', 'running']:
                 print(json.dumps(previous));return
-            if previous['status']=='submitting':
+            if not found or previous['status']=='submitting':
                 raise RuntimeError('Uncertain submission is not replayed; reconcile checkpoint/server')
     request_id, intent_id = str(uuid.uuid4()), str(uuid.uuid4())
-    data=submission_parameters(scope, request_id, intent_id, auto_chain)
-    bundle=json.loads(data['BUNDLE_JSON'])
-    sha=bundle['repositories']['pcs']['revision']
-    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('bundleId')==bundle['bundleId'] and previous.get('runScope','contracts')==scope and previous.get('autoChain',False)==auto_chain:
+    data=submission_parameters(scope, request_id, intent_id)
+    sha=data['MC_GIT_SHA']
+    if STATE.exists() and previous.get('status')=='analyzed' and previous.get('mcGitSha')==sha and previous.get('runScope')==scope:
         print(json.dumps({'status':'already-analyzed','checkpoint':str(STATE)}));return
-    state={'schemaVersion':1,'jobName':JOB,'gitSha':sha,'bundleId':bundle['bundleId'],'requestId':request_id,'intentId':intent_id,
-        'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'autoChain':auto_chain,'createdAt':time.time()}
+    state={'schemaVersion':2,'jobName':JOB,'gitSha':sha,'mcGitSha':sha,'requestId':request_id,'intentId':intent_id,
+        'trigger':'explicit-local-submit','status':'submitting','runScope':scope,'createdAt':time.time()}
     write(STATE,state)
     write(OUT/'intents'/(state['intentId']+'.json'),{
         'schemaVersion':1,'intentId':state['intentId'],'jobName':JOB,'gitSha':sha,
@@ -470,7 +449,7 @@ def submit(scope='contracts', auto_chain=False):
         'createdAt':state['createdAt'],'status':'submitted'
     })
     validate_trigger_request({
-        'bundleId': bundle['bundleId'],
+        'mcGitSha': sha,
         'requestId': state['requestId'],
         'intentId': state['intentId'],
         'runScope': scope,
@@ -658,8 +637,7 @@ def watch():
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('action',choices=['configure','submit','poll','watch','health'])
-    parser.add_argument('--scope',choices=['contracts','pilot','full-regression','reports'],default='contracts')
-    parser.add_argument('--auto-chain',action='store_true',help='Supply pilot runtime now and continue contracts/reports/pilot on Jenkins')
+    parser.add_argument('--scope',choices=['pilot','full-regression'],default='pilot')
     args=parser.parse_args()
     # Serialize local callers before reading or changing the request checkpoint.
     with open(OUT/'transport.lock','a+b') as lock:
@@ -671,5 +649,5 @@ if __name__=='__main__':
         else:
             import fcntl
             fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        if args.action=='submit': submit(args.scope,args.auto_chain)
+        if args.action=='submit': submit(args.scope)
         else: globals()[args.action]()

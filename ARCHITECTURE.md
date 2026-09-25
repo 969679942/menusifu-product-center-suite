@@ -1,20 +1,20 @@
-# TAP-MC Jenkins 执行架构
+# MC Jenkins 执行架构
 
 ## 职责边界
 
 - 本地 AI：读取 TAP 与 MC，分析 Jenkins 收据，修改用例/脚本/规则并提交 Git。
 - GitHub：保存唯一版本和变更历史。
-- Jenkins：只 checkout 指定 commit、安装依赖、运行 MC、归档标准收据；不修改代码、不裁决业务规则。
-- TAP：作为 MC 的公共运行时与治理依赖，提供合同、收据、证据和门禁。
+- Jenkins：只 checkout MC，安装固定的 `@menusifu/tap-contract@1.1.3`，运行 MC、归档标准收据；不 checkout TAP 源码、不修改代码、不裁决业务规则。
+- TAP Contract Package：只提供轻量运行前合同校验和运行后结果分析，不控制浏览器、不编排 UI、不作为业务执行门禁。
 - MC：提供商品中心业务适配器、用例、数据、断言和清理。
 
 ## 运行闭环
 
 1. 本地 AI 生成 execution intent 和选择集指纹。
-2. AI 提交并推送 Git，随后本机通过 Jenkins API 携带精确 Git SHA 和唯一请求 ID 触发构建。当前使用这个已验证的入口；没有配置 GitHub 到内网 Jenkins 的 webhook。
-3. Jenkins 在共享 Agent 的独立 workspace 执行 MC，并引用同一提交中的 TAP。
-4. Jenkins 归档逐用例收据、断言、证据、日志和清理结果。
-5. 本地 AI 按 build number、Git SHA 和选择集指纹拉取并分析。
+2. AI 通过 Jenkins API 携带 MC `main` SHA、合同包固定版本和唯一请求 ID 触发构建。
+3. Jenkins 在独立 workspace 中安装合同包，先运行静态合同校验，再由 MC 独立执行 UI。
+4. Jenkins 归档 MC 原始结果和合同包后置分析结果，两个状态分别保存。
+5. 本地 AI 按 build number、MC SHA 和选择集指纹拉取并分析。
 6. 只有技术问题允许自动修复；业务规则冲突进入裁决队列。
 7. 修复提交触发下一轮 Jenkins 验证。
 

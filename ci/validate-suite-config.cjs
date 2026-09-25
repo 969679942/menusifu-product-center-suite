@@ -33,13 +33,12 @@ for (const project of projects) {
   }
 }
 
-const tapRoot = suite.platform && suite.platform.root;
-if (tapRoot !== 'tap') fail('platform.root must identify the single tap source');
-if (!fs.existsSync(path.join(root, tapRoot, 'package.json'))) fail('tap/package.json is missing');
+if (suite.platform?.role !== 'contract-package-and-result-analyzer') fail('platform.role must identify the bounded TAP contract package');
+if (suite.execution?.model !== 'mc-single-project') fail('execution.model must identify the MC-only execution model');
 if (fs.existsSync(path.join(root, 'projects', 'project-b'))) fail('legacy project-b must be archived outside projects');
 for (const project of projects) {
   const projectRoot = path.join(root, project.root);
   if (!fs.existsSync(projectRoot)) fail(`${project.id} root is missing: ${project.root}`);
 }
 
-if (!process.exitCode) console.log(JSON.stringify({ valid: true, suiteId: suite.suiteId, projects: ids, tapRoot }));
+if (!process.exitCode) console.log(JSON.stringify({ valid: true, suiteId: suite.suiteId, projects: ids, executionModel: suite.execution.model }));
