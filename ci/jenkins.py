@@ -274,7 +274,7 @@ def health():
                     result['parameterContractConfigured'] = configured_parameter_names(root) == required_parameter_names()
                     result['pipelineGovernanceConfigured'] = all(fragment in pipeline_script for fragment in [
                         'Checkout MC main',
-                        "params.RUN_SCOPE == 'full-regression' ? 360 : 180",
+                        "params.RUN_SCOPE == 'full-regression' ? 480 : 180",
                         "branches: [[name: 'refs/heads/main']]",
                         "credentialsId: 'menusifu-github-readonly'",
                         'git config --local http.proxy ""',
