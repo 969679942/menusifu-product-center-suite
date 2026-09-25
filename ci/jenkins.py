@@ -13,7 +13,7 @@ OUT = ROOT / 'output' / 'jenkins'
 OUT.mkdir(parents=True, exist_ok=True)
 DEFAULT_BASE = 'http://192.168.1.50:8081'
 DEFAULT_JOB = 'menusifu-product-center-suite'
-MC_REPOSITORY = 'https://github.com/969679942/Merchant-Center.git'
+MC_REPOSITORY = 'git@github.com:969679942/Merchant-Center.git'
 
 def configured_base():
     value = (os.environ.get('SUITE_JENKINS_BASE_URL') or
