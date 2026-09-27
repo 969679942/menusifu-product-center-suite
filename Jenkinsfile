@@ -101,7 +101,7 @@ node {
   \"triggerSource\":${jsonString(triggerSource)},
   \"requestId\":${jsonString(requestId)},
   \"intentId\":${jsonString(intentId)},
-  \"tapContractPackage\":\"@menusifu/tap-contract@1.1.4\"
+  \"tapContractPackage\":\"@menusifu/tap-contract@1.1.5\"
 }"""
 
         stage('Install and preflight contract') {
@@ -142,10 +142,8 @@ node {
 
         stage('TAP post-run analysis') {
           dir("${sourceRoot}\\Merchant Center UITest") {
-            catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
-              withEnv(["RUN_SCOPE=${params.RUN_SCOPE}", "PC_SOURCE_GOVERNED_RUN_ID=jenkins-${env.BUILD_TAG}"]) {
-                bat 'npm run analyze:product-center:result'
-              }
+            withEnv(["RUN_SCOPE=${params.RUN_SCOPE}", "PC_SOURCE_GOVERNED_RUN_ID=jenkins-${env.BUILD_TAG}"]) {
+              bat 'npm run analyze:product-center:result'
             }
           }
         }

@@ -8,7 +8,7 @@ const pipeline = fs.readFileSync(path.join(root, 'Jenkinsfile'), 'utf8');
 
 test('PCS Jenkins 只承载 MC 单项目执行壳', () => {
   assert.match(pipeline, /MC_GIT_SHA/);
-  assert.match(pipeline, /@menusifu\/tap-contract@1\.1\.4/);
+  assert.match(pipeline, /@menusifu\/tap-contract@1\.1\.5/);
   assert.match(pipeline, /"RUN_SCOPE=\$\{params\.RUN_SCOPE\}"/);
   assert.match(pipeline, /mc-single-project/);
   assert.match(pipeline, /Checkout MC main/);
@@ -32,7 +32,7 @@ test('旧三仓库 Bundle 只能被明确拒绝，不能进入业务执行', () 
 });
 
 test('TAP 分析失败不会覆盖 MC 业务执行状态', () => {
-  assert.match(pipeline, /catchError\(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'\)/);
+  assert.doesNotMatch(pipeline, /catchError\(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'\)/);
   assert.match(pipeline, /businessExitCode = bat\(returnStatus: true, script: 'npm run ci:product-center'\)/);
   assert.ok(pipeline.indexOf("stage('TAP post-run analysis')") < pipeline.indexOf('if (businessExitCode != 0)'));
   assert.match(pipeline, /if \(!fileExists\("\$\{sourceRoot\}\\\\Merchant Center UITest\\\\output\\\\ci\\\\product-center-ci-summary.json"\)\)/);
